@@ -171,10 +171,10 @@ def log_execution(
     job: dict,
     runtime_ms: int,
     queue_wait_ms: int,
-    was_aliased: Optional[bool] = None,
-    reused_step_id: Optional[int] = None,
-    reuse_metric_id: Optional[int] = None,
-    learning_note: Optional[str] = None,
+    was_aliased: bool | None = None,
+    reused_step_id: int | None = None,
+    reuse_metric_id: int | None = None,
+    learning_note: str | None = None,
 ) -> None:
     """v1: disabled; reserved for future run-manifest logging."""
     return
