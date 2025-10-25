@@ -167,63 +167,8 @@ def update_job_status_group(
 # 4) JOB EXECUTION LOGS
 # ======================
 def log_execution(*, job: dict, runtime_ms: int, queue_wait_ms: int, was_aliased: bool | None = None, reused_step_id: int | None = None, reuse_metric_id: int | None = None, learning_note: str | None = None) -> None:
-
     """v1: disabled; reserved for future run-manifest logging."""
-
     return
-
-def g(*names, default=None):
-        for n in names:
-            v = job.get(n)
-            if v is not None:
-                return v
-        return default
-
-    payload = {
-        "jobid":          int(g("job_id", "jobID")),
-        "simid":          int(g("sim_id", "simID")),
-        "metricid":       int(g("metric_id", "metricID")),
-        "groupid":        int(g("group_id", "groupID", default=0)),
-        "stepid":         int(g("step_id", "stepID")),
-        "phase":          g("job_phase", "phase", default=0),
-        "frame":          g("job_frame", "frame", default=0),
-        "precision":      g("sim_precision", "precision"),
-        "status":         g("job_status", "status"),
-        # mimic Swift: errormessage stored from subtype (if any)
-        "errormessage":   g("job_subtype", "jobSubType", default=""),
-        "id_f32":         g("metric_id_f32", "metricIDF32"),
-        "id_f64":         g("metric_id_f64", "metricIDF64"),
-        "jobtype":        g("job_type", "jobType"),
-        "jobsubtype":     g("job_subtype", "jobSubType"),
-        "priority":       g("job_priority", "jobPriority", default=0),
-        "output_path":    g("output_path", "outputPath", default=""),
-        "runtime_ms":     int(runtime_ms),
-        "queue_wait_ms":  int(queue_wait_ms),
-        "was_aliased":    bool(was_aliased) if was_aliased is not None else False,
-        "reused_step_id": reused_step_id if reused_step_id is not None else -1,
-        "reuse_metric_id":reuse_metric_id if reuse_metric_id is not None else -1,
-        "learning_note":  learning_note or "",
-    }
-
-    sql = """
-        INSERT INTO "JobExecutionLog" (
-            jobid, simid, metricid, groupid, stepid, phase, frame,
-            precision, status, errormessage,
-            id_f32, id_f64, jobtype, jobsubtype, priority, output_path,
-            runtime_ms, queue_wait_ms, recorded_at,
-            was_aliased, reused_step_id, reuse_metric_id, learning_note
-        ) VALUES (
-            %(jobid)s, %(simid)s, %(metricid)s, %(groupid)s, %(stepid)s,
-            %(phase)s, %(frame)s,
-            %(precision)s, %(status)s, %(errormessage)s,
-            %(id_f32)s, %(id_f64)s, %(jobtype)s, %(jobsubtype)s, %(priority)s, %(output_path)s,
-            %(runtime_ms)s, %(queue_wait_ms)s, NOW(),
-            %(was_aliased)s, %(reused_step_id)s, %(reuse_metric_id)s, %(learning_note)s
-        )
-    """
-    with _connect() as conn, conn.cursor() as cur:
-        cur.execute(sql, payload)
-        conn.commit()
 def log_error(*, job: Dict, message: str) -> None:
     """
     Append to ErrorLog using snake_case keys from the ledger view.
@@ -235,36 +180,6 @@ def log_error(*, job: Dict, message: str) -> None:
                 return v
         return default
 
-    payload = {
-        "jobid":        int(g("job_id", "jobID")),
-        "simid":        int(g("sim_id", "simID")),
-        "metricid":     int(g("metric_id", "metricID", default=0)),
-        "stepid":       int(g("step_id", "stepID", default=0)),
-        "groupid":      int(g("group_id", "groupID", default=0)),
-        "fieldid":      g("field_id", "fieldID", default=None),
-        "jobtype":      g("job_type", "jobType", default=""),
-        "jobsubtype":   g("job_subtype", "jobSubType", default=""),
-        "phase":        g("job_phase", "phase", default=0),
-        "frame":        g("job_frame", "frame", default=0),
-        "priority":     g("job_priority", "jobPriority", default=0),
-        "output_path":  g("output_path", "outputPath", default=""),
-        "message":      message,
-    }
-
-    sql = """
-        INSERT INTO "ErrorLog" (
-            jobid, simid, metricid, stepid, groupid, fieldid,
-            jobtype, jobsubtype, phase, frame, priority,
-            output_path, message, timestamp
-        ) VALUES (
-            %(jobid)s, %(simid)s, %(metricid)s, %(stepid)s, %(groupid)s, %(fieldid)s,
-            %(jobtype)s, %(jobsubtype)s, %(phase)s, %(frame)s, %(priority)s,
-            %(output_path)s, %(message)s, NOW()
-        )
-    """
-    with _connect() as conn, conn.cursor() as cur:
-        cur.execute(sql, payload)
-        conn.commit()
 def update_seeded_job(
     *,
     job_id: int,
