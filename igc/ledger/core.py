@@ -282,8 +282,8 @@ def update_seeded_job(
     sql = """
         UPDATE "SimMetricJobs"
         SET
-            groupid     = %(group_id)s,
-            stepid      = %(step_id)s,
+            "groupID"   = %(group_id)s,
+            "stepID"    = %(step_id)s,
             jobtype     = %(job_type)s,
             phase       = %(job_phase)s,
             frame       = %(job_frame)s,
