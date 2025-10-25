@@ -147,7 +147,7 @@ def update_job_status_group(
             {set_start_sql}
             {set_finish_sql}
             priority = %(pri)s
-        WHERE simid = %(sim_id)s
+        WHERE "simID" = %(sim_id)s
           AND group_name = %(group_name)s
           AND job_frame = %(frame)s
     """
@@ -316,10 +316,10 @@ def fetch_frame_stats(*, sim_id: int) -> Dict[str, int]:
         SELECT COALESCE(MAX(frame), -1) AS max_completed
         FROM (
             SELECT frame,
-                   SUM(CASE WHEN stepid = 3 THEN 1 ELSE 0 END) AS total_final,
-                   SUM(CASE WHEN stepid = 3 AND status = 'written' THEN 1 ELSE 0 END) AS written_final
+                   SUM(CASE WHEN "stepID" = 3 THEN 1 ELSE 0 END) AS total_final,
+                   SUM(CASE WHEN "stepID" = 3 AND status = 'written' THEN 1 ELSE 0 END) AS written_final
             FROM "SimMetricJobs"
-            WHERE simid = %(sim_id)s
+            WHERE "simID" = %(sim_id)s
             GROUP BY frame
         ) s
         WHERE s.total_final > 0 AND s.written_final = s.total_final
@@ -327,7 +327,7 @@ def fetch_frame_stats(*, sim_id: int) -> Dict[str, int]:
     seeded_sql = """
         SELECT COALESCE(MAX(frame), -1) AS max_seeded
         FROM "SimMetricJobs"
-        WHERE simid = %(sim_id)s
+        WHERE "simID" = %(sim_id)s
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(completed_sql, {"sim_id": sim_id})
@@ -364,7 +364,7 @@ def insert_jobs_for_frames_like_frame(
             """
             SELECT COUNT(*)::int AS cnt
             FROM "SimMetricJobs"
-            WHERE simid = %(sim_id)s AND frame = %(template_frame)s
+            WHERE "simID" = %(sim_id)s AND frame = %(template_frame)s
             """,
             {"sim_id": sim_id, "template_frame": template_frame},
         )
@@ -380,7 +380,7 @@ def insert_jobs_for_frames_like_frame(
                 WITH template AS (
                     SELECT DISTINCT metricid, groupid, stepid, phase, jobpriority
                     FROM "SimMetricJobs"
-                    WHERE simid = %(sim_id)s AND frame = %(template_frame)s
+                    WHERE "simID" = %(sim_id)s AND frame = %(template_frame)s
                 ),
                 missing AS (
                     SELECT %(sim_id)s AS simid,
