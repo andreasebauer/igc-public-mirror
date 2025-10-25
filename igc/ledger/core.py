@@ -176,10 +176,9 @@ def log_execution(
     reuse_metric_id: Optional[int] = None,
     learning_note: Optional[str] = None,
 ) -> None:
-    """
-    Append to JobExecutionLog using snake_case keys from the ledger view.
-    """
-    def g(*names, default=None):
+    # v1: disabled. Keep interface; do nothing.
+    return
+def g(*names, default=None):
         for n in names:
             v = job.get(n)
             if v is not None:
