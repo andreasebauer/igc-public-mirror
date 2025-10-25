@@ -400,7 +400,7 @@ def insert_jobs_for_frames_like_frame(
                            )) AS spec_hash,
                            NOW()::text AS createdate
                     FROM template t
-                    JOIN generate_series(%(start_frame)s, %(end_frame)s) AS f(frame) ON TRUE
+                    JOIN generate_series(%(start_frame)s::int, %(end_frame)s::int) AS f(frame) ON TRUE
                     LEFT JOIN "SimMetricJobs" s
                       ON s."simID"   = %(sim_id)s
                      AND s."metricID"= t."metricID"
