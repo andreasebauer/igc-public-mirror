@@ -1,0 +1,52 @@
+---
+
+**/pyproject.toml**
+```toml
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "igc"
+version = "0.0.1"
+description = "Infinity Grid — Python Orchestrator & Analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "Infinity Grid Team" }
+]
+
+# Keep this minimal; host already has the scientific stack installed.
+# These help when installing on fresh machines.
+dependencies = [
+  "numpy>=2.0.0",
+  "scipy>=1.13.0",
+  "pyfftw>=0.13.1",
+  "gudhi>=3.11.0",
+  "psycopg[binary]>=3.2.0",
+  "matplotlib>=3.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.6.0",
+  "mypy>=1.11.0",
+  "types-psycopg2",
+  "types-setuptools"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["igc*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
