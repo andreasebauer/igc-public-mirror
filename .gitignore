@@ -1,0 +1,25 @@
+# virtual env
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# build artifacts
+build/
+dist/
+*.egg-info/
+
+# editor/OS
+.DS_Store
+.vscode/
+
+# data/artifacts (adjust later)
+outputs/
+artifacts/
+*.npy
+*.npz
+*.csv
+*.png
+*.mp4
