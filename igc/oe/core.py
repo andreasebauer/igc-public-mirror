@@ -67,8 +67,8 @@ def finalize_seeded_jobs(*, sim_id: int) -> int:
         job_id   = int(j["job_id"])
         group_id = int(j["group_id"])
         step_id  = int(j["step_id"])          # DB step id (1/2/3)
-        phase    = int(j["job_phase"])            # pp stage numeric
-        frame    = int(j["job_frame"])
+        phase    = int(j.get("job_phase") or 0)            # pp stage numeric
+        frame    = int(j.get("job_frame") or 0)
         step     = int(j.get("step", step_id))  # if 'step' absent, reuse step_id
         metric_output_types = j.get("metric_outputtypes", "")
         ext   = _ext_for(step, metric_output_types)
@@ -158,7 +158,7 @@ def _render_path_from_registry(j: Dict, ext: str, templates: Dict[str, str]) -> 
     # Resolve tokens from job view columns with robust fallbacks
     sim_id   = int(j["sim_id"])
     group_id = int(j["group_id"])
-    frame    = int(j["job_frame"])
+    frame    = int(j.get("job_frame") or 0)
     step_id  = int(j["step_id"])
     step     = int(j.get("step", step_id))  # keep Swift parity
     sim_label    = _safe(j.get("sim_label")    or j.get("simlabel"),    str(sim_id))
