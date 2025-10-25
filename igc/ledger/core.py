@@ -72,7 +72,7 @@ def create_jobs_for_sim(
     """
     sql = """
         INSERT INTO "SimMetricJobs"
-            ("simid", "metricid", "groupid", "stepid", "status", "jobtype",
+            ("simID", "metricID", "groupID", "stepID", "status", "jobtype",
              "jobsubtype", "priority", "createdate")
         SELECT
             js.simid,
