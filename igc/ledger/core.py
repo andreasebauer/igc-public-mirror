@@ -377,42 +377,44 @@ def insert_jobs_for_frames_like_frame(
         try:
             cur.execute("SELECT pg_advisory_xact_lock(%(sim_id)s)", {"sim_id": sim_id})
             insert_sql = """
+                
                 WITH template AS (
-                    SELECT DISTINCT metricid, groupid, stepid, phase, jobpriority
+                    SELECT DISTINCT "metricID", "groupID", "stepID", phase, priority
                     FROM "SimMetricJobs"
                     WHERE "simID" = %(sim_id)s AND frame = %(template_frame)s
                 ),
                 missing AS (
-                    SELECT %(sim_id)s AS simid,
-                           t.metricid, t.groupid, t.stepid,
-                           f.frame,
+                    SELECT %(sim_id)s AS "simID",
+                           t."metricID", t."groupID", t."stepID",
+                           f.frame AS frame,
                            'created'::text AS status,
                            t.phase,
-                           t.jobpriority,
+                           t.priority,
                            md5(CONCAT_WS(':',
                                %(sim_id)s::text,
-                               t.metricid::text,
-                               t.groupid::text,
-                               t.stepid::text,
+                               t."metricID"::text,
+                               t."groupID"::text,
+                               t."stepID"::text,
                                f.frame::text,
                                t.phase::text
                            )) AS spec_hash,
-                           NOW() AS created_at
+                           NOW()::text AS createdate
                     FROM template t
                     JOIN generate_series(%(start_frame)s, %(end_frame)s) AS f(frame) ON TRUE
                     LEFT JOIN "SimMetricJobs" s
-                      ON s.simid    = %(sim_id)s
-                     AND s.metricid = t.metricid
-                     AND s.groupid  = t.groupid
-                     AND s.stepid   = t.stepid
-                     AND s.frame    = f.frame
+                      ON s."simID"   = %(sim_id)s
+                     AND s."metricID"= t."metricID"
+                     AND s."groupID" = t."groupID"
+                     AND s."stepID"  = t."stepID"
+                     AND s.frame     = f.frame
                     WHERE s.jobid IS NULL
                 )
                 INSERT INTO "SimMetricJobs"
-                    (simid, metricid, groupid, stepid, frame, status, phase, jobpriority, spec_hash, created_at)
-                SELECT simid, metricid, groupid, stepid, frame, status, phase, jobpriority, spec_hash, created_at
+                    ("simID","metricID","groupID","stepID", frame, status, phase, priority, spec_hash, createdate)
+                SELECT "simID","metricID","groupID","stepID", frame, status, phase, priority, spec_hash, createdate
                 FROM missing
                 RETURNING 1
+
             """
             cur.execute(insert_sql, {
                 "sim_id": sim_id,
