@@ -39,12 +39,12 @@ def fetch_job_ledger_record(
     """
     sql = """
         SELECT * FROM full_job_ledger_extended_view
-        WHERE (%(job_id)s   IS NULL OR job_id   = %(job_id)s)
-          AND (%(sim_id)s   IS NULL OR sim_id   = %(sim_id)s)
-          AND (%(group_id)s IS NULL OR group_id = %(group_id)s)
-          AND (%(metric_id)s IS NULL OR metric_id = %(metric_id)s)
-          AND (%(step_id)s  IS NULL OR step_id  = %(step_id)s)
-          AND (%(frame)s    IS NULL OR job_frame = %(frame)s)
+        WHERE (%(job_id)s::int   IS NULL OR job_id   = %(job_id)s::int)
+          AND (%(sim_id)s::int   IS NULL OR sim_id   = %(sim_id)s::int)
+          AND (%(group_id)s::int IS NULL OR group_id = %(group_id)s::int)
+          AND (%(metric_id)s::int IS NULL OR metric_id = %(metric_id)s::int)
+          AND (%(step_id)s::int  IS NULL OR step_id  = %(step_id)s::int)
+          AND (%(frame)s::int    IS NULL OR job_frame = %(frame)s::int)
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(sql, {
