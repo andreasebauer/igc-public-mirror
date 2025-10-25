@@ -27,25 +27,26 @@ def _connect():
 # ============================================================
 def fetch_job_ledger_record(
     *,
-    job_id: Optional[int] = None,
-    sim_id: Optional[int] = None,
-    group_id: Optional[int] = None,
-    metric_id: Optional[int] = None,
-    step_id: Optional[int] = None,
-    frame: Optional[int] = None,
-) -> List[Dict]:
+    job_id: int | None = None,
+    sim_id: int | None = None,
+    group_id: int | None = None,
+    metric_id: int | None = None,
+    step_id: int | None = None,
+    frame: int | None = None,
+) -> list[dict]:
     """
     SELECT * FROM full_job_ledger_extended_view
-    with optional filters (exactly like Swift).
+    Filter using quoted camelCase column names, then remap keys to snake_case
+    so OE can rely on job_id, sim_id, group_id, metric_id, step_id, frame, etc.
     """
     sql = """
         SELECT * FROM full_job_ledger_extended_view
-        WHERE (%(job_id)s   IS NULL OR job_id   = %(job_id)s)
-          AND (%(sim_id)s   IS NULL OR sim_id   = %(sim_id)s)
-          AND (%(group_id)s IS NULL OR group_id = %(group_id)s)
-          AND (%(metric_id)s IS NULL OR metric_id = %(metric_id)s)
-          AND (%(step_id)s  IS NULL OR step_id  = %(step_id)s)
-          AND (%(frame)s    IS NULL OR frame    = %(frame)s)
+        WHERE (%(job_id)s   IS NULL OR "jobID"    = %(job_id)s)
+          AND (%(sim_id)s   IS NULL OR "simID"    = %(sim_id)s)
+          AND (%(group_id)s IS NULL OR "groupID"  = %(group_id)s)
+          AND (%(metric_id)s IS NULL OR "metricID"= %(metric_id)s)
+          AND (%(step_id)s  IS NULL OR "stepID"   = %(step_id)s)
+          AND (%(frame)s    IS NULL OR "jobFrame" = %(frame)s)
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(sql, {
@@ -53,12 +54,52 @@ def fetch_job_ledger_record(
             "metric_id": metric_id, "step_id": step_id, "frame": frame
         })
         cols = [d[0] for d in cur.description]
-        return [dict(zip(cols, row)) for row in cur.fetchall()]
+        rows = [dict(zip(cols, row)) for row in cur.fetchall()]
 
+    # map camelCase -> snake_case expected by OE
+    keymap = {
+        "jobID": "job_id",
+        "simID": "sim_id",
+        "groupID": "group_id",
+        "metricID": "metric_id",
+        "stepID": "step_id",
+        "jobFrame": "frame",
+        "jobPhase": "phase",
+        "metricOutputTypes": "metric_output_types",
+        "simLabel": "sim_label",
+        "groupName": "group_name",
+        "metricName": "metric_name",
+        "outputPath": "output_path",
+        "precision": "precision",
+        "status": "status",
+        "errormessage": "errormessage",
+        "jobtype": "jobtype",
+        "jobsubtype": "jobsubtype",
+        "priority": "priority",
+        "step": "step",
+        "fieldID": "field_id",
+        "fieldComponents": "field_components",
+        "simGridX": "sim_grid_x",
+        "simGridY": "sim_grid_y",
+        "simGridZ": "sim_grid_z",
+        "specHash": "spec_hash",
+        "reuseSameSim": "reuse_same_sim",
+        "depsReadyFrac": "deps_ready_frac",
+        "depsReadyBool": "deps_ready_bool",
+        "frameCompletionFrac": "frame_completion_frac",
+        "metricIDF32": "metric_id_f32",
+        "metricIDF64": "metric_id_f64",
+        "jobStatus": "job_status",
+        "jobPriority": "job_priority",
+    }
 
-# ======================
-# 2) JOB CREATION (seed)
-# ======================
+    out: list[dict] = []
+    for r in rows:
+        m: dict = {}
+        for k, v in r.items():
+            m[keymap.get(k, k)] = v
+        out.append(m)
+    return out
 def create_jobs_for_sim(
     *,
     sim_id: int,
