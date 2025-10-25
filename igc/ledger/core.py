@@ -168,7 +168,7 @@ def update_job_status_group(
 # ======================
 def log_execution(
     *,
-    job: Dict,
+    job: dict,
     runtime_ms: int,
     queue_wait_ms: int,
     was_aliased: Optional[bool] = None,
@@ -176,7 +176,7 @@ def log_execution(
     reuse_metric_id: Optional[int] = None,
     learning_note: Optional[str] = None,
 ) -> None:
-    # v1: disabled. Keep interface; do nothing.
+    """v1: disabled; reserved for future run-manifest logging."""
     return
 def g(*names, default=None):
         for n in names:
