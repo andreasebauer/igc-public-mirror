@@ -221,3 +221,39 @@ def stop(*, run_id: int) -> None:
 def status(*, run_id: int) -> Dict:
     """Return a summary for the run (stub)."""
     return {"run_id": run_id, "state": "unknown"}
+
+def maintain_frame_window(*, sim_id: int, window: int, max_frame: int, template_frame: int = 0) -> int:
+    """
+    Keep frames [maxCompleted+1 .. min(maxCompleted+window, max_frame)] present in SimMetricJobs.
+    Uses ledger.fetch_frame_stats + ledger.insert_jobs_for_frames_like_frame.
+    Finalizes newly inserted rows with finalize_seeded_jobs(sim_id) when needed.
+    Returns number of inserted rows.
+    """
+    assert window > 0, "window must be > 0"
+    stats = ledger.fetch_frame_stats(sim_id=sim_id)
+    mc = max(0, stats.get("maxCompleted", 0))
+    ms = max(-1, stats.get("maxSeeded", -1))
+    target_max = min(mc + window, max_frame)
+
+    if ms < target_max:
+        start = max(ms + 1, 0)
+        inserted = ledger.insert_jobs_for_frames_like_frame(
+            sim_id=sim_id, start_frame=start, end_frame=target_max, template_frame=template_frame
+        )
+        if inserted > 0:
+            finalize_seeded_jobs(sim_id=sim_id)
+        return inserted
+    return 0
+
+
+def seed_frames_all_at_once(*, sim_id: int, end_frame: int, template_frame: int = 0) -> int:
+    """
+    Convenience: clone template_frame rows into [0..end_frame], then finalize paths.
+    Returns number of inserted rows.
+    """
+    inserted = ledger.insert_jobs_for_frames_like_frame(
+        sim_id=sim_id, start_frame=0, end_frame=end_frame, template_frame=template_frame
+    )
+    if inserted > 0:
+        finalize_seeded_jobs(sim_id=sim_id)
+    return inserted
