@@ -1,24 +1,25 @@
 """
-Ledger — DB access (contracts only).
+Ledger — DB access (psycopg, DB is the contract).
 
-DB is the source of truth:
-- Job rows (SimMetricJobs or equivalent)
-- Unified job view (full_job_ledger_extended_view or equivalent)
-- PathRegistry (DB-driven path resolution)
-- Execution and error logs
+Currently implemented:
+- fetch_job_ledger_record
+- create_jobs_for_sim
+- update_job_status_single
+- update_job_status_group
+- log_execution
+- log_error
+- update_seeded_job
+- fetch_frame_stats
+- insert_jobs_for_frames_like_frame
 """
-
 from .core import (
+    fetch_job_ledger_record,
     create_jobs_for_sim,
-    create_metric_jobs_for_frames,
-    finalize_job_identity_and_path,
-    get_jobs_for_run,
-    update_job_status,
+    update_job_status_single,
+    update_job_status_group,
     log_execution,
     log_error,
-    create_run_id,
-    get_frame_order_for_run,
-    get_stage_order_for_run,
-    mark_run_failed,
-    mark_run_finished,
+    update_seeded_job,
+    fetch_frame_stats,
+    insert_jobs_for_frames_like_frame,
 )
