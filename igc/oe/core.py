@@ -257,3 +257,61 @@ def seed_frames_all_at_once(*, sim_id: int, end_frame: int, template_frame: int 
     if inserted > 0:
         finalize_seeded_jobs(sim_id=sim_id)
     return inserted
+
+def run(*, sim_id: int) -> None:
+    """
+    Sequential job executor (v1, no real compute yet).
+
+    Walks all jobs for sim_id ordered by frame, pp stage, step_id.
+    For each queued job:
+      - mark running
+      - simulate runner + writer (placeholder)
+      - mark written
+      - log execution time
+    Stops immediately if any job fails.
+    """
+
+    from time import perf_counter
+    print(f"[OE] ▶ run(sim_id={sim_id}) starting")
+
+    # Get all jobs for this simulation
+    jobs = ledger.fetch_job_ledger_record(sim_id=sim_id)
+    # sort by frame, then job_phase (pp stage), then step_id
+    jobs.sort(key=lambda j: (int(j.get("job_frame", 0)), int(j.get("job_phase", 0)), int(j.get("step_id", 0))))
+
+    total = len(jobs)
+    processed = 0
+    start_all = perf_counter()
+
+    for j in jobs:
+        job_id = int(j["job_id"])
+        status = j.get("job_status", "queued")
+
+        if status != "queued":
+            continue  # skip already written or failed
+
+        try:
+            ledger.update_job_status_single(job_id=job_id, to_status="running", set_start=True)
+            frame = int(j.get("job_frame", 0))
+            step  = int(j.get("step_id", 0))
+            print(f"[OE] ▶ running job {job_id} (frame={frame}, step={step})")
+
+            t0 = perf_counter()
+            # ---- placeholder compute ----
+            # (replace with runner.run(job) once kernels exist)
+            import time; time.sleep(0.01)
+            # -----------------------------
+            duration_ms = int((perf_counter() - t0) * 1000)
+
+            # write + log
+            ledger.log_execution(job=j, runtime_ms=duration_ms, queue_wait_ms=0)
+            ledger.update_job_status_single(job_id=job_id, to_status="written", set_finish=True)
+            processed += 1
+        except Exception as e:
+            ledger.log_error(job=j, message=str(e))
+            ledger.update_job_status_single(job_id=job_id, to_status="failed", set_finish=True)
+            print(f"[OE] ✖ job {job_id} failed: {e}")
+            break
+
+    total_ms = int((perf_counter() - start_all) * 1000)
+    print(f"[OE] ✅ run complete: {processed}/{total} jobs processed in {total_ms} ms")
