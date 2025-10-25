@@ -6,16 +6,16 @@ __pycache__/
 *.pyc
 *.pyo
 
-# build artifacts
+# builds / wheels
 build/
 dist/
 *.egg-info/
 
-# editor/OS
+# OS/editor
 .DS_Store
 .vscode/
 
-# data/artifacts (adjust later)
+# large data/artifacts (adjust to your layout)
 outputs/
 artifacts/
 *.npy
