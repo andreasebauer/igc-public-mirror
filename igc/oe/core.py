@@ -285,10 +285,10 @@ def run(*, sim_id: int) -> None:
 
     for j in jobs:
         job_id = int(j["job_id"])
-        status = j.get("job_status", "queued")
+        status = (j.get("job_status") or "").lower()
 
-        if status != "queued":
-            continue  # skip already written or failed
+        if status not in ("queued", "created"):
+            continue  # skip already processed or non-runnable
 
         try:
             ledger.update_job_status_single(job_id=job_id, to_status="running", set_start=True)
