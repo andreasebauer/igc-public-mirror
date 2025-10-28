@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simulations — Start</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root { --border:#e5e7eb; --ink:#111; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .header{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+    .header h1{margin:0}
+
+    /* Buttons */
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);background:#fff;cursor:pointer}
+    .btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;pointer-events:none}
+    .btn-primary{background:var(--ink);color:#fff}
+    .btn-block{display:inline-block;width:50%;text-align:center;box-sizing:border-box}
+
+    /* Cards & grids */
+    .card{border:1px solid var(--border);border-radius:12px;padding:16px}
+    .muted{color:#444}
+
+    /* Top matrix: 2 columns 50/50; left = controls (stacked), right = descriptions (top-aligned) */
+    .matrix{display:grid;grid-template-columns:1fr 1fr;row-gap:18px;column-gap:28px;align-items:start}
+    .row{display:contents;}
+    .cell-btn{grid-column:1}
+    .cell-desc{grid-column:2}
+
+    /* Bottom actions: own 2-column grid; Back left, Next right */
+    .actions{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center;margin-top:18px}
+    .actions-left{text-align:left}
+    .actions-right{text-align:right}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <h1>Simulations</h1>
+        <p class="muted">Create, edit, run, or sweep simulations. Start by choosing one action below.</p>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- TOP: selection matrix -->
+    <div class="card">
+      <div class="matrix">
+        <!-- Row 1 -->
+        <div class="row">
+          <div class="cell-btn">
+            <button class="btn btn-block" type="button" data-mode="run" id="btn-run">Select sim (Run)</button>
+          </div>
+          <div class="cell-desc">
+            <strong>Select Simulation</strong><br>
+            Run an existing simulation with optional run-time overrides. DB record stays unchanged; overrides are stored near Frame 0.
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row">
+          <div class="cell-btn">
+            <button class="btn btn-block" type="button" data-mode="edit" id="btn-edit">Select sim (Edit)</button>
+          </div>
+          <div class="cell-desc">
+            <strong>Edit Simulation</strong><br>
+            Open a saved simulation, review all fields, and update the spec.
+          </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row">
+          <div class="cell-btn">
+            <button class="btn btn-block" type="button" data-mode="create" id="btn-create">Create new sim</button>
+          </div>
+          <div class="cell-desc">
+            <strong>Create Simulation</strong><br>
+            Start from defaults to define a new simulation spec; run immediately or later.
+          </div>
+        </div>
+        <!-- Row 4 -->
+        <div class="row">
+          <div class="cell-btn">
+            <button class="btn btn-block" type="button" data-mode="sweep" id="btn-sweep">Sweep sim</button>
+          </div>
+          <div class="cell-desc">
+            <strong>Sweep Simulation</strong><br>
+            Choose a base simulation and specify parameter ranges (D, C, λ, thresholds) to enqueue many runs.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: action bar (separate two-column box) -->
+    <div class="card actions">
+      <div class="actions-left">
+        <a class="btn" href="/">Back</a>
+      </div>
+      <div class="actions-right">
+        <a class="btn btn-primary" id="btn-next" href="#" aria-disabled="true">Next</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const buttons = Array.from(document.querySelectorAll('button[data-mode]'));
+    const next = document.getElementById('btn-next');
+    let selected = null;
+
+    const routeFor = (mode) => {
+      if (mode === 'run')    return '/sims/select?mode=run';
+      if (mode === 'edit')   return '/sims/select?mode=edit';
+      if (mode === 'sweep')  return '/sims/select?mode=sweep';
+      if (mode === 'create') return '/sims/edit?mode=create';
+      return '#';
+    };
+
+    const paint = () => {
+      buttons.forEach(b => b.classList.toggle('btn-primary', b.dataset.mode === selected));
+      if (selected) {
+        next.setAttribute('href', routeFor(selected));
+        next.setAttribute('aria-disabled', 'false');
+      } else {
+        next.setAttribute('href', '#');
+        next.setAttribute('aria-disabled', 'true');
+      }
+    };
+
+    buttons.forEach(b => b.addEventListener('click', () => { selected = b.dataset.mode; paint(); }));
+    paint();
+  })();
+  </script>
+</body>
+</html>

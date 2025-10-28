@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Simulation {{sim.id}} — {{sim.label}}</h2>
+<p><b>{{sim.name}}</b> (SIMID {{sim.simid}}) — Grid {{sim.gridx}}×{{sim.gridy}}×{{sim.gridz}} — Created {{sim.createdate}}</p>
+<h3>Run</h3>
+<form method="post" action="/sims/{{sim.id}}/run">
+  <label>At(s) <input name="ats" type="number" value="1"></label>
+  <label><input type="checkbox" name="save_first"> save first frame</label>
+  <label><input type="checkbox" name="stats" checked> header stats</label>
+  <button type="submit">Run</button>
+</form>
+<h3>Frames</h3>
+{% if frames %}
+  <ul>
+  {% for f in frames %}
+    <li>{{f}}</li>
+  {% endfor %}
+  </ul>
+  <p><a href="/metrics/{{sim.id}}">Select & seed metrics</a></p>
+  <p><a href="/jobs?sim_id={{sim.id}}">Monitor jobs</a></p>
+{% else %}
+  <p>No frames found yet.</p>
+{% endif %}
+{% endblock %}

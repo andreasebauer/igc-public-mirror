@@ -1,30 +1,29 @@
-"""Page F — Run Monitor.
+from __future__ import annotations
+from typing import Optional
+from igc.db.pg import cx, fetchall_dict, fetchone_dict, execute
 
-Public interface:
-- start_run(plan_id: int) -> None
-- get_status(plan_id: int) -> dict
-- pause_run(plan_id: int) -> None
-- resume_run(plan_id: int) -> None
-- stop_current_member(plan_id: int) -> None
-- stop_all(plan_id: int) -> None
-"""
+def list_active_jobs(sim_id: Optional[int]=None, limit:int=200) -> list[dict]:
+    sql = "select * from big_view"
+    params=[]
+    if sim_id:
+        sql += " where smj_simid = %s"
+        params.append(sim_id)
+    sql += " order by smj_jobid desc limit %s"
+    params.append(limit)
+    with cx() as conn:
+        return fetchall_dict(conn, sql, tuple(params))
 
-from typing import Dict
+def job_detail(job_id:int) -> dict:
+    with cx() as conn:
+        row = fetchone_dict(conn, "select * from big_view where smj_jobid=%s", (job_id,))
+        return row or {}
 
-def start_run(plan_id: int) -> None:
-    return
+def requeue_job(job_id:int) -> int:
+    with cx() as conn:
+        execute(conn, "update simmetricjobs set status='queued' where jobid=%s", (job_id,))
+        return 1
 
-def get_status(plan_id: int) -> Dict:
-    return {"state": "idle", "progress": 0.0}
-
-def pause_run(plan_id: int) -> None:
-    return
-
-def resume_run(plan_id: int) -> None:
-    return
-
-def stop_current_member(plan_id: int) -> None:
-    return
-
-def stop_all(plan_id: int) -> None:
-    return
+def cancel_job(job_id:int) -> int:
+    with cx() as conn:
+        execute(conn, "update simmetricjobs set status='canceled' where jobid=%s", (job_id,))
+        return 1

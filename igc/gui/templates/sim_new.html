@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create Simulation</h2>
+<form method="post" action="/sims">
+  <label>Label <input name="label" value="{{d.label}}"></label><br/>
+  <label>Name <input name="name" value="{{d.name}}"></label><br/>
+  <label>Grid X <input name="gridx" type="number" value="{{d.gridx}}"></label>
+  <label>Y <input name="gridy" type="number" value="{{d.gridy}}"></label>
+  <label>Z <input name="gridz" type="number" value="{{d.gridz}}"></label><br/>
+  <label>psi0_elsewhere <input name="psi0_elsewhere" type="number" step="any" value="{{d.psi0_elsewhere}}"></label>
+  <label>psi0_center <input name="psi0_center" type="number" step="any" value="{{d.psi0_center}}"></label><br/>
+  <label>phi0 <input name="phi0" type="number" step="any" value="{{d.phi0}}"></label>
+  <label>eta0 <input name="eta0" type="number" step="any" value="{{d.eta0}}"></label><br/>
+  <label>substeps_per_at <input name="substeps_per_at" type="number" value="{{d.substeps_per_at}}"></label>
+  <label>dt_per_at <input name="dt_per_at" type="number" step="any" value="{{d.dt_per_at}}"></label>
+  <label>dx <input name="dx" type="number" step="any" value="{{d.dx}}"></label><br/>
+  <button type="submit">Create</button>
+</form>
+{% endblock %}

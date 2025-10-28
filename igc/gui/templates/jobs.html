@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Jobs {% if sim_id %}for sim {{sim_id}}{% endif %}</h2>
+<table>
+  <tr>
+    <th>job</th><th>sim</th><th>metric</th><th>frame</th><th>status</th><th>output</th><th>created</th><th>actions</th>
+  </tr>
+  {% for r in rows %}
+  <tr>
+    <td><a href="/jobs/{{r.smj_jobid}}">{{r.smj_jobid}}</a></td>
+    <td>{{r.smj_simid}} / {{r.sim_label}}</td>
+    <td>{{r.m_name}}</td>
+    <td>{{r.smj_frame}}</td>
+    <td>{{r.smj_status}}</td>
+    <td>{{r.smj_output_path}}</td>
+    <td>{{r.smj_createdate}}</td>
+    <td>
+      <form method="post" action="/jobs/{{r.smj_jobid}}/requeue" style="display:inline"><button>requeue</button></form>
+      <form method="post" action="/jobs/{{r.smj_jobid}}/cancel" style="display:inline"><button>cancel</button></form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

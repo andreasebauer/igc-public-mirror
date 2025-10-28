@@ -1,0 +1,289 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px}
+header h1{margin:0 0 12px 0}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #ddd;padding:6px 8px;vertical-align:top}
+th{background:#f3f3f3;text-align:left}
+fieldset{margin:10px 0;padding:10px}
+
+/* === IGC Unified Buttons =============================================== */
+:root{
+  --btn-h: 44px;
+  --btn-pad-i: 16px;
+  --btn-radius: 10px;
+  --btn-font: 600 14px/1.15 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --btn-ink: #111;
+  --btn-bg: #fff;
+  --btn-border: #111;
+  --btn-primary-ink: #fff;
+  --btn-primary-bg: #111;
+  --btn-primary-border: #111;
+  --btn-disabled: 0.5;
+  --focus-ring: 0 0 0 3px rgba(17,17,17,.15);
+}
+
+/* Normalize native buttons so .btn sizing is stable */
+button,[type=button],[type=submit],[type=reset]{ font: inherit; }
+
+/* Base button */
+.btn{
+  appearance:none;-webkit-appearance:none;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:var(--btn-h);
+  padding-inline:var(--btn-pad-i);
+  border-radius:var(--btn-radius);
+  border:1px solid var(--btn-border);
+  background:var(--btn-bg);
+  color:var(--btn-ink);
+  font:var(--btn-font);
+  text-decoration:none;cursor:pointer;user-select:none;white-space:nowrap;
+}
+.btn:focus-visible{ outline:none; box-shadow:var(--focus-ring); }
+.btn[disabled], .btn[aria-disabled="true"], .btn.is-disabled{
+  opacity:var(--btn-disabled); cursor:not-allowed; pointer-events:none;
+}
+.btn--primary{ background:var(--btn-primary-bg); color:var(--btn-primary-ink); border-color:var(--btn-primary-border); }
+.btn--secondary{ background:var(--btn-bg); color:var(--btn-ink); border-color:var(--btn-border); }
+.btn--lg{ min-height:48px; padding-inline:18px; font-weight:700; }
+.btn--sm{ min-height:36px; padding-inline:12px; font-weight:600; }
+
+/* Footer action row: Back left / Next right */
+.actions{ display:grid; grid-template-columns:1fr 1fr; column-gap:28px; align-items:center; margin-top:18px }
+.actions-left{ text-align:left }
+.actions-right{ text-align:right }
+
+/* ======================================================================= */
+
+/* === Shared Layout / Cards / Buttons ================================== */
+
+:root {
+  --border:#e5e7eb;
+  --ink:#111;
+  --btn-h: 44px;
+  --btn-pad-i: 16px;
+  --btn-radius: 10px;
+  --btn-font: 600 14px/1.15 ui-sans-serif, system-ui, -apple-system, Segoe UI,
+              Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --btn-ink: #111;
+  --btn-bg: #fff;
+  --btn-border: #111;
+  --btn-primary-ink: #fff;
+  --btn-primary-bg: #111;
+  --btn-primary-border: #111;
+  --btn-disabled: 0.5;
+  --focus-ring: 0 0 0 3px rgba(17,17,17,.15);
+}
+
+/* normalize native buttons */
+button,[type=button],[type=submit],[type=reset]{ font:inherit; }
+
+/* Base button */
+.btn{
+  appearance:none;-webkit-appearance:none;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:var(--btn-h);
+  padding-inline:var(--btn-pad-i);
+  border-radius:var(--btn-radius);
+  border:1px solid var(--btn-border);
+  background:var(--btn-bg);
+  color:var(--btn-ink);
+  font:var(--btn-font);
+  text-decoration:none;cursor:pointer;user-select:none;white-space:nowrap;
+}
+.btn:focus-visible{outline:none;box-shadow:var(--focus-ring);}
+.btn[disabled],.btn[aria-disabled="true"],.btn.is-disabled{
+  opacity:var(--btn-disabled);cursor:not-allowed;pointer-events:none;
+}
+.btn--primary{background:var(--btn-primary-bg);color:var(--btn-primary-ink);border-color:var(--btn-primary-border);}
+.btn--secondary{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-border);}
+.btn--lg{min-height:48px;padding-inline:18px;font-weight:700;}
+.btn--sm{min-height:36px;padding-inline:12px;font-weight:600;}
+.btn-block{display:inline-block;width:50%;text-align:center;box-sizing:border-box}
+
+/* Layout helpers used on all pages */
+.wrap{max-width:1100px;margin:0 auto;padding:24px;}
+.header{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
+.header h1{margin:0;}
+.card{border:1px solid var(--border);border-radius:12px;padding:16px;}
+.matrix{display:grid;grid-template-columns:1fr 1fr;row-gap:18px;column-gap:28px;align-items:start;}
+.stack{display:grid;row-gap:12px;}
+.actions{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center;margin-top:18px;}
+.actions-left{text-align:left;}
+.actions-right{text-align:right;}
+
+/* ====================================================================== */
+/* === IGC Buttons & Layout (reinforcements) ============================= */
+
+/* Make sure anchors ALSO get the same font and layout as buttons */
+a.btn, button.btn { font: var(--btn-font); display: inline-flex; align-items: center; justify-content: center; }
+
+/* Base button refinements */
+.btn{
+  box-sizing: border-box;
+  line-height: 1.15;
+}
+
+/* Mode buttons inside cards: always full width (not text-dependent) */
+.card .btn,
+.btn-block{
+  display: block;
+  width: 100%;
+}
+
+/* Cards with actions: equal heights so columns align */
+.card.card--action{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 140px; /* tweak if you want denser */
+}
+
+/* Footer Back/Next: equal visual mass */
+.actions .btn{
+  width: 100%;
+  max-width: 240px;    /* identical width */
+}
+
+/* Ensure the two footer columns keep buttons at the edges */
+.actions{ display:grid; grid-template-columns:1fr 1fr; column-gap:28px; align-items:center; margin-top:18px }
+.actions-left{ text-align:left }
+.actions-right{ text-align:right }
+
+/* ====================================================================== */
+
+/* === IGC: Action cards as two-column rows (button left, description right) === */
+
+/* Each action card spans the full matrix width (one row per action) */
+.matrix .card--action{ grid-column: 1 / -1; }
+
+/* Inside an action card, make a 2-col grid: fixed button col + flexible text col */
+.card.card--action{
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  align-items: center;
+  column-gap: 18px;
+  row-gap: 8px; /* if something wraps */
+  min-height: unset; /* override any earlier equal-height rule */
+  padding: 16px; /* keep your existing card padding */
+}
+
+/* Ensure the button occupies the left column and fills that column width */
+.card.card--action > .btn{
+  grid-column: 1;
+  width: 100%;
+  max-width: none; /* ensure full width of the left column */
+}
+
+/* Descriptions (p, small, etc.) go to the right column and don’t crowd */
+.card.card--action > p,
+.card.card--action > small,
+.card.card--action > div{
+  grid-column: 2;
+  margin: 0;
+}
+
+/* Optional: tone down description text a bit (reuse your .muted if present) */
+.card.card--action > p{ color: inherit; }
+.card.card--action > .muted{ color: #444; }
+
+/* Mobile: stack on very narrow screens */
+@media (max-width: 640px){
+  .card.card--action{
+    grid-template-columns: 1fr;
+  }
+  .card.card--action > .btn{ grid-column: 1; }
+  .card.card--action > p,
+  .card.card--action > small,
+  .card.card--action > div{ grid-column: 1; margin-top: 8px; }
+}
+
+/* =========================================================================== */
+
+/* === IGC: Simulation Start two-column matrix layout ===================== */
+
+/* The whole grid: 2 columns, buttons left / descriptions right */
+.matrix{
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  column-gap: 28px;
+  row-gap: 18px;
+  align-items: start;
+}
+
+/* Each card spans one row, no border stacking */
+.matrix .card{
+  display: contents; /* let button + text occupy grid cells directly */
+}
+
+/* Button occupies left column */
+.matrix .card > .btn{
+  grid-column: 1;
+  justify-self: stretch;
+  width: 100%;
+}
+
+/* Description occupies right column, top-aligned */
+.matrix .card > p,
+.matrix .card > div,
+.matrix .card > small{
+  grid-column: 2;
+  margin: 0;
+  align-self: start;
+}
+
+/* Optional visual separators between rows */
+.matrix::before, .matrix::after {content:none;}
+/* ======================================================================= */
+
+/* === IGC: action rows = button left, description right ================== */
+/* 1) The page matrix becomes a vertical stack of rows (cards). */
+.matrix{
+  display: grid;
+  grid-template-columns: 1fr;   /* one column: rows only */
+  row-gap: 18px;                /* spacing between rows */
+  column-gap: 0;                /* no outer column gap; rows control their own */
+  align-items: start;
+}
+
+/* 2) Each row (card) is itself a 2-col grid: fixed/elastic */
+.matrix .card{
+  display: grid !important;               /* override any earlier 'display: contents' */
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  column-gap: 24px;
+  row-gap: 8px;
+  align-items: start;                      /* align description to top of button */
+}
+
+/* 3) Button sits in the left column and fills that column */
+.matrix .card > .btn{
+  grid-column: 1;
+  width: 100%;
+  justify-self: stretch;
+}
+
+/* 4) Description sits in the right column, top-aligned */
+.matrix .card > p,
+.matrix .card > div,
+.matrix .card > small,
+.matrix .card > h3{
+  grid-column: 2;
+  margin: 0;
+  align-self: start;
+}
+
+/* Optional: if you use a subtitle then a paragraph, keep both in col 2 */
+.matrix .card > h3 + p{ margin-top: 6px; }
+
+/* Responsive: stack on very narrow screens */
+@media (max-width: 640px){
+  .matrix .card{
+    grid-template-columns: 1fr;
+  }
+  .matrix .card > .btn{ grid-column: 1; }
+  .matrix .card > p,
+  .matrix .card > div,
+  .matrix .card > small,
+  .matrix .card > h3{
+    grid-column: 1;
+    margin-top: 8px;
+  }
+}
+/* ======================================================================= */

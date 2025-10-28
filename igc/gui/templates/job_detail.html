@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Job {{row.smj_jobid}}</h2>
+<pre>{{row | tojson(indent=2)}}</pre>
+<form method="post" action="/jobs/{{row.smj_jobid}}/requeue" style="display:inline"><button>Requeue</button></form>
+<form method="post" action="/jobs/{{row.smj_jobid}}/cancel" style="display:inline"><button>Cancel</button></form>
+{% endblock %}
