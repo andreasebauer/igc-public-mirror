@@ -4,6 +4,7 @@ from .services.simulations import list_simulations
 from .vars import VARS
 from pathlib import Path
 from typing import Any, Dict, Optional
+import logging
 from fastapi import APIRouter, Request, Form, Query, HTTPException
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
@@ -100,7 +101,7 @@ def sim_confirm_get(request: Request,
         overrides = getattr(request.app.state, "_run_overrides", {}).get(sim_id, {})
     elif mode == "sweep":
         sweep = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
-    return templates.TemplateResponse("sim_confirmation.html", {
+    return templates.TemplateResponse("sim_confirm.html", {
         "request": request, "mode": mode, "sim_id": sim_id,
         "base": base, "overrides": overrides, "sweep": sweep
     })

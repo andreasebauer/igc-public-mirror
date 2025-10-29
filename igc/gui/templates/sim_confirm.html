@@ -6,28 +6,22 @@
   <header class="igc-header">
     <h1 class="igc-title">Confirm Simulation</h1>
     <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
+    <div class="igc-badge">
+      id: {{ sim_id }} · fields: {{ sim|length }}
+    </div>
+
   </header>
 
-  <!-- MAIN: framed, read-only list of ALL fields -->
+  <!-- MAIN: framed, ALWAYS render from sim; use fields only for optional descriptions -->
   <main class="igc-main igc-card">
     {% set sim = sim or {} %}
     {% set fields = fields or [] %}
+    {% set desc = {} %}
+    {% for f in fields %}
+      {% set _ = desc.update({ f.name: f.description or '' }) %}
+    {% endfor %}
 
-    {% if fields and sim %}
-      {% for f in fields %}
-        {% set k = f.name %}
-        {% set v = sim[k] if k in sim else '' %}
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <div class="igc-name">{{ k }}</div>
-            <input class="igc-input" type="text" value="{{ v }}" readonly>
-          </div>
-          <div class="igc-cell igc-cell--right">
-            <div class="igc-desc-text">{{ f.description or '' }}</div>
-          </div>
-        </div>
-      {% endfor %}
-    {% else %}
+    {% if sim %}
       {% for k, v in sim.items() %}
         <div class="igc-row">
           <div class="igc-cell igc-cell--left igc-inline">
@@ -35,10 +29,20 @@
             <input class="igc-input" type="text" value="{{ v }}" readonly>
           </div>
           <div class="igc-cell igc-cell--right">
-            <div class="igc-desc-text"></div>
+            <div class="igc-desc-text">{{ desc.get(k, '') }}</div>
           </div>
         </div>
       {% endfor %}
+    {% else %}
+      <div class="igc-row">
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">No data</div>
+          <input class="igc-input" type="text" value="No simulation loaded (missing sim_id)" readonly>
+        </div>
+        <div class="igc-cell igc-cell--right">
+          <div class="igc-desc-text">Use Back to select a simulation again.</div>
+        </div>
+      </div>
     {% endif %}
   </main>
 
@@ -52,13 +56,8 @@
     </div>
     <div class="igc-col igc-col--right igc-align-end">
       {% if mode in ['edit','create'] %}
-        <!-- Save returns to Start with a 'Simulation saved' message -->
-        <a class="btn btn-primary btn-lg"
-           href="{{ request.url_for('sim_start') }}?msg=Simulation%20saved">
-          Save
-        </a>
+        <a class="btn btn-primary btn-lg" href="{{ request.url_for('sim_start') }}?msg=Simulation%20saved">Save</a>
       {% else %}
-        <!-- run / sweep go to log & gauges -->
         <a class="btn btn-primary btn-lg"
            href="{{ request.url_for('sim_log') }}?mode={{ mode }}{% if sim and sim.get('id') %}&sim_id={{ sim['id'] }}{% endif %}">
           Run
@@ -84,9 +83,11 @@
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .igc-footer{align-items:center}
   .igc-align-end{display:flex;justify-content:flex-end}
-  /* ensure footer buttons readable */
+  /* ensure footer buttons are readable */
   .igc-footer .btn { color: var(--ink) !important; border-color: var(--ink) !important; }
   .igc-footer .btn-primary { background:#0f172a !important; color:#fff !important; border-color:#0f172a !important; }
   .igc-footer .btn-outline  { background:#fff !important; color:#0f172a !important; border-color:#0f172a !important; }
+
+  .igc-badge{display:inline-block;margin-top:6px;padding:4px 8px;border:1px solid var(--line);border-radius:8px;color:var(--ink-2);font-size:.85rem}
 </style>
 {% endblock %}
