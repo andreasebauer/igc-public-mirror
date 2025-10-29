@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Edit · Simulation{% endblock %}
+{% block content %}
+<section class="igc-page">
+  <!-- HEADER -->
+  <header class="igc-header">
+    <h1 class="igc-title">Edit Simulation</h1>
+    <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
+  </header>
+
+  <!-- MAIN: framed block; each DB column is one row (left: label+input inline; right: short help) -->
+  <main class="igc-main igc-card">
+    {% set sim    = sim or {} %}
+    {% set fields = fields or [] %}
+
+    {# Which keys are editable in mode=run #}
+    {% set editable_run = [
+      'gridx','gridy','gridz','stride','t_max',
+      'd_psi','d_phi','d_eta',
+      'phi_threshold','lambda_phi','lambda_eta','gate_name'
+    ] %}
+
+    {# Short, hand-written help texts for important fields (others left blank) #}
+    {% set help = {
+      'id':'Primary key.',
+      'simid':'External or legacy id.',
+      'name':'Human-readable simulation name.',
+      'label':'Short tag for lists and grouping.',
+      'description':'Longer free-text description.',
+      'gridx':'Grid size in X (N for N×N×N).',
+      'gridy':'Grid size in Y.',
+      'gridz':'Grid size in Z.',
+      'psi0_center':'Initial ψ at center.',
+      'psi0_elsewhere':'Initial ψ elsewhere.',
+      'phi0':'Initial φ baseline.',
+      'eta0':'Initial η baseline.',
+      'phi_threshold':'Gate threshold for φ to open.',
+      'alpha':'Generic scaling/exponent parameter.',
+      't_max':'Maximum At (end tick).',
+      'stride':'Write/save every Nth step.',
+      'cleanup':'Whether to clean intermediate files.',
+      'precision':'Float precision (f32/f64).',
+      'n_components':'Number of components for this run.',
+      'noise_mode':'Noise injection mode.',
+      'collapse_rule':'Collapse handling rule.',
+      'profile_type':'Preset profile.',
+      'status':'Lifecycle status (planned/running/complete).',
+      'usegpu':'Use GPU if available.',
+      'bundleready':'Assets are bundled and ready.',
+      'createdate':'Creation timestamp.',
+      'id_f32':'Float32 identifier.',
+      'id_f64':'Float64 identifier.',
+      'substeps_per_at':'Substeps per At (Δt resolution).',
+      'dt_per_at':'Δt per At.',
+      'dx':'Lattice spacing.',
+      'd_psi':'Diffusion coefficient for ψ.',
+      'd_eta':'Diffusion coefficient for η.',
+      'd_phi':'Diffusion coefficient for φ.',
+      'c_pi_to_eta':'Coupling ψ→η.',
+      'c_eta_to_phi':'Coupling η→φ.',
+      'lambda_eta':'Regulator for η.',
+      'lambda_phi':'Regulator for φ.',
+      'gate_name':'Gate kernel name (e.g., linear).',
+      'coupler_json':'Advanced coupling config (JSON).',
+      'seed_type':'Seeding mode.',
+      'seed_field':'Which field to seed (ψ/φ/η).',
+      'seed_strength':'Seeding amplitude.',
+      'seed_sigma':'Seeding spread (σ).',
+      'seed_center':'Seeding center mode.',
+      'seed_phase_a':'Seed phase A.',
+      'seed_phase_b':'Seed phase B.',
+      'seed_repeat_at':'Repeat seeding every N At.',
+      'injector_json':'Injector configuration (JSON).'
+    } %}
+
+    {% set run_mode = (mode == 'run') %}
+
+    {% if not fields and sim %}
+      {# Fallback: derive fields from row if metadata missing #}
+      {% for k,v in sim.items() %}
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_{{ k }}">{{ k }}</label>
+            <input id="fld_{{ k }}" name="{{ k }}" class="igc-input" type="text" value="{{ v }}"
+                   {% if run_mode and k not in editable_run %}readonly{% endif %}>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <div class="igc-desc-text">{{ help.get(k,'') }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for f in fields %}
+        {% set k = f.name %}
+        {% set v = sim[k] if k in sim else '' %}
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_{{ k }}">{{ k }}</label>
+            <input id="fld_{{ k }}" name="{{ k }}" class="igc-input" type="text" value="{{ v }}"
+                   {% if run_mode and k not in editable_run %}readonly{% endif %}>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <div class="igc-desc-text">{{ help.get(k,'') }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </main>
+
+  <!-- FOOTER: framed two-column block (Back / Next) -->
+  <footer class="igc-footer two-col igc-card">
+    <div class="igc-col igc-col--left">
+      <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
+    </div>
+    <div class="igc-col igc-col--right igc-align-end">
+      <a class="btn btn-primary btn-lg"
+         href="{{ request.url_for('sim_confirm_get') }}?mode={{ mode }}{% if sim and sim.get('id') %}&sim_id={{ sim['id'] }}{% endif %}">
+        Next
+      </a>
+    </div>
+  </footer>
+</section>
+
+<style>
+  :root{ --ink:#0f172a; --ink-2:#334155; --bg:#fff; --line:#e2e8f0; --btn:#0f172a; --btn-ink:#fff; --radius:12px; }
+  .igc-page{display:flex;flex-direction:column;gap:16px;padding:20px;background:#fff;color:var(--ink);}
+  .igc-header{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
+  .igc-title{margin:0;font-size:1.375rem;line-height:1.2}
+  .igc-subtitle{margin:.25rem 0 0;color:var(--ink-2)}
+  .igc-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
+  .igc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;margin:10px 0}
+  .igc-cell{min-width:0}
+  /* left cell: label + input inline on one row */
+  .igc-inline{display:flex;align-items:center;gap:12px}
+  .igc-name{min-width:200px;font-weight:600;margin:0}
+  .igc-input{flex:1 1 auto;min-width:0;padding:10px;border:1px solid var(--line);border-radius:10px}
+  .igc-desc-text{margin:0;color:var(--ink-2)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .igc-footer{align-items:center}
+  .igc-align-end{display:flex;justify-content:flex-end}
+
+  /* Force footer buttons to be readable even if global CSS overrides */
+  .igc-footer .btn { color: var(--ink) !important; border-color: var(--ink) !important; }
+  .igc-footer .btn-primary { background: #0f172a !important; color: #ffffff !important; border-color: #0f172a !important; }
+  .igc-footer .btn-outline  { background: #ffffff !important; color: #0f172a !important; border-color: #0f172a !important; }
+
+</style>
+{% endblock %}

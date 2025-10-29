@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Confirm · Simulation{% endblock %}
+{% block content %}
+<section class="igc-page">
+  <!-- HEADER -->
+  <header class="igc-header">
+    <h1 class="igc-title">Confirm Simulation</h1>
+    <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
+  </header>
+
+  <!-- MAIN: framed, read-only list of ALL fields -->
+  <main class="igc-main igc-card">
+    {% set sim = sim or {} %}
+    {% set fields = fields or [] %}
+
+    {% if fields and sim %}
+      {% for f in fields %}
+        {% set k = f.name %}
+        {% set v = sim[k] if k in sim else '' %}
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <div class="igc-name">{{ k }}</div>
+            <input class="igc-input" type="text" value="{{ v }}" readonly>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <div class="igc-desc-text">{{ f.description or '' }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for k, v in sim.items() %}
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <div class="igc-name">{{ k }}</div>
+            <input class="igc-input" type="text" value="{{ v }}" readonly>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <div class="igc-desc-text"></div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </main>
+
+  <!-- FOOTER: framed two-column block (Back / Primary) -->
+  <footer class="igc-footer two-col igc-card">
+    <div class="igc-col igc-col--left">
+      <a class="btn btn-outline btn-lg"
+         href="{{ request.url_for('sim_edit_get') }}?mode={{ mode }}{% if sim and sim.get('id') %}&sim_id={{ sim['id'] }}{% endif %}">
+        Back
+      </a>
+    </div>
+    <div class="igc-col igc-col--right igc-align-end">
+      {% if mode in ['edit','create'] %}
+        <!-- Save returns to Start with a 'Simulation saved' message -->
+        <a class="btn btn-primary btn-lg"
+           href="{{ request.url_for('sim_start') }}?msg=Simulation%20saved">
+          Save
+        </a>
+      {% else %}
+        <!-- run / sweep go to log & gauges -->
+        <a class="btn btn-primary btn-lg"
+           href="{{ request.url_for('sim_log') }}?mode={{ mode }}{% if sim and sim.get('id') %}&sim_id={{ sim['id'] }}{% endif %}">
+          Run
+        </a>
+      {% endif %}
+    </div>
+  </footer>
+</section>
+
+<style>
+  :root{ --ink:#0f172a; --ink-2:#334155; --bg:#fff; --line:#e2e8f0; --btn:#0f172a; --btn-ink:#fff; --radius:12px; }
+  .igc-page{display:flex;flex-direction:column;gap:16px;padding:20px;background:#fff;color:var(--ink);}
+  .igc-header{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
+  .igc-title{margin:0;font-size:1.375rem;line-height:1.2}
+  .igc-subtitle{margin:.25rem 0 0;color:var(--ink-2)}
+  .igc-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
+  .igc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;margin:10px 0}
+  .igc-cell{min-width:0}
+  .igc-inline{display:flex;align-items:center;gap:12px}
+  .igc-name{min-width:200px;font-weight:600;margin:0}
+  .igc-input{flex:1 1 auto;min-width:0;padding:10px;border:1px solid var(--line);border-radius:10px}
+  .igc-desc-text{margin:0;color:var(--ink-2)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .igc-footer{align-items:center}
+  .igc-align-end{display:flex;justify-content:flex-end}
+  /* ensure footer buttons readable */
+  .igc-footer .btn { color: var(--ink) !important; border-color: var(--ink) !important; }
+  .igc-footer .btn-primary { background:#0f172a !important; color:#fff !important; border-color:#0f172a !important; }
+  .igc-footer .btn-outline  { background:#fff !important; color:#0f172a !important; border-color:#0f172a !important; }
+</style>
+{% endblock %}

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from igc.gui.services.simulations import list_simulations, get_simulation_full, get_simulation_columns
 from .services.simulations import list_simulations
 from .vars import VARS
 from pathlib import Path
@@ -27,31 +28,18 @@ def sim_select(request: Request,
                mode: str = Query(..., regex="^(run|edit|sweep)$"),
                q: Optional[str]=Query(None),
                page: int = 1):
-    # mode is injected by FastAPI signature if present; default to 'run'
-    try:
-        mode  # type: ignore[name-defined]
-    except NameError:
-        mode = "run"
-
-    # Fetch simulations from DB (id, name, description)
+    # FastAPI injects "mode" from the query (?mode=run|edit|sweep); default via signature if present
     sims = list_simulations(limit=500)
-
-    # Use registry keys if available (VARS), else fall back
-    try:
-        mode_key = VARS.keys.mode
-        sims_key = VARS.keys.sims
-    except Exception:
-        mode_key = "mode"
-        sims_key = "sims"
 
     return templates.TemplateResponse(
         "sim_select.html",
         {
             "request": request,
-            mode_key: mode,
-            sims_key: sims,
+            "mode": mode,
+            "sims": sims,
         },
     )
+
 
 
 def sim_select_post(mode: str = Form(...), sim_id: int = Form(...)):
@@ -69,51 +57,21 @@ def sim_select_post(mode: str = Form(...), sim_id: int = Form(...)):
 def sim_edit_get(request: Request,
                  mode: str = Query(..., regex="^(create|edit|run)$"),
                  sim_id: Optional[int] = Query(None)):
-    base_spec: Dict[str, Any] = {}
-    if mode in {"edit","run"}:
-        if not sim_id:
-            raise HTTPException(400, "sim_id required")
-        row = sims_svc.get_simulation(sim_id)
-        if not row:
-            raise HTTPException(404, "simulation not found")
-        base_spec = dict(row)
-    else:
-        # create mode: show defaults
-        base_spec = forms_svc.EDITABLE_DEFAULTS.copy()
+    # fetch full row if sim_id is present
+    sim = get_simulation_full(sim_id) if sim_id is not None else None
+
+    # try to fetch column metadata; if missing, fallback to keys from sim
+    fields = get_simulation_columns()
+    if (not fields) and sim:
+        fields = [{"name": k, "data_type": "text", "description": ""} for k in sim.keys()]
+
     return templates.TemplateResponse("sim_edit.html", {
-        "request": request, "mode": mode, "sim_id": sim_id, "spec": base_spec
+        "request": request,
+        "mode": mode,
+        "sim": sim,
+        "fields": fields,
     })
 
-@router.post("/edit")
-async def sim_edit_post(request: Request,
-                        mode: str = Form(...),
-                        sim_id: Optional[int] = Form(None)):
-    form = dict(await request.form())
-    clean, errs = forms_svc.validate(mode, form)
-    if errs:
-        return templates.TemplateResponse("sim_edit.html", {
-            "request": request, "mode": mode, "sim_id": sim_id, "spec": form, "errors": errs
-        })
-    # create/edit: persist; run: keep ephemeral (no DB updates)
-    if mode == "create":
-        new_id = sims_svc.insert_simulation(clean)
-        return RedirectResponse(url=f"/sims/confirm?mode=create&sim_id={new_id}", status_code=303)
-    elif mode == "edit":
-        if not sim_id:
-            raise HTTPException(400, "sim_id required for edit")
-        sims_svc.update_simulation(sim_id, clean)
-        return RedirectResponse(url=f"/sims/confirm?mode=edit&sim_id={sim_id}", status_code=303)
-    else:  # run (ephemeral overrides)
-        if not sim_id:
-            raise HTTPException(400, "sim_id required for run")
-        # store overrides temporarily in session-like cookie or pass via confirm URL as needed.
-        request.session if hasattr(request, "session") else None  # optional if you enable SessionMiddleware
-        request.app.state._run_overrides = {sim_id: clean}  # minimal in-process cache
-        return RedirectResponse(url=f"/sims/confirm?mode=run&sim_id={sim_id}", status_code=303)
-
-# ---------- 4) sim_sweep -----------------------------------------------------
-
-@router.get("/sweep")
 def sim_sweep_get(request: Request, sim_id: int = Query(...)):
     row = sims_svc.get_simulation(sim_id)
     if not row:

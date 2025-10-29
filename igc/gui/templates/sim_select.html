@@ -2,39 +2,43 @@
 {% block title %}Select · Simulation{% endblock %}
 {% block content %}
 <section class="igc-page">
+  <!-- 1) HEADER -->
   <header class="igc-header">
     <h1 class="igc-title">Select Simulation</h1>
     <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
   </header>
 
-  <main class="igc-main two-col top">
+  <!-- 2) MAIN: two columns (top-aligned), right empty until selection -->
+  <main class="igc-main two-col top igc-card">
     <div class="igc-col">
-      {% set items = sims|default([]) %}
       <label for="simSelect" class="igc-label">Simulation</label>
       <select id="simSelect" class="igc-select">
         <option value="" selected disabled>— choose a simulation —</option>
-        {% for s in items %}
-          {% set sid  = (s.id if s is not mapping and s.id is defined else s.get('id')) %}
-          {% set name = (s.name if s is not mapping and s.name is defined else s.get('name','Unnamed')) %}
-          {% set desc = (s.description if s is not mapping and s.description is defined else s.get('description','')) %}
-          <option value="{{ sid|e }}" data-desc="{{ desc|e }}">{{ name|e }}</option>
+        {% for s in sims|default([]) %}
+          <option value="{{ s['id'] }}" data-desc="{{ (s['description'] or '')|e }}">
+            {{ s['label'] }} · {{ s['name'] }}
+          </option>
         {% endfor %}
       </select>
-      <div class="igc-actions">
-        <a class="btn btn-outline btn-lg" href="{{ request.url_for(routes.sim_start) }}">{{ ui.btn_back }}</a>
-        <a id="nextBtn" class="btn btn-primary btn-lg is-disabled" aria-disabled="true">{{ ui.btn_next }}</a>
-      </div>
     </div>
 
     <div class="igc-col">
-      <div id="descBox" class="igc-card hidden">
+      <div id="descBox" class="hidden">
         <h2 class="igc-desc-title">Description</h2>
         <p id="simDesc" class="igc-desc-text"></p>
       </div>
     </div>
   </main>
 
-  <footer class="igc-footer"></footer>
+  <!-- 3) FOOTER: two columns (Back left, Next right) -->
+  <footer class="igc-footer two-col igc-card">
+    <div class="igc-col igc-col--left">
+      <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_start') }}">Back</a>
+    </div>
+    <div class="igc-col igc-col--right igc-align-end">
+      <a id="nextBtn" class="btn btn-primary btn-lg is-disabled" aria-disabled="true">Next</a>
+    </div>
+  </footer>
 </section>
 
 <style>
@@ -49,7 +53,6 @@
   .igc-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
   .igc-label{display:block;margin:4px 0 6px}
   .igc-select{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px}
-  .igc-actions{margin-top:12px;display:flex;gap:10px}
   .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:10px;border:1px solid var(--ink);font-weight:600;text-decoration:none;cursor:pointer;user-select:none}
   .btn-lg{font-size:1rem;line-height:1;min-height:44px;min-width:120px}
   .btn-primary{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
@@ -58,17 +61,27 @@
   .hidden{display:none}
   .igc-desc-title{margin:.2rem 0 .25rem;font-size:1.05rem}
   .igc-desc-text{margin:0;color:var(--ink-2)}
+  .igc-footer{align-items:center}
+  .igc-align-end{display:flex;justify-content:flex-end}
   @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
 </style>
 
 <script>
+  // current mode
   function qp(k){ const u=new URL(window.location.href); return u.searchParams.get(k); }
   const mode = "{{ mode|default('') }}" || qp('mode') || 'run';
 
+  // route bases (no registry)
+  const editBase    = "{{ request.url_for('sim_edit_get') }}";
+  const confirmBase = "{{ request.url_for('sim_confirm_get') }}";
+
+  // Build Next URL from mode + selected id
   const buildNext = (id) => {
-    if (mode === 'edit')  return "{{ urlq(request, routes.sim_edit_get) }}" + "&mode=edit&id="  + encodeURIComponent(id);
-    if (mode === 'sweep') return "{{ urlq(request, routes.sim_confirm) }}"  + "&mode=sweep&id=" + encodeURIComponent(id);
-    return "{{ urlq(request, routes.sim_edit_get) }}" + "&mode=run&id=" + encodeURIComponent(id);
+    if (mode === 'edit')
+      return `${editBase}?mode=edit&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
+    if (mode === 'sweep')
+      return `${confirmBase}?mode=sweep&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
+    return `${editBase}?mode=run&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
   };
 
   const selectEl = document.getElementById('simSelect');
