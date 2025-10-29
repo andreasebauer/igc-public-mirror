@@ -2,122 +2,102 @@
 {% block title %}Select · Simulation{% endblock %}
 {% block content %}
 <section class="igc-page">
-  <!-- 1) HEADER (one column) -->
   <header class="igc-header">
     <h1 class="igc-title">Select Simulation</h1>
-    <p class="igc-subtitle">
-      Mode: <strong>{{ mode|default('run') }}</strong> · Choose a simulation, then press Next.
-    </p>
+    <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
   </header>
 
-  <!-- 2) MAIN: left = list (50% width button behavior), right = description/help -->
-  <main class="igc-main two-col">
+  <main class="igc-main two-col top">
     <div class="igc-col">
-      <!-- List of sims (robust to empty) -->
       {% set items = sims|default([]) %}
-      {% if items|length == 0 %}
-        <div class="igc-empty igc-card">
-          <p>No simulations found.</p>
-          <p>You can go Back and choose <em>New Simulation</em>, or keep this page and refresh once you’ve created one.</p>
-        </div>
-      {% else %}
-        <ul class="igc-listbox" role="listbox" aria-label="Simulations">
-          {% for s in items %}
-            {# accept either dicts or objects with .id/.name #}
-            {% set sid = (s.id if s is defined and s.id is defined else s.get('id')) %}
-            {% set label = (s.name if s is defined and s.name is defined else s.get('name', 'Unnamed')) %}
-            <li class="igc-option" role="option" data-sid="{{ sid|e }}">
-              <button type="button" class="btn btn-choice btn-lg igc-btn-100" data-sid="{{ sid|e }}">{{ label|e }}</button>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      <label for="simSelect" class="igc-label">Simulation</label>
+      <select id="simSelect" class="igc-select">
+        <option value="" selected disabled>— choose a simulation —</option>
+        {% for s in items %}
+          {% set sid  = (s.id if s is not mapping and s.id is defined else s.get('id')) %}
+          {% set name = (s.name if s is not mapping and s.name is defined else s.get('name','Unnamed')) %}
+          {% set desc = (s.description if s is not mapping and s.description is defined else s.get('description','')) %}
+          <option value="{{ sid|e }}" data-desc="{{ desc|e }}">{{ name|e }}</option>
+        {% endfor %}
+      </select>
+      <div class="igc-actions">
+        <a class="btn btn-outline btn-lg" href="{{ request.url_for(routes.sim_start) }}">{{ ui.btn_back }}</a>
+        <a id="nextBtn" class="btn btn-primary btn-lg is-disabled" aria-disabled="true">{{ ui.btn_next }}</a>
+      </div>
     </div>
 
     <div class="igc-col">
-      <div class="igc-desc igc-card">
-        <h2>What happens next</h2>
-        <dl class="igc-list">
-          <dt>Run</dt>
-          <dd>Launches the selected simulation with its saved parameters.</dd>
-          <dt>Edit</dt>
-          <dd>Opens the selected simulation for editing.</dd>
-          <dt>Sweep</dt>
-          <dd>Uses the selected simulation as a base for a parameter sweep.</dd>
-        </dl>
-        <p class="hint">Tip: You can sort/filter here later; this is a minimal working page.</p>
+      <div id="descBox" class="igc-card hidden">
+        <h2 class="igc-desc-title">Description</h2>
+        <p id="simDesc" class="igc-desc-text"></p>
       </div>
     </div>
   </main>
 
-  <!-- 3) FOOTER: Back / Next; Next disabled until a sim is chosen -->
-  <footer class="igc-footer two-col">
-    <div class="igc-col igc-col--left">
-      <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_start') }}">Back</a>
-    </div>
-    <div class="igc-col igc-col--right igc-align-end">
-      <a id="nextBtn" class="btn btn-primary btn-lg is-disabled" aria-disabled="true">Next</a>
-    </div>
-  </footer>
+  <footer class="igc-footer"></footer>
 </section>
 
 <style>
-  :root{
-    --ink:#0f172a; --ink-2:#334155; --bg:#ffffff; --line:#e2e8f0;
-    --btn:#0f172a; --btn-ink:#ffffff; --radius:12px;
-  }
-  .igc-page{display:flex;flex-direction:column;gap:16px;padding:20px;background:var(--bg);color:var(--ink);}
+  :root{ --ink:#0f172a; --ink-2:#334155; --bg:#fff; --line:#e2e8f0; --btn:#0f172a; --btn-ink:#fff; --radius:12px; }
+  .igc-page{display:flex;flex-direction:column;gap:16px;padding:20px;background:#fff;color:var(--ink);}
   .igc-header{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
   .igc-title{margin:0;font-size:1.375rem;line-height:1.2}
   .igc-subtitle{margin:.25rem 0 0;color:var(--ink-2)}
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .igc-footer{align-items:center}
-  .igc-align-end{display:flex;justify-content:flex-end}
+  .two-col.top{align-items:start}
+  .igc-col{min-width:0}
   .igc-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
-  .igc-listbox{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
-  .igc-option .btn{width:100%}
-  .btn{display:inline-flex;align-items:center;justify-content:center;
-       padding:12px 16px;border-radius:10px;border:1px solid var(--ink);
-       font-weight:600;text-decoration:none;cursor:pointer;user-select:none}
+  .igc-label{display:block;margin:4px 0 6px}
+  .igc-select{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px}
+  .igc-actions{margin-top:12px;display:flex;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:10px;border:1px solid var(--ink);font-weight:600;text-decoration:none;cursor:pointer;user-select:none}
   .btn-lg{font-size:1rem;line-height:1;min-height:44px;min-width:120px}
   .btn-primary{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
   .btn-outline{background:#fff;color:var(--ink)}
-  .btn-choice{background:#fff;color:var(--ink)}
-  .btn-choice.selected{background:var(--btn);color:var(--btn-ink);border-color:var(--btn)}
   .is-disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
-  @media (max-width: 900px){ .two-col{grid-template-columns:1fr} }
+  .hidden{display:none}
+  .igc-desc-title{margin:.2rem 0 .25rem;font-size:1.05rem}
+  .igc-desc-text{margin:0;color:var(--ink-2)}
+  @media (max-width:900px){ .two-col{grid-template-columns:1fr} }
 </style>
 
 <script>
-  // Determine where "Next" should go, based on mode and selected sim id.
-  // Adjust route names if yours differ (these are from your sim_flow).
-  const mode = "{{ mode|default('run') }}";
-  const routes = {
-    run:   (sid) => "{{ request.url_for('sim_confirm_get') }}" + "?mode=run&id=" + encodeURIComponent(sid),
-    edit:  (sid) => "{{ request.url_for('sim_edit_get') }}"    + "?mode=edit&id=" + encodeURIComponent(sid),
-    sweep: (sid) => "{{ request.url_for('sim_confirm_get') }}" + "?mode=sweep&id=" + encodeURIComponent(sid),
-    // fallback for unknown mode
-    "":    (sid) => "{{ request.url_for('sim_confirm_get') }}" + "?id=" + encodeURIComponent(sid),
+  function qp(k){ const u=new URL(window.location.href); return u.searchParams.get(k); }
+  const mode = "{{ mode|default('') }}" || qp('mode') || 'run';
+
+  const buildNext = (id) => {
+    if (mode === 'edit')  return "{{ urlq(request, routes.sim_edit_get) }}" + "&mode=edit&id="  + encodeURIComponent(id);
+    if (mode === 'sweep') return "{{ urlq(request, routes.sim_confirm) }}"  + "&mode=sweep&id=" + encodeURIComponent(id);
+    return "{{ urlq(request, routes.sim_edit_get) }}" + "&mode=run&id=" + encodeURIComponent(id);
   };
 
-  const nextBtn = document.getElementById('nextBtn');
-  const options = Array.from(document.querySelectorAll('.btn-choice'));
-  let selected = null;
+  const selectEl = document.getElementById('simSelect');
+  const nextBtn  = document.getElementById('nextBtn');
+  const descBox  = document.getElementById('descBox');
+  const descEl   = document.getElementById('simDesc');
 
-  function setSelected(btn) {
-    options.forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    selected = btn.getAttribute('data-sid');
-    if (selected) {
-      const build = routes[mode] || routes[""];
-      nextBtn.setAttribute('href', build(selected));
+  function clearSel(){
+    nextBtn.removeAttribute('href');
+    nextBtn.classList.add('is-disabled');
+    nextBtn.setAttribute('aria-disabled','true');
+    descBox.classList.add('hidden');
+    descEl.textContent = "";
+  }
+  function onChange(){
+    const opt = selectEl.selectedOptions[0];
+    const sid = selectEl.value;
+    if (sid){
+      const d = opt ? opt.getAttribute('data-desc') : '';
+      descEl.textContent = d || "";
+      descBox.classList.toggle('hidden', !(d && d.length));
+      nextBtn.href = buildNext(sid);
       nextBtn.classList.remove('is-disabled');
-      nextBtn.setAttribute('aria-disabled', 'false');
+      nextBtn.setAttribute('aria-disabled','false');
+    }else{
+      clearSel();
     }
   }
-
-  options.forEach(btn => {
-    btn.addEventListener('click', () => setSelected(btn));
-  });
+  selectEl.addEventListener('change', onChange);
+  clearSel();
 </script>
 {% endblock %}

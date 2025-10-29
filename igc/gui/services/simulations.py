@@ -1,31 +1,34 @@
 from __future__ import annotations
-import os
+import os, sys, traceback
 from typing import Any, Dict, List, Optional
 
-# psycopg3 (binary or source)
 try:
-    import psycopg
-except Exception:  # pragma: no cover
+    import psycopg  # psycopg3
+except Exception:
     psycopg = None  # type: ignore
 
 def _db_url() -> Optional[str]:
-    # Prefer IGC_DATABASE_URL, then DATABASE_URL
     return os.getenv("IGC_DATABASE_URL") or os.getenv("DATABASE_URL")
 
 def list_simulations(limit: int = 500) -> List[Dict[str, Any]]:
     """
-    Return rows from table public.simulations as:
-      [{"id": ..., "name": ..., "description": ...}, ...]
-    On any failure (no psycopg / no URL / query error) -> [].
+    Return rows from public.simulations as:
+      [{id, name, description}, ...]
+    Uses EXACT columns: id, name, description.
+    On error, logs to stderr and returns [].
     """
     url = _db_url()
-    if not url or not psycopg:
+    if not url:
+        print("[simulations] No DATABASE_URL/IGC_DATABASE_URL set", file=sys.stderr)
+        return []
+    if not psycopg:
+        print("[simulations] psycopg not available in env", file=sys.stderr)
         return []
 
     sql = """
         SELECT id, name, description
         FROM public.simulations
-        ORDER BY updated_at DESC NULLS LAST, created_at DESC NULLS LAST, id DESC
+        ORDER BY name ASC, id DESC
         LIMIT %s
     """
     try:
@@ -33,10 +36,8 @@ def list_simulations(limit: int = 500) -> List[Dict[str, Any]]:
             with conn.cursor() as cur:
                 cur.execute(sql, (limit,))
                 rows = cur.fetchall() or []
+                return [{"id": r[0], "name": r[1], "description": r[2]} for r in rows]
     except Exception:
+        print("[simulations] query failed:", file=sys.stderr)
+        traceback.print_exc()
         return []
-
-    out: List[Dict[str, Any]] = []
-    for r in rows:
-        out.append({"id": r[0], "name": r[1], "description": r[2]})
-    return out
