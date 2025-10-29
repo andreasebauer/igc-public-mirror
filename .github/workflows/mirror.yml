@@ -1,0 +1,31 @@
+name: Mirror to public repo
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name  "IGC Mirror Bot"
+          git config user.email "mirror-bot@users.noreply.github.com"
+
+      - name: Push to public mirror (HTTPS)
+        env:
+          DEST_REPO: igc-public-mirror
+          OWNER: ${{ github.repository_owner }}
+          TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          set -euo pipefail
+          git remote add mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git" || \
+          git remote set-url mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git"
+          git push --force --prune mirror +refs/heads/*:refs/heads/* +refs/tags/*:refs/tags/*
