@@ -63,3 +63,51 @@ def get_simulation_columns() -> List[Dict[str, Any]]:
             "description": dmap.get(name, ""),
         })
     return out
+
+def _simulation_columns_set():
+    # cache the set of updatable columns from information_schema (lowercase names)
+    cols_sql = """
+      SELECT lower(c.column_name)
+      FROM information_schema.columns c
+      WHERE c.table_schema='public' AND c.table_name='simulations'
+    """
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(cols_sql)
+        return {r[0] for r in (cur.fetchall() or [])}
+
+_SIM_COLS = None
+
+def _filter_values(values: dict) -> dict:
+    global _SIM_COLS
+    if _SIM_COLS is None:
+        _SIM_COLS = _simulation_columns_set()
+    return {k: v for k, v in values.items() if k.lower() in _SIM_COLS and k.lower() != 'id'}
+
+def update_simulation(sim_id: int, values: dict) -> int:
+    """UPDATE public.simulations SET ... WHERE id=%s; returns affected row count."""
+    vals = _filter_values(values)
+    if not vals:
+        return 0
+    cols = list(vals.keys())
+    sets = ", ".join(f'"{c}" = %s' for c in cols)
+    sql = f'UPDATE public.simulations SET {sets} WHERE id = %s'
+    params = [vals[c] for c in cols] + [sim_id]
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(sql, params); conn.commit()
+        return cur.rowcount or 0
+
+def create_simulation(values: dict) -> int:
+    """INSERT into public.simulations (...) values (...); returns new id."""
+    vals = _filter_values(values)
+    if not vals:
+        # minimal insert if nothing provided
+        sql = 'INSERT INTO public.simulations DEFAULT VALUES RETURNING id'
+        with _connect() as conn, conn.cursor() as cur:
+            cur.execute(sql); new_id = cur.fetchone()[0]; conn.commit(); return int(new_id)
+    cols = list(vals.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    cols_sql = ", ".join(f'"{c}"' for c in cols)
+    sql = f'INSERT INTO public.simulations ({cols_sql}) VALUES ({placeholders}) RETURNING id'
+    params = [vals[c] for c in cols]
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(sql, params); new_id = cur.fetchone()[0]; conn.commit(); return int(new_id)

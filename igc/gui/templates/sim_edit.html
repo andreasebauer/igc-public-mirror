@@ -10,6 +10,10 @@
 
   <!-- MAIN: framed block; each DB column is one row (left: label+input inline; right: short help) -->
   <main class="igc-main igc-card">
+  <form id="simForm" method="post" action="{{ request.url_for('sim_edit_apply') }}" novalidate>
+    <input type="hidden" name="mode" value="{{ mode }}">
+    {% if sim and sim.get('id') %}<input type="hidden" name="sim_id" value="{{ sim['id'] }}">{% endif %}
+
     {% set sim    = sim or {} %}
     {% set fields = fields or [] %}
 
@@ -105,20 +109,19 @@
         </div>
       {% endfor %}
     {% endif %}
-  </main>
+    </form>
+</main>
 
   <!-- FOOTER: framed two-column block (Back / Next) -->
-  <footer class="igc-footer two-col igc-card">
-    <div class="igc-col igc-col--left">
-      <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
+  <footer class="igc-footer two-col">
+  <div class="igc-col igc-col--left">
+    <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
+  </div>
+  <div class="igc-col igc-col--right igc-align-end">
+      <button id="nextBtn" type="submit" class="btn btn-primary btn-lg">Next</button>
     </div>
-    <div class="igc-col igc-col--right igc-align-end">
-      <a class="btn btn-primary btn-lg"
-         href="{{ request.url_for('sim_confirm_get') }}?mode={{ mode }}&sim_id={{ sim['id'] }}">
-        Next
-      </a>
-    </div>
-  </footer>
+</footer>
+</form>
 </section>
 
 <style>
@@ -145,4 +148,12 @@
   .igc-footer .btn-outline  { background: #ffffff !important; color: #0f172a !important; border-color: #0f172a !important; }
 
 </style>
+<script id="simFormSubmitHelper">
+  (function(){
+    var f=document.getElementById("simForm");
+    var b=document.getElementById("nextBtn");
+    if(b&&f){ b.addEventListener("click", function(ev){ ev.preventDefault(); f.submit(); }); }
+  })();
+</script>
+
 {% endblock %}

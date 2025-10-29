@@ -1,5 +1,5 @@
 from __future__ import annotations
-from igc.ledger.sim import list_simulations, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns
+from igc.ledger.sim import list_simulations, update_simulation, create_simulation, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns
 
 from .vars import VARS
 from pathlib import Path
@@ -60,6 +60,13 @@ def sim_edit_get(request: Request,
                  sim_id: Optional[int] = Query(None)):
     # fetch full row if sim_id is present
     sim = get_simulation_full(sim_id) if sim_id is not None else None
+    # overlay transient edits from /edit/apply
+    try:
+        overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
+    except Exception:
+        overrides = {}
+    if sim and overrides:
+        sim = {**sim, **overrides}
 
     # try to fetch column metadata; if missing, fallback to keys from sim
     fields = get_simulation_columns()
@@ -94,16 +101,24 @@ async def sim_sweep_post(request: Request, sim_id: int = Form(...)):
 def sim_confirm_get(request: Request,
                     mode: str = Query(..., regex="^(create|edit|run|sweep)$"),
                     sim_id: int = Query(...)):
-    base = sims_svc.get_simulation(sim_id) if mode != "create" else None
+    sim = get_simulation_full(sim_id) if mode != "create" else None
+    fields = get_simulation_columns()
+    # overlay transient edits captured by /sims/edit/apply
+    try:
+        overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
+    except Exception:
+        overrides = {}
+    if sim and overrides:
+        sim = {**sim, **overrides}
     overrides = {}
     sweep = None
     if mode == "run":
-        overrides = getattr(request.app.state, "_run_overrides", {}).get(sim_id, {})
+        overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
     elif mode == "sweep":
         sweep = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
     return templates.TemplateResponse("sim_confirm.html", {"request": request, "mode": mode, "sim_id": sim_id,
-        "base": base, "overrides": overrides, "sweep": sweep
-    , "sim": base})
+        "overrides": overrides, "sweep": sweep
+    , "sim": sim})
 
 @router.post("/confirm")
 def sim_confirm_post(request: Request,
@@ -120,7 +135,7 @@ def sim_confirm_post(request: Request,
         base = sims_svc.get_simulation(sim_id)
         if not base:
             raise HTTPException(404, "simulation not found")
-        overrides = getattr(request.app.state, "_run_overrides", {}).get(sim_id, {})
+        overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
         base_hash, over_hash, eff_hash, effective = jobs_svc.compute_effective_hash(base, overrides)
         frame0 = jobs_svc.plan_frame0_dir(base)
         run_overrides_path = jobs_svc.write_run_overrides_json(frame0, sim_id, base_hash, over_hash, eff_hash, overrides)
@@ -146,3 +161,20 @@ def sim_confirm_post(request: Request,
 def sim_log(request: Request, sim_id: Optional[int]=None):
     # You already have jobs monitor in run_monitor/web; link or embed here.
     return templates.TemplateResponse("sim_log.html", {"request": request, "sim_id": sim_id})
+
+
+@router.post("/edit/apply", name="sim_edit_apply")
+async def sim_edit_apply(request: Request):
+    form = await request.form()
+    mode = form.get("mode", "run")
+    sim_id = int(form.get("sim_id")) if form.get("sim_id") else None
+    # store overrides in app state (create dict once)
+    st = getattr(request.app, "state")
+    if not hasattr(st, "_pending_overrides"): st._pending_overrides = {}
+    # take all posted fields except control keys
+    override = {k: v for k, v in form.items() if k not in {"mode","sim_id"}}
+    print(f"[apply] sim_id={sim_id} override_keys={list(override.keys())[:8]} count={len(override)}")
+    if sim_id is not None:
+        st._pending_overrides[sim_id] = override
+        return RedirectResponse(url=f"/sims/confirm?mode={mode}&sim_id={sim_id}", status_code=303)
+    return RedirectResponse(url=f"/sims/start", status_code=303)
