@@ -1,50 +1,47 @@
 from __future__ import annotations
-from typing import Any, Dict, List, Optional, Tuple
-from igc.db.pg import cx, fetchone_dict, fetchall_dict, execute
+import os
+from typing import Any, Dict, List
 
-# --- Read operations ---------------------------------------------------------
+# Try to use psycopg (binary or source)
+try:
+    import psycopg
+except Exception:  # pragma: no cover
+    psycopg = None  # type: ignore
 
-def list_simulations(q: Optional[str]=None, limit: int=100, offset: int=0) -> List[Dict[str, Any]]:
-    sql = "SELECT * FROM public.simulations"
-    args: Tuple[Any, ...] = ()
-    if q:
-        sql += " WHERE name ILIKE %s OR label ILIKE %s"
-        args = (f"%{q}%", f"%{q}%")
-    sql += " ORDER BY id DESC LIMIT %s OFFSET %s"
-    args += (limit, offset)
-    with cx() as conn:
-        return fetchall_dict(conn, sql, args)
+# Optional: integrate with an existing pool if your project defines one later.
+# Here we keep it self-contained and simple.
 
-def get_simulation(sim_id: int) -> Optional[Dict[str, Any]]:
-    with cx() as conn:
-        return fetchone_dict(conn, "SELECT * FROM public.simulations WHERE id=%s", (sim_id,))
+def _db_url() -> str | None:
+    return os.getenv("IGC_DATABASE_URL") or os.getenv("DATABASE_URL")
 
-# --- Write operations --------------------------------------------------------
-
-def insert_simulation(payload: Dict[str, Any]) -> int:
+def list_simulations(limit: int = 500) -> List[Dict[str, Any]]:
     """
-    Insert a new simulation row. Expects keys matching column names.
-    Returns new simulation id.
+    Return rows from table `simulations` as a list of dicts:
+      [{id: ..., name: ..., description: ...}, ...]
+    Falls back to [] if no DB is configured or reachable.
     """
-    # Build dynamic insert (columns from payload)
-    cols = list(payload.keys())
-    vals = [payload[c] for c in cols]
-    placeholders = ", ".join(["%s"] * len(cols))
-    collist = ", ".join(cols)
-    sql = f"INSERT INTO public.simulations ({collist}) VALUES ({placeholders}) RETURNING id"
-    with cx() as conn:
-        row = fetchone_dict(conn, sql, tuple(vals))
-        return int(row["id"])  # type: ignore
+    url = _db_url()
+    if not url or not psycopg:
+        return []
 
-def update_simulation(sim_id: int, payload: Dict[str, Any]) -> int:
+    sql = """
+        SELECT id, name, description
+        FROM simulations
+        ORDER BY updated_at DESC NULLS LAST, created_at DESC NULLS LAST, id DESC
+        LIMIT %s
     """
-    Update an existing simulation by id. Only provided keys are updated.
-    Returns number of rows affected.
-    """
-    if not payload:
-        return 0
-    sets = ", ".join([f"{k}=%s" for k in payload.keys()])
-    vals = list(payload.values()) + [sim_id]
-    sql = f"UPDATE public.simulations SET {sets} WHERE id=%s"
-    with cx() as conn:
-        return execute(conn, sql, tuple(vals))
+    try:
+        # psycopg 3: connect() accepts a URL
+        with psycopg.connect(url) as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, (limit,))
+                rows = cur.fetchall() or []
+    except Exception:
+        return []
+
+    # Build list of dicts
+    out: List[Dict[str, Any]] = []
+    for r in rows:
+        # r is a tuple (id, name, description)
+        out.append({"id": r[0], "name": r[1], "description": r[2]})
+    return out

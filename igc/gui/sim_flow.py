@@ -1,3 +1,5 @@
+from .services.simulations import list_simulations
+from .vars import VARS
 from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -25,12 +27,32 @@ def sim_select(request: Request,
                mode: str = Query(..., regex="^(run|edit|sweep)$"),
                q: Optional[str]=Query(None),
                page: int = 1):
-    items = sims_svc.list_simulations(q=q, limit=100, offset=(page-1)*100)
-    return templates.TemplateResponse("sim_select.html", {
-        "request": request, "mode": mode, "items": items, "q": q or "", "page": page
-    })
+    # Ensure we have a mode; FastAPI will inject it from query (?mode=run|edit|sweep)
+    try:
+        mode = mode  # provided by FastAPI if in signature
+    except NameError:
+        mode = "run"
 
-@router.post("/select")
+    # Fetch simulations (id, name, description); empty list on DB issues
+    sims = list_simulations(limit=500)
+
+    # Use registry keys if available, else fall back to literal strings
+    try:
+        mode_key = VARS.keys.mode
+        sims_key = VARS.keys.sims
+    except Exception:
+        mode_key = "mode"
+        sims_key = "sims"
+
+    return templates.TemplateResponse(
+        "sim_select.html",
+        {
+            "request": request,
+            mode_key: mode,
+            sims_key: sims,
+        },
+    )
+
 def sim_select_post(mode: str = Form(...), sim_id: int = Form(...)):
     if mode == "run":
         url = f"/sims/edit?mode=run&sim_id={sim_id}"
