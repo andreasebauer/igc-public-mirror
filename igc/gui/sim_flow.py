@@ -1,6 +1,6 @@
 from __future__ import annotations
-from igc.gui.services.simulations import list_simulations, get_simulation_full, get_simulation_columns
-from .services.simulations import list_simulations
+from igc.ledger.sim import list_simulations, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns, get_simulation_full, get_simulation_columns
+
 from .vars import VARS
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -9,7 +9,7 @@ from fastapi import APIRouter, Request, Form, Query, HTTPException
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 
-from igc.gui.services import simulations as sims_svc
+from igc.ledger import sim as sims_svc
 from igc.gui.services import jobs as jobs_svc
 from igc.gui.services import forms as forms_svc
 
@@ -101,10 +101,9 @@ def sim_confirm_get(request: Request,
         overrides = getattr(request.app.state, "_run_overrides", {}).get(sim_id, {})
     elif mode == "sweep":
         sweep = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
-    return templates.TemplateResponse("sim_confirm.html", {
-        "request": request, "mode": mode, "sim_id": sim_id,
+    return templates.TemplateResponse("sim_confirm.html", {"request": request, "mode": mode, "sim_id": sim_id,
         "base": base, "overrides": overrides, "sweep": sweep
-    })
+    , "sim": base})
 
 @router.post("/confirm")
 def sim_confirm_post(request: Request,

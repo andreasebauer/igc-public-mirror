@@ -18,6 +18,13 @@ from igc.gui.sim_flow import router as sim_router
 app = FastAPI(title="IGC GUI")
 BASE_DIR = Path(__file__).parent
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+# expose registry in templates
+from igc.gui.vars import VARS
+try:
+    templates.env.globals.update(VARS=VARS, keys=VARS.keys, routes=VARS.routes, ui=VARS.ui)
+except Exception:
+    pass
+
 app.include_router(sim_router)
 app.include_router(sim_router)
 static_dir = BASE_DIR / "static"

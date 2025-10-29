@@ -78,10 +78,10 @@
   // Build Next URL from mode + selected id
   const buildNext = (id) => {
     if (mode === 'edit')
-      return `${editBase}?mode=edit&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
+      return `${editBase}?mode=edit&sim_id=${encodeURIComponent(id)}`;
     if (mode === 'sweep')
-      return `${confirmBase}?mode=sweep&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
-    return `${editBase}?mode=run&id=${encodeURIComponent(id)}&sim_id=${encodeURIComponent(id)}`;
+      return `${confirmBase}?mode=sweep&sim_id=${encodeURIComponent(id)}`;
+    return `${editBase}?mode=run&sim_id=${encodeURIComponent(id)}`;
   };
 
   const selectEl = document.getElementById('simSelect');

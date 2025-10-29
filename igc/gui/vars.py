@@ -17,6 +17,16 @@ class UIStrings(BaseModel):
     btn_next:    str = "Next"
 
 class ContextKeys(BaseModel):
+    overrides: str = "overrides"
+
+    sim_id: str = "sim_id"
+
+    fields: str = "fields"
+
+    base: str = "base"
+
+    sim: str = "sim"
+
     sims: str = "sims"   # controllers pass list under this key
     mode: str = "mode"   # 'run' | 'edit' | 'sweep'
 

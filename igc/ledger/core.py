@@ -10,16 +10,17 @@ Status = Literal["queued", "running", "written", "failed"]
 # Connection helper (env-driven)
 # -------------------------------
 def _connect():
-    """
-    Uses PG* env vars or PGDSN if set.
-    Required envs on the host:
-      PGHOST, PGUSER, PGPASSWORD, PGDATABASE (and optionally PGPORT),
-    or a full DSN in PGDSN.
-    """
-    dsn = os.getenv("PGDSN")
+    """Connect using PG* / PGDSN; otherwise fall back to local socket DSN."""
+    dsn = os.getenv("PGDSN") or os.getenv("IGC_DATABASE_URL") or os.getenv("DATABASE_URL")
     if dsn:
         return psycopg.connect(dsn)
-    return psycopg.connect()  # psycopg will read PG* env vars
+    # Fallback: libpq defaults (PG*), else local socket to current DB/user
+    try:
+        return psycopg.connect()  # PG* in env
+    except Exception:
+        # last-resort: common local DB name
+        return psycopg.connect("postgresql:///igc")
+
 
 
 # ============================================================
