@@ -126,3 +126,19 @@ def job_requeue(job_id: int):
 def job_cancel(job_id: int):
     cancel_job(job_id)
     return RedirectResponse(url=f"/jobs/{job_id}", status_code=303)
+
+# --- IGC VARS/URLQ REGISTRATION ---
+try:
+    from .vars import VARS
+    from .utils import urlq
+    # Expose registry + helper to all templates
+    templates.env.globals.update(
+        VARS=VARS,             # full registry
+        routes=VARS.routes,    # shorthand: routes.*
+        ui=VARS.ui,            # shorthand: ui.*
+        keys=VARS.keys,        # shorthand: keys.*
+        urlq=urlq,             # helper for query-string URLs
+    )
+except Exception as _e:
+    # If templates is not defined here, ignore (some apps init elsewhere)
+    pass
