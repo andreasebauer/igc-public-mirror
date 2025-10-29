@@ -1,6 +1,6 @@
+from __future__ import annotations
 from .services.simulations import list_simulations
 from .vars import VARS
-from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, Optional
 from fastapi import APIRouter, Request, Form, Query, HTTPException
@@ -27,16 +27,16 @@ def sim_select(request: Request,
                mode: str = Query(..., regex="^(run|edit|sweep)$"),
                q: Optional[str]=Query(None),
                page: int = 1):
-    # Ensure we have a mode; FastAPI will inject it from query (?mode=run|edit|sweep)
+    # mode is injected by FastAPI signature if present; default to 'run'
     try:
-        mode = mode  # provided by FastAPI if in signature
+        mode  # type: ignore[name-defined]
     except NameError:
         mode = "run"
 
-    # Fetch simulations (id, name, description); empty list on DB issues
+    # Fetch simulations from DB (id, name, description)
     sims = list_simulations(limit=500)
 
-    # Use registry keys if available, else fall back to literal strings
+    # Use registry keys if available (VARS), else fall back
     try:
         mode_key = VARS.keys.mode
         sims_key = VARS.keys.sims
@@ -52,6 +52,7 @@ def sim_select(request: Request,
             sims_key: sims,
         },
     )
+
 
 def sim_select_post(mode: str = Form(...), sim_id: int = Form(...)):
     if mode == "run":
