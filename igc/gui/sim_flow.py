@@ -128,8 +128,22 @@ def sim_confirm_post(request: Request,
                      is_visualization: Optional[bool] = Form(False),
                      precision: Optional[str] = Form(None)):
     if mode in {"create","edit"}:
-        # Already persisted in /edit; just go home with a toast
-        return RedirectResponse(url="/sims/start?msg=Simulation+saved", status_code=303)
+        st = getattr(request.app, "state")
+        pending = getattr(st, "_pending_overrides", {}).pop(sim_id, {})
+        # persist to DB
+        if mode == "edit":
+            from igc.ledger.sim import update_simulation
+            rc = update_simulation(sim_id, pending)
+            print(f"[save/edit] sim_id={sim_id} keys={len(pending)} rowcount={rc}")
+            # also clear any run_overrides for this sim_id
+            try: getattr(st, "_run_overrides", {}).pop(sim_id, None)
+            except Exception: pass
+            return RedirectResponse(url="/sims/start?msg=Simulation+saved", status_code=303)
+        else:
+            from igc.ledger.sim import create_simulation
+            new_id = create_simulation(pending)
+            print(f"[save/create] new_id={new_id} keys={len(pending)}")
+            return RedirectResponse(url="/sims/start?msg=Simulation+saved", status_code=303)
 
     if mode == "run":
         base = sims_svc.get_simulation(sim_id)

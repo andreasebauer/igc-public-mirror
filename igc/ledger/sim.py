@@ -1,6 +1,9 @@
 from __future__ import annotations
 from typing import Any, Dict, List, Optional
 from igc.ledger.core import _connect  # use the core connection helper
+# module-level caches
+_SIM_COLS = None
+_SIM_TYPES = None
 
 def list_simulations(limit: int = 500) -> List[Dict[str, Any]]:
     sql = """
@@ -64,6 +67,19 @@ def get_simulation_columns() -> List[Dict[str, Any]]:
         })
     return out
 
+
+def _simulation_column_types():
+    """
+    Returns {lower_name: data_type} for public.simulations.
+    """
+    types_sql = """
+      SELECT lower(c.column_name), lower(c.data_type)
+      FROM information_schema.columns c
+      WHERE c.table_schema='public' AND c.table_name='simulations'
+    """
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(types_sql)
+        return {r[0]: r[1] for r in (cur.fetchall() or [])}
 def _simulation_columns_set():
     # cache the set of updatable columns from information_schema (lowercase names)
     cols_sql = """
@@ -84,17 +100,46 @@ def _filter_values(values: dict) -> dict:
     return {k: v for k, v in values.items() if k.lower() in _SIM_COLS and k.lower() != 'id'}
 
 def update_simulation(sim_id: int, values: dict) -> int:
+    global _SIM_TYPES, _SIM_COLS
     """UPDATE public.simulations SET ... WHERE id=%s; returns affected row count."""
+    import json as _json
+    from psycopg.types.json import Json as _Json
+    global _SIM_TYPES, _SIM_COLS
+
     vals = _filter_values(values)
     if not vals:
-        return 0
+        print(f"[ledger.update] sim_id={sim_id} filtered=0 (no updatable columns)"); return 0
+
+    if _SIM_TYPES is None:
+        _SIM_TYPES = _simulation_column_types()
+
     cols = list(vals.keys())
     sets = ", ".join(f'"{c}" = %s' for c in cols)
+    params = []
+    for c in cols:
+        v = vals[c]
+        typ = _SIM_TYPES.get(c, "")
+        if typ in ("json", "jsonb"):
+            if isinstance(v, str):
+                vv = v.strip()
+                if vv == "" or vv.lower() == "none":
+                    v = None
+                else:
+                    try: v = _json.loads(vv)
+                    except Exception: v = None
+            params.append(_Json(v))
+        else:
+            params.append(v)
+
     sql = f'UPDATE public.simulations SET {sets} WHERE id = %s'
-    params = [vals[c] for c in cols] + [sim_id]
+    params.append(sim_id)
+
     with _connect() as conn, conn.cursor() as cur:
-        cur.execute(sql, params); conn.commit()
-        return cur.rowcount or 0
+        cur.execute(sql, params)
+        rc = cur.rowcount or 0
+        conn.commit()
+        print(f"[ledger.update] sim_id={sim_id} cols={cols[:8]}… rc={rc}")
+        return rc
 
 def create_simulation(values: dict) -> int:
     """INSERT into public.simulations (...) values (...); returns new id."""
