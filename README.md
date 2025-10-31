@@ -3,7 +3,7 @@
 This repository contains the Python rewrite of the Infinity Grid stack:
 
 - **oe** – Orchestrator (includes sweep expansion; sequential CPU f64).
-- **ledger** – DB access layer (Postgres; DB is the contract).
+- **ledger** – DB access layer (Postgres 17; DB is the contract).
 - **runner** – Executes one step in memory (pure compute).
 - **sims** – Modular simulator (same math, different regimes/scales via `Simulations`).
 - **metrics** – Metric kernels (table-driven selection; staging from DB parentage).
