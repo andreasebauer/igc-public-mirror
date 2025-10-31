@@ -1,0 +1,90 @@
+*** a/igc/gui/web.py
+--- b/igc/gui/web.py
+@@
+-from fastapi import Form
+-from fastapi.responses import RedirectResponse
++from fastapi import Form
++from fastapi.responses import RedirectResponse
++import os
+@@
+-@app.get("/metrics/simpicker")
+-def metrics_simpicker(request: Request):
+-    return templates.TemplateResponse("create_simpicker.html", {
+-        "request": request,
+-        "preview": None,
+-        "availability": {"frames": [], "phases": [0]},
+-        "error": None
+-    })
++@app.get("/metrics/simpicker")
++def metrics_simpicker(request: Request, abs_path: str = ""):
++    """
++    Render the picker; if abs_path is provided (e.g., from the browser),
++    prefill the input and do not validate yet.
++    """
++    return templates.TemplateResponse("create_simpicker.html", {
++        "request": request,
++        "preview": None,
++        "availability": {"frames": [], "phases": [0]},
++        "error": None,
++        "abs_path": abs_path or ""
++    })
+@@
+ def metrics_simpicker_validate(request: Request, abs_path: str = Form(...)):
+@@
+         return templates.TemplateResponse("create_simpicker.html", {
+             "request": request,
+             "preview": preview,
+             "availability": availability,
+-            "error": None
++            "error": None,
++            "abs_path": abs_path
+         })
+@@
+         return templates.TemplateResponse("create_simpicker.html", {
+             "request": request,
+             "preview": None,
+             "availability": {"frames": [], "phases": [0]},
+-            "error": str(e)
++            "error": str(e),
++            "abs_path": abs_path
+         })
++
++# --- Server-side browser for /data/sims/… (no DB writes) ---
++ALLOWLIST_PREFIXES = ("/data/sims", "/mnt", "/media")
++
++@app.get("/metrics/simpicker/browse")
++def metrics_simpicker_browse(request: Request, base: str = "/data/sims"):
++    """
++    Simple server-side folder browser:
++      - lists directories under an allowlisted base
++      - clicking a folder returns to /metrics/simpicker?abs_path=<folder>
++    """
++    try:
++        base = os.path.abspath(base)
++        if not any(base.startswith(p) for p in ALLOWLIST_PREFIXES) or not os.path.isdir(base):
++            base = "/data/sims"
++        # Build listing
++        items = []
++        with os.scandir(base) as it:
++            for e in it:
++                if e.is_dir():
++                    items.append({"name": e.name, "path": os.path.join(base, e.name)})
++        parent = os.path.dirname(base.rstrip(os.sep)) or base
++        ctx = {
++            "request": request,
++            "preview": None,
++            "availability": {"frames": [], "phases": [0]},
++            "error": None,
++            "abs_path": base,
++            "browse": {"base": base, "parent": parent, "items": items}
++        }
++        return templates.TemplateResponse("create_simpicker.html", ctx)
++    except Exception as ex:
++        return templates.TemplateResponse("create_simpicker.html", {
++            "request": request,
++            "preview": None,
++            "availability": {"frames": [], "phases": [0]},
++            "error": f"Browse error: {ex}",
++            "abs_path": base,
++            "browse": None
++        })

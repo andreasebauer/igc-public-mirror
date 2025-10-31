@@ -344,3 +344,67 @@ def insert_jobs_for_frames_like_frame(
         except Exception:
             cur.execute("ROLLBACK")
             raise
+
+# --- Metrics attach & seeding helpers ---
+def upsert_pathregistry_simroot(sim_id: int, abs_path: str):
+    """Store or refresh sim root path under key 'simroot:<sim_id>' in public.pathregistry."""
+    key = f"simroot:{sim_id}"
+    sql = """
+    INSERT INTO public.pathregistry(key, frametemplate)
+    VALUES (%s, %s)
+    ON CONFLICT (key) DO UPDATE SET frametemplate = EXCLUDED.frametemplate
+    """
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(sql, (key, abs_path))
+        conn.commit()
+
+def sim_exists(sim_id: int) -> bool:
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("SELECT 1 FROM public.simulations WHERE id=%s", (sim_id,))
+        return cur.fetchone() is not None
+
+def load_metric_catalog_grouped():
+    """Return [{id,name,metrics:[{id,name,description,outputs,requires,has_steps}]}] grouped by metgroup."""
+    q_groups = "SELECT id, name FROM public.metgroup ORDER BY id"
+    q_metrics = "SELECT m.id, m.name, m.description, m.outputtypes, m.group_id FROM public.metrics m ORDER BY m.group_id, m.id"
+    q_steps  = "SELECT DISTINCT met_id FROM public.metrics_steps"
+    q_req = """
+        SELECT mf.metricid, array_agg(DISTINCT f2.name ORDER BY f2.name) AS req
+        FROM public.metricfieldmatcher mf
+        JOIN public.fields f2 ON f2.id = mf.fieldid
+        GROUP BY mf.metricid
+    """
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute(q_groups); groups = cur.fetchall()
+        cur.execute(q_metrics); mets = cur.fetchall()
+        cur.execute(q_steps); steps = {r[0] for r in cur.fetchall()}
+        cur.execute(q_req); reqs  = {r[0]: r[1] for r in cur.fetchall()}
+    gm = {gid: {"id": gid, "name": gname, "metrics": []} for gid, gname in groups}
+    for mid, name, desc, outs, gid in mets:
+        gm.setdefault(gid, {"id": gid, "name": f"Group {gid}", "metrics": []})
+        gm[gid]["metrics"].append({
+            "id": mid,
+            "name": name,
+            "description": desc or "",
+            "outputs": (outs or "").split("|") if outs else [],
+            "requires": reqs.get(mid, []),
+            "has_steps": (mid in steps),
+        })
+    return [gm[k] for k in sorted(gm.keys())]
+
+def load_selected_metric_ids(sim_id: int):
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("SELECT metric_id FROM public.simmetricmatcher WHERE sim_id=%s ORDER BY metric_id", (sim_id,))
+        return [r[0] for r in cur.fetchall()]
+
+def overwrite_simmetricmatcher(sim_id: int, metric_ids: list[int]):
+    """Atomic overwrite: delete existing rows for sim_id, then insert new set."""
+    with _connect() as conn:
+        with conn.cursor() as cur:
+            cur.execute("DELETE FROM public.simmetricmatcher WHERE sim_id=%s", (sim_id,))
+            if metric_ids:
+                cur.executemany(
+                    "INSERT INTO public.simmetricmatcher(sim_id, metric_id) VALUES (%s, %s)",
+                    [(sim_id, mid) for mid in metric_ids]
+                )
+        conn.commit()

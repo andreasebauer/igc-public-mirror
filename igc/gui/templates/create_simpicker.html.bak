@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="wrap">
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
+
+    <!-- LEFT: BROWSE -->
+    
+    <div class="card" style="padding:16px;">
+      <h3>Pick a folder on the server</h3>
+      <p class="muted">Navigate to a folder that contains a <code>sim_meta.json</code>.</p>
+
+      <!-- Quick start locations -->
+      <form method="get" action="/metrics/simpicker" style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+        <label for="base" class="muted">Start at</label>
+        <select name="base" id="base">
+          <option value="/">/</option>
+          <option value="/data">/data</option>
+          <option value="/data/sims" {% raw %}{{ 'selected' if browse and browse.base == '/data/sims' else '' }}{% endraw %}>/data/sims</option>
+          <option value="/mnt">/mnt</option>
+        </select>
+        <button class="btn btn--sm" type="submit">Go</button>
+      </form>
+
+      <!-- Up one level -->
+      {% if browse and browse.base and browse.base != '/' %}
+        <a class="btn btn--sm" href="/metrics/simpicker?base={{ browse.parent }}">↑ Up one level</a>
+      {% endif %}
+
+      <!-- Folder list -->
+      <div class="stack" style="margin-top:8px;">
+        <div class="muted">Browsing: {{ browse.base if browse else '/' }}</div>
+        {% if browse and browse.dirs %}
+          <ul class="stack">
+            {% for d in browse.dirs %}
+              <li><a href="/metrics/simpicker?base={{ d.path|urlencode }}">{{ d.name }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="muted">This folder has no subfolders.</p>
+        {% endif %}
+      </div>
+
+      <!-- Select current folder -->
+      <div style="margin-top:12px;">
+        <a class="btn" href="/metrics/simpicker/validate?abs_path={{ browse.base|urlencode }}">Select this folder</a>
+      </div>
+    </div>
+    <div class="card" style="padding:16px;">
+      <h3>Selected&nbsp;Simulation</h3>
+      {% if preview %}
+        <div class="stack">
+          <div><b>ID</b>: {{ preview.sim_id }}</div>
+          <div><b>Name</b>: {{ preview.name }}</div>
+          <div><b>Grid</b>: {{ preview.gridx }}×{{ preview.gridy }}×{{ preview.gridz }}</div>
+          <div><b>Time</b>: t_max={{ preview.t_max }} · dt/At={{ preview.dt_per_at }}</div>
+          <div><b>Init</b>: ψ₀={{ preview.alpha }} · φτ={{ preview.phi_threshold }}</div>
+        </div>
+      {% else %}
+        <p class="muted">No selection yet. Use the left pane to choose a sim root.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- FOOTER BAR -->
+  <div class="actions" style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;border-top:1px solid #ddd;padding-top:12px;">
+    <a class="btn" href="/">← Back</a>
+    {% if preview %}
+      <a class="btn btn--primary" href="/metrics/select?sim_id={{ preview.sim_id }}&sim_root={{ browse.base|urlencode }}">Next →</a>
+    {% else %}
+      <button class="btn" disabled>Next</button>
+    </div>
+    {% endif %}
+  </div>
+
+</section>
+{% endblock %}

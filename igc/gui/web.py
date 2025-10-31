@@ -88,7 +88,7 @@ def sims_run(sim_id: int, ats: int = Form(1), save_first: Optional[bool]=Form(Fa
         raise HTTPException(status_code=400, detail=str(e))
     return RedirectResponse(url=f"/sims/id/{sim_id}", status_code=303)
 
-@app.get("/metrics/{sim_id}")
+@app.get("/metrics/{sim_id:int}")
 def metrics_select_page(request: Request, sim_id: int):
     run = describe_run(sim_id)
     if "error" in run:
@@ -149,3 +149,172 @@ try:
 except Exception as _e:
     # If templates is not defined here, ignore (some apps init elsewhere)
     pass
+
+# ========== Metrics: SimPicker & Select (new) =================================
+from igc.gui.services.simpicker_service import read_sim_meta
+from igc.ledger.core import (
+    upsert_pathregistry_simroot, sim_exists, load_metric_catalog_grouped,
+    load_selected_metric_ids, overwrite_simmetricmatcher
+)
+from igc.oe.core import seed_metric_jobs
+from fastapi import Form
+from fastapi.responses import RedirectResponse
+
+@app.get("/metrics/simpicker")
+def metrics_simpicker(request: Request, base: str = "/data/sims"):
+    """Render the server-side folder picker at the given base path."""
+    import os
+    base_abs = os.path.abspath(base) if base else "/"
+    if not os.path.isdir(base_abs):
+        base_abs = "/"
+    dirs = []
+    try:
+        for e in os.scandir(base_abs):
+            if e.is_dir():
+                dirs.append({"name": e.name, "path": os.path.join(base_abs, e.name)})
+    except Exception:
+        pass
+    dirs.sort(key=lambda d: d["name"].lower())
+    parent = os.path.dirname(base_abs.rstrip(os.sep)) or "/"
+    browse = {"base": base_abs, "parent": parent, "dirs": dirs}
+    return templates.TemplateResponse(
+        "create_simpicker.html",
+        {
+            "request": request,
+            "preview": None,
+            "availability": {"frames": [], "phases": [0]},
+            "error": None,
+            "browse": browse,
+        },
+    )
+
+# ------------------ File-browse allowlist + API for jsTree -------------------
+import os
+from urllib.parse import unquote
+
+# Only allow browsing under these absolute prefixes (no trailing slash required)
+ALLOWLIST_PREFIXES = ("/data/in", os.path.expanduser("~/igc"))
+
+def _canon_allowed(path: str) -> str | None:
+    """Return canonical absolute path if it's inside one of ALLOWLIST_PREFIXES, else None."""
+    if not path:
+        return None
+    p = os.path.abspath(os.path.expanduser(path))
+    # Normalize and ensure p is within allowed prefixes
+    for prefix in ALLOWLIST_PREFIXES:
+        pref = os.path.abspath(os.path.expanduser(prefix))
+        if p == pref or p.startswith(pref + os.sep):
+            return p
+    return None
+
+@app.get("/api/fs_tree")
+def api_fs_tree(parent: str = "/data/in"):
+    """
+    JSON endpoint for jsTree.
+    Returns list of nodes { id: path, text: name, children: bool } for immediate subdirs.
+    Only returns children for directories under ALLOWLIST_PREFIXES.
+    """
+    p = unquote(parent or "")
+    allowed = _canon_allowed(p)
+    if allowed is None:
+        # Try fallback to the first allowed prefix
+        allowed = os.path.abspath(ALLOWLIST_PREFIXES[0])
+    nodes = []
+    try:
+        with os.scandir(allowed) as it:
+            for e in it:
+                if e.is_dir():
+                    child_path = os.path.join(allowed, e.name)
+                    # children=True so jsTree will lazy-load
+                    nodes.append({"id": child_path, "text": e.name, "children": True})
+    except PermissionError:
+        pass
+    except FileNotFoundError:
+        pass
+    # sort by name
+    nodes.sort(key=lambda n: n["text"].lower())
+    return nodes
+
+@app.get("/metrics/simpicker/preview")
+def metrics_simpicker_preview(request: Request, abs_path: str):
+    """
+    Return only the preview partial to inject into the right pane.
+    abs_path must be within ALLOWLIST_PREFIXES.
+    """
+    p = unquote(abs_path or "")
+    allowed = _canon_allowed(p)
+    if allowed is None:
+        return templates.TemplateResponse("partials/preview_not_allowed.html", {"request": request, "path": p}, status_code=403)
+    # use the existing read_sim_meta service to parse sim_meta.json if present
+    try:
+        from igc.gui.services.simpicker_service import read_sim_meta
+        preview, availability = read_sim_meta(allowed)
+    except Exception as e:
+        preview, availability = None, {"frames": [], "phases": [0]}
+        error = str(e)
+        return templates.TemplateResponse("partials/preview_error.html", {"request": request, "error": error, "path": allowed})
+    return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": preview, "availability": availability, "browse": {"base": allowed}})
+
+# ------------------ Secure file-browse endpoints for jsTree -------------------
+import os
+from urllib.parse import unquote
+
+# Only allow browsing under these roots
+ALLOWED_FS_ROOTS = ("/data/in", os.path.expanduser("~/igc"))
+
+def _fs_is_allowed(path):
+    """Return canonical path if inside ALLOWED_FS_ROOTS, else None."""
+    if not path:
+        return None
+    p = os.path.abspath(os.path.expanduser(path))
+    for root in ALLOWED_FS_ROOTS:
+        r = os.path.abspath(os.path.expanduser(root))
+        if p == r or p.startswith(r + os.path.sep):
+            return p
+    return None
+
+@app.get("/api/fs_tree")
+def api_fs_tree(parent: str = "/data/in"):
+    """
+    JSON for jsTree: returns immediate subdirectories of 'parent' as nodes.
+    Example return: [{"id": "/data/in/A1", "text": "A1", "children": true}, ...]
+    """
+    p = unquote(parent or "")
+    base = _fs_is_allowed(p) or os.path.abspath(ALLOWED_FS_ROOTS[0])
+    nodes = []
+    try:
+        for entry in os.scandir(base):
+            if entry.is_dir(follow_symlinks=False):
+                child = os.path.join(base, entry.name)
+                nodes.append({"id": child, "text": entry.name, "children": True})
+    except Exception:
+        pass
+    nodes.sort(key=lambda n: n["text"].lower())
+    return nodes
+
+@app.get("/metrics/simpicker/preview")
+def metrics_simpicker_preview(abs_path: str):
+    """
+    Return right-pane preview HTML (partial). Reject paths outside allowlist.
+    """
+    p = unquote(abs_path or "")
+    allowed = _fs_is_allowed(p)
+    from fastapi import Request
+    if not allowed:
+        return templates.TemplateResponse(
+            "partials/preview_not_allowed.html",
+            {"request": Request, "path": p},
+            status_code=403,
+        )
+    # Use your existing helper to read sim_meta.json
+    try:
+        from igc.gui.services.simpicker import read_sim_meta as _read  # adjust if your module name differs
+    except Exception:
+        from igc.gui.services.simpicker_service import read_sim_meta as _read
+    try:
+        preview, availability = _read(allowed)
+        ctx = {"request": Request, "preview": preview, "availability": availability, "browse": {"base": allowed}}
+        return templates.snp  # we will switch to partials in the next step
+    except Exception as e:
+        ctx = {"request": Request, "error": str(e), "path": allowed}
+        return templates.TemplateResponse("partials/preview_error.html", ctx)

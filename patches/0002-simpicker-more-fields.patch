@@ -1,0 +1,76 @@
+*** a/igc/gui/templates/create_simpicker.html
+--- b/igc/gui/templates/create_simpicker.html
+@@
+       {% if preview %}
+         <div class="stack" style="margin-top:8px">
+           <div><b>sim_id</b>: {{ preview.sim_id }}</div>
+           <div><b>name</b>: {{ preview.name }} · <b>label</b>: {{ preview.label }}</div>
+           <div><b>grid</b>: {{ preview.gridx }}×{{ preview.gridy }}×{{ preview.gridz }}</div>
+           <div><b>t_max</b>: {{ preview.t_max }} · <b>stride</b>: {{ preview.stride }} · <b>substeps</b>: {{ preview.substeps_per_at }}</div>
+           <div><b>dx</b>: {{ preview.dx }} · <b>dt/At</b>: {{ preview.dt_per_at }}</div>
+           <div><b>frames</b>: {{ availability.frames|length }} · <b>phases</b>: {{ (availability.phases or [])|length }}</div>
+         </div>
++
++        <!-- Runtime parameters (only show what exists) -->
++        <div class="stack" style="margin-top:12px">
++          <h4 class="muted" style="margin:0">Runtime parameters</h4>
++          {% if preview.phi_threshold is not none or preview.gate_name %}
++          <div><b>Gating</b>:
++            {% if preview.phi_threshold is not none %}threshold {{ preview.phi_threshold }}{% endif %}
++            {% if preview.gate_name %} · gate {{ preview.gate_name }}{% endif %}
++          </div>
++          {% endif %}
++          {% if preview.d_psi is not none or preview.d_phi is not none or preview.d_eta is not none %}
++          <div><b>Diffusion</b>:
++            {% if preview.d_psi is not none %}dψ {{ preview.d_psi }}{% endif %}
++            {% if preview.d_phi is not none %} · dφ {{ preview.d_phi }}{% endif %}
++            {% if preview.d_eta is not none %} · dη {{ preview.d_eta }}{% endif %}
++          </div>
++          {% endif %}
++          {% if preview.c_psi_to_phi is not none or preview.c_phi_to_psi is not none or preview.c_psi_to_eta is not none
++                or preview.c_eta_to_phi is not none or preview.c_eta_to_psi is not none or preview.c_pi_to_eta is not none %}
++          <div><b>Couplings</b>:
++            {% if preview.c_psi_to_phi is not none %}cψ→φ {{ preview.c_psi_to_phi }}{% endif %}
++            {% if preview.c_phi_to_psi is not none %} · cφ→ψ {{ preview.c_phi_to_psi }}{% endif %}
++            {% if preview.c_psi_to_eta is not none %} · cψ→η {{ preview.c_psi_to_eta }}{% endif %}
++            {% if preview.c_eta_to_phi is not none %} · cη→φ {{ preview.c_eta_to_phi }}{% endif %}
++            {% if preview.c_eta_to_psi is not none %} · cη→ψ {{ preview.c_eta_to_psi }}{% endif %}
++            {% if preview.c_pi_to_eta is not none %} · cπ→η {{ preview.c_pi_to_eta }}{% endif %}
++          </div>
++          {% endif %}
++          {% if preview.lambda_psi is not none or preview.lambda_phi is not none or preview.lambda_eta is not none %}
++          <div><b>Decays</b>:
++            {% if preview.lambda_psi is not none %}λψ {{ preview.lambda_psi }}{% endif %}
++            {% if preview.lambda_phi is not none %} · λφ {{ preview.lambda_phi }}{% endif %}
++            {% if preview.lambda_eta is not none %} · λη {{ preview.lambda_eta }}{% endif %}
++          </div>
++          {% endif %}
++          {% if preview.seed_type or preview.seed_field or preview.seed_strength is not none
++                or preview.seed_sigma is not none or preview.seed_center or preview.seed_phase_a is not none
++                or preview.seed_phase_b is not none or preview.seed_repeat_at is not none %}
++          <div><b>Seed</b>:
++            {% if preview.seed_type %}{{ preview.seed_type }}{% endif %}
++            {% if preview.seed_field %} · field {{ preview.seed_field }}{% endif %}
++            {% if preview.seed_strength is not none %} · strength {{ preview.seed_strength }}{% endif %}
++            {% if preview.seed_sigma is not none %} · sigma {{ preview.seed_sigma }}{% endif %}
++            {% if preview.seed_center %} · center {{ preview.seed_center }}{% endif %}
++            {% if preview.seed_phase_a is not none %} · phase_a {{ preview.seed_phase_a }}{% endif %}
++            {% if preview.seed_phase_b is not none %} · phase_b {{ preview.seed_phase_b }}{% endif %}
++            {% if preview.seed_repeat_at is not none %} · repeat {{ preview.seed_repeat_at }}{% endif %}
++          </div>
++          {% endif %}
++          {% if preview.integrator or preview.save_policy or preview.every_n_frames or preview.checkpoint_interval %}
++          <div><b>Integrator/Save</b>:
++            {% if preview.integrator %}{{ preview.integrator }}{% endif %}
++            {% if preview.save_policy %} · {{ preview.save_policy }}{% endif %}
++            {% if preview.every_n_frames %} · every {{ preview.every_n_frames }}{% endif %}
++            {% if preview.checkpoint_interval %} · checkpoint {{ preview.checkpoint_interval }}{% endif %}
++          </div>
++          {% endif %}
++        </div>
+@@
+         <div class="actions" style="margin-top:12px">
+           <div class="actions-right">
+             <a class="btn btn--primary" href="/metrics/select?sim_id={{ preview.sim_id }}">Next</a>
+           </div>
+         </div>

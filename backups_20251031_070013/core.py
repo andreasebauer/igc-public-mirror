@@ -315,25 +315,3 @@ def run(*, sim_id: int) -> None:
 
     total_ms = int((perf_counter() - start_all) * 1000)
     print(f"[OE] ✅ run complete: {processed}/{total} jobs processed in {total_ms} ms")
-
-# --- GUI-facing seeding helper (idempotent) ---
-def seed_metric_jobs(sim_id: int, metric_ids: list[int], frames: list[int], phases: list[int]) -> int:
-    if not metric_ids or not frames or not phases:
-        return 0
-    tuples = [(sim_id, mid, fr, ph) for mid in metric_ids for fr in frames for ph in phases]
-    sql = """
-    INSERT INTO public.simmetjobs(simid, metricid, frame, phase, status, createdate)
-    SELECT %s, %s, %s, %s, 'queued', now()
-    WHERE NOT EXISTS (
-      SELECT 1 FROM public.simmetjobs j
-      WHERE j.simid=%s AND j.metricid=%s AND j.frame=%s AND j.phase=%s
-    )
-    """
-    inserted = 0
-    with _connect() as conn, conn.cursor() as cur:
-        for (sid, mid, fr, ph) in tuples:
-            cur.execute(sql, (sid, mid, fr, ph, sid, mid, fr, ph))
-            if cur.rowcount == 1:
-                inserted += 1
-        conn.commit()
-    return inserted

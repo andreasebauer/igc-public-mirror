@@ -17,7 +17,7 @@ def db_health() -> dict:
 def recent_sims(limit:int=50) -> list[dict]:
     with cx() as conn:
         return fetchall_dict(conn, """
-            select id, id as simid, label, name, gridx, gridy, gridz, status, createdate
+            select id, simid, label, name, gridx, gridy, gridz, status, createdate
             from simulations
             order by id desc
             limit %s
