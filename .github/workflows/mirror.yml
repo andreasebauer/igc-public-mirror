@@ -12,17 +12,44 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false   # disable default github-actions[bot] token
+          persist-credentials: false   # prevent github-actions[bot] creds
 
-      - name: Push to mirror
+      - name: Mirror to public
         env:
           OWNER: andreasebauer
           DEST_REPO: igc-public-mirror
-          TOKEN: ${{ secrets.MIRROR_TOKEN }}   # Fine-grained PAT with Contents: Read & Write on dest repo
+          TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
           set -euo pipefail
+
+          # 0) Basic sanity checks
+          if [ -z "${TOKEN:-}" ]; then
+            echo "::error::MIRROR_TOKEN is empty or not set in repo secrets"; exit 1
+          fi
+
+          # 1) Make sure no credential helper interferes
+          git config --global --unset-all credential.helper || true
+          git config --unset-all credential.helper || true
+
+          # 2) Force the remote to use PAT via x-access-token
+          git remote remove mirror 2>/dev/null || true
+          git remote add mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git"
+
+          echo "=== DEBUG: git remote -v ==="
+          git remote -v
+
+          # 3) Verify API access with the token (fine-grained PAT: 'Bearer' works best)
+          echo "=== DEBUG: API probe ==="
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            -H "Authorization: Bearer ${TOKEN}" \
+            "https://api.github.com/repos/${OWNER}/${DEST_REPO}" | tee /tmp/status.txt
+          if [ "$(cat /tmp/status.txt)" != "200" ]; then
+            echo "::error::Token cannot access ${OWNER}/${DEST_REPO} (expect 200). Check token repo access + 'Contents: Read and write'."; exit 1
+          fi
+
+          # 4) Identify as a bot-like user
           git config user.name  "Mirror Bot"
           git config user.email "mirror@users.noreply.github.com"
-          git remote add mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git" || \
-          git remote set-url mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git"
+
+          # 5) Push branches and tags
           git push --force --prune mirror +refs/heads/*:refs/heads/* +refs/tags/*:refs/tags/*
