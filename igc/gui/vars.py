@@ -27,7 +27,7 @@ class ContextKeys(BaseModel):
 
     sim: str = "sim"
 
-    sims: str = "sims"   # controllers pass list under this key
+    sims: str = "sims"   # controllers can pass list under this key
     mode: str = "mode"   # 'run' | 'edit' | 'sweep'
 
 class Vars(BaseModel):
