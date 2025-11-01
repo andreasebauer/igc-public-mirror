@@ -9,23 +9,20 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (full history)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false   # disable default github-actions[bot] token
 
-      - name: Configure Git
-        run: |
-          git config user.name  "IGC Mirror Bot"
-          git config user.email "mirror-bot@users.noreply.github.com"
-
-      - name: Push to public mirror (HTTPS)
+      - name: Push to mirror
         env:
+          OWNER: andreasebauer
           DEST_REPO: igc-public-mirror
-          OWNER: ${{ github.repository_owner }}
-          TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          TOKEN: ${{ secrets.MIRROR_TOKEN }}   # Fine-grained PAT with Contents: Read & Write on dest repo
         run: |
           set -euo pipefail
+          git config user.name  "Mirror Bot"
+          git config user.email "mirror@users.noreply.github.com"
           git remote add mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git" || \
           git remote set-url mirror "https://x-access-token:${TOKEN}@github.com/${OWNER}/${DEST_REPO}.git"
           git push --force --prune mirror +refs/heads/*:refs/heads/* +refs/tags/*:refs/tags/*
