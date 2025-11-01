@@ -161,7 +161,7 @@ from fastapi import Form
 from fastapi.responses import RedirectResponse
 
 @app.get("/metrics/simpicker")
-def metrics_simpicker(request: Request, base: str = "/data/simulations"):
+def metrics_simpicker(request: Request, base: str = "/data/sims"):
     """Render the server-side folder picker at the given base path."""
     import os
     base_abs = os.path.abspath(base) if base else "/"
@@ -222,7 +222,7 @@ def api_fs_tree(
     import os
 
     # Resolve raw -> absolute -> allowlisted
-    raw = base or parent or "/data/simulations"
+    raw = base or parent or "/data/in"
     raw = unquote(raw or "")
     # ALLOWLIST_PREFIXES and _canon_allowed must already exist in this module
     try:
@@ -271,10 +271,5 @@ def metrics_simpicker_preview(request: Request, path: str):
         }
         return templates.TemplateResponse("partials/preview.html", ctx)
     except Exception as e:
-        msg = str(e).lower()
-        # suppress UI when sim_meta.json is simply missing in a selected folder
-        if "sim_meta.json not found" in msg:
-            # render empty (no text) instead of an error box
-            return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": None, "availability": {"frames": [], "phases":[0]}, "browse":{"base": allowed}})
         ctx = {"request": request, "error": str(e), "path": allowed}
         return templates.TemplateResponse("partials/preview_error.html", ctx)

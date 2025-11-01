@@ -1,8 +1,5 @@
 <div>
-  <div class="meta-head"><strong>{{ preview.label }}</strong> · {{ preview.name }}</div>
-  <table class="kv">
-  {% for k, v in preview.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}
-  </table>
+  <h4>Selected Simulation</h4>
   {% if preview %}
     <div class="stack">
       <div><b>sim_id</b>: {{ preview.sim_id }}</div>
@@ -15,10 +12,3 @@
     <p class="muted">No <code>sim_meta.json</code> found in this folder.</p>
   {% endif %}
 </div>
-
-<style>
-  .meta-head{font-size:1rem;margin:.25rem 0 1rem 0;color:#111;}
-  table.kv{border-collapse:separate;border-spacing:0 6px;width:100%;}
-  .kv th{text-align:left;color:#444;font-weight:600;padding-right:12px;white-space:nowrap;}
-  .kv td{color:#111;}
-</style>

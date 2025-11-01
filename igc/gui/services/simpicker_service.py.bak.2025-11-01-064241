@@ -1,7 +1,7 @@
 import json, os
 from typing import Dict, Any, Tuple
 
-ALLOWLIST_PREFIXES = ("/data/simulations",)
+ALLOWLIST_PREFIXES = ("/data/in", "/data/sims", "/mnt", "/media")
 
 def _is_allowed_path(p: str) -> bool:
     try:

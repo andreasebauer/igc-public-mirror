@@ -271,10 +271,5 @@ def metrics_simpicker_preview(request: Request, path: str):
         }
         return templates.TemplateResponse("partials/preview.html", ctx)
     except Exception as e:
-        msg = str(e).lower()
-        # suppress UI when sim_meta.json is simply missing in a selected folder
-        if "sim_meta.json not found" in msg:
-            # render empty (no text) instead of an error box
-            return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": None, "availability": {"frames": [], "phases":[0]}, "browse":{"base": allowed}})
         ctx = {"request": request, "error": str(e), "path": allowed}
         return templates.TemplateResponse("partials/preview_error.html", ctx)

@@ -1,19 +1,113 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Metrics for {{sim.label}} (sim {{sim.id}})</h2>
-<form method="post" action="/metrics/{{sim.id}}/seed">
-  <fieldset>
+<header class="igc-header">
+  <h1>Select Metrics</h1>
+  <p class="igc-subtitle">{{ sim.label }} · sim {{ sim.id }}</p>
+</header>
+
+<form method="post" action="/metrics/{{ sim.id }}/seed" class="stack">
+  <!-- Frames -->
+  <fieldset class="igc-card">
     <legend>Frames</legend>
-    <label>Start <input name="frame_start" type="number" value="{{ frames[0] if frames else 0 }}"></label>
-    <label>End <input name="frame_end" type="number" value="{{ frames[-1] if frames else 0 }}"></label>
-    <label>Stride <input name="stride" type="number" value="1"></label>
+    <div class="row">
+      <label>Start <input name="frame_start" type="number" value="{{ frames[0] if frames else 0 }}"></label>
+      <label>End <input name="frame_end" type="number" value="{{ frames[-1] if frames else 0 }}"></label>
+      <label>Stride <input name="stride" type="number" value="1"></label>
+    </div>
   </fieldset>
-  <fieldset>
-    <legend>Metrics</legend>
-    {% for m in metrics %}
-      <label><input type="checkbox" name="metric_ids" value="{{m.metricid}}"> {{m.name}} — {{m.outputtypes}}</label><br/>
-    {% endfor %}
-  </fieldset>
-  <button type="submit">Seed Jobs</button>
+
+  <!-- Grouped metrics (preferred) -->
+  {% if groups %}
+    <section class="group-grid">
+      {% for g in groups %}
+        <div class="group-card igc-card">
+          <div class="group-head">
+            <h3>{{ g.label }}</h3>
+          </div>
+          <div class="group-body">
+            {% for m in g.metrics %}
+              <label class="metric-row">
+                <input type="checkbox" name="metric_ids" value="{{ m.id }}">
+                <span class="metric-name" tabindex="0" data-desc="{{ m.desc|e }}">{{ m.name }}</span>
+                {% if m.out %}<span class="muted">&nbsp;· {{ m.out }}</span>{% endif %}
+              </label>
+            {% endfor %}
+          </div>
+          <div class="group-foot">
+            <button type="button" class="btn small" data-action="select-all">Select all</button>
+            <button type="button" class="btn small" data-action="deselect-all">Deselect all</button>
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+  {% else %}
+    <!-- Flat fallback (legacy) -->
+    <fieldset class="igc-card">
+      <legend>Metrics</legend>
+      {% for m in metrics %}
+        <label class="metric-row">
+          <input type="checkbox" name="metric_ids" value="{{ m.metricid }}">
+          <span class="metric-name" tabindex="0" data-desc="{{ (m.description or '')|e }}">{{ m.name }}</span>
+          {% if m.outputtypes %}<span class="muted">&nbsp;· {{ m.outputtypes }}</span>{% endif %}
+        </label>
+      {% endfor %}
+    </fieldset>
+  {% endif %}
+
+  <footer class="igc-footer two-col">
+    <a class="btn" href="/metrics/sim_pick">Back</a>
+    <button class="btn primary" type="submit">Next</button>
+  </footer>
 </form>
+
+<!-- Local styles for group layout + tooltips -->
+<style>
+.group-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+}
+.group-card{ display:flex; flex-direction:column; }
+.group-head h3{ margin:0 0 .5rem 0; }
+.group-body{ display:flex; flex-direction:column; gap:.35rem; }
+.group-foot{ margin-top:.5rem; display:flex; gap:.5rem; justify-content:flex-end; }
+.metric-row{ display:flex; align-items:center; gap:.5rem; }
+.metric-name{ position:relative; cursor:help; outline:none; }
+.metric-name::after{
+  content: attr(data-desc);
+  position:absolute; left:0; top:1.6em; z-index:10;
+  max-width: 380px; min-width: 240px;
+  background: rgba(0,0,0,.85); color:#fff;
+  padding:.5rem .65rem; border-radius:.5rem; font-size:.85rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  opacity:0; transform: translateY(-4px);
+  pointer-events:none; transition: opacity .12s ease, transform .12s ease;
+  white-space: pre-wrap;
+}
+.metric-name:focus::after,
+.metric-name:hover::after,
+.metric-name.tooltip-show::after{
+  opacity:1; transform: translateY(0);
+  pointer-events:auto;
+}
+</style>
+
+<!-- Tiny JS: group toggles + click-to-toggle tooltip -->
+<script>
+document.addEventListener('click', function(e){
+  const t = e.target;
+  if (t.matches('[data-action="select-all"]')){
+    const card = t.closest('.group-card');
+    card && card.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+  }
+  if (t.matches('[data-action="deselect-all"]')){
+    const card = t.closest('.group-card');
+    card && card.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+  }
+  if (t.classList && t.classList.contains('metric-name')){
+    t.classList.toggle('tooltip-show');
+  } else {
+    document.querySelectorAll('.metric-name.tooltip-show').forEach(el => el.classList.remove('tooltip-show'));
+  }
+}, false);
+</script>
 {% endblock %}

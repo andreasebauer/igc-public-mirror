@@ -161,7 +161,7 @@ from fastapi import Form
 from fastapi.responses import RedirectResponse
 
 @app.get("/metrics/simpicker")
-def metrics_simpicker(request: Request, base: str = "/data/simulations"):
+def metrics_simpicker(request: Request, base: str = "/data/sims"):
     """Render the server-side folder picker at the given base path."""
     import os
     base_abs = os.path.abspath(base) if base else "/"
@@ -193,7 +193,7 @@ import os
 from urllib.parse import unquote
 
 # Only allow browsing under these absolute prefixes (no trailing slash required)
-ALLOWLIST_PREFIXES = ("/data/simulations",)
+ALLOWLIST_PREFIXES = ("/data/in", os.path.expanduser("~/igc"))
 
 def _canon_allowed(path: str) -> str | None:
     """Return canonical absolute path if it's inside one of ALLOWLIST_PREFIXES, else None."""
@@ -207,74 +207,63 @@ def _canon_allowed(path: str) -> str | None:
             return p
     return None
 
-
 @app.get("/api/fs_tree")
-def api_fs_tree(
-    base: str | None = Query(default=None),
-    parent: str | None = Query(default=None),
-):
+def api_fs_tree(base: str = Query(default=None), parent: str = Query(default=None)):
+    p = (base or p or "/data/in")
     """
-    JSON for jsTree: returns immediate subdirectories of the requested root.
-    Accepts either ?base= or ?parent=. Falls back to the first allowed root.
-    Example return: [{"id": "/data/in/A1", "text": "A1", "children": true}, ...]
+    JSON endpoint for jsTree.
+    Returns list of nodes { id: path, text: name, children: bool } for immediate subdirs.
+    Only returns children for directories under ALLOWLIST_PREFIXES.
     """
-    from urllib.parse import unquote
-    import os
-
-    # Resolve raw -> absolute -> allowlisted
-    raw = base or parent or "/data/simulations"
-    raw = unquote(raw or "")
-    # ALLOWLIST_PREFIXES and _canon_allowed must already exist in this module
-    try:
-        allowed = _canon_allowed(raw) or os.path.abspath(ALLOWLIST_PREFIXES[0])
-    except NameError:
-        # Fallback: basic allow under /data/in
-        roots = ("/data/in",)
-        p = os.path.abspath(os.path.expanduser(raw))
-        allowed = p if any(p == r or p.startswith(r + os.path.sep) for r in roots) else roots[0]
-
+    p = unquote(p or "")
+    allowed = _canon_allowed(p)
+    if allowed is None:
+        # Try fallback to the first allowed prefix
+        allowed = os.path.abspath(ALLOWLIST_PREFIXES[0])
     nodes = []
     try:
-        for entry in os.scandir(allowed):
-            if entry.is_dir(follow_symlinks=False):
-                child = os.path.join(allowed, entry.name)
-                nodes.append({"id": child, "text": entry.name, "children": True})
-    except Exception:
+        with os.scandir(allowed) as it:
+            for e in it:
+                if e.is_dir():
+                    child_path = os.path.join(allowed, e.name)
+                    # children=True so jsTree will lazy-load
+                    nodes.append({"id": child_path, "text": e.name, "children": True})
+    except PermissionError:
         pass
-
+    except FileNotFoundError:
+        pass
+    # sort by name
     nodes.sort(key=lambda n: n["text"].lower())
     return nodes
 
-# ----------  Preview partial (metrics/simpicker/preview) -----------------------
-@app.get("/metrics/simpicker/preview")
-def metrics_simpicker_preview(request: Request, path: str):
-    """
-    Serve the right-pane preview for the selected simulation folder.
-    Accepts ?path= (absolute folder path). Reads sim_meta.json inside that folder.
-    """
-    from igc.gui.services.simpicker_service import read_sim_meta
 
-    allowed = _canon_allowed(path)
-    if allowed is None:
-        return templates.TemplateResponse(
-            "partials/preview_not_allowed.html",
-            {"request": request, "path": path},
-            status_code=403,
-        )
+@app.get("/api/fs_tree")
+def api_fs_tree(p: str = "/data/in"):
+    """
+    JSON for jsTree: returns immediate subdirectories of 'p' as nodes.
+    Example return: [{"id": "/data/in/A1", "text": "A1", "children": true}, ...]
+    """
+    p = unquote(p or "")
+    base = _fs_is_allowed(p) or os.path.abspath(ALLOWED_FS_ROOTS[0])
+    nodes = []
     try:
-        preview, availability = read_sim_meta(allowed)
-        ctx = {
-            "request": request,
-            "preview": preview,
-            "availability": availability,
-            "browse": {"base": allowed},
-        }
+        for entry in os.scandir(base):
+            if entry.is_dir(follow_symlinks=False):
+                child = os.path.join(base, entry.name)
+                nodes.append({"id": child, "text": entry.name, "children": True})
+    except Exception:
+        pass
+    nodes.sort(key=lambda n: n["text"].lower())
+    return nodes
+
+@app.get("/metrics/simpicker/preview")
+def metrics_simpicker_preview(request: Request, abs_path: str = Query(alias="path")):
+    """Return right-pane preview partial. Path allowlist is enforced by the service."""
+    try:
+        from igc.gui.services.simpicker_service import read_sim_meta as _read
+        preview, availability = _read(abs_path)
+        ctx = {"request": request, "preview": preview, "availability": availability, "browse": {"base": abs_path}}
         return templates.TemplateResponse("partials/preview.html", ctx)
     except Exception as e:
-        msg = str(e).lower()
-        # suppress UI when sim_meta.json is simply missing in a selected folder
-        if "sim_meta.json not found" in msg:
-            # render empty (no text) instead of an error box
-            return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": None, "availability": {"frames": [], "phases":[0]}, "browse":{"base": allowed}})
-        ctx = {"request": request, "error": str(e), "path": allowed}
+        ctx = {"request": request, "error": str(e), "path": abs_path}
         return templates.TemplateResponse("partials/preview_error.html", ctx)

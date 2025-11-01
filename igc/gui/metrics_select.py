@@ -1,9 +1,13 @@
 from __future__ import annotations
-from typing import Sequence
+from typing import Sequence, Dict, List
 from datetime import datetime
 from igc.db.pg import cx, fetchall_dict, execute
 
-def list_metrics_for_sim(sim_id:int) -> list[dict]:
+def list_metrics_for_sim(sim_id: int) -> list[dict]:
+    """
+    Legacy flat loader: metrics bound to a sim via simmetricgroupmatcher.
+    Kept for backward compatibility / fallback rendering.
+    """
     with cx() as conn:
         return fetchall_dict(conn, """
           select distinct m.id as metricid, m.name, m.description, m.outputtypes
@@ -13,19 +17,64 @@ def list_metrics_for_sim(sim_id:int) -> list[dict]:
           order by m.name
         """, (sim_id,))
 
-def validate_selection(metric_ids:Sequence[int]) -> list[str]:
-    if not metric_ids: return ["no metrics selected"]
+def list_metrics_grouped() -> List[Dict]:
+    """
+    Load metrics grouped (6 groups) using the DB view `metrics_group`.
+    Expected columns:
+      - group_label
+      - id            (metric id)
+      - name
+      - description
+      - outputtypes
+    Returns:
+      [
+        { "label": <group>,
+          "metrics": [
+            {"id":..,"name":..,"desc":..,"out":..}, ...
+          ]
+        }, ...
+      ]
+    """
     with cx() as conn:
-        rows = fetchall_dict(conn, "select id from metrics where id = any(%s)", (list(metric_ids),))
-    found = {r["id"] for r in rows}
-    missing = [str(mid) for mid in metric_ids if mid not in found]
-    return [f"unknown metric id: {', '.join(missing)}"] if missing else []
+        rows = fetchall_dict(conn, """
+          select group_label, id, name, description, outputtypes
+          from metrics_group
+          order by group_label, name
+        """)
+    groups: Dict[str, Dict] = {}
+    for r in rows:
+        glabel = r["group_label"]
+        g = groups.get(glabel)
+        if not g:
+            g = {"label": glabel, "metrics": []}
+            groups[glabel] = g
+        g["metrics"].append({
+            "id":   r["id"],
+            "name": r["name"],
+            "desc": r.get("description") or "",
+            "out":  r.get("outputtypes") or ""
+        })
+    return [groups[k] for k in sorted(groups.keys())]
 
-def seed_jobs_for_frames(sim_id:int, metric_ids:Sequence[int], frames:Sequence[int]) -> int:
-    if not frames or not metric_ids: return 0
+def validate_selection(metric_ids: Sequence[int]) -> list[str]:
+    """
+    Validate that at least one metric is selected.
+    """
+    if not metric_ids:
+        return ["No metrics selected."]
+    return []
+
+def seed_jobs_for_frames(sim_id: int, metric_ids: Sequence[int], frames: Sequence[int]) -> int:
+    """
+    Create metric jobs (one per metric × frame).
+    Uses group_id from simmetricgroupmatcher for (sim, metric).
+    Keeps original insert and unique index semantics.
+    """
+    if not frames or not metric_ids:
+        return 0
     with cx() as conn:
         execute(conn, "create unique index if not exists simmetricjobs_unique on simmetricjobs(simid,metricid,frame)")
-        count=0
+        count = 0
         for mid in metric_ids:
             for f in frames:
                 execute(conn, """

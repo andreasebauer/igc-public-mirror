@@ -1,8 +1,5 @@
-{% if "sim_meta.json not found" not in error|lower %}
 <div>
   <h4>Selected Simulation — Error</h4>
   <p class="warn">Could not read <code>sim_meta.json</code> at {{ path }}:</p>
   <pre style="font-size:0.85em">{{ error }}</pre>
 </div>
-
-{ 0.000000e+00ndif {% endif %}

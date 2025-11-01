@@ -10,8 +10,8 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
     <!-- LEFT: jsTree file browser -->
     <div class="frame p-3">
-      <h3>Browse Simulations</h3>
-      <p class="muted">Select a simulation from disk. If it is not listed, you will have to run it first.</p>
+      <h3>Browse server</h3>
+      <p class="muted">Click a folder under the allowed roots to preview its <code>sim_meta.json</code>.</p>
       <div id="folder-tree"></div>
     </div>
 
