@@ -16,6 +16,21 @@ from igc.gui.run_monitor import list_active_jobs, job_detail, requeue_job, cance
 from igc.gui.sim_flow import router as sim_router
 
 app = FastAPI(title="IGC GUI")
+# Apple touch icons (served from igc/gui/static/)
+
+_STATIC_DIR = Path(__file__).resolve().parent / "static"
+
+@app.get("/apple-touch-icon.png", include_in_schema=False)
+
+def apple_touch_icon():
+
+    return FileResponse(_STATIC_DIR / "apple-touch-icon.png", media_type="image/png", headers={"Cache-Control": "public, max-age=604800"})
+
+@app.get("/apple-touch-icon-precomposed.png", include_in_schema=False)
+
+def apple_touch_icon_precomposed():
+
+    return FileResponse(_STATIC_DIR / "apple-touch-icon-precomposed.png", media_type="image/png", headers={"Cache-Control": "public, max-age=604800"})
 BASE_DIR = Path(__file__).parent
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 # expose registry in templates
@@ -181,7 +196,7 @@ def metrics_simpicker(request: Request, base: str = "/data/simulations"):
         "create_simpicker.html",
         {
             "request": request,
-            "preview": None,
+            "preview": {},
             "availability": {"frames": [], "phases": [0]},
             "error": None,
             "browse": browse,
@@ -275,6 +290,6 @@ def metrics_simpicker_preview(request: Request, path: str):
         # suppress UI when sim_meta.json is simply missing in a selected folder
         if "sim_meta.json not found" in msg:
             # render empty (no text) instead of an error box
-            return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": None, "availability": {"frames": [], "phases":[0]}, "browse":{"base": allowed}})
+            return templates.TemplateResponse("partials/preview.html", {"request": request, "preview": {}, "availability": {"frames": [], "phases":[0]}, "browse":{"base": allowed}})
         ctx = {"request": request, "error": str(e), "path": allowed}
         return templates.TemplateResponse("partials/preview_error.html", ctx)

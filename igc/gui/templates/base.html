@@ -6,11 +6,11 @@
   <link rel="stylesheet" href="/static/style.css"/>
 </head>
 <body>
-<header>
-  <h1>IGC GUI</h1>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
+<header class="card">
+  <a href="/" class="brand">
+    <img src="/static/igc_logo.png" alt="IGC" width="120" height="32"/>
+    <span class="brand-title">Infinity Grid Decoder</span>
+  </a>
 </header>
 <main>
   {% block content %}{% endblock %}

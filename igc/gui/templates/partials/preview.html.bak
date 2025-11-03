@@ -3,7 +3,15 @@
   <table class="kv">
   {% for k, v in preview.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}
   </table>
-  {% if not preview %}
+  {% if preview %}
+    <div class="stack">
+      <div><b>sim_id</b>: {{ preview.sim_id }}</div>
+      <div><b>name</b>: {{ preview.name }}{% if preview.label %} · <b>label</b>: {{ preview.label }}{% endif %}</div>
+      <div><b>grid</b>: {{ preview.gridx }}×{{ preview.gridy }}×{{ preview.gridz }}</div>
+      <div><b>t_max</b>: {{ preview.t_max }} · <b>stride</b>: {{ preview.stride }} · <b>substeps</b>: {{ preview.substeps_per_at }}</div>
+      <div><b>dx</b>: {{ preview.dx }} · <b>dt/At</b>: {{ preview.dt_per_at }}</div>
+    </div>
+  {% else %}
     <p class="muted">No simulation found in this folder.</p>
   {% endif %}
 </div>

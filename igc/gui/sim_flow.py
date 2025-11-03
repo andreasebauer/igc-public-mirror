@@ -118,6 +118,7 @@ def sim_confirm_get(request: Request,
         sweep = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
     return templates.TemplateResponse("sim_confirm.html", {"request": request, "mode": mode, "sim_id": sim_id,
         "overrides": overrides, "sweep": sweep
+        , "fields": fields
     , "sim": sim})
 
 @router.post("/confirm")

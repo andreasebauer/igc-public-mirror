@@ -29,17 +29,21 @@ def read_sim_meta(abs_path: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     _lbl = meta.get("label") or meta.get("sim.label")
     _desc= meta.get("description") or meta.get("sim.description")
 
-    # normalize label/description/id for display but include full meta
-    _id  = meta.get("id") or meta.get("sim.id") or meta.get("sim_id")
-    _lbl = meta.get("label") or meta.get("sim.label")
-    _desc= meta.get("description") or meta.get("sim.description")
-
-    if _id is not None: meta["id"] = _id
-    if _lbl is not None: meta["label"] = _lbl
-    if _desc is not None: meta["description"] = _desc
-
-    # expose full meta to preview
-    preview = meta
+    preview = {
+        "id": _id,
+        "label": _lbl,
+        "description": _desc,
+        "sim_id": meta.get("sim_id"),
+        "name": meta.get("name"),
+        "gridx": meta.get("gridx"),
+        "gridy": meta.get("gridy"),
+        "gridz": meta.get("gridz"),
+        "t_max": meta.get("t_max"),
+        "stride": meta.get("stride"),
+        "substeps_per_at": meta.get("substeps_per_at"),
+        "dx": meta.get("dx"),
+        "dt_per_at": meta.get("dt_per_at"),
+    }
 
     frames = set()
     phases = set()

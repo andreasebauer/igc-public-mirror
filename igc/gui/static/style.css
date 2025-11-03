@@ -225,3 +225,147 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 }
 /* ============================================================================ */
 /* =============== */
+
+/* === Header brand (logo + title) ===================================== */
+header.card .brand{
+  display:inline-flex; align-items:center; gap:12px;
+  text-decoration:none; color:inherit;
+}
+header.card .brand img{ display:block; height:32px; width:auto; }
+header.card .brand .brand-title{ font-size:20px; font-weight:700; letter-spacing:.2px; }
+
+/* === Entry page spacing ============================================== */
+main.card, section.card { margin-top: 16px; margin-bottom: 16px; }
+footer.card { margin-top: 20px; margin-bottom: 32px; }
+
+
+
+/* === Global footer card layout (consistent across all pages) ========= */
+footer.card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px;        /* small, even gap top/bottom (12), sides (16) */
+  box-sizing: border-box;
+}
+
+footer.card .actions {
+  display: flex;             /* no grid; simple row */
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;                 /* kill any inherited top margin */
+}
+
+footer.card .actions .btn {
+  width: auto;               /* no 50% stretch in footers */
+  margin: 0;                 /* no extra top margin */
+  /* The size comes from .btn--lg (min-height: 48px, padding-inline: 18px), matching main buttons */
+}
+
+/* Footer buttons should be auto width (match main buttons) */
+footer.card .actions-left .btn,
+footer.card .actions-right .btn { width: auto; }
+@media (max-width: 640px){
+  footer.card .actions-left .btn,
+  footer.card .actions-right .btn { width: auto; margin-top: 0; }
+}
+
+/* Footer buttons: same width as main action buttons (50%), responsive to 100% */
+footer.card .actions-left .btn,
+footer.card .actions-right .btn { width: 50% !important; }
+@media (max-width: 640px){
+  footer.card .actions-left .btn,
+  footer.card .actions-right .btn { width: 100% !important; }
+}
+
+/* === Footer: use same two-column layout as main and 50% buttons ======= */
+footer.card .actions{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  align-items: center;
+  margin: 0; /* no extra top margin */
+}
+footer.card .actions-left .btn{
+  width: 50% !important;
+  justify-self: start;
+}
+footer.card .actions-right .btn{
+  width: 50% !important;
+  justify-self: end;
+}
+
+/* === Global: unify card padding across the app (match footer gap) ===== */
+.card { padding: 6px !important; box-sizing: border-box; }
+
+/* Top-align right pane: kill first <p> top margin in matrix cards */
+.matrix .card > div > p:first-child { margin-top: 0; }
+
+/* === Choice buttons (normal vs selected) ============================== */
+.btn-choice {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-choice.selected {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* Matrix row explicit columns for non-button panes */
+.matrix .card > .left  { grid-column: 1; justify-self: start; }
+.matrix .card > .right { grid-column: 2; align-self: start; }
+
+/* Label above dropdown, left-aligned */
+.igc-label {
+  display: block;
+  text-align: left;
+  margin: 0 0 6px 0;
+  font-weight: 600;
+}
+
+/* === sim_edit: form grid readability ================================== */
+/* Apply wherever a .matrix/.card structure is used for form-like rows. */
+
+/* Row rhythm: consistent compact vertical spacing between rows */
+.matrix .card--action + .card--action { margin-top: 8px; }
+
+/* Left cell with inline label+input: define stable widths and top alignment */
+.igc-inline{
+  display:flex; align-items:flex-start; gap:12px;
+  max-width: 100%;
+}
+.igc-name{
+  min-width: 180px; max-width: 220px; /* fixed label column */
+  flex: 0 0 auto; font-weight:600; margin:0;
+}
+.igc-input{
+  flex: 1 1 auto; min-width: 0;
+  padding: 10px; border: 1px solid var(--border); border-radius: 10px;
+}
+
+/* Right help text: top align and soften */
+.igc-desc-text{ margin:0; color:#444; line-height:1.25 }
+
+/* === sim_edit (run): two-column form grid ============================ */
+/* one row per field: left = label+input inline, right = help text */
+.igc-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;      /* left column (input), right column (help) */
+  column-gap: 28px;
+  row-gap: 10px;
+  align-items: start;                   /* top align both sides */
+}
+
+/* left cell: label + input inline, label fixed width, input fills rest */
+.igc-inline{ display: flex; align-items: flex-start; gap: 12px; }
+.igc-name  { min-width: 200px; max-width: 220px; font-weight: 600; margin: 0; }
+.igc-input { flex: 1 1 auto; min-width: 0; padding: 10px;
+             border: 1px solid var(--border); border-radius: 10px; }
+
+/* right help: top-aligned, tighter line height */
+.igc-desc-text{ margin: 0; color: #444; line-height: 1.25; }

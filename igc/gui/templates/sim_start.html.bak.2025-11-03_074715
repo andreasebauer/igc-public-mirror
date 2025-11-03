@@ -11,6 +11,7 @@
       <div class="card card--action">
         <a href="#" class="btn btn--lg btn-choice" data-action="run">Run Simulation</a>
         <div>
+          <h3>Run Simulation</h3>
           <p>Select an existing simulation and launch it (→ <em>sim_select</em>, <code>?mode=run</code>).</p>
         </div>
       </div>
@@ -19,23 +20,28 @@
       <div class="card card--action">
         <a href="#" class="btn btn--lg btn-choice" data-action="new">New Simulation</a>
         <div>
+          <h3>New Simulation</h3>
           <p>Create a fresh simulation (→ <em>sim_edit_get</em>, <code>?mode=create</code>).</p>
-          </div>
+        </div>
       </div>
 
       <!-- Row 3: Edit -->
       <div class="card card--action">
         <a href="#" class="btn btn--lg btn-choice" data-action="edit">Edit Simulation</a>
         <div>
+          <h3>Edit Simulation</h3>
           <p>Pick a saved simulation and change its fields (→ <em>sim_select</em>, <code>?mode=edit</code>).</p>
+        </div>
       </div>
 
       <!-- Row 4: Sweep -->
       <div class="card card--action">
         <a href="#" class="btn btn--lg btn-choice" data-action="sweep">Sweep Simulation</a>
         <div>
+          <h3>Sweep Simulation</h3>
           <p>Choose a base sim, then define parameter ranges (→ <em>sim_select</em>, <code>?mode=sweep</code>).</p>
         </div>
+      </div>
 
     </div>
   </section>
@@ -84,5 +90,4 @@
     });
   });
 </script>
-
 {% endblock %}

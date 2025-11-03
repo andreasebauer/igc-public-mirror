@@ -2,13 +2,9 @@
 {% block title %}Edit · Simulation{% endblock %}
 {% block content %}
 <section class="igc-page">
-  <!-- HEADER -->
-  <header class="igc-header">
-    <h1 class="igc-title">Edit Simulation</h1>
-    <p class="igc-subtitle">Mode: <strong>{{ mode|default('run') }}</strong></p>
-  </header>
 
   <!-- MAIN: framed block; each DB column is one row (left: label+input inline; right: short help) -->
+  <section class="card">
   <main class="igc-main igc-card">
   <form id="simForm" method="post" action="{{ request.url_for('sim_edit_apply') }}" novalidate>
     <input type="hidden" name="mode" value="{{ mode }}">
@@ -110,44 +106,24 @@
       {% endfor %}
     {% endif %}
     </form>
+  </section>
 </main>
 
   <!-- FOOTER: framed two-column block (Back / Next) -->
-  <footer class="igc-footer two-col">
-  <div class="igc-col igc-col--left">
-    <a class="btn btn-outline btn-lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
-  </div>
-  <div class="igc-col igc-col--right igc-align-end">
-      <button id="nextBtn" type="submit" class="btn btn-primary btn-lg">Next</button>
+  <!-- FOOTER: framed, two-column actions (Back | Next) -->
+  <footer class="card">
+    <div class="actions">
+      <div class="actions-left">
+        <a class="btn btn--outline btn--lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
+      </div>
+      <div class="actions-right">
+        <a id="nextBtn" class="btn btn--primary btn--lg">Next</a>
+      </div>
     </div>
-</footer>
+  </footer>
 </form>
 </section>
 
-<style>
-  :root{ --ink:#0f172a; --ink-2:#334155; --bg:#fff; --line:#e2e8f0; --btn:#0f172a; --btn-ink:#fff; --radius:12px; }
-  .igc-page{display:flex;flex-direction:column;gap:16px;padding:20px;background:#fff;color:var(--ink);}
-  .igc-header{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
-  .igc-title{margin:0;font-size:1.375rem;line-height:1.2}
-  .igc-subtitle{margin:.25rem 0 0;color:var(--ink-2)}
-  .igc-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
-  .igc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;margin:10px 0}
-  .igc-cell{min-width:0}
-  /* left cell: label + input inline on one row */
-  .igc-inline{display:flex;align-items:center;gap:12px}
-  .igc-name{min-width:200px;font-weight:600;margin:0}
-  .igc-input{flex:1 1 auto;min-width:0;padding:10px;border:1px solid var(--line);border-radius:10px}
-  .igc-desc-text{margin:0;color:var(--ink-2)}
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .igc-footer{align-items:center}
-  .igc-align-end{display:flex;justify-content:flex-end}
-
-  /* Force footer buttons to be readable even if global CSS overrides */
-  .igc-footer .btn { color: var(--ink) !important; border-color: var(--ink) !important; }
-  .igc-footer .btn-primary { background: #0f172a !important; color: #ffffff !important; border-color: #0f172a !important; }
-  .igc-footer .btn-outline  { background: #ffffff !important; color: #0f172a !important; border-color: #0f172a !important; }
-
-</style>
 <script id="simFormSubmitHelper">
   (function(){
     var f=document.getElementById("simForm");

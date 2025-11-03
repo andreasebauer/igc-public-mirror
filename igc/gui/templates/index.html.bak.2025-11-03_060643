@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Please select what you want to do</h2>
+<div style="margin:16px 0">
+  <form action="/sims/start" method="get" style="display:inline">
+    <button type="submit">Start or Resume Sims</button>
+  </form>
+  <form action="/metrics/simpicker" method="get" style="display:inline;margin-left:12px">
+    <button type="submit">Start or Resume Metrics</button>
+  </form>
+</div>
+{% endblock %}
