@@ -1,4 +1,4 @@
-<div>
+<div data-sim-id="{{ preview.id }}" data-sim-label="{{ preview.label }}" data-sim-name="{{ preview.name }}">
   <div class="meta-head"><strong>{{ preview.label }}</strong> · {{ preview.name }}</div>
   <table class="kv">
   {% for k, v in preview.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}

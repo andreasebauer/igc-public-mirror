@@ -20,11 +20,11 @@
               {% if m.id in assigned_metric_ids %}{% set _ = pre.append(m.id) %}{% endif %}
             {% endfor %}
 
-            \1
-    <div class="mini-ctrl" style="margin-top:6px; display:flex; gap:6px;">
-      <button class="btn small" type="button" data-move-one="right" data-group="{{ g.id }}">→</button>
-      <button class="btn small" type="button" data-move-one="left"  data-group="{{ g.id }}">←</button>
-    </div>
+            <vaadin-dual-list-box
+              class="metric-transfer" data-group="{{ g.id }}"
+              data-items='{{ items | tojson }}'
+              data-selected='{{ pre | tojson }}'>
+            </vaadin-dual-list-box>
           </div>
           <div class="group-foot">
             <button class="btn small" type="button" data-action="select-all">Select all</button>
@@ -36,29 +36,12 @@
   </form>
 {% endblock %}
 
-
 {% block main_right %}
-  <div class="stack">
-  {% for g in groups %}
-    <section class="card summary-card" id="summary-{{ g.id }}">
-      <h3>{{ g.name }} <span class="muted">(<span class="cnt">
-        {{
-          metrics_by_group.get(g.id, [])
-            | selectattr('id', 'in', assigned_metric_ids)
-            | list
-            | length
-        }}
-      </span>)</span></h3>
-      <ul class="stack sel-list">
-        {% for m in metrics_by_group.get(g.id, []) if m.id in assigned_metric_ids %}
-          <li data-id="{{ m.id }}">{{ m.name }}</li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endfor %}
+  <div class="frame p-3">
+    <h3>Selection</h3>
+    <p class="muted">You’ll confirm selected metrics on the next page.</p>
   </div>
 {% endblock %}
-
 
 {% block page_js %}
 
@@ -69,23 +52,6 @@
 (function(){
   class VDualListBox extends HTMLElement {
     constructor(){ super();  this._items=[]; this._selected=[]; }
-    
-    moveRightSelected(){
-      const left = this.querySelector('.left'); if(!left) return;
-      const sel = [...left.selectedOptions].map(o=>String(o.value));
-      if(!sel.length) return;
-      const add = new Set(sel);
-      const before = new Set((this._selected||[]).map(it=>String(it.value)));
-      (this._items||[]).forEach(it=>{ if(add.has(String(it.value)) && !before.has(String(it.value))) (this._selected||[]).push(it); });
-      this._render(); this._emit();
-    }
-    moveLeftSelected(){
-      const right = this.querySelector('.right'); if(!right) return;
-      const rem = new Set([...right.selectedOptions].map(o=>String(o.value)));
-      if(!rem.size) return;
-      this._selected = (this._selected||[]).filter(it=>!rem.has(String(it.value)));
-      this._render(); this._emit();
-    }
     get items(){ return this._items; }
     set items(arr){
       this._items = Array.isArray(arr) ? arr.map(it => ({value:String(it.value), label:String(it.label)})) : [];
@@ -161,38 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return n;
   }
   function updateNext(){
-  function changedSelection(){
-  let changed=false;
-  document.querySelectorAll('vaadin-dual-list-box.metric-transfer').forEach(lb=>{
-    const now = new Set((lb.selectedItems||[]).map(it=>String(it.value)));
-    const base = lb._baseline || new Set();
-    if (now.size !== base.size) { changed=true; return; }
-    for (const v of now){ if (!base.has(v)){ changed=true; break; } }
-  });
-  return changed;
-}
-
-function updateSummary(){
-    // for each group card: find its list component and mirror the selection
-    document.querySelectorAll('section.summary-card').forEach(card => {
-      const gid = card.id.replace('summary-','');
-      const lb  = document.querySelector("vaadin-dual-list-box.metric-transfer[data-group='" + gid + "']");
-      if (!lb) return;
-      const sel = (lb.selectedItems || []);
-      // update count
-      const cntEl = card.querySelector('.cnt');
-      if (cntEl) cntEl.textContent = String(sel.length);
-      // update list
-      const ul = card.querySelector('.sel-list');
-      if (ul) {
-        ul.innerHTML = sel.map(it => '<li data-id="'+ it.value +'">'+ it.label +'</li>').join('');
-      }
-    });
-  }
-
     const nextLink = document.querySelector(".actions-right a");
     if (!nextLink) return;
-    const has = totalSelected() > 0 && changedSelection();
+    const has = totalSelected() > 0;
     if (has){
       nextLink.classList.add("btn--primary");
       nextLink.classList.remove("is-disabled");
@@ -221,26 +158,11 @@ function updateSummary(){
       // resolve selectedItems by matching objects whose .value is in pre
       const preSet = new Set((pre||[]).map(v => String(v)));
       lb.selectedItems = lb.items.filter(it => preSet.has(it.value));
-      // record baseline
-      lb._baseline = new Set((lb.selectedItems||[]).map(it=>String(it.value)));
-      updateNext(); updateSummary();
+      updateNext();
 
       // Simple text renderer
       lb.renderer = (root, listbox, model) => { root.textContent = model.item.label; };
     } catch(e){ console.warn("dual-list init failed", e); }
-  });
-
-  // Group buttons
-  document.addEventListener('click', (e) => {
-    const t = e.target; if(!(t instanceof HTMLElement)) return;
-    if (t.dataset.moveOne === 'right') {
-      const gid = t.dataset.group; const lb = document.querySelector("vaadin-dual-list-box.metric-transfer[data-group='"+gid+"']");
-      if(lb && lb.moveRightSelected) { lb.moveRightSelected(); updateNext(); updateSummary(); }
-    }
-    if (t.dataset.moveOne === 'left') {
-      const gid = t.dataset.group; const lb = document.querySelector("vaadin-dual-list-box.metric-transfer[data-group='"+gid+"']");
-      if(lb && lb.moveLeftSelected) { lb.moveLeftSelected(); updateNext(); updateSummary(); }
-    }
   });
 
   // Group buttons
@@ -253,11 +175,11 @@ function updateSummary(){
     if (!lb) return;
     if (t.dataset.action === "select-all") {
       lb.selectedItems = (lb.items||[]).slice();
-      updateNext(); updateSummary();
+      updateNext();
     }
     if (t.dataset.action === "deselect-all") {
       lb.selectedItems = [];
-      updateNext(); updateSummary();
+      updateNext();
     }
   });
 

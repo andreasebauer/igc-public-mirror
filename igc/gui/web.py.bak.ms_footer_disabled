@@ -297,7 +297,7 @@ def metrics_select_page_new(request: Request, sim_id: int):
             "primary_kind": "link",
             "primary_label": "Next",
             "primary_url": "#",
-            "primary_disabled": True,
+            "primary_disabled": False,
             "header_right": f"{sim['label']} · {sim['name']}",
         },
     )

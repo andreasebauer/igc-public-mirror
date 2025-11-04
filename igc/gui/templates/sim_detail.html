@@ -16,7 +16,7 @@
     <li>{{f}}</li>
   {% endfor %}
   </ul>
-  <p><a href="/metrics/select?sim_id={{ sim.id }}">Select & seed metrics</a></p>
+  <p><a href="/metrics/select/{{ sim.id }}">Select & seed metrics</a></p>
   <p><a href="/jobs?sim_id={{sim.id}}">Monitor jobs</a></p>
 {% else %}
   <p>No frames found yet.</p>

@@ -19,16 +19,7 @@
 <main>
   {% import '_components.html' as ui %}
   {% block content %}
-  <section class="card">
-    <div class="matrix">
-      <div class="left">
-        {% block main_left %}{% endblock %}
-      </div>
-      <div class="right">
-        {% block main_right %}{% endblock %}
-      </div>
-    </div>
-  </section>
+    {{ ui.two_col_card(block('main_left'), block('main_right')) }}
   {% endblock %}
 </main>
 
@@ -40,6 +31,5 @@
     var el = document.getElementById("header-right"); if (el) { el.textContent = text || ""; }
   };
 </script>
-  {% block page_js %}{% endblock %}
 </body>
 </html>

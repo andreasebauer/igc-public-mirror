@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- jsTree dependencies (jQuery + jsTree) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.12/dist/themes/default/style.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jstree@3.3.12/dist/jstree.min.js"></script>
+
+<section class="wrap">
+  <!-- Two columns: left = tree, right = preview -->
+  <section class="card">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+    <!-- LEFT: jsTree file browser -->
+    <div class="frame p-3">
+      <h3>Browse Simulations</h3>
+      <p class="muted">Select a simulation from disk. If it is not listed, you will have to run it first.</p>
+      <div id="folder-tree"></div>
+    </div>
+
+    <!-- RIGHT: preview -->
+    <div class="frame p-3">
+      <h3>Selected Simulation</h3>
+      <div id="preview"><p class="muted">No folder selected.</p></div>
+    </div>
+  </div>
+
+  <!-- FOOTER: framed, two-column actions (Back | Next) -->
+</section>
+  <footer class="card">
+    <div class="actions">
+      <div class="actions-left">
+        <a class="btn btn--outline btn--lg" href="/">Back</a>
+      </div>
+      <div class="actions-right">
+        <a id="next-btn" class="btn btn--primary btn--lg disabled" href="#" aria-disabled="true">Next</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    $(function() {
+      // Build a tree rooted at /data/in; nodes load on demand from /api/fs_tree
+      $('#folder-tree').jstree({
+        'core': {
+          'data': {
+            'url': '/api/fs_tree',
+            'data': function (node) {
+              return { 'parent': (node.id === '#' ? '/data/simulations' : node.id) };
+            }
+          },
+          'check_callback': false
+        }
+      }).on('select_node.jstree', function (e, data) {
+        var path = data.node.id || '';
+        // Load preview into right pane; enable Next only on success
+        $('#preview').load('/metrics/simpicker/preview?path=' + encodeURIComponent(path), function(resp, status) {
+          if (status === 'success') {
+            $('#next-btn')
+              .removeClass('disabled')
+              .css({'opacity':1,'pointer-events':'auto'});
+              var simId = $('#preview').find('[data-sim-id]').data('sim-id');
+                $('#next-btn').attr('href','/metrics/select/'+simId);
+                var $pv = $("#preview").find('[data-sim-id]');
+                if ($pv.length) { $("#header-right").text(($pv.data('sim-label')||'')+' '+($pv.data('sim-name')||'')); }
+          } else {
+            $('#next-btn')
+              .addClass('disabled')
+              .css({'opacity':.5,'pointer-events':'none'})
+              .attr('href','#');
+          }
+        });
+      });
+    });
+  </script>
+</section>
+{% endblock %}

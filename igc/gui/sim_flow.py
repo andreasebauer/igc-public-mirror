@@ -73,7 +73,7 @@ def sim_edit_get(request: Request,
     if (not fields) and sim:
         fields = [{"name": k, "data_type": "text", "description": ""} for k in sim.keys()]
 
-    return templates.TemplateResponse("sim_edit.html", {
+    return templates.TemplateResponse("sim_edit.html", {"header_right": (("Run " if mode == "run" else ("Edit " if mode == "edit" else "")) + ((sim.get("label","") + " " + sim.get("name","")) if sim else "")).strip(), 
         "request": request,
         "mode": mode,
         "sim": sim,
@@ -116,7 +116,7 @@ def sim_confirm_get(request: Request,
         overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
     elif mode == "sweep":
         sweep = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
-    return templates.TemplateResponse("sim_confirm.html", {"request": request, "mode": mode, "sim_id": sim_id,
+    return templates.TemplateResponse("sim_confirm.html", {"request": request, "mode": mode, "sim_id": sim_id, "header_right": "Confirmation",
         "overrides": overrides, "sweep": sweep
         , "fields": fields
     , "sim": sim})

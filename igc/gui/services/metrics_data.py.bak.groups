@@ -1,0 +1,24 @@
+from typing import Dict, List, Set
+from igc.db.pg import cx, fetchall_dict
+
+def list_metric_groups() -> List[Dict]:
+    """Return six fixed groups with counts from view metgroup_count."""
+    with cx() as conn:
+        rows = fetchall_dict(conn, 'SELECT id, name, metric_count FROM metgroup_count ORDER BY id')
+    return rows
+
+def list_metrics_by_group() -> Dict[int, List[Dict]]:
+    """Return metrics per group from view metrics_group."""
+    with cx() as conn:
+        rows = fetchall_dict(conn, 'SELECT group_id, id, name, description, outputtypes FROM metrics_group ORDER BY group_id, name')
+    groups: Dict[int, List[Dict]] = {}
+    for r in rows:
+        g = groups.setdefault(r['group_id'], [])
+        g.append({'id': r['id'], 'name': r['name'], 'desc': r.get('description') or '', 'out': r.get('outputtypes') or ''})
+    return groups
+
+def list_assigned_metrics(sim_id: int) -> Set[int]:
+    """Return currently enabled metric IDs for given simulation."""
+    with cx() as conn:
+        rows = fetchall_dict(conn, 'SELECT metric_id FROM simmetricmatcher WHERE sim_id=%s AND enabled=true', (sim_id,))
+    return {r['metric_id'] for r in rows}

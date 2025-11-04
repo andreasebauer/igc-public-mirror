@@ -40,6 +40,5 @@
     var el = document.getElementById("header-right"); if (el) { el.textContent = text || ""; }
   };
 </script>
-  {% block page_js %}{% endblock %}
 </body>
 </html>

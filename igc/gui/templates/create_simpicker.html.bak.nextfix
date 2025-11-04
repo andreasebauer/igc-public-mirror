@@ -45,11 +45,10 @@ $(function() {
         var label = $('#preview').find('[data-sim-label]').data('sim-label');
         var name  = $('#preview').find('[data-sim-name]').data('sim-name');
         window.IGC.setHeaderRight((label || '') + ' ' + (name || ''));
-        const nextBtn = document.querySelector('.actions-right a');
+        const nextBtn = document.querySelector('.actions-right a.btn--primary');
         if (nextBtn) {
           nextBtn.classList.remove('is-disabled');
           nextBtn.setAttribute('href','/metrics/select/'+simId);
-        nextBtn.classList.add('btn--primary');
           nextBtn.removeAttribute('aria-disabled');
         }
       } else {

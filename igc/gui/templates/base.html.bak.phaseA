@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="/static/style.css"/>
   <style>.header-bar{display:flex;align-items:center}.brand-right{margin-left:auto;font-weight:600}</style>
 </head>
-
 <body>
 <div class="page-frame" style="max-width:1200px;margin:0 auto;">
 <header class="card header-bar">
@@ -17,29 +16,7 @@
     <span id="header-right" class="brand-right" style="float:right; text-align:left;">{% if header_right %}{{ header_right }}{% endif %}</span>
 </header>
 <main>
-  {% import '_components.html' as ui %}
-  {% block content %}
-  <section class="card">
-    <div class="matrix">
-      <div class="left">
-        {% block main_left %}{% endblock %}
-      </div>
-      <div class="right">
-        {% block main_right %}{% endblock %}
-      </div>
-    </div>
-  </section>
-  {% endblock %}
+  {% block content %}{% endblock %}
 </main>
-
-  {{ ui.footer_actions(back_url, primary_kind, primary_label, primary_url, primary_disabled) }}
-</div>
-<script>
-  window.IGC = window.IGC || {};
-  window.IGC.setHeaderRight = function(text){
-    var el = document.getElementById("header-right"); if (el) { el.textContent = text || ""; }
-  };
-</script>
-  {% block page_js %}{% endblock %}
 </body>
 </html>

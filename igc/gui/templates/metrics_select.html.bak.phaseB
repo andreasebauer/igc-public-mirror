@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="igc-header">
+  <h1>Select Metrics</h1>
+  <p class="igc-subtitle">{{ sim.label }} · {{ sim.name }}</p>
+</header>
+
+<form id="metricsForm" method="post" action="/metrics/{{ sim.id }}/confirm" class="stack">
+  <section class="group-grid">
+  {% for g in groups %}
+    <div class="group-card igc-card">
+      <div class="group-head">
+        <h3>{{ g.name }} <span class="muted">({{ g.count }})</span></h3>
+      </div>
+      <div class="group-body">
+        {# Build JSON arrays for items and preselected ids #}
+        {% set items = [] %}
+        {% for m in metrics_by_group.get(g.id, []) %}
+          {% set _ = items.append({"value": m.id, "label": m.name}) %}
+        {% endfor %}
+        {% set pre = [] %}
+        {% for m in metrics_by_group.get(g.id, []) %}
+          {% if m.id in assigned_metric_ids %}{% set _ = pre.append(m.id) %}{% endif %}
+        {% endfor %}
+
+        <vaadin-dual-list-box
+          class="metric-transfer"
+          data-items="{{ items | tojson | e }}"
+          data-selected="{{ pre | tojson | e }}">
+        </vaadin-dual-list-box>
+      </div>
+      <div class="group-foot">
+        <button class="btn small" type="button" data-action="select-all">Select all</button>
+        <button class="btn small" type="button" data-action="deselect-all">Deselect all</button>
+      </div>
+    </div>
+  {% endfor %}
+  </section>
+
+  <footer class="igc-footer two-col">
+    <a class="btn" href="/metrics/simpicker">Back</a>
+    <button class="btn primary" type="submit">Next</button>
+  </footer>
+</form>
+
+<!-- Load Vaadin Dual List Box (Web Component) -->
+<script type="module">
+  import "https://cdn.vaadin.com/vaadin-web-components/24.3.7/vaadin-dual-list-box/vaadin-dual-list-box.js";
+</script>
+
+<style>
+.group-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+.group-card{display:flex;flex-direction:column;}
+.group-head h3{margin:0 0 .5rem 0;}
+.group-body{display:flex;flex-direction:column;gap:.5rem;}
+.group-foot{margin-top:.5rem;display:flex;gap:.5rem;justify-content:flex-end;}
+vaadin-dual-list-box{height:260px;border:1px solid var(--igc-border,#d9d9d9);border-radius:8px;padding:.25rem;}
+</style>
+
+<script>
+// Initialize each dual-list from data-items / data-selected
+document.addEventListener("DOMContentLoaded", () => {
+  const lists = document.querySelectorAll("vaadin-dual-list-box.metric-transfer");
+  lists.forEach(lb => {
+    try {
+      const items = JSON.parse(lb.getAttribute("data-items")||"[]");
+      // Map items to simple strings via value/label; vaadin supports arrays of strings or objects.
+      // We will keep objects and set renderer as text via label.
+      lb.items = items.map(it => ({value:String(it.value), label:it.label}));
+      const pre = JSON.parse(lb.getAttribute("data-selected")||"[]").map(String);
+      lb.selectedValues = pre;
+      // Provide a simple renderer for label
+      lb.renderer = (root, listbox, model) => {
+        root.textContent = model.item.label;
+      };
+    } catch(e){ console.warn("dual-list init failed", e); }
+  });
+
+  // Group controls: select all / deselect all buttons
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    if (!(t instanceof HTMLElement)) return;
+    const card = t.closest(".group-card");
+    if (!card) return;
+    const lb = card.querySelector("vaadin-dual-list-box");
+    if (!lb) return;
+    if (t.dataset.action === "select-all") {
+      // Move all to selected
+      lb.selectedValues = (lb.items||[]).map(it => String(it.value));
+    }
+    if (t.dataset.action === "deselect-all") {
+      lb.selectedValues = [];
+    }
+  });
+
+  // Serialize all selections to metric_ids[] on submit
+  const form = document.getElementById("metricsForm");
+  form.addEventListener("submit", (ev) => {
+    // Remove any previous hidden inputs
+    form.querySelectorAll('input[name=metric_ids[]]').forEach(n => n.remove());
+    // Gather from all dual-lists
+    document.querySelectorAll("vaadin-dual-list-box.metric-transfer").forEach(lb => {
+      (lb.selectedValues||[]).forEach(val => {
+        const hid = document.createElement("input");
+        hid.type = "hidden";
+        hid.name = "metric_ids[]";
+        hid.value = val;
+        form.appendChild(hid);
+      });
+    });
+  }, false);
+});
+</script>
+{% endblock %}

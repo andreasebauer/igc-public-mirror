@@ -10,7 +10,7 @@ FRAME_RE = re.compile(r'^Frame_(\d{4})$')
 def list_runs(limit:int=100) -> list[dict]:
     with cx() as conn:
         return fetchall_dict(conn, """
-          select id, simid, label, name, gridx, gridy, gridz, status, createdate
+          select id, label, name, gridx, gridy, gridz, status, createdate
           from simulations
           order by id desc
           limit %s
@@ -28,7 +28,7 @@ def list_frames_by_fs(sim_label:str) -> list[int]:
 
 def describe_run(sim_id:int) -> dict:
     with cx() as conn:
-        sim = fetchone_dict(conn, "select id, simid, label, name, gridx, gridy, gridz, createdate, status from simulations where id=%s", (sim_id,))
+        sim = fetchone_dict(conn, "select id, label, name, gridx, gridy, gridz, createdate, status from simulations where id=%s", (sim_id,))
     if not sim: return {"error":"simulation not found"}
     frames = list_frames_by_fs(sim["label"])
     return {"sim":sim,"frames":frames,"frames_count":len(frames)}
