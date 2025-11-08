@@ -1,0 +1,189 @@
+#!/usr/bin/env bash
+# edit_ta — transactional edit/rollback wrapper with verified rollback and auto-rollback
+set -Eeuo pipefail
+shopt -s nullglob
+
+usage() {
+  cat <<USAGE
+Usage: $0 [ -rb ] [ --files FILE [FILE ...] ]
+
+  Transaction (all-or-nothing):
+    cat edits | $0 --files <one-or-more-files>
+
+  Rollback newest snapshot for listed files (verified):
+    $0 -rb --files <one-or-more-files>
+
+  Auto-rollback (no files): restore newest snapshot in tree (single or group), verified:
+    $0 -rb
+USAGE
+}
+
+RB=0
+declare -a FILES=()
+
+# ---- parse args ----
+while (($#)); do
+  case "$1" in
+    -rb) RB=1; shift ;;
+    --files)
+      shift
+      while (($#)) && [[ "$1" != -* ]]; do FILES+=("$1"); shift; done
+      ;;
+    -h|--help) usage; exit 0 ;;
+    *)
+      # tolerate extras only for auto rollback (no files)
+      if [[ "$RB" -eq 1 ]]; then shift; else usage; exit 2; fi
+      ;;
+  esac
+done
+# record last snapshot set for strict auto-rollback
+echo "$TS" > .edit_ta_last
+for __f in "${FILES[@]}"; do echo "$__f"; done >> .edit_ta_last
+
+# ---- helpers ----
+restore_one_verified() {
+  local snap="$1" base
+  [[ -f "$snap" ]] || { echo "FATAL: snapshot not found: $snap" >&2; exit 2; }
+  if [[ "$snap" =~ (.*)\.ta_bak_g_([0-9]{17})$ ]]; then
+    base="${BASH_REMATCH[1]}"
+  elif [[ "$snap" =~ (.*)\.ta_bak_([0-9]{17})$ ]]; then
+    base="${BASH_REMATCH[1]}"
+  else
+    echo "FATAL: unrecognized snapshot name: $snap" >&2
+    exit 2
+  fi
+  cp -f -- "$snap" "$base" || { echo "FATAL: restore copy failed for $base" >&2; exit 2; }
+  if ! cmp -s "$snap" "$base"; then
+    echo "FATAL: restore verification failed for $base" >&2
+    exit 2
+  fi
+  echo "ROLLED BACK $base from $snap"
+}
+
+auto_rollback() {
+  # Strict: only restore the last transaction; no fallback to older snapshots
+  if [[ -f .edit_ta_last ]]; then
+    mapfile -t __L < .edit_ta_last
+    local newest_ts="${__L[0]}"
+    if [[ -z "$newest_ts" ]]; then
+      echo "NO BACKUP FOUND"; exit 1
+    fi
+    if ((${#__L[@]} > 2)); then
+      # group: restore all files in last run
+      for __f in "${__L[@]:1}"; do
+        restore_one_verified "$__f.ta_bak_g_$newest_ts"
+      done
+    else
+      # single file in last run
+      local __f="${__L[1]#./}"
+      restore_one_verified "$__f.ta_bak_$newest_ts"
+    fi
+  else
+    echo "NO BACKUP FOUND"; exit 1
+  fi
+}
+
+# ---- rollback mode ----
+if [[ "$RB" -eq 1 ]]; then
+  if ((${#FILES[@]} == 0)); then
+    auto_rollback
+    exit 0
+  fi
+
+  # find newest TS across listed files
+  newest_ts="" ; newest_kind="" ; newest_base=""
+  for F in "${FILES[@]}"; do
+    for b in "$F".ta_bak_g_* "$F".ta_bak_[0-9]*; do
+      [[ -e "$b" ]] || continue
+      ts="${b##*_}" ; [[ -n "$ts" ]] || continue
+      if [[ "$ts" > "$newest_ts" ]]; then
+        newest_ts="$ts"
+        if [[ "$b" == *.ta_bak_g_* ]]; then
+          newest_kind="group"
+        else
+          newest_kind="file"; newest_base="$F"
+        fi
+      fi
+    done
+  done
+
+  [[ -n "$newest_ts" ]] || { echo "NO BACKUP FOUND"; exit 1; }
+
+  if [[ "$newest_kind" == "group" ]]; then
+    for F in "${FILES[@]}"; do
+      B="$F.ta_bak_g_$newest_ts"
+      if [[ -f "$B" ]]; then
+        restore_one_verified "$B"
+      else
+        echo "NO GROUP BACKUP for $F"
+      fi
+    done
+  else
+    [[ -n "$newest_base" ]] || { echo "NO BACKUP FILE TARGET" >&2; exit 1; }
+    chosen=""; best=""
+    for b in "$newest_base".ta_bak_[0-9]*; do
+      [[ -e "$b" ]] || continue
+      ts="${b##*_}"
+      if [[ -z "$best" || "$ts" > "$best" ]]; then best="$ts"; chosen="$b"; fi
+    done
+    [[ -n "$chosen" ]] || { echo "NO BACKUP for $newest_base" >&2; exit 1; }
+    restore_one_verified "$chosen"
+  fi
+  exit 0
+fi
+
+# ---- transactional run ----
+((${#FILES[@]})) || { usage; exit 2; }
+
+TMP="$(mktemp)"; trap 'rm -f -- "$TMP" "$TMP.out"' EXIT
+
+# read full payload first, then snapshot, then run with traps+verify
+cat >"$TMP"
+
+TS="$(date +%Y%m%d%H%M%S%3N)"
+for F in "${FILES[@]}"; do
+  [[ -f "$F" ]] || continue
+  if ((${#FILES[@]} > 1)); then cp -f -- "$F" "$F.ta_bak_g_$TS"
+  else cp -f -- "$F" "$F.ta_bak_$TS"
+  fi
+done
+
+# handle signals during payload execution with verified restore
+restore_this_run() {
+  local F B
+  for F in "${FILES[@]}"; do
+    if ((${#FILES[@]} > 1)); then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi
+    [[ -f "$B" ]] && { cp -f -- "$B" "$F" && cmp -s "$B" "$F" && echo "ROLLED BACK $F from $B" || { echo "FATAL: restore verification failed for $F" >&2; exit 2; }; }
+  done
+}
+on_signal() { restore_this_run; exit 130; }
+trap on_signal INT TERM
+
+set +e
+bash -Eeuo pipefail "$TMP" >"$TMP.out" 2>&1
+RC=$?
+trap - INT TERM
+set -e
+
+if (( RC != 0 )); then
+  echo "FAILED  Transaction rolled back" >&2
+  echo "--- RUN LOG (last 120 lines) ---"; tail -n 120 "$TMP.out" 2>/dev/null || true
+  echo "--- SCRIPT ---"; nl -ba "$TMP" 2>/dev/null || true
+  echo "--- DIFF vs snapshot (TS=$TS) ---"
+  for F in "${FILES[@]}"; do
+    if ((${#FILES[@]} > 1)); then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi
+    [[ -f "$B" ]] && diff -u --label "$B" --label "$F" "$B" "$F" || true
+  done
+  restore_this_run
+  exit "$RC"
+fi
+
+echo "--- SCRIPT ---"; nl -ba "$TMP" 2>/dev/null || true
+echo "--- CHANGES vs snapshot (TS=$TS) ---"
+for F in "${FILES[@]}"; do
+  if ((${#FILES[@]} > 1)); then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi
+  if [[ -f "$B" ]]; then diff -u --label "$B" --label "$F" "$B" "$F" || true
+  else echo "no backup for $F at TS=$TS"
+  fi
+done
+echo "SUCCESS"

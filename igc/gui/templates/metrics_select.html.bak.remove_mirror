@@ -23,6 +23,11 @@
         <div class="list-frame">
           <vaadin-dual-list-box class="metric-transfer" data-group="{{ g.id }}" data-items='{{ items|tojson }}' data-selected='{{ pre|tojson }}'></vaadin-dual-list-box>
         </div>
+        <div class="list-frame">
+          <select multiple class="right-main" data-group="{{ g.id }}" size="{{ (metrics_by_group.get(g.id, []) | selectattr('id', 'in', assigned_metric_ids) | list | length) or 1 }}">
+            {% for m in metrics_by_group.get(g.id, []) if m.id in assigned_metric_ids %}<option value="{{ m.id }}">{{ m.name }}</option>{% endfor %}
+          </select>
+        </div>
       </div>
       <div class="mini-ctrl" style="margin-top:6px; display:flex; gap:8px; justify-content:flex-start;">
         <button class="btn small" type="button" data-move-one="left"  data-group="{{ g.id }}">←</button>
@@ -138,6 +143,28 @@ select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;o
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  function updateSummary(){
+    document.querySelectorAll(".group-card").forEach(card => {
+      const lb = card.querySelector("vaadin-dual-list-box.metric-transfer");
+      const rs = card.querySelector("select.right-main");
+      if (!lb || !rs) return;
+      const sel = lb.selectedItems || [];
+      rs.innerHTML = sel.map(it => "<option value=\\"" + it.value + "\\">" + it.label + "</option>").join("");
+      rs.setAttribute("size", String(sel.length || 1));
+    });
+  }
+
+  // initial fill
+  updateSummary();
+  document.querySelectorAll(".mini-ctrl").forEach(ctrl=>{ const card=ctrl.closest(".group-card"); const lb=card?card.querySelector("vaadin-dual-list-box.metric-transfer"):null; if(!lb) return; ctrl.addEventListener("click",(e)=>{ const t=e.target; if(!t||!t.dataset) return; if(t.dataset.action==="select-all"){ lb.selectedItems = lb.items||[]; lb.dispatchEvent(new CustomEvent("selected-items-changed",{bubbles:true})); } else if(t.dataset.action==="deselect-all"){ lb.selectedItems = []; lb.dispatchEvent(new CustomEvent("selected-items-changed",{bubbles:true})); } else if(t.dataset.moveOne==="left"){ lb.moveLeftSelected(); } else if(t.dataset.moveOne==="right"){ lb.moveRightSelected(); } }); });
+
+  // mirror on selection changes
+  document.querySelectorAll("vaadin-dual-list-box.metric-transfer").forEach(lb => {
+    lb.addEventListener("selected-items-changed", updateSummary);
+  });
+});
+
+</script>
   // Mirror selected items into each right-main on load
   .group-card{display:flex;flex-direction:column;}
 <style>

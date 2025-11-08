@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+[ $# -gt 0 ] || { echo "Usage: $0 FILE [FILE ...]" >&2; exit 2; }
+
+files=( "$@" )
+newest_ts=0
+newest_kind=""
+newest_file=""
+
+# find newest among per-file and group backups
+for F in "${files[@]}"; do
+  for b in "$F".ta_bak_* "$F".ta_bak_g_*; do
+    [ -e "$b" ] || continue
+    ts=${b##*_}
+    epoch=$(date -d "$ts" +%s 2>/dev/null || echo 0)
+    [ "$epoch" -gt 0 ] || continue
+    if [ "$epoch" -gt "$newest_ts" ]; then
+      newest_ts=$epoch
+      case "$b" in
+        *.ta_bak_g_*) newest_kind="group" ;;
+        *.ta_bak_*)   newest_kind="file"; newest_file="$F" ;;
+      esac
+    fi
+  done
+done
+
+if [ "$newest_ts" -eq 0 ]; then
+  echo "NO BACKUP FOUND" >&2
+  exit 1
+fi
+
+if [ "$newest_kind" = "group" ]; then
+  target=$newest_ts
+  for F in "${files[@]}"; do
+    chosen=""
+    for b in "$F".ta_bak_g_*; do
+      [ -e "$b" ] || continue
+      ts=${b##*_}
+      epoch=$(date -d "$ts" +%s 2>/dev/null || echo 0)
+      [ "$epoch" -gt 0 ] || continue
+      diff=$(( epoch>target ? epoch-target : target-epoch ))
+      if [ "$diff" -le 2 ]; then
+        chosen="$b"
+      fi
+    done
+    if [ -n "$chosen" ]; then
+      cp -f -- "$chosen" "$F"
+      echo "ROLLED BACK $F from $chosen"
+    else
+      echo "NO GROUP BACKUP for $F"
+    fi
+  done
+else
+  # newest is a per-file backup
+  [ -n "$newest_file" ] || { echo "NO BACKUP FILE TARGET" >&2; exit 1; }
+  chosen=$(ls -1 "$newest_file".ta_bak_* 2>/dev/null | sort | tail -n1 || true)
+  if [ -n "$chosen" ]; then
+    cp -f -- "$chosen" "$newest_file"
+    echo "ROLLED BACK $newest_file from $chosen"
+  else
+    echo "NO BACKUP for $newest_file" >&2
+    exit 1
+  fi
+fi

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+usage(){ echo "Usage: $0 --files FILE [FILE ...]"; exit 2; }
+FILES=()
+while [ "${1-}" ]; do
+  case "$1" in
+    --files) shift; [ ${#@} -gt 0 ] || usage; while [ ${#@} -gt 0 ]; do case "$1" in (--) shift; break;; (--) ;; (--) ;; ( --* ) break;; (*) FILES+=("$1"); shift;; esac; done ;;
+    -h|--help) usage ;;
+    *) echo "Unknown arg: $1" >&2; usage ;;
+  esac
+done
+
+[ ${#FILES[@]} -gt 0 ] || usage
+TMP=$(mktemp)

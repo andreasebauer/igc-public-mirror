@@ -21,7 +21,6 @@
   {% block content %}
   <section class="card">
     <div class="matrix">
-  {% block main_rows %}{% endblock %}
       <div class="left">
         {% block main_left %}{% endblock %}
       </div>

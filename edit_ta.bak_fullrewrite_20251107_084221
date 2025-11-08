@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+usage(){ echo "Usage: $0 --files FILE [FILE ...]"; exit 2; }
+FILES=(); RB=0
+while [ "${1-}" ]; do
+  case "$1" in
+    --files) shift; [ "${1-}" ] || usage; while [ "${1-}" ] && [ "${1#--}" = "$1" ]; do FILES+=("$1"); shift; done ;;
+    -rb) RB=1; shift ;;
+    -h|--help) usage ;;
+    *) usage ;;
+  esac
+done
+[ ${#FILES[@]} -gt 0 ] || usage
+TMP=$(mktemp)
+trap 'rm -f -- "$TMP"' EXIT
+if [ "$RB" -eq 1 ]; then
+  newest_ts=0; newest_kind=""; newest_file=""
+  for F in "${FILES[@]}"; do
+    for b in "$F".ta_bak_* "$F".ta_bak_g_*; do [ -e "$b" ] || continue; ts=${b##*_}; epoch=$(date -d "$ts" +%s 2>/dev/null || echo 0); [ "$epoch" -gt 0 ] || continue; if [ "$epoch" -gt "$newest_ts" ]; then newest_ts=$epoch; case "$b" in (*.ta_bak_g_*) newest_kind=group ;; (*.ta_bak_*) newest_kind=file; newest_file="$F" ;; esac; fi; done
+  done
+  if [ "$newest_kind" = group ]; then
+    target=$newest_ts
+    for F in "${FILES[@]}"; do chosen=""; for b in "$F".ta_bak_g_*; do [ -e "$b" ] || continue; ts=${b##*_}; epoch=$(date -d "$ts" +%s 2>/dev/null || echo 0); [ "$epoch" -gt 0 ] || continue; diff=$(( epoch>target ? epoch-target : target-epoch )); if [ "$diff" -le 2 ]; then chosen="$b"; fi; done; if [ -n "$chosen" ]; then cp -f -- "$chosen" "$F"; echo "ROLLED BACK $F from $chosen"; else echo "NO GROUP BACKUP for $F"; fi; done
+  elif [ "$newest_kind" = file ] && [ -n "$newest_file" ]; then
+    chosen=$(ls -1 "$newest_file".ta_bak_* 2>/dev/null | sort | tail -n1); if [ -n "$chosen" ]; then cp -f -- "$chosen" "$newest_file"; echo "ROLLED BACK $newest_file from $chosen"; else echo "NO BACKUP for $newest_file"; fi
+  else
+    echo "NO BACKUP FOUND"; exit 1
+  fi
+  exit 0
+fi
+
+# read code from stdin into TMP
+cat >"$TMP"
+
+# decide backup naming by number of files and timestamp
+NFILES=${#FILES[@]}
+TS=$(date +%Y%m%d%H%M%S)
+# decide backup naming by number of files and timestamp
+NFILES=${#FILES[@]}
+TS=$(date +%Y%m%d%H%M%S)
+done
+
+if ! grep -q '[^[:space:]]' "$TMP"; then
+  echo "FAILED  Transaction rolled back" >&2
+  for F in "${FILES[@]}"; do
+    B="$F.ta_bak"; [ -f "$B" ] && cp -f -- "$B" "$F" || true
+  done
+  exit 1
+fi
+# run code under strict shell; capture rc
+set +e
+bash -Eeuo pipefail "$TMP"
+RC=$?
+set -e
+if [ "$RC" -ne 0 ]; then
+  echo "FAILED  Transaction rolled back" >&2
+  for F in "${FILES[@]}"; do
+    B="$F.ta_bak"; [ -f "$B" ] && cp -f -- "$B" "$F" || true
+  done
+  exit "$RC"
+fi
+echo "SUCCESS"

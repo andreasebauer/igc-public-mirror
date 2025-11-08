@@ -1,0 +1,132 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+usage(){ echo "Usage: $0 [ -rb ] --files FILE [FILE ...]"; exit 2; }
+
+FILES=(); RB=0
+while [ "${1-}" ]; do
+  case "$1" in
+    --files) shift; [ "${1-}" ] || usage; while [ "${1-}" ] && [ "${1#--}" = "$1" ]; do FILES+=("$1"); shift; done ;;
+    -rb) RB=1; shift ;;
+    -h|--help) usage ;;
+    *) usage ;;
+  esac
+done
+[ ${#FILES[@]} -gt 0 ] || usage
+
+TMP=$(mktemp)
+trap "rm -f -- \"$TMP\"" EXIT
+
+# --- Rollback mode -----------------------------------------------------------
+if [ "$RB" -eq 1 ]; then
+  newest_ts=""; newest_kind=""; newest_file=""
+  for F in "${FILES[@]}"; do
+    for b in "$F".ta_bak_g_* "$F".ta_bak_[0-9]*; do
+      [ -e "$b" ] || continue
+      ts=${b##*_}
+      epoch="$ts"
+      [ -n "$epoch" ] || continue
+      if [[ "$epoch" > "$newest_ts" ]]; then
+        newest_ts=$epoch
+        case "$b" in
+          (*.ta_bak_g_*) newest_kind=group ;;
+          (*.ta_bak_[0-9]*)   newest_kind=file; newest_file="$F" ;;
+        esac
+      fi
+    done
+  done
+  [ -n "$newest_ts" ] || { echo "NO BACKUP FOUND"; exit 1; }
+
+  if [ "$newest_kind" = group ]; then
+    target="$newest_ts"
+    for F in "${FILES[@]}"; do
+      chosen="$F".ta_bak_g_"$target"
+      if [ -f "$chosen" ]; then
+        cp -f -- "$chosen" "$F";
+        echo "ROLLED BACK $F from $chosen";
+      else
+        echo "NO GROUP BACKUP for $F";
+      fi
+    done
+  else
+    [ -n "$newest_file" ] || { echo "NO BACKUP FILE TARGET" >&2; exit 1; }
+      best=""; chosen=""
+      for b in "$newest_file".ta_bak_[0-9]*; do
+        [ -e "$b" ] || continue
+        ts=${b##*_}
+        if [ -z "$best" ] || [[ "$ts" > "$best" ]]; then best="$ts"; chosen="$b"; fi
+      done
+    if [ -n "$chosen" ]; then
+      cp -f -- "$chosen" "$newest_file"
+      echo "ROLLED BACK $newest_file from $chosen"
+    else
+      echo "NO BACKUP for $newest_file" >&2; exit 1
+    fi
+  fi
+  exit 0
+fi
+
+  # RB_END
+# --- Read transactional code from stdin -------------------------------------
+cat >"$TMP"
+
+# --- Snapshot protected files (timestamped) ----------------------------------
+NFILES=${#FILES[@]}
+TS=$(date +%Y%m%d%H%M%S%3N)
+for F in "${FILES[@]}"; do
+  if [ -f "$F" ]; then
+    if [ "$NFILES" -gt 1 ]; then
+      cp -f -- "$F" "$F.ta_bak_g_$TS"
+    else
+      cp -f -- "$F" "$F.ta_bak_$TS"
+    fi
+  fi
+done
+
+# --- Empty stdin guard (restore latest backup if empty) ----------------------
+if ! grep -q "[^[:space:]]" "$TMP"; then
+  echo "FAILED  Transaction rolled back" >&2
+  echo "--- RUN LOG (last 120 lines) ---"; tail -n 120 "$TMP.out" 2>/dev/null || true;
+  echo "--- SCRIPT ---"; nl -ba "$TMP" 2>/dev/null || true;
+  echo "--- DIFF vs backups (TS=$TS) ---";
+  for F in "${FILES[@]}"; do
+    if [ "$NFILES" -gt 1 ]; then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi;
+    [ -f "$B" ] && diff -u --label "$B" --label "$F" "$B" "$F" || true;
+  done
+  for F in "${FILES[@]}"; do
+    chosen=$(ls -1 "$F".ta_bak_* 2>/dev/null | sort | tail -n1 || true)
+    [ -z "$chosen" ] && chosen=$(ls -1 "$F".ta_bak_g_* 2>/dev/null | sort | tail -n1 || true)
+    [ -n "$chosen" ] && cp -f -- "$chosen" "$F" || true
+  done
+  exit 1
+fi
+
+# --- Run and verify ----------------------------------------------------------
+set +e
+bash -Eeuo pipefail "$TMP" >"$TMP.out" 2>&1
+RC=$?
+set -e
+if [ "$RC" -ne 0 ]; then
+  echo "FAILED  Transaction rolled back" >&2
+  echo "--- RUN LOG (last 120 lines) ---"; tail -n 120 "$TMP.out" 2>/dev/null || true;
+  echo "--- SCRIPT ---"; nl -ba "$TMP" 2>/dev/null || true;
+  echo "--- DIFF vs backups (TS=$TS) ---";
+  for F in "${FILES[@]}"; do
+    if [ "$NFILES" -gt 1 ]; then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi;
+    [ -f "$B" ] && diff -u --label "$B" --label "$F" "$B" "$F" || true;
+  done
+  for F in "${FILES[@]}"; do
+    chosen=$(ls -1 "$F".ta_bak_* 2>/dev/null | sort | tail -n1 || true)
+    [ -z "$chosen" ] && chosen=$(ls -1 "$F".ta_bak_g_* 2>/dev/null | sort | tail -n1 || true)
+    [ -n "$chosen" ] && cp -f -- "$chosen" "$F" || true
+  done
+  exit "$RC"
+fi
+
+# --- Run summary ---
+echo "--- SCRIPT ---"; nl -ba "$TMP" 2>/dev/null || true;
+echo "--- CHANGES vs backups (TS=$TS) ---";
+for F in "${FILES[@]}"; do
+  if [ "$NFILES" -gt 1 ]; then B="$F.ta_bak_g_$TS"; else B="$F.ta_bak_$TS"; fi;
+  if [ -f "$B" ]; then diff -u --label "$B" --label "$F" "$B" "$F" || true; else echo "no backup for $F at TS=$TS"; fi;
+done
+echo "SUCCESS"

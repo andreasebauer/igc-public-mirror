@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+usage(){ echo "Usage: $0 --files FILE [FILE ...]"; exit 2; }
+FILES=(); RB=0; GID=""; GID=""
+while [ "${1-}" ]; do
+  case "$1" in
+    --files) shift; [ "${1-}" ] || usage; while [ "${1-}" ] && [ "${1#--}" = "$1" ]; do FILES+=("$1"); shift; done ;;
+    -rb) RB=1; shift ;;
+    -h|--help) usage ;;
+    *) usage ;;
+  esac
+done
+[ ${#FILES[@]} -gt 0 ] || usage
+TMP=$(mktemp)
+trap 'rm -f -- "$TMP"' EXIT
+if [ "$RB" -eq 1 ]; then
+  for F in "${FILES[@]}"; do
+    B="$F.ta_bak"
+    if [ -f "$B" ]; then cp -f -- "$B" "$F"; echo "ROLLED BACK $F from $B"; else echo "NO BACKUP for $F"; fi
+  done
+  exit 0
+fi
+
+# read code from stdin into TMP
+cat >"$TMP"
+
+# snapshot protected files
+for F in "${FILES[@]}"; do
+  if [ -f "$F" ]; then cp -f -- "$F" "$F.ta_bak"; fi
+done
+
+if ! grep -q '[^[:space:]]' "$TMP"; then
+  echo "FAILED  Transaction rolled back" >&2
+  for F in "${FILES[@]}"; do
+    B="$F.ta_bak"; [ -f "$B" ] && cp -f -- "$B" "$F" || true
+  done
+  exit 1
+fi
+# run code under strict shell; capture rc
+set +e
+bash -Eeuo pipefail "$TMP"
+RC=$?
+set -e
+if [ "$RC" -ne 0 ]; then
+  echo "FAILED  Transaction rolled back" >&2
+  for F in "${FILES[@]}"; do
+    B="$F.ta_bak"; [ -f "$B" ] && cp -f -- "$B" "$F" || true
+  done
+  exit "$RC"
+fi
+echo "SUCCESS"
