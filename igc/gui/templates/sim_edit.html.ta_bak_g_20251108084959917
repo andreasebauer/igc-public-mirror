@@ -1,16 +1,11 @@
 {% extends "base.html" %}
-{% set back_url = request.url_for('sim_select') ~ '?mode=' ~ mode %}
-{% set primary_kind = 'link' %}
-{% set primary_label = 'Next' %}
-{% set primary_url = '#' %}
-{% set primary_disabled = False %}
 {% block title %}Edit · Simulation{% endblock %}
 {% block content %}
-
 <section class="igc-page">
 
   <!-- MAIN: framed block; each DB column is one row (left: label+input inline; right: short help) -->
   <section class="card">
+  <main class="igc-main igc-card">
   <form id="simForm" method="post" action="{{ request.url_for('sim_edit_apply') }}" novalidate>
     <input type="hidden" name="mode" value="{{ mode }}">
     {% if sim and sim.get('id') %}<input type="hidden" name="sim_id" value="{{ sim['id'] }}">{% endif %}
@@ -24,7 +19,6 @@
       'd_psi','d_phi','d_eta',
       'phi_threshold','lambda_phi','lambda_eta','gate_name'
     ] %}
-    <!-- LIST editable_run={{ editable_run|join(',') }} -->    
 
     {# Short, hand-written help texts for important fields (others left blank) #}
     {% set help = {
@@ -84,97 +78,58 @@
     {% if not fields and sim %}
       {# Fallback: derive fields from row if metadata missing #}
       {% for k,v in sim.items() %}
-      {% set is_default = (k[:8] == 'default_') %}
-      {% set defv = sim.get('default_' ~ k) %}
-      {% set has_default = defv not in (none, '', 'None') %}
-      {% if (not run_mode) or (run_mode and not is_default) %}
         <div class="igc-row">
           <div class="igc-cell igc-cell--left igc-inline">
             <label class="igc-name" for="fld_{{ k }}">{{ k }}</label>
             <input id="fld_{{ k }}" name="{{ k }}" class="igc-input" type="text" value="{{ v }}"
                    {% if run_mode and k not in editable_run %}readonly{% endif %}>
-            {% set is_active = run_mode and (k in editable_run) %}
-            {% if is_active and has_default %}
-              <button type="button"
-                      class="btn btn--sm btn--w-44 btn--def"
-                      data-key="{{ k }}"
-                      data-default="{{ defv|e }}"
-                      title="Restore default">Def</button>
-            {% endif %}    
           </div>
           <div class="igc-cell igc-cell--right">
             <div class="igc-desc-text">{{ help.get(k,'') }}</div>
           </div>
         </div>
-      {% endif %}
       {% endfor %}
-{% else %}
-  {% for f in fields %}
-    {% set k = f.name %}
-    {% set v = sim[k] if k in sim else '' %}
-    {% set is_default = (k[:8] == 'default_') %}
-    {% set defv = sim.get('default_' ~ k) %}
-    {% set has_default = defv not in (none, '', 'None') %}
-    {% if (not run_mode) or (run_mode and not is_default) %}
-    <div class="igc-row">
-      <div class="igc-cell igc-cell--left igc-inline">
-        <label class="igc-name" for="fld_{{ k }}">{{ k }}</label>
-        <input id="fld_{{ k }}"
-               name="{{ k }}"
-               class="igc-input"
-               type="text"
-               value="{{ v }}"
-               {% if run_mode and k not in editable_run %}readonly{% endif %}>
-    {# 44x44 'Def' button lives INSIDE the left cell, next to the input #}
-    {% set is_active = run_mode and (k in editable_run) %}
-    {% if is_active and has_default and k[:8] != 'default_' %}
-      <button type="button"
-              class="btn btn--sm btn--w-36 btn--def"
-              data-key="{{ k }}"
-              data-default="{{ defv|e }}"
-              title="Restore default">
-        Def
-      </button>
+    {% else %}
+      {% for f in fields %}
+        {% set k = f.name %}
+        {% set v = sim[k] if k in sim else '' %}
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_{{ k }}">{{ k }}</label>
+            <input id="fld_{{ k }}" name="{{ k }}" class="igc-input" type="text" value="{{ v }}"
+                   {% if run_mode and k not in editable_run %}readonly{% endif %}>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <div class="igc-desc-text">{{ help.get(k,'') }}</div>
+          </div>
+        </div>
+      {% endfor %}
     {% endif %}
-    </div>
-      <div class="igc-cell igc-cell--right">
-        <div class="igc-desc-text">{{ help.get(k,'') }}</div>
-      </div>
-    </div>
-    {% endif %}
-  {% endfor %}
-{% endif %}
     </form>
   </section>
+</main>
+
+  <!-- FOOTER: framed two-column block (Back / Next) -->
+  <!-- FOOTER: framed, two-column actions (Back | Next) -->
+  <footer class="card">
+    <div class="actions">
+      <div class="actions-left">
+        <a class="btn btn--outline btn--lg" href="{{ request.url_for('sim_select') }}?mode={{ mode }}">Back</a>
+      </div>
+      <div class="actions-right">
+        <a id="nextBtn" class="btn btn--primary btn--lg">Next</a>
+      </div>
+    </div>
+  </footer>
+</form>
+</section>
 
 <script id="simFormSubmitHelper">
-  document.addEventListener('DOMContentLoaded', () => {
-    const f    = document.getElementById('simForm');
-    const next = document.querySelector('footer.card .actions-right a');
-    if (next && f) {
-      next.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        f.submit();
-      });
-    }
-  });
+  (function(){
+    var f=document.getElementById("simForm");
+    var b=document.getElementById("nextBtn");
+    if(b&&f){ b.addEventListener("click", function(ev){ ev.preventDefault(); f.submit(); }); }
+  })();
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.btn--def').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key  = btn.dataset.key;
-      const defv = btn.dataset.default ?? '';
-      const input = document.getElementById('fld_' + key);
-      if (!input) return;
-      input.value = defv;
-      // Fire change/input so any validators or dependent UI update
-      input.dispatchEvent(new Event('input',  { bubbles: true }));
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-  });
-});
-</script>
-</section>
 {% endblock %}

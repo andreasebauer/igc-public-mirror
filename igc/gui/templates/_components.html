@@ -16,16 +16,16 @@
   <div class="actions">
     <div class="actions-left">
       {% if back_url %}
-        <a class="btn btn--outline btn--lg" href="{{ back_url|e }}">Back</a>
+        <a class="btn btn--w-88 btn--outline btn--lg" href="{{ back_url|e }}">Back</a>
       {% else %}
         <span></span>
       {% endif %}
     </div>
     <div class="actions-right">
       {% if primary_kind == 'submit' %}
-        <button class="btn btn--primary btn--lg" type="submit" {% if primary_disabled %}disabled{% endif %}>{{ primary_label }}</button>
+        <button class="btn btn--w-88 btn--primary btn--lg" type="submit" {% if primary_disabled %}disabled{% endif %}>{{ primary_label }}</button>
       {% elif primary_kind == 'link' %}
-        <a class="btn {{ 'btn--primary' if not primary_disabled else '' }} btn--lg {{ 'is-disabled' if primary_disabled else '' }}"
+        <a class="btn {{ 'btn--primary' if not primary_disabled else '' }} btn--lg btn--w-88 {{ 'is-disabled' if primary_disabled else '' }}"
            href="{{ primary_url if not primary_disabled else '#' }}">{{ primary_label }}</a>
       {% else %}
         <!-- no primary -->

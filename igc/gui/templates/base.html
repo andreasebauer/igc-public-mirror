@@ -21,7 +21,14 @@
   {% block content %}
   <section class="card">
     <div class="matrix">
-  {% block main_rows %}{% endblock %}
+      {% block main_rows %}{% endblock %}
+
+      <!-- ⬇️ INSERT this new full-width slot right here -->
+      <div class="full">
+        {% block main_full %}{% endblock %}
+      </div>
+      <!-- ⬆️ End of insertion -->
+
       <div class="left">
         {% block main_left %}{% endblock %}
       </div>

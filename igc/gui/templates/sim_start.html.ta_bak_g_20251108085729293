@@ -1,12 +1,7 @@
 {% extends "base.html" %}
-{% set back_url = request.url_for('index') %}
-{% set primary_kind = 'link' %}
-{% set primary_label = 'Next' %}
-{% set primary_url = '#' %}
-{% set primary_disabled = True %}
 {% block title %}Start · Simulations{% endblock %}
 {% block content %}
-
+{% set back_url = request.url_for('index') %} {% set primary_kind = 'link' %} {% set primary_label = 'Next' %} {% set primary_url = '#' %} {% set primary_disabled = True %}
 <section class="igc-page">
 
   <!-- MAIN: framed card with two-column matrix (button | description) -->
@@ -15,7 +10,7 @@
 
       <!-- Row 1: Run -->
       <div class="card card--action">
-        <a href="#" class="btn btn--lg btn--w-176 btn-choice" data-action="run">Run Simulation</a>
+        <a href="#" class="btn btn--lg btn-choice" data-action="run">Run Simulation</a>
         <div>
           <p>Select an existing simulation and launch it (→ <em>sim_select</em>, <code>?mode=run</code>).</p>
         </div>
@@ -23,7 +18,7 @@
 
       <!-- Row 2: New -->
       <div class="card card--action">
-        <a href="#" class="btn btn--lg btn--w-176 btn-choice" data-action="new">New Simulation</a>
+        <a href="#" class="btn btn--lg btn-choice" data-action="new">New Simulation</a>
         <div>
           <p>Create a fresh simulation (→ <em>sim_edit_get</em>, <code>?mode=create</code>).</p>
           </div>
@@ -31,14 +26,14 @@
 
       <!-- Row 3: Edit -->
       <div class="card card--action">
-        <a href="#" class="btn btn--lg btn--w-176 btn-choice" data-action="edit">Edit Simulation</a>
+        <a href="#" class="btn btn--lg btn-choice" data-action="edit">Edit Simulation</a>
         <div>
           <p>Pick a saved simulation and change its fields (→ <em>sim_select</em>, <code>?mode=edit</code>).</p>
       </div>
 
       <!-- Row 4: Sweep -->
       <div class="card card--action">
-        <a href="#" class="btn btn--lg btn--w-176 btn-choice" data-action="sweep">Sweep Simulation</a>
+        <a href="#" class="btn btn--lg btn-choice" data-action="sweep">Sweep Simulation</a>
         <div>
           <p>Choose a base sim, then define parameter ranges (→ <em>sim_select</em>, <code>?mode=sweep</code>).</p>
         </div>
@@ -49,32 +44,36 @@
   <!-- FOOTER: framed, two-column actions (Back | Next) -->
 </section>
 
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const choices = Array.from(document.querySelectorAll('.btn-choice'));
+  // Map selection -> destination URL
   const routes = {
     run:   "{{ request.url_for('sim_select') }}?mode=run",
     new:   "{{ request.url_for('sim_edit_get') }}?mode=create",
     edit:  "{{ request.url_for('sim_select') }}?mode=edit",
     sweep: "{{ request.url_for('sim_select') }}?mode=sweep",
   };
+
+  const nextBtn = document.getElementById('nextBtn');
+  const choices = Array.from(document.querySelectorAll('.btn-choice'));
+
   function select(action, btn) {
-    const next = document.querySelector('footer.card .actions-right a');
-    if (!next) return;
+    // visual state
     choices.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
-    next.href = routes[action] || '#';
-    next.classList.remove('is-disabled');
-    next.setAttribute('aria-disabled','false');
+
+    // enable Next + set destination
+    nextBtn.setAttribute('href', routes[action]);
+    nextBtn.classList.remove('is-disabled');
+    nextBtn.setAttribute('aria-disabled', 'false');
   }
+
   choices.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
+    btn.addEventListener('click', () => {
       const action = btn.getAttribute('data-action');
-      select(action, btn);
+      if (routes[action]) select(action, btn);
     });
   });
-});
 </script>
 
 {% endblock %}

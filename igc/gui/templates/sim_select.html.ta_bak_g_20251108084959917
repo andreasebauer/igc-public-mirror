@@ -1,12 +1,6 @@
 {% extends "base.html" %}
-{% set back_url = request.url_for('sim_start') %}
-{% set primary_kind = 'link' %}
-{% set primary_label = 'Next' %}
-{% set primary_url = '#' %}
-{% set primary_disabled = True %}
 {% block title %}Select · Simulation{% endblock %}
 {% block content %}
-
 <section class="igc-page">
 
   <!-- MAIN: framed card with two-column matrix (select | description) -->
@@ -32,11 +26,20 @@
   </section>
 
   <!-- FOOTER: framed, two-column actions (Back | Next) -->
+  <footer class="card">
+    <div class="actions">
+      <div class="actions-left">
+        <a class="btn btn--outline btn--lg" href="{{ request.url_for('sim_start') }}">Back</a>
+      </div>
+      <div class="actions-right">
+        <a id="nextBtn" class="btn btn--primary btn--lg is-disabled" aria-disabled="true">Next</a>
+      </div>
+    </div>
+  </footer>
 </section>
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
   // current mode
   function qp(k){ const u=new URL(window.location.href); return u.searchParams.get(k); }
   const mode = "{{ mode|default('') }}" || qp('mode') || 'run';
@@ -55,14 +58,14 @@
   };
 
   const selectEl = document.getElementById('simSelect');
-  const next = document.querySelector('footer.card .actions-right a');
+  const nextBtn  = document.getElementById('nextBtn');
   const descBox  = document.getElementById('descBox');
   const descEl   = document.getElementById('simDesc');
 
   function clearSel(){
-    next.removeAttribute('href');
-    next.classList.add('is-disabled');
-    next.setAttribute('aria-disabled','true');
+    nextBtn.removeAttribute('href');
+    nextBtn.classList.add('is-disabled');
+    nextBtn.setAttribute('aria-disabled','true');
     descBox.classList.add('hidden');
     descEl.textContent = "";
   }
@@ -73,15 +76,14 @@
       const d = opt ? opt.getAttribute('data-desc') : '';
       descEl.textContent = d || "";
       descBox.classList.toggle('hidden', !(d && d.length));
-      next.href = buildNext(sid);
-      next.classList.remove('is-disabled');
-      next.setAttribute('aria-disabled','false');
-    } else {
+      nextBtn.href = buildNext(sid);
+      nextBtn.classList.remove('is-disabled');
+      nextBtn.setAttribute('aria-disabled','false');
+    }else{
       clearSel();
     }
   }
   selectEl.addEventListener('change', onChange);
   clearSel();
-});
 </script>
 {% endblock %}

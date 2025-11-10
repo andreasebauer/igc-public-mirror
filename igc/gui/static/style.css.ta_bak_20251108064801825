@@ -1,4 +1,4 @@
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;max-width:1100px;margin:16px auto;padding:0 16px}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px}
 header h1{margin:0 0 12px 0}
 table{border-collapse:collapse;width:100%}
 th,td{border:1px solid #ddd;padding:6px 8px;vertical-align:top}
@@ -24,10 +24,6 @@ fieldset{margin:10px 0;padding:10px}
   --btn-primary-border: #111;
   --btn-disabled: 0.5;
   --focus-ring: 0 0 0 3px rgba(17,17,17,.15);
-  --btn-w-36:  36px;
-  --btn-w-44:  44px;
-  --btn-w-88:  88px;
-  --btn-w-176: 220px;
 }
 
 /* normalize native buttons */
@@ -35,7 +31,6 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 
 /* Base button */
 .btn{
-  box-sizing: border-box;
   appearance:none;-webkit-appearance:none;
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   min-height:var(--btn-h);
@@ -53,67 +48,24 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 }
 .btn--primary{background:var(--btn-primary-bg);color:var(--btn-primary-ink);border-color:var(--btn-primary-border);}
 .btn--secondary{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-border);}
-.btn--lg{min-height:44px;padding-inline:18px;font-weight:700;}
-.btn--sm{min-height:44px;padding-inline:12px;font-weight:600;}
+.btn--lg{min-height:48px;padding-inline:18px;font-weight:700;}
+.btn--sm{min-height:36px;padding-inline:12px;font-weight:600;}
 .btn-block{display:inline-block;width:50%;text-align:center;box-sizing:border-box}
 
-/* fixed-width button utilities – exact outer width (box-sizing required) */
-.btn--w-36  { width: var(--btn-w-36);  min-width: var(--btn-w-36);  max-width: var(--btn-w-36); }
-.btn--w-44  { width: var(--btn-w-44);  min-width: var(--btn-w-44);  max-width: var(--btn-w-44); }
-.btn--w-88  { width: var(--btn-w-88);  min-width: var(--btn-w-88);  max-width: var(--btn-w-88); }
-.btn--w-176 { width: var(--btn-w-176); min-width: var(--btn-w-176); max-width: var(--btn-w-176); }
-.btn--def.btn--w-36 { min-height: var(--btn-w-36); height: var(--btn-w-36); }
 /* Layout helpers used on all pages */
-.wrap{max-width:1100px;margin:0 auto;padding:16px;}
+.wrap{max-width:1100px;margin:0 auto;padding:24px;}
 .header{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
 .header h1{margin:0;}
 .card{border:1px solid var(--border);border-radius:12px;padding:16px;}
-/* enforce: only frame padding creates outer gap for content */
-.card > * { margin-top: 0; margin-bottom: 0; }
-.card > * + * { margin-top: 0px; } /* internal vertical rhythm; optional */
+.matrix{display:grid;grid-template-columns:1fr 1fr;row-gap:18px;column-gap:28px;align-items:start;}
 .stack{display:grid;row-gap:12px;}
+.actions{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:center;margin-top:18px;}
+.actions-left{text-align:left;}
+.actions-right{text-align:right;}
 
-/* ===== Group card (Apple-style frame) ===================================== */
-.group-card{
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#fff;
-  padding:16px;
-  box-shadow:0 1px 2px rgba(17,17,17,.06);
-  margin-bottom:16px;
-  overflow:hidden;
-}
+/* ====================================================================== */
 
-/* Title row inside group */
-.group-card .group-head{
-  margin:0 0 10px 0;
-  padding-bottom:6px;
-  border-bottom:0;
-}
-.group-card .group-head h3{ margin:0; font-weight:600; }
-
-/* Body rows (dual list + buttons) */
-.group-card .group-body{ display:block; margin-top:8px; }
-
-/* Keep the dual-list frame visually separated inside the group */
-.group-card .lists-2col .list-frame{
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#fff;
-  padding:12px;
-  box-sizing:border-box;
-  box-shadow:none;
-}
-
-/* Dual-list frame (Apple-style) */
-.lists-2col .list-frame{
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:#fff;
-  padding:12px;
-  box-sizing:border-box;
-  box-shadow:0 1px 2px rgba(17,17,17,.06); /* soft, Apple-like */
-}
+/* === IGC: Action cards as two-column rows (button left, description right) === */
 
 /* Each action card spans the full matrix width (one row per action) */
 .matrix .card--action{ grid-column: 1 / -1; }
@@ -121,7 +73,7 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 /* Inside an action card, make a 2-col grid: fixed button col + flexible text col */
 .card.card--action{
   display: grid;
-  grid-template-columns: auto 1fr;  /* left track = exact btn width via .btn--w-* */
+  grid-template-columns: minmax(220px, 320px) 1fr;
   align-items: center;
   column-gap: 18px;
   row-gap: 8px; /* if something wraps */
@@ -132,7 +84,7 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 /* Ensure the button occupies the left column and fills that column width */
 .card.card--action > .btn{
   grid-column: 1;
-  width: auto;  /* width comes from .btn--w-* */
+  width: 100%;
   max-width: none; /* ensure full width of the left column */
 }
 
@@ -175,12 +127,10 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 .matrix{
   display: grid;
   grid-template-columns: 1fr 1fr;     /* 50% / 50% */
-  column-gap: 24px;
-  row-gap: 16px;
+  column-gap: 32px;
+  row-gap: 20px;
   align-items: start;
 }
-
-.matrix > .full { grid-column: 1 / -1; }
 
 /* Treat each row's .card as a container whose children land in the two columns */
 .matrix .card{
@@ -191,7 +141,7 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 .matrix .card > .btn{
   grid-column: 1;
   justify-self: start;                /* align to left edge of left column */
-  width: auto;   /* width comes from .btn--w-* */
+  width: 50%;                         /* half of LEFT column width */
   max-width: none;
 }
 
@@ -210,12 +160,12 @@ button,[type=button],[type=submit],[type=reset]{ font:inherit; }
 .actions{
   display: grid;
   grid-template-columns: 1fr 1fr;     /* 50% / 50% */
-  column-gap: 16px;
+  column-gap: 32px;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 18px;
 }
-.actions-left  .btn{ width:auto; justify-self: start; }
-.actions-right .btn{ width:auto; justify-self: end;   }
+.actions-left  .btn{ width:50%; justify-self: start; }
+.actions-right .btn{ width:50%; justify-self: end;   }
 
 /* Responsive: stack on small screens (optional) */
 @media (max-width: 640px){
@@ -239,26 +189,70 @@ header.card .brand .brand-title{ font-size:20px; font-weight:700; letter-spacing
 
 /* === Entry page spacing ============================================== */
 main.card, section.card { margin-top: 16px; margin-bottom: 16px; }
+footer.card { margin-top: 20px; margin-bottom: 32px; }
+
+
 
 /* === Global footer card layout (consistent across all pages) ========= */
 footer.card {
-  margin-top: 16px; margin-bottom: 16px;
-  box-sizing: border-box; padding: 16px;
-}
-footer.card .actions{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 16px;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  margin: 0;
+  padding: 6px;        /* small, even gap top/bottom (12), sides (16) */
+  box-sizing: border-box;
 }
-footer.card .actions-left .btn  { width: auto; justify-self: start; }
-footer.card .actions-right .btn { width: auto; justify-self: stretch; }
+
+footer.card .actions {
+  display: flex;             /* no grid; simple row */
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;                 /* kill any inherited top margin */
+}
+
+footer.card .actions .btn {
+  width: auto;               /* no 50% stretch in footers */
+  margin: 0;                 /* no extra top margin */
+  /* The size comes from .btn--lg (min-height: 48px, padding-inline: 18px), matching main buttons */
+}
+
+/* Footer buttons should be auto width (match main buttons) */
+footer.card .actions-left .btn,
+footer.card .actions-right .btn { width: auto; }
 @media (max-width: 640px){
-  footer.card .actions{ grid-template-columns:1fr; }
   footer.card .actions-left .btn,
-  footer.card .actions-right .btn{ width:100%; justify-self:stretch; }
+  footer.card .actions-right .btn { width: auto; margin-top: 0; }
 }
+
+/* Footer buttons: same width as main action buttons (50%), responsive to 100% */
+footer.card .actions-left .btn,
+footer.card .actions-right .btn { width: 50% !important; }
+@media (max-width: 640px){
+  footer.card .actions-left .btn,
+  footer.card .actions-right .btn { width: 100% !important; }
+}
+
+/* === Footer: use same two-column layout as main and 50% buttons ======= */
+footer.card .actions{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  align-items: center;
+  margin: 0; /* no extra top margin */
+}
+footer.card .actions-left .btn{
+  width: 50% !important;
+  justify-self: start;
+}
+footer.card .actions-right .btn{
+  width: 50% !important;
+  justify-self: end;
+}
+
+/* === Global: unify card padding across the app (match footer gap) ===== */
+.card { padding: 6px !important; box-sizing: border-box; }
+
+/* Top-align right pane: kill first <p> top margin in matrix cards */
 .matrix .card > div > p:first-child { margin-top: 0; }
 
 /* === Choice buttons (normal vs selected) ============================== */
@@ -297,19 +291,22 @@ footer.card .actions-right .btn { width: auto; justify-self: stretch; }
 /* Row rhythm: consistent compact vertical spacing between rows */
 .matrix .card--action + .card--action { margin-top: 8px; }
 
-/* Left cell: 3-column grid: label | input | Def (fixed widths for clean alignment) */
+/* Left cell with inline label+input: define stable widths and top alignment */
 .igc-inline{
-  display:grid;
-  grid-template-columns: 200px 1fr 44px;  /* label | input | Def */
-  column-gap:12px;
-  align-items:start;
-  max-width:100%;
+  display:flex; align-items:flex-start; gap:12px;
+  max-width: 100%;
 }
-.igc-name{ grid-column:1; width:200px; min-width:200px; max-width:200px; font-weight:600; margin:0; }
-.igc-input{ grid-column:2; min-width:0; width:100%; padding:10px; border:1px solid var(--border); border-radius:10px; }
-.btn.btn--def{ grid-column:3; justify-self:end; }
+.igc-name{
+  min-width: 180px; max-width: 220px; /* fixed label column */
+  flex: 0 0 auto; font-weight:600; margin:0;
+}
+.igc-input{
+  flex: 1 1 auto; min-width: 0;
+  padding: 10px; border: 1px solid var(--border); border-radius: 10px;
+}
 
 /* Right help text: top align and soften */
+.igc-desc-text{ margin:0; color:#444; line-height:1.25 }
 
 /* === sim_edit (run): two-column form grid ============================ */
 /* one row per field: left = label+input inline, right = help text */
@@ -320,10 +317,12 @@ footer.card .actions-right .btn { width: auto; justify-self: stretch; }
   row-gap: 10px;
   align-items: start;                   /* top align both sides */
 }
-/* Make igc-row child placement explicit (robust across browsers) */
-.igc-row > .igc-cell--left  { grid-column: 1; }
-.igc-row > .igc-cell--right { grid-column: 2; }
-.igc-row > .btn--def       { grid-column: 1; }
+
+/* left cell: label + input inline, label fixed width, input fills rest */
+.igc-inline{ display: flex; align-items: flex-start; gap: 12px; }
+.igc-name  { min-width: 200px; max-width: 220px; font-weight: 600; margin: 0; }
+.igc-input { flex: 1 1 auto; min-width: 0; padding: 10px;
+             border: 1px solid var(--border); border-radius: 10px; }
 
 /* right help: top-aligned, tighter line height */
 .igc-desc-text{ margin: 0; color: #444; line-height: 1.25; }

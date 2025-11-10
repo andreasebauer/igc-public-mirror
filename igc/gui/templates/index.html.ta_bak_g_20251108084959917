@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="card">
+  <!-- 2-column matrix: left = selectable button, right = description -->
+  <div class="matrix">
+
+    <!-- Row 1: Sims -->
+    <div class="card card--action">
+      <a href="#" class="btn btn--lg btn-choice" data-dest="/sims/start">Simulations</a>
+      <div>
+        <p>Start new simulations or create or edit a simulation. You can as well resume a simulation or Drill in or Zoom into the simulation if you had stride not 1.</p>
+    </div>
+
+    </div>
+    <!-- Row 2: Metrics -->
+    <div class="card card--action">
+      <a href="#" class="btn btn--lg btn-choice" data-dest="/metrics/simpicker">Metrics</a>
+      <div>
+        <p>Select a simulation folder to choose metrics that should run on a simulation. You can resume metrics if you didn't run metrics on all frames.</p>
+      </div>
+    </div>
+
+  <!-- Footer: Back/Next row; Next aligned right -->
+</section>
+
+<footer class="card">
+  <div class="actions">
+    <div class="actions-left"></div>
+    <div class="actions-right">
+      <a id="entryNext" class="btn btn--primary btn--lg is-disabled" aria-disabled="true">Next</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const next = document.getElementById('entryNext');
+  const choices = Array.from(document.querySelectorAll('.btn-choice'));
+  function select(btn){
+    choices.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const dest = btn.getAttribute('data-dest');
+    next.href = dest;
+    next.classList.remove('is-disabled');
+    next.setAttribute('aria-disabled','false');
+  }
+  choices.forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); select(btn); });
+  });
+})();
+</script>
+{% endblock %}

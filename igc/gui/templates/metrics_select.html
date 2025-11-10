@@ -5,7 +5,7 @@
   <form id="metricsForm" method="post" action="/metrics/{{ sim.id }}/confirm" class="stack">
     <section class="group-grid">
       {% for g in groups %}
-        <div class="group-card igc-card">
+        <div class="group-card">
           <div class="group-head">
             <h3>{{ g.name }} <span class="muted">({{ g.count }})</span></h3>
           </div>
@@ -29,7 +29,9 @@
         <button class="btn small" type="button" data-action="select-all" data-group="{{ g.id }}">Select all</button>
         <button class="btn small" type="button" data-action="deselect-all" data-group="{{ g.id }}">Deselect all</button>
         <button class="btn small" type="button" data-move-one="right" data-group="{{ g.id }}">→</button>
-      </div>
+      </div>  <!-- /.mini-ctrl -->
+      </div> <!-- /.group-body -->
+    </div>   <!-- /.group-card -->      
       {% endfor %}
     </section>
   </form>
@@ -65,6 +67,7 @@
     set selectedItems(arr){
       const vals = new Set((arr||[]).map(it => String(it.value)));
       this._selected = this._items.filter(it => vals.has(String(it.value)));
+      
       this._render(); this._emit();
     }
     connectedCallback(){
@@ -136,15 +139,4 @@ select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;o
   if(!customElements.get('vaadin-dual-list-box')) customElements.define('vaadin-dual-list-box', VDualListBox);
 })();
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Mirror selected items into each right-main on load
-  .group-card{display:flex;flex-direction:column;}
-<style>
-  .lists-2col{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.group-head h3{margin:0 0 .5rem 0;}
-.group-foot{margin-top:.5rem;display:flex;gap:.5rem;justify-content:flex-end;}
-vaadin-dual-list-box{height:260px;border:1px solid var(--igc-border,#d9d9d9);border-radius:8px;padding:.25rem;}
-  vaadin-dual-list-box{width:100%;}
-</style>
 {% endblock %}

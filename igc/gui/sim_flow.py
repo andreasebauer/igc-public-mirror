@@ -60,6 +60,21 @@ def sim_edit_get(request: Request,
                  sim_id: Optional[int] = Query(None)):
     # fetch full row if sim_id is present
     sim = get_simulation_full(sim_id) if sim_id is not None else None
+
+    # debug: prove whether defaults arrive from DB
+    log = logging.getLogger("uvicorn.error")
+    if sim_id and sim:
+        log.info(
+            "sim_edit_get: id=%s default_gridx=%r default_stride=%r default_t_max=%r keys=%d",
+            sim_id,
+            sim.get("default_gridx"),
+            sim.get("default_stride"),
+            sim.get("default_t_max"),
+            len(sim.keys()),
+        )
+    else:
+        log.info("sim_edit_get: id=%s sim=%r", sim_id, sim)
+
     # overlay transient edits from /edit/apply
     try:
         overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
@@ -73,12 +88,19 @@ def sim_edit_get(request: Request,
     if (not fields) and sim:
         fields = [{"name": k, "data_type": "text", "description": ""} for k in sim.keys()]
 
-    return templates.TemplateResponse("sim_edit.html", {"header_right": (("Run " if mode == "run" else ("Edit " if mode == "edit" else "")) + ((sim.get("label","") + " " + sim.get("name","")) if sim else "")).strip(), 
-        "request": request,
-        "mode": mode,
-        "sim": sim,
-        "fields": fields,
-    })
+    return templates.TemplateResponse(
+        "sim_edit.html",
+        {
+            "header_right": (
+                ("Run " if mode == "run" else ("Edit " if mode == "edit" else "")) +
+                ((sim.get("label","") + " " + sim.get("name","")) if sim else "")
+            ).strip(),
+            "request": request,
+            "mode": mode,
+            "sim": sim,
+            "fields": fields,
+        },
+    )
 
 def sim_sweep_get(request: Request, sim_id: int = Query(...)):
     row = sims_svc.get_simulation(sim_id)

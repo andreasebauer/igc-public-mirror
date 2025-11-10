@@ -1,11 +1,7 @@
 {% extends "base.html" %}
-2  {% set back_url = request.url_for('sim_edit_get') ~ '?mode=' ~ mode ~ (sim and sim.get('id') and ('&sim_id=' ~ sim['id']) or '') %}
-3  {% set primary_kind = 'link' %}
-4  {% set primary_label = (mode in ['edit','create']) and 'Save' or 'Run' %}
-5  {% set primary_url = '#' %}
-6  {% set primary_disabled = False %}
-7  {% block title %}Confirm · Simulation{% endblock %}
-8  {% block content %}
+{% block title %}Confirm · Simulation{% endblock %}
+{% block content %}
+{% set back_url = request.url_for('sim_edit_get') ~ '?mode=' ~ mode ~ (sim and sim.get('id') and ('&sim_id=' ~ sim['id']) or '') %} {% set primary_kind = 'submit' %} {% set primary_label = (mode in ['edit','create']) and 'Save' or 'Run' %} {% set primary_url = None %} {% set primary_disabled = False %}
 <section class="igc-page">
 
   <!-- MAIN: framed, ALWAYS render from sim; use fields only for optional descriptions -->
@@ -13,6 +9,7 @@
   <input type="hidden" name="mode" value="{{ mode }}">
   {% if sim and sim.get('id') %}<input type="hidden" name="sim_id" value="{{ sim['id'] }}">{% endif %}
   <section class="card">
+  <main class="igc-main igc-card">
     {% set sim = sim or {} %}
     {% import "partials/help_map.html" as hm %}
 
@@ -41,24 +38,12 @@
         </div>
       </div>
     {% endif %}
+  </main>
   </section>
 
   <!-- FOOTER: framed two-column block (Back / Primary) -->
   <!-- FOOTER: framed, two-column actions (Back | Primary) -->
 </form>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const f    = document.getElementById('confirmForm');
-    const next = document.querySelector('footer.card .actions-right a');
-    if (next && f) {
-      next.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        f.submit();
-      });
-    }
-  });
-</script>
 
 {% endblock %}
