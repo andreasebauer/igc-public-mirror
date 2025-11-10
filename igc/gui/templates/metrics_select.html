@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% import "_components.html" as ui %}
 
-{% block main_left %}
+{% block main_full %}
+  <div class="metrics-fullgrid">
+    <div class="col-left">
   <form id="metricsForm" method="post" action="/metrics/{{ sim.id }}/confirm" class="stack">
     <section class="group-grid">
       {% for g in groups %}
@@ -13,11 +15,17 @@
             {# Build JSON-like arrays for items and preselected ids, using only Jinja basics #}
             {% set items = [] %}
             {% for m in metrics_by_group.get(g.id, []) %}
-              {% set _ = items.append({"value": m.id, "label": m.name}) %}
+              {% set desc  = (m.desc | default('', true) | string) %}
+              {% set label = (m.name        | default('', true) | string) %}
+              {% set val   = m.id %}
+              {% set _ = items.append({"value": val, "label": label, "desc": desc}) %}
             {% endfor %}
+
             {% set pre = [] %}
             {% for m in metrics_by_group.get(g.id, []) %}
-              {% if m.id in assigned_metric_ids %}{% set _ = pre.append(m.id) %}{% endif %}
+              {% if m.id in assigned_metric_ids %}
+                {% set _ = pre.append(m.id) %}
+              {% endif %}
             {% endfor %}
       <div class="lists-2col">
         <div class="list-frame">
@@ -25,16 +33,24 @@
         </div>
       </div>
       <div class="mini-ctrl" style="margin-top:6px; display:flex; gap:8px; justify-content:flex-start;">
-        <button class="btn small" type="button" data-move-one="left"  data-group="{{ g.id }}">←</button>
-        <button class="btn small" type="button" data-action="select-all" data-group="{{ g.id }}">Select all</button>
-        <button class="btn small" type="button" data-action="deselect-all" data-group="{{ g.id }}">Deselect all</button>
-        <button class="btn small" type="button" data-move-one="right" data-group="{{ g.id }}">→</button>
+        <button class="btn small btn--w-44" type="button" data-move-one="left"  data-group="{{ g.id }}">←</button>
+        <button class="btn small btn--w-88" type="button" data-action="select-all" data-group="{{ g.id }}">Select all</button>
+        <button class="btn small btn--w-88" type="button" data-action="deselect-all" data-group="{{ g.id }}" style="margin-left:auto">Deselect all</button>
+        <button class="btn small btn--w-44" type="button" data-move-one="right" data-group="{{ g.id }}">→</button>
       </div>  <!-- /.mini-ctrl -->
       </div> <!-- /.group-body -->
     </div>   <!-- /.group-card -->      
       {% endfor %}
     </section>
   </form>
+    </div> <!-- /.col-left -->
+    <aside class="col-right">
+      <section id="metric-desc" class="desc-card">
+        <h3 class="desc-title">Description</h3>
+        <div class="desc-body muted">Select a metric to see its description here.</div>
+      </section>
+    </aside>
+  </div> <!-- /.metrics-fullgrid -->
 {% endblock %}
 {% block page_js %}
 <script>
@@ -67,9 +83,13 @@
     set selectedItems(arr){
       const vals = new Set((arr||[]).map(it => String(it.value)));
       this._selected = this._items.filter(it => vals.has(String(it.value)));
-      
-      this._render(); this._emit();
+      this._render();
+      this._emit();
     }
+      _emit(){
+      this.dispatchEvent(new CustomEvent('selected-items-changed', { bubbles: true }));
+    }
+   
     connectedCallback(){
       try { this._items = JSON.parse(this.getAttribute('data-items')||'[]'); } catch(e){ this._items=[]; }
       let pre=[]; try { pre = JSON.parse(this.getAttribute('data-selected')||'[]'); } catch(e){}
@@ -77,7 +97,12 @@
       this._selected = this._items.filter(it => vals.has(String(it.value)));
       this._render();
     }
-    _emit(){ this.dispatchEvent(new CustomEvent('selected-items-changed', {bubbles:true})); }
+        _emitPreview(item){
+      this.dispatchEvent(new CustomEvent('preview-item-changed', {
+        bubbles: true,
+        detail: { item }
+      }));
+    }
     _render(){
       const sel = new Set(this._selected.map(it=>String(it.value)));
       const avail = this._items;
@@ -87,7 +112,25 @@
         <style>
           :host{display:block}
           .wrap{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;outline:none}
+  /* Force non-native paint so option background can be styled (WebKit) */
+  select{ -webkit-appearance:none; appearance:none; }
+
+  /* Black highlight for selected options */
+  select option:checked{
+    background:#000 !important;
+    background-color:#000 !important;
+    background-image:linear-gradient(#000,#000) !important; /* WebKit paint */
+    color:#fff !important;
+    -webkit-text-fill-color:#fff; /* Safari text paint */
+    text-shadow:none;
+  }
+  /* Keep same paint when focused */
+  select:focus option:checked{
+    background:#000 !important; color:#fff !important; -webkit-text-fill-color:#fff;
+  }
+
+  /* Dont dim “already moved” items when theyre the active selection */
+  .left option.is-selected:checked{ opacity:1 !important; }
           .left option.is-selected{opacity:.55;}
   .wrap{grid-template-columns:1fr 1fr !important;}
   .list-frame select{border:none;outline:none;width:100%;}
@@ -102,6 +145,21 @@ select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;o
 
       const left  = this.querySelector('.left');
       const rightSel = this.querySelector('.right');
+      const previewFromLeft = () => {
+        if(!left) return;
+        const o = left.selectedOptions[left.selectedOptions.length - 1];
+        if(!o){ this._emitPreview(null); return; }
+        const val = String(o.value);
+        const it = (this._items || []).find(x => String(x.value) === val) || null;
+        this._emitPreview(it);
+      };
+      left.addEventListener('change', previewFromLeft);
+      left.addEventListener('click',  previewFromLeft);
+      left.addEventListener('keyup', (e)=>{
+        if(e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'Home' || e.key === 'End'){
+          previewFromLeft();
+        }
+      });
 
       // show all rows (no collapsed 4-row select by default)
       if (left){ left.setAttribute("size", String((this._items||[]).length || 1)); }
@@ -125,7 +183,11 @@ select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;o
           }
           moved.push(obj);
         });
-        if(moved.length){ this._render(); this._emit(); }
+          if(moved.length){
+            this._emitPreview(moved[moved.length - 1]);
+            this._render();
+            this._emit();
+         }
       };
 
       // double-click to move
@@ -138,5 +200,121 @@ select{height:auto;width:100%;padding:.25rem;box-sizing:border-box;border:none;o
   }
   if(!customElements.get('vaadin-dual-list-box')) customElements.define('vaadin-dual-list-box', VDualListBox);
 })();
+  // === Wire group mini-controls (←, →, Select all, Deselect all) =========
+  document.querySelectorAll(".mini-ctrl").forEach(ctrl=>{
+    const card = ctrl.closest(".group-card");
+    const lb   = card ? card.querySelector("vaadin-dual-list-box.metric-transfer") : null;
+    if(!lb) return;
+
+    ctrl.addEventListener("click",(e)=>{
+      const btn = e.target.closest("button");
+      if(!btn) return;
+
+      if (btn.dataset.action === "select-all"){
+        // select all items in this listbox
+        lb.selectedItems = lb.items || [];
+        // preview last item for the right pane
+        const all = lb.items || [];
+        const last = all[all.length-1] || null;
+        if(last) lb.dispatchEvent(new CustomEvent("preview-item-changed",{bubbles:true, detail:{item:last}}));
+        return;
+      }
+      if (btn.dataset.action === "deselect-all"){
+        lb.selectedItems = [];
+        lb.dispatchEvent(new CustomEvent("preview-item-changed",{bubbles:true, detail:{item:null}}));
+        return;
+      }
+      if (btn.dataset.moveOne === "left"){
+        // remove selected from the RIGHT list
+        lb.moveLeftSelected();
+        return;
+      }
+      if (btn.dataset.moveOne === "right"){
+        // move selected from the LEFT list to RIGHT
+        lb.moveRightSelected();
+        return;
+      }
+    });
+  });
+  // === Right pane: live description =======================================
+  document.addEventListener('selected-items-changed', (e)=>{
+    const lb = e.target && e.target.closest && e.target.closest('vaadin-dual-list-box');
+    if(!lb) return;
+    const sel = lb.selectedItems || [];
+    const last = sel[sel.length - 1] || null;
+
+    const box = document.getElementById('metric-desc');
+    if(!box) return;
+    const title = box.querySelector('.desc-title');
+    const body  = box.querySelector('.desc-body');
+
+    if(last){
+      if(title) title.textContent = last.label || 'Description';
+      if(body)  body.textContent  = (last.desc && String(last.desc).trim())
+        ? String(last.desc)
+        : `Metric: ${last.label} (id ${last.value})`;
+    }else{
+      if(title) title.textContent = 'Description';
+      if(body)  body.textContent  = 'Select a metric to see its description here.';
+    }
+  });    
+      // Right pane: live description
+  document.addEventListener('preview-item-changed', (e)=>{
+    const it   = e.detail && e.detail.item;
+    const box  = document.getElementById('metric-desc');
+    if(!box) return;
+    const title = box.querySelector('.desc-title');
+    const body  = box.querySelector('.desc-body');
+
+    if(it){
+      if(title) title.textContent = it.label || 'Description';
+      if(body)  body.textContent  = (it.desc && String(it.desc).trim())
+        ? String(it.desc)
+        : `Metric: ${it.label} (id ${it.value})`;
+    }else{
+      if(title) title.textContent = 'Description';
+      if(body)  body.textContent  = 'Select a metric to see its description here.';
+    }
+  });
+    // === Align right description vertically with the selected metric ===========
+  (function(){
+    const aside = document.querySelector('aside.col-right');
+    const desc  = document.getElementById('metric-desc');
+    if(!aside || !desc) return;
+
+    function alignDescToSelected(lb){
+      if(!lb) return;
+      const left = lb.querySelector('.left');
+      if(!left || !left.selectedOptions || !left.selectedOptions.length) {
+        desc.style.transform = 'translateY(0)';
+        return;
+      }
+      const opt = left.selectedOptions[left.selectedOptions.length - 1];
+      const leftRect  = left.getBoundingClientRect();
+      const optRect   = opt.getBoundingClientRect();
+      const asideRect = aside.getBoundingClientRect();
+      const y = (optRect.top - asideRect.top) - 8;
+      const maxY = Math.max(0, leftRect.height - desc.offsetHeight);
+      const clamped = Math.max(0, Math.min(y, maxY));
+      desc.style.transform  = `translateY(${Math.round(clamped)}px)`;
+    }
+
+    document.addEventListener('preview-item-changed', (e)=>{
+      const lb = e.target && e.target.closest && e.target.closest('vaadin-dual-list-box');
+      alignDescToSelected(lb);
+    });
+    document.addEventListener('selected-items-changed', (e)=>{
+      const lb = e.target && e.target.closest && e.target.closest('vaadin-dual-list-box');
+      alignDescToSelected(lb);
+    });
+    window.addEventListener('resize', ()=>{
+      const lb = document.querySelector('vaadin-dual-list-box.metric-transfer');
+      alignDescToSelected(lb);
+    });
+    window.addEventListener('scroll', ()=>{
+      const lb = document.querySelector('vaadin-dual-list-box.metric-transfer');
+      alignDescToSelected(lb);
+    });
+  })();
 </script>
 {% endblock %}
