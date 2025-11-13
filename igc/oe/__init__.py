@@ -9,7 +9,7 @@ Responsibilities:
 """
 
 from .core import (
-    seed_jobs,
+    seed_compute_jobs,
     finalize_seeded_jobs,
     run,
     pause,

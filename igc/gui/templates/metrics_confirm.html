@@ -1,12 +1,18 @@
 {% extends "base.html" %}
+{% set back_url = '/metrics/select/' ~ sim.id %}
+{% set primary_kind = 'submit' %}
+{% set primary_label = 'Next' %}
+{% set primary_url = None %}
+{% set primary_disabled = False %}
+{% set primary_form_id = 'metrics-confirm-form' %}
 {% block content %}
-{% set back_url = '/metrics/select/' ~ sim.id %} {% set primary_kind = 'submit' %} {% set primary_label = 'Save' %} {% set primary_url = None %} {% set primary_disabled = False %}
-<header class="igc-header">
-  <h1>Confirm Metrics</h1>
+<section class="card">
+<header class="igc-header">  
+  <h3>Chosen metrics:</h3>
   <p class="igc-subtitle">{{ sim.label }} · {{ sim.name }} — {{ total_selected }} selected</p>
 </header>
 
-<form method="post" action="/metrics/{{ sim.id }}/save" class="stack">
+<form id="metrics-confirm-form" method="post" action="/metrics/{{ sim.id }}/save" class="stack">
   <section class="group-grid">
   {% for g in groups %}
     <div class="igc-card">
@@ -29,17 +35,23 @@
     <input type="hidden" name="metric_ids[]" value="{{ mid }}"/>
   {% endfor %}
 
-      </div>
-      <div class="actions-right">
-        <button class="btn btn--primary btn--lg" type="submit">Save</button>
-      </div>
-    </div>
-  </footer>
-</form>
 
+</form>
+</section>
 <style>
 .group-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
 .igc-card ul{list-style:disc;padding-left:1.5rem;}
 .muted{opacity:.6;}
+/* Smaller header + list text only for this page */
+.igc-header h1 {
+  font-size: 1.25rem;   /* ~18 px instead of default 24 px */
+  margin-bottom: 2px;
+}
+
+.group-grid h3,
+.group-grid li {
+  font-size: 0.9rem;    /* ~14 px */
+  line-height: 0.75;
+}
 </style>
 {% endblock %}

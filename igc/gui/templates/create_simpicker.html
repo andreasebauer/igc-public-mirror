@@ -46,11 +46,15 @@ $(function() {
         var name  = $('#preview').find('[data-sim-name]').data('sim-name');
         window.IGC.setHeaderRight((label || '') + ' ' + (name || ''));
         const nextBtn = document.querySelector('.actions-right a');
-        if (nextBtn) {
+        if (nextBtn && simId) {
           nextBtn.classList.remove('is-disabled');
           nextBtn.setAttribute('href','/metrics/select/'+simId);
-        nextBtn.classList.add('btn--primary');
+          nextBtn.classList.add('btn--primary');
           nextBtn.removeAttribute('aria-disabled');
+        } else if (nextBtn) {
+          nextBtn.setAttribute('href', '#');
+          nextBtn.classList.add('is-disabled');
+          nextBtn.setAttribute('aria-disabled','true');
         }
       } else {
         window.IGC.setHeaderRight('');

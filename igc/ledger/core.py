@@ -36,16 +36,28 @@ def fetch_job_ledger_record(
     frame: int | None = None,
 ) -> list[dict]:
     """
-    Query full_job_ledger_extended_view using lowercase column names (job_id, sim_id, etc.)
+    Query big_view using lowercase column names (job_id, sim_id, etc.)
     """
     sql = """
-        SELECT * FROM full_job_ledger_extended_view
-        WHERE (%(job_id)s::int   IS NULL OR job_id   = %(job_id)s::int)
-          AND (%(sim_id)s::int   IS NULL OR sim_id   = %(sim_id)s::int)
-          AND (%(group_id)s::int IS NULL OR group_id = %(group_id)s::int)
-          AND (%(metric_id)s::int IS NULL OR metric_id = %(metric_id)s::int)
-          AND (%(step_id)s::int  IS NULL OR step_id  = %(step_id)s::int)
-          AND (%(frame)s::int    IS NULL OR job_frame = %(frame)s::int)
+        SELECT
+            -- map big_view columns to OE-expected keys (no steps as jobs)
+            smj_jobid        AS job_id,
+            smj_simid        AS sim_id,
+            smj_metricid     AS metric_id,
+            smj_frame        AS job_frame,
+            smj_phase        AS job_phase,
+            smj_status       AS job_status,
+            smj_output_path  AS output_path,
+            COALESCE(smj_output_type, '') AS output_type,
+            -- optional/job metadata useful for paths; no step/group enforcement
+            COALESCE(met_group_id, 0)   AS group_id,
+            COALESCE(met_outputtypes, '') AS metric_outputtypes
+        FROM public.big_view
+        WHERE (%(job_id)s::int    IS NULL OR smj_jobid    = %(job_id)s::int)
+          AND (%(sim_id)s::int    IS NULL OR smj_simid    = %(sim_id)s::int)
+          AND (%(metric_id)s::int IS NULL OR smj_metricid = %(metric_id)s::int)
+          AND (%(group_id)s::int  IS NULL OR met_group_id = %(group_id)s::int)
+          AND (%(frame)s::int     IS NULL OR smj_frame    = %(frame)s::int)
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(sql, {
@@ -55,43 +67,6 @@ def fetch_job_ledger_record(
         cols = [d[0] for d in cur.description]
         rows = [dict(zip(cols, row)) for row in cur.fetchall()]
     return rows
-def create_jobs_for_sim(
-    *,
-    sim_id: int,
-    jobtype: str,
-    jobsubtype: str,
-    priority: int,
-) -> None:
-    """
-    INSERT INTO "SimMetricJobs" ... SELECT ... FROM job_seed_view WHERE simid = $1
-    (Direct port of Swift SQL.)
-    """
-    sql = """
-        INSERT INTO "SimMetricJobs"
-            ("simID", "metricID", "groupID", "stepID", "status", "jobtype",
-             "jobsubtype", "priority", "createdate")
-        SELECT
-            js.simid,
-            js.metricid,
-            js.groupid,
-            js.stepid,
-            'queued',
-            %(jobtype)s,
-            %(jobsubtype)s,
-            %(priority)s,
-            NOW()
-        FROM job_seed_view js
-        WHERE js.simid = %(sim_id)s
-    """
-    with _connect() as conn, conn.cursor() as cur:
-        cur.execute(sql, {
-            "sim_id": sim_id,
-            "jobtype": jobtype,
-            "jobsubtype": jobsubtype,
-            "priority": priority,
-        })
-        conn.commit()
-
 
 # =========================
 # 3) JOB STATUS UPDATE (v1)
@@ -108,10 +83,10 @@ def update_job_status_single(
     set_start_sql = "startdate = NOW()," if set_start else ""
     set_finish_sql = "finishdate = NOW()," if set_finish else ""
     sql = f"""
-        UPDATE "SimMetricJobs"
+        UPDATE public.simmetjobs
         SET
             status = %(status)s,
-            errormessage = %(err)s,
+            error_message = %(err)s,
             {set_start_sql}
             {set_finish_sql}
             priority = %(pri)s
@@ -141,16 +116,15 @@ def update_job_status_group(
     set_start_sql = "startdate = NOW()," if set_start else ""
     set_finish_sql = "finishdate = NOW()," if set_finish else ""
     sql = f"""
-        UPDATE "SimMetricJobs"
+        UPDATE public.simmetjobs
         SET
             status = %(status)s,
-            errormessage = %(err)s,
+            error_message = %(err)s,
             {set_start_sql}
             {set_finish_sql}
             priority = %(pri)s
-        WHERE "simID" = %(sim_id)s
-          AND group_name = %(group_name)s
-          AND job_frame = %(frame)s
+        WHERE simid = %(sim_id)s
+          AND frame = %(frame)s
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(sql, {
@@ -195,11 +169,8 @@ def update_seeded_job(
     Direct port of Swift updateSeededJob().
     """
     sql = """
-        UPDATE "SimMetricJobs"
+        UPDATE public.simmetjobs
         SET
-            "groupID"   = %(group_id)s,
-            "stepID"    = %(step_id)s,
-            jobtype     = %(job_type)s,
             phase       = %(job_phase)s,
             frame       = %(job_frame)s,
             output_path = %(output_path)s
@@ -217,6 +188,37 @@ def update_seeded_job(
         })
         conn.commit()
 
+def create_compute_template_for_sim(*, sim_id: int) -> int:
+    """
+    First-seeding for compute: insert a single frame=0, phase=0 job with output_type='state'.
+    Idempotent via unique index (simid, frame, phase, output_type, metricid).
+    Returns number of rows inserted (0 or 1).
+    """
+    with _connect() as conn, conn.cursor() as cur:
+        cur.execute("""
+            INSERT INTO public.simmetjobs
+              (simid, metricid, frame, phase, status, priority, createdate,
+               output_extension, output_type, mime_type)
+            SELECT %s, NULL, 0, 0, 'created', 0, NOW(),
+                   '.frame', 'state', 'application/octet-stream'
+            WHERE NOT EXISTS (
+              SELECT 1 FROM public.simmetjobs s
+              WHERE s.simid=%s AND s.frame=0 AND s.phase=0
+                AND COALESCE(s.output_type,'')='state'
+                AND s.metricid IS NULL
+            )
+            RETURNING jobid
+        """, (sim_id, sim_id))
+        row = cur.fetchone()
+        if row:
+            cur.execute(
+                "INSERT INTO public.jobexecutionlog (jobid, simid, status) VALUES (%s, %s, %s)",
+                (int(row[0]), sim_id, "created")
+            )
+            conn.commit()
+            return 1
+        conn.commit()
+        return 0
 
 # ==================
 # 7) FRAME STATISTICS
@@ -231,18 +233,18 @@ def fetch_frame_stats(*, sim_id: int) -> Dict[str, int]:
         SELECT COALESCE(MAX(frame), -1) AS max_completed
         FROM (
             SELECT frame,
-                   SUM(CASE WHEN "stepID" = 3 THEN 1 ELSE 0 END) AS total_final,
-                   SUM(CASE WHEN "stepID" = 3 AND status = 'written' THEN 1 ELSE 0 END) AS written_final
-            FROM "SimMetricJobs"
-            WHERE "simID" = %(sim_id)s
+                   COUNT(*) AS total_rows,
+                   SUM(CASE WHEN status = 'written' THEN 1 ELSE 0 END) AS written_rows
+            FROM public.simmetjobs
+            WHERE simid = %(sim_id)s
             GROUP BY frame
         ) s
-        WHERE s.total_final > 0 AND s.written_final = s.total_final
+        WHERE s.total_rows > 0 AND s.written_rows = s.total_rows
     """
     seeded_sql = """
         SELECT COALESCE(MAX(frame), -1) AS max_seeded
-        FROM "SimMetricJobs"
-        WHERE "simID" = %(sim_id)s
+        FROM public.simmetjobs
+        WHERE simid = %(sim_id)s
     """
     with _connect() as conn, conn.cursor() as cur:
         cur.execute(completed_sql, {"sim_id": sim_id})
@@ -278,8 +280,8 @@ def insert_jobs_for_frames_like_frame(
         cur.execute(
             """
             SELECT COUNT(*)::int AS cnt
-            FROM "SimMetricJobs"
-            WHERE "simID" = %(sim_id)s AND frame = %(template_frame)s
+            FROM public.simmetjobs
+            WHERE simid = %(sim_id)s AND frame = %(template_frame)s
             """,
             {"sim_id": sim_id, "template_frame": template_frame},
         )
@@ -292,44 +294,49 @@ def insert_jobs_for_frames_like_frame(
         try:
             cur.execute("SELECT pg_advisory_xact_lock(%(sim_id)s)", {"sim_id": sim_id})
             insert_sql = """
-                
                 WITH template AS (
-                    SELECT DISTINCT "metricID", "groupID", "stepID", phase, priority
-                    FROM "SimMetricJobs"
-                    WHERE "simID" = %(sim_id)s AND frame = %(template_frame)s
+                    SELECT DISTINCT
+                        metricid,
+                        output_type,
+                        phase,
+                        priority
+                    FROM public.simmetjobs
+                    WHERE simid = %(sim_id)s
+                      AND frame = %(template_frame)s
                 ),
                 missing AS (
-                    SELECT %(sim_id)s AS "simID",
-                           t."metricID", t."groupID", t."stepID",
-                           f.frame AS frame,
-                           'created'::text AS status,
-                           t.phase,
-                           t.priority,
-                           md5(CONCAT_WS(':',
-                               %(sim_id)s::text,
-                               t."metricID"::text,
-                               t."groupID"::text,
-                               t."stepID"::text,
-                               f.frame::text,
-                               t.phase::text
-                           )) AS spec_hash,
-                           NOW()::text AS createdate
+                    SELECT
+                        %(sim_id)s AS simid,
+                        t.metricid,
+                        t.output_type,
+                        f.frame        AS frame,
+                        'created'::text AS status,
+                        t.phase,
+                        t.priority,
+                        md5(CONCAT_WS(':',
+                            %(sim_id)s::text,
+                            COALESCE(t.metricid::text,''),
+                            COALESCE(t.output_type,''),
+                            f.frame::text,
+                            t.phase::text
+                        ))            AS spec_hash,
+                        NOW()::timestamp AS createdate
                     FROM template t
                     JOIN generate_series(%(start_frame)s::int, %(end_frame)s::int) AS f(frame) ON TRUE
-                    LEFT JOIN "SimMetricJobs" s
-                      ON s."simID"   = %(sim_id)s
-                     AND s."metricID"= t."metricID"
-                     AND s."groupID" = t."groupID"
-                     AND s."stepID"  = t."stepID"
-                     AND s.frame     = f.frame
+                    LEFT JOIN public.simmetjobs s
+                      ON s.simid = %(sim_id)s
+                     AND s.phase = t.phase
+                     AND s.frame = f.frame
+                     AND COALESCE(s.output_type,'')    = COALESCE(t.output_type,'')
+                     AND COALESCE(s.metricid::text,'') = COALESCE(t.metricid::text,'')
                     WHERE s.jobid IS NULL
                 )
-                INSERT INTO "SimMetricJobs"
-                    ("simID","metricID","groupID","stepID", frame, status, phase, priority, spec_hash, createdate)
-                SELECT "simID","metricID","groupID","stepID", frame, status, phase, priority, spec_hash, createdate
+                INSERT INTO public.simmetjobs
+                    (simid, metricid, output_type, frame, phase, status, priority, spec_hash, createdate)
+                SELECT
+                    simid, metricid, output_type, frame, phase, status, priority, spec_hash, createdate
                 FROM missing
-                RETURNING 1
-
+                RETURNING jobid
             """
             cur.execute(insert_sql, {
                 "sim_id": sim_id,
@@ -337,8 +344,15 @@ def insert_jobs_for_frames_like_frame(
                 "start_frame": start_frame,
                 "end_frame": end_frame,
             })
-            # count returned rows:
-            inserted = cur.rowcount if cur.rowcount is not None else 0
+            # fetch job IDs and write created logs
+            rows = cur.fetchall() or []
+            ids = [r[0] for r in rows]
+            if ids:
+                cur.executemany(
+                    "INSERT INTO public.jobexecutionlog (jobid, simid, status) VALUES (%s, %s, %s)",
+                    [(jid, sim_id, "created") for jid in ids]
+                )
+            inserted = len(ids)
             cur.execute("COMMIT")
             return int(inserted)
         except Exception:

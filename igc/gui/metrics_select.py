@@ -73,13 +73,13 @@ def seed_jobs_for_frames(sim_id: int, metric_ids: Sequence[int], frames: Sequenc
     if not frames or not metric_ids:
         return 0
     with cx() as conn:
-        execute(conn, "create unique index if not exists simmetricjobs_unique on simmetricjobs(simid,metricid,frame)")
+                execute(conn, "create unique index if not exists simmetjobs_unique on simmetjobs(simid,metricid,frame)")
         count = 0
         for mid in metric_ids:
             for f in frames:
                 execute(conn, """
-                  insert into simmetricjobs (simid,metricid,groupid,frame,status,jobtype,jobsubtype,priority,createdate)
-                  select %s,%s,smgm.group_id,%s,'queued','metric','final',0, now()::text
+                  insert into simmetjobs (simid,metricid,frame,status,priority,createdate)
+                  select %s,%s,%s,'queued',0, now()
                   from simmetricgroupmatcher smgm
                   where smgm.sim_id=%s and smgm.metric_id=%s
                   on conflict (simid,metricid,frame) do nothing

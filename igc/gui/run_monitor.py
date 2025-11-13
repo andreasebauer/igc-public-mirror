@@ -20,10 +20,10 @@ def job_detail(job_id:int) -> dict:
 
 def requeue_job(job_id:int) -> int:
     with cx() as conn:
-        execute(conn, "update simmetricjobs set status='queued' where jobid=%s", (job_id,))
+        execute(conn, "update simmetjobs set status='queued' where jobid=%s", (job_id,))
         return 1
 
-def cancel_job(job_id:int) -> int:
+def cancel_job(job_id: int) -> int:
     with cx() as conn:
-        execute(conn, "update simmetricjobs set status='canceled' where jobid=%s", (job_id,))
+        execute(conn, "update simmetjobs set status='canceled' where jobid=%s", (job_id,))
         return 1

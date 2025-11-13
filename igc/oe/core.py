@@ -7,10 +7,9 @@ OE (Orchestrator) — Pass 1 & Pass 2 (Swift parity, simplified)
 - finalize_seeded_jobs(sim_id): resolves output paths and freezes identity:
   - find unresolved jobs (output_path NULL/empty) from full_job_ledger_extended_view
   - decide extension: steps 1/2 -> .npy ; step 3 -> first of metric_output_types (default .csv)
-  - render canonical path from DB PathRegistry (id=1) templates:
-      time/sim/frame/group/metric/step/field/( metricName.type | intermediate.npy )
+  - render canonical path via internal flat builder:
+	      /data/simulations/{sim_label}/{timestamp}/Frame_{NNNN}/
   - write final path + identity to SimMetricJobs via ledger.update_seeded_job(...)
-
 This file keeps OE stateless and CPU-only; path logic is DB-driven via PathRegistry.
 """
 
@@ -20,30 +19,23 @@ import psycopg
 
 from igc import ledger
 
-
 # ---- DB helper (env-driven) ----
+from igc.db.pg import cx, execute
 def _connect():
     dsn = os.getenv("PGDSN")
     if dsn:
         return psycopg.connect(dsn)
     return psycopg.connect()  # reads PG* vars (PGHOST, PGUSER, PGPASSWORD, PGDATABASE, PGPORT)
 
-
 # -------------------
 # Public OE functions
 # -------------------
-def seed_jobs(*, sim_id: int) -> None:
-    """
-    Pass 1 (Swift parity):
-      createJobsForSimulation(simID: simID, jobtype: "auto", jobsubtype: "", priority: 0)
-    """
-    ledger.create_jobs_for_sim(
-        sim_id=sim_id,
-        jobtype="auto",
-        jobsubtype="",
-        priority=0,
-    )
 
+def seed_compute_jobs(*, sim_id: int) -> int:
+    """
+    SIM compute seeding: create frame=0 compute job (output_type='state').
+    """
+    return ledger.create_compute_template_for_sim(sim_id=sim_id)
 
 def finalize_seeded_jobs(*, sim_id: int) -> int:
     """
@@ -59,25 +51,69 @@ def finalize_seeded_jobs(*, sim_id: int) -> int:
     jobs: List[Dict] = ledger.fetch_job_ledger_record(sim_id=sim_id)
     unresolved = [j for j in jobs if not j.get("output_path")]
 
-    # Load templates once
-    T = _get_path_templates()
+    # --- estimate per-field memory/size from simulation grid (double precision) ---
+    try:
+        with _connect() as _c, _c.cursor() as _cur:
+            _cur.execute("SELECT COALESCE(gridx,0), COALESCE(gridy,0), COALESCE(gridz,0) FROM public.simulations WHERE id=%s", (sim_id,))
+            _row = _cur.fetchone() or (0,0,0)
+            _gx, _gy, _gz = (int(_row[0]), int(_row[1]), int(_row[2]))
+    except Exception as e:
+        # hard-fail: we cannot continue without valid grid dims
+        request_abort("grid dimension fetch failed")
+        raise
+    _elems = max(0, _gx * _gy * _gz)
+    _bytes_per_field = _elems * 8
+    _mem_grid_mb = _bytes_per_field / (1024.0 * 1024.0)
+    _mem_pipeline_mb = 0.0
+    _mem_total_mb = _mem_grid_mb + _mem_pipeline_mb    
     finalized = 0
 
+    # set a stable run token once per finalize pass for this sim
+    if sim_id not in _RUN_TOKEN:
+        _RUN_TOKEN[sim_id] = _time_token_utc()    
+
     for j in unresolved:
-        job_id   = int(j["job_id"])
-        group_id = int(j["group_id"])
-        step_id  = int(j["step_id"])          # DB step id (1/2/3)
-        phase    = int(j.get("job_phase") or 0)            # pp stage numeric
+        job_id = int(j["job_id"])
+        # no steps as jobs: group comes from metric’s group (if present), step=0
+        group_id = int(j.get("group_id") or j.get("met_group_id") or 0)
+        step_id  = 0
+        phase    = int(j.get("job_phase") or 0)
         frame    = int(j.get("job_frame") or 0)
-        step     = int(j.get("step", step_id))  # if 'step' absent, reuse step_id
-        metric_output_types = j.get("metric_outputtypes", "")
-        ext   = _ext_for(step, metric_output_types)
+        step     = 0
+        metric_output_types = j.get("metric_outputtypes", "")  # from big_view (met_outputtypes), may be ''
+        ext = _ext_for(step, metric_output_types)
 
         # Render canonical path from templates
-        final_path = _render_path_from_registry(j, ext, T)
+        final_path = _render_path_from_registry(j, ext)
+        # Ensure output hints & estimates are present on the job row
+        try:
+            _out_type = j.get("output_type") or None
+            with _connect() as _c, _c.cursor() as _cur:
+                _cur.execute("""
+                    UPDATE public.simmetjobs
+                    SET output_extension = %s,
+                        output_type      = COALESCE(output_type, %s),
+                        mime_type        = %s,
+                        output_size_bytes= COALESCE(output_size_bytes, %s),
+                        mem_grid_mb      = COALESCE(mem_grid_mb, %s),
+                        mem_pipeline_mb  = COALESCE(mem_pipeline_mb, %s),
+                        mem_total_mb     = COALESCE(mem_total_mb, %s)
+                    WHERE jobid = %s
+                """, (
+                    ext,
+                    _out_type,
+                    "application/octet-stream",
+                    _bytes_per_field,
+                    _mem_grid_mb,
+                    _mem_pipeline_mb,
+                    _mem_total_mb,
+                    job_id,
+                ))
+                _c.commit()
+        except Exception:
+            pass        
 
         job_type = f"step_{step}"
-
         ledger.update_seeded_job(
             job_id=job_id,
             group_id=group_id,
@@ -87,8 +123,8 @@ def finalize_seeded_jobs(*, sim_id: int) -> int:
             job_frame=frame,
             output_path=final_path,
         )
-        finalized += 1
 
+        finalized += 1
     return finalized
 
 
@@ -119,89 +155,124 @@ def _time_token_utc() -> str:
     import datetime as _dt
     return _dt.datetime.utcnow().strftime("%Y%m%d_%H%M")
 
-
-def _get_path_templates() -> Dict[str, str]:
-    """
-    Reads PathRegistry (id=1) and returns a dict of templates.
-    Expected columns:
-      timestamptemplate, frametemplate, simnametemplate, groupnametemplate,
-      metricidtemplate, steptemplate, filenametemplate, intermediate, fieldtemplate
-    """
-    sql = """
-        SELECT timestamptemplate, frametemplate, simnametemplate, groupnametemplate,
-               metricidtemplate, steptemplate, filenametemplate, intermediate, fieldtemplate
-        FROM "PathRegistry"
-        WHERE id = 1
-    """
-    with _connect() as conn, conn.cursor() as cur:
-        cur.execute(sql)
-        row = cur.fetchone()
-        if not row:
-            raise RuntimeError("PathRegistry row id=1 not found")
-        cols = [d[0] for d in cur.description]
-        return {k: v for k, v in zip(cols, row)}
-
-
 def _safe(s: Optional[str], fallback: str) -> str:
     return s if (isinstance(s, str) and len(s) > 0) else fallback
+# --- OE Viewer in-memory event log (per-process, per-sim) ----------------------
+from collections import defaultdict, deque
 
+import signal, threading
 
-def _render_path_from_registry(j: Dict, ext: str, templates: Dict[str, str]) -> str:
+# ---- Process-wide abort machinery -------------------------------------------
+ABORT = threading.Event()
+
+def request_abort(reason: str = "") -> None:
+    """Set abort flag; callers should notice and stop ASAP."""
+    ABORT.set()
+    if reason:
+        print(f"[OE] ⚠ abort requested: {reason}")
+
+def _install_signal_handlers():
+    def _h(sig, _frame):
+        request_abort(f"signal {sig}")
+    try:
+        signal.signal(signal.SIGINT, _h)
+        signal.signal(signal.SIGTERM, _h)
+    except Exception:
+        # Not fatal (e.g., environment disallows handlers)
+        pass
+
+# { sim_id: deque([{"seq":int,"ts":iso,"status":str,"frame":int,"jobid":int,"path":str,"filename":str,"ms":int}, ...]) }
+_VIEW = defaultdict(lambda: deque(maxlen=20000))
+_SEQ  = defaultdict(int)
+
+def _vlog(sim_id: int, *, status: str, frame: int | None = None, jobid: int | None = None,
+          path: str | None = None, filename: str | None = None, ms: int | None = None) -> None:
+    _SEQ[sim_id] += 1
+    _VIEW[sim_id].append({
+        "seq": _SEQ[sim_id],
+        "ts":  _time_token_utc(),  # simple readable tick
+        "status": status,
+        "frame": frame,
+        "jobid": jobid,
+        "path": path or "",
+        "filename": filename or "",
+        "ms": ms or 0,
+    })
+
+def get_viewer_events(sim_id: int, after_seq: int) -> list[dict]:
+    """Return list of viewer events with seq > after_seq (ascending)."""
+    if sim_id not in _VIEW: return []
+    return [e for e in _VIEW[sim_id] if int(e.get("seq", 0)) > int(after_seq or 0)]
+
+# Stable per-sim run token (timestamp), set once per finalize pass
+_RUN_TOKEN: Dict[int, str] = {}
+
+def _render_path_from_registry(j: Dict, ext: str) -> str:
     """
-    Renders the canonical path using PathRegistry templates.
-    - For steps 1/2: use 'intermediate' template (e.g., '/intermediate.npy')
-    - For step 3: use 'filenametemplate' with {metricName}.{type}
-    Directory order (as you specified):
-      Time/{timestamp}/Sim/{simLabel}/Frame/{frame}/Group/{groupName}/
-      Metric/{metricName}/Step/{step}/Field/{stepID}/<file>
+    Simplified flat layout for simulation output paths.
+    
+    New structure (ignores PathRegistry templates):
+        /data/simulations/{sim_label}/{timestamp}/sim_meta.json          ← sim metadata (written elsewhere)
+        /data/simulations/{sim_label}/{timestamp}/Frame_{NNNN}/          ← compute bundles
+            psi.npy, pi.npy, eta.npy, phi_field.npy, frame_info.json
+        /data/simulations/{sim_label}/{timestamp}/Frame_{NNNN}/{metric}.{ext}
+            ← for metrics or exports (flat, no Group/Metric/Step/Field)
+    
+    - Compute jobs (output_type == "state") return the frame directory itself.
+    - Metric/export jobs return a full file path within the frame directory.
     """
-    # Resolve tokens from job view columns with robust fallbacks
-    sim_id   = int(j["sim_id"])
-    group_id = int(j["group_id"])
-    frame    = int(j.get("job_frame") or 0)
-    step_id  = int(j["step_id"])
-    step     = int(j.get("step", step_id))  # keep Swift parity
-    sim_label    = _safe(j.get("sim_label")    or j.get("simlabel"),    str(sim_id))
-    group_name   = _safe(j.get("group_name")   or j.get("groupname"),   str(group_id))
-    metric_name  = _safe(j.get("metric_name")  or j.get("metricname"),  str(j.get("metric_id")))
-    type_token   = ext[1:] if ext.startswith(".") else ext  # 'csv', 'npy', ...
 
-    tt   = _time_token_utc()
-    T    = templates
+    import os
 
-    # base root for store (env or default)
-    root = os.environ.get("IGC_STORE", "/data/igc")
+    # --- Fixed storage root on 16TB disk ---
+    root = "/data/simulations"
+    if not os.path.isabs(root):
+        root = os.path.abspath(root)
+    os.makedirs(root, exist_ok=True)
 
-    # Compose directories from the registry templates
-    parts = [
-        root,
-        T["timestamptemplate"].format(timestamp=tt).lstrip("/"),
-        T["simnametemplate"].format(simLabel=sim_label).lstrip("/"),
-        T["frametemplate"].format(frame=frame).lstrip("/"),
-        T["groupnametemplate"].format(groupName=group_name).lstrip("/"),
-        T["metricidtemplate"].format(metricName=metric_name).lstrip("/"),
-        T["steptemplate"].format(step=step).lstrip("/"),
-        T["fieldtemplate"].format(stepID=step_id).lstrip("/"),
-    ]
+    # --- Resolve tokens from job record ---
+    sim_id = int(j["sim_id"])
+    sim_label = _safe(j.get("sim_label") or j.get("simlabel"), "").strip()
+    if not sim_label:
+        # DB fallback: use simulations.label if present
+        try:
+            with _connect() as _c, _c.cursor() as _cur:
+                _cur.execute("SELECT label FROM public.simulations WHERE id=%s", (sim_id,))
+                row = _cur.fetchone()
+                if row and row[0]:
+                    sim_label = str(row[0]).strip()
+        except Exception as e:
+            request_abort("failed to fetch simulation label")
+            raise
+    sim_label = _safe(sim_label, f"Sim_{sim_id}")
+    frame = int(j.get("job_frame") or 0)
+    metric_name = _safe(
+        j.get("metric_name") or j.get("metricname") or j.get("output_type"),
+        str(j.get("metric_id")),
+    )
+    type_token = ext[1:] if ext.startswith(".") else ext  # e.g. 'npy', 'csv', etc.
 
-    # filename component depends on step
-    if step in (1, 2):
-        tail = T["intermediate"].lstrip("/")  # e.g., "intermediate.npy"
-    else:
-        tail = T["filenametemplate"].format(metricName=metric_name, type=type_token).lstrip("/")
+    # --- Timestamped simulation root ---
+    tt = _RUN_TOKEN.setdefault(sim_id, _time_token_utc())
+    sim_root = os.path.join(root, sim_label, tt)
 
-    # Join with "/" carefully (avoid doubles)
-    path = "/".join(p.strip("/") for p in parts if p)
-    return f"{path}/{tail}"
+    # --- Frame directory ---
+    frame_dir = os.path.join(sim_root, f"Frame_{frame:04d}")
+    os.makedirs(frame_dir, exist_ok=True)
 
+    # --- Decide what to return ---
+    out_type = (j.get("output_type") or "").lower()
+    if out_type == "state":
+        # Compute jobs: return the directory; saver writes the npy/json bundle here.
+        return frame_dir
+
+    # Metric or export jobs: single file in the frame directory
+    filename = f"{metric_name}.{type_token}".lstrip("/")
+    return os.path.join(frame_dir, filename)
 
 # ------------------------------
 # Stubs to keep imports satisfied
 # ------------------------------
-def run(*, run_id: int):
-    """Execution loop will be implemented next (pp0 -> pp1 -> pp3, sequential, stop-on-error)."""
-    raise NotImplementedError
-
 
 def pause(*, run_id: int) -> None:
     """Cooperative pause at next safe checkpoint (stub)."""
@@ -273,7 +344,12 @@ def run(*, sim_id: int) -> None:
 
     from time import perf_counter
     print(f"[OE] ▶ run(sim_id={sim_id}) starting")
-
+    # ensure one stable run token per sim run
+    _RUN_TOKEN.setdefault(sim_id, _time_token_utc())
+    print(f"[OE] ▶ run token tt={_RUN_TOKEN[sim_id]}")
+    # fresh run: clear abort and install signal handlers
+    ABORT.clear()
+    _install_signal_handlers()
     # Get all jobs for this simulation
     jobs = ledger.fetch_job_ledger_record(sim_id=sim_id)
     # sort by frame, then job_phase (pp stage), then step_id
@@ -284,6 +360,10 @@ def run(*, sim_id: int) -> None:
     start_all = perf_counter()
 
     for j in jobs:
+        # stop immediately if abort was requested (signal or prior error)
+        if ABORT.is_set():
+            print("[OE] ⛔ abort flag set before next job; stopping.")
+            break        
         job_id = int(j["job_id"])
         status = (j.get("job_status") or "").lower()
 
@@ -292,29 +372,122 @@ def run(*, sim_id: int) -> None:
 
         try:
             ledger.update_job_status_single(job_id=job_id, to_status="running", set_start=True)
+            # viewer log: running           
             frame = int(j.get("job_frame", 0))
             step  = int(j.get("step_id", 0))
             print(f"[OE] ▶ running job {job_id} (frame={frame}, step={step})")
 
             t0 = perf_counter()
-            # ---- placeholder compute ----
-            # (replace with runner.run(job) once kernels exist)
-            import time; time.sleep(0.01)
-            # -----------------------------
+            out_type = (j.get("output_type") or "").lower()
+            if out_type == "state":
+                from pathlib import Path
+                import json, numpy as np
+                from igc.ledger.sim import get_simulation_full
+                from igc.sim.grid_constructor import GridConfig, build_humming_grid
+                from igc.sim.coupler import CouplerConfig, Coupler
+                from igc.sim.injector import Injector
+                from igc.sim.integrator import IntegratorConfig, Integrator
+
+                sim = get_simulation_full(int(j["sim_id"])) or {}
+                Nx = int(sim.get("gridx") or 0); Ny = int(sim.get("gridy") or 0); Nz = int(sim.get("gridz") or 0)
+                at_start = int(j.get("job_frame") or 0)
+                # build initial state
+                cfg = GridConfig(shape=(Nx,Ny,Nz), periodic=True)
+                state = build_humming_grid(cfg, substeps_per_at=int(sim.get("substeps_per_at") or 48),
+                                           initial_at=at_start)
+
+                integ = Integrator(
+                    Coupler(CouplerConfig()),
+                    Injector([]),
+                    IntegratorConfig(
+                        substeps_per_at=int(sim.get("substeps_per_at") or 48),
+                        dt_per_at=float(sim.get("dt_per_at") or 1.0),
+                        stride_frames_at=1,
+                    ),
+                )
+
+                fdir = Path(str(j.get("output_path") or "")).resolve()
+                fdir.mkdir(parents=True, exist_ok=True)
+
+                # run a single At and save arrays (mirrors saver)
+                substeps = integ.cfg.substeps_per_at
+                dt = integ.cfg.dt_per_at / substeps
+                psi, pi, eta, phi_field = state.psi, state.pi, state.eta, state.phi_field
+                for _sub in range(substeps):
+                    K = {'lambda_eta': integ.coupler.cfg.lambda_eta,
+                         'C_pi_to_eta': integ.coupler.cfg.C_pi_to_eta,
+                         'lambda_phi': integ.coupler.cfg.lambda_phi,
+                         'C_eta_to_phi': integ.coupler.cfg.C_eta_to_phi}
+                    pi  += dt * (-psi)
+                    psi += dt *  pi
+                    eta += dt * (-K["lambda_eta"] * eta + K["C_pi_to_eta"] * np.abs(pi))
+                    phi_field += dt * (-K["lambda_phi"] * phi_field + K["C_eta_to_phi"] * np.abs(eta))
+                    np.maximum(phi_field, 0.0, out=phi_field)
+
+                def _save(name, arr):
+                    p = fdir / f"{name}.npy"; np.save(str(p), arr); return str(p)
+                files = {"psi": _save("psi", psi), "pi": _save("pi", pi),
+                         "eta": _save("eta", eta), "phi_field": _save("phi_field", phi_field)}
+                info = {"sim_id": int(j["sim_id"]), "frame": at_start,
+                        "substeps_per_at": substeps, "files": {k: {"path": v} for k,v in files.items()}}
+                (fdir / "frame_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
+                # --- viewer events (in-memory only; not jobexecutionlog) ---
+                _vlog(int(j["sim_id"]), status="frame_start", frame=at_start, jobid=job_id, path=str(fdir))
+                for _name, _p in files.items():
+                    _vlog(int(j["sim_id"]), status="file_written", frame=at_start, jobid=job_id,
+                          path=str(fdir), filename=f"{_name}.npy")
+                _vlog(int(j["sim_id"]), status="file_written", frame=at_start, jobid=job_id,
+                      path=str(fdir), filename="frame_info.json")                
+                
+            else:
+                import time; time.sleep(0.01)
+
             duration_ms = int((perf_counter() - t0) * 1000)
 
             # write + log
             ledger.log_execution(job=j, runtime_ms=duration_ms, queue_wait_ms=0)
             ledger.update_job_status_single(job_id=job_id, to_status="written", set_finish=True)
+            _vlog(int(j["sim_id"]), status="frame_done",
+                  frame=int(j.get("job_frame", 0)), jobid=job_id, ms=duration_ms)            
+            # viewer log: written
+            try:
+                with _connect() as conn, conn.cursor() as cur:
+                    cur.execute(
+                        "INSERT INTO public.jobexecutionlog (jobid, simid, status) VALUES (%s, %s, %s)",
+                        (job_id, int(j["sim_id"]), "written"),
+                    )
+                    conn.commit()
+            except Exception:
+                pass            
             processed += 1
         except Exception as e:
-            ledger.log_error(job=j, message=str(e))
-            ledger.update_job_status_single(job_id=job_id, to_status="failed", set_finish=True)
+            # mark failed, flip abort, and raise to surface failure to caller
+            try:
+                ledger.log_error(job=j, message=str(e))
+            except Exception:
+                pass
+            try:
+                ledger.update_job_status_single(job_id=job_id, to_status="failed", set_finish=True)
+            except Exception:
+                pass
+            request_abort(f"job {job_id} failed")
             print(f"[OE] ✖ job {job_id} failed: {e}")
-            break
+            raise
 
     total_ms = int((perf_counter() - start_all) * 1000)
+    if ABORT.is_set():
+        print(f"[OE] ❌ run aborted after {processed}/{total} jobs in {total_ms} ms")
+        # raise if we reached here due to external abort (no exception thrown in loop)
+        raise RuntimeError("OE aborted")
     print(f"[OE] ✅ run complete: {processed}/{total} jobs processed in {total_ms} ms")
+
+    # emit a run_complete viewer event so the GUI can show a final message
+    try:
+        sim_for_vlog = int(jobs[-1].get("sim_id")) if jobs else None
+        if sim_for_vlog is not None:
+            _vlog(sim_for_vlog, status="run_complete", frame=None, jobid=None, ms=total_ms)
+    except Exception:
+        pass
 
 # --- GUI-facing seeding helper (idempotent) ---
 def seed_metric_jobs(sim_id: int, metric_ids: list[int], frames: list[int], phases: list[int]) -> int:

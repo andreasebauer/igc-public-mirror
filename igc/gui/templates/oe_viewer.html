@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{# Footer: Back to sim flow; no primary action on viewer #}
+{% set back_url = request.url_for('sim_start') %}
+{% set primary_kind = 'link' %}
+{% set primary_label = 'Close' %}
+{% set primary_url = request.url_for('index') %}
+{% set primary_disabled = False %}
+
+{% block content %}
+<section class="card oe-viewer">
+
+  <!-- Row 1: Progress (20%) -->
+  <div class="oe-progress">
+    <div class="oe-progress-top">
+      <div class="oe-progress-bar">
+        <div class="oe-progress-fill" id="ov-fill" style="width: 0%"></div>
+      </div>
+      <div class="oe-progress-stats">
+        <span class="pct"        id="ov-pct">0%</span>
+        <span class="eta"        id="ov-eta">ETA —</span>
+        <span class="bytes"      id="ov-bytes">0 / 0</span>
+        <span class="throughput" id="ov-tp">—/s</span>
+      </div>
+    </div>
+    <div class="oe-progress-sub" id="ov-sub">
+      <!-- latest op e.g. RUNNING jobid=… frame=… metric=… step=… -->
+    </div>
+  </div>
+
+  <!-- Row 2: Gauges (30%) -->
+  <div class="oe-gauges">
+    <div class="gauge card">
+      <h3>CPU</h3>
+      <div class="gauge-body" id="g-cpu">
+        <div class="big" id="cpu-proc">0%</div>
+        <div class="sub" id="cpu-sys">sys 0%</div>
+      </div>
+    </div>
+    <div class="gauge card">
+      <h3>RAM</h3>
+      <div class="gauge-body" id="g-ram">
+        <div class="big" id="ram-used">0 MB</div>
+        <div class="sub" id="ram-pred">pred 0 MB</div>
+      </div>
+    </div>
+    <div class="gauge card">
+      <h3>Disk</h3>
+      <div class="gauge-body" id="g-disk">
+        <div class="big" id="disk-free">0 MB free</div>
+        <div class="sub" id="bytes-written">written 0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3: Logs (50%) -->
+  <div class="oe-logs">
+    <div class="oe-logs-toolbar">
+      <span>Logs</span>
+      <div class="spacer"></div>
+      <button class="btn btn--sm btn--danger" id="btn-stop">Stop</button>
+      <button class="btn btn--sm" disabled>Pause</button>
+      <button class="btn btn--sm" disabled>Copy</button>
+    </div>
+    <div class="oe-logs-pane" id="oe-log">
+      <!-- terminal-like lines; newest at bottom -->
+    </div>
+  </div>
+
+</section>
+
+<style>
+/* --- OE viewer fixed 3-row layout --------------------------------------- */
+.oe-viewer{
+  display: grid;
+  grid-template-rows: 1fr 2fr 7fr;
+  gap: 16px;
+  min-height: 70vh;           /* ensures sensible height inside main */
+  height: 70vh;               /* definite height so rows don’t overflow */
+}
+
+/* Row 1: Progress */
+.oe-progress{ display:grid; grid-template-rows:auto auto; row-gap:8px; }
+.oe-progress-bar{ height:12px; background:#eee; border-radius:8px; overflow:hidden; }
+.oe-progress-fill{ height:100%; background:#111; width:0%; }
+.oe-progress-stats{ display:flex; gap:12px; font-variant-numeric: tabular-nums; }
+.oe-progress-sub{ font-size:12px; opacity:.8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* Row 2: Gauges (3 equal columns) */
+.oe-gauges{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; }
+.gauge.card{ display:grid; align-content:center; text-align:center; }
+.gauge h3{ margin:0 0 8px 0; }
+.gauge .big{ font-size:28px; line-height:1; }
+.gauge .sub{ font-size:12px; opacity:.75; margin-top:6px; }
+
+/* Row 3: Logs */
+.oe-logs{ display:grid; grid-template-rows: auto 1fr; min-height:0; }
+.oe-logs-toolbar{ display:flex; align-items:center; gap:8px; }
+.oe-logs-toolbar .spacer{ flex:1; }
+.oe-logs-pane{
+  border:1px solid var(--border);
+  border-radius:8px;
+  font: 13px/1.35 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  padding:8px;
+  overflow-y:auto;            /* right scrollbar */
+  white-space:pre-wrap;       /* wrap long lines */
+}
+  .oe-logs-pane .log-line {
+    font-weight: 400;
+  }
+  .oe-logs-pane .log-frame-ok {
+    font-weight: 600;
+  }
+  .oe-logs-pane .log-final {
+    font-weight: 700;
+    color: #0a0;
+  }
+</style>
+{% endblock %}
+{% block page_js %}
+<script>
+(() => {
+  const simId = {{ sim_id|int }};
+  const logEl = document.getElementById('oe-log');
+  if (!logEl) return;
+
+  const fillEl  = document.getElementById('ov-fill');
+  const pctEl   = document.getElementById('ov-pct');
+  const etaEl   = document.getElementById('ov-eta');
+  const bytesEl = document.getElementById('ov-bytes');
+  const tpEl    = document.getElementById('ov-tp');
+  const stopBtn = document.getElementById('btn-stop');
+
+  if (stopBtn) {
+    stopBtn.addEventListener('click', async () => {
+      try {
+        await fetch(`/sims/oe/run/${simId}/abort`, { method: "POST" });
+      } catch {}
+      window.location.href = "{{ request.url_for('index') }}";
+    });
+  }
+
+  const cpuProcEl      = document.getElementById('cpu-proc');
+  const cpuSysEl       = document.getElementById('cpu-sys');
+  const ramUsedEl      = document.getElementById('ram-used');
+  const ramPredEl      = document.getElementById('ram-pred');
+  const diskFreeEl     = document.getElementById('disk-free');
+  const bytesWrittenEl = document.getElementById('bytes-written');
+
+  let afterId = 0;
+  let viewerAfter = 0;
+
+  const appendLine = (txt, className) => {
+    const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
+    const div = document.createElement('div');
+    div.className = className ? `log-line ${className}` : 'log-line';
+    div.textContent = txt;
+    logEl.appendChild(div);
+    if (atBottom) {
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+  };
+
+  // backward-compatible helper
+  const append = (txt) => appendLine(txt, '');
+
+  async function pollProgress() {
+    try {
+      const r = await fetch(`/sims/oe/run/${simId}/progress`, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const p = await r.json() || {};
+
+      const t = p.totals || {};
+      const total   = Number(t.total_jobs   ?? 0);
+      const done    = Number(t.done_jobs    ?? 0);
+      const running = Number(t.running_jobs ?? 0);
+      const failed  = Number(t.failed_jobs  ?? 0);
+
+      let pct = (typeof p.percent === "number" && Number.isFinite(p.percent))
+        ? p.percent
+        : (total > 0 ? (done / total) * 100.0 : 0);
+      const pctInt = Math.floor(pct);
+
+      if (fillEl) fillEl.style.width = `${pctInt}%`;
+      if (pctEl)  pctEl.textContent  = `${pctInt}%`;
+
+      const b = p.bytes || {};
+      if (bytesEl && (b.written != null || b.expected != null)) {
+        const bw = Number(b.written  ?? 0);
+        const bt = Number(b.expected ?? 0);
+        bytesEl.textContent = `${bw.toLocaleString()} / ${bt.toLocaleString()}`;
+      }
+
+      // Throughput: show MB/s if we have a value, else "—"
+      if (tpEl && p.throughput_bps != null && p.throughput_bps > 0) {
+        const mbps = p.throughput_bps / (1024 * 1024);
+        tpEl.textContent = `${mbps.toFixed(2)} MB/s`;
+      } else if (tpEl) {
+        tpEl.textContent = "—";
+      }
+
+      // ETA: format as MM:SS if we have a positive estimate, else "ETA —"
+      if (etaEl && p.eta_seconds != null && p.eta_seconds > 0) {
+        const s = Math.round(p.eta_seconds);
+        const mm = String(Math.floor(s / 60)).padStart(2, "0");
+        const ss = String(s % 60).padStart(2, "0");
+        etaEl.textContent = `ETA ${mm}:${ss}`;
+      } else if (etaEl) {
+        etaEl.textContent = "ETA —";
+      }
+
+      const sub = document.getElementById("ov-sub");
+      if (sub && total > 0) {
+        sub.textContent = `done ${done}/${total} • running ${running} • failed ${failed}`;
+      }
+    } catch (e) {
+      /* ignore */
+    } finally {
+      setTimeout(pollProgress, 1000);
+    }
+  }
+
+  async function pollGauges() {
+    try {
+      const r = await fetch(`/sims/oe/run/${simId}/gauges`, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const g = await r.json() || {};
+
+      if (cpuProcEl && g.cpu_pct_proc != null) {
+        cpuProcEl.textContent = `${Math.round(g.cpu_pct_proc)}%`;
+      }
+      if (cpuSysEl && g.cpu_pct_sys != null) {
+        cpuSysEl.textContent = `sys ${Math.round(g.cpu_pct_sys)}%`;
+      }
+      if (ramUsedEl && g.ram_used_mb != null) {
+        ramUsedEl.textContent = `${Math.round(g.ram_used_mb)} MB`;
+      }
+      if (ramPredEl && g.mem_predicted_mb != null) {
+        ramPredEl.textContent = `pred ${Math.round(g.mem_predicted_mb)} MB`;
+      }
+      if (diskFreeEl && g.disk_free_mb != null) {
+        diskFreeEl.textContent = `${Math.round(g.disk_free_mb)} MB free`;
+      }
+      if (bytesWrittenEl && g.bytes_written != null) {
+        bytesWrittenEl.textContent = `written ${Number(g.bytes_written).toLocaleString()}`;
+      }
+    } catch (e) {
+      /* ignore */
+    } finally {
+      setTimeout(pollGauges, 1000);
+    }
+  }
+
+  async function poll() {
+    try {
+      const r = await fetch(`/sims/oe/run/${simId}/logs?after_id=${afterId}&viewer_after=${viewerAfter}&limit=200`, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const data = await r.json();
+
+      // sim-level notes (non-durable)
+      if (Array.isArray(data.notes)) {
+        for (const n of data.notes) {
+          if (n && n.message) appendLine(`[note] ${n.message}`, 'log-note');
+        }
+      }
+
+      // in-memory viewer events: frame_start, file_written, frame_done, run_complete
+      if (Array.isArray(data.viewer)) {
+        for (const e of data.viewer) {
+          const st    = e.status || '';
+          const frame = e.frame;
+          const durMs = e.ms || 0;
+
+          if (st === 'frame_done' && frame != null) {
+            const sec = (durMs / 1000).toFixed(2);
+            appendLine(`Frame ${frame} has been written to disk (runtime ${sec}s)`, 'log-frame-ok');
+            continue;
+          }
+
+          if (st === 'run_complete') {
+            appendLine('Simulation data has been created. Run is finished.', 'log-final');
+            continue;
+          }
+
+          // fallback: original raw line for other statuses
+          const jid = (e.jobid != null) ? ` job=${e.jobid}` : '';
+          const fr  = (frame != null) ? ` frame=${frame}` : '';
+          const fn  = e.filename ? ` ${e.filename}` : '';
+          const pth = e.path ? ` — ${e.path}` : '';
+          const dur = (durMs && st === 'frame_done') ? ` — runtime_ms=${durMs}` : '';
+          appendLine(`${st}${jid}${fr}${fn}${pth}${dur}`.trim(), '');
+        }
+        viewerAfter = data.viewer_next || viewerAfter;
+      }
+
+      // DB-backed items (if backend still sends them; may be empty)
+      if (Array.isArray(data.items)) {
+        for (const it of data.items) {
+          const ts  = it.recorded_at || '';
+          const st  = it.status || '';
+          const jid = (it.jobid != null) ? ` job=${it.jobid}` : '';
+          const fr  = (it.frame != null) ? ` frame=${it.frame}` : '';
+          const msg = it.message ? ` — ${it.message}` : (it.output_path ? ` — ${it.output_path}` : '');
+          append(`${ts} ${st}${jid}${fr}${msg}`.trim());
+          afterId = Math.max(afterId, Number(it.logid || 0));
+        }
+      }
+    } catch (e) {
+      // keep trying, but don’t spam the pane
+    } finally {
+      setTimeout(poll, 1000);
+    }
+  }
+
+  poll();
+  pollProgress();
+  pollGauges();
+})();
+</script>
+{% endblock %}

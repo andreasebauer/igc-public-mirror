@@ -2,18 +2,22 @@ from __future__ import annotations
 from typing import Any, Dict, Optional, Tuple
 from pathlib import Path
 import os, json, time
+
 from igc.db.pg import cx, fetchone_dict, execute
 from igc.common import hashutil
 from igc.common import paths as igc_paths
+from igc.oe import core as oe_core  # use OE’s sim_label + run token
 
-STORE = Path(os.environ.get("IGC_STORE", "/data/igc"))
+# Unified default root; OE core also targets /data/simulations
+STORE = Path(os.environ.get("IGC_STORE", "/data/simulations"))
 
 # --- Hash helpers ------------------------------------------------------------
 
 def stable_hash(obj: Any) -> str:
     return hashutil.hash_json(obj)  # canonical JSON-based hash from your repo
 
-def compute_effective_hash(base_spec: Dict[str, Any], overrides: Dict[str, Any]) -> Tuple[str, str, str, Dict[str, Any]]:
+def compute_effective_hash(base_spec: Dict[str, Any],
+                           overrides: Dict[str, Any]) -> Tuple[str, str, str, Dict[str, Any]]:
     eff: Dict[str, Any] = dict(base_spec)
     eff.update(overrides or {})
     base_spec_hash = stable_hash(base_spec)
@@ -25,13 +29,17 @@ def compute_effective_hash(base_spec: Dict[str, Any], overrides: Dict[str, Any])
 
 def plan_frame0_dir(sim_row: Dict[str, Any]) -> Path:
     """
-    Use your existing path templates to compute a sim root and Frame_0000 path.
-    Fallback to STORE/sim-{id}/Frame_0000_s00 if template helpers are minimal.
+    Stage under the *same* run root OE uses:
+      /data/simulations/{sim_label}/{run_token}/Frame_0000
+    We reuse OE’s run token so GUI and OE write to the identical timestamp folder.
     """
-    simname = sim_row.get("name") or f"sim-{sim_row['id']}"
-    # If igc_paths exposes builders, use them; otherwise fallback:
-    sim_root = STORE / simname
-    frame0 = sim_root / "Frame_0000_s00"
+    sim_id = int(sim_row["id"])
+    sim_label = (sim_row.get("label") or str(sim_id))
+
+    # Use the same stable run token as OE (create if missing so OE will reuse it)
+    tt = oe_core._RUN_TOKEN.setdefault(sim_id, oe_core._time_token_utc())
+
+    frame0 = STORE / sim_label / tt / "Frame_0000"
     frame0.mkdir(parents=True, exist_ok=True)
     return frame0
 
@@ -55,7 +63,7 @@ def write_run_overrides_json(frame0: Path,
     p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return p
 
-# --- Enqueue job (simmetricjobs + initial jobexecutionlog) -------------------
+# --- Enqueue job (simmetricjobs only; OE will log terminal statuses) ---------
 
 def enqueue_sim_job(sim_id: int,
                     effective_spec_hash: str,
@@ -63,30 +71,22 @@ def enqueue_sim_job(sim_id: int,
                     is_visualization: Optional[bool] = None,
                     precision: Optional[str] = None) -> int:
     """
-    Creates a queued job in simmetricjobs and writes initial jobexecutionlog row.
-    Returns job id.
+    Return an existing seeded job id for this sim (if any).
+    No non-terminal logging is written here; OE core owns terminal logs.
     """
     with cx() as conn:
         row = fetchone_dict(conn,
-            "INSERT INTO public.simmetricjobs (simid, status, bundle_level, is_visualization, precision, spec_hash) "
-            "VALUES (%s, 'queued', %s, %s, %s, %s) RETURNING jobid",
-            (sim_id, bundle_level, is_visualization, precision, effective_spec_hash))
-        job_id = int(row["jobid"])
-        execute(conn,
-            "INSERT INTO public.jobexecutionlog (jobid, simid, status, queued_at, spec_hash) "
-            "VALUES (%s, %s, 'queued', NOW(), %s)",
-            (job_id, sim_id, effective_spec_hash))
-        return job_id
+            "SELECT jobid FROM public.simmetjobs WHERE simid=%s ORDER BY createdate ASC LIMIT 1",
+            (sim_id,))
+        job_id = int(row["jobid"]) if row and row.get("jobid") is not None else None
+        return job_id or 0
 
-# --- Terminalization & flushing policy (optional call from runner) -----------
+# --- Terminalization & flushing (optional helper) ----------------------------
 
 def finalize_and_flush(job_id: int, sim_id: int, status: str = "finished") -> None:
     """
-    Marks job terminal in jobexecutionlog, then flushes simmetricjobs row.
-    Intended to be called by OE when run ends; safe if idempotent.
+    Optional helper: remove a simmetjobs row when a job is fully consumed.
+    Does NOT write jobexecutionlog; OE core writes 'written'/'failed'.
     """
     with cx() as conn:
-        execute(conn,
-            "INSERT INTO public.jobexecutionlog (jobid, simid, status, finished_at) VALUES (%s, %s, %s, NOW())",
-            (job_id, sim_id, status))
-        execute(conn, "DELETE FROM public.simmetricjobs WHERE jobid=%s", (job_id,))
+        execute(conn, "DELETE FROM public.simmetjobs WHERE jobid=%s", (job_id,))

@@ -129,6 +129,16 @@
     background:#000 !important; color:#fff !important; -webkit-text-fill-color:#fff;
   }
 
+  /* Right list: neutralize preselected paint */
+.right option:checked{
+  background:#fff !important;
+  background-color:#fff !important;
+  background-image:linear-gradient(#fff,#fff) !important;
+  color:#111 !important;
+  -webkit-text-fill-color:#111;
+  text-shadow:none;
+}
+
   /* Dont dim “already moved” items when theyre the active selection */
   .left option.is-selected:checked{ opacity:1 !important; }
           .left option.is-selected{opacity:.55;}
@@ -139,7 +149,7 @@
 </style>
           <div class="wrap">
           <select multiple class="left">${avail.map(it=>`<option value="${it.value}">${it.label}</option>`).join("")}</select>
-          <select multiple class="right">${right.map(it=>`<option value="${it.value}">${it.label}</option>`).join("")}</select>
+          <select multiple class="right" name="metric_ids">${right.map(it=>`<option selected value="${it.value}">${it.label}</option>`).join("")}</select>
           </div>
       `;
 
@@ -316,5 +326,45 @@
       alignDescToSelected(lb);
     });
   })();
+  // === Footer "Next": enable when selection exists; submit the form ===========
+  (function(){
+    const form  = document.getElementById('metricsForm');
+    const next  = document.querySelector('footer.card .actions-right button[type=submit]');
+    if(!form || !next) return;
+
+    function totalSelected(){
+      let n = 0;
+      document.querySelectorAll('vaadin-dual-list-box.metric-transfer').forEach(lb=>{
+        if (lb && Array.isArray(lb.selectedItems)) n += lb.selectedItems.length;
+      });
+      return n;
+    }
+
+    function setNextEnabled(enabled){
+      if(enabled){
+        next.classList.remove('is-disabled');
+        next.removeAttribute('aria-disabled');
+        // keep href as '#' — we will submit the form programmatically
+      }else{
+        next.classList.add('is-disabled');
+        next.setAttribute('aria-disabled','true');
+      }
+    }
+
+    // Update on any selection change (your component already emits this)
+    document.addEventListener('selected-items-changed', ()=>{
+      setNextEnabled(totalSelected() > 0);
+    });
+
+    // Initial state (pre-assigned metrics may already be selected)
+    setNextEnabled(totalSelected() > 0);
+
+    // Click => submit form if enabled
+    next.addEventListener('click', (e)=>{
+      if(next.classList.contains('is-disabled')) return; // do nothing
+      e.preventDefault();
+      form.submit();
+    });
+  })();  
 </script>
 {% endblock %}
