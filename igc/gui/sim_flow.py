@@ -543,23 +543,41 @@ def oe_gauges(sim_id: int):
     bytes_written = 0
     mem_predicted_mb = 0
     with _connect() as conn, conn.cursor() as cur:
-        # Your existing aggregation for mem_predicted_mb and bytes written mirrors
-        # (matching your grep around ~436 and ~444)
+        # 1) predicted memory from big_view
         cur.execute("""
-            SELECT
-              COALESCE(SUM(smj_mem_total_mb), 0)                   AS mem_predicted_mb,
-              COALESCE(SUM(COALESCE(smj_io_mb_written, 0)), 0.0)   AS mb_written
+            SELECT COALESCE(SUM(smj_mem_total_mb), 0) AS mem_predicted_mb
             FROM public.big_view
             WHERE smj_simid = %s
               AND smj_status IN ('running','queued','created','written')
         """, (sim_id,))
         row = cur.fetchone()
-        if row:
-            if row[0] is not None:
-                mem_predicted_mb = int(float(row[0]) or 0.0)
-            if row[1] is not None:
-                # smj_io_mb_written is in MB; convert to bytes for the gauge
-                bytes_written = int(float(row[1]) * 1024 * 1024)
+        if row and row[0] is not None:
+            mem_predicted_mb = int(float(row[0]) or 0.0)
+
+        # 2) sim_label from simulations
+        cur.execute("SELECT label FROM public.simulations WHERE id = %s", (sim_id,))
+        label_row = cur.fetchone()
+        sim_label = (label_row[0].strip() if label_row and label_row[0] else f"Sim_{sim_id}")
+
+    # 3) resolve run_root from sim_label + run token
+    from igc.oe import core as oe_core  # local import to avoid cycles at module import time
+    bytes_written = 0
+    try:
+        tt = oe_core._RUN_TOKEN.get(sim_id)
+        if tt:
+            run_root = Path("/data/simulations") / sim_label / tt
+            if run_root.is_dir():
+                # sum sizes of all files under the run root
+                for dirpath, _, filenames in os.walk(run_root):
+                    for name in filenames:
+                        try:
+                            p = Path(dirpath) / name
+                            bytes_written += p.stat().st_size
+                        except OSError:
+                            pass
+    except Exception:
+        # leave bytes_written=0 if anything goes wrong
+        pass
     return {
         "cpu_pct_proc":  cpu_pct_proc,
         "cpu_pct_sys":   cpu_pct_sys,

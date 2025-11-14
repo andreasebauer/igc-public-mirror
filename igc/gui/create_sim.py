@@ -11,6 +11,7 @@ from igc.sim.coupler import CouplerConfig, Coupler
 from igc.sim.injector import Injector, InjectionEvent
 from igc.sim.integrator import IntegratorConfig, Integrator
 from igc.sim.saver import HeaderOptions
+from igc.sim.validator import validate_sim_config
 
 STORE = Path(os.environ.get("IGC_STORE", "/data/igc"))
 
@@ -136,9 +137,17 @@ def run_simulation(sim_id: int, ats: int, save_first: bool=True, header_stats: b
             repeat={"period_at": int(sim["seed_repeat_at"])} if sim["seed_repeat_at"] else None
         ))
     injector = Injector(events)
-    integ = Integrator(coupler, injector, IntegratorConfig(
-        substeps_per_at=sim["substeps_per_at"], dt_per_at=sim["dt_per_at"], stride_frames_at=1
-    ))
+    integ_cfg = IntegratorConfig(
+        substeps_per_at=sim["substeps_per_at"],
+        dt_per_at=sim["dt_per_at"],
+        dx=float(sim.get("dx") or 1.0),
+        stride_frames_at=1,
+    )
+
+    # Sanity / stability check before running a potentially large sim
+    validate_sim_config(cfg, integ_cfg, coupler.cfg)
+
+    integ = Integrator(coupler, injector, integ_cfg)
     integ.run(
         store=STORE,
         sim_label=sim["label"],

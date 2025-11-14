@@ -18,6 +18,7 @@ import os
 import psycopg
 
 from igc import ledger
+from igc.sim.validator import validate_sim_config
 
 # ---- DB helper (env-driven) ----
 from igc.db.pg import cx, execute
@@ -387,41 +388,100 @@ def run(*, sim_id: int) -> None:
                 from igc.sim.coupler import CouplerConfig, Coupler
                 from igc.sim.injector import Injector
                 from igc.sim.integrator import IntegratorConfig, Integrator
+                from igc.sim.operators import laplace, div_phi_grad_psi
 
                 sim = get_simulation_full(int(j["sim_id"])) or {}
                 Nx = int(sim.get("gridx") or 0); Ny = int(sim.get("gridy") or 0); Nz = int(sim.get("gridz") or 0)
                 at_start = int(j.get("job_frame") or 0)
+
                 # build initial state
                 cfg = GridConfig(shape=(Nx,Ny,Nz), periodic=True)
-                state = build_humming_grid(cfg, substeps_per_at=int(sim.get("substeps_per_at") or 48),
-                                           initial_at=at_start)
+                state = build_humming_grid(
+                    cfg,
+                    substeps_per_at=int(sim.get("substeps_per_at") or 48),
+                    initial_at=at_start,
+                )
+
+                coupler_cfg = CouplerConfig(
+                    D_psi=float(sim.get("d_psi") or 0.0),
+                    D_eta=float(sim.get("d_eta") or 0.0),
+                    D_phi=float(sim.get("d_phi") or 0.0),
+                    C_pi_to_eta=float(sim.get("c_pi_to_eta") or 1.0),
+                    C_eta_to_phi=float(sim.get("c_eta_to_phi") or 1.0),
+                    lambda_eta=float(sim.get("lambda_eta") or 1.0),
+                    lambda_phi=float(sim.get("lambda_phi") or 1.0),
+                    gate=str(sim.get("gate_name") or "linear"),
+                )
+                coupler = Coupler(coupler_cfg)
+
+                integ_cfg = IntegratorConfig(
+                    substeps_per_at=int(sim.get("substeps_per_at") or 48),
+                    dt_per_at=float(sim.get("dt_per_at") or 1.0),
+                    dx=float(sim.get("dx") or 1.0),
+                    stride_frames_at=1,
+                )
+
+                # Sanity / stability check before running the one-At viewer step
+                validate_sim_config(cfg, integ_cfg, coupler_cfg)
 
                 integ = Integrator(
-                    Coupler(CouplerConfig()),
+                    coupler,
                     Injector([]),
-                    IntegratorConfig(
-                        substeps_per_at=int(sim.get("substeps_per_at") or 48),
-                        dt_per_at=float(sim.get("dt_per_at") or 1.0),
-                        stride_frames_at=1,
-                    ),
+                    integ_cfg,
                 )
 
                 fdir = Path(str(j.get("output_path") or "")).resolve()
                 fdir.mkdir(parents=True, exist_ok=True)
 
-                # run a single At and save arrays (mirrors saver)
+                # run a single At and save arrays (mirrors saver, but using full PDE update)
                 substeps = integ.cfg.substeps_per_at
                 dt = integ.cfg.dt_per_at / substeps
+                dx = integ.cfg.dx
                 psi, pi, eta, phi_field = state.psi, state.pi, state.eta, state.phi_field
-                for _sub in range(substeps):
-                    K = {'lambda_eta': integ.coupler.cfg.lambda_eta,
-                         'C_pi_to_eta': integ.coupler.cfg.C_pi_to_eta,
-                         'lambda_phi': integ.coupler.cfg.lambda_phi,
-                         'C_eta_to_phi': integ.coupler.cfg.C_eta_to_phi}
-                    pi  += dt * (-psi)
-                    psi += dt *  pi
-                    eta += dt * (-K["lambda_eta"] * eta + K["C_pi_to_eta"] * np.abs(pi))
-                    phi_field += dt * (-K["lambda_phi"] * phi_field + K["C_eta_to_phi"] * np.abs(eta))
+
+                for sub in range(substeps):
+                    tact_phase = sub / substeps
+                    K = integ.coupler.get(at_start, sub, tact_phase)
+
+                    D_psi = K["D_psi"]
+                    D_eta = K["D_eta"]
+                    D_phi = K["D_phi"]
+                    lambda_eta = K["lambda_eta"]
+                    lambda_phi = K["lambda_phi"]
+                    C_pi_to_eta = K["C_pi_to_eta"]
+                    C_eta_to_phi = K["C_eta_to_phi"]
+                    C_gradpsi_to_phi = 1.0  # same as integrator for now
+
+                    # spatial operators (periodic BCs)
+                    div_flux_psi = div_phi_grad_psi(phi_field, psi, dx)
+                    lap_eta = laplace(eta, dx)
+                    lap_phi = laplace(phi_field, dx)
+
+                    # gradient of psi and its squared norm for |∇ψ|² term
+                    grad_psi = np.gradient(psi, dx, edge_order=2)
+                    grad_psi_norm_sq = (
+                        grad_psi[0] ** 2 + grad_psi[1] ** 2 + grad_psi[2] ** 2
+                    )
+
+                    # reversible ψ–π core with gated transport
+                    pi += dt * (-psi + D_psi * div_flux_psi)
+                    psi += dt * pi
+
+                    # η: diffusion + decay + source from |π|
+                    eta += dt * (
+                        D_eta * lap_eta
+                        - lambda_eta * eta
+                        + C_pi_to_eta * np.abs(pi)
+                    )
+
+                    # φ: diffusion + decay + source from |η| and |∇ψ|²
+                    phi_field += dt * (
+                        D_phi * lap_phi
+                        - lambda_phi * phi_field
+                        + C_eta_to_phi * np.abs(eta)
+                        + C_gradpsi_to_phi * grad_psi_norm_sq
+                    )
+                    # clip to non-negative (permission can't be negative)
                     np.maximum(phi_field, 0.0, out=phi_field)
 
                 def _save(name, arr):
