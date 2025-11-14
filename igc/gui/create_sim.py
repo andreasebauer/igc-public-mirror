@@ -151,7 +151,14 @@ def run_simulation(sim_id: int, ats: int, save_first: bool=True, header_stats: b
     integ.run(
         store=STORE,
         sim_label=sim["label"],
-        psi=state.psi, pi=state.pi, eta=state.eta, phi_field=state.phi_field,
-        at_start=0, at_end=int(ats), save_first_frame=bool(save_first), header_stats=bool(header_stats)
+        psi=state.psi,
+        pi=state.pi,
+        eta=state.eta,
+        phi_field=state.phi_field,
+        phi_cone=state.phi_cone,
+        at_start=0,
+        at_end=int(ats),
+        save_first_frame=bool(save_first),
+        header_stats=bool(header_stats),
     )
     return ats

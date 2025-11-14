@@ -388,7 +388,11 @@ def run(*, sim_id: int) -> None:
                 from igc.sim.coupler import CouplerConfig, Coupler
                 from igc.sim.injector import Injector
                 from igc.sim.integrator import IntegratorConfig, Integrator
-                from igc.sim.operators import laplace, div_phi_grad_psi
+                from igc.sim.operators import (
+                    laplace_jit,
+                    div_phi_cone_psi_jit,
+                    compute_directional_skin_jit,
+                )
 
                 sim = get_simulation_full(int(j["sim_id"])) or {}
                 Nx = int(sim.get("gridx") or 0); Ny = int(sim.get("gridy") or 0); Nz = int(sim.get("gridz") or 0)
@@ -438,6 +442,7 @@ def run(*, sim_id: int) -> None:
                 dt = integ.cfg.dt_per_at / substeps
                 dx = integ.cfg.dx
                 psi, pi, eta, phi_field = state.psi, state.pi, state.eta, state.phi_field
+                phi_cone = state.phi_cone
 
                 for sub in range(substeps):
                     tact_phase = sub / substeps
@@ -453,9 +458,9 @@ def run(*, sim_id: int) -> None:
                     C_gradpsi_to_phi = 1.0  # same as integrator for now
 
                     # spatial operators (periodic BCs)
-                    div_flux_psi = div_phi_grad_psi(phi_field, psi, dx)
-                    lap_eta = laplace(eta, dx)
-                    lap_phi = laplace(phi_field, dx)
+                    # directional cone transport: uses phi_cone only
+                    div_flux_psi = div_phi_cone_psi_jit(phi_cone, psi, dx)
+                    lap_eta = laplace_jit(eta, dx)
 
                     # gradient of psi and its squared norm for |∇ψ|² term
                     grad_psi = np.gradient(psi, dx, edge_order=2)
@@ -463,7 +468,7 @@ def run(*, sim_id: int) -> None:
                         grad_psi[0] ** 2 + grad_psi[1] ** 2 + grad_psi[2] ** 2
                     )
 
-                    # reversible ψ–π core with gated transport
+                    # reversible ψ–π core with cone-gated transport
                     pi += dt * (-psi + D_psi * div_flux_psi)
                     psi += dt * pi
 
@@ -474,22 +479,43 @@ def run(*, sim_id: int) -> None:
                         + C_pi_to_eta * np.abs(pi)
                     )
 
-                    # φ: diffusion + decay + source from |η| and |∇ψ|²
-                    phi_field += dt * (
-                        D_phi * lap_phi
-                        - lambda_phi * phi_field
-                        + C_eta_to_phi * np.abs(eta)
-                        + C_gradpsi_to_phi * grad_psi_norm_sq
-                    )
-                    # clip to non-negative (permission can't be negative)
+                    # 3b) directional cone update (match integrator)
+                    from igc.sim.operators import compute_directional_skin_jit
+                    skin_cone = compute_directional_skin_jit(psi, dx)
+
+                    for d in range(6):
+                        lap_phi_dir = laplace_jit(phi_cone[d], dx)
+                        phi_cone[d] += dt * (
+                            D_phi * lap_phi_dir
+                            - lambda_phi * phi_cone[d]
+                            + C_eta_to_phi * np.abs(eta)
+                            + C_gradpsi_to_phi * skin_cone[d]
+                        )
+
+                    # keep cones non-negative
+                    np.maximum(phi_cone, 0.0, out=phi_cone)
+
+                    # update scalar phi_field as envelope of cones (permission fog)
+                    phi_field[...] = np.max(phi_cone, axis=0)
+
+                    # clip to non-negative
                     np.maximum(phi_field, 0.0, out=phi_field)
 
                 def _save(name, arr):
                     p = fdir / f"{name}.npy"; np.save(str(p), arr); return str(p)
-                files = {"psi": _save("psi", psi), "pi": _save("pi", pi),
-                         "eta": _save("eta", eta), "phi_field": _save("phi_field", phi_field)}
-                info = {"sim_id": int(j["sim_id"]), "frame": at_start,
-                        "substeps_per_at": substeps, "files": {k: {"path": v} for k,v in files.items()}}
+                files = {
+                    "psi": _save("psi", psi),
+                    "pi": _save("pi", pi),
+                    "eta": _save("eta", eta),
+                    "phi_field": _save("phi_field", phi_field),
+                    "phi_cone": _save("phi_cone", phi_cone),
+                }
+                info = {
+                    "sim_id": int(j["sim_id"]),
+                    "frame": at_start,
+                    "substeps_per_at": substeps,
+                    "files": {k: {"path": v} for k, v in files.items()},
+                }
                 (fdir / "frame_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
                 # --- viewer events (in-memory only; not jobexecutionlog) ---
                 _vlog(int(j["sim_id"]), status="frame_start", frame=at_start, jobid=job_id, path=str(fdir))

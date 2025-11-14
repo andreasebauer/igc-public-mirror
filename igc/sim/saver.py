@@ -27,6 +27,7 @@ def save_frame(store: Path,
                pi: np.ndarray,
                eta: np.ndarray,
                phi_field: np.ndarray,
+               phi_cone: Optional[np.ndarray] = None,
                at: int,
                substeps_per_at: int,
                tact_phase: float,
@@ -45,11 +46,15 @@ def save_frame(store: Path,
     files["pi"]        = str(fdir / "pi.npy")
     files["eta"]       = str(fdir / "eta.npy")
     files["phi_field"] = str(fdir / "phi_field.npy")
+    if phi_cone is not None:
+        files["phi_cone"] = str(fdir / "phi_cone.npy")
 
     np.save(files["psi"], psi)
     np.save(files["pi"],  pi)
     np.save(files["eta"], eta)
     np.save(files["phi_field"], phi_field)
+    if phi_cone is not None:
+        np.save(files["phi_cone"], phi_cone)
 
     # Build header (provenance + optional quick stats)
     info = {
@@ -67,6 +72,8 @@ def save_frame(store: Path,
             "phi_field": {"path": files["phi_field"]},
         }
     }
+    if phi_cone is not None:
+        info["files"]["phi_cone"] = {"path": files["phi_cone"]}
 
     # add sizes & hashes
     for key, meta in info["files"].items():
@@ -83,6 +90,8 @@ def save_frame(store: Path,
             "eta": _stats(eta),
             "phi_field": _stats(phi_field),
         }
+        if phi_cone is not None:
+            info["quick_stats"]["phi_cone"] = _stats(phi_cone)
 
     header_path = fdir / "frame_info.json"
     with header_path.open("w") as f:

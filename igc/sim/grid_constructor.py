@@ -19,6 +19,9 @@ class GridState:
     pi: np.ndarray
     eta: np.ndarray
     phi_field: np.ndarray
+    # directional cones: shape (6, Nx, Ny, Nz)
+    # direction index convention: 0=+x, 1=-x, 2=+y, 3=-y, 4=+z, 5=-z
+    phi_cone: np.ndarray
     at: int
     substeps_per_at: int
     tact_phase: float  # in [0,1)
@@ -36,14 +39,20 @@ def _kronecker_phases(shape: Tuple[int,int,int]) -> np.ndarray:
     phase = (kx*xs + ky*ys + kz*zs) % 1.0
     return phase
 
+    return phase
+
 def build_humming_grid(cfg: GridConfig,
                        substeps_per_at: int = 48,
                        initial_at: int = 0) -> GridState:
     Nx, Ny, Nz = cfg.shape
     psi = np.zeros((Nx, Ny, Nz), dtype=np.float64)
     pi  = np.zeros_like(psi)
-    eta = np.full_like(psi, 1e-12)    # tiny, nonzero memory
-    phi_field = np.ones_like(psi)     # fully permissive baseline
+    eta = np.full_like(psi, 1e-12)        # tiny, nonzero memory
+    # scalar gate baseline: nearly closed in the true IG vacuum
+    phi_field = np.full_like(psi, 1e-12)
+
+    # directional cones: start nearly closed in all 6 directions
+    phi_cone = np.full((6, Nx, Ny, Nz), 1e-12, dtype=np.float64)
 
     # lawful tiny momentum to start the hum, phase-distributed
     phase = _kronecker_phases(cfg.shape)  # [0,1)
@@ -52,7 +61,13 @@ def build_humming_grid(cfg: GridConfig,
     pi += eps * np.cos(2*np.pi*phase)
 
     state = GridState(
-        psi=psi, pi=pi, eta=eta, phi_field=phi_field,
-        at=initial_at, substeps_per_at=substeps_per_at, tact_phase=0.0
+        psi=psi,
+        pi=pi,
+        eta=eta,
+        phi_field=phi_field,
+        phi_cone=phi_cone,
+        at=initial_at,
+        substeps_per_at=substeps_per_at,
+        tact_phase=0.0,
     )
     return state

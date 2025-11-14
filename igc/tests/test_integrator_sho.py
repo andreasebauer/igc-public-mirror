@@ -74,6 +74,7 @@ def run_one_at_sho(dt_per_at: float = 0.25, substeps_per_at: int = 64):
         pi=state.pi,
         eta=state.eta,
         phi_field=state.phi_field,
+        phi_cone=state.phi_cone,
         at_start=0,
         at_end=1,
         save_first_frame=False,
