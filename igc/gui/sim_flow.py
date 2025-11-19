@@ -248,12 +248,7 @@ def sim_confirm_post(request: Request,
             oe_core._RUN_TOKEN[sim_id] = oe_core._time_token_utc()
         except Exception:
             pass
-        try:
-            with _connect() as conn, conn.cursor() as cur:
-                cur.execute("DELETE FROM public.simmetjobs WHERE simid = %s", (sim_id,))
-                conn.commit()
-        except Exception:
-            pass
+
         overrides = getattr(request.app.state, "_pending_overrides", {}).get(sim_id, {})
         # Persist only run-mode tunables into simulations so OE reads current values from DB
         # These are the fields that are editable in sim_edit (run mode) and should
@@ -296,7 +291,11 @@ def sim_confirm_post(request: Request,
             run_root = _Path("/data/simulations") / sim_label / tt
             run_root.mkdir(parents=True, exist_ok=True)
             meta_path = run_root / "sim_meta.json"
-            meta_path.write_text(_json.dumps(dict(base), default=str, indent=2), encoding="utf-8")
+            meta = dict(base)
+            # Ensure sim_id is always present for simpicker and downstream tools
+            if "sim_id" not in meta:
+                meta["sim_id"] = sim_id
+            meta_path.write_text(_json.dumps(meta, default=str, indent=2), encoding="utf-8")
             _simlog_append(request.app, sim_id, f"meta_written: {meta_path}")
         except Exception as e:
             _simlog_append(
@@ -335,12 +334,13 @@ def sim_confirm_post(request: Request,
             )
 
             # start the simple sequential runner
-            background_tasks.add_task(oe_core.run, sim_id=sim_id)
+            background_tasks.add_task(oe_core.run, sim_id=sim_id, kind="sim")
             _simlog_append(
                 request.app,
                 sim_id,
                 "Runner scheduled: simulation data creation is now being started..."
-            )                       
+            )
+                                                      
         # Keep your existing enqueue to actually run the computation
         job_id = jobs_svc.enqueue_sim_job(sim_id, eff_hash, bundle_level, is_visualization, precision)
 
@@ -389,19 +389,31 @@ from fastapi import Query
 from fastapi.responses import HTMLResponse
 
 @router.get("/oe/viewer", response_class=HTMLResponse)
-def oe_viewer_get(request: Request, sim_id: int = Query(...)):
+def oe_viewer_get(
+    request: Request,
+    sim_id: int = Query(...),
+    kind: str = Query(default="sim"),
+):
     """
     Opens the OE Viewer for a given sim_id.
     The template is static for now; data comes from JSON endpoints below.
     """
+    kind_lower = (kind or "sim").lower()
+    kind_suffix = ""
+    if kind_lower == "metrics":
+        kind_suffix = " · Metrics Run"
+    elif kind_lower == "both":
+        kind_suffix = " · Sim + Metrics Run"
+
     return templates.TemplateResponse(
         "oe_viewer.html",
         {
             "request": request,
             "sim_id": sim_id,
-            "header_right": f"OE Viewer · sim {sim_id}",
+            "header_right": f"OE Viewer · Sim {sim_id}{kind_suffix}",
         },
     )
+
 # --- OE Viewer JSON stubs (read-only) -------------------------------------
 
 from fastapi.responses import JSONResponse

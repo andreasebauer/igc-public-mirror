@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Optional, List
 import os
 
-from fastapi import FastAPI, Request, Form, HTTPException, Query
+from fastapi import FastAPI, Request, Form, HTTPException, Query, BackgroundTasks
 from igc.gui.services.metrics_data import list_metric_groups, list_metrics_by_group, list_assigned_metrics
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -276,8 +276,12 @@ def metrics_simpicker_preview(request: Request, path: str):
         ctx = {"request": request, "error": str(e), "path": allowed}
         return templates.TemplateResponse("partials/preview_error.html", ctx)
 @app.get("/metrics/select/{sim_id}")
-def metrics_select_page_new(request: Request, sim_id: int):
-    # New metrics selection page (dual-list UI) — placeholders for now
+def metrics_select_page_new(
+    request: Request,
+    sim_id: int,
+    run_root: str | None = Query(default=None),
+):
+    # New metrics selection page (dual-list UI)
     run = describe_run(sim_id)
     if "error" in run:
         raise HTTPException(status_code=404, detail=run["error"])
@@ -300,18 +304,17 @@ def metrics_select_page_new(request: Request, sim_id: int):
             "primary_disabled": (len(assigned_metric_ids) == 0),
             "primary_form_id": "metricsForm",
             "header_right": f"{sim['label']} · {sim['name']}",
+            "run_root": run_root or "",
         },
     )
 
-
-@app.post("/metrics/{sim_id}/save")
-def metrics_save(sim_id: int, metric_ids: List[int] = Form([])):
-    # Final save: toggle simmetricmatcher.enabled, updated_at
-    # TODO: implement transactional upsert (disable removed; upsert selected)
-    return RedirectResponse(url=f"/sims/id/{sim_id}", status_code=303)
-
 @app.post("/metrics/{sim_id}/confirm")
-def metrics_confirm(request: Request, sim_id: int, metric_ids: List[int] = Form([])):
+def metrics_confirm(
+    request: Request,
+    sim_id: int,
+    metric_ids: List[int] = Form([]),
+    run_root: str | None = Form(default=None),
+):
     if not metric_ids:
         raise HTTPException(status_code=400, detail="No metrics selected.")
 
@@ -340,33 +343,88 @@ def metrics_confirm(request: Request, sim_id: int, metric_ids: List[int] = Form(
             "total_selected": len(selected),
             "metric_ids": list(selected),
             "header_right": "Confirmation",
+            "run_root": run_root or "",
         },
     )
 
 @app.post("/metrics/{sim_id}/save")
-def metrics_save(sim_id: int, metric_ids: List[int] = Form([])):
+def metrics_save(
+    request: Request,
+    background_tasks: BackgroundTasks,
+    sim_id: int,
+    metric_ids: List[int] = Form([]),
+    run_root: str = Form(""),
+):
     # Persist: enable selected; disable any previously enabled but not selected
     selected = {int(x) for x in metric_ids}
 
     from igc.db.pg import cx, fetchall_dict, execute
+    from igc.ledger import core as ledger
+    from igc.oe import core as oe_core
+    from igc.gui.metrics_select import discover_frames_in_root
 
+    # 1) Persist selection in simmetricmatcher
     with cx() as conn:
         # current enabled set
-        rows = fetchall_dict(conn, "SELECT metric_id FROM simmetricmatcher WHERE sim_id=%s AND enabled=true", (sim_id,))
+        rows = fetchall_dict(
+            conn,
+            "SELECT metric_id FROM simmetricmatcher WHERE sim_id=%s AND enabled=true",
+            (sim_id,),
+        )
         current = {r["metric_id"] for r in rows}
 
         # disable removed
         to_disable = current - selected
         for mid in to_disable:
-            execute(conn, "UPDATE simmetricmatcher SET enabled=false, updated_at=now() WHERE sim_id=%s AND metric_id=%s AND enabled=true", (sim_id, mid))
+            execute(
+                conn,
+                "UPDATE simmetricmatcher SET enabled=false, updated_at=now() "
+                "WHERE sim_id=%s AND metric_id=%s AND enabled=true",
+                (sim_id, mid),
+            )
 
         # upsert selected -> enabled=true
         for mid in selected:
-            execute(conn, """
+            execute(
+                conn,
+                """
                 INSERT INTO simmetricmatcher (sim_id, metric_id)
                 VALUES (%s, %s)
                 ON CONFLICT (sim_id, metric_id)
                 DO UPDATE SET enabled=true, updated_at=now()
-            """, (sim_id, mid))
+                """,
+                (sim_id, mid),
+            )
 
-    return RedirectResponse(url=f"/sims/id/{sim_id}", status_code=303)
+    # 2) Flush job queue and seed metric jobs based on frames on disk
+        # Force OE to use the actual disk run_root for this metrics session
+        import os
+        tt = os.path.basename(run_root.rstrip("/"))
+        try:
+            oe_core._RUN_TOKEN[sim_id] = tt
+        except Exception:
+            pass
+
+    if selected:
+        # Flush ALL jobs before a fresh metrics run (simmetjobs is a pure work queue)
+        with cx() as conn:
+            execute(conn, "TRUNCATE TABLE public.simmetjobs")
+
+        # Discover frames for this metrics run from the explicit run_root on disk
+        frames = discover_frames_in_root(run_root)
+        if frames:
+            phases = [0]
+            # Seed metric jobs (idempotent) and finalize paths
+            oe_core.seed_metric_jobs(sim_id, sorted(selected), frames, phases)
+            try:
+                oe_core.finalize_seeded_jobs(sim_id=sim_id)
+            except Exception:
+                # finalization failures should not crash metrics_save; jobs can still exist
+                pass
+
+    # 3) Start OE runner for metrics if background_tasks is available
+    if background_tasks is not None:
+        background_tasks.add_task(oe_core.run, sim_id=sim_id, kind="metrics")
+
+    # 4) Redirect to OE viewer for this sim
+    return RedirectResponse(url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303)

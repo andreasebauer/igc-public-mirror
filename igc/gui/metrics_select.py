@@ -64,6 +64,39 @@ def validate_selection(metric_ids: Sequence[int]) -> list[str]:
         return ["No metrics selected."]
     return []
 
+def discover_frames_in_root(run_root: str) -> list[int]:
+    """
+    Discover existing frames for a given run_root directory on disk.
+
+    Expects a folder structure like:
+      run_root/
+        Frame_0000/
+        Frame_0100/
+        Frame_0200/
+        ...
+
+    Returns a sorted list of integer frame indices.
+    """
+    import os
+    import re
+
+    frames: set[int] = set()
+    if not run_root:
+        return []
+    try:
+        for entry in os.scandir(run_root):
+            if not entry.is_dir():
+                continue
+            name = entry.name
+            # Examples: Frame_0000, frame10, 0000
+            m = re.search(r"(\d+)$", name)
+            if m:
+                frames.add(int(m.group(1)))
+    except Exception:
+        # On any error, just return whatever we collected so far (possibly empty)
+        return sorted(frames)
+    return sorted(frames)
+
 def seed_jobs_for_frames(sim_id: int, metric_ids: Sequence[int], frames: Sequence[int]) -> int:
     """
     Create metric jobs (one per metric × frame).

@@ -48,7 +48,7 @@ $(function() {
         const nextBtn = document.querySelector('.actions-right a');
         if (nextBtn && simId) {
           nextBtn.classList.remove('is-disabled');
-          nextBtn.setAttribute('href','/metrics/select/'+simId);
+          nextBtn.setAttribute('href','/metrics/select/' + simId + '?run_root=' + encodeURIComponent(path));
           nextBtn.classList.add('btn--primary');
           nextBtn.removeAttribute('aria-disabled');
         } else if (nextBtn) {

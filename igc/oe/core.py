@@ -208,6 +208,9 @@ def get_viewer_events(sim_id: int, after_seq: int) -> list[dict]:
 # Stable per-sim run token (timestamp), set once per finalize pass
 _RUN_TOKEN: Dict[int, str] = {}
 
+# Stable per-sim *metric* run token (timestamp), set once per metrics seeding
+_METRIC_RUN_TOKEN: Dict[int, str] = {}
+
 def _render_path_from_registry(j: Dict, ext: str) -> str:
     """
     Simplified flat layout for simulation output paths.
@@ -267,9 +270,15 @@ def _render_path_from_registry(j: Dict, ext: str) -> str:
         # Compute jobs: return the directory; saver writes the npy/json bundle here.
         return frame_dir
 
-    # Metric or export jobs: single file in the frame directory
+    # Metric or export jobs: place outputs in a per-metrics-run subfolder under each frame.
+    # This allows multiple metric runs on the same sim without overwriting prior outputs.
+    metrics_run_token = _METRIC_RUN_TOKEN.get(sim_id) or _time_token_utc()
+    _METRIC_RUN_TOKEN[sim_id] = metrics_run_token
+    metrics_root = os.path.join(frame_dir, metrics_run_token)
+    os.makedirs(metrics_root, exist_ok=True)
+
     filename = f"{metric_name}.{type_token}".lstrip("/")
-    return os.path.join(frame_dir, filename)
+    return os.path.join(metrics_root, filename)
 
 # ------------------------------
 # Stubs to keep imports satisfied
@@ -330,7 +339,50 @@ def seed_frames_all_at_once(*, sim_id: int, end_frame: int, template_frame: int 
         finalize_seeded_jobs(sim_id=sim_id)
     return inserted
 
-def run(*, sim_id: int) -> None:
+
+def _derive_run_kind(kind: str | None, jobs: list[dict]) -> str:
+    """
+    Decide which kind of run this is: 'sim', 'metrics', or 'both'.
+
+    If an explicit kind is given and recognized, it wins.
+    Otherwise, infer from the presence of state and/or metric jobs.
+    """
+    if kind:
+        k = kind.lower()
+        if k in ("sim", "metrics", "both"):
+            return k
+
+    has_state = any((j.get("output_type") or "").lower() == "state" for j in jobs)
+    has_metric = any(j.get("metric_id") is not None for j in jobs)
+
+    if has_state and has_metric:
+        return "both"
+    if has_metric:
+        return "metrics"
+    # default: pure sim or no explicit type
+    return "sim"
+
+
+def _job_is_in_scope(j: dict, run_kind: str) -> bool:
+    """
+    Filter jobs by run_kind:
+
+      - 'sim'     → only non-metric jobs (state / legacy)
+      - 'metrics' → only metric jobs
+      - 'both'    → all jobs
+    """
+    is_metric = j.get("metric_id") is not None
+
+    if run_kind == "sim":
+        # skip metric jobs; keep state/unknown
+        return not is_metric
+    if run_kind == "metrics":
+        # only metric jobs
+        return is_metric
+    # 'both' or anything else: process everything
+    return True
+
+def run(*, sim_id: int, kind: str | None = None) -> None:
     """
     Sequential job executor (v1, no real compute yet).
 
@@ -356,6 +408,33 @@ def run(*, sim_id: int) -> None:
     # sort by frame, then job_phase (pp stage), then step_id
     jobs.sort(key=lambda j: (int(j.get("job_frame", 0)), int(j.get("job_phase", 0)), int(j.get("step_id", 0))))
 
+    # Decide what kind of run this is (sim / metrics / both)
+    run_kind = _derive_run_kind(kind, jobs)
+    print(f"[OE] ▶ inferred run_kind={run_kind}")
+
+    # viewer event: run starting (sim / metrics / both)
+    try:
+        start_status = {
+            "sim": "run_sim_start",
+            "metrics": "run_metrics_start",
+            "both": "run_both_start",
+        }.get(run_kind, "run_sim_start")
+        _vlog(sim_id, status=start_status, frame=None, jobid=None)
+    except Exception:
+        # logging must not interfere with the runner
+        pass
+
+    # Preload metric pipelines for this run (only metrics present in the jobs)
+    from igc.metrics import runner as metrics_runner  # local import to avoid OE import churn
+    metric_ids = sorted(
+        {
+            int(j.get("metric_id"))
+            for j in jobs
+            if j.get("metric_id") is not None
+        }
+    )
+    metric_pipelines = metrics_runner.load_metric_pipelines(metric_ids)
+
     total = len(jobs)
     processed = 0
     start_all = perf_counter()
@@ -371,6 +450,10 @@ def run(*, sim_id: int) -> None:
         if status not in ("queued", "created"):
             continue  # skip already processed or non-runnable
 
+        # Skip jobs that are not part of this run kind (sim / metrics / both)
+        if not _job_is_in_scope(j, run_kind):
+            continue
+
         try:
             ledger.update_job_status_single(job_id=job_id, to_status="running", set_start=True)
             # viewer log: running           
@@ -380,13 +463,15 @@ def run(*, sim_id: int) -> None:
 
             t0 = perf_counter()
             out_type = (j.get("output_type") or "").lower()
+            metric_id = j.get("metric_id")
+
             if out_type == "state":
                 from pathlib import Path
                 import json, numpy as np
                 from igc.ledger.sim import get_simulation_full
                 from igc.sim.grid_constructor import GridConfig, build_humming_grid
                 from igc.sim.coupler import CouplerConfig, Coupler
-                from igc.sim.injector import Injector
+                from igc.sim.injector import Injector, InjectionEvent
                 from igc.sim.integrator import IntegratorConfig, Integrator
                 from igc.sim.operators import (
                     laplace_jit,
@@ -418,6 +503,46 @@ def run(*, sim_id: int) -> None:
                 )
                 coupler = Coupler(coupler_cfg)
 
+                # Build seeding events (Injector-based seeding, ignoring legacy ψ0/φ0/η0)
+                events = []
+
+                seed_type = (str(sim.get("seed_type") or "none")).lower()
+                seed_strength = float(sim.get("seed_strength") or 0.0)
+
+                if seed_type != "none" and seed_strength != 0.0:
+                    seed_field = (str(sim.get("seed_field") or "psi")).lower()
+                    seed_sigma = float(sim.get("seed_sigma") or 0.0)
+
+                    # center: grid center or explicit "x,y,z"
+                    if (sim.get("seed_center") or "center") == "center":
+                        cx0, cy0, cz0 = Nx // 2, Ny // 2, Nz // 2
+                    else:
+                        cx0, cy0, cz0 = map(int, str(sim.get("seed_center")).split(","))
+
+                    # tact-phase window
+                    window = (
+                        float(sim.get("seed_phase_a") or 0.25),
+                        float(sim.get("seed_phase_b") or 0.30)
+                    )
+
+                    # At gating via repeat dict
+                    first_at = int(sim.get("seed_at") or 0)
+                    period_at = int(sim.get("seed_repeat_at") or 0)
+                    if period_at > 0:
+                        repeat = {"first_at": first_at, "period_at": period_at}
+                    else:
+                        repeat = {"first_at": first_at}
+
+                    events.append(InjectionEvent(
+                        kind=seed_type,
+                        field=seed_field,
+                        amplitude=seed_strength,
+                        sigma=seed_sigma,
+                        center=(cx0, cy0, cz0),
+                        window=window,
+                        repeat=repeat,
+                    ))                
+
                 integ_cfg = IntegratorConfig(
                     substeps_per_at=int(sim.get("substeps_per_at") or 48),
                     dt_per_at=float(sim.get("dt_per_at") or 1.0),
@@ -430,7 +555,7 @@ def run(*, sim_id: int) -> None:
 
                 integ = Integrator(
                     coupler,
-                    Injector([]),
+                    Injector(events),
                     integ_cfg,
                 )
 
@@ -526,7 +651,34 @@ def run(*, sim_id: int) -> None:
                       path=str(fdir), filename="frame_info.json")                
                 
             else:
-                import time; time.sleep(0.01)
+                # Metric job or unknown job type
+                if metric_id:
+                    # Metric job: delegate to metrics runner (pipelines preloaded above)
+                    metric_name = (
+                        j.get("metric_name")
+                        or j.get("metricname")
+                        or j.get("output_type")
+                        or f"metric_{metric_id}"
+                    )
+                    _vlog(
+                        int(j["sim_id"]),
+                        status="metric_start",
+                        frame=frame,
+                        jobid=job_id,
+                        filename=str(metric_name),
+                    )
+                    metrics_runner.execute_metric_job(j, metric_pipelines)
+                    _vlog(
+                        int(j["sim_id"]),
+                        status="metric_done",
+                        frame=frame,
+                        jobid=job_id,
+                        filename=str(metric_name),
+                    )
+                else:
+                    # Legacy / unknown job type: do nothing but avoid crashing
+                    import time
+                    time.sleep(0.01)
 
             duration_ms = int((perf_counter() - t0) * 1000)
 
@@ -556,6 +708,18 @@ def run(*, sim_id: int) -> None:
                 ledger.update_job_status_single(job_id=job_id, to_status="failed", set_finish=True)
             except Exception:
                 pass
+            try:
+                # viewer log: error
+                _vlog(
+                    int(j.get("sim_id", 0) or 0),
+                    status="error",
+                    frame=int(j.get("job_frame", 0) or 0),
+                    jobid=job_id,
+                    path=str(e),
+                )
+            except Exception:
+                # logging must not crash the runner
+                pass           
             request_abort(f"job {job_id} failed")
             print(f"[OE] ✖ job {job_id} failed: {e}")
             raise
@@ -571,7 +735,22 @@ def run(*, sim_id: int) -> None:
     try:
         sim_for_vlog = int(jobs[-1].get("sim_id")) if jobs else None
         if sim_for_vlog is not None:
-            _vlog(sim_for_vlog, status="run_complete", frame=None, jobid=None, ms=total_ms)
+            try:
+                complete_status = {
+                    "sim": "run_sim_complete",
+                    "metrics": "run_metrics_complete",
+                    "both": "run_both_complete",
+                }.get(run_kind, "run_complete")
+                _vlog(
+                    sim_for_vlog,
+                    status=complete_status,
+                    frame=None,
+                    jobid=None,
+                    ms=total_ms,
+                )
+            except Exception:
+                # logging must not crash the runner
+                pass
     except Exception:
         pass
 

@@ -112,12 +112,20 @@ def run_simulation(sim_id: int, ats: int, save_first: bool=True, header_stats: b
 
     cfg = GridConfig(shape=(sim["gridx"], sim["gridy"], sim["gridz"]))
     state = build_humming_grid(cfg, substeps_per_at=sim["substeps_per_at"], initial_at=0)
-    state.psi[...] = sim["psi0_elsewhere"]
-    cx0 = state.psi.shape[0]//2; cy0 = state.psi.shape[1]//2; cz0 = state.psi.shape[2]//2
-    delta = (sim["psi0_center"] - sim["psi0_elsewhere"]) if sim["psi0_center"] is not None else 0.0
-    state.psi[cx0,cy0,cz0] += delta
-    state.phi_field[...] = sim["phi0"]
-    state.eta[...] = sim["eta0"]
+
+    # Legacy initial-condition overrides (ψ0/φ0/η0) — disabled for now.
+    # We keep the true humming vacuum at At=0 and apply all seeds via Injector at At=3.
+    #
+    # state.psi[...] = sim["psi0_elsewhere"]
+    # delta = (sim["psi0_center"] - sim["psi0_elsewhere"]) if sim["psi0_center"] is not None else 0.0
+    # state.psi[cx0,cy0,cz0] += delta
+    # state.phi_field[...] = sim["phi0"]
+    # state.eta[...] = sim["eta0"]
+
+    # We still compute the center index here, for use as the default InjectionEvent center.
+    cx0 = state.psi.shape[0]//2
+    cy0 = state.psi.shape[1]//2
+    cz0 = state.psi.shape[2]//2
 
     coupler = Coupler(CouplerConfig(
         D_psi=sim["d_psi"], D_eta=sim["d_eta"], D_phi=sim["d_phi"],
@@ -134,7 +142,16 @@ def run_simulation(sim_id: int, ats: int, save_first: bool=True, header_stats: b
             sigma=float(sim["seed_sigma"] or 0.0),
             center=(cx0,cy0,cz0) if (sim["seed_center"] or "center")=="center" else tuple(map(int,(sim["seed_center"].split(",")))),
             window=(float(sim["seed_phase_a"] or 0.25), float(sim["seed_phase_b"] or 0.30)),
-            repeat={"period_at": int(sim["seed_repeat_at"])} if sim["seed_repeat_at"] else None
+            repeat=(
+                {
+                    "first_at": int(sim.get("seed_at") or 0),
+                    "period_at": int(sim["seed_repeat_at"])
+                }
+                if sim.get("seed_repeat_at") else
+                {
+                    "first_at": int(sim.get("seed_at") or 0)
+                }
+            )
         ))
     injector = Injector(events)
     integ_cfg = IntegratorConfig(

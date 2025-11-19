@@ -31,8 +31,9 @@
   </section>
 
   {# Re-post all selected ids to save #}
+      <input type="hidden" name="run_root" value="{{ run_root }}"/>
   {% for mid in metric_ids %}
-    <input type="hidden" name="metric_ids[]" value="{{ mid }}"/>
+    <input type="hidden" name="metric_ids" value="{{ mid }}"/>
   {% endfor %}
 
 

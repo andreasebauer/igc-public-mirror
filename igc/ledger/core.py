@@ -147,6 +147,9 @@ def log_execution(*, job: dict, runtime_ms: int, queue_wait_ms: int, was_aliased
 def log_error(*, job: Dict, message: str) -> None:
     """
     Append to ErrorLog using snake_case keys from the ledger view.
+
+    This is called from OE/core.run() when a job fails. It should NEVER raise;
+    logging failures must not crash the runner.
     """
     def g(*names, default=None):
         for n in names:
@@ -154,6 +157,58 @@ def log_error(*, job: Dict, message: str) -> None:
             if v is not None:
                 return v
         return default
+
+    try:
+        jobid = g("job_id", "smj_jobid")
+        simid = g("sim_id", "smj_simid")
+        metricid = g("metric_id", "smj_metricid")
+        stepid = g("step_id", "ms_mim_step")
+        groupid = g("group_id", "met_group_id")
+        fieldid = None  # not currently exposed via fetch_job_ledger_record
+        phase = g("job_phase", "smj_phase")
+        frame = g("job_frame", "smj_frame")
+        priority = g("smj_priority", "priority", default=0)
+        output_path = g("output_path", "smj_output_path", "path", default="")
+
+        # Simple jobtype classification: metric vs sim
+        jobtype = "metric" if metricid is not None else "sim"
+        # Try to get a useful subtype (metric name or output_type)
+        jobsubtype = g("met_name", "metric_name", "output_type", default=None)
+
+        if jobid is None or simid is None:
+            # Without jobid/simid, we skip logging; nothing to key on.
+            return
+
+        with _connect() as conn, conn.cursor() as cur:
+            cur.execute(
+                """
+                INSERT INTO public.errorlog
+                    (jobid, simid, metricid, stepid, groupid, fieldid,
+                     jobtype, jobsubtype, phase, frame, priority, output_path, message)
+                VALUES
+                    (%(jobid)s, %(simid)s, %(metricid)s, %(stepid)s, %(groupid)s, %(fieldid)s,
+                     %(jobtype)s, %(jobsubtype)s, %(phase)s, %(frame)s, %(priority)s, %(output_path)s, %(message)s)
+                """,
+                {
+                    "jobid": int(jobid),
+                    "simid": int(simid),
+                    "metricid": int(metricid) if metricid is not None else None,
+                    "stepid": int(stepid) if stepid is not None else None,
+                    "groupid": int(groupid) if groupid is not None else None,
+                    "fieldid": fieldid,
+                    "jobtype": jobtype,
+                    "jobsubtype": jobsubtype,
+                    "phase": int(phase) if phase is not None else None,
+                    "frame": int(frame) if frame is not None else None,
+                    "priority": int(priority) if priority is not None else 0,
+                    "output_path": output_path,
+                    "message": message,
+                },
+            )
+            conn.commit()
+    except Exception:
+        # Logging must never crash the runner; swallow all errors here.
+        return
 
 def update_seeded_job(
     *,
@@ -195,6 +250,10 @@ def create_compute_template_for_sim(*, sim_id: int) -> int:
     Returns number of rows inserted (0 or 1).
     """
     with _connect() as conn, conn.cursor() as cur:
+        # Always start with a clean job table for every fresh run.
+        # simmetjobs is a pure work queue; history is stored in jobexecutionlog.
+        cur.execute("TRUNCATE TABLE public.simmetjobs")
+        conn.commit()        
         cur.execute("""
             INSERT INTO public.simmetjobs
               (simid, metricid, frame, phase, status, priority, createdate,

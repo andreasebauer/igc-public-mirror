@@ -5,6 +5,7 @@
   <div class="metrics-fullgrid">
     <div class="col-left">
   <form id="metricsForm" method="post" action="/metrics/{{ sim.id }}/confirm" class="stack">
+    <input type="hidden" name="run_root" value="{{ run_root }}"/>
     <section class="group-grid">
       {% for g in groups %}
         <div class="group-card">

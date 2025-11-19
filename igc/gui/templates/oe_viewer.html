@@ -271,17 +271,55 @@
           const frame = e.frame;
           const durMs = e.ms || 0;
 
+          // Run-level start events
+          if (st === 'run_sim_start') {
+            appendLine('Simulation will start soon…', 'log-note');
+            continue;
+          }
+          if (st === 'run_metrics_start') {
+            appendLine('Metrics run will start soon…', 'log-note');
+            continue;
+          }
+          if (st === 'run_both_start') {
+            appendLine('Simulation and metrics run will start soon…', 'log-note');
+            continue;
+          }
+                    
           if (st === 'frame_done' && frame != null) {
             const sec = (durMs / 1000).toFixed(2);
             appendLine(`Frame ${frame} has been written to disk (runtime ${sec}s)`, 'log-frame-ok');
             continue;
           }
 
-          if (st === 'run_complete') {
-            appendLine('Simulation data has been created. Run is finished.', 'log-final');
+          // Run-level completion events (new statuses)
+          if (st === 'run_sim_complete' || st === 'run_metrics_complete' || st === 'run_both_complete' || st === 'run_complete') {
+            const sec = (durMs / 1000).toFixed(2);
+            if (st === 'run_metrics_complete') {
+              appendLine(`Metrics run has finished in ${sec}s.`, 'log-final');
+            } else if (st === 'run_both_complete') {
+              appendLine(`Simulation and metrics run have finished in ${sec}s.`, 'log-final');
+            } else {
+              // covers run_sim_complete and legacy run_complete
+              appendLine(`Simulation data has been created. Run is finished in ${sec}s.`, 'log-final');
+            }
             continue;
           }
 
+          // Metric job events
+          if (st === 'metric_start') {
+            const name = e.filename || '';
+            const fr   = (frame != null ? frame : '?');
+            appendLine(`Frame ${fr}: starting metric ${name}`, 'log-note');
+            continue;
+          }
+
+          if (st === 'metric_done') {
+            const name = e.filename || '';
+            const fr   = (frame != null ? frame : '?');
+            const sec  = (durMs / 1000).toFixed(2);
+            appendLine(`Frame ${fr}: metric ${name} completed in ${sec}s`, 'log-frame-ok');
+            continue;
+          }
           // fallback: original raw line for other statuses
           const jid = (e.jobid != null) ? ` job=${e.jobid}` : '';
           const fr  = (frame != null) ? ` frame=${frame}` : '';

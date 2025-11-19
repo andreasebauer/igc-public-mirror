@@ -44,17 +44,32 @@ def read_sim_meta(abs_path: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     frames = set()
     phases = set()
     try:
+        import re
+
+        def _frame_index(name: str):
+            # Current convention: directories like "Frame_0000", "frame0001", etc.
+            # Fallback: numeric suffix anywhere in the name.
+            m = re.search(r"(\d+)$", name)
+            return int(m.group(1)) if m else None
+
         for entry in os.scandir(abs_path):
-            if entry.is_dir() and entry.name.isdigit():
-                frames.add(int(entry.name))
-                sub = os.path.join(abs_path, entry.name)
-                for ph in os.listdir(sub):
-                    if str(ph).isdigit():
-                        phases.add(int(ph))
+            if not entry.is_dir():
+                continue
+            name = entry.name
+            # Accept both "Frame_0000" style and plain numeric dir names, just in case.
+            idx = None
+            if name.lower().startswith("frame"):
+                idx = _frame_index(name)
+            elif name.isdigit():
+                idx = int(name)
+            if idx is not None:
+                frames.add(idx)
+                # For now, phases are just {0}; if you later introduce per-frame phases,
+                # you can refine this to inspect subdirectories.
+        if not phases:
+            phases = {0}
     except Exception:
         pass
-    if not phases:
-        phases = {0}
 
     availability = {"frames": sorted(frames), "phases": sorted(phases)}
     return preview, availability

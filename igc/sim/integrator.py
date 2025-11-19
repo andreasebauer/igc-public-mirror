@@ -7,6 +7,7 @@ from igc.sim.operators import (
     div_phi_cone_psi_jit,
     compute_directional_skin_jit,
 )
+from igc.sim.kernels import pde_substep_jit
 from igc.sim.coupler import Coupler
 from igc.sim.injector import Injector
 from igc.sim.saver import save_frame, HeaderOptions
@@ -45,6 +46,13 @@ class Integrator:
         dx = self.cfg.dx
         frame = 0
 
+        # Scratch buffers for fused PDE kernel
+        psi_next = np.empty_like(psi)
+        pi_next = np.empty_like(pi)
+        eta_next = np.empty_like(eta)
+        phi_cone_next = np.empty_like(phi_field, shape=(6, *psi.shape)) if phi_cone.ndim == 4 else np.empty_like(phi_cone)
+        phi_field_next = np.empty_like(phi_field)
+
         # Optionally write first frame
         if save_first_frame:
             save_frame(store, sim_label, frame,
@@ -55,67 +63,61 @@ class Integrator:
 
         at = at_start
         while at < at_end:
-            for sub in range(substeps):
-                tact_phase = sub / substeps
+            while at < at_end:
+                for sub in range(substeps):
+                    tact_phase = sub / substeps
 
-                # 1) coefficients for this substep
-                K = self.coupler.get(at, sub, tact_phase)
-                D_psi = K["D_psi"]
-                D_eta = K["D_eta"]
-                D_phi = K["D_phi"]
-                lambda_eta = K["lambda_eta"]
-                lambda_phi = K["lambda_phi"]
-                C_pi_to_eta = K["C_pi_to_eta"]
-                C_eta_to_phi = K["C_eta_to_phi"]
-                # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
-                C_gradpsi_to_phi = 1.0
+                    # 1) coefficients for this substep
+                    K = self.coupler.get(at, sub, tact_phase)
+                    D_psi = K["D_psi"]
+                    D_eta = K["D_eta"]
+                    D_phi = K["D_phi"]
+                    lambda_eta = K["lambda_eta"]
+                    lambda_phi = K["lambda_phi"]
+                    C_pi_to_eta = K["C_pi_to_eta"]
+                    C_eta_to_phi = K["C_eta_to_phi"]
+                    # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
+                    C_gradpsi_to_phi = 1.0
 
-                # 1a) spatial operators (periodic BCs)
-                # directional cone transport: uses phi_cone only
-                div_flux_psi = div_phi_cone_psi_jit(phi_cone, psi, dx)
-                lap_eta = laplace_jit(eta, dx)
-
-                # gradient of psi and its squared norm for |∇ψ|² term
-                grad_psi = np.gradient(psi, dx, edge_order=2)
-                grad_psi_norm_sq = grad_psi[0]**2 + grad_psi[1]**2 + grad_psi[2]**2
-
-                # 2) reversible ψ–π core with cone-gated transport
-                # ψ' = π ; π' = -ψ + D_psi * cone_transport(ψ)
-                pi += dt * (-psi + D_psi * div_flux_psi)
-                psi += dt * pi
-
-                # 3) dissipative feedback with diffusion
-                # eta: η' = D_eta ∇²η - λ_eta η + C_pi_to_eta |π|
-                eta += dt * (D_eta * lap_eta - lambda_eta * eta + C_pi_to_eta * np.abs(pi))
-
-                # 3b) directional cone update (Phase 4b)
-                # compute directional ψ-skin
-                skin_cone = compute_directional_skin_jit(psi, dx)
-
-                # update each cone direction independently
-                # φ_cone[d] += dt * (D_phi * laplace(φ_cone[d])
-                #                    - lambda_phi * φ_cone[d]
-                #                    + C_eta_to_phi * |η|
-                #                    + C_gradpsi_to_phi * skin_cone[d])
-                for d in range(6):
-                    lap_phi_dir = laplace_jit(phi_cone[d], dx)
-                    phi_cone[d] += dt * (
-                        D_phi * lap_phi_dir
-                        - lambda_phi * phi_cone[d]
-                        + C_eta_to_phi * np.abs(eta)
-                        + C_gradpsi_to_phi * skin_cone[d]
+                    # 2) fused PDE substep (Numba kernel)
+                    pde_substep_jit(
+                        psi, pi, eta, phi_cone, phi_field,
+                        psi_next, pi_next, eta_next, phi_cone_next, phi_field_next,
+                        D_psi, D_eta, D_phi,
+                        lambda_eta, lambda_phi,
+                        C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+                        dx, dt,
                     )
-                # keep cones non-negative
-                np.maximum(phi_cone, 0.0, out=phi_cone)
 
-                # update scalar phi_field as envelope of cones (permission fog)
-                phi_field[...] = np.max(phi_cone, axis=0)
+                    # 3) swap buffers so updated fields become current for next substep
+                    psi, psi_next = psi_next, psi
+                    pi, pi_next = pi_next, pi
+                    eta, eta_next = eta_next, eta
+                    phi_cone, phi_cone_next = phi_cone_next, phi_cone
+                    phi_field, phi_field_next = phi_field_next, phi_field
 
-                # 4) injection is off; still call maybe_apply (it will no-op)
-                _events = self.injector.maybe_apply(at, sub, tact_phase, psi, pi, eta, phi_field)
+                    # 4) injection (still in Python; may modify fields in place)
+                    _events = self.injector.maybe_apply(at, sub, tact_phase, psi, pi, eta, phi_field)
 
-            # end of At
-            at += 1
+                # end of At
+                at += 1
+
+                # Save at end of each At (simple stride 1 here)
+                save_frame(
+                    store,
+                    sim_label,
+                    frame,
+                    psi=psi,
+                    pi=pi,
+                    eta=eta,
+                    phi_field=phi_field,
+                    phi_cone=phi_cone,
+                    at=at,
+                    substeps_per_at=substeps,
+                    tact_phase=0.0,
+                    header_opts=HeaderOptions(write_stats=header_stats),
+                )
+                at += 1
 
             # Save at end of each At (simple stride 1 here)
             save_frame(store, sim_label, frame,

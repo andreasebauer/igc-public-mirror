@@ -29,6 +29,24 @@ class Injector:
         H, W, Z = psi.shape
         applied = []
         for ev in self.events:
+            # At-based gating using ev.repeat, if provided.
+            # repeat can carry:
+            #   {"first_at": seed_at, "period_at": seed_repeat_at}
+            # For backward compatibility, both keys are optional.
+            start_at = 0
+            period_at = 0
+            if ev.repeat:
+                start_at = int(ev.repeat.get("first_at") or 0)
+                period_at = int(ev.repeat.get("period_at") or 0)
+
+            # Skip events before their first_at
+            if at < start_at:
+                continue
+            # For periodic seeds ("train"), only fire on multiples of period_at
+            if period_at > 0 and (at - start_at) % period_at != 0:
+                continue
+
+            # Tact-phase gating inside the At
             a, b = ev.window
             in_window = (tact_phase >= a) and (tact_phase < b)
             if not in_window:
