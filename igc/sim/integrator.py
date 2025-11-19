@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Callable
 import numpy as np
 
 from igc.sim.operators import (
@@ -39,7 +39,9 @@ class Integrator:
             at_start: int,
             at_end: int,
             save_first_frame: bool = True,
-            header_stats: bool = False) -> None:
+            header_stats: bool = False,
+            on_frame_saved: Optional[Callable[[int, int], None]] = None
+        ) -> None:
 
         substeps = self.cfg.substeps_per_at
         dt = self.cfg.dt_per_at / substeps
@@ -59,69 +61,66 @@ class Integrator:
                        psi=psi, pi=pi, eta=eta, phi_field=phi_field, phi_cone=phi_cone,
                        at=at_start, substeps_per_at=substeps, tact_phase=0.0,
                        header_opts=HeaderOptions(write_stats=header_stats))
+            if on_frame_saved is not None:
+                on_frame_saved(frame, at_start)
             frame += 1
 
         at = at_start
         while at < at_end:
-            while at < at_end:
-                for sub in range(substeps):
-                    tact_phase = sub / substeps
+            # Run one At worth of substeps
+            for sub in range(substeps):
+                tact_phase = sub / substeps
 
-                    # 1) coefficients for this substep
-                    K = self.coupler.get(at, sub, tact_phase)
-                    D_psi = K["D_psi"]
-                    D_eta = K["D_eta"]
-                    D_phi = K["D_phi"]
-                    lambda_eta = K["lambda_eta"]
-                    lambda_phi = K["lambda_phi"]
-                    C_pi_to_eta = K["C_pi_to_eta"]
-                    C_eta_to_phi = K["C_eta_to_phi"]
-                    # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
-                    C_gradpsi_to_phi = 1.0
+                # 1) coefficients for this substep
+                K = self.coupler.get(at, sub, tact_phase)
+                D_psi = K["D_psi"]
+                D_eta = K["D_eta"]
+                D_phi = K["D_phi"]
+                lambda_eta = K["lambda_eta"]
+                lambda_phi = K["lambda_phi"]
+                C_pi_to_eta = K["C_pi_to_eta"]
+                C_eta_to_phi = K["C_eta_to_phi"]
+                # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
+                C_gradpsi_to_phi = 1.0
 
-                    # 2) fused PDE substep (Numba kernel)
-                    pde_substep_jit(
-                        psi, pi, eta, phi_cone, phi_field,
-                        psi_next, pi_next, eta_next, phi_cone_next, phi_field_next,
-                        D_psi, D_eta, D_phi,
-                        lambda_eta, lambda_phi,
-                        C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
-                        dx, dt,
-                    )
-
-                    # 3) swap buffers so updated fields become current for next substep
-                    psi, psi_next = psi_next, psi
-                    pi, pi_next = pi_next, pi
-                    eta, eta_next = eta_next, eta
-                    phi_cone, phi_cone_next = phi_cone_next, phi_cone
-                    phi_field, phi_field_next = phi_field_next, phi_field
-
-                    # 4) injection (still in Python; may modify fields in place)
-                    _events = self.injector.maybe_apply(at, sub, tact_phase, psi, pi, eta, phi_field)
-
-                # end of At
-                at += 1
-
-                # Save at end of each At (simple stride 1 here)
-                save_frame(
-                    store,
-                    sim_label,
-                    frame,
-                    psi=psi,
-                    pi=pi,
-                    eta=eta,
-                    phi_field=phi_field,
-                    phi_cone=phi_cone,
-                    at=at,
-                    substeps_per_at=substeps,
-                    tact_phase=0.0,
-                    header_opts=HeaderOptions(write_stats=header_stats),
+                # 2) fused PDE substep (Numba kernel)
+                pde_substep_jit(
+                    psi, pi, eta, phi_cone, phi_field,
+                    psi_next, pi_next, eta_next, phi_cone_next, phi_field_next,
+                    D_psi, D_eta, D_phi,
+                    lambda_eta, lambda_phi,
+                    C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+                    dx, dt,
                 )
-                at += 1
+
+                # 3) swap buffers so updated fields become current for next substep
+                psi, psi_next = psi_next, psi
+                pi, pi_next = pi_next, pi
+                eta, eta_next = eta_next, eta
+                phi_cone, phi_cone_next = phi_cone_next, phi_cone
+                phi_field, phi_field_next = phi_field_next, phi_field
+
+                # 4) injection (still in Python; may modify fields in place)
+                _events = self.injector.maybe_apply(at, sub, tact_phase, psi, pi, eta, phi_field)
+
+            # End of this At
+            at += 1
 
             # Save at end of each At (simple stride 1 here)
-            save_frame(store, sim_label, frame,
-                       psi=psi, pi=pi, eta=eta, phi_field=phi_field, phi_cone=phi_cone,
-                       at=at, substeps_per_at=substeps, tact_phase=0.0,
-                       header_opts=HeaderOptions(write_stats=header_stats))
+            save_frame(
+                store,
+                sim_label,
+                frame,
+                psi=psi,
+                pi=pi,
+                eta=eta,
+                phi_field=phi_field,
+                phi_cone=phi_cone,
+                at=at,
+                substeps_per_at=substeps,
+                tact_phase=0.0,
+                header_opts=HeaderOptions(write_stats=header_stats),
+            )
+            if on_frame_saved is not None:
+                on_frame_saved(frame, at)
             frame += 1

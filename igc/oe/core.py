@@ -211,6 +211,9 @@ _RUN_TOKEN: Dict[int, str] = {}
 # Stable per-sim *metric* run token (timestamp), set once per metrics seeding
 _METRIC_RUN_TOKEN: Dict[int, str] = {}
 
+# Guard so we only run the sim suite once per sim_id inside this process.
+_SIM_RUN_DONE: Dict[int, bool] = {}
+
 def _render_path_from_registry(j: Dict, ext: str) -> str:
     """
     Simplified flat layout for simulation output paths.
@@ -382,6 +385,168 @@ def _job_is_in_scope(j: dict, run_kind: str) -> bool:
     # 'both' or anything else: process everything
     return True
 
+
+def _run_sim_suite_for_sim(sim_id: int) -> None:
+    """
+    Run the full simulation for sim_id using the fused integrator/saver.
+
+    This mirrors igc.gui.create_sim.run_simulation, but:
+      - uses the canonical /data/simulations root (or IGC_STORE),
+      - writes under {store}/{label}/{tt}/Frame_XXXX,
+        where {tt} is OE's _RUN_TOKEN[sim_id].
+    """
+
+    import os
+    from pathlib import Path
+
+    from igc.ledger.sim import get_simulation_full
+    from igc.sim.grid_constructor import GridConfig, build_humming_grid
+    from igc.sim.coupler import CouplerConfig, Coupler
+    from igc.sim.injector import Injector, InjectionEvent
+    from igc.sim.integrator import IntegratorConfig, Integrator
+
+    # 1) Load full Simulations row
+    sim = get_simulation_full(sim_id)
+    if not sim:
+        raise RuntimeError(f"simulation not found for id={sim_id}")
+
+    Nx = int(sim.get("gridx") or 0)
+    Ny = int(sim.get("gridy") or 0)
+    Nz = int(sim.get("gridz") or 0)
+    if Nx <= 0 or Ny <= 0 or Nz <= 0:
+        raise RuntimeError(f"invalid grid dims for sim {sim_id}: {Nx}x{Ny}x{Nz}")
+
+    # 2) Build humming grid (true IG vacuum at At=0)
+    cfg = GridConfig(shape=(Nx, Ny, Nz))
+    substeps_per_at = int(sim.get("substeps_per_at") or 48)
+    state = build_humming_grid(cfg, substeps_per_at=substeps_per_at, initial_at=0)
+
+    # Center index for seeding
+    cx0 = state.psi.shape[0] // 2
+    cy0 = state.psi.shape[1] // 2
+    cz0 = state.psi.shape[2] // 2
+
+    # 3) Coupler configuration (D/C/λ + gate)
+    coupler_cfg = CouplerConfig(
+        D_psi=float(sim.get("d_psi") or 0.0),
+        D_eta=float(sim.get("d_eta") or 0.0),
+        D_phi=float(sim.get("d_phi") or 0.0),
+        C_pi_to_eta=float(sim.get("c_pi_to_eta") or 1.0),
+        C_eta_to_phi=float(sim.get("c_eta_to_phi") or 1.0),
+        lambda_eta=float(sim.get("lambda_eta") or 1.0),
+        lambda_phi=float(sim.get("lambda_phi") or 1.0),
+        gate=str(sim.get("gate_name") or "linear"),
+    )
+    coupler = Coupler(coupler_cfg)
+
+    # 4) Seeding events via Injector
+    events: list[InjectionEvent] = []
+
+    seed_type = (str(sim.get("seed_type") or "none")).lower()
+    seed_strength = float(sim.get("seed_strength") or 0.0)
+
+    if seed_type != "none" and seed_strength != 0.0:
+        seed_field = (str(sim.get("seed_field") or "psi")).lower()
+        seed_sigma = float(sim.get("seed_sigma") or 0.0)
+
+        # center: grid center or explicit "x,y,z"
+        if (sim.get("seed_center") or "center") == "center":
+            center = (cx0, cy0, cz0)
+        else:
+            center = tuple(map(int, str(sim.get("seed_center")).split(",")))
+
+        window = (
+            float(sim.get("seed_phase_a") or 0.25),
+            float(sim.get("seed_phase_b") or 0.30),
+        )
+
+        first_at = int(sim.get("seed_at") or 0)
+        period_at = int(sim.get("seed_repeat_at") or 0)
+        if period_at > 0:
+            repeat = {"first_at": first_at, "period_at": period_at}
+        else:
+            repeat = {"first_at": first_at}
+
+        events.append(
+            InjectionEvent(
+                kind=seed_type,
+                field=seed_field,
+                amplitude=seed_strength,
+                sigma=seed_sigma,
+                center=center,
+                window=window,
+                repeat=repeat,
+            )
+        )
+
+    injector = Injector(events)
+
+    # 5) Integrator configuration (dt, dx) and At range from seeded frames
+    # Derive t_max from the seeded frame window so PDE length always matches
+    # what OE/SimMetricJobs planned (0..maxSeeded).
+    stats = ledger.fetch_frame_stats(sim_id=sim_id)
+    max_seeded = int(stats.get("maxSeeded", 0))
+    t_max = max_seeded + 1
+    if t_max <= 0:
+        raise RuntimeError(f"no seeded frames for sim {sim_id} (maxSeeded={max_seeded})")
+
+    integ_cfg = IntegratorConfig(
+        substeps_per_at=substeps_per_at,
+        dt_per_at=float(sim.get("dt_per_at") or 1.0),
+        dx=float(sim.get("dx") or 1.0),
+        stride_frames_at=1,
+    )
+
+    # Sanity / stability check
+    validate_sim_config(cfg, integ_cfg, coupler_cfg)
+
+    # 6) Resolve store + label + OE run token → /data/simulations/{label}/{tt}/Frame_XXXX
+    root = os.environ.get("IGC_STORE", "/data/simulations")
+    store = Path(root)
+    store.mkdir(parents=True, exist_ok=True)
+
+    base_label = str(sim.get("label") or f"Sim_{sim_id}").strip()
+    tt = _RUN_TOKEN.setdefault(sim_id, _time_token_utc())
+    sim_label_with_tt = f"{base_label}/{tt}"
+
+    # 7) Run the integrator – writes Frame_0000..Frame_{t_max-1}
+    integ = Integrator(coupler, injector, integ_cfg)
+
+    def _on_frame_saved(frame_idx: int, at_val: int) -> None:
+        """Emit viewer event for each saved PDE frame."""
+        try:
+            frame_dir = store / sim_label_with_tt / f"Frame_{frame_idx:04d}"
+            _vlog(
+                sim_id,
+                status="frame_done",
+                frame=frame_idx,
+                jobid=None,
+                path=str(frame_dir),
+                ms=0,
+            )
+        except Exception:
+            # logging must never break the integrator
+            pass
+
+    integ.run(
+        store=store,
+        sim_label=sim_label_with_tt,
+        psi=state.psi,
+        pi=state.pi,
+        eta=state.eta,
+        phi_field=state.phi_field,
+        phi_cone=state.phi_cone,
+        at_start=0,
+        at_end=t_max,
+        save_first_frame=True,
+        header_stats=True,
+        on_frame_saved=_on_frame_saved,
+    )
+
+    # Mark in-process guard so we don't run twice for the same sim_id.
+    _SIM_RUN_DONE[sim_id] = True
+
+
 def run(*, sim_id: int, kind: str | None = None) -> None:
     """
     Sequential job executor (v1, no real compute yet).
@@ -402,6 +567,17 @@ def run(*, sim_id: int, kind: str | None = None) -> None:
     print(f"[OE] ▶ run token tt={_RUN_TOKEN[sim_id]}")
     # fresh run: clear abort and install signal handlers
     ABORT.clear()
+
+    # Clear per-sim viewer events so each OE.run starts with a fresh log.
+    # This prevents stale sim/metric runs from previous executions from
+    # showing up in the OE viewer for the same sim_id.
+    try:
+        _VIEW.pop(sim_id, None)
+        _SEQ[sim_id] = 0
+    except Exception:
+        # viewer reset must never break the runner
+        pass
+
     _install_signal_handlers()
     # Get all jobs for this simulation
     jobs = ledger.fetch_job_ledger_record(sim_id=sim_id)
@@ -466,190 +642,29 @@ def run(*, sim_id: int, kind: str | None = None) -> None:
             metric_id = j.get("metric_id")
 
             if out_type == "state":
-                from pathlib import Path
-                import json, numpy as np
-                from igc.ledger.sim import get_simulation_full
-                from igc.sim.grid_constructor import GridConfig, build_humming_grid
-                from igc.sim.coupler import CouplerConfig, Coupler
-                from igc.sim.injector import Injector, InjectionEvent
-                from igc.sim.integrator import IntegratorConfig, Integrator
-                from igc.sim.operators import (
-                    laplace_jit,
-                    div_phi_cone_psi_jit,
-                    compute_directional_skin_jit,
-                )
+                # ------------------------------------------------------------
+                # STATE JOBS (SIMULATION FRAMES)
+                # ------------------------------------------------------------
+                # We never run PDE per job anymore. Instead:
+                #   - The first frame-0 state job triggers the sim suite once
+                #     for this sim_id (0..t_max), writing frames into
+                #     /data/simulations/{label}/{tt}/Frame_XXXX.
+                #   - All state jobs then become pure bookkeeping: status and
+                #     logging are handled by the generic block below.
+                # ------------------------------------------------------------
+                simid = int(j["sim_id"])
+                frame0 = int(j.get("job_frame") or 0)
 
-                sim = get_simulation_full(int(j["sim_id"])) or {}
-                Nx = int(sim.get("gridx") or 0); Ny = int(sim.get("gridy") or 0); Nz = int(sim.get("gridz") or 0)
-                at_start = int(j.get("job_frame") or 0)
+                if (
+                    frame0 == 0
+                    and not _SIM_RUN_DONE.get(simid, False)
+                    and run_kind in ("sim", "both")
+                ):
+                    print(f"[OE] ▶ starting sim suite for sim_id={simid} (job {job_id}, frame=0)")
+                    _run_sim_suite_for_sim(simid)
+                    print(f"[OE] ▶ sim suite completed for sim_id={simid}")
+                # No per-job PDE here; generic logging below will mark this job written.
 
-                # build initial state
-                cfg = GridConfig(shape=(Nx,Ny,Nz), periodic=True)
-                state = build_humming_grid(
-                    cfg,
-                    substeps_per_at=int(sim.get("substeps_per_at") or 48),
-                    initial_at=at_start,
-                )
-
-                coupler_cfg = CouplerConfig(
-                    D_psi=float(sim.get("d_psi") or 0.0),
-                    D_eta=float(sim.get("d_eta") or 0.0),
-                    D_phi=float(sim.get("d_phi") or 0.0),
-                    C_pi_to_eta=float(sim.get("c_pi_to_eta") or 1.0),
-                    C_eta_to_phi=float(sim.get("c_eta_to_phi") or 1.0),
-                    lambda_eta=float(sim.get("lambda_eta") or 1.0),
-                    lambda_phi=float(sim.get("lambda_phi") or 1.0),
-                    gate=str(sim.get("gate_name") or "linear"),
-                )
-                coupler = Coupler(coupler_cfg)
-
-                # Build seeding events (Injector-based seeding, ignoring legacy ψ0/φ0/η0)
-                events = []
-
-                seed_type = (str(sim.get("seed_type") or "none")).lower()
-                seed_strength = float(sim.get("seed_strength") or 0.0)
-
-                if seed_type != "none" and seed_strength != 0.0:
-                    seed_field = (str(sim.get("seed_field") or "psi")).lower()
-                    seed_sigma = float(sim.get("seed_sigma") or 0.0)
-
-                    # center: grid center or explicit "x,y,z"
-                    if (sim.get("seed_center") or "center") == "center":
-                        cx0, cy0, cz0 = Nx // 2, Ny // 2, Nz // 2
-                    else:
-                        cx0, cy0, cz0 = map(int, str(sim.get("seed_center")).split(","))
-
-                    # tact-phase window
-                    window = (
-                        float(sim.get("seed_phase_a") or 0.25),
-                        float(sim.get("seed_phase_b") or 0.30)
-                    )
-
-                    # At gating via repeat dict
-                    first_at = int(sim.get("seed_at") or 0)
-                    period_at = int(sim.get("seed_repeat_at") or 0)
-                    if period_at > 0:
-                        repeat = {"first_at": first_at, "period_at": period_at}
-                    else:
-                        repeat = {"first_at": first_at}
-
-                    events.append(InjectionEvent(
-                        kind=seed_type,
-                        field=seed_field,
-                        amplitude=seed_strength,
-                        sigma=seed_sigma,
-                        center=(cx0, cy0, cz0),
-                        window=window,
-                        repeat=repeat,
-                    ))                
-
-                integ_cfg = IntegratorConfig(
-                    substeps_per_at=int(sim.get("substeps_per_at") or 48),
-                    dt_per_at=float(sim.get("dt_per_at") or 1.0),
-                    dx=float(sim.get("dx") or 1.0),
-                    stride_frames_at=1,
-                )
-
-                # Sanity / stability check before running the one-At viewer step
-                validate_sim_config(cfg, integ_cfg, coupler_cfg)
-
-                integ = Integrator(
-                    coupler,
-                    Injector(events),
-                    integ_cfg,
-                )
-
-                fdir = Path(str(j.get("output_path") or "")).resolve()
-                fdir.mkdir(parents=True, exist_ok=True)
-
-                # run a single At and save arrays (mirrors saver, but using full PDE update)
-                substeps = integ.cfg.substeps_per_at
-                dt = integ.cfg.dt_per_at / substeps
-                dx = integ.cfg.dx
-                psi, pi, eta, phi_field = state.psi, state.pi, state.eta, state.phi_field
-                phi_cone = state.phi_cone
-
-                for sub in range(substeps):
-                    tact_phase = sub / substeps
-                    K = integ.coupler.get(at_start, sub, tact_phase)
-
-                    D_psi = K["D_psi"]
-                    D_eta = K["D_eta"]
-                    D_phi = K["D_phi"]
-                    lambda_eta = K["lambda_eta"]
-                    lambda_phi = K["lambda_phi"]
-                    C_pi_to_eta = K["C_pi_to_eta"]
-                    C_eta_to_phi = K["C_eta_to_phi"]
-                    C_gradpsi_to_phi = 1.0  # same as integrator for now
-
-                    # spatial operators (periodic BCs)
-                    # directional cone transport: uses phi_cone only
-                    div_flux_psi = div_phi_cone_psi_jit(phi_cone, psi, dx)
-                    lap_eta = laplace_jit(eta, dx)
-
-                    # gradient of psi and its squared norm for |∇ψ|² term
-                    grad_psi = np.gradient(psi, dx, edge_order=2)
-                    grad_psi_norm_sq = (
-                        grad_psi[0] ** 2 + grad_psi[1] ** 2 + grad_psi[2] ** 2
-                    )
-
-                    # reversible ψ–π core with cone-gated transport
-                    pi += dt * (-psi + D_psi * div_flux_psi)
-                    psi += dt * pi
-
-                    # η: diffusion + decay + source from |π|
-                    eta += dt * (
-                        D_eta * lap_eta
-                        - lambda_eta * eta
-                        + C_pi_to_eta * np.abs(pi)
-                    )
-
-                    # 3b) directional cone update (match integrator)
-                    from igc.sim.operators import compute_directional_skin_jit
-                    skin_cone = compute_directional_skin_jit(psi, dx)
-
-                    for d in range(6):
-                        lap_phi_dir = laplace_jit(phi_cone[d], dx)
-                        phi_cone[d] += dt * (
-                            D_phi * lap_phi_dir
-                            - lambda_phi * phi_cone[d]
-                            + C_eta_to_phi * np.abs(eta)
-                            + C_gradpsi_to_phi * skin_cone[d]
-                        )
-
-                    # keep cones non-negative
-                    np.maximum(phi_cone, 0.0, out=phi_cone)
-
-                    # update scalar phi_field as envelope of cones (permission fog)
-                    phi_field[...] = np.max(phi_cone, axis=0)
-
-                    # clip to non-negative
-                    np.maximum(phi_field, 0.0, out=phi_field)
-
-                def _save(name, arr):
-                    p = fdir / f"{name}.npy"; np.save(str(p), arr); return str(p)
-                files = {
-                    "psi": _save("psi", psi),
-                    "pi": _save("pi", pi),
-                    "eta": _save("eta", eta),
-                    "phi_field": _save("phi_field", phi_field),
-                    "phi_cone": _save("phi_cone", phi_cone),
-                }
-                info = {
-                    "sim_id": int(j["sim_id"]),
-                    "frame": at_start,
-                    "substeps_per_at": substeps,
-                    "files": {k: {"path": v} for k, v in files.items()},
-                }
-                (fdir / "frame_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
-                # --- viewer events (in-memory only; not jobexecutionlog) ---
-                _vlog(int(j["sim_id"]), status="frame_start", frame=at_start, jobid=job_id, path=str(fdir))
-                for _name, _p in files.items():
-                    _vlog(int(j["sim_id"]), status="file_written", frame=at_start, jobid=job_id,
-                          path=str(fdir), filename=f"{_name}.npy")
-                _vlog(int(j["sim_id"]), status="file_written", frame=at_start, jobid=job_id,
-                      path=str(fdir), filename="frame_info.json")                
-                
             else:
                 # Metric job or unknown job type
                 if metric_id:
@@ -685,8 +700,17 @@ def run(*, sim_id: int, kind: str | None = None) -> None:
             # write + log
             ledger.log_execution(job=j, runtime_ms=duration_ms, queue_wait_ms=0)
             ledger.update_job_status_single(job_id=job_id, to_status="written", set_finish=True)
-            _vlog(int(j["sim_id"]), status="frame_done",
-                  frame=int(j.get("job_frame", 0)), jobid=job_id, ms=duration_ms)            
+
+            # Only emit frame_done for metric jobs.
+            # State-job frame events come from the integrator callback (on_frame_saved).
+            if (j.get("output_type") or "").lower() != "state":
+                _vlog(
+                    int(j["sim_id"]),
+                    status="frame_done",
+                    frame=int(j.get("job_frame", 0)),
+                    jobid=job_id,
+                    ms=duration_ms,
+                )
             # viewer log: written
             try:
                 with _connect() as conn, conn.cursor() as cur:

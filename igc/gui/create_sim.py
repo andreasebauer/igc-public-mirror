@@ -13,7 +13,8 @@ from igc.sim.integrator import IntegratorConfig, Integrator
 from igc.sim.saver import HeaderOptions
 from igc.sim.validator import validate_sim_config
 
-STORE = Path(os.environ.get("IGC_STORE", "/data/igc"))
+# Canonical store for simulations; aligned with OE + metrics.
+STORE = Path(os.environ.get("IGC_STORE", "/data/simulations"))
 
 @dataclass
 class SimSpec:
