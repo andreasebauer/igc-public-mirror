@@ -287,7 +287,47 @@ def metrics_select_page_new(
         raise HTTPException(status_code=404, detail=run["error"])
     sim = run["sim"]
     groups = list_metric_groups()
+    # Determine whether this metrics run is for a sweep root, based on run_root or sim metadata.
+    is_sweep = False
+    sweep_count = 0
+    sweep_d_psi_start = None
+    sweep_d_psi_end = None
+    sweep_d_psi_step = None
+
+    if run_root and "/Sweep/" in run_root:
+        is_sweep = True
+    if sim.get("_is_sweep"):
+        is_sweep = True
+        try:
+            sweep_count = int(sim.get("_sweep_count") or 0)
+        except Exception:
+            sweep_count = 0
+        sweep_d_psi_start = sim.get("_sweep_d_psi_start")
+        sweep_d_psi_end = sim.get("_sweep_d_psi_end")
+        sweep_d_psi_step = sim.get("_sweep_d_psi_step")
+    # If this is a sweep (run_root under /Sweep/), but sim does not carry sweep metadata,
+    # re-use the SimPicker logic to derive sweep info from the filesystem.
+    if run_root and "/Sweep/" in run_root and not sim.get("_is_sweep"):
+        try:
+            from igc.gui.services.simpicker_service import read_sim_meta
+            preview, _avail = read_sim_meta(run_root)
+            is_sweep = True
+            try:
+                sweep_count = int(preview.get("_sweep_count") or sweep_count)
+            except Exception:
+                pass
+            if preview.get("_sweep_d_psi_start") is not None:
+                sweep_d_psi_start = preview.get("_sweep_d_psi_start")
+            if preview.get("_sweep_d_psi_end") is not None:
+                sweep_d_psi_end = preview.get("_sweep_d_psi_end")
+            if preview.get("_sweep_d_psi_step") is not None:
+                sweep_d_psi_step = preview.get("_sweep_d_psi_step")
+        except Exception:
+            # If anything goes wrong, keep existing defaults;
+            # metrics_select still works, only sweep summary may be less detailed.
+            pass            
     metrics_by_group = list_metrics_by_group()
+
     assigned_metric_ids = list_assigned_metrics(sim_id)
     return templates.TemplateResponse(
         "metrics_select.html",
@@ -304,6 +344,11 @@ def metrics_select_page_new(
             "primary_disabled": (len(assigned_metric_ids) == 0),
             "primary_form_id": "metricsForm",
             "header_right": f"{sim['label']} · {sim['name']}",
+            "is_sweep": is_sweep,
+            "sweep_count": sweep_count,
+            "sweep_d_psi_start": sweep_d_psi_start,
+            "sweep_d_psi_end": sweep_d_psi_end,
+            "sweep_d_psi_step": sweep_d_psi_step,            
             "run_root": run_root or "",
         },
     )
@@ -333,6 +378,7 @@ def metrics_confirm(
         gid = g["id"]
         gmets = [m for m in all_by_group.get(gid, []) if m["id"] in selected]
         confirm_groups.append({"id": gid, "name": g["name"], "metrics": gmets})
+    is_sweep = bool(run_root) and "/Sweep/" in run_root        
 
     return templates.TemplateResponse(
         "metrics_confirm.html",
@@ -343,6 +389,7 @@ def metrics_confirm(
             "total_selected": len(selected),
             "metric_ids": list(selected),
             "header_right": "Confirmation",
+            "is_sweep": is_sweep,            
             "run_root": run_root or "",
         },
     )
@@ -404,6 +451,127 @@ def metrics_save(
             oe_core._RUN_TOKEN[sim_id] = tt
         except Exception:
             pass
+
+    # Metrics sweep: if run_root is a Sweep folder, run metrics once per member run_root.
+    is_sweep = bool(run_root) and "/Sweep/" in run_root
+
+    if selected and is_sweep:
+        from igc.gui.metrics_select import discover_sweep_members
+        import os
+        # Ensure a fresh sweep abort state for metrics sweeps.
+        # We do NOT call request_abort_sweep here, because that flag is also
+        # consulted by the new sweep loop itself via should_abort_sweep(sim_id).
+        # If we set it before starting, the first iteration would immediately bail out.
+        try:
+            if hasattr(oe_core, "clear_sweep_abort"):
+                oe_core.clear_sweep_abort(sim_id)
+        except Exception:
+            pass
+
+        def _metrics_sweep_loop() -> None:
+            members = list(discover_sweep_members(run_root))
+            total_members = len(members)
+            for idx, member_root in enumerate(members, start=1):
+                # If any sim or metrics sweep for this sim_id requested abort, stop.
+                try:
+                    if hasattr(oe_core, "should_abort_sweep") and oe_core.should_abort_sweep(sim_id):
+                        # Optional: small note so you see this in the viewer
+                        try:
+                            _simlog_append(request.app, sim_id, "[sweep] metrics sweep abort requested; stopping.")
+                        except Exception:
+                            pass
+                        break
+                except Exception:
+                    pass
+
+                try:
+                    # Announce this member run in the viewer header (same mechanism as sim sweeps).
+                    from igc.oe.core import _vlog
+                    try:
+                        _vlog(
+                            sim_id,
+                            status="note",
+                            frame=None,
+                            jobid=None,
+                            path=None,
+                            message=f"[sweep] metrics sweep {idx} of {total_members} sims running",
+                        )
+                    except Exception:
+                        pass
+
+                    # Set RUN_TOKEN correctly for sweep members:
+                    # it must preserve "Sweep/<stamp>/<member>", not just the leaf folder name.
+                    try:
+                        # Example:
+                        # run_root     = /data/simulations/A1/Sweep/20251120_1046
+                        # member_root  = /data/simulations/A1/Sweep/20251120_1046/A1_s_psi_0_2
+                        # label_root   = /data/simulations/A1
+                        label_root = os.path.dirname(os.path.dirname(run_root.rstrip("/")))
+                        # Relative token: Sweep/20251120_1046/A1_s_psi_0_2
+                        tt_member = os.path.relpath(member_root, start=label_root)
+                    except Exception:
+                        # Fallback — still better than cutting off the sweep path
+                        tt_member = os.path.basename(member_root.rstrip("/"))
+
+                    try:
+                        oe_core._RUN_TOKEN[sim_id] = tt_member
+                    except Exception:
+                        pass
+
+                    # Flush all jobs before each member run
+                    with cx() as conn2:
+                        execute(conn2, "TRUNCATE TABLE public.simmetjobs")
+
+                    # Discover frames for this member run_root
+                    frames_member = discover_frames_in_root(member_root)
+                    if not frames_member:
+                        continue
+
+                    phases = [0]
+                    # Seed metric jobs and finalize paths for this member
+                    oe_core.seed_metric_jobs(sim_id, sorted(selected), frames_member, phases)
+                    try:
+                        oe_core.finalize_seeded_jobs(sim_id=sim_id)
+                    except Exception:
+                        # finalization failures should not stop the sweep; jobs can still exist
+                        pass
+
+                    # Run metrics for this member, appending logs in the OE viewer
+                    oe_core.run(sim_id=sim_id, kind="metrics", append_view=True)
+
+                    # Mark this member as done in the viewer header
+                    from igc.oe.core import _vlog
+                    try:
+                        _vlog(
+                            sim_id,
+                            status="note",
+                            frame=None,
+                            jobid=None,
+                            path=None,
+                            message=f"[sweep] metrics sweep {idx} of {total_members} sims done",
+                        )
+                    except Exception:
+                        pass
+                except Exception:
+                    # Do not abort the entire sweep on a single member failure
+                    continue
+
+            # After finishing this metrics sweep, clear abort flag for a fresh next sweep.
+            try:
+                if hasattr(oe_core, "clear_sweep_abort"):
+                    oe_core.clear_sweep_abort(sim_id)
+            except Exception:
+                pass
+
+        if background_tasks is not None:
+            background_tasks.add_task(_metrics_sweep_loop)
+        else:
+            _metrics_sweep_loop()
+
+        # Redirect immediately; background task will stream logs for the whole sweep
+        return RedirectResponse(
+            url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303
+        )
 
     if selected:
         # Flush ALL jobs before a fresh metrics run (simmetjobs is a pure work queue)

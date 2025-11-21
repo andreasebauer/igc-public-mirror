@@ -46,12 +46,29 @@
   </form>
     </div> <!-- /.col-left -->
     <aside class="col-right">
+      {% if is_sweep %}
+      <section class="desc-card">
+        <h3 class="desc-title">Sweep</h3>
+        <div class="desc-body">
+          <p class="muted">
+            Sweep over {{ sweep_count }} runs
+            {% if sweep_d_psi_start is not none and sweep_d_psi_end is not none %}
+              · d_ψ: {{ sweep_d_psi_start }} → {{ sweep_d_psi_end }}
+              {% if sweep_d_psi_step is not none %}
+                (Δ ≈ {{ sweep_d_psi_step }})
+              {% endif %}
+            {% endif %}
+          </p>
+        </div>
+      </section>
+      {% endif %}
       <section id="metric-desc" class="desc-card">
         <h3 class="desc-title">Description</h3>
         <div class="desc-body muted">Select a metric to see its description here.</div>
       </section>
     </aside>
   </div> <!-- /.metrics-fullgrid -->
+
 {% endblock %}
 {% block page_js %}
 <script>

@@ -149,6 +149,8 @@
 
   let afterId = 0;
   let viewerAfter = 0;
+  let sweepLabel = "";
+  let lastPct = 0;
 
   const appendLine = (txt, className) => {
     const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
@@ -179,7 +181,15 @@
       let pct = (typeof p.percent === "number" && Number.isFinite(p.percent))
         ? p.percent
         : (total > 0 ? (done / total) * 100.0 : 0);
-      const pctInt = Math.floor(pct);
+
+      let pctInt = Math.floor(pct);
+      if (!Number.isFinite(pctInt) || pctInt < 0) pctInt = 0;
+
+      // clamp to be monotonic: never go backwards
+      if (pctInt < lastPct) {
+        pctInt = lastPct;
+      }
+      lastPct = pctInt;
 
       if (fillEl) fillEl.style.width = `${pctInt}%`;
       if (pctEl)  pctEl.textContent  = `${pctInt}%`;
@@ -210,8 +220,16 @@
       }
 
       const sub = document.getElementById("ov-sub");
-      if (sub && total > 0) {
-        sub.textContent = `done ${done}/${total} • running ${running} • failed ${failed}`;
+      if (sub) {
+        if (total > 0) {
+          const statsText = `done ${done}/${total} • running ${running} • failed ${failed}`;
+          sub.textContent = sweepLabel
+            ? `${sweepLabel} · ${statsText}`
+            : statsText;
+        } else {
+          // no jobs yet — show sweep status if we have it, else a generic message
+          sub.textContent = sweepLabel || "Preparing runs…";
+        }
       }
     } catch (e) {
       /* ignore */
@@ -260,10 +278,29 @@
       // sim-level notes (non-durable)
       if (Array.isArray(data.notes)) {
         for (const n of data.notes) {
-          if (n && n.message) appendLine(`[note] ${n.message}`, 'log-note');
-        }
-      }
+          if (n && n.message) {
+            const msg = n.message;
+            appendLine(`[note] ${msg}`, 'log-note');
 
+             // If this is a sweep note, reuse it in the progress header
+             if (msg.startsWith("[sweep]")) {
+               sweepLabel = msg.replace(/^\[sweep\]\s*/, "");
+ 
+               // For metrics sweeps, start each member at 0% again so the bar
+               // smoothly ramps from 0→100% per member, not across the whole sweep.
+               if (msg.includes("metrics sweep")) {
+                 lastPct = 0;
+               }
+ 
+               const sub = document.getElementById("ov-sub");
+               if (sub) {
+                 // temporary: will be combined with stats on next pollProgress
+                 sub.textContent = sweepLabel;
+               }
+             }
+           }
+         }
+       }
       // in-memory viewer events: frame_start, file_written, frame_done, run_complete
       if (Array.isArray(data.viewer)) {
         for (const e of data.viewer) {
@@ -313,13 +350,11 @@
             continue;
           }
 
-          if (st === 'metric_done') {
-            const name = e.filename || '';
-            const fr   = (frame != null ? frame : '?');
-            const sec  = (durMs / 1000).toFixed(2);
-            appendLine(`Frame ${fr}: metric ${name} completed in ${sec}s`, 'log-frame-ok');
-            continue;
-          }
+           if (st === 'metric_done') {
+             // We already log metric_start and will get a frame_done event with a runtime.
+             // No extra line needed here to avoid redundancy.
+             continue;
+           }
           // fallback: original raw line for other statuses
           const jid = (e.jobid != null) ? ` job=${e.jobid}` : '';
           const fr  = (frame != null) ? ` frame=${frame}` : '';
@@ -338,7 +373,28 @@
           const st  = it.status || '';
           const jid = (it.jobid != null) ? ` job=${it.jobid}` : '';
           const fr  = (it.frame != null) ? ` frame=${it.frame}` : '';
-          const msg = it.message ? ` — ${it.message}` : (it.output_path ? ` — ${it.output_path}` : '');
+          const rawMsg = it.message || '';
+          const msg = rawMsg
+            ? ` — ${rawMsg}`
+            : (it.output_path ? ` — ${it.output_path}` : '');
+
+          // If this DB-backed message is a sweep note, reuse it in the header as well.
+          // Metrics sweep messages from metrics_save arrive here via _simlog_append.
+          if (rawMsg.startsWith("[sweep]")) {
+            sweepLabel = rawMsg.replace(/^\[sweep\]\s*/, "");
+
+            // For metrics sweeps, start each member at 0% again so the bar
+            // smoothly ramps from 0→100% per member.
+            if (rawMsg.includes("metrics sweep")) {
+              lastPct = 0;
+            }
+
+            const sub = document.getElementById("ov-sub");
+            if (sub) {
+              sub.textContent = sweepLabel;
+            }
+          }
+
           append(`${ts} ${st}${jid}${fr}${msg}`.trim());
           afterId = Math.max(afterId, Number(it.logid || 0));
         }

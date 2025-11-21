@@ -6,6 +6,21 @@
 {% set primary_disabled = False %}
 {% set primary_form_id = 'metrics-confirm-form' %}
 {% block content %}
+{% if is_sweep %}
+<section class="card">
+  <header class="igc-header">
+    <h3>Metrics sweep</h3>
+    <p class="igc-subtitle">
+      {{ sim.label }} · {{ sim.name }} — all runs under this Sweep folder will be processed.
+    </p>
+  </header>
+<p class="muted" style="margin: 0.25rem 0 0.75rem 0;">
+  <strong>Sweep root:</strong> {{ run_root }}
+</p>
+</section>
+{% endif %}
+
+<section class="card">
 <section class="card">
 <header class="igc-header">  
   <h3>Chosen metrics:</h3>

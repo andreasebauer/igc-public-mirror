@@ -160,7 +160,8 @@ def _safe(s: Optional[str], fallback: str) -> str:
     return s if (isinstance(s, str) and len(s) > 0) else fallback
 # --- OE Viewer in-memory event log (per-process, per-sim) ----------------------
 from collections import defaultdict, deque
-
+from typing import Dict, Iterable, List, Optional, Tuple
+import time  # for high-resolution frame/job timing
 import signal, threading
 
 # ---- Process-wide abort machinery -------------------------------------------
@@ -213,6 +214,41 @@ _METRIC_RUN_TOKEN: Dict[int, str] = {}
 
 # Guard so we only run the sim suite once per sim_id inside this process.
 _SIM_RUN_DONE: Dict[int, bool] = {}
+
+# Per-sim sweep abort flags: sim_id -> True if a new sweep requests existing loops to stop
+_SWEEP_ABORT: Dict[int, bool] = {}
+
+
+def request_abort_sweep(sim_id: int) -> None:
+    """
+    Signal any running sweep loop for this sim_id to stop after the current iteration.
+    Used when starting a new sweep so old sweep loops do not interfere.
+    """
+    try:
+        _SWEEP_ABORT[sim_id] = True
+    except Exception:
+        pass
+
+
+def clear_sweep_abort(sim_id: int) -> None:
+    """
+    Clear the abort flag for a fresh sweep on this sim_id.
+    """
+    try:
+        if sim_id in _SWEEP_ABORT:
+            del _SWEEP_ABORT[sim_id]
+    except Exception:
+        pass
+
+
+def should_abort_sweep(sim_id: int) -> bool:
+    """
+    Check whether a sweep loop for this sim_id has been asked to stop.
+    """
+    try:
+        return bool(_SWEEP_ABORT.get(sim_id, False))
+    except Exception:
+        return False
 
 def _render_path_from_registry(j: Dict, ext: str) -> str:
     """
@@ -398,6 +434,7 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
 
     import os
     from pathlib import Path
+    from time import perf_counter    
 
     from igc.ledger.sim import get_simulation_full
     from igc.sim.grid_constructor import GridConfig, build_humming_grid
@@ -512,17 +549,24 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
     # 7) Run the integrator – writes Frame_0000..Frame_{t_max-1}
     integ = Integrator(coupler, injector, integ_cfg)
 
+    # Track wall-time between frames for viewer runtime reporting
+    last_frame_ts = perf_counter()
+
     def _on_frame_saved(frame_idx: int, at_val: int) -> None:
-        """Emit viewer event for each saved PDE frame."""
+        """Emit viewer event for each saved PDE frame with approximate runtime."""
+        nonlocal last_frame_ts
         try:
             frame_dir = store / sim_label_with_tt / f"Frame_{frame_idx:04d}"
+            now = perf_counter()
+            ms = int((now - last_frame_ts) * 1000)
+            last_frame_ts = now
             _vlog(
                 sim_id,
                 status="frame_done",
                 frame=frame_idx,
                 jobid=None,
                 path=str(frame_dir),
-                ms=0,
+                ms=ms,
             )
         except Exception:
             # logging must never break the integrator
@@ -547,7 +591,7 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
     _SIM_RUN_DONE[sim_id] = True
 
 
-def run(*, sim_id: int, kind: str | None = None) -> None:
+def run(*, sim_id: int, kind: str | None = None, append_view: bool = False) -> None:
     """
     Sequential job executor (v1, no real compute yet).
 
@@ -568,15 +612,15 @@ def run(*, sim_id: int, kind: str | None = None) -> None:
     # fresh run: clear abort and install signal handlers
     ABORT.clear()
 
-    # Clear per-sim viewer events so each OE.run starts with a fresh log.
-    # This prevents stale sim/metric runs from previous executions from
-    # showing up in the OE viewer for the same sim_id.
-    try:
-        _VIEW.pop(sim_id, None)
-        _SEQ[sim_id] = 0
-    except Exception:
-        # viewer reset must never break the runner
-        pass
+    # Clear per-sim viewer events so each OE.run starts with a fresh log,
+    # unless we are explicitly appending (e.g. sweep runs).
+    if not append_view:
+        try:
+            _VIEW.pop(sim_id, None)
+            _SEQ[sim_id] = 0
+        except Exception:
+            # viewer reset must never break the runner
+            pass
 
     _install_signal_handlers()
     # Get all jobs for this simulation

@@ -1,6 +1,19 @@
 <div data-sim-id="{{ preview.id }}" data-sim-label="{{ preview.label }}" data-sim-name="{{ preview.name }}">
   <div class="meta-head"><strong>{{ preview.label }}</strong> · {{ preview.name }}</div>
   <table class="kv">
+  {% if preview._is_sweep %}
+    <p class="muted" style="margin-bottom: 0.5rem;">
+      Sweep over {{ preview._sweep_count }} runs
+      {% if preview._sweep_d_psi_start is not none and preview._sweep_d_psi_end is not none %}
+        · d_ψ: {{ preview._sweep_d_psi_start }} → {{ preview._sweep_d_psi_end }}
+        {% if preview._sweep_d_psi_step is not none %}
+          (Δ ≈ {{ preview._sweep_d_psi_step }})
+        {% endif %}
+      {% endif %}
+    </p>
+  {% endif %}
+
+  <table class="kv">    
   {% for k, v in preview.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}
   </table>
   {% if not preview %}

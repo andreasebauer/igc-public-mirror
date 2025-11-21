@@ -97,6 +97,31 @@ def discover_frames_in_root(run_root: str) -> list[int]:
         return sorted(frames)
     return sorted(frames)
 
+def discover_sweep_members(sweep_root: str) -> list[str]:
+    """
+    Discover sweep member run_root directories under a given sweep_root.
+
+    Expects a folder structure like:
+      sweep_root/
+        <run_folder_1>/
+        <run_folder_2>/
+        ...
+
+    Returns a sorted list of full paths to child directories.
+    """
+    import os
+
+    members: list[str] = []
+    if not sweep_root:
+        return members
+    try:
+        for entry in os.scandir(sweep_root):
+            if entry.is_dir():
+                members.append(entry.path)
+    except Exception:
+        return sorted(members)
+    return sorted(members)
+
 def seed_jobs_for_frames(sim_id: int, metric_ids: Sequence[int], frames: Sequence[int]) -> int:
     """
     Create metric jobs (one per metric × frame).

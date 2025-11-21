@@ -402,7 +402,13 @@ def _run_sweep(app, sim_id: int, plan: dict,
     from pathlib import Path as _Path
     import json as _json
     from igc.ledger.sim import update_simulation
-
+    from time import perf_counter
+    from igc.oe import core as oe_core
+    # Reset sweep abort flag at the beginning of a new sweep for this sim_id
+    try:
+        oe_core.clear_sweep_abort(sim_id)
+    except Exception:
+        pass
     base = sims_svc.get_simulation_full(sim_id)
     if not base:
         _simlog_append(app, sim_id, "[sweep] base simulation not found; aborting sweep.")
@@ -513,8 +519,26 @@ def _run_sweep(app, sim_id: int, plan: dict,
                 )
             _simlog_append(app, sim_id, f"[sweep] seeding done for d_psi={v}, frames 0..{end_frame}")
 
-            oe_core.run(sim_id=sim_id, kind="sim")
-            _simlog_append(app, sim_id, f"[sweep] run complete for d_psi={v}")
+            # If any other sweep loop has requested abort for this sim_id, stop here.
+            try:
+                if getattr(oe_core, "should_abort_sweep", None) and oe_core.should_abort_sweep(sim_id):
+                    _simlog_append(app, sim_id, "[sweep] abort requested; stopping sweep early.")
+                    break
+            except Exception:
+                pass
+
+            # For the first run in this sweep, start with a fresh viewer log (append_view=False);
+            # subsequent runs append to the existing log.
+            append_view = (idx != 0)
+
+            run_start = perf_counter()
+            oe_core.run(sim_id=sim_id, kind="sim", append_view=append_view)
+            run_ms = int((perf_counter() - run_start) * 1000)
+            _simlog_append(
+                app,
+                sim_id,
+                f"[sweep] run complete for d_psi={v} in {run_ms/1000.0:.2f}s",
+            )
         except Exception as e:
             _simlog_append(app, sim_id, f"[sweep] run failed for d_psi={v}: {e}")
             # continue to next value; do not abort entire sweep on one failure
