@@ -306,7 +306,11 @@ footer.card .actions-right .btn { width: auto; justify-self: stretch; }
   max-width:100%;
 }
 .igc-name{ grid-column:1; width:200px; min-width:200px; max-width:200px; font-weight:600; margin:0; }
-.igc-input{ grid-column:2; min-width:0; width:100%; padding:10px; border:1px solid var(--border); border-radius:10px; }
+.igc-input{ grid-column:2; min-width:0; width:90%; padding:10px; border:1px solid var(--border); border-radius:10px; }
+select.igc-input{
+  height: calc(1.2em + 20px);  /* match igc-input padded height */
+  padding: 10px;                /* keep same inner padding as inputs */
+}
 .btn.btn--def{ grid-column:3; justify-self:end; }
 
 /* Right help text: top align and soften */

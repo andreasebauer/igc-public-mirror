@@ -146,19 +146,30 @@ def sim_edit_get(request: Request,
         },
     )
 
+@router.get("/sweep", name="sim_sweep_get")
 def sim_sweep_get(request: Request, sim_id: int = Query(...)):
     row = sims_svc.get_simulation(sim_id)
     if not row:
         raise HTTPException(404, "simulation not found")
-    return templates.TemplateResponse("sim_sweep.html", {
-        "request": request, "sim_id": sim_id, "base": row
-    })
+    hdr = f"Sweep {(row.get('label') or '')} {(row.get('name') or '')}".strip()
+    return templates.TemplateResponse(
+        "sim_sweep.html",
+        {
+            "request": request,
+            "sim_id": sim_id,
+            "base": row,
+            "header_right": hdr,
+        },
+    )
 
 @router.post("/sweep")
 async def sim_sweep_post(request: Request, sim_id: int = Form(...)):
-    # Parse ranges; store transiently for confirm
+    # Parse ranges; store transiently for confirm (one plan per sim_id)
     data = dict(await request.form())
-    request.app.state._sweep_plan = {sim_id: data}
+    st = getattr(request.app, "state")
+    if not hasattr(st, "_sweep_plan"):
+        st._sweep_plan = {}
+    st._sweep_plan[sim_id] = data
     return RedirectResponse(url=f"/sims/confirm?mode=sweep&sim_id={sim_id}", status_code=303)
 
 # ---------- 5) sim_confirmation ---------------------------------------------
@@ -348,17 +359,169 @@ def sim_confirm_post(request: Request,
         _simlog_append(request.app, sim_id, "pipeline_redirect: opening OE viewer")        
         return RedirectResponse(url=f"/sims/oe/viewer?sim_id={sim_id}", status_code=303)
     if mode == "sweep":
-        # Minimal: enqueue a single representative job; extend to full expansion as needed.
-        base = sims_svc.get_simulation_full(sim_id)
-        if not base:
-            raise HTTPException(404, "simulation not found")
-        plan = getattr(request.app.state, "_sweep_plan", {}).get(sim_id, {})
-        # TODO: expand ranges -> multiple jobs. For now enqueue one with base.
-        _, _, eff_hash, effective = jobs_svc.compute_effective_hash(base, {})
-        job_id = jobs_svc.enqueue_sim_job(sim_id, eff_hash, bundle_level, is_visualization, precision)
-        return RedirectResponse(url=f"/jobs?sim_id={sim_id}", status_code=303)
+        # Run a simple d_psi sweep by looping the existing sim-run pipeline.
+        st = getattr(request.app, "state")
+        sweep_plan = getattr(st, "_sweep_plan", {}).get(sim_id, {})
+        if not sweep_plan:
+            raise HTTPException(400, "no sweep plan found for this simulation")
+
+        _simlog_append(request.app, sim_id, "[sweep] scheduling sweep runs")
+        if background_tasks is not None:
+            background_tasks.add_task(
+                _run_sweep,
+                request.app,
+                sim_id,
+                sweep_plan,
+                bundle_level,
+                is_visualization,
+                precision,
+            )
+        else:
+            # Fallback: run synchronously (not recommended, but defined)
+            _run_sweep(request.app, sim_id, sweep_plan, bundle_level, is_visualization, precision)
+
+        _simlog_append(request.app, sim_id, "[sweep] sweep started; opening OE viewer")
+        return RedirectResponse(url=f"/sims/oe/viewer?sim_id={sim_id}", status_code=303)
 
     raise HTTPException(400, "invalid mode")
+
+def _run_sweep(app, sim_id: int, plan: dict,
+               bundle_level: Optional[str] = None,
+               is_visualization: Optional[bool] = None,
+               precision: Optional[str] = None) -> None:
+    """
+    Run a simple d_psi sweep by looping the existing sim-run pipeline.
+    For each d_psi value:
+      - update simulations.d_psi (and optional d_eta/d_phi),
+      - set a sweep-specific run token so frames land in
+        /{label}/Sweep/<stamp>/{label}_s_psi_<value>/Frame_x,
+      - seed compute jobs and frames,
+      - call oe_core.run(sim_id, kind="sim").
+    Metrics are intentionally ignored here; we only generate simulation frames.
+    """
+    from pathlib import Path as _Path
+    import json as _json
+    from igc.ledger.sim import update_simulation
+
+    base = sims_svc.get_simulation_full(sim_id)
+    if not base:
+        _simlog_append(app, sim_id, "[sweep] base simulation not found; aborting sweep.")
+        return
+
+    base_label = (base.get("label") or f"Sim_{sim_id}").strip()
+
+    # Parse axis: d_psi range
+    _start = plan.get("d_psi_start")
+    _end = plan.get("d_psi_end")
+    _steps = plan.get("d_psi_steps")
+    try:
+        d_start = float(_start) if _start not in (None, "") else float(base.get("d_psi") or 0.0)
+        d_end = float(_end) if _end not in (None, "") else d_start
+        steps = int(_steps) if _steps not in (None, "") else 1
+    except Exception:
+        _simlog_append(app, sim_id, "[sweep] invalid d_psi range; aborting sweep.")
+        return
+    if steps < 1:
+        steps = 1
+
+    if steps == 1:
+        values = [d_start]
+    else:
+        step_size = (d_end - d_start) / (steps - 1)
+        values = [d_start + i * step_size for i in range(steps)]
+
+    # Tie modes for d_eta, d_phi (optional)
+    tie_eta = (plan.get("d_eta_mode") == "tie")
+    tie_phi = (plan.get("d_phi_mode") == "tie")
+    try:
+        eta_factor = float(plan.get("d_eta_factor") or 0.5)
+    except Exception:
+        eta_factor = 0.5
+    try:
+        phi_factor = float(plan.get("d_phi_factor") or 0.1)
+    except Exception:
+        phi_factor = 0.1
+
+    # Optional t_max override
+    t_override = plan.get("t_max_override")
+
+    # Sweep stamp for grouping all runs under the same Sweep/<stamp> folder
+    sweep_stamp = oe_core._time_token_utc()
+
+    for idx, v in enumerate(values):
+        _simlog_append(app, sim_id, f"[sweep] starting run {idx+1}/{len(values)} with d_psi={v}")
+
+        # Update simulation parameters for this run
+        overrides = {"d_psi": v}
+        if tie_eta:
+            overrides["d_eta"] = eta_factor * v
+        if tie_phi:
+            overrides["d_phi"] = phi_factor * v
+        if t_override not in (None, ""):
+            try:
+                overrides["t_max"] = int(t_override)
+            except Exception:
+                pass
+
+        try:
+            update_simulation(sim_id, overrides)
+        except Exception as e:
+            _simlog_append(app, sim_id, f"[sweep] update_simulation failed for d_psi={v}: {e}")
+            continue
+
+        base = sims_svc.get_simulation_full(sim_id)
+        if not base:
+            _simlog_append(app, sim_id, "[sweep] simulation disappeared; aborting.")
+            return
+
+        # Build per-run token: Sweep/<stamp>/<label>_s_psi_<value>
+        sub_id = f"{base_label}_s_psi_{v:g}".replace(".", "_")
+        tt = f"Sweep/{sweep_stamp}/{sub_id}"
+        oe_core._RUN_TOKEN[sim_id] = tt
+
+        # Reset run flag so oe_core.run will invoke the suite again
+        if hasattr(oe_core, "_SIM_RUN_DONE"):
+            try:
+                oe_core._SIM_RUN_DONE.pop(sim_id, None)
+            except Exception:
+                pass
+
+        # Write sim_meta.json under /data/simulations/{base_label}/{tt}/
+        sim_label = base_label
+        run_root = _Path("/data/simulations") / sim_label / tt
+        try:
+            run_root.mkdir(parents=True, exist_ok=True)
+            meta = dict(base)
+            if "sim_id" not in meta:
+                meta["sim_id"] = sim_id
+            meta_path = run_root / "sim_meta.json"
+            meta_path.write_text(_json.dumps(meta, default=str, indent=2), encoding="utf-8")
+            _simlog_append(app, sim_id, f"[sweep] meta_written: {meta_path}")
+        except Exception as e:
+            _simlog_append(app, sim_id, f"[sweep] meta_write_failed for d_psi={v}: {e}")
+            continue
+
+        # Seed jobs and run simulation synchronously
+        end_frame = int((base or {}).get("t_max") or 0)
+        try:
+            oe_core.seed_compute_jobs(sim_id=sim_id)
+            if end_frame > 0:
+                oe_core.seed_frames_all_at_once(
+                    sim_id=sim_id,
+                    end_frame=end_frame,
+                    template_frame=0,
+                )
+            _simlog_append(app, sim_id, f"[sweep] seeding done for d_psi={v}, frames 0..{end_frame}")
+
+            oe_core.run(sim_id=sim_id, kind="sim")
+            _simlog_append(app, sim_id, f"[sweep] run complete for d_psi={v}")
+        except Exception as e:
+            _simlog_append(app, sim_id, f"[sweep] run failed for d_psi={v}: {e}")
+            # continue to next value; do not abort entire sweep on one failure
+            continue
+
+    _simlog_append(app, sim_id, "[sweep] all d_psi runs completed.")
+
 
 # ---------- 6) sim_log (minimal placeholder; reuse your existing jobs pages) -
 

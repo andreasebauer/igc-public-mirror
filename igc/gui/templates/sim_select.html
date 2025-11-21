@@ -44,13 +44,14 @@
   // route bases (no registry)
   const editBase    = "{{ request.url_for('sim_edit_get') }}";
   const confirmBase = "{{ request.url_for('sim_confirm_get') }}";
+  const sweepBase   = "{{ request.url_for('sim_sweep_get') }}";
 
   // Build Next URL from mode + selected id
   const buildNext = (id) => {
     if (mode === 'edit')
       return `${editBase}?mode=edit&sim_id=${encodeURIComponent(id)}`;
     if (mode === 'sweep')
-      return `${confirmBase}?mode=sweep&sim_id=${encodeURIComponent(id)}`;
+      return `${sweepBase}?sim_id=${encodeURIComponent(id)}`;
     return `${editBase}?mode=run&sim_id=${encodeURIComponent(id)}`;
   };
 

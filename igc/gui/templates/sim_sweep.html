@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% set title = "Sweep · Simulation" %}
+{% set back_url = request.url_for('sim_select') ~ '?mode=sweep' %}
+{% set primary_kind = 'link' %}
+{% set primary_label = 'Next' %}
+{% set primary_url = '#' %}
+{% set primary_disabled = False %}
+
+{% block title %}Sweep · Simulation{% endblock %}
+{% block content %}
+
+<section class="igc-page">
+
+  <!-- MAIN: single card with sweep configuration, matching sim_edit layout -->
+  <section class="card">
+    <form id="sweepForm" method="post" action="{{ request.url_for('sim_sweep_post') }}" novalidate>
+      <input type="hidden" name="sim_id" value="{{ sim_id }}">
+      <input type="hidden" name="sweep_type" value="substrate_D">
+
+      {# Base simulation info row #}
+      <div class="igc-row">
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">Base simulation</div>
+        </div>
+        <div class="igc-cell igc-cell--right">
+          <div class="igc-desc-text">
+            {{ base.label or ('#' ~ base.id) }}{% if base.name %} — {{ base.name }}{% endif %}
+          </div>
+        </div>
+      </div>
+
+      {# Diffusion sweep: d_ψ start / end / steps #}
+      <section class="section">
+        <h2 class="section__title">Diffusion (d_ψ) sweep</h2>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_dpsi_start">d_ψ — start</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_dpsi_start"
+                   class="igc-input"
+                   type="number"
+                   step="0.01"
+                   name="d_psi_start"
+                   value="0.10">
+          </div>
+        </div>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_dpsi_end">d_ψ — end</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_dpsi_end"
+                   class="igc-input"
+                   type="number"
+                   step="0.01"
+                   name="d_psi_end"
+                   value="1.00">
+          </div>
+        </div>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_dpsi_steps">Steps</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_dpsi_steps"
+                   class="igc-input"
+                   type="number"
+                   min="1"
+                   max="64"
+                   name="d_psi_steps"
+                   value="5">
+          </div>
+        </div>
+      </section>
+
+      {# Tie other diffusions (optional) #}
+      <section class="section">
+        <h2 class="section__title">Tie other diffusions (optional)</h2>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_deta_mode">Tie d_η = factor · d_ψ</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <select id="fld_deta_mode" name="d_eta_mode" class="igc-input">
+              <option value="none" selected>Do not change d_η</option>
+              <option value="tie">Tie to d_ψ</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_deta_factor">d_η factor</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_deta_factor"
+                   class="igc-input"
+                   type="number"
+                   step="0.1"
+                   name="d_eta_factor"
+                   value="0.5">
+          </div>
+        </div>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_dphi_mode">Tie d_φ = factor · d_ψ</label>
+          </div>
+	          <div class="igc-cell igc-cell--right">
+            <select id="fld_dphi_mode" name="d_phi_mode" class="igc-input">
+              <option value="none" selected>Do not change d_φ</option>
+              <option value="tie">Tie to d_ψ</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_dphi_factor">d_φ factor</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_dphi_factor"
+                   class="igc-input"
+                   type="number"
+                   step="0.1"
+                   name="d_phi_factor"
+                   value="0.1">
+          </div>
+        </div>
+      </section>
+
+      {# Time / frames override #}
+      <section class="section">
+        <h2 class="section__title">Time / frames</h2>
+
+        <div class="igc-row">
+          <div class="igc-cell igc-cell--left igc-inline">
+            <label class="igc-name" for="fld_tmax_override">t_max (Ats)</label>
+          </div>
+          <div class="igc-cell igc-cell--right">
+            <input id="fld_tmax_override"
+                   class="igc-input"
+                   type="number"
+                   min="1"
+                   name="t_max_override"
+                   placeholder="{{ base.t_max }}">
+          </div>
+        </div>
+      </section>
+
+    </form>
+  </section>
+
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const f    = document.getElementById('sweepForm');
+  const next = document.querySelector('footer.card .actions-right a');
+  if (next && f) {
+    next.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      f.submit();
+    });
+  }
+});
+</script>
+
+{% endblock %}
