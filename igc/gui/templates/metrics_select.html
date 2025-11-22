@@ -359,13 +359,14 @@
     }
 
     function setNextEnabled(enabled){
-      if(enabled){
+      if (enabled){
         next.classList.remove('is-disabled');
         next.removeAttribute('aria-disabled');
-        // keep href as '#' — we will submit the form programmatically
-      }else{
+        next.removeAttribute('disabled');
+      } else {
         next.classList.add('is-disabled');
         next.setAttribute('aria-disabled','true');
+        next.setAttribute('disabled','true');
       }
     }
 

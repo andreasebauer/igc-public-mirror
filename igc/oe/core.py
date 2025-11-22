@@ -799,6 +799,15 @@ def run(*, sim_id: int, kind: str | None = None, append_view: bool = False) -> N
         raise RuntimeError("OE aborted")
     print(f"[OE] ✅ run complete: {processed}/{total} jobs processed in {total_ms} ms")
 
+    # After metrics jobs are finished, bundle per-frame metric outputs per sim.
+    if run_kind in ("metrics", "both"):
+        try:
+            from igc.metrics.bundle import bundle_metrics_for_sim
+            bundle_metrics_for_sim(jobs)
+        except Exception as e:
+            # Bundling must never break the main runner; log and continue.
+            print(f"[OE] ⚠ metrics bundling failed: {e}")
+
     # emit a run_complete viewer event so the GUI can show a final message
     try:
         sim_for_vlog = int(jobs[-1].get("sim_id")) if jobs else None

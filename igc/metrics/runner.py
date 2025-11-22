@@ -362,7 +362,7 @@ def run_kernel(
     key = (lib_name, kf_name, op_name)
 
     # numpy-based reductions used by scalar metrics (e.g. eta_min/max/mean/std, psi_* stats)
-    if key == ("numpy", "reduce", "minmaxmeanstd"):
+    if lib_name == "numpy" and op_name == "minmaxmeanstd" and kf_name in ("reduce", "stats", "grad"):
         import numpy as np
         arr = np.asarray(inputs[0])
         # [min, max, mean, std] over the entire field
@@ -371,11 +371,245 @@ def run_kernel(
             dtype=float,
         )
 
+    elif key == ("numpy", "reduce", "entropy_proxy"):
+        import numpy as np
+
+        # inputs[0] is ψ for this metric (psi_entropy step 1)
+        psi = np.asarray(inputs[0], dtype=float)
+
+        if psi.ndim < 1:
+            # degenerate, no spatial structure
+            return np.array([0.0], dtype=float)
+
+        # Use dx from sim_meta if present; else 1.0
+        dx = float(sim_meta.get("dx", 1.0))
+
+        # Compute spatial gradients along each axis
+        grads = np.gradient(psi, dx)
+
+        # grads is a list of arrays; compute |∇ψ|^2 = sum_i (∂ψ/∂x_i)^2
+        mag2 = None
+        for g in grads:
+            if mag2 is None:
+                mag2 = g * g
+            else:
+                mag2 = mag2 + g * g
+
+        if mag2 is None:
+            return np.array([0.0], dtype=float)
+
+        # Entropy proxy = mean(|∇ψ|^2)
+        val = float(np.mean(mag2))
+        return np.array([val], dtype=float)
+
     elif key == ("numpy", "reduce", "hist"):
         # For simple stats metrics, we currently treat "hist" as a pass-through
         # for the already-reduced statistics. If you later want a true histogram,
         # this branch can be extended.
         return inputs[0]
+
+    # Laplacian: ∇²η or ∇²φ or ∇²ψ depending on input
+    if key == ("numpy", "grad", "laplacian"):
+        import numpy as np
+        arr = np.asarray(inputs[0], dtype=float)
+        if arr.ndim != 3:
+            return np.zeros_like(arr)
+
+        # Compute second derivatives
+        dx = float(sim_meta.get("dx", 1.0))
+        grads = np.gradient(arr, dx)
+        lap  = None
+        for g in grads:
+            # first derivative of each axis component:
+            sec = np.gradient(g, dx)
+            if lap is None:
+                lap = sec
+            else:
+                lap = lap + sec
+
+        return lap
+
+    # xi_scalar: simple 2-point correlation proxy ξ(0) = ⟨ψ^2⟩ - ⟨ψ⟩^2
+    if key == ("numpy", "corr", "xi_scalar"):
+        import numpy as np
+
+        psi = np.asarray(inputs[0], dtype=float)
+        if psi.size == 0:
+            return np.array([0.0], dtype=float)
+
+        flat = psi.ravel()
+        m = flat.mean()
+        xi0 = float(np.mean(flat * flat) - m * m)
+        return np.array([xi0], dtype=float)
+
+    # gradient magnitude for p_k: compute ||∇psi|| at each voxel
+    if key == ("numpy", "grad", "gradient"):
+        import numpy as np
+
+        psi = np.asarray(inputs[0], dtype=float)
+        if psi.ndim < 1:
+            # degenerate case: nothing spatial to differentiate
+            return psi
+
+        grads = np.gradient(psi)
+        mag2 = None
+        for g in grads:
+            if mag2 is None:
+                mag2 = g * g
+            else:
+                mag2 = mag2 + g * g
+
+        mag = np.sqrt(mag2)
+        return mag    
+
+    # morph/threshold: φ → binary mask (used by collapse_mask and others)
+    if key == ("scipy.ndimage", "morph", "threshold"):
+        import numpy as np
+        phi = np.asarray(inputs[0])
+        thr = float(sim_meta.get("phi_threshold", 0.5))
+        # simple ≥ threshold
+        mask = (phi >= thr).astype(np.uint8)
+        return mask
+
+    # morph/voxel_stats: mask → [total, solid, fraction_solid]
+    if key == ("scipy.ndimage", "morph", "voxel_stats"):
+        import numpy as np
+        mask = np.asarray(inputs[0])
+        total = int(mask.size)
+        solid = int(mask.sum())
+        frac = float(solid) / float(total) if total else 0.0
+        # return a flat array so writers can consume it generically
+        return np.array([total, solid, frac], dtype=float)
+    
+    # FFT-based power spectrum (backed by pyFFTW with threading)
+    if key == ("pyfftw", "fft", "power_spectrum"):
+        import os
+        import numpy as np
+        import pyfftw
+
+        psi = np.asarray(inputs[0], dtype=float)
+
+        # Thread count for FFTW, configurable via env; default 8
+        n_threads = int(os.getenv("IGC_FFT_THREADS", "8"))
+
+        # Enable pyFFTW cache so FFT plans are reused
+        pyfftw.interfaces.cache.enable()
+
+        # Compute FFT with pyFFTW
+        fft = pyfftw.interfaces.numpy_fft.fftn(psi, threads=n_threads)
+        power = (fft * np.conj(fft)).real
+        return power
+    
+    # Radial power spectrum P(k) → 1D binned spectrum (pyFFTW, threaded)
+    if key == ("pyfftw", "fft", "radial_power_spectrum"):
+        import os
+        import numpy as np
+        import pyfftw
+
+        psi = np.asarray(inputs[0], dtype=float)
+        if psi.ndim != 3:
+            return np.zeros(1, dtype=float)
+
+        # Thread count for FFTW, configurable via env; default 8
+        n_threads = int(os.getenv("IGC_FFT_THREADS", "8"))
+
+        # Enable pyFFTW cache so FFT plans are reused
+        pyfftw.interfaces.cache.enable()
+
+        # FFT with pyFFTW
+        fft = pyfftw.interfaces.numpy_fft.fftn(psi, threads=n_threads)
+        power = (fft * np.conj(fft)).real
+
+        nx, ny, nz = psi.shape
+        dx = float(sim_meta.get("dx", 1.0))
+
+        # Frequency grids
+        kx = np.fft.fftfreq(nx, d=dx)
+        ky = np.fft.fftfreq(ny, d=dx)
+        kz = np.fft.fftfreq(nz, d=dx)
+
+        KX, KY, KZ = np.meshgrid(kx, ky, kz, indexing="ij")
+        k_mag = np.sqrt(KX * KX + KY * KY + KZ * KZ)
+
+        # Radial binning (k >= 0)
+        k_flat = k_mag.ravel()
+        p_flat = power.ravel()
+        mask = k_flat >= 0
+        k_flat = k_flat[mask]
+        p_flat = p_flat[mask]
+
+        nbins = 64  # number of radial bins
+        if k_flat.size == 0 or k_flat.max() <= 0:
+            return np.zeros(nbins, dtype=float)
+
+        bins = np.linspace(0, k_flat.max(), nbins + 1)
+        which = np.digitize(k_flat, bins)
+
+        radial = np.zeros(nbins, dtype=float)
+        counts = np.zeros(nbins, dtype=float)
+
+        for i, v in zip(which, p_flat):
+            if 1 <= i <= nbins:
+                radial[i - 1] += v
+                counts[i - 1] += 1.0
+
+        counts[counts == 0.0] = 1.0
+        radial /= counts
+
+        return radial  
+
+    # Collapse spectrum to a single coherence length scalar
+    if key == ("numpy", "stats", "coh_scalar"):
+        import numpy as np
+
+        power = np.asarray(inputs[0])
+        if power.ndim != 3:
+            return np.array([0.0], dtype=float)
+
+        nx, ny, nz = power.shape
+        dx = float(sim_meta.get("dx", 1.0))
+
+        kx = np.fft.fftfreq(nx, d=dx)
+        ky = np.fft.fftfreq(ny, d=dx)
+        kz = np.fft.fftfreq(nz, d=dx)
+
+        KX, KY, KZ = np.meshgrid(kx, ky, kz, indexing="ij")
+        k_mag = np.sqrt(KX*KX + KY*KY + KZ*KZ)
+
+        mask = k_mag > 0
+        if not np.any(mask):
+            return np.array([0.0], dtype=float)
+
+        P = power[mask]
+        k = k_mag[mask]
+        denom = P.sum()
+        if denom <= 0 or not np.isfinite(denom):
+            return np.array([0.0], dtype=float)
+
+        k_mean = (k * P).sum() / denom
+        L = 1.0/k_mean if k_mean > 0 and np.isfinite(k_mean) else 0.0
+        return np.array([L], dtype=float)
+
+    # Topology: Betti numbers from a label/mask volume
+    if key == ("gudhi", "topology", "betti"):
+        import numpy as np
+        import cc3d
+
+        labels = np.asarray(inputs[0])
+        fg = labels.astype(bool)
+
+        if fg.ndim != 3 or not np.any(fg):
+            beta0 = 0
+        else:
+            # connected components (3D); number of components = max label
+            comps = cc3d.connected_components(fg)
+            beta0 = int(comps.max())
+
+        beta1 = 0
+        beta2 = 0
+        chi = beta0 - beta1 + beta2
+
+        return np.array([beta0, beta1, beta2, chi], dtype=float)        
 
     # Fallback for anything not wired yet
     raise NotImplementedError(f"run_kernel not wired for {key}")
@@ -440,6 +674,106 @@ def run_writer(
             ] + [float(x) for x in arr.ravel()]
             writer.writerow(row)
         return
+
+    # mask_final: write NPY mask (e.g. collapse_mask.npy)
+    if op_name == "mask_final":
+        import numpy as np
+        arr = inputs[0]
+        np.save(path, np.asarray(arr))
+        return
+
+    # threshold: write mask stats as CSV (voxels_total, voxels_solid, fraction_solid)
+    if op_name == "threshold":
+        import csv
+        import numpy as np
+
+        data = inputs[0]
+        arr = np.atleast_1d(np.asarray(data))
+        n = int(arr.size)
+
+        # Default column names
+        if n == 3:
+            value_cols = ["voxels_total", "voxels_solid", "fraction_solid"]
+        else:
+            value_cols = [f"value_{i}" for i in range(n)]
+
+        header = ["sim_id", "frame", "metric_id", "logical_name"] + value_cols
+
+        with path.open("w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(header)
+            row = [
+                sim_meta.get("sim_id"),
+                sim_meta.get("frame"),
+                sim_meta.get("metric_id"),
+                sim_meta.get("logical_name"),
+            ] + [float(x) for x in arr.ravel()]
+            writer.writerow(row)
+        return
+
+    # coherence_length writer (autocorr_length op)
+    if op_name == "autocorr_length":
+        import csv
+        import numpy as np
+
+        data = inputs[0]
+        arr = np.atleast_1d(np.asarray(data))
+        n = int(arr.size)
+
+        # Prefer a descriptive column name when scalar
+        if n == 1:
+            value_cols = ["coherence_length"]
+        else:
+            value_cols = [f"value_{i}" for i in range(n)]
+
+        header = ["sim_id", "frame", "metric_id", "logical_name"] + value_cols
+
+        with path.open("w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(header)
+            row = [
+                sim_meta.get("sim_id"),
+                sim_meta.get("frame"),
+                sim_meta.get("metric_id"),
+                sim_meta.get("logical_name"),
+            ] + [float(x) for x in arr.ravel()]
+            writer.writerow(row)
+        return
+    
+    # Betti numbers writer: beta0, beta1, beta2, chi
+    if op_name == "betti":
+        import csv
+        import numpy as np
+
+        data = inputs[0]
+        arr = np.atleast_1d(np.asarray(data))
+        n = int(arr.size)
+
+        if n == 4:
+            value_cols = ["beta0", "beta1", "beta2", "chi"]
+        else:
+            value_cols = [f"value_{i}" for i in range(n)]
+
+        header = ["sim_id", "frame", "metric_id", "logical_name"] + value_cols
+
+        with path.open("w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(header)
+            row = [
+                sim_meta.get("sim_id"),
+                sim_meta.get("frame"),
+                sim_meta.get("metric_id"),
+                sim_meta.get("logical_name"),
+            ] + [float(x) for x in arr.ravel()]
+            writer.writerow(row)
+        return
+
+    # NPY writer: write raw array to .npy
+    if op_name == "npy":
+        import numpy as np
+        arr = inputs[0]
+        np.save(path, np.asarray(arr))
+        return        
 
     # Fallback for anything not wired yet
     raise NotImplementedError(f"run_writer not wired for op_name={op_name!r}, fmt={fmt!r}, path={path}")
