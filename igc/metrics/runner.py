@@ -22,13 +22,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Sequence
+from typing import Any, Dict, List, Sequence, Tuple, Optional
 
 import numpy as np
 
 from igc.db.pg import cx, fetchall_dict
 from igc.ledger.sim import get_simulation_full
 
+# Simple in-process cache for simulation metadata to avoid repeated DB hits per sim_id
+_SIM_META_CACHE: Dict[int, dict] = {}
 
 # ---------------------------------------------------------------------------
 # Data structures
@@ -165,8 +167,12 @@ def execute_metric_job(job: Dict[str, Any], pipelines: Dict[int, MetricPipeline]
     metrics_dir = output_path.parent
     frame_dir = metrics_dir.parent
 
-    # Load sim metadata once
-    sim = get_simulation_full(sim_id) or {}
+    # Load sim metadata once per sim_id (cached)
+    sim = _SIM_META_CACHE.get(sim_id)
+    if sim is None:
+        sim = get_simulation_full(sim_id) or {}
+        _SIM_META_CACHE[sim_id] = sim
+
     sim_shape = (
         int(sim.get("sim_gridx") or 0),
         int(sim.get("sim_gridy") or 0),
@@ -184,7 +190,7 @@ def execute_metric_job(job: Dict[str, Any], pipelines: Dict[int, MetricPipeline]
     base_fields = _detect_needed_frame_fields(needed_tokens)
 
     for field_name in base_fields:
-        arr = _load_frame_field(frame_dir, field_name)
+        arr = _load_frame_field_cached(sim_id, frame, frame_dir, field_name)
         artifacts[field_name] = arr
 
     # --- Execute all steps in the pipeline ---
@@ -255,7 +261,9 @@ def execute_metric_job(job: Dict[str, Any], pipelines: Dict[int, MetricPipeline]
 # ---------------------------------------------------------------------------
 
 _BASE_FIELD_TOKENS = {"psi", "phi", "eta", "pi"}
-
+# Per-frame cache for base fields: caches psi/phi/eta/pi for the current (sim_id, frame)
+_FRAME_FIELD_CACHE: Dict[Tuple[int, int, str], np.ndarray] = {}
+_CURRENT_FRAME_KEY: Optional[Tuple[int, int]] = None
 
 def _detect_needed_frame_fields(tokens: set[str]) -> List[str]:
     """From all inputs_from tokens, determine which base frame fields to load."""
@@ -287,6 +295,27 @@ def _load_frame_field(frame_dir: Path, token: str) -> np.ndarray:
     if not path.is_file():
         raise FileNotFoundError(f"Frame field {token!r} not found at {path}")
     return np.load(path)
+
+def _load_frame_field_cached(sim_id: int, frame: int, frame_dir: Path, token: str) -> np.ndarray:
+    """
+    Load a base field from disk once per (sim_id, frame, token), reusing a small in-process
+    cache for subsequent metrics on the same frame. When the (sim_id, frame) pair changes,
+    the cache is cleared so we never hold more than one frame's fields at a time.
+    """
+    global _CURRENT_FRAME_KEY
+    global _FRAME_FIELD_CACHE
+
+    frame_key = (sim_id, frame)
+    if _CURRENT_FRAME_KEY != frame_key:
+        _FRAME_FIELD_CACHE.clear()
+        _CURRENT_FRAME_KEY = frame_key
+
+    cache_key = (sim_id, frame, token)
+    arr = _FRAME_FIELD_CACHE.get(cache_key)
+    if arr is None:
+        arr = _load_frame_field(frame_dir, token)
+        _FRAME_FIELD_CACHE[cache_key] = arr
+    return arr
 
 
 def _resolve_artifact(
@@ -523,40 +552,56 @@ def run_kernel(
         nx, ny, nz = psi.shape
         dx = float(sim_meta.get("dx", 1.0))
 
-        # Frequency grids
+        # Frequency grids (1D)
         kx = np.fft.fftfreq(nx, d=dx)
         ky = np.fft.fftfreq(ny, d=dx)
         kz = np.fft.fftfreq(nz, d=dx)
 
-        KX, KY, KZ = np.meshgrid(kx, ky, kz, indexing="ij")
-        k_mag = np.sqrt(KX * KX + KY * KY + KZ * KZ)
+        kx2 = kx * kx
+        ky2 = ky * ky
+        kz2 = kz * kz
 
-        # Radial binning (k >= 0)
-        k_flat = k_mag.ravel()
-        p_flat = power.ravel()
-        mask = k_flat >= 0
-        k_flat = k_flat[mask]
-        p_flat = p_flat[mask]
-
-        nbins = 64  # number of radial bins
-        if k_flat.size == 0 or k_flat.max() <= 0:
+        nbins = 64
+        # Max radius for bin edges (same extent as original k_flat.max())
+        kmax_sq = float(kx2.max() + ky2.max() + kz2.max())
+        if not np.isfinite(kmax_sq) or kmax_sq <= 0.0:
             return np.zeros(nbins, dtype=float)
+        kmax = float(np.sqrt(kmax_sq))
 
-        bins = np.linspace(0, k_flat.max(), nbins + 1)
-        which = np.digitize(k_flat, bins)
-
+        bins = np.linspace(0.0, kmax, nbins + 1)
         radial = np.zeros(nbins, dtype=float)
         counts = np.zeros(nbins, dtype=float)
 
-        for i, v in zip(which, p_flat):
-            if 1 <= i <= nbins:
-                radial[i - 1] += v
-                counts[i - 1] += 1.0
+        # Accumulate radial power over z-slices to avoid full 3D grids
+        for iz in range(nz):
+            k2_slice = kx2[:, None, None] + ky2[None, :, None] + kz2[iz]
+            k_slice = np.sqrt(k2_slice)
+            P_slice = power[:, :, iz]
 
-        counts[counts == 0.0] = 1.0
-        radial /= counts
+            flat_k = k_slice.ravel()
+            flat_P = P_slice.ravel()
 
-        return radial  
+            mask = flat_k >= 0.0
+            if not np.any(mask):
+                continue
+
+            k_sel = flat_k[mask]
+            p_sel = flat_P[mask]
+
+            idx = np.digitize(k_sel, bins)
+            valid = (idx > 0) & (idx <= nbins)
+            idx = idx[valid] - 1
+            vals = p_sel[valid]
+
+            radial += np.bincount(idx, weights=vals, minlength=nbins)
+            counts += np.bincount(idx, minlength=nbins)
+
+        counts[counts == 0.0] = 0.0 if counts.size == 0 else counts[counts == 0.0]
+        # Avoid division by zero, though in practice counts>0 for used bins
+        nonzero = counts > 0
+        radial[nonzero] /= counts[nonzero]
+
+        return radial
 
     # Collapse spectrum to a single coherence length scalar
     if key == ("numpy", "stats", "coh_scalar"):
@@ -589,6 +634,7 @@ def run_kernel(
         k_mean = (k * P).sum() / denom
         L = 1.0/k_mean if k_mean > 0 and np.isfinite(k_mean) else 0.0
         return np.array([L], dtype=float)
+        return np.array([L])
 
     # Topology: Betti numbers from a label/mask volume
     if key == ("gudhi", "topology", "betti"):

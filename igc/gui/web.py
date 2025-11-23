@@ -604,26 +604,35 @@ def metrics_save(
             url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303
         )
 
-    if selected:
-        # Flush ALL jobs before a fresh metrics run (simmetjobs is a pure work queue)
-        with cx() as conn:
-            execute(conn, "TRUNCATE TABLE public.simmetjobs")
+    # Non-sweep metrics run: seed and run metrics in a background task so the viewer
+    # can attach immediately.
+    if selected and not is_sweep:
+        def _metrics_single_run() -> None:
+            # Flush ALL jobs before a fresh metrics run (simmetjobs is a pure work queue)
+            with cx() as conn:
+                execute(conn, "TRUNCATE TABLE public.simmetjobs")
 
-        # Discover frames for this metrics run from the explicit run_root on disk
-        frames = discover_frames_in_root(run_root)
-        if frames:
+            # Discover frames for this metrics run from the explicit run_root on disk
+            frames = discover_frames_in_root(run_root)
+            if not frames:
+                return
+
             phases = [0]
-            # Seed metric jobs (idempotent) and finalize paths
+            # Seed metric jobs and finalize paths
             oe_core.seed_metric_jobs(sim_id, sorted(selected), frames, phases)
             try:
                 oe_core.finalize_seeded_jobs(sim_id=sim_id)
             except Exception:
-                # finalization failures should not crash metrics_save; jobs can still exist
+                # finalization failures should not stop the run; jobs can still exist
                 pass
 
-    # 3) Start OE runner for metrics if background_tasks is available
-    if background_tasks is not None:
-        background_tasks.add_task(oe_core.run, sim_id=sim_id, kind="metrics")
+            # Run metrics for this sim_id; append logs to the existing viewer buffer
+            oe_core.run(sim_id=sim_id, kind="metrics", append_view=True)
+
+        if background_tasks is not None:
+            background_tasks.add_task(_metrics_single_run)
+        else:
+            _metrics_single_run()
 
     # 4) Redirect to OE viewer for this sim
     return RedirectResponse(url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303)

@@ -810,31 +810,39 @@ def run(*, sim_id: int, kind: str | None = None, append_view: bool = False) -> N
                     time.sleep(0.01)
 
             duration_ms = int((perf_counter() - t0) * 1000)
+            out_type = (j.get("output_type") or "").lower()
 
-            # write + log
-            ledger.log_execution(job=j, runtime_ms=duration_ms, queue_wait_ms=0)
+            # Always mark the job as written in the ledger.
             ledger.update_job_status_single(job_id=job_id, to_status="written", set_finish=True)
 
-            # Only emit frame_done for metric jobs.
-            # State-job frame events come from the integrator callback (on_frame_saved).
-            if (j.get("output_type") or "").lower() != "state":
+            # For simulation (state) jobs, record detailed execution metrics and a DB log entry.
+            if out_type == "state":
+                try:
+                    ledger.log_execution(job=j, runtime_ms=duration_ms, queue_wait_ms=0)
+                except Exception:
+                    # Logging must not break the run.
+                    pass
+                try:
+                    with _connect() as conn, conn.cursor() as cur:
+                        cur.execute(
+                            "INSERT INTO public.jobexecutionlog (jobid, simid, status) VALUES (%s, %s, %s)",
+                            (job_id, int(j["sim_id"]), "written"),
+                        )
+                        conn.commit()
+                except Exception:
+                    # Jobexecution logging is best-effort only.
+                    pass
+
+            # For metric jobs, we skip heavy DB logging and only emit viewer events.
+            if out_type != "state":
                 _vlog(
                     int(j["sim_id"]),
                     status="frame_done",
-                    frame=int(j.get("job_frame", 0)),
+                    frame=int(j.get("job_frame", 0) or 0),
                     jobid=job_id,
                     ms=duration_ms,
                 )
-            # viewer log: written
-            try:
-                with _connect() as conn, conn.cursor() as cur:
-                    cur.execute(
-                        "INSERT INTO public.jobexecutionlog (jobid, simid, status) VALUES (%s, %s, %s)",
-                        (job_id, int(j["sim_id"]), "written"),
-                    )
-                    conn.commit()
-            except Exception:
-                pass            
+
             processed += 1
         except Exception as e:
             # mark failed, flip abort, and raise to surface failure to caller
