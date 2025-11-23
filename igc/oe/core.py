@@ -614,6 +614,37 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
         nonlocal last_frame_ts
         try:
             frame_dir = store / sim_label_with_tt / f"Frame_{frame_idx:04d}"
+
+            # Generate simple matplotlib previews for psi, phi_field, eta (mid-Z slice)
+            try:
+                import matplotlib
+                matplotlib.use("Agg")
+                import matplotlib.pyplot as plt
+                import numpy as np
+
+                psi_p = np.load(frame_dir / "psi.npy")
+                phi_p = np.load(frame_dir / "phi_field.npy")
+                eta_p = np.load(frame_dir / "eta.npy")
+
+                z = psi_p.shape[2] // 2
+                psi_slice = psi_p[:, :, z]
+                phi_slice = phi_p[:, :, z]
+                eta_slice = eta_p[:, :, z]
+
+                def _save_preview(arr, out_path):
+                    fig = plt.figure(figsize=(2.5, 2.5))
+                    ax = fig.add_axes([0, 0, 1, 1])
+                    ax.axis("off")
+                    im = ax.imshow(arr.T, origin="lower", cmap="magma")
+                    fig.savefig(out_path, dpi=80, bbox_inches="tight", pad_inches=0)
+                    plt.close(fig)
+
+                _save_preview(psi_slice, frame_dir / "preview_psi.png")
+                _save_preview(phi_slice, frame_dir / "preview_phi.png")
+                _save_preview(eta_slice, frame_dir / "preview_eta.png")
+            except Exception as _prev_e:
+                print(f"[PREVIEW] failed in {frame_dir}: {_prev_e}")
+
             now = perf_counter()
             ms = int((now - last_frame_ts) * 1000)
             last_frame_ts = now

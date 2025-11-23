@@ -636,3 +636,51 @@ def metrics_save(
 
     # 4) Redirect to OE viewer for this sim
     return RedirectResponse(url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303)
+
+@app.get("/sims/{sim_id}/frames/{frame_idx}/preview/{field}")
+def sim_frame_preview(sim_id: int, frame_idx: int, field: str):
+    """
+    Serve preview_psi.png / preview_phi.png / preview_eta.png for a given frame.
+    """
+    from fastapi import HTTPException
+    from fastapi.responses import FileResponse
+    import os
+    from pathlib import Path
+
+    from igc.db.pg import cx, fetchall_dict
+    from igc.oe import core as oe_core
+
+    # Only allow known fields
+    if field not in ("psi", "phi", "eta", "collapse_mask", "p_k", "coh_length"):
+        raise HTTPException(status_code=404, detail="unknown field")
+
+    # Resolve current run token for this sim_id
+    tt = oe_core._RUN_TOKEN.get(sim_id)
+    if not tt:
+        raise HTTPException(status_code=404, detail="no active run token")
+
+    # Resolve sim label from DB
+    with cx() as conn:
+        rows = fetchall_dict(conn, "SELECT label FROM public.simulations WHERE id=%s", (sim_id,))
+        if not rows:
+            raise HTTPException(status_code=404, detail="simulation not found")
+        sim_label = str(rows[0].get("label") or f"Sim_{sim_id}").strip()
+
+    root = os.environ.get("IGC_STORE", "/data/simulations")
+    frame_dir = Path(root) / sim_label / tt / f"Frame_{int(frame_idx):04d}"
+
+    # Map field -> preview filename
+    name = {
+        "psi": "preview_psi.png",
+        "phi": "preview_phi.png",
+        "eta": "preview_eta.png",
+        "collapse_mask": "preview_collapse_mask.png",
+        "p_k": "preview_p_k.png",
+        "coh_length": "preview_coh_length.png",
+    }.get(field)
+
+    path = frame_dir / name
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="preview not found")
+
+    return FileResponse(str(path), media_type="image/png")

@@ -704,9 +704,9 @@ def run_writer(
 
         data = inputs[0]
         arr = np.atleast_1d(np.asarray(data))
+        n = int(arr.size)
 
         # Build header: sim/frame/metric/logical_name + one column per value
-        n = int(arr.size)
         header = ["sim_id", "frame", "metric_id", "logical_name"] + [f"value_{i}" for i in range(n)]
 
         with path.open("w", newline="") as f:
@@ -719,6 +719,29 @@ def run_writer(
                 sim_meta.get("logical_name"),
             ] + [float(x) for x in arr.ravel()]
             writer.writerow(row)
+
+        # If this CSV is the p_k spectrum, also emit a small preview plot.
+        try:
+            if path.name.startswith("p_k"):
+                import matplotlib
+                matplotlib.use("Agg")
+                import matplotlib.pyplot as plt
+
+                x = np.arange(arr.size, dtype=float)
+                fig = plt.figure(figsize=(3.0, 2.0))
+                ax = fig.add_subplot(1, 1, 1)
+                ax.plot(x, arr.ravel(), lw=1.0)
+                ax.set_xlabel("k")
+                ax.set_ylabel("P(k)")
+                ax.grid(True, alpha=0.2)
+
+                frame_dir = path.parent.parent  # metrics_dir parent = Frame_XXXX/
+                fig.tight_layout()
+                fig.savefig(frame_dir / "preview_p_k.png", dpi=80)
+                plt.close(fig)
+        except Exception as _e:
+            print(f"[PREVIEW] p_k failed at {path}: {_e}")
+
         return
 
     # mask_final: write NPY mask (e.g. collapse_mask.npy)
@@ -726,6 +749,28 @@ def run_writer(
         import numpy as np
         arr = inputs[0]
         np.save(path, np.asarray(arr))
+
+        # Also write a simple preview image for collapse_mask-like metrics.
+        try:
+            import matplotlib
+            matplotlib.use("Agg")
+            import matplotlib.pyplot as plt
+
+            mask = np.asarray(arr)
+            if mask.ndim == 3 and mask.size > 0:
+                z = mask.shape[2] // 2
+                sl = mask[:, :, z]
+
+                frame_dir = path.parent.parent  # metrics_dir parent is Frame_XXXX/
+                fig = plt.figure(figsize=(2.5, 2.5))
+                ax = fig.add_axes([0, 0, 1, 1])
+                ax.axis("off")
+                im = ax.imshow(sl.T, origin="lower", cmap="binary")
+                fig.savefig(frame_dir / "preview_collapse_mask.png", dpi=80, bbox_inches="tight", pad_inches=0)
+                plt.close(fig)
+        except Exception as _e:
+            # preview generation must never break metrics
+            print(f"[PREVIEW] collapse_mask failed at {path}: {_e}")
         return
 
     # threshold: write mask stats as CSV (voxels_total, voxels_solid, fraction_solid)
@@ -784,6 +829,40 @@ def run_writer(
                 sim_meta.get("logical_name"),
             ] + [float(x) for x in arr.ravel()]
             writer.writerow(row)
+
+        # Also produce a tiny time-series preview of coherence_length.
+        try:
+            import matplotlib
+            matplotlib.use("Agg")
+            import matplotlib.pyplot as plt
+
+            frame_idx = int(sim_meta.get("frame") or 0)
+            L = float(arr.ravel()[0]) if arr.size > 0 else 0.0
+
+            # Build a small series file alongside the CSV (accumulate over frames)
+            series_path = path.parent / "coherence_length_series.npy"
+            if series_path.is_file():
+                series = np.load(series_path, allow_pickle=False)
+            else:
+                series = np.zeros((0, 2), dtype=float)
+            series = np.vstack([series, [frame_idx, L]])
+            np.save(series_path, series)
+
+            # Plot the series into preview_coh_length.png
+            fig = plt.figure(figsize=(3.0, 2.0))
+            ax = fig.add_subplot(1, 1, 1)
+            ax.plot(series[:, 0], series[:, 1], lw=1.0, marker="o", ms=2.0)
+            ax.set_xlabel("frame")
+            ax.set_ylabel("L")
+            ax.grid(True, alpha=0.2)
+
+            frame_dir = path.parent.parent  # metrics_dir parent = Frame_XXXX/
+            fig.tight_layout()
+            fig.savefig(frame_dir / "preview_coh_length.png", dpi=80)
+            plt.close(fig)
+        except Exception as _e:
+            print(f"[PREVIEW] coherence_length failed at {path}: {_e}")
+
         return
     
     # Betti numbers writer: beta0, beta1, beta2, chi

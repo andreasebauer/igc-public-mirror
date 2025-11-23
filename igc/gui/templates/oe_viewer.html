@@ -51,6 +51,25 @@
         <div class="sub" id="bytes-written">written 0</div>
       </div>
     </div>
+
+    <div class="gauge card">
+      <h3>ψ / pₖ</h3>
+      <div class="gauge-body">
+        <img id="preview-psi" src="" alt="psi / p_k preview" style="width:100%; border-radius:4px; background:#000;" />
+      </div>
+    </div>
+    <div class="gauge card">
+      <h3>φ / mask</h3>
+      <div class="gauge-body">
+        <img id="preview-phi" src="" alt="phi / collapse_mask preview" style="width:100%; border-radius:4px; background:#000;" />
+      </div>
+    </div>
+    <div class="gauge card">
+      <h3>η / L</h3>
+      <div class="gauge-body">
+        <img id="preview-eta" src="" alt="eta / coherence_length preview" style="width:100%; border-radius:4px; background:#000;" />
+      </div>
+    </div>
   </div>
 
   <!-- Row 3: Logs (50%) -->
@@ -86,12 +105,19 @@
 .oe-progress-stats{ display:flex; gap:12px; font-variant-numeric: tabular-nums; }
 .oe-progress-sub{ font-size:12px; opacity:.8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-/* Row 2: Gauges (3 equal columns) */
-.oe-gauges{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; }
-.gauge.card{ display:grid; align-content:center; text-align:center; }
-.gauge h3{ margin:0 0 8px 0; }
-.gauge .big{ font-size:28px; line-height:1; }
-.gauge .sub{ font-size:12px; opacity:.75; margin-top:6px; }
+  /* Row 2: Gauges (3 equal columns) */
+  .oe-gauges{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; }
+  .gauge.card{ display:grid; align-content:flex-start; text-align:center; }
+  .gauge h3{ margin:0 0 8px 0; }
+  .gauge .big{ font-size:28px; line-height:1; }
+  .gauge .sub{ font-size:12px; opacity:.75; margin-top:6px; }
+
+  /* Gauge previews: keep images compact so logs have space */
+  .gauge img{
+    max-height:80px;
+    width:100%;
+    object-fit:contain;
+  }
 
 /* Row 3: Logs */
 .oe-logs{ display:grid; grid-template-rows: auto 1fr; min-height:0; }
@@ -362,9 +388,25 @@
             }
 
             // Simulation frames: these come from the integrator callback (on_frame_saved)
-            // with no jobid; show a concise per-frame line.
+            // with no jobid; show a concise per-frame line and update previews.
             const sec = (durMs / 1000).toFixed(2);
             appendLine(`Frame ${frame} has been saved to disk. (runtime ${sec}s)`, 'log-note');
+
+            const psiImg = document.getElementById('preview-psi');
+            const phiImg = document.getElementById('preview-phi');
+            const etaImg = document.getElementById('preview-eta');
+
+            const ts = Date.now();
+            if (psiImg) {
+              psiImg.src = `/sims/${simId}/frames/${frame}/preview/psi?ts=${ts}`;
+            }
+            if (phiImg) {
+              phiImg.src = `/sims/${simId}/frames/${frame}/preview/phi?ts=${ts}`;
+            }
+            if (etaImg) {
+              etaImg.src = `/sims/${simId}/frames/${frame}/preview/eta?ts=${ts}`;
+            }
+
             continue;
           }
 
@@ -410,8 +452,36 @@
 	            const totalMs = prevMs + addMs;
 	            metricAgg.set(key, totalMs);
 
-	            const sec  = (totalMs / 1000).toFixed(2);
-	            const text = `Frame ${fr} Metric ${name} has been written to disk (runtime ${sec}s)`;
+              const sec  = (totalMs / 1000).toFixed(2);
+              const text = `Frame ${fr} Metric ${name} has been written to disk (runtime ${sec}s)`;
+
+              // Update metric previews for selected metrics.
+              // collapse_mask → φ preview
+              if (name && name.includes("collapse_mask")) {
+                const phiImg = document.getElementById('preview-phi');
+                if (phiImg) {
+                  const ts = Date.now();
+                  phiImg.src = `/sims/${simId}/frames/${fr}/preview/collapse_mask?ts=${ts}`;
+                }
+              }
+
+              // p_k → ψ preview
+              if (name && name.includes("p_k")) {
+                const psiImg = document.getElementById('preview-psi');
+                if (psiImg) {
+                  const ts = Date.now();
+                  psiImg.src = `/sims/${simId}/frames/${fr}/preview/p_k?ts=${ts}`;
+                }
+              }
+
+              // coherence_length → η preview
+              if (name && name.includes("coherence_length")) {
+                const etaImg = document.getElementById('preview-eta');
+                if (etaImg) {
+                  const ts = Date.now();
+                  etaImg.src = `/sims/${simId}/frames/${fr}/preview/coh_length?ts=${ts}`;
+                }
+              }
 
 	            // Update or create a single log line for this (frame, metric)
 	            const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
