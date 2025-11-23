@@ -1,7 +1,9 @@
 from dataclasses import dataclass
+from queue import Queue
+from threading import Thread
 from typing import Optional, List, Dict, Callable
 import numpy as np
-
+# from time import perf_counter
 from igc.sim.operators import (
     laplace_jit,
     div_phi_cone_psi_jit,
@@ -47,6 +49,59 @@ class Integrator:
         dt = self.cfg.dt_per_at / substeps
         dx = self.cfg.dx
         frame = 0
+        
+        # Timing accumulators per frame
+        # pde_times: Dict[int, float] = {}
+        # writer_times: Dict[int, float] = {}
+
+        # Helper to push timing info to OE viewer
+        # def _timelog(msg: str):
+        #     try:
+        #         # two-level import to avoid circular imports
+        #         from igc.gui.sim_flow import _simlog_append
+        #         # viewer logs expect (app, sim_id, message); Integrator does not know sim_id,
+        #         # so timelog only prints to stdout; OE runner will attach times via on_frame_saved.
+        #         print(f"[TIMING] {msg}")
+        #     except Exception:
+        #         pass        
+
+        # Asynchronous writer: queue frames for background saving
+        write_queue: "Queue[tuple]" = Queue(maxsize=2)
+
+        def _writer():
+            """
+            Dedicated writer thread: pulls frame data from write_queue and writes
+            them to disk using save_frame(). Calls on_frame_saved() when finished.
+            """
+            while True:
+                item = write_queue.get()
+                if item is None:
+                    break
+                (frame_idx, at_val, psi_w, pi_w, eta_w, phi_field_w, phi_cone_w) = item
+        #         wt0 = perf_counter()
+                save_frame(
+                    store,
+                    sim_label,
+                    frame_idx,
+                    psi=psi_w,
+                    pi=pi_w,
+                    eta=eta_w,
+                    phi_field=phi_field_w,
+                    phi_cone=phi_cone_w,
+                    at=at_val,
+                    substeps_per_at=substeps,
+                    tact_phase=0.0,
+                    header_opts=HeaderOptions(write_stats=header_stats),
+                )
+
+                if on_frame_saved is not None:
+                    on_frame_saved(frame_idx, at_val)
+        #         writer_times[frame_idx] = perf_counter() - wt0
+        #         _timelog(f"writer frame {frame_idx} runtime {writer_times[frame_idx]:.3f}s")
+                write_queue.task_done()
+
+        writer_thread = Thread(target=_writer, daemon=True)
+        writer_thread.start()
 
         # Scratch buffers for fused PDE kernel
         psi_next = np.empty_like(psi)
@@ -57,16 +112,22 @@ class Integrator:
 
         # Optionally write first frame
         if save_first_frame:
-            save_frame(store, sim_label, frame,
-                       psi=psi, pi=pi, eta=eta, phi_field=phi_field, phi_cone=phi_cone,
-                       at=at_start, substeps_per_at=substeps, tact_phase=0.0,
-                       header_opts=HeaderOptions(write_stats=header_stats))
-            if on_frame_saved is not None:
-                on_frame_saved(frame, at_start)
+            write_queue.put((
+                frame,
+                at_start,
+                psi.copy(),
+                pi.copy(),
+                eta.copy(),
+                phi_field.copy(),
+                phi_cone.copy(),
+            ))
             frame += 1
-
+        #     _timelog(f"PDE frame {frame-1} runtime {pde_times.get(frame-1, 0.0):.3f}s")
+        #     _timelog(f"Writer frame {frame-1} runtime {writer_times.get(frame-1, 0.0):.3f}s")
         at = at_start
         while at < at_end:
+            # Start PDE timer for this frame
+        #     pde_t0 = perf_counter()            
             # Run one At worth of substeps
             for sub in range(substeps):
                 tact_phase = sub / substeps
@@ -106,21 +167,23 @@ class Integrator:
             # End of this At
             at += 1
 
+            # Record PDE time for this frame
+            # pde_times[frame] = perf_counter() - pde_t0
+
             # Save at end of each At (simple stride 1 here)
-            save_frame(
-                store,
-                sim_label,
+            write_queue.put((
                 frame,
-                psi=psi,
-                pi=pi,
-                eta=eta,
-                phi_field=phi_field,
-                phi_cone=phi_cone,
-                at=at,
-                substeps_per_at=substeps,
-                tact_phase=0.0,
-                header_opts=HeaderOptions(write_stats=header_stats),
-            )
-            if on_frame_saved is not None:
-                on_frame_saved(frame, at)
+                at,
+                psi.copy(),
+                pi.copy(),
+                eta.copy(),
+                phi_field.copy(),
+                phi_cone.copy(),
+            ))
             frame += 1
+        #     _timelog(f"PDE frame {frame-1} runtime {pde_times.get(frame-1, 0.0):.3f}s")
+        #     _timelog(f"Writer frame {frame-1} runtime {writer_times.get(frame-1, 0.0):.3f}s")
+        # Finish writer thread
+        write_queue.put(None)
+        writer_thread.join()
+
