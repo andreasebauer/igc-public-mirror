@@ -14,6 +14,7 @@ from igc.gui.create_sim import load_defaults, save_simulation, run_simulation
 from igc.gui.data_select import describe_run, select_frame_range
 from igc.gui.run_monitor import list_active_jobs, job_detail, requeue_job, cancel_job
 from igc.gui.sim_flow import router as sim_router
+from igc.gui.sim_flow import _simlog_append
 
 app = FastAPI(title="IGC GUI")
 # Apple touch icons (served from igc/gui/static/)
@@ -402,6 +403,21 @@ def metrics_save(
     metric_ids: List[int] = Form([]),
     run_root: str = Form(""),
 ):
+    # Clear any leftover OE viewer notes for this sim before a fresh metrics run
+    try:
+        st = getattr(request.app, "state", None)
+        if st is not None and hasattr(st, "_oe_log"):
+            st._oe_log.pop(int(sim_id), None)
+    except Exception:
+        pass
+
+    # Metrics run preparation note for OE viewer
+    _simlog_append(
+        request.app,
+        sim_id,
+        "We are now preparing metrics run data. Please wait for your metrics to start..."
+    )
+
     # Persist: enable selected; disable any previously enabled but not selected
     selected = {int(x) for x in metric_ids}
 
@@ -409,7 +425,8 @@ def metrics_save(
     from igc.ledger import core as ledger
     from igc.oe import core as oe_core
     from igc.gui.metrics_select import discover_frames_in_root
-
+    from time import perf_counter
+    
     # 1) Persist selection in simmetricmatcher
     with cx() as conn:
         # current enabled set
@@ -471,6 +488,17 @@ def metrics_save(
         def _metrics_sweep_loop() -> None:
             members = list(discover_sweep_members(run_root))
             total_members = len(members)
+
+            # Announce sweep start with total member count
+            try:
+                _simlog_append(
+                    request.app,
+                    sim_id,
+                    f"[sweep] metrics sweep starting ({total_members} sims)"
+                )
+            except Exception:
+                pass
+
             for idx, member_root in enumerate(members, start=1):
                 # If any sim or metrics sweep for this sim_id requested abort, stop.
                 try:
@@ -484,21 +512,17 @@ def metrics_save(
                 except Exception:
                     pass
 
+                # Announce this sweep member as running
                 try:
-                    # Announce this member run in the viewer header (same mechanism as sim sweeps).
-                    from igc.oe.core import _vlog
-                    try:
-                        _vlog(
-                            sim_id,
-                            status="note",
-                            frame=None,
-                            jobid=None,
-                            path=None,
-                            message=f"[sweep] metrics sweep {idx} of {total_members} sims running",
-                        )
-                    except Exception:
-                        pass
+                    _simlog_append(
+                        request.app,
+                        sim_id,
+                        f"[sweep] metrics sweep {idx}/{total_members} sims running"
+                    )
+                except Exception:
+                    pass
 
+                try:
                     # Set RUN_TOKEN correctly for sweep members:
                     # it must preserve "Sweep/<stamp>/<member>", not just the leaf folder name.
                     try:
@@ -537,26 +561,34 @@ def metrics_save(
                         pass
 
                     # Run metrics for this member, appending logs in the OE viewer
+                    t0 = perf_counter()
                     oe_core.run(sim_id=sim_id, kind="metrics", append_view=True)
+                    run_secs = perf_counter() - t0
 
-                    # Mark this member as done in the viewer header
-                    from igc.oe.core import _vlog
+                    # Emit a sweep note so you see the member boundary and runtime.
                     try:
-                        _vlog(
+                        _simlog_append(
+                            request.app,
                             sim_id,
-                            status="note",
-                            frame=None,
-                            jobid=None,
-                            path=None,
-                            message=f"[sweep] metrics sweep {idx} of {total_members} sims done",
+                            f"[sweep] metrics sweep {idx}/{total_members} sims done (runtime {run_secs:.2f}s)"
                         )
                     except Exception:
                         pass
+
                 except Exception:
                     # Do not abort the entire sweep on a single member failure
                     continue
 
-            # After finishing this metrics sweep, clear abort flag for a fresh next sweep.
+            # After finishing all members, announce completion and clear abort flag
+            try:
+                _simlog_append(
+                    request.app,
+                    sim_id,
+                    f"[sweep] metrics sweep completed ({total_members}/{total_members} sims)"
+                )
+            except Exception:
+                pass
+
             try:
                 if hasattr(oe_core, "clear_sweep_abort"):
                     oe_core.clear_sweep_abort(sim_id)
@@ -568,7 +600,6 @@ def metrics_save(
         else:
             _metrics_sweep_loop()
 
-        # Redirect immediately; background task will stream logs for the whole sweep
         return RedirectResponse(
             url=f"/sims/oe/viewer?sim_id={sim_id}&kind=metrics", status_code=303
         )

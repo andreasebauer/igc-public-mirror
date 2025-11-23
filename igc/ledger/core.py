@@ -49,6 +49,7 @@ def fetch_job_ledger_record(
             smj_status       AS job_status,
             smj_output_path  AS output_path,
             COALESCE(smj_output_type, '') AS output_type,
+            COALESCE(met_name, smj_output_type, 'metric_' || smj_metricid::text) AS metric_name,            
             -- optional/job metadata useful for paths; no step/group enforcement
             COALESCE(met_group_id, 0)   AS group_id,
             COALESCE(met_outputtypes, '') AS metric_outputtypes

@@ -152,6 +152,14 @@
   let sweepLabel = "";
   let lastPct = 0;
 
+  // Aggregation state for metric jobs: sum durations per (frame, metric)
+  const metricAgg = new Map();    // key "frame::name" -> total ms
+  const metricLines = new Map();  // key "frame::name" -> DOM element
+  const jobDur = new Map();       // key jobid -> last frame_done ms
+  	  // Track frames so we can prune older ones from the log
+	  const frameOrder = [];
+	  const frameKeys = new Map();  // frame -> [metric keys]
+
   const appendLine = (txt, className) => {
     const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
     const div = document.createElement('div');
@@ -305,8 +313,31 @@
       if (Array.isArray(data.viewer)) {
         for (const e of data.viewer) {
           const st    = e.status || '';
-          const frame = e.frame;
-          const durMs = e.ms || 0;
+          const frame = e.frame; 
+          const durMs = e.ms || 0
+          
+          // Sweep note events from in-memory viewer (e.g. metrics sweep 1 of N)
+          if (st === 'note' && e.message && e.message.startsWith("[sweep]")) {
+            const msg = e.message;
+
+            // Show the sweep line in the log pane
+            appendLine(msg, 'log-note');
+
+            // If this is a metrics sweep, reset the local progress so the bar
+            // ramps 0→100% for each member.
+            if (msg.includes("metrics sweep")) {
+              lastPct = 0;
+            }
+
+            // Also reflect this in the overview subtitle
+            const sub = document.getElementById("ov-sub");
+            if (sub) {
+              const label = msg.replace(/^\[sweep\]\s*/, "");
+              sub.textContent = label;
+            }
+
+            continue;
+          }          
 
           // Run-level start events
           if (st === 'run_sim_start') {
@@ -323,8 +354,17 @@
           }
                     
           if (st === 'frame_done' && frame != null) {
+            // Metrics: frame_done events from metric jobs (jobid != null) are used
+            // only to accumulate runtimes; do not spam the log.
+            if (e.jobid != null) {
+              jobDur.set(e.jobid, durMs);
+              continue;
+            }
+
+            // Simulation frames: these come from the integrator callback (on_frame_saved)
+            // with no jobid; show a concise per-frame line.
             const sec = (durMs / 1000).toFixed(2);
-            appendLine(`Frame ${frame} has been written to disk (runtime ${sec}s)`, 'log-frame-ok');
+            appendLine(`Frame ${frame} has been saved to disk. (runtime ${sec}s)`, 'log-note');
             continue;
           }
 
@@ -344,17 +384,68 @@
 
           // Metric job events
           if (st === 'metric_start') {
-            const name = e.filename || '';
-            const fr   = (frame != null ? frame : '?');
-            appendLine(`Frame ${fr}: starting metric ${name}`, 'log-note');
+            // suppress step-level spam
             continue;
           }
 
-           if (st === 'metric_done') {
-             // We already log metric_start and will get a frame_done event with a runtime.
-             // No extra line needed here to avoid redundancy.
-             continue;
-           }
+	          if (st === 'metric_done') {
+	            const name = e.filename || '';
+	            const fr   = (frame != null ? frame : '?');
+	            const key  = `${fr}::${name}`;
+
+	            // Register this key under its frame so we can prune by frame later
+	            if (!frameKeys.has(fr)) {
+	              frameKeys.set(fr, []);
+	              frameOrder.push(fr);
+	            }
+	            frameKeys.get(fr).push(key);
+
+	            // Use stored job duration from the last frame_done for this jobid
+	            let addMs = 0;
+	            if (e.jobid != null && jobDur.has(e.jobid)) {
+	              addMs = jobDur.get(e.jobid) || 0;
+	            }
+
+	            const prevMs  = metricAgg.get(key) || 0;
+	            const totalMs = prevMs + addMs;
+	            metricAgg.set(key, totalMs);
+
+	            const sec  = (totalMs / 1000).toFixed(2);
+	            const text = `Frame ${fr} Metric ${name} has been written to disk (runtime ${sec}s)`;
+
+	            // Update or create a single log line for this (frame, metric)
+	            const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
+
+	            let div = metricLines.get(key);
+	            if (!div) {
+	              div = document.createElement('div');
+	              div.className = 'log-line log-note';
+	              logEl.appendChild(div);
+	              metricLines.set(key, div);
+	            }
+	            div.textContent = text;
+
+	            if (atBottom) {
+	              logEl.scrollTop = logEl.scrollHeight;
+	            }
+
+	            // Prune older frames so we only keep the last 20 frames in the log
+	            while (frameOrder.length > 20) {
+	              const oldFr = frameOrder.shift();
+	              const keysForFrame = frameKeys.get(oldFr) || [];
+	              for (const oldKey of keysForFrame) {
+	                metricAgg.delete(oldKey);
+	                const oldDiv = metricLines.get(oldKey);
+	                if (oldDiv && oldDiv.parentNode) {
+	                  oldDiv.parentNode.removeChild(oldDiv);
+	                }
+	                metricLines.delete(oldKey);
+	              }
+	              frameKeys.delete(oldFr);
+	            }
+
+	            continue;
+	          }
           // fallback: original raw line for other statuses
           const jid = (e.jobid != null) ? ` job=${e.jobid}` : '';
           const fr  = (frame != null) ? ` frame=${frame}` : '';

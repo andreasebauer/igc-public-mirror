@@ -45,7 +45,7 @@ def _simlog_append(app, sim_id: int, text: str) -> None:
         if not hasattr(st, "_oe_log"):
             st._oe_log = {}
         buf = st._oe_log.setdefault(int(sim_id), [])
-        buf.append({
+        entry = {
             "logid": None,            # synthetic; DB tail uses ints
             "recorded_at": None,      # UI can render as "now" if None
             "status": "note",         # distinguish from job statuses
@@ -54,10 +54,30 @@ def _simlog_append(app, sim_id: int, text: str) -> None:
             "metricid": None, "stepid": None, "frame": None,
             "message": str(text),
             "output_path": ""
-        })
+        }
+        buf.append(entry)
         if len(buf) > 500:
             del buf[: len(buf) - 500]
     except Exception:
+        # In-memory logging must never break control flow
+        pass
+
+    # Also append this note to the per-run oe.log (best-effort)
+    try:
+        from igc.oe import core as oe_core  # local import to avoid cycles at module import time
+        event = {
+            "ts": oe_core._time_token_utc(),
+            "status": "note",
+            "frame": None,
+            "jobid": 0,
+            "path": "",
+            "filename": "",
+            "ms": 0,
+            "message": str(text),
+        }
+        oe_core._append_event_log(int(sim_id), event)
+    except Exception:
+        # File logging must not interfere with the app
         pass
 
 # ---------- 1) sim_start -----------------------------------------------------
@@ -792,6 +812,12 @@ def oe_abort(sim_id: int):
     """Signal the in-process OE runner to abort."""
     from igc.oe import core as oe_core
     oe_core.request_abort(f"user abort sim_id={sim_id}")
+    # Per-sim sweep abort: stop any active or future sweep loops for this sim_id.
+    try:
+        oe_core.request_abort_sweep(sim_id)
+    except Exception:
+        # Sweep abort must not break the endpoint; global abort is still effective.
+        pass
     return {"ok": True, "aborted": True, "sim_id": sim_id}
 
 @router.get("/oe/run/{sim_id}/logs")

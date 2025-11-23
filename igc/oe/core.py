@@ -15,6 +15,8 @@ This file keeps OE stateless and CPU-only; path logic is DB-driven via PathRegis
 
 from typing import Dict, List, Optional
 import os
+from pathlib import Path
+import json
 import psycopg
 
 from igc import ledger
@@ -190,16 +192,25 @@ _SEQ  = defaultdict(int)
 def _vlog(sim_id: int, *, status: str, frame: int | None = None, jobid: int | None = None,
           path: str | None = None, filename: str | None = None, ms: int | None = None) -> None:
     _SEQ[sim_id] += 1
-    _VIEW[sim_id].append({
+
+    event = {
         "seq": _SEQ[sim_id],
-        "ts":  _time_token_utc(),  # simple readable tick
+        "ts":  _time_token_utc(),
         "status": status,
         "frame": frame,
         "jobid": jobid,
         "path": path or "",
         "filename": filename or "",
         "ms": ms or 0,
-    })
+    }
+
+    _VIEW[sim_id].append(event)
+
+    # Write to per-run oe.log (best-effort)
+    try:
+        _append_event_log(sim_id, event)
+    except Exception:
+        pass
 
 def get_viewer_events(sim_id: int, after_seq: int) -> list[dict]:
     """Return list of viewer events with seq > after_seq (ascending)."""
@@ -218,6 +229,52 @@ _SIM_RUN_DONE: Dict[int, bool] = {}
 # Per-sim sweep abort flags: sim_id -> True if a new sweep requests existing loops to stop
 _SWEEP_ABORT: Dict[int, bool] = {}
 
+def _log_path_for_sim(sim_id: int) -> Optional[Path]:
+    """
+    Compute the per-run log file path for this sim_id, based on _RUN_TOKEN and the sim label.
+    Returns None if the run root cannot be determined.
+    """
+    try:
+        tt = _RUN_TOKEN.get(sim_id)
+        if not tt:
+            return None
+
+        with _connect() as conn, conn.cursor() as cur:
+            cur.execute("SELECT label FROM public.simulations WHERE id = %s", (sim_id,))
+            row = cur.fetchone()
+
+        if not row or not row[0]:
+            sim_label = f"Sim_{sim_id}"
+        else:
+            sim_label = row[0].strip()
+
+        run_root = Path("/data/simulations") / sim_label / tt
+        return run_root / "oe.log"
+
+    except Exception:
+        return None
+
+
+def _append_event_log(sim_id: int, event: dict) -> None:
+    """
+    Append a structured viewer event as one JSON line to the per-run oe.log.
+    Never raises; logging must not interfere with the runner.
+    """
+    try:
+        log_path = _log_path_for_sim(sim_id)
+        if log_path is None:
+            return
+
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+
+        to_write = dict(event)
+        to_write.setdefault("sim_id", sim_id)
+
+        with log_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(to_write, ensure_ascii=False) + "\n")
+
+    except Exception:
+        pass
 
 def request_abort_sweep(sim_id: int) -> None:
     """
@@ -639,6 +696,19 @@ def run(*, sim_id: int, kind: str | None = None, append_view: bool = False) -> N
             "metrics": "run_metrics_start",
             "both": "run_both_start",
         }.get(run_kind, "run_sim_start")
+
+        # If this is a metrics run inside a sweep, announce the sweep member.
+        try:
+            from igc.gui.sim_flow import _simlog_append
+            # This will be shown in the OE viewer log pane.
+            _simlog_append(
+                request.app,                     # FastAPI application state
+                sim_id,
+                f"[sweep] metrics sweep member starting"
+            )
+        except Exception:
+            pass
+
         _vlog(sim_id, status=start_status, frame=None, jobid=None)
     except Exception:
         # logging must not interfere with the runner
