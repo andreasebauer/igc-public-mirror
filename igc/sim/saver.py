@@ -99,3 +99,29 @@ def save_frame(store: Path,
     files["frame_info"] = str(header_path)
 
     return files
+
+def save_substep(store: Path,
+                 sim_label: str,
+                 frame: int,
+                 substep: int,
+                 *,
+                 psi: np.ndarray,
+                 pi: np.ndarray,
+                 eta: np.ndarray,
+                 phi_field: np.ndarray,
+                 phi_cone: Optional[np.ndarray] = None):
+    """
+    Save raw triad arrays for a single substep under:
+      Frame_XXXX/Sub_YY/
+    """
+    _, frame_dir = ensure_dirs(store, sim_label, frame)
+    subdir = frame_dir / f"Sub_{substep:02d}"
+    subdir.mkdir(parents=True, exist_ok=True)
+
+    np.save(subdir / "psi.npy",        psi)
+    np.save(subdir / "pi.npy",         pi)
+    np.save(subdir / "eta.npy",        eta)
+    np.save(subdir / "phi_field.npy",  phi_field)
+
+    if phi_cone is not None:
+        np.save(subdir / "phi_cone.npy", phi_cone)

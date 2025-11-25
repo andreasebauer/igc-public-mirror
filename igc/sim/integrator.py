@@ -12,7 +12,7 @@ from igc.sim.operators import (
 from igc.sim.kernels import pde_substep_jit
 from igc.sim.coupler import Coupler
 from igc.sim.injector import Injector
-from igc.sim.saver import save_frame, HeaderOptions
+from igc.sim.saver import save_frame, save_substep, HeaderOptions
 from igc.common.paths import ensure_dirs
 
 @dataclass(frozen=True)
@@ -21,6 +21,8 @@ class IntegratorConfig:
     dt_per_at: float = 1.0        # normalized; dt = dt_per_at / substeps_per_at
     dx: float = 1.0               # spatial step (for Laplacians / transport; default 1.0)
     stride_frames_at: int = 1     # save every N At (we’ll use 1 here)
+    save_substeps: bool = False        # if True, allow substep snapshots/diagnostics
+    substep_save_stride: int = 0       # save every N-th substep (0 = none, 1 = all)
 
 class Integrator:
     """Minimal fused integrator: reversible ψ–π + local η/φ feedback."""
@@ -141,6 +143,7 @@ class Integrator:
                 lambda_phi = K["lambda_phi"]
                 C_pi_to_eta = K["C_pi_to_eta"]
                 C_eta_to_phi = K["C_eta_to_phi"]
+                k_psi_restore = float(K.get("k_psi_restore", 1.0))                
                 # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
                 C_gradpsi_to_phi = 1.0
 
@@ -151,8 +154,24 @@ class Integrator:
                     D_psi, D_eta, D_phi,
                     lambda_eta, lambda_phi,
                     C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+                    k_psi_restore,
                     dx, dt,
                 )
+
+                # 2b) optionally save this substep for diagnostics (before buffer swap)
+                if self.cfg.save_substeps and self.cfg.substep_save_stride > 0:
+                    if (sub % self.cfg.substep_save_stride) == 0:
+                        save_substep(
+                            store,
+                            sim_label,
+                            frame,
+                            sub,
+                            psi=psi_next,
+                            pi=pi_next,
+                            eta=eta_next,
+                            phi_field=phi_field_next,
+                            phi_cone=phi_cone_next,
+                        )                
 
                 # 3) swap buffers so updated fields become current for next substep
                 psi, psi_next = psi_next, psi

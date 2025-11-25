@@ -25,6 +25,7 @@ def pde_substep_jit(
     D_psi, D_eta, D_phi,
     lambda_eta, lambda_phi,
     C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+    k_psi_restore,
     dx, dt,
 ):
     Nx, Ny, Nz = psi.shape
@@ -99,7 +100,7 @@ def pde_substep_jit(
                 skin_zm = dx_zm*dx_zm if dx_zm > 0.0 else 0.0
 
                 # --- π, ψ updates (reversible SHO + gated transport) ---
-                pi_new  = pi_here + dt * (-psi_here + D_psi * div_flux_psi)
+                pi_new  = pi_here + dt * (-k_psi_restore * psi_here + D_psi * div_flux_psi)
                 psi_new = psi_here + dt * pi_new
 
                 # --- η update (halo) ---

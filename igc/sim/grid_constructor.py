@@ -2,7 +2,7 @@
 GridConstructor: builds the humming, meta-stable vacuum state
 - f64 fields: psi, pi, eta, phi_field
 - lawful phase diversity via a Kronecker/Fibonacci phase pattern
-- phi_field = 1.0 (open), eta ~ 1e-12 (tiny), psi ~ 0, pi tiny lawful
+- phi_field, eta ~ 1e-12 (tiny), psi, pi carry tiny lawful hum (A ~ 1e-3)
 """
 from dataclasses import dataclass
 from typing import Tuple
@@ -54,11 +54,12 @@ def build_humming_grid(cfg: GridConfig,
     # directional cones: start nearly closed in all 6 directions
     phi_cone = np.full((6, Nx, Ny, Nz), 1e-12, dtype=np.float64)
 
-    # lawful tiny momentum to start the hum, phase-distributed
+    # lawful tiny SHO hum to start the grid, phase-distributed via Kronecker/Fibonacci pattern
     phase = _kronecker_phases(cfg.shape)  # [0,1)
-    # center ε for momentum; small enough to stay within tiny hum regime
-    eps = 1e-12
-    pi += eps * np.cos(2*np.pi*phase)
+    # Hum amplitude A: small compared to seeds but large enough to be above numerical floor
+    A = 1e-1
+    psi = A * np.cos(2 * np.pi * phase)
+    pi  = A * np.sin(2 * np.pi * phase)
 
     state = GridState(
         psi=psi,
