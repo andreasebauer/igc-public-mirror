@@ -10,163 +10,220 @@
 {% block content %}
 
 <section class="igc-page">
+  <div class="frame">
 
-  <!-- MAIN: single card with sweep configuration, matching sim_edit layout -->
-  <section class="card">
-    <form id="sweepForm" method="post" action="{{ request.url_for('sim_sweep_post') }}" novalidate>
-      <input type="hidden" name="sim_id" value="{{ sim_id }}">
-      <input type="hidden" name="sweep_type" value="substrate_D">
+    <!-- MAIN: single card with sweep configuration, matching sim_edit layout -->
+    <section class="card">
+      <form id="sweepForm" method="post" action="{{ request.url_for('sim_sweep_post') }}" novalidate>
+        <input type="hidden" name="sim_id" value="{{ sim_id }}">
+        <input type="hidden" name="sweep_type" value="substrate_param">
 
-      {# Base simulation info row #}
-      <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline">
-          <div class="igc-name">Base simulation</div>
-        </div>
-        <div class="igc-cell igc-cell--right">
-          <div class="igc-desc-text">
-            {{ base.label or ('#' ~ base.id) }}{% if base.name %} — {{ base.name }}{% endif %}
-          </div>
-        </div>
-      </div>
-
-      {# Diffusion sweep: d_ψ start / end / steps #}
-      <section class="section">
-        <h2 class="section__title">Diffusion (d_ψ) sweep</h2>
-
+        {# Base simulation info row #}
         <div class="igc-row">
           <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_dpsi_start">d_ψ — start</label>
+            <div class="igc-name">Base simulation</div>
           </div>
           <div class="igc-cell igc-cell--right">
-            <input id="fld_dpsi_start"
-                   class="igc-input"
-                   type="number"
-                   step="0.01"
-                   name="d_psi_start"
-                   value="0.10">
+            <div class="igc-desc-text">
+              {{ base.label or ('#' ~ base.id) }}{% if base.name %} — {{ base.name }}{% endif %}
+            </div>
           </div>
         </div>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_dpsi_end">d_ψ — end</label>
-          </div>
-          <div class="igc-cell igc-cell--right">
-            <input id="fld_dpsi_end"
-                   class="igc-input"
-                   type="number"
-                   step="0.01"
-                   name="d_psi_end"
-                   value="1.00">
-          </div>
-        </div>
+        {# Sweep parameter selection: left = dropdown, right = description #}
+        <section class="section">
+          <h2 class="section__title">Sweep parameter</h2>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_dpsi_steps">Steps</label>
+          <div class="igc-row">
+            <div class="igc-cell igc-cell--left">
+              <select id="fld_sweep_param" name="sweep_param" class="igc-input">
+                <option value="dt_per_at">dt_per_at</option>
+                <option value="dx">dx</option>
+                <option value="phi_threshold">phi_threshold</option>                
+                <option value="d_psi" selected>d_psi</option>
+                <option value="d_eta">d_eta</option>
+                <option value="d_phi">d_phi</option>
+                <option value="c_eta_to_phi">c_eta_to_phi</option>
+                <option value="c_psi_to_phi">c_psi_to_phi</option>
+                <option value="c_phi_to_psi">c_phi_to_psi</option>
+                <option value="c_psi_to_eta">c_psi_to_eta</option>
+                <option value="c_eta_to_psi">c_eta_to_psi</option>
+                <option value="lambda_psi">lambda_psi</option>
+                <option value="lambda_eta">lambda_eta</option>
+                <option value="lambda_phi">lambda_phi</option>
+                <option value="c_pi_to_eta">c_pi_to_eta</option>
+                <option value="gamma_pi">gamma_pi</option>                                   
+                <option value="k_psi_restore">k_psi_restore</option>
+              </select>
+            </div>
+            <div class="igc-cell igc-cell--right">
+              <div id="sweepParamDesc" class="igc-desc-text"></div>
+            </div>
           </div>
-          <div class="igc-cell igc-cell--right">
-            <input id="fld_dpsi_steps"
-                   class="igc-input"
-                   type="number"
-                   min="1"
-                   max="64"
-                   name="d_psi_steps"
-                   value="5">
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {# Tie other diffusions (optional) #}
-      <section class="section">
-        <h2 class="section__title">Tie other diffusions (optional)</h2>
+        {# Sweep range: Start / End / Steps / t_max (Ats) #}
+        <section class="section">
+          <h2 class="section__title">Sweep range</h2>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_deta_mode">Tie d_η = factor · d_ψ</label>
+          <div class="igc-row">
+            <div class="igc-cell igc-cell--left igc-inline">
+              <label class="igc-name" for="fld_sweep_start">Start</label>
+            </div>
+            <div class="igc-cell igc-cell--right">
+              <input id="fld_sweep_start"
+                     class="igc-input"
+                     type="number"
+                     step="0.01"
+                     name="d_psi_start"
+                     value="0.10">
+            </div>
           </div>
-          <div class="igc-cell igc-cell--right">
-            <select id="fld_deta_mode" name="d_eta_mode" class="igc-input">
-              <option value="none" selected>Do not change d_η</option>
-              <option value="tie">Tie to d_ψ</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_deta_factor">d_η factor</label>
+          <div class="igc-row">
+            <div class="igc-cell igc-cell--left igc-inline">
+              <label class="igc-name" for="fld_sweep_end">End</label>
+            </div>
+            <div class="igc-cell igc-cell--right">
+              <input id="fld_sweep_end"
+                     class="igc-input"
+                     type="number"
+                     step="0.01"
+                     name="d_psi_end"
+                     value="1.00">
+            </div>
           </div>
-          <div class="igc-cell igc-cell--right">
-            <input id="fld_deta_factor"
-                   class="igc-input"
-                   type="number"
-                   step="0.1"
-                   name="d_eta_factor"
-                   value="0.5">
-          </div>
-        </div>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_dphi_mode">Tie d_φ = factor · d_ψ</label>
+          <div class="igc-row">
+            <div class="igc-cell igc-cell--left igc-inline">
+              <label class="igc-name" for="fld_sweep_steps">Steps</label>
+            </div>
+            <div class="igc-cell igc-cell--right">
+              <input id="fld_sweep_steps"
+                     class="igc-input"
+                     type="number"
+                     min="1"
+                     max="64"
+                     name="d_psi_steps"
+                     value="5">
+            </div>
           </div>
-	          <div class="igc-cell igc-cell--right">
-            <select id="fld_dphi_mode" name="d_phi_mode" class="igc-input">
-              <option value="none" selected>Do not change d_φ</option>
-              <option value="tie">Tie to d_ψ</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_dphi_factor">d_φ factor</label>
+          <div class="igc-row">
+            <div class="igc-cell igc-cell--left igc-inline">
+              <label class="igc-name" for="fld_tmax_override">t_max (Ats)</label>
+            </div>
+            <div class="igc-cell igc-cell--right">
+              <input id="fld_tmax_override"
+                     class="igc-input"
+                     type="number"
+                     min="1"
+                     name="t_max_override"
+                     placeholder="{{ base.t_max }}">
+            </div>
           </div>
-          <div class="igc-cell igc-cell--right">
-            <input id="fld_dphi_factor"
-                   class="igc-input"
-                   type="number"
-                   step="0.1"
-                   name="d_phi_factor"
-                   value="0.1">
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {# Time / frames override #}
-      <section class="section">
-        <h2 class="section__title">Time / frames</h2>
+      </form>
+    </section>  {# .card #}
 
-        <div class="igc-row">
-          <div class="igc-cell igc-cell--left igc-inline">
-            <label class="igc-name" for="fld_tmax_override">t_max (Ats)</label>
-          </div>
-          <div class="igc-cell igc-cell--right">
-            <input id="fld_tmax_override"
-                   class="igc-input"
-                   type="number"
-                   min="1"
-                   name="t_max_override"
-                   placeholder="{{ base.t_max }}">
-          </div>
-        </div>
-      </section>
-
-    </form>
-  </section>
-
-</section>
+  </div>        {# .frame #}
+</section>      {# .igc-page #}
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const f    = document.getElementById('sweepForm');
   const next = document.querySelector('footer.card .actions-right a');
+
   if (next && f) {
     next.addEventListener('click', (ev) => {
       ev.preventDefault();
       f.submit();
     });
+  }
+
+  // Sweep param description handling
+  const paramSelect = document.getElementById('fld_sweep_param');
+  const descEl      = document.getElementById('sweepParamDesc');
+
+  const paramDescriptions = {
+    "dt_per_at":      "Temporal resolution: number of dt steps per At (integration cadence).",
+    "dx":             "Spatial grid spacing; controls physical resolution and diffusion length scale.",
+    "phi_threshold":  "Mask to see stuff. Like a lense",
+    "d_psi":          "Diffusion coefficient for ψ (coherence field).",
+    "d_eta":          "Diffusion coefficient for η (halo field).",
+    "d_phi":          "Diffusion coefficient for φ (cones / gating field).",
+    "c_pi_to_eta":    "Coupling strength from π to η (how strongly base oscillation drives η).",
+    "c_eta_to_phi":   "Coupling strength from η to φ (halo → cones / gating).",
+    "lambda_eta":     "Decay rate λ for η (how fast η relaxes).",
+    "c_psi_to_phi":   "Coupling strength from ψ to φ (coherence → cones / gating).",
+    "c_phi_to_psi":   "Coupling strength from φ to ψ (cones / gating → coherence feedback).",
+    "c_psi_to_eta":   "Coupling strength from ψ to η (coherence → halo).",
+    "c_eta_to_psi":   "Coupling strength from η to ψ (halo → coherence feedback).",
+    "lambda_psi":     "Decay rate λ for ψ (how fast ψ relaxes).",
+    "lambda_phi":     "Decay rate λ for φ (how fast φ relaxes).",
+    "gamma_pi":       "Drive/source term γ for π (base excitation strength).",
+    "k_psi_restore":  "Restoring spring constant for ψ (strength of ψ pull-back towards baseline)."
+  };
+
+  function updateDescription() {
+    if (!paramSelect || !descEl) return;
+    const key = paramSelect.value;
+    descEl.textContent = paramDescriptions[key] || "";
+  }
+
+  if (paramSelect && descEl) {
+    paramSelect.addEventListener('change', updateDescription);
+    updateDescription(); // initial fill
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const f    = document.getElementById('sweepForm');
+  const next = document.querySelector('footer.card .actions-right a');
+
+  if (next && f) {
+    next.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      f.submit();
+    });
+  }
+
+  // Sweep param description handling
+  const paramSelect = document.getElementById('fld_sweep_param');
+  const descEl      = document.getElementById('sweepParamDesc');
+
+  const paramDescriptions = {
+    "dt_per_at":      "Temporal resolution: number of dt steps per At (affects integration cadence).",
+    "dx":             "Spatial grid spacing; controls physical resolution and effective diffusion length scale.",
+    "phi_threshold":  "Mask to see stuff. Like a lense",
+    "d_psi":          "Diffusion coefficient for ψ (coherence field).",
+    "d_eta":          "Diffusion coefficient for η (halo field).",
+    "d_phi":          "Diffusion coefficient for φ (cones / gating field).",
+    "c_pi_to_eta":    "Coupling strength from π to η (how strongly base oscillation drives η).",
+    "c_eta_to_phi":   "Coupling strength from η to φ (halo → cones / gating).",
+    "lambda_eta":     "Decay rate λ for η (how fast η relaxes).",
+    "c_psi_to_phi":   "Coupling strength from ψ to φ (coherence → cones / gating).",
+    "c_phi_to_psi":   "Coupling strength from φ to ψ (cones / gating → coherence feedback).",
+    "c_psi_to_eta":   "Coupling strength from ψ to η (coherence → halo).",
+    "c_eta_to_psi":   "Coupling strength from η to ψ (halo → coherence feedback).",
+    "lambda_psi":     "Decay rate λ for ψ (how fast ψ relaxes).",
+    "gamma_pi":       "Drive/source term γ for π (base excitation strength).",
+    "lambda_phi":    "Decay rate λ for φ (how fast φ relaxes).",
+    "k_psi_restore":  "Restoring spring constant for ψ (strength of ψ pull-back towards baseline)."
+  };
+
+  function updateDescription() {
+    if (!paramSelect || !descEl) return;
+    const key = paramSelect.value;
+    descEl.textContent = paramDescriptions[key] || "";
+  }
+
+  if (paramSelect && descEl) {
+    paramSelect.addEventListener('change', updateDescription);
+    updateDescription(); // initial fill for default selection
   }
 });
 </script>

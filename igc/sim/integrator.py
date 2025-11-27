@@ -139,21 +139,33 @@ class Integrator:
                 D_psi = K["D_psi"]
                 D_eta = K["D_eta"]
                 D_phi = K["D_phi"]
+
                 lambda_eta = K["lambda_eta"]
                 lambda_phi = K["lambda_phi"]
+                lambda_psi = float(K.get("lambda_psi", 0.0))
+
                 C_pi_to_eta = K["C_pi_to_eta"]
                 C_eta_to_phi = K["C_eta_to_phi"]
-                k_psi_restore = float(K.get("k_psi_restore", 1.0))                
-                # gradient → phi coupling (for now fixed; later can be exposed via CouplerConfig)
-                C_gradpsi_to_phi = 1.0
+                C_psi_to_phi = float(K.get("C_psi_to_phi", 1.0))
+                C_phi_to_psi = float(K.get("C_phi_to_psi", 1.0))
+                C_psi_to_eta = float(K.get("C_psi_to_eta", 0.0))
+                C_eta_to_psi = float(K.get("C_eta_to_psi", 0.0))
+
+                gamma_pi = float(K.get("gamma_pi", 0.0))
+                k_psi_restore = float(K.get("k_psi_restore", 1.0))
+
+                # gradient → phi coupling previously fixed at 1.0; now mapped from C_psi_to_phi
+                C_gradpsi_to_phi = C_psi_to_phi
 
                 # 2) fused PDE substep (Numba kernel)
                 pde_substep_jit(
                     psi, pi, eta, phi_cone, phi_field,
                     psi_next, pi_next, eta_next, phi_cone_next, phi_field_next,
                     D_psi, D_eta, D_phi,
-                    lambda_eta, lambda_phi,
+                    lambda_eta, lambda_phi, lambda_psi,
                     C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+                    C_psi_to_eta, C_eta_to_psi, C_phi_to_psi,
+                    gamma_pi,
                     k_psi_restore,
                     dx, dt,
                 )

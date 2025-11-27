@@ -88,34 +88,10 @@ def finalize_seeded_jobs(*, sim_id: int) -> int:
 
         # Render canonical path from templates
         final_path = _render_path_from_registry(j, ext)
-        # Ensure output hints & estimates are present on the job row
-        try:
-            _out_type = j.get("output_type") or None
-            with _connect() as _c, _c.cursor() as _cur:
-                _cur.execute("""
-                    UPDATE public.simmetjobs
-                    SET output_extension = %s,
-                        output_type      = COALESCE(output_type, %s),
-                        mime_type        = %s,
-                        output_size_bytes= COALESCE(output_size_bytes, %s),
-                        mem_grid_mb      = COALESCE(mem_grid_mb, %s),
-                        mem_pipeline_mb  = COALESCE(mem_pipeline_mb, %s),
-                        mem_total_mb     = COALESCE(mem_total_mb, %s)
-                    WHERE jobid = %s
-                """, (
-                    ext,
-                    _out_type,
-                    "application/octet-stream",
-                    _bytes_per_field,
-                    _mem_grid_mb,
-                    _mem_pipeline_mb,
-                    _mem_total_mb,
-                    job_id,
-                ))
-                _c.commit()
-        except Exception:
-            pass        
 
+        # Per-job attributes (type, path, phase/frame) go through the ledger helper.
+        # We no longer set output_size_bytes/mem_* per job here; they will be filled
+        # in a single bulk UPDATE per sim_id after the loop.
         job_type = f"step_{step}"
         ledger.update_seeded_job(
             job_id=job_id,
@@ -128,6 +104,36 @@ def finalize_seeded_jobs(*, sim_id: int) -> int:
         )
 
         finalized += 1
+
+    # After all unresolved jobs are finalized, ensure size/memory hints are set once
+    # per sim_id. This replaces the previous per-job UPDATE: we assume that all jobs
+    # for a given sim share the same grid-based size estimate.
+    try:
+        with _connect() as _c, _c.cursor() as _cur:
+            _cur.execute(
+                """
+                UPDATE public.simmetjobs
+                SET
+                    output_size_bytes = COALESCE(output_size_bytes, %s),
+                    mem_grid_mb       = COALESCE(mem_grid_mb, %s),
+                    mem_pipeline_mb   = COALESCE(mem_pipeline_mb, %s),
+                    mem_total_mb      = COALESCE(mem_total_mb, %s)
+                WHERE simid = %s
+                  AND (output_size_bytes IS NULL OR mem_grid_mb IS NULL OR mem_total_mb IS NULL)
+                """,
+                (
+                    _bytes_per_field,
+                    _mem_grid_mb,
+                    _mem_pipeline_mb,
+                    _mem_total_mb,
+                    sim_id,
+                ),
+            )
+            _c.commit()
+    except Exception:
+        # Size/memory hints are best-effort only; progress will still work based on job counts.
+        pass
+
     return finalized
 
 
@@ -188,6 +194,27 @@ def _install_signal_handlers():
 # { sim_id: deque([{"seq":int,"ts":iso,"status":str,"frame":int,"jobid":int,"path":str,"filename":str,"ms":int}, ...]) }
 _VIEW = defaultdict(lambda: deque(maxlen=20000))
 _SEQ  = defaultdict(int)
+
+def clear_viewer_events(sim_id: int) -> None:
+    """
+    Drop in-memory viewer state for this sim_id.
+    Used when starting a fresh run/sweep so OE viewer doesn't replay old events,
+    and so fused runs (_run_sim_suite_for_sim) can be executed again.
+    """
+    sid = int(sim_id)
+    try:
+        _VIEW.pop(sid, None)
+    except Exception:
+        pass
+    try:
+        _SEQ.pop(sid, None)
+    except Exception:
+        pass
+    try:
+        # Allow a fresh fused run for this sim (e.g. reruns, sweeps)
+        _SIM_RUN_DONE.pop(sid, None)
+    except Exception:
+        pass
 
 def _vlog(sim_id: int, *, status: str, frame: int | None = None, jobid: int | None = None,
           path: str | None = None, filename: str | None = None, ms: int | None = None) -> None:
@@ -525,10 +552,21 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
         D_psi=float(sim.get("d_psi") or 0.0),
         D_eta=float(sim.get("d_eta") or 0.0),
         D_phi=float(sim.get("d_phi") or 0.0),
+
         C_pi_to_eta=float(sim.get("c_pi_to_eta") or 1.0),
         C_eta_to_phi=float(sim.get("c_eta_to_phi") or 1.0),
+        C_psi_to_phi=float(sim.get("c_psi_to_phi") or 1.0),
+        C_phi_to_psi=float(sim.get("c_phi_to_psi") or 1.0),
+        C_psi_to_eta=float(sim.get("c_psi_to_eta") or 0.0),
+        C_eta_to_psi=float(sim.get("c_eta_to_psi") or 0.0),
+
         lambda_eta=float(sim.get("lambda_eta") or 1.0),
         lambda_phi=float(sim.get("lambda_phi") or 1.0),
+        lambda_psi=float(sim.get("lambda_psi") or 0.0),
+
+        gamma_pi=float(sim.get("gamma_pi") or 0.0),        
+
+        k_psi_restore=float(sim.get("k_psi_restore") or 1.0),
         gate=str(sim.get("gate_name") or "linear"),
     )
     coupler = Coupler(coupler_cfg)
@@ -575,14 +613,28 @@ def _run_sim_suite_for_sim(sim_id: int) -> None:
 
     injector = Injector(events)
 
-    # 5) Integrator configuration (dt, dx) and At range from seeded frames
-    # Derive t_max from the seeded frame window so PDE length always matches
-    # what OE/SimMetricJobs planned (0..maxSeeded).
+    # 5) Integrator configuration (dt, dx) and At range.
+    #
+    # New behaviour:
+    #   - Prefer simulations.t_max when present (sweep / fused runs).
+    #   - Fall back to maxSeeded+1 from simmetjobs if needed.
+    #
+    # This avoids the old behaviour where t_max was always derived from
+    # seeded jobs, which is wrong for direct fused runs (e.g. sweeps)
+    # that do not seed SimMetricJobs for each frame.
     stats = ledger.fetch_frame_stats(sim_id=sim_id)
-    max_seeded = int(stats.get("maxSeeded", 0))
-    t_max = max_seeded + 1
+    max_seeded = int(stats.get("maxSeeded", -1))
+
+    # Prefer explicit t_max from simulations row
+    t_max = int(sim.get("t_max") or 0)
+    if t_max <= 0 and max_seeded >= 0:
+        t_max = max_seeded + 1
+
     if t_max <= 0:
-        raise RuntimeError(f"no seeded frames for sim {sim_id} (maxSeeded={max_seeded})")
+        raise RuntimeError(
+            f"no valid t_max for sim {sim_id} "
+            f"(sim.t_max={sim.get('t_max')}, maxSeeded={max_seeded})"
+        )
 
     integ_cfg = IntegratorConfig(
         substeps_per_at=substeps_per_at,

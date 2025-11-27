@@ -36,38 +36,99 @@ def read_sim_meta(abs_path: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
             # Use the first member as base sim
             meta_path = member_meta_paths[0]
 
-            # Compute sweep info (for d_psi) across all members, if available
-            d_psi_vals = []
+            # Compute sweep info across all members.
+            # Prefer sweep_param/sweep_value from sim_meta.json (new generic sweeps).
+            # Fall back to d_psi if no generic sweep metadata is present (legacy d_psi sweeps).
+            generic_param = None
+            generic_vals: list[float] = []
+            dpsi_vals: list[float] = []
+
             for mp in member_meta_paths:
                 try:
                     with open(mp, "r") as fh:
                         data = json.load(fh)
-                    v = data.get("d_psi")
-                    if isinstance(v, (int, float, str)):
-                        try:
-                            d_psi_vals.append(float(v))
-                        except Exception:
-                            pass
                 except Exception:
                     continue
 
-            d_psi_vals = sorted(d_psi_vals)
-            sweep_count = len(d_psi_vals)
-            d_psi_start = d_psi_vals[0] if sweep_count >= 1 else None
-            d_psi_end = d_psi_vals[-1] if sweep_count >= 1 else None
-            if sweep_count > 1 and d_psi_start is not None and d_psi_end is not None:
-                d_psi_step = (d_psi_end - d_psi_start) / (sweep_count - 1)
-            else:
-                d_psi_step = None
+                # New-style sweep metadata
+                sp = data.get("sweep_param")
+                sv = data.get("sweep_value")
+                if sp is not None and sv is not None:
+                    if generic_param is None:
+                        generic_param = sp
+                    # If multiple members disagree on sweep_param, ignore mismatches.
+                    if sp != generic_param:
+                        continue
+                    try:
+                        generic_vals.append(float(sv))
+                    except Exception:
+                        continue
+                    continue
 
-            sweep_info = {
-                "_is_sweep": True,
-                "_sweep_root": abs_path,
-                "_sweep_count": sweep_count,
-                "_sweep_d_psi_start": d_psi_start,
-                "_sweep_d_psi_end": d_psi_end,
-                "_sweep_d_psi_step": d_psi_step,
-            }
+                # Legacy d_psi-only sweeps
+                v = data.get("d_psi")
+                if isinstance(v, (int, float, str)):
+                    try:
+                        dpsi_vals.append(float(v))
+                    except Exception:
+                        pass
+
+            sweep_info = None
+
+            # Prefer generic sweep_param / sweep_value if present
+            if generic_param is not None and generic_vals:
+                vals = sorted(generic_vals)
+                sweep_count = len(vals)
+                start = vals[0] if sweep_count >= 1 else None
+                end = vals[-1] if sweep_count >= 1 else None
+                if sweep_count > 1 and start is not None and end is not None:
+                    step = (end - start) / (sweep_count - 1)
+                else:
+                    step = None
+
+                sweep_info = {
+                    "_is_sweep": True,
+                    "_sweep_root": abs_path,
+                    "_sweep_count": sweep_count,
+                    "_sweep_param": generic_param,
+                    "_sweep_start": start,
+                    "_sweep_end": end,
+                    "_sweep_step": step,
+                }
+
+                # For compatibility with older templates that still refer to d_psi keys
+                if generic_param == "d_psi":
+                    sweep_info["_sweep_d_psi_start"] = start
+                    sweep_info["_sweep_d_psi_end"] = end
+                    sweep_info["_sweep_d_psi_step"] = step
+
+            # Fallback: old d_psi-only sweeps
+            elif dpsi_vals:
+                vals = sorted(dpsi_vals)
+                sweep_count = len(vals)
+                d_psi_start = vals[0] if sweep_count >= 1 else None
+                d_psi_end = vals[-1] if sweep_count >= 1 else None
+                if sweep_count > 1 and d_psi_start is not None and d_psi_end is not None:
+                    d_psi_step = (d_psi_end - d_psi_start) / (sweep_count - 1)
+                else:
+                    d_psi_step = None
+
+                sweep_info = {
+                    "_is_sweep": True,
+                    "_sweep_root": abs_path,
+                    "_sweep_count": sweep_count,
+                    "_sweep_param": "d_psi",
+                    "_sweep_start": d_psi_start,
+                    "_sweep_end": d_psi_end,
+                    "_sweep_step": d_psi_step,
+                    "_sweep_d_psi_start": d_psi_start,
+                    "_sweep_d_psi_end": d_psi_end,
+                    "_sweep_d_psi_step": d_psi_step,
+                }
+
+            if sweep_info is None:
+                # No usable sweep info; still treat as sim_root but without sweep summary
+                pass
         else:
             raise ValueError("sim_meta.json not found in selected folder.")
 

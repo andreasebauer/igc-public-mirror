@@ -4,7 +4,18 @@
   {% if preview._is_sweep %}
     <p class="muted" style="margin-bottom: 0.5rem;">
       Sweep over {{ preview._sweep_count }} runs
-      {% if preview._sweep_d_psi_start is not none and preview._sweep_d_psi_end is not none %}
+      {# Prefer generic sweep_param / start / end / step #}
+      {% set p = preview._sweep_param %}
+      {% set s = preview._sweep_start %}
+      {% set e = preview._sweep_end %}
+      {% set step = preview._sweep_step %}
+      {% if p and s is not none and e is not none %}
+        · {{ p }}: {{ s }} → {{ e }}
+        {% if step is not none %}
+          (Δ ≈ {{ step }})
+        {% endif %}
+      {% elif preview._sweep_d_psi_start is not none and preview._sweep_d_psi_end is not none %}
+        {# Backward compat: legacy d_psi-only sweeps #}
         · d_ψ: {{ preview._sweep_d_psi_start }} → {{ preview._sweep_d_psi_end }}
         {% if preview._sweep_d_psi_step is not none %}
           (Δ ≈ {{ preview._sweep_d_psi_step }})

@@ -403,11 +403,18 @@ def metrics_save(
     metric_ids: List[int] = Form([]),
     run_root: str = Form(""),
 ):
-    # Clear any leftover OE viewer notes for this sim before a fresh metrics run
+    # Clear any leftover OE viewer notes/events for this sim before a fresh metrics run
     try:
         st = getattr(request.app, "state", None)
         if st is not None and hasattr(st, "_oe_log"):
             st._oe_log.pop(int(sim_id), None)
+    except Exception:
+        pass
+
+    try:
+        from igc.oe import core as oe_core
+        if hasattr(oe_core, "clear_viewer_events"):
+            oe_core.clear_viewer_events(sim_id)
     except Exception:
         pass
 
@@ -578,6 +585,20 @@ def metrics_save(
                 except Exception:
                     # Do not abort the entire sweep on a single member failure
                     continue
+
+            # After finishing all members, build sweep-level master bundles
+            try:
+                from igc.metrics.bundle import bundle_metrics_for_sweep
+                bundle_metrics_for_sweep(Path(run_root), members)
+            except Exception:
+                try:
+                    _simlog_append(
+                        request.app,
+                        sim_id,
+                        "[sweep] metrics sweep bundling failed; see server logs."
+                    )
+                except Exception:
+                    pass
 
             # After finishing all members, announce completion and clear abort flag
             try:

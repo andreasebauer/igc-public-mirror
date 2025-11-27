@@ -57,7 +57,7 @@ def build_humming_grid(cfg: GridConfig,
     # lawful tiny SHO hum to start the grid, phase-distributed via Kronecker/Fibonacci pattern
     phase = _kronecker_phases(cfg.shape)  # [0,1)
     # Hum amplitude A: small compared to seeds but large enough to be above numerical floor
-    A = 1e-1
+    A = 1e-2
     psi = A * np.cos(2 * np.pi * phase)
     pi  = A * np.sin(2 * np.pi * phase)
 

@@ -23,8 +23,10 @@ def pde_substep_jit(
     psi, pi, eta, phi_cone, phi_field,
     psi_next, pi_next, eta_next, phi_cone_next, phi_field_next,
     D_psi, D_eta, D_phi,
-    lambda_eta, lambda_phi,
+    lambda_eta, lambda_phi, lambda_psi,
     C_pi_to_eta, C_eta_to_phi, C_gradpsi_to_phi,
+    C_psi_to_eta, C_eta_to_psi, C_phi_to_psi,
+    gamma_pi,    
     k_psi_restore,
     dx, dt,
 ):
@@ -68,7 +70,7 @@ def pde_substep_jit(
                 flux += phi_ym * (psi_jm       - psi_here)
                 flux += phi_zp * (psi_kp       - psi_here)
                 flux += phi_zm * (psi_km       - psi_here)
-                div_flux_psi = flux * inv_dx2
+                div_flux_psi = C_phi_to_psi * flux * inv_dx2
 
                 # --- η Laplacian ---
                 lap_eta = (
@@ -99,8 +101,14 @@ def pde_substep_jit(
                 skin_zp = dx_zp*dx_zp if dx_zp > 0.0 else 0.0
                 skin_zm = dx_zm*dx_zm if dx_zm > 0.0 else 0.0
 
-                # --- π, ψ updates (reversible SHO + gated transport) ---
-                pi_new  = pi_here + dt * (-k_psi_restore * psi_here + D_psi * div_flux_psi)
+                # --- π, ψ updates (reversible SHO + gated transport + η→ψ coupling) ---
+                pi_new  = pi_here + dt * (
+                    -k_psi_restore * psi_here
+                    - lambda_psi * pi_here         # damping on π
+                    + gamma_pi                     # constant drive term                    
+                    + D_psi * div_flux_psi
+                    + C_eta_to_psi * eta_here
+                )
                 psi_new = psi_here + dt * pi_new
 
                 # --- η update (halo) ---
@@ -108,6 +116,7 @@ def pde_substep_jit(
                     D_eta * lap_eta
                     - lambda_eta * eta_here
                     + C_pi_to_eta * abs(pi_new)
+                    + C_psi_to_eta * abs(psi_here)
                 )
 
                 # --- directional cone updates ---

@@ -178,20 +178,56 @@
   let sweepLabel = "";
   let lastPct = 0;
 
-  // Aggregation state for metric jobs: sum durations per (frame, metric)
-  const metricAgg = new Map();    // key "frame::name" -> total ms
+  // Aggregation state for metric jobs: sum durations per (frame, metric) within a run
+  const metricAgg = new Map();    // key "frame::name" -> total ms in this metrics run
   const metricLines = new Map();  // key "frame::name" -> DOM element
+
+  // Track durations per job so we can estimate metric runtimes
   const jobDur = new Map();       // key jobid -> last frame_done ms
-  	  // Track frames so we can prune older ones from the log
-	  const frameOrder = [];
-	  const frameKeys = new Map();  // frame -> [metric keys]
+
+  // Track metric log lines per frame so we can prune older frames from the log.
+  const frameOrder = [];          // list of frame identifiers in order of appearance
+  const frameNodes = new Map();   // frameKey -> [DOM nodes for that frame]
+
+  const resetMetricAggregation = () => {
+    // Remove metric lines from the log pane
+    metricLines.forEach((div) => {
+      if (div && div.parentNode) {
+        div.parentNode.removeChild(div);
+      }
+    });
+    metricLines.clear();
+    metricAgg.clear();
+    jobDur.clear();
+    frameOrder.length = 0;
+    frameKeys.clear();
+  };
+
+  const MAX_LOG_LINES = 500; // hard cap for all log lines in the viewer
 
   const appendLine = (txt, className) => {
+    if (!logEl) return;
+
     const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
+
     const div = document.createElement('div');
     div.className = className ? `log-line ${className}` : 'log-line';
     div.textContent = txt;
     logEl.appendChild(div);
+
+    // Global pruning: keep only the last MAX_LOG_LINES entries in the log pane.
+    // Remove older nodes from the top to keep the DOM small and responsive.
+    const children = logEl.children;
+    const extra = children.length - MAX_LOG_LINES;
+    if (extra > 0) {
+      for (let i = 0; i < extra; i++) {
+        const node = children[0];
+        if (node) {
+          logEl.removeChild(node);
+        }
+      }
+    }
+
     if (atBottom) {
       logEl.scrollTop = logEl.scrollHeight;
     }
@@ -299,7 +335,7 @@
     } catch (e) {
       /* ignore */
     } finally {
-      setTimeout(pollGauges, 1000);
+      setTimeout(pollGauges, 100);
     }
   }
 
@@ -316,23 +352,17 @@
             const msg = n.message;
             appendLine(`[note] ${msg}`, 'log-note');
 
-             // If this is a sweep note, reuse it in the progress header
-             if (msg.startsWith("[sweep]")) {
-               sweepLabel = msg.replace(/^\[sweep\]\s*/, "");
- 
-               // For metrics sweeps, start each member at 0% again so the bar
-               // smoothly ramps from 0→100% per member, not across the whole sweep.
-               if (msg.includes("metrics sweep")) {
-                 lastPct = 0;
-               }
- 
-               const sub = document.getElementById("ov-sub");
-               if (sub) {
-                 // temporary: will be combined with stats on next pollProgress
-                 sub.textContent = sweepLabel;
-               }
-             }
-           }
+            // If this is a sweep note, reuse it in the progress header
+            if (msg.startsWith("[sweep]")) {
+              sweepLabel = msg.replace(/^\[sweep\]\s*/, "");
+
+              const sub = document.getElementById("ov-sub");
+              if (sub) {
+                // temporary: will be combined with stats on next pollProgress
+                sub.textContent = sweepLabel;
+              }
+            }
+          }
          }
        }
       // in-memory viewer events: frame_start, file_written, frame_done, run_complete
@@ -349,13 +379,7 @@
             // Show the sweep line in the log pane
             appendLine(msg, 'log-note');
 
-            // If this is a metrics sweep, reset the local progress so the bar
-            // ramps 0→100% for each member.
-            if (msg.includes("metrics sweep")) {
-              lastPct = 0;
-            }
-
-            // Also reflect this in the overview subtitle
+            // Reflect this in the overview subtitle
             const sub = document.getElementById("ov-sub");
             if (sub) {
               const label = msg.replace(/^\[sweep\]\s*/, "");
@@ -363,7 +387,7 @@
             }
 
             continue;
-          }          
+          }      
 
           // Run-level start events
           if (st === 'run_sim_start') {
@@ -372,6 +396,12 @@
           }
           if (st === 'run_metrics_start') {
             appendLine('Metrics run will start soon…', 'log-note');
+
+            // NEW: reset metric aggregation for this metrics run, but keep
+            // existing log lines so prior runs (or sweep members) stay visible.
+            metricAgg.clear();
+            metricLines.clear();
+
             continue;
           }
           if (st === 'run_both_start') {
@@ -430,92 +460,101 @@
             continue;
           }
 
-	          if (st === 'metric_done') {
-	            const name = e.filename || '';
-	            const fr   = (frame != null ? frame : '?');
-	            const key  = `${fr}::${name}`;
+          if (st === 'metric_done') {
+            const name = e.filename || '';
+            const frVal = (frame != null ? frame : '?');
+            const frKey = (frVal === '?' ? '?' : String(frVal));
+            const key   = `${frKey}::${name}`;
 
-	            // Register this key under its frame so we can prune by frame later
-	            if (!frameKeys.has(fr)) {
-	              frameKeys.set(fr, []);
-	              frameOrder.push(fr);
-	            }
-	            frameKeys.get(fr).push(key);
+            // Use stored job duration if available; otherwise fall back to e.ms
+            let addMs = 0;
+            if (e.jobid != null && jobDur.has(e.jobid)) {
+              addMs = jobDur.get(e.jobid) || 0;
+            } else if (typeof durMs === "number") {
+              addMs = durMs;
+            }
 
-	            // Use stored job duration from the last frame_done for this jobid
-	            let addMs = 0;
-	            if (e.jobid != null && jobDur.has(e.jobid)) {
-	              addMs = jobDur.get(e.jobid) || 0;
-	            }
+            const prevMs  = metricAgg.get(key) || 0;
+            const totalMs = prevMs + addMs;
+            metricAgg.set(key, totalMs);
 
-	            const prevMs  = metricAgg.get(key) || 0;
-	            const totalMs = prevMs + addMs;
-	            metricAgg.set(key, totalMs);
+            const sec  = (totalMs / 1000).toFixed(2);
+            const text = `Frame ${frVal} Metric ${name} has been written to disk (runtime ${sec}s)`;
 
-              const sec  = (totalMs / 1000).toFixed(2);
-              const text = `Frame ${fr} Metric ${name} has been written to disk (runtime ${sec}s)`;
+            // Update metric previews for selected metrics.
+            // collapse_mask → φ preview
+            if (name && name.includes("collapse_mask")) {
+              const phiImg = document.getElementById('preview-phi');
+              if (phiImg) {
+                const ts = Date.now();
+                phiImg.src = `/sims/${simId}/frames/${frVal}/preview/collapse_mask?ts=${ts}`;
+              }
+            }
 
-              // Update metric previews for selected metrics.
-              // collapse_mask → φ preview
-              if (name && name.includes("collapse_mask")) {
-                const phiImg = document.getElementById('preview-phi');
-                if (phiImg) {
-                  const ts = Date.now();
-                  phiImg.src = `/sims/${simId}/frames/${fr}/preview/collapse_mask?ts=${ts}`;
+            // p_k → ψ preview
+            if (name && name.includes("p_k")) {
+              const psiImg = document.getElementById('preview-psi');
+              if (psiImg) {
+                const ts = Date.now();
+                psiImg.src = `/sims/${simId}/frames/${frVal}/preview/p_k?ts=${ts}`;
+              }
+            }
+
+            // coherence_length → η preview
+            if (name && name.includes("coherence_length")) {
+              const etaImg = document.getElementById('preview-eta');
+              if (etaImg) {
+                const ts = Date.now();
+                etaImg.src = `/sims/${simId}/frames/${frVal}/preview/coh_length?ts=${ts}`;
+              }
+            }
+
+            const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
+
+            // Update or create a single log line for this (frame, metric)
+            let div = metricLines.get(key);
+            if (!div) {
+              div = document.createElement('div');
+              div.className = 'log-line log-note';
+              logEl.appendChild(div);
+              metricLines.set(key, div);
+
+              // Track this line by frame so we can prune old frames
+              if (!frameNodes.has(frKey)) {
+                frameNodes.set(frKey, []);
+                frameOrder.push(frKey);
+              }
+              frameNodes.get(frKey).push(div);
+            }
+            div.textContent = text;
+
+            if (atBottom) {
+              logEl.scrollTop = logEl.scrollHeight;
+            }
+
+            // Prune older frames so we only keep the last 50 frames in the log
+            while (frameOrder.length > 50) {
+              const oldFr = frameOrder.shift();
+              const nodesForFrame = frameNodes.get(oldFr) || [];
+              for (const node of nodesForFrame) {
+                if (node && node.parentNode) {
+                  node.parentNode.removeChild(node);
                 }
               }
+              frameNodes.delete(oldFr);
 
-              // p_k → ψ preview
-              if (name && name.includes("p_k")) {
-                const psiImg = document.getElementById('preview-psi');
-                if (psiImg) {
-                  const ts = Date.now();
-                  psiImg.src = `/sims/${simId}/frames/${fr}/preview/p_k?ts=${ts}`;
+              // Optionally clean metricLines entries whose nodes were removed
+              for (const [k, node] of metricLines.entries()) {
+                if (!node || !node.parentNode) {
+                  metricLines.delete(k);
+                  metricAgg.delete(k);
                 }
               }
+            }
 
-              // coherence_length → η preview
-              if (name && name.includes("coherence_length")) {
-                const etaImg = document.getElementById('preview-eta');
-                if (etaImg) {
-                  const ts = Date.now();
-                  etaImg.src = `/sims/${simId}/frames/${fr}/preview/coh_length?ts=${ts}`;
-                }
-              }
+            continue;
+          }
 
-	            // Update or create a single log line for this (frame, metric)
-	            const atBottom = Math.abs(logEl.scrollHeight - (logEl.scrollTop + logEl.clientHeight)) < 8;
-
-	            let div = metricLines.get(key);
-	            if (!div) {
-	              div = document.createElement('div');
-	              div.className = 'log-line log-note';
-	              logEl.appendChild(div);
-	              metricLines.set(key, div);
-	            }
-	            div.textContent = text;
-
-	            if (atBottom) {
-	              logEl.scrollTop = logEl.scrollHeight;
-	            }
-
-	            // Prune older frames so we only keep the last 20 frames in the log
-	            while (frameOrder.length > 20) {
-	              const oldFr = frameOrder.shift();
-	              const keysForFrame = frameKeys.get(oldFr) || [];
-	              for (const oldKey of keysForFrame) {
-	                metricAgg.delete(oldKey);
-	                const oldDiv = metricLines.get(oldKey);
-	                if (oldDiv && oldDiv.parentNode) {
-	                  oldDiv.parentNode.removeChild(oldDiv);
-	                }
-	                metricLines.delete(oldKey);
-	              }
-	              frameKeys.delete(oldFr);
-	            }
-
-	            continue;
-	          }
           // fallback: original raw line for other statuses
           const jid = (e.jobid != null) ? ` job=${e.jobid}` : '';
           const fr  = (frame != null) ? ` frame=${frame}` : '';
@@ -544,12 +583,6 @@
           if (rawMsg.startsWith("[sweep]")) {
             sweepLabel = rawMsg.replace(/^\[sweep\]\s*/, "");
 
-            // For metrics sweeps, start each member at 0% again so the bar
-            // smoothly ramps from 0→100% per member.
-            if (rawMsg.includes("metrics sweep")) {
-              lastPct = 0;
-            }
-
             const sub = document.getElementById("ov-sub");
             if (sub) {
               sub.textContent = sweepLabel;
@@ -563,7 +596,7 @@
     } catch (e) {
       // keep trying, but don’t spam the pane
     } finally {
-      setTimeout(poll, 1000);
+      setTimeout(poll, 200);
     }
   }
 

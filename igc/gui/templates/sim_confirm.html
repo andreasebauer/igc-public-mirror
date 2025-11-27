@@ -16,6 +16,13 @@
   <section class="card">
     {% set sp = sweep or {} %}
 
+    {# Derive sweep basics from plan + sim #}
+    {% set param  = sp.sweep_param or 'd_psi' %}
+    {% set steps  = sp.d_psi_steps or '1' %}
+    {% set s_val  = sp.d_psi_start or sim.get(param) %}
+    {% set e_val  = sp.d_psi_end or sp.d_psi_start or sim.get(param) %}
+    {% set tmax   = sp.t_max_override or sim.get('t_max') %}
+
     <!-- Summary -->
     <div class="igc-row">
       <div class="igc-cell igc-cell--left igc-inline">
@@ -23,70 +30,56 @@
       </div>
       <div class="igc-cell igc-cell--right">
         <div class="igc-desc-text">
-          {% set steps   = sp.d_psi_steps or '1' %}
-          {% set d_start = sp.d_psi_start or sim.get('d_psi') %}
-          {% set d_end   = sp.d_psi_end or sp.d_psi_start or sim.get('d_psi') %}
-          You are generating {{ steps }} simulation{{ 's' if steps|int > 1 else '' }} in this sweep.
-          Range from {{ d_start }} to {{ d_end }}.
+          You are generating {{ steps }} simulation{{ 's' if steps|int > 1 else '' }} in this sweep.<br>
+          Parameter: <strong>{{ param }}</strong><br>
+          Range: {{ s_val }} → {{ e_val }}<br>
+          t_max: {{ tmax }} Ats
         </div>
       </div>
     </div>
 
-    <!-- Diffusion sweep -->
+    <!-- Sweep parameter -->
     <section class="section">
-      <h2 class="section__title">Diffusion (d_ψ) sweep</h2>
+      <h2 class="section__title">Sweep parameter</h2>
 
       <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">d_ψ — start</div></div>
-        <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_psi_start or d_start }}" readonly>
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">Parameter</div>
         </div>
-      </div>
-
-      <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">d_ψ — end</div></div>
         <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_psi_end or d_end }}" readonly>
-        </div>
-      </div>
-
-      <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">Steps</div></div>
-        <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_psi_steps or '1' }}" readonly>
+          <input class="igc-input" type="text" value="{{ param }}" readonly>
         </div>
       </div>
     </section>
 
-    <!-- Tie diffusions -->
+    <!-- Sweep range -->
     <section class="section">
-      <h2 class="section__title">Tie other diffusions</h2>
+      <h2 class="section__title">Sweep range</h2>
 
       <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">Tie d_η = factor · d_ψ</div></div>
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">Start</div>
+        </div>
         <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_eta_mode or 'none' }}" readonly>
+          <input class="igc-input" type="text" value="{{ sp.d_psi_start or s_val }}" readonly>
         </div>
       </div>
 
       <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">d_η factor</div></div>
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">End</div>
+        </div>
         <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_eta_factor or '0.5' }}" readonly>
+          <input class="igc-input" type="text" value="{{ sp.d_psi_end or e_val }}" readonly>
         </div>
       </div>
 
       <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">Tie d_φ = factor · d_ψ</div></div>
-        <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_phi_mode or 'none' }}" readonly>
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">Steps</div>
         </div>
-      </div>
-
-      <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">d_φ factor</div></div>
         <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.d_phi_factor or '0.1' }}" readonly>
+          <input class="igc-input" type="text" value="{{ sp.d_psi_steps or '1' }}" readonly>
         </div>
       </div>
     </section>
@@ -96,15 +89,17 @@
       <h2 class="section__title">Time / frames</h2>
 
       <div class="igc-row">
-        <div class="igc-cell igc-cell--left igc-inline"><div class="igc-name">t_max (Ats)</div></div>
+        <div class="igc-cell igc-cell--left igc-inline">
+          <div class="igc-name">t_max (Ats)</div>
+        </div>
         <div class="igc-cell igc-cell--right">
-          <input class="igc-input" type="text" value="{{ sp.t_max_override or sim.get('t_max') }}" readonly>
+          <input class="igc-input" type="text" value="{{ tmax }}" readonly>
         </div>
       </div>
     </section>
 
   </section>
-  {% endif %}  
+  {% endif %} 
   <section class="card">
     {% set sim = sim or {} %}
     {% import "partials/help_map.html" as hm %}
