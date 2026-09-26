@@ -1,0 +1,98 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_class": {
+            "type": "string"
+          },
+          "does_not_recompute": {
+            "type": "string"
+          },
+          "historical_identity": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "profile_id": {
+            "type": "string"
+          },
+          "recomputes": {
+            "type": "string"
+          },
+          "replay_class": {
+            "type": "string"
+          },
+          "target_alias": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authority_class",
+          "does_not_recompute",
+          "historical_identity",
+          "level",
+          "limitations",
+          "profile_id",
+          "recomputes",
+          "replay_class",
+          "target_alias",
+          "target_node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1",
+      "type": "string"
+    },
+    "special_historical_gaps": {
+      "additionalProperties": false,
+      "properties": {
+        "O2": {
+          "type": "string"
+        },
+        "O5": {
+          "type": "string"
+        },
+        "O7_RECONSTRUCTION_ALIAS": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O2",
+        "O5",
+        "O7_RECONSTRUCTION_ALIAS"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "rows",
+    "schema_id",
+    "special_historical_gaps",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

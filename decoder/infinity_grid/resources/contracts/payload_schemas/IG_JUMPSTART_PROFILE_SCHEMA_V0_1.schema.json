@@ -1,0 +1,40 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_JUMPSTART_PROFILE_SCHEMA_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "invariants": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "profile_store": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_JUMPSTART_PROFILE_SCHEMA_V0_1",
+      "type": "string"
+    },
+    "supported_materialization_modes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "invariants",
+    "profile_store",
+    "purpose",
+    "schema_id",
+    "supported_materialization_modes"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_JUMPSTART_PROFILE_SCHEMA_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

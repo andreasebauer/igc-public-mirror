@@ -1,0 +1,79 @@
+{
+  "admitted_operations": [
+    "exact graduated G6 composition only; no marker/probe operation added unless separately preregistered later"
+  ],
+  "date": "2026-09-06",
+  "decoder_release": "v0.5 / 0.50",
+  "dependencies": [
+    "G6_GRADUATION_CERTIFICATE"
+  ],
+  "domain": {
+    "activation": "requires explicit G6 graduation authority bound by science + independent-verification hashes",
+    "comparison": "exact structural equivalence and exact composition outcomes",
+    "no_assumed_shape": "do not assume tree, graph, geometry, cavity message, or any G5 R-series carrier",
+    "panel_construction": "deterministically enumerate the smallest graduated-G6 public fibers containing at least two exact representatives, then expand by size/complexity only within the registered reconnaissance budget"
+  },
+  "evidence_contract": [
+    "fiber census",
+    "exact representatives",
+    "candidate intrinsic invariants",
+    "isomorphism/relabel checks",
+    "exact witnesses",
+    "coverage and completeness status",
+    "recommendation: CLOSE or HUMAN_REVIEW_FOR_R1"
+  ],
+  "exact_equality_rule": "Hashes may index/bind artifacts, but every exact scientific equality claim is decided by full structural equality of the declared carrier/outcome objects.",
+  "frozen_question": "After and only after an explicit G6 graduation certificate exists, what exact non-public fiber, if any, remains above one graduated G6 public state under exact G6 composition, and can that fiber be classified by an intrinsic finite combinatorial carrier without changing the public descriptor?",
+  "nonclaims": [
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_UNREGISTERED_PUBLIC_FIELD_PROMOTION",
+    "NO_POSTHOC_QUESTION_CHANGE"
+  ],
+  "notes": [
+    "This is the only concrete R-stage question frozen before G6 starts. R1-R7 remain conditional role slots governed by the separate adaptive R protocol."
+  ],
+  "observer": {
+    "classification_rule": "a carrier class is reported only if invariant under relabeling and sufficient to reconstruct every enumerated exact representative in the frozen panel",
+    "nontrivial_fiber": "at least two structurally nonisomorphic exact representatives at one identical graduated G6 public state",
+    "primary": "exact fiber cardinality/classes and intrinsic invariants directly supported by the data"
+  },
+  "parent_authority": {
+    "authority_ref": "Decoder_v0.5_G5_S6_READ_FIRST_2026-09-06.txt",
+    "graduation_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "public_law": "enabled iff f_a>0 and g_b>0; D_out=(f+g-e_a-e_b,m+n)",
+    "s6_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "promotion_constraints": [
+    "R0 is strictly non-promoting.",
+    "No R1 question is implied by a nontrivial fiber; R1 requires a new concrete preregistration after human review.",
+    "A negative bounded R0 does not prove global absence of hidden structure unless the opening scope is deductively complete."
+  ],
+  "purpose": "Open post-graduation reconnaissance without assuming G6 repeats the G5 hidden-tree story.",
+  "question_sha256": "d704fc55034de87e0a548f39f5e6305de9d30d1a2c7ccde97c8d968e384f7f8e",
+  "registered_alternatives": [
+    "NO_NONTRIVIAL_FIBER_FOUND_ON_COMPLETE_OPENING_SCOPE",
+    "NONTRIVIAL_FIBER_CLASSIFIED",
+    "NONTRIVIAL_FIBER_UNCLASSIFIED",
+    "BUDGET_INSUFFICIENT"
+  ],
+  "resource_budget": {
+    "max_exact_representatives": 200000,
+    "max_public_fibers": 10000,
+    "wall_seconds": 14400,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_STAGE_PREREGISTRATION_V1",
+  "stage_id": "G6:R0",
+  "status": "FROZEN_BEFORE_G6_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "changed scientific assumptions",
+    "unregistered operator/read/field required",
+    "runtime integrity failure",
+    "registered science budget exhausted",
+    "first decisive separator when the stage specifies first-separator stopping"
+  ]
+}

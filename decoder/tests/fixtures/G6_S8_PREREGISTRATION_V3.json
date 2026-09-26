@@ -1,0 +1,341 @@
+{
+  "date": "2026-09-11",
+  "execution_contract": {
+    "authorized_execution": {
+      "analytic_lane_authorized": true,
+      "cancel_policy": "USE_GEN35_DECODER_OWNED_PASSIVE_SCIENCE_CANCEL_ONLY",
+      "descriptor_census_authorized": true,
+      "drive_incremental_save_required": true,
+      "full_v2_depth3_to6_sweep_authorized": false,
+      "posthoc_budget_raise_allowed": false,
+      "posthoc_context_extension_allowed": false,
+      "resume_policy": "ONLY_E2_TRANSIENT_EXECUTION_PAUSE_MAY_RESUME_MISSING_WORK_AUTOMATICALLY",
+      "sampling_allowed": false,
+      "split_witness_confirmation": "BEFORE_SCIENTIFIC_ACCEPTANCE_REPLAY_THE_FIRST_WITNESS_WITH_1_WORKER_AND_4_WORKERS_AND_REQUIRE_IDENTICAL_SEMANTIC_WITNESS",
+      "targeted_probe_authorized": true,
+      "workers": 4
+    },
+    "executor_authority": {
+      "accepted_generation": 35,
+      "accepted_package_sha256": "cc312464bc0db90ac94649d3fec3ae35cd2af314a6d6860a435647e32e758bab",
+      "accepted_source_sha256": "c34d50d8c4e3ce68f81902d950e320d4130c0d6e9a05d72a29e3035f3b6a7d77",
+      "decoder_owned_cancel_required": true,
+      "optimization_acceptance_gate_required": true,
+      "step2_acceptance_status_file_sha256": "ce461b59eb0166d78dc0784d1b7d847c3e2db4038f65e852c94dff509585f44d",
+      "step2_c5_acceptance_sha256": "02c88aa45be606efa7a44ab4b225a53fdb001763c358f9814014c061b8ddfcf9",
+      "step2_transition_result_sha256": "50f01191d75fda2d5bb4537c9f8e5ff78f8615479c43b42621e04ae5557fc3d1"
+    },
+    "frozen_task_budgets": {
+      "budget_exhaustion_outcome": "E1_FROZEN_TASK_BUDGET_EXCEEDED",
+      "exact_relation_budget_unit": "ONE_EXACT_RELATION_SERVICE_INVOCATION_EQUALS_ONE",
+      "family_profile_budget_unit": "A_FAMILY_PROFILE_RETURNING_N_EXECUTION_CONTEXT_COORDINATES_COUNTS_AS_N_PROFILE_COORDINATE_EQUIVALENTS_NOT_AS_ONE_CALL",
+      "max_exact_relation_calls_per_task": 500000,
+      "max_exact_relation_profile_coordinate_equivalents_per_task": 500000,
+      "max_recursive_states_per_task": 250000,
+      "max_worker_rss_bytes_per_task": 536870912,
+      "scalar_profile_budget_unit": "ONE_SCALAR_PROFILE_COORDINATE_EQUALS_ONE",
+      "transient_pause_outcome": "E2_TRANSIENT_EXECUTION_PAUSE"
+    },
+    "implementation_requirements_before_step4": [
+      "V3 targeted-probe executor must validate the V3 hash split rather than the V2 full-plan question-hash convention.",
+      "V3 targeted-probe executor must implement profile-coordinate-equivalent budget accounting.",
+      "V3 targeted-probe executor must emit E1 and E2 distinctly.",
+      "No V3 science may launch until these requirements pass Gen35-compatible protected validation."
+    ]
+  },
+  "execution_contract_sha256": "73a85931ba43c7d9e40236b23b48915a2b078752ebe52a1e1622cda8d3380320",
+  "full_preregistration_sha256": "2bafc447a230426b6d60070a2efccb7113f32b5e82c2307679760304e688ff08",
+  "hash_policy": {
+    "canonicalization": "INFINITY_GRID_CANONICAL_JSON_SHA256",
+    "execution_contract_sha256": "SHA256(canonical(execution_contract))",
+    "full_preregistration_sha256": "SHA256(canonical(full_document_without_full_preregistration_sha256))",
+    "lineage_sha256": "SHA256(canonical(lineage))",
+    "question_sha256": "ALIAS_OF_SCIENTIFIC_CORE_SHA256_IN_V3; DOES_NOT_HASH_EXECUTION_OR_LINEAGE",
+    "scientific_core_sha256": "SHA256(canonical(scientific_core))",
+    "scientific_effect_none_rule": "An executor/transport change may claim scientific-effect NONE only if scientific_core_sha256 is identical. A V3 core change is explicitly not NONE."
+  },
+  "lineage": {
+    "disclosures": [
+      "The initial S8 design-freeze JSON did not encode numeric recursive-state or relation-call ceilings.",
+      "A pre-V2 executor candidate enforced 100000 recursive states and 50000 exact-relation/profile calls per task; accepted V2 later used 250000 and 500000 respectively. V3 records this 2.5x/10x lineage explicitly and freezes the current targeted-probe ceilings prospectively.",
+      "Later optimized V2 executors introduced a family-profile service capable of returning up to 124 profile coordinates per invocation. Counting that family invocation as one call changed the practical budget unit. V3 fixes the unit by counting returned profile coordinates individually.",
+      "The initial design freeze described ORDINARY_D1_MULTIPLICITY_V1 as an exact 248-context branch-multiplicity vector; accepted V2 redefined it as the inherited certified S7 A6 depth-1 partition. V3 removes D1 from the intrinsic theorem-candidate lane and retains observer-derived quantities as controls only.",
+      "V2 outcome D treated both underrefinement and overrefinement as descriptor failure. V3 separates them: underrefinement rejects a deeper stable-refinement candidate; strict overrefinement is not failure.",
+      "V2 attempted a depth-3-through-6 bounded sweep. V3 replaces future use of that sweep with one prospective targeted falsification probe plus an analytic factorization/counterexample lane."
+    ],
+    "source_evidence": {
+      "accepted_v2_gen30_prereg_file_sha256": "89cd0f059f66ada74f40d8e97f838345a121bba5e92569fb8ff70b9f0f74a495",
+      "initial_design_freeze_file_sha256": "eeed859409e511e72d91d89a6c2e67c0c088140c769592d4596cf4eca204d254",
+      "latest_v2_gen33_prereg_file_sha256": "515341c10d71a0e715dcac02fab244bfd05026ec646674587bdb93f417c338ea",
+      "pre_v2_executor_candidate_source_file_sha256": "e8c298f9c0f204822425b72031265751334c3cc4649c1d50316b4340672e826e"
+    },
+    "supersedes": "IG_G6_S8_ACCEPTED_PREREGISTRATION_V2_FOR_FUTURE_S8_EXECUTION",
+    "v2_evidence_preserved": true,
+    "v2_full_depth_sweep_status": "WITHDRAWN_AS_FUTURE_AUTHORIZED_EXECUTION; PRIOR_PARTIAL_EVIDENCE_REMAINS_HISTORICAL_EVIDENCE",
+    "v3_scientific_effect": "DISCLOSED_PROTOCOL_REVISION"
+  },
+  "lineage_sha256": "00ee21f0af727cc78de5718bea003fc003db4e1fd0ef53101c505841771369c6",
+  "question_sha256": "fbdaa8c741699536c8e65caf2780707ac9f3f286685dec429bf3bb374f9744cd",
+  "schema_id": "IG_G6_S8_PREREGISTRATION_V3",
+  "scientific_core": {
+    "analytic_lane": {
+      "authorized_methods": [
+        "Attempt a same-descriptor/same-depth/different-child construction patterned on the G4 decorated-tree cavity strategy (Theorem 14.2 and Lemma/Theorem 14.4 components) without importing those scoped conclusions into G6.",
+        "Attempt direct one-step factorization of every admitted ordinary action through the candidate descriptor."
+      ],
+      "candidate": "OWNER_RESOLVED_RESOURCE_NEIGHBOR_BAG_V1",
+      "factorization_obligations": [
+        "ordinary action legality depends only on the candidate descriptor",
+        "ordinary action-copy multiplicity depends only on the candidate descriptor",
+        "the action-indexed multiset of successor candidate descriptors depends only on the candidate descriptor",
+        "all 31 frozen ordinary operators are covered",
+        "factor-swap/relabeling equivariance is preserved",
+        "successors remain in the lawful candidate domain"
+      ],
+      "negative_interpretation": "One lawful same-descriptor pair with different ordinary legality, multiplicity, or successor-descriptor multiset disproves the candidate family at V1.",
+      "positive_interpretation": "If the one-step factorization obligations are proved, the all-depth theorem route may be attempted via an explicit mapping to the existing multiplicity-aware factorization/lift theorems; no automatic theorem import is allowed."
+    },
+    "descriptor_census": {
+      "candidate": "OWNER_RESOLVED_RESOURCE_NEIGHBOR_BAG_V1",
+      "purpose": "Classify only under/exact/strict-over/discrete relation to S7 using V3 refinement semantics; no deeper recursive census is implied.",
+      "scope": "ALL_4711_CERTIFIED_S7_MEMBERS"
+    },
+    "descriptor_policy": {
+      "identity_upper_bound_controls_not_eligible_for_intrinsic_theorem_outcome": [
+        "C3_ROOTED_OWNER_RESPONSE_BAG"
+      ],
+      "intrinsic_theorem_candidate": {
+        "branch_sensitive": true,
+        "descriptor": "(panel, Bag_u( A(u), Bag_{v adjacent u} N(u,v) ))",
+        "directed_neighbor_atom": "N(u,v)=(oriented_edge_operator(u->v), H_class(v), local_remaining_resource_vector_7(v))",
+        "domain": "CERTIFIED_S7_DECORATED_TREE_STATES",
+        "edge_orientation": "For stored undirected edge operator (a,b) on {u,v}, the u->v record uses (a,b) and the v->u record uses (b,a).",
+        "forbidden_components": [
+          "state_token",
+          "identity_sha256",
+          "exact child identity",
+          "full rooted canon",
+          "full unrooted canon",
+          "observer D1 vector",
+          "recursive future signature"
+        ],
+        "id": "OWNER_RESOLVED_RESOURCE_NEIGHBOR_BAG_V1",
+        "identity_free": true,
+        "owner_atom": "A(u)=(H_class(u), local_remaining_resource_vector_7(u))",
+        "owner_resolved": true,
+        "resource_vector_source": "Accepted G4 local remaining resource calculation already used by G6 owner-read machinery; seven ordinary endpoint types.",
+        "role": "REGISTERED_HYPOTHESIS_NOT_CLAIM"
+      },
+      "observer_derived_controls_not_eligible_for_intrinsic_theorem_outcome": [
+        "ORDINARY_D1_MULTIPLICITY_V1",
+        "ORDINARY_RECURSIVE_SIGNATURE_V1"
+      ],
+      "prior_descriptor_dispositions": {
+        "GRAPH_COUNTS_V1": {
+          "observed_descriptor_class_count": 752,
+          "reason": "UNDERREFINES_AND_OVERREFINES_S7",
+          "status": "REJECTED_AS_STABLE_REFINEMENT_CANDIDATE"
+        },
+        "LOCAL_WL1_V1": {
+          "observed_descriptor_class_count": 3817,
+          "reason": "UNDERREFINES_AND_OVERREFINES_S7",
+          "status": "REJECTED_AS_STABLE_REFINEMENT_CANDIDATE"
+        },
+        "LOCAL_WL_STABLE_V1": {
+          "observed_descriptor_class_count": 4711,
+          "reason": "STRICT_OVERREFINEMENT_TO_ONE_CLASS_PER_CERTIFIED_MEMBER",
+          "status": "CONTROL_ONLY"
+        }
+      },
+      "refinement_semantics": {
+        "DISCRETE_IDENTITY_REFINEMENT": "VALID_REFINEMENT_BUT_SCIENTIFICALLY_TRIVIAL_AS_A_REDUCTION; CONTROL_ONLY",
+        "EXACT_S7_MATCH": "PARTITION_COMPATIBLE_BUT_NOT_A_STABILITY_OR_FACTORIZATION_PROOF",
+        "STRICT_OVERREFINEMENT": "NOT_A_FAILURE; MAY_BE_THE_EXPECTED_FORM_OF_A_TRUE_DEEPER_STABLE_REFINEMENT; RETAIN_FOR_FACTORIZATION_TEST_IF_NONTRIVIAL_AND_OBSERVER_INDEPENDENT",
+        "UNDERREFINEMENT": "DISQUALIFY_AS_DEEPER_STABLE_REFINEMENT_BECAUSE_IT_MERGES_CLASSES_ALREADY_DISTINGUISHED_AT_S7_DEPTH2"
+      }
+    },
+    "nonclaims": [
+      "NO_G6_GRADUATION_FROM_THE_TARGETED_PROBE_ALONE",
+      "NO_S7_STABILITY_CLAIM_FROM_NO_SPLIT_IN_EIGHT_CONTEXTS",
+      "NO_ALL_DEPTH_THEOREM_WITHOUT_ONE_STEP_FACTORIZATION_OR_OTHER_DEDUCTIVE_PROOF",
+      "NO_INTRINSIC_DESCRIPTOR_CREDIT_FOR_OBSERVER_DERIVED_SIGNATURES",
+      "NO_INTRINSIC_DESCRIPTOR_CREDIT_FOR_EXACT_STATE_RECONSTRUCTION",
+      "NO_R_SERIES",
+      "NO_GEOMETRY_TIME_OR_PHYSICS_CLAIMS"
+    ],
+    "observer": {
+      "branch_semantics": "ACTION_INDEXED_MULTISET_OF_SUCCESSOR_BLOCKS",
+      "execution_context_count": 124,
+      "execution_context_normalization": "FACTOR_SWAP_LEFT_V1",
+      "id": "ORDINARY_BRANCH_MULTISET_FUTURE_V1",
+      "normalization_rule": "RIGHT(seed,(a,b))->LEFT(seed,(b,a))",
+      "normalization_source_file_sha256": "18405921d7cc4435d89ea2b61877f1cf86ef3042e34b6c3dc79954c2b3e76346",
+      "operator_count": 31,
+      "scientific_context_count": 248
+    },
+    "panels": {
+      "combined_member_count": 4711,
+      "higher_member_count": 247,
+      "s1_member_count": 4464,
+      "s7_non_singleton_class_count": 1199,
+      "s7_singleton_class_count": 514,
+      "s7_total_class_count": 1713
+    },
+    "question": "Is the certified S7 depth-2 ordinary branch-multiset partition already unstable under a preregistered targeted deeper probe, and can a nontrivial intrinsic owner-resolved resource descriptor support a one-step factorization theorem for the ordinary G6 observer?",
+    "registered_outcomes": {
+      "D_EXACT_S7_PARTITION": "The candidate exactly matches S7; compatible with S7 but not a stability proof.",
+      "D_IDENTITY_TRIVIAL_CONTROL": "The candidate is discrete/exact-state-equivalent; retain only as an upper-bound control.",
+      "D_STRICT_OVERREFINEMENT_CANDIDATE": "The candidate strictly refines S7 without underrefinement; retain it for analytic factorization if nontrivial.",
+      "D_UNDERREFINES_REJECT": "The new intrinsic candidate merges distinct S7 classes; reject it as a deeper stable refinement candidate.",
+      "E1_FROZEN_TASK_BUDGET_EXCEEDED": "A deterministic task exhausts a frozen scientific compute counter. The registered computation is inconclusive at this budget; do not auto-raise the budget.",
+      "E2_TRANSIENT_EXECUTION_PAUSE": "A transient runtime/resource interruption occurs without exhausting a frozen scientific counter; persist and resume only missing work under the same contract.",
+      "P_ANALYTIC_COUNTEREXAMPLE": "A same-descriptor one-step counterexample is proved; reject the candidate.",
+      "P_ANALYTIC_OPEN": "Neither factorization nor counterexample is established within Step 5.",
+      "P_ONE_STEP_FACTORIZATION_PROVED": "All frozen one-step factorization obligations are proved; proceed to theorem reduction, not deeper census.",
+      "T_NO_SPLIT_IN_FROZEN_SENTINEL_CONTEXTS": "No split in the eight frozen execution contexts; bounded negative evidence only.",
+      "T_SPLIT_WITNESS": "The frozen targeted depth-3 probe splits E2G-0019b2...; S7 is not stable under the tested ordinary future observer."
+    },
+    "revision": "V3",
+    "scientific_authority": {
+      "reuse_input_file_sha256": "fe6ad6352b8f0ed1358a861900a43bb11fea6143c736f89c73750d07aad6d757",
+      "reuse_input_payload_sha256": "d711ff96f60c925ccff8feb5fe5e79424b0c98b29d63c7e679f43abf9e7b4e93",
+      "s7_context_normalization_file_sha256": "18405921d7cc4435d89ea2b61877f1cf86ef3042e34b6c3dc79954c2b3e76346",
+      "s7_manifest_file_sha256": "5192a4d58fc9dffd61e8704ecc36fa375de942a85ab33dbe09f7cb3f7c15aa2d",
+      "s7_memberships_file_sha256": "16fe819d2610e127d2599ce39d01c4fc12d57589f50174676b3b6eeb0755f613",
+      "s7_result_file_sha256": "dad1b5f02fe266ab45b56d15161282fff53d920089531234a1a7e74c6337cf14",
+      "s7_result_sha256": "f4a1f0d7e0e4ad27b77e31d1abe8a099e353859e25b231e1489211f556541ca3",
+      "s7_survivors_file_sha256": "6cf1661751264a35304e92413a542e803e00ce385036c6176e5c7f8d5b536920",
+      "s8_v2_specification_sha256": "8e36de154647b0cca970e67253cde412e6e263caf7860455d98da260cd17de6d",
+      "v2_descriptor_exactness_audit_file_sha256": "f35621016eb8587d099ec308958c44621ca940821f25b7be69f8a763cbadf6ec"
+    },
+    "stage_id": "G6:S8",
+    "targeted_probe": {
+      "class_size": 3,
+      "context_selection_rule": "FIRST_EIGHT_FACTOR_SWAP_NORMALIZED_EXECUTION_CONTEXTS_FROM_FROZEN_S7_CONTEXT_NORMALIZATION_ARTIFACT",
+      "execution_context_count": 8,
+      "execution_contexts": [
+        {
+          "execution_context_index": 0,
+          "operator": [
+            0,
+            0
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            0,
+            1
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 1,
+          "operator": [
+            0,
+            1
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            2,
+            11
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 2,
+          "operator": [
+            0,
+            4
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            4,
+            27
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 3,
+          "operator": [
+            0,
+            5
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            6,
+            39
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 4,
+          "operator": [
+            0,
+            6
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            8,
+            51
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 5,
+          "operator": [
+            1,
+            0
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            3,
+            10
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 6,
+          "operator": [
+            1,
+            1
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            12,
+            13
+          ],
+          "seed_ref": "D2_BROOM"
+        },
+        {
+          "execution_context_index": 7,
+          "operator": [
+            1,
+            4
+          ],
+          "position": "LEFT",
+          "scientific_alias_indices": [
+            14,
+            29
+          ],
+          "seed_ref": "D2_BROOM"
+        }
+      ],
+      "future_depth": 3,
+      "member_state_tokens": [
+        "2ea2f69fc296e65636eef42eb841e751cfaa910d49056a61c97c13e6b21cf555:0",
+        "657393b575b695ce4648a3df480851a2f78013eecfd99e04723a8ec055ad0833:0",
+        "c0811590bc7bf46c00a99239a212a38c8e2fca015c3e6658a30325510f11a4b6:0"
+      ],
+      "no_split_interpretation": "BOUNDED_NEGATIVE_EVIDENCE_ONLY; DOES_NOT_ESTABLISH_S7_STABILITY",
+      "panel": "s1",
+      "s7_class_id": "E2G-0019b2b051bbb38b0c55d8aad73c92998fa527c26afbe76d2498fe9ad9bbd723",
+      "scientific_alias_context_count": 16,
+      "selection_basis": "External review predicted this class before any V3 targeted-probe result; independently, each of GRAPH_COUNTS_V1, LOCAL_WL1_V1, and LOCAL_WL_STABLE_V1 already has an overrefinement witness inside this S7 class.",
+      "split_interpretation": "A_VALID_SPLIT_PROVES_THE_S7_DEPTH2_CLASS_IS_NOT_STABLE_UNDER_THE_ORDINARY_FUTURE_OBSERVER",
+      "status": "FROZEN_PROSPECTIVE_SENTINEL",
+      "stop_on_first_valid_split": true
+    }
+  },
+  "scientific_core_sha256": "fbdaa8c741699536c8e65caf2780707ac9f3f286685dec429bf3bb374f9744cd",
+  "stage_id": "G6:S8",
+  "status": "FROZEN_BEFORE_STEP4_TARGETED_PROBE_AND_STEP5_ANALYTIC_LANE"
+}

@@ -1,0 +1,73 @@
+{
+  "authority": "RECONNAISSANCE_ONLY",
+  "fixed_relations": [
+    "R_PARENT_FIBER",
+    "R_SHARED_SUPPORT",
+    "R_FIBER_INCLUSION",
+    "R_PARTIAL_CLOSURE",
+    "R_REFINEMENT_INDIVIDUATION",
+    "R_LOCAL_DEPTH_REORGANIZATION marker"
+  ],
+  "input_rule": "Use exactly the selected relation and certified baseline/classification carried by the eligible parent capsule; use the one chain-pinned primitive dataset.",
+  "outer_conveyor_steps_after_run": [
+    "deterministic replay of critical science projection",
+    "release generation",
+    "catalog rebuild",
+    "parent eligibility evaluation",
+    "trigger evaluation",
+    "atomic current-parent commit",
+    "auto-advance decision"
+  ],
+  "population_complete": false,
+  "protocol_id": "SCOUT",
+  "protocol_label": "SCOUT_OBSERVED",
+  "question_template": "How do the five frozen bounded Scout relation families change from L{source_level} to L{target_level} under one complete lawful primitive-attachment step, exact D/B/S/O/L selection, sealed shallow relational analysis, and recognition-only Spectroscope?",
+  "schema_id": "IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1",
+  "science_stage_dag": [
+    {
+      "depends_on": [],
+      "runner": "adapter.scout_level.preflight",
+      "stage_id": "preflight"
+    },
+    {
+      "depends_on": [
+        "preflight"
+      ],
+      "runner": "adapter.scout_level.wide_chunked",
+      "stage_id": "wide"
+    },
+    {
+      "depends_on": [
+        "wide"
+      ],
+      "runner": "adapter.scout_level.spectroscope",
+      "stage_id": "spectroscope"
+    },
+    {
+      "depends_on": [
+        "wide",
+        "spectroscope"
+      ],
+      "runner": "adapter.scout_level.classify",
+      "stage_id": "classify"
+    },
+    {
+      "depends_on": [
+        "classify"
+      ],
+      "runner": "adapter.scout_level.verify_independent",
+      "stage_id": "verify"
+    }
+  ],
+  "scope": "BOUNDED_PREREGISTERED",
+  "spec_sha256": "5e84d2cb83e1550fdd3f0df65539a5c4dfd360c9d029dc80c6e3cbb5745a44c5",
+  "stopping_rules": {
+    "complete_one_step_generation": true,
+    "no_adaptive_panel_extension": true,
+    "no_deep_ancestry_search": true,
+    "no_population_census": true,
+    "selection_sealed_before_relation_analysis": true,
+    "spectroscope_after_seal_only": true
+  },
+  "target_rule": "target_level = source_level + 1"
+}

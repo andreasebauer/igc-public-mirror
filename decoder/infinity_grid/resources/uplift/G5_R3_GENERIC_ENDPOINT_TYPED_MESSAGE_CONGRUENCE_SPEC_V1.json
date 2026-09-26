@@ -1,0 +1,148 @@
+{
+  "all_operator_sentinel": {
+    "checks": [
+      "STORAGE_REVERSAL_WITH_ENDPOINT_TYPES_TRANSPORTED_PRESERVES_EXACT_CANON",
+      "ASYMMETRIC_ENDPOINT_ASSIGNMENT_REMAINS_DISTINGUISHED",
+      "EXPLICIT_OWNER_GRAFT_TRANSPORT_IS_RELABELING_INVARIANT"
+    ],
+    "operator_basis_size": 31
+  },
+  "authority": {
+    "g5_graduation_required": true,
+    "g5_r2_closeout_sha256": "0c1c5b45015b18225a224093111d72e4db06d46385e78968c3770e1dfcf96795",
+    "g5_r2_independent_verification_sha256": "9b378d364fd69f12f9a6f9783b81964b4f23f5d84275861f92b89d82d3f265d7",
+    "g5_r2_primary_science_sha256": "ca87e0de827d81ea227bc7a2be877277f33f92c7a0b0d6ba84ad90c70973e9a0",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r2_classification": "G5_R2_GLOBAL_NO_FIXED_LOCAL_DEPTH_LOWER_BOUND_EARNED_FRESH_N8_AND_ENDPOINT_TYPED_N5_REQUIRE_COMPLETE_ROOTED_INFORMATION_NO_NONTRIVIAL_LOCAL_COMPRESSION_EARNED_R3_DESIGN_AUTHORIZED",
+    "required_r2_exact_reference_hidden_read": "ENDPOINT_TYPED_DECORATED_TREE_CANON"
+  },
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "max_exhaustive_support_n": 4,
+    "n5_or_larger_exhaustive_continuation_census": false,
+    "new_parallel_science_kernels": 0,
+    "requested_workers": 1
+  },
+  "date": "2026-09-06",
+  "next_if_pass": "G5:R4_DESIGN_AFTER_HUMAN_REVIEW",
+  "nonclaims": [
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_COMPACT_HIDDEN_READ_PROMOTION",
+    "NO_GLOBAL_MINIMALITY_OF_EXACT_ROOTED_CANON",
+    "NO_FINITE_STATE_HIDDEN_QUOTIENT_CLAIM",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "pass_requirements": [
+    "R2_AUTHORITY_EXACT",
+    "G5_GRADUATION_PRESERVED",
+    "GENERIC_MESSAGE_THEOREM_CHAIN_COMPLETE",
+    "EXHAUSTIVE_N1_N4_SUPPORT_PANEL_PASS",
+    "ALL_31_OPERATOR_SENTINEL_PASS",
+    "PRIMARY_COLD_EXACT_SCIENCE_MATCH",
+    "INDEPENDENT_VERIFICATION_PASS"
+  ],
+  "promotion": false,
+  "question": "Does the R2 exact endpoint-rooted decorated-tree canon admit one fixed recursive nonbacktracking endpoint-typed cavity-message law that is complete on every finite G5 hidden tree, and does exact hidden-canon equality form a congruence for every finite continuation of the R1-certified relation-valued leaf-graft algebra?",
+  "schema_id": "IG_G5_R3_GENERIC_ENDPOINT_TYPED_MESSAGE_CONGRUENCE_SPEC_V1",
+  "science_sha256": "5488813f7b97216ebe45ab4aa06175bbfb71cb724704fd847dab82ee144b79e8",
+  "stage": "G5:R3",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stop_rules": [
+    "R2_AUTHORITY_MISMATCH",
+    "G5_GRADUATION_FIREWALL_MISMATCH",
+    "FROZEN_OPERATOR_BASIS_MISMATCH",
+    "INDEPENDENT_ORACLE_MISMATCH",
+    "STRUCTURAL_THEOREM_OBLIGATION_FAILURE",
+    "SUPPORT_PANEL_COUNT_OR_INVARIANCE_FAILURE",
+    "COLD_REPLAY_MISMATCH",
+    "INDEPENDENT_VERIFICATION_FAILURE"
+  ],
+  "support_panel": {
+    "checks": [
+      "IMPLEMENTATION_ROOTED_CANON_EQUALS_INDEPENDENT_ORACLE",
+      "IMPLEMENTATION_UNROOTED_CANON_EQUALS_INDEPENDENT_ORACLE",
+      "ECCENTRICITY_TRUNCATION_EQUALS_FULL_ROOTED_CANON",
+      "RELATION_VALUED_FUTURE_SET_IS_RELABELING_INVARIANT",
+      "PUBLIC_READ_IS_RELABELING_INVARIANT"
+    ],
+    "existing_edge_operator_palette": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "payload_words": [
+      [
+        [
+          "C",
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      [
+        [
+          "D",
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      [
+        [
+          "C",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "D",
+          [
+            1,
+            0
+          ]
+        ]
+      ]
+    ],
+    "underlying_shapes": "ALL_UNLABELLED_TREES_N1_THROUGH_N4",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "theorem_scope": {
+    "carrier": "ALL_FINITE_VERTEX_H_CLASS_LABELED_ENDPOINT_TYPED_EDGE_DECORATED_TREES_OVER_THE_FROZEN_31_OPERATOR_BASIS; FUTURE_CONGRUENCE_RESTRICTED_TO_RESOURCE_LEGAL_G5_GRAFTS",
+    "directed_message_rule": "M(u->v)=(H(u), multiset[((type_at_u,type_at_w), M(w->u)) for w adjacent u, w!=v]) WITH ENDPOINT TYPES PRESENTED IN LOCAL_TO_REMOTE ORDER",
+    "equality_rule": "EXACT_STRUCTURAL_TUPLE_EQUALITY; HASHES_ARE_AUDIT_HANDLES_ONLY",
+    "future_relation": "For payload p=(new_H,(a,b)), G_p(T) is the deduplicated set of exact unrooted child canons over all lawful owners. For a finite payload word w, F_w is recursive union of G over all relation-valued branches.",
+    "root_rule": "C(T,r)=(H(r), multiset[((type_at_r,type_at_u), M(u->r)) for u adjacent r])",
+    "unrooted_rule": "U(T)=MIN_r C(T,r) UNDER EXACT STRUCTURAL TUPLE ORDER"
+  },
+  "theorem_targets": [
+    "ROOTED_ENDPOINT_TYPED_CAVITY_CANON_COMPLETE_BY_STRUCTURAL_INDUCTION",
+    "UNROOTED_CANON_COMPLETE_FOR_ENDPOINT_TYPED_DECORATED_TREE_ISOMORPHISM",
+    "ROOT_ECCENTRICITY_IS_A_UNIVERSAL_FINITE_PROPAGATION_BOUND",
+    "R2_NO_FIXED_FINITE_LOCAL_DEPTH_LOWER_BOUND_PRESERVED",
+    "ONE_STEP_EXPLICIT_OWNER_GRAFT_CONGRUENCE_FROM_EQUAL_ROOTED_CANON",
+    "RELATION_VALUED_OWNER_UNCONDITIONED_GRAFT_CONGRUENCE_FROM_EQUAL_UNROOTED_CANON",
+    "ARBITRARY_FINITE_PAYLOAD_WORD_FUTURE_CONGRUENCE_BY_INDUCTION"
+  ],
+  "version": "1.0.0"
+}

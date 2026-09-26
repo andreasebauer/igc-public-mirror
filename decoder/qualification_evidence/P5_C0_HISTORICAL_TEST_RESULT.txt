@@ -1,0 +1,21 @@
+INFINITY GRID DECODER 0.8lib — P5 C0_HISTORICAL QUALIFICATION
+DEV54 — 2026-09-22
+
+FOCUSED RESULT
+  6 passed, 0 failed
+
+REPLAY REGRESSION RESULT
+  76 passed, 0 failed
+
+The focused harness imported the exact captured P4 state object, verified its
+capture/status/runner/checkpoint/reference/frontier bindings, replayed all four
+C0_HISTORICAL obligations, automatically sealed the C0 gate, and stopped at
+the first L2J3 node. The resulting reference dataset contained 40 records and
+reported science_executed=false.
+
+An injected mismatch stopped at the first affected C0 node. A byte-tampered
+frontier and an incomplete executor binding both failed closed. Cold restore
+left the runner state and reference manifest byte-identical.
+
+This is implementation and harness evidence only. No recorded dev54 Decoder
+controller attempt was executed in this qualification.

@@ -1,0 +1,114 @@
+{
+  "authority": {
+    "g3_s0_science_sha256": "42832d682c1e0175f6f7c02eff6047f9ba8bf2a165c6017d8f4776166e766199",
+    "g3_s1_science_sha256": "0d4ab3493930ac1b0b3b29deaca52496ffacf30484d3742e8b4e54c7d4937e7c",
+    "g3_s2_science_sha256": "b6b122e7c304419bc7975d3da34726df4d1fc846575e595480c147136ad1a409",
+    "g3_s3_classification": "G3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_CAPS7_S2_SCOPE_S4_UNLOCKED",
+    "g3_s3_replay_schema_id": "IG_G3_S3_COLD_REPLAY_COMPARISON_V1",
+    "g3_s3_science_sha256": "84bd65cde77a69840c0009c59e2bd304c0ad0c480ceb1f7cb27e50ae13e5294a",
+    "g3_s3_stable_payload_sha256": "84bd65cde77a69840c0009c59e2bd304c0ad0c480ceb1f7cb27e50ae13e5294a",
+    "g3_s3_status": "PASS",
+    "required_g3_graduated": false,
+    "required_g3_s3_cold_replay_status": "PASS",
+    "required_g3_s3_science_sha256_equal": true,
+    "required_g3_s3_source_sha256_equal": true,
+    "required_g3_s3_stable_payload_exact_equal": true,
+    "required_g3_s4_unlocked": true,
+    "required_s3_local_two_reservation_conflicts": 0,
+    "required_s3_p3_exact_assignment_count": 830304,
+    "required_s3_p3_public_context_count": 3844,
+    "required_topology_promoted": false
+  },
+  "candidate_semantics": {
+    "base_unit": "one complete frozen G3:S0 graduated G2 unit",
+    "pair_candidate": "the complete finite exact relation returned by one whole-unit compose_binary_relation call; no exact branch is selected or privileged",
+    "public_interface": "CAPS7 plus relation-valued reservation behavior; hidden owner witnesses, topology, construction digests, skins and ancestry are not public reads",
+    "public_write_law": "For first edge (a,b) and recursive edge (c,d), every exact recursive output has CAPS7 f1+f2+f3-e_a-e_b-e_c-e_d whenever both bridge steps are legal.",
+    "recursive_step": "apply the same relation-valued whole-unit bridge operation to every exact branch of the pair candidate and one third complete G2 unit, then exact-deduplicate the union only by implementation identity"
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "PASS": "S3 authority binds exactly; the full ordered three-reservation local table is representative-independent across all six equal-CAPS7 base units; every one of the 3,844 registered recursive public P3 contexts materializes a nonempty complete relation with the exact CAPS7 write law; and the 31-operator recursive reserve-capability basis passes. Certify one-step G3 composition closure on this frozen domain and unlock G3:S5.",
+    "REVIEW_REQUIRED": "Any authority mismatch, local three-reservation conflict, recursive materialization/resource mismatch, relation emptiness, or reserve-capability failure locks S5. Do not promote topology or another descriptor post hoc."
+  },
+  "exact_reduction": [
+    "BIND_CERTIFIED_S3_EXACTLY_AND_REQUIRE_S4_UNLOCK",
+    "BIND_THE_CERTIFIED_G3_S3_COLD_REPLAY_COMPARISON_AND_REQUIRE_EXACT_STABLE_PAYLOAD_AND_SOURCE_IDENTITY_EQUALITY",
+    "CERTIFY_THE_COMPLETE_ORDERED_7_CUBED_THREE_RESERVATION_BRANCH_SENSITIVE_CAPS7_CONTINUATION_TABLE_ON_ALL_SIX_EQUAL_CAPS7_BASE_REPRESENTATIVES",
+    "MATERIALIZE_ALL_62_BY_62_PUBLIC_RECURSIVE_P3_CONTEXTS_FROM_COMPLETE_16_BRANCH_CANONICAL_PAIR_RELATIONS_USING_THE_REGISTERED_DECODER_RELATION_OPERATION",
+    "VERIFY_EVERY_EXACT_RECURSIVE_OUTPUT_OBEYS_THE_CAPS7_TWO_EDGE_RESOURCE_WRITE_LAW_AND_THE_COMPLETE_RELATION_IS_NONEMPTY",
+    "VERIFY_A_COMPLETE_31_OPERATOR_RECURSIVE_RESERVATION_CAPABILITY_BASIS_ON_ACTUAL_RECURSIVE_OUTPUTS",
+    "USE_THE_CERTIFIED_S2_EDGE_OBSERVER_S3_TWO_RESERVATION_TABLE_AND_S4_THREE_RESERVATION_TABLE_TO_TRANSPORT_THE_CANONICAL_RECURSIVE_MATERIALIZATION_TO_ALL_216_EXACT_BASE_TRIPLES_PER_PUBLIC_P3_CONTEXT"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "S3_AUTHORITY_REQUIRES_CERTIFIED_COLD_REPLAY_COMPARISON_NOT_PRIMARY_RESULT_ALONE",
+    "DECOMPOSABLE_LOCAL_AND_RECURSIVE_WORK_THROUGH_INFINITY_GRID_EXECUTION_EXECUTE_TASKS",
+    "FOUR_WORKERS_REQUESTED_BY_BACKGROUND_CAMPAIGN_CONTROLLER",
+    "LONG_REGRESSION_AND_SCIENTIFIC_RUNS_DETACHED",
+    "COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_EXPERIMENT_FROM_COLD_SOURCE",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_REGISTRY_OR_FACTORISATION_PREMISE_MISMATCH",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE"
+  ],
+  "frozen_domain": {
+    "base_exact_unit_representatives": 6,
+    "base_public_caps7_classes": 1,
+    "exact_base_triples_per_public_context": 216,
+    "exact_recursive_base_assignment_count": 830304,
+    "factorized_post_recursive_public_continuation_cases": 5812128,
+    "first_edge_public_context_keys": 62,
+    "pair_plus_pair_composition_in_scope": false,
+    "post_recursive_reservation_types": 7,
+    "recursive_p3_public_context_count": 3844,
+    "recursive_shape": "P3_CONNECTED_PATH_FROM_COMPLETE_PAIR_RELATION_PLUS_ONE_BASE_UNIT",
+    "second_edge_public_context_keys": 62
+  },
+  "nonclaims": [
+    "NO_GLOBAL_CAPS7_MINIMALITY",
+    "NO_PAIR_PLUS_PAIR_G3_CLOSURE",
+    "NO_UNBOUNDED_RECURSIVE_G3_CLOSURE",
+    "NO_ASSOCIATIVITY_OR_REBRACKETING_THEOREM",
+    "NO_G3_FINITE_STATE_DESCRIPTOR_YET",
+    "NO_TOPOLOGY_ERASURE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_G3_GRADUATION",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "pass_effect": "Unlock G3:S5 finite read/write descriptor design/execution only. No G3 graduation and no topology promotion.",
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "promotion": false,
+  "public_observer": {
+    "continuation_closure_reads": [
+      "complete ordered three-reservation branch-sensitive CAPS7 continuation on each base G2 unit",
+      "nonempty relation-valued reserve capability and one-coordinate decrement on the 31-operator recursive realization basis"
+    ],
+    "forbidden_reads": [
+      "hidden G1 incidence topology",
+      "diameter",
+      "degree sequence",
+      "shell profile",
+      "articulation structure",
+      "construction_digest as semantic state or branch selector",
+      "skin",
+      "owner witness",
+      "ancestry",
+      "internal path provenance"
+    ],
+    "recursive_relation_reads": [
+      "complete exact recursive relation cardinality",
+      "set of recursive output CAPS7 vectors",
+      "exact CAPS7 write-law agreement on every recursive branch"
+    ]
+  },
+  "question": "Can complete relation-valued G3 pair assemblies certified by S2/S3 be reused as atomic candidate units for one recursive binary composition step with a third frozen G2 unit, while the frozen branch-sensitive public continuation remains representative-independent and requires no read beyond inherited CAPS7?",
+  "schema_id": "IG_G3_S4_COMPOSITION_CLOSURE_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "f905dc5781977cf1d38b2f6fe8e3a25eedb4b4ac30f463ef822685faf8e1565e",
+  "stage_ref": "G3:S4",
+  "status": "FROZEN_BEFORE_G3_S4_EXECUTION"
+}

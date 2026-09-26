@@ -1,0 +1,79 @@
+INFINITY GRID DECODER 0.8lib — P1C2 AUDIT-PROVENANCE CORRECTION
+DEV43 CANDIDATE — 2026-09-22
+
+DISPOSITION
+STEP_1_COMPLETE
+REPLAY_AUTHORITY_SEPARATED_FROM_AUDIT_EVIDENCE
+AUTHORIZED_PREFIX_STILL_THROUGH_G8
+GLOBAL_STILL_UNAUTHORIZED
+SHARED_POINTER_UNCHANGED
+
+1. CORRECTION
+
+Dev41 treated one broad user replay decision as the audit provenance for all
+15 pre-GLOBAL layers. Dev43 no longer describes that as fifteen recorded layer
+audits. It separates four facts:
+
+- who authorized replay;
+- whether a layer-specific audit record is actually pinned;
+- whether the pinned record covers the whole combined layer;
+- whether an independent replay is recorded.
+
+The user decision still authorizes replay through the qualified G8 boundary.
+It is now labelled USER_BLANKET_REPLAY_AUTHORIZATION wherever that is the
+actual authority basis.
+
+2. LEDGER RESULT
+
+Layers classified: 15
+Complete layer audit recorded: 3
+  L0, NODE_IN, SCOUT_HISTORICAL
+Partial, technical or scoped audit/closeout evidence: 5
+  L2J3, O1_O3, O4_O7, G7, G8
+Blanket replay authorization only: 7
+  C0_HISTORICAL, G1, G2, G3, G4, G5, G6
+Independent replay recorded: 0
+
+The zero in the last line is intentional. Historical replay, technical audit,
+graduation audit and scoped closeout are not silently relabelled independent
+confirmation.
+
+3. PINNED RECORDS
+
+Small audit and closeout records were extracted from the supplied authoritative
+bundles and copied into p1c2_audit_records. Each used record is SHA-256 pinned in:
+
+infinity_grid/resources/replay/P1C2_LAYER_AUDIT_PROVENANCE_LEDGER_V1.json
+
+The corrected replay source and compiled DAG are:
+
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V6.json
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V6.json
+
+Every P1C2 authorization carries its authority basis, audit-record status,
+audit-evidence pins, complete-layer flag and independent-replay flag. The
+compiler validates those fields and local verification fails closed on a
+missing or altered audit record.
+
+4. QUALIFICATION
+
+Focused P1A2/P1B/P1B2/P1C/P1C2/P1D suite: 39 passed.
+P1C2-specific and legacy P1C subset: 10 passed.
+Compiled status: BLOCKED_UNAUTHORIZED at GLOBAL, as intended.
+Authorized replay through: G8.
+Science executed by this correction: none.
+
+5. NONCLAIMS
+
+- The seven blanket-only layers are not claimed to have a pinned historical
+  layer audit merely because the user authorized their replay.
+- Partial combined-layer evidence is not described as complete coverage.
+- A reproduced result is not independently confirmed by this correction.
+- This step does not yet add the known-issues ledger, execution-class ledger,
+  cost forecast, broad controller qualification or H1-H13 spot-check.
+
+6. NEXT CORRECTION STEP
+
+Build the known-issues and result-language ledger so MATCH is reported as
+REPRODUCED, with FEX1/A30, the G7 receipt mismatch and CAP37 qualifications
+carried into the relevant replay nodes and certificate.

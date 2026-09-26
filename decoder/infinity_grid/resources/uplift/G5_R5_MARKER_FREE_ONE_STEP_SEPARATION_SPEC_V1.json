@@ -1,0 +1,90 @@
+{
+  "authority": {
+    "g5_r4_closeout_sha256": "e706956345a8e67ea63a36e18acda1899375aac0305e0f8f5299111bfd41ecfd",
+    "g5_r4_independent_verification_sha256": "15e920cdb80cebf04343a74506a498879c39085312674f5757ef71654ab87c7f",
+    "g5_r4_primary_science_sha256": "c37b2efcbcd724fff56f5e0f9ce0696be9e41e4c35fa5d0d8a23727e682bee18",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r4_scoped_hidden_minimality": true
+  },
+  "cost_control": {
+    "endpoint_typed_parent_n": 3,
+    "expected_runtime_class": "SECONDS_TO_LOW_MINUTES",
+    "parallel_stage_required": false,
+    "primary_n_max": 7,
+    "stop_after_registered_panels": true,
+    "workers": 1
+  },
+  "date": "2026-09-06",
+  "endpoint_typed_sentinel_panel": {
+    "action_alphabet": "ALL_62_CERTIFIED_ONE_LEAF_PAYLOADS",
+    "existing_parent_edge_operator_basis": "ALL_31_DIRECTED_OPERATORS_ON_BOTH_PARENT_EDGES",
+    "n": 3,
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "fresh_primary_panel": {
+    "existing_parent_edge_operator": [
+      0,
+      0
+    ],
+    "freshness": "D-COLORED_MARKER_FREE_PARENTS_N4_N7_NOT_USED_IN_R4_MARKER_FREE_PARENT_THEOREM_SUPPORT",
+    "n_max": 7,
+    "n_min": 4,
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "next_authorized_stage": "G5:R6_DESIGN_AFTER_HUMAN_REVIEW",
+  "nonclaims": [
+    "NO_GLOBAL_MARKER_FREE_MINIMALITY",
+    "NO_ALL_FINITE_CONTINUATION_SEPARATION_FROM_BOUNDED_ONE_STEP_RESULT",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_EXACT_HIDDEN_CANON_PROMOTION_TO_PUBLIC_STATE",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "observer": {
+    "O1": "VECTOR_INDEXED_BY_PAYLOAD_OF_DEDUPLICATED_EXACT_UNROOTED_CHILD_CANON_SETS",
+    "Q": "EXACT_PUBLIC_CAPS7_PLUS_H_CLASS_BAG",
+    "action_alphabet": "ALL_62_CERTIFIED_ONE_LEAF_PAYLOADS = H_CLASS_{C,D} X 31_DIRECTED_OPERATORS",
+    "empty_child_relations": "PRESERVED_AS_EMPTY_ENTRIES_IN_SIGNATURE",
+    "hash_policy": "HASHES_ARE_AUDIT_HANDLES_ONLY; STRUCTURAL_TUPLE_EQUALITY_DECIDES_SCIENCE",
+    "parent_identity": "EXACT_UNROOTED_ENDPOINT_TYPED_DECORATED_TREE_CANON",
+    "sufficiency_predicate": "WITHIN_EQUAL_Q_FIBER, EQUAL_O1_SIGNATURE_IMPLIES_EQUAL_EXACT_PARENT_CANON"
+  },
+  "outcome_rules": {
+    "COLLISION": "If distinct exact parents in one Q fiber have equal full marker-free one-step signatures, preserve the first lexicographic structural collision witness and record that one-step marker-free observation is insufficient on the frozen scope; do not weaken the observer or add new reads in this stage.",
+    "INJECTIVE": "If the full marker-free one-step signature is injective within every equal-Q fiber on both registered panels, record bounded marker-free one-step exact-hidden separation only; do not claim global minimality."
+  },
+  "pass_classifications": {
+    "collision": "G5_R5_MARKER_FREE_ONE_STEP_COLLISION_WITNESS_EARNED_EXACT_HIDDEN_CANON_NOT_ONE_STEP_MINIMAL_ON_FROZEN_SCOPE_NO_PROMOTION_R6_DESIGN_AUTHORIZED",
+    "injective": "G5_R5_MARKER_FREE_FULL_ONE_STEP_ACTION_SIGNATURE_SEPARATES_EXACT_HIDDEN_PARENTS_ON_FROZEN_BOUNDED_SCOPE_NO_PROMOTION_R6_DESIGN_AUTHORIZED"
+  },
+  "promotion": false,
+  "question": "Given R3 finite-future congruence and R4 fresh-marker minimality, does the original marker-free certified G5 one-step graft action algebra already separate exact hidden parent canons within a fixed public CAPS7 + H-class bag fiber on a fresh bounded actual-carrier challenge?",
+  "schema_id": "IG_G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1",
+  "science_sha256": "9ed8aeb3d36393cccdebcf7ee7be1485e487e5d8c2888327cf1573372b1bcf64",
+  "stage": "G5:R5",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stops": [
+    "R4_AUTHORITY_MISMATCH",
+    "SPEC_HASH_MISMATCH",
+    "STRUCTURAL_EQUALITY_INTEGRITY_FAILURE",
+    "UNREGISTERED_OPERATOR_OR_H_CLASS",
+    "COLD_REPLAY_MISMATCH",
+    "INDEPENDENT_VERIFICATION_FAILURE",
+    "RESOURCE_OR_RUNTIME_INTEGRITY_FAILURE"
+  ]
+}

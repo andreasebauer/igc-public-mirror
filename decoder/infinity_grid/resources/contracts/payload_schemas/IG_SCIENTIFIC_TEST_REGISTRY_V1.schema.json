@@ -1,0 +1,83 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCIENTIFIC_TEST_REGISTRY_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "registry_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCIENTIFIC_TEST_REGISTRY_V1",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_note": {
+            "type": "string"
+          },
+          "evidence_relative_path": {
+            "type": "string"
+          },
+          "execution": {
+            "type": "string"
+          },
+          "expected_value": {
+            "type": "string"
+          },
+          "json_pointer": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "parent_target_alias": {
+            "type": "string"
+          },
+          "replay_mode": {
+            "type": "string"
+          },
+          "replay_semantics": {
+            "type": "string"
+          },
+          "test_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authority_note",
+          "execution",
+          "level",
+          "parent_target_alias",
+          "replay_mode",
+          "replay_semantics",
+          "test_id",
+          "title"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_sha256",
+    "schema_id",
+    "scope",
+    "tests",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCIENTIFIC_TEST_REGISTRY_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

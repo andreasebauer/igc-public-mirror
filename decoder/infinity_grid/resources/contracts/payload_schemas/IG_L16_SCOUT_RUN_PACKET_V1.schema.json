@@ -1,0 +1,135 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_SCOUT_RUN_PACKET_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "claim_boundary_sha256": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "evidence_label": {
+      "type": "string"
+    },
+    "execution_class": {
+      "type": "string"
+    },
+    "golden_commitment_sha256": {
+      "type": "string"
+    },
+    "input_dataset_sha256": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "observer_sha256": {
+      "type": "string"
+    },
+    "packet_sha256": {
+      "type": "string"
+    },
+    "packet_status": {
+      "type": "string"
+    },
+    "packet_version": {
+      "type": "string"
+    },
+    "plan_sha256": {
+      "type": "string"
+    },
+    "population_complete": {
+      "type": "boolean"
+    },
+    "protocol_descriptor_sha256": {
+      "type": "string"
+    },
+    "question_sha256": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "runtime_parent": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "type": "string"
+        },
+        "closeout_bundle_sha256": {
+          "type": "string"
+        },
+        "graduation_sha256": {
+          "type": "string"
+        },
+        "new_science_enabled": {
+          "type": "boolean"
+        },
+        "publication_deployment_note": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "wheel_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability",
+        "closeout_bundle_sha256",
+        "graduation_sha256",
+        "new_science_enabled",
+        "publication_deployment_note",
+        "source_sha256",
+        "version",
+        "wheel_sha256"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_L16_SCOUT_RUN_PACKET_V1",
+      "type": "string"
+    },
+    "science_executed_during_freeze": {
+      "type": "boolean"
+    },
+    "selection_rules_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "claim_boundary_sha256",
+    "date",
+    "evidence_label",
+    "execution_class",
+    "golden_commitment_sha256",
+    "input_dataset_sha256",
+    "next_action",
+    "observer_sha256",
+    "packet_sha256",
+    "packet_status",
+    "packet_version",
+    "plan_sha256",
+    "population_complete",
+    "protocol_descriptor_sha256",
+    "question_sha256",
+    "run_id",
+    "runtime_parent",
+    "schema_id",
+    "science_executed_during_freeze",
+    "selection_rules_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_SCOUT_RUN_PACKET_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

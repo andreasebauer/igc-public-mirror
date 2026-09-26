@@ -1,0 +1,92 @@
+{
+  "authority": {
+    "g2_graduation_science_sha256": "025713aab599dacbcffe397721d781e5854bc4216245a21bfd70f92c34a8a209",
+    "g3_s5_classification": "G3_CAPS7_FINITE_READ_WRITE_DESCRIPTOR_EARNED_ON_FROZEN_RELATION_VALUED_GRAMMAR_S6_UNLOCKED",
+    "g3_s5_replay_schema_id": "IG_G3_S5_COLD_REPLAY_COMPARISON_V1",
+    "g3_s5_science_sha256": "ad28cbfc08f69d487bc2d2c7aaf02400c2a7a4d77ea7fdf952616ea13b67ce13",
+    "required_g3_graduated": false,
+    "required_g3_s5_certification": "CERTIFIED_PASS",
+    "required_g3_s5_science_sha_equal": true,
+    "required_g3_s5_source_sha_equal": true,
+    "required_g3_s5_stable_payload_exact_equal": true,
+    "required_g3_s6_unlocked": true,
+    "required_topology_promoted": false
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "fail": "Any gate failure leaves G3 ungraduated and G3:R0 locked.",
+    "pass": "After exact cold replay certification, emit G3_GRADUATED_CAPS7_RECURSIVE_RELATION_GRAMMAR_EARNED_R0_UNLOCKED.",
+    "primary_run": "Primary S6 PASS produces only a G3 graduation candidate."
+  },
+  "exact_gates": [
+    "S6_UNLOCK_AND_CERTIFIED_S5_AUTHORITY_EXACT",
+    "FULL_V0_30_17_REGRESSION_PASS_BEFORE_SCIENCE",
+    "GENERAL_G3_CAPS7_RECURSIVE_RELATION_FACTORISATION_ARGUMENT_PASS",
+    "ALL_31_OPERATORS_PASS_FRESH_PAIR_PLUS_PAIR_EXACT_HOLDOUT",
+    "SEVEN_FRESH_P5_CASES_PASS_ALL_BRANCH_CAPS_AND_RESERVATIONS",
+    "SEVEN_FRESH_REBRACKET_CASES_HAVE_IDENTICAL_CAPS7_QUOTIENT_OUTCOMES",
+    "NO_HIDDEN_TOPOLOGY_SKIN_ANCESTRY_OR_OWNER_SELECTOR_READ_IN_PROMOTABLE_RELATION_LOGIC",
+    "INDEPENDENT_COLD_REPLAY_RERUNS_SAME_REGISTERED_G3_S6_EXPERIMENT_AND_MATCHES_STABLE_SCIENCE_PAYLOAD_AND_SOURCE"
+  ],
+  "fresh_holdout": {
+    "deep_p5_cases": 7,
+    "freshness_scope": "PAIR_PLUS_PAIR_P4__P5_BALANCED_PLUS_BASE__P4_REBRACKETING_SHAPES_NOT_IN_S4_S5_P3_CENSUS",
+    "no_outcome_retuning": true,
+    "pair_plus_pair_operator_cases": 31,
+    "rebracketing_cases": 7,
+    "reservation_check": "For every exact final relation in every holdout case, check every enabled endpoint type and require the complete exact successor relation to be nonempty and uniformly CAPS7=f-e_t."
+  },
+  "frozen_grammar": {
+    "binary_operator_count": 31,
+    "compose": "C_ab(f,g)=f+g-e_a-e_b iff (a,b) is in the frozen operator basis and f_a>0 and g_b>0",
+    "exact_routing": "RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+    "relation_level_semantics": "Complete relation operations enumerate every exact branch/branch pair and exact-deduplicate only after branch generation.",
+    "reservation_actions": 7,
+    "reserve": "R_t(f)=f-e_t iff f_t>0"
+  },
+  "g2_relation_spec_sha256": "e1f2f7502ab44c5e79d98abe25d041f2068b545828c9fd8ca778bbdd7f574214",
+  "hard_firewalls": [
+    "NO_CHANGE_TO_CERTIFIED_G3_S0_S5_SCIENCE",
+    "NO_CAPS7_MINIMALITY_CLAIM",
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE_CLAIM",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE_CLAIM",
+    "NO_TOPOLOGY_ERASURE_OR_PROMOTION",
+    "NO_RAW_TOPOLOGY_ASSOCIATIVITY_CLAIM",
+    "NO_G3_R0_BEFORE_FINAL_S6_GRADUATION_CERTIFICATE",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_TIME_OR_SPACETIME_CLAIM"
+  ],
+  "observer": {
+    "does_not_observe": [
+      "raw exact relation identity",
+      "exact branch multiplicity",
+      "which child supplied an endpoint",
+      "construction identity",
+      "hidden G1-unit incidence topology",
+      "skin",
+      "ancestry"
+    ],
+    "name": "G3_TRANSITION_GRAMMAR_CAPS7_OBSERVER_V1",
+    "reads": [
+      "external reservation enabledness by endpoint type",
+      "31 frozen typed binary bridge enabledness",
+      "successor CAPS7 state"
+    ],
+    "state": "CAPS7=(f0,...,f6) in N^7"
+  },
+  "question": "Does the earned G3 CAPS7 read/write quotient remain exact under arbitrary finite recursive use of the frozen complete-relation reservation/binary grammar, with fresh exact pair+pair/deep/rebracketing holdout transfer and no hidden selector reads, so that G3 may graduate under the frozen CAPS7 transition observer?",
+  "recursive_proof_obligation": {
+    "base": "Every graduated G2 unit is a legal G3 leaf with inherited CAPS7.",
+    "binary_step": "Uniform-CAPS7 complete relations remain uniform after complete relation-valued binary composition with q=f+g-e_a-e_b.",
+    "closure": "All abstract successors remain in N^7.",
+    "context_consequence": "CAPS7 equality is preserved through every finite admitted G3 context; exact branch multiplicity/topology may differ.",
+    "dedupe_step": "Exact deduplication cannot change the singleton CAPS7 image.",
+    "method": "STRUCTURAL_INDUCTION_ON_FINITE_COMPLETE_G3_RELATION_TERMS_AND_ACTION_SYNTAX",
+    "reserve_step": "Uniform-CAPS7 complete relations remain uniform after complete relation-valued reserve with q=f-e_t."
+  },
+  "schema_id": "IG_G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "6968b56d0fa15a7f3e87f60220408ebe436b8a8e08094709056ed9f99b905f0e",
+  "source_stage": "G3:S5",
+  "stage_ref": "G3:S6",
+  "status": "FROZEN_BEFORE_S6_EXECUTION"
+}

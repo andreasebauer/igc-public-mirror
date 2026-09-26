@@ -1,0 +1,36 @@
+{
+  "acceptance_gates": [],
+  "allowed_protocol_labels": ["P6_WORKFLOW_RUN"],
+  "evidence_policy": {
+    "allowed_tuples": [["DIRECT_EXECUTION", "EXACT_BOUNDED", "PASS", "SCOPED_AUDIT_AUTHORITY", "P6_WORKFLOW_RUN"]],
+    "max_authority": "SCOPED_AUDIT_AUTHORITY"
+  },
+  "forbidden_claims": ["geometry emerged", "g-level graduated", "automatic graduation"],
+  "input_contract": {},
+  "observer_contract": null,
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [],
+      "allowed_protocol_labels": ["P6_WORKFLOW_RUN"],
+      "profile_id": "p6_generic_workflow_single_stage",
+      "stages": [
+        {
+          "allowed_param_keys": ["fixture_dataset_sha256", "workflow_dataset_sha256"],
+          "depends_on": [],
+          "required_param_keys": ["fixture_dataset_sha256", "workflow_dataset_sha256"],
+          "runner": "adapter.v05_workflow",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {"hierarchy": "WORKFLOW", "phase": "P6", "target": "GENERIC_SCIENCE_WORKFLOW"}
+    }
+  ],
+  "planner_contract": {"freeze_before_execution": true, "immutable_plan": true},
+  "protocol_id": "P6_WORKFLOW",
+  "purpose": "Run one preregistered P6 structural or R workflow through the common v0.5 guarded runtime without stage-specific execution authority.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [{"id": "execute", "purpose": "generic registered P6 workflow"}],
+  "stopping_rules": {"fail_closed": true, "scientific_mismatch": "STOP"},
+  "version": "0.17"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_dependencies": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "type": "object"
+    },
+    "contract_id": {
+      "type": "string"
+    },
+    "coverage_rule": {
+      "type": "string"
+    },
+    "cross_cutting_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "layers": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "production_module_count_expected": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "IG_ARCHITECTURE_CONTRACT_V2"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "contract_id",
+    "status",
+    "layers",
+    "allowed_dependencies",
+    "cross_cutting_rules",
+    "production_module_count_expected",
+    "coverage_rule"
+  ],
+  "title": "IG Decoder Architecture Contract V2",
+  "type": "object"
+}

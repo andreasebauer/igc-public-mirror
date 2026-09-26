@@ -1,0 +1,884 @@
+{
+  "date": "2026-09-04",
+  "engine_model": "ONE_PERSISTENT_CAMPAIGN_ENGINE_WITH_REGISTERED_G2_G3_G4_AND_G5_UPLIFT_STAGES_DECODER_NATIVE_COLD_REPLAY",
+  "experiments": [
+    {
+      "dependencies": [
+        "G2:S6"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G2:R0.STRUCTURAL_AUDIT",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g2_r0_native",
+      "implementation_spec_resource": "G2_R0_STRUCTURAL_RECON_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G2:R0",
+      "status": "REGISTERED",
+      "title": "Post-graduation intrinsic G1-unit incidence / pregeometry reconnaissance"
+    },
+    {
+      "dependencies": [],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S0",
+      "handler_ref": null,
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "stage_ref": "G2:S0",
+      "status": "EARNED_EVIDENCE",
+      "title": "Whole previous-G carrier public-interface extraction"
+    },
+    {
+      "dependencies": [
+        "G2:S0"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S1",
+      "handler_ref": null,
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "stage_ref": "G2:S1",
+      "status": "EARNED_EVIDENCE",
+      "title": "Whole-carrier pair connection census"
+    },
+    {
+      "dependencies": [
+        "G2:S1.RESIDUAL_RECON"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S1.D4_Q2_REPAIR",
+      "handler_ref": null,
+      "kind": "REPAIR_AND_REAUDIT",
+      "parallelizable": true,
+      "stage_ref": "G2:S1",
+      "status": "EARNED_EVIDENCE",
+      "title": "Strict-public D4+Q2 repaired S1 descriptor"
+    },
+    {
+      "dependencies": [
+        "G2:S1"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S1.REALIZATION_AUDIT",
+      "handler_ref": null,
+      "kind": "AUDIT",
+      "parallelizable": true,
+      "stage_ref": "G2:S1",
+      "status": "EARNED_EVIDENCE",
+      "title": "S1 realized-assembly congruence audit"
+    },
+    {
+      "dependencies": [
+        "G2:S1.REALIZATION_AUDIT"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S1.RESIDUAL_RECON",
+      "handler_ref": null,
+      "kind": "RECONNAISSANCE",
+      "parallelizable": true,
+      "stage_ref": "G2:S1",
+      "status": "EARNED_EVIDENCE",
+      "title": "Residual scanner/maturation reconnaissance"
+    },
+    {
+      "dependencies": [
+        "G2:S1.D4_Q2_REPAIR"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S2",
+      "handler_ref": null,
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "stage_ref": "G2:S2",
+      "status": "EARNED_EVIDENCE",
+      "title": "Canonical quotient of repaired pair outcomes"
+    },
+    {
+      "dependencies": [
+        "G2:S2"
+      ],
+      "execution_mode": "IMPORTED_EVIDENCE",
+      "experiment_id": "G2:S3",
+      "handler_ref": null,
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "stage_ref": "G2:S3",
+      "status": "EARNED_EVIDENCE",
+      "title": "Triple compatibility / irreducibility"
+    },
+    {
+      "dependencies": [
+        "G2:S3"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G2:S4",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g2_s4_native",
+      "implementation_spec_resource": "G_UPLIFT_S4_COMPOSITION_CLOSURE_SPEC_V2.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "relation_spec_resource": "G2_RELATION_VALUED_RESERVATION_SPEC_V1.json",
+      "routing_semantics": "G2_RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+      "stage_ref": "G2:S4",
+      "status": "REGISTERED",
+      "title": "One-step composition closure of S2 units under relation-valued G2 routing"
+    },
+    {
+      "dependencies": [
+        "G2:S4"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G2:S5",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g2_s5_native",
+      "implementation_spec_resource": "G_UPLIFT_S5_FINITE_STATE_DESCRIPTOR_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "relation_spec_resource": "G2_RELATION_VALUED_RESERVATION_SPEC_V1.json",
+      "routing_semantics": "G2_RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+      "stage_ref": "G2:S5",
+      "status": "REGISTERED",
+      "title": "Finite CAPS7 read/write quotient for frozen G2 transition grammar"
+    },
+    {
+      "dependencies": [
+        "G2:S5"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G2:S5.TORIC_AUDIT",
+      "handler_ref": "infinity_grid.uplift_toric:run_g2_toric_native",
+      "implementation_spec_resource": "G2_TORIC_STRUCTURE_AUDIT_SPEC_V1.json",
+      "kind": "AUDIT",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G2:S5",
+      "status": "REGISTERED",
+      "title": "Non-promoting toric structure audit of the CAPS7 31-operator bridge semigroup"
+    },
+    {
+      "dependencies": [
+        "G2:S5"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G2:S6",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g2_s6_native",
+      "implementation_spec_resource": "G_UPLIFT_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "relation_spec_resource": "G2_RELATION_VALUED_RESERVATION_SPEC_V1.json",
+      "routing_semantics": "G2_RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+      "stage_ref": "G2:S6",
+      "status": "REGISTERED",
+      "title": "Recursive CAPS7 closure / G2 graduation audit"
+    },
+    {
+      "dependencies": [
+        "G3:S6"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:R0.STRUCTURAL_AUDIT",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_r0_native",
+      "implementation_spec_resource": "G3_R0_STRUCTURAL_RECON_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G3:R0",
+      "status": "REGISTERED",
+      "title": "Post-graduation intrinsic hierarchical G2-unit / flattened G1 incidence reconnaissance"
+    },
+    {
+      "dependencies": [
+        "G3:R0.STRUCTURAL_AUDIT"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:R1.FIBER_MODULI_AUDIT",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_r1_native",
+      "implementation_spec_resource": "G3_R1_FIBER_MODULI_AUDIT_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G3:R1",
+      "status": "REGISTERED",
+      "title": "Finite hidden-tree fiber/moduli stratification, grafting relation, and candidate topology-read audit after certified G3:R0"
+    },
+    {
+      "dependencies": [
+        "G3:R1.FIBER_MODULI_AUDIT"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:R2.ADAPTIVE_MATURATION",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_r2_native",
+      "implementation_spec_resource": "G3_R2_ADAPTIVE_MATURATION_SPEC_V1.json",
+      "kind": "RECONNAISSANCE_MATURATION",
+      "lane_tags": [
+        "STRUCTURE_MATURATION",
+        "READ_CANDIDATE_STRESS",
+        "FIBER_GRAFTING_CONTINUATION",
+        "SPARSE_SENTINEL_STRESS"
+      ],
+      "parallelizable": true,
+      "promotion": false,
+      "stage_ref": "G3:R2",
+      "status": "REGISTERED",
+      "title": "Adaptive post-R1 hidden-tree maturation with exhaustive dense ranks and deterministic sparse sentinels"
+    },
+    {
+      "dependencies": [
+        "G3:R2.ADAPTIVE_MATURATION"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:R3.STRUCTURAL_ALGEBRA_REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_r3_native",
+      "implementation_spec_resource": "G3_R3_STRUCTURAL_ALGEBRA_REBASE_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE",
+      "parallelizable": true,
+      "promotion": false,
+      "stage_ref": "G3:R3",
+      "status": "REGISTERED",
+      "title": "Repaired hidden-tree binary graft algebra after the delayed R18 shell-profile break"
+    },
+    {
+      "dependencies": [
+        "G2:R0.STRUCTURAL_AUDIT"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S0",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s0_native",
+      "implementation_spec_resource": "G3_S0_INTERFACE_EXTRACTION_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G3:S0",
+      "status": "REGISTERED",
+      "title": "Whole graduated G2 carrier CAPS7 interface extraction and topology-collision challenge corpus"
+    },
+    {
+      "dependencies": [
+        "G3:S0"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S1",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s1_native",
+      "implementation_spec_resource": "G3_S1_PAIR_CONTEXT_READ_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G3:S1",
+      "status": "REGISTERED",
+      "title": "Registered whole-unit pair-context audit for operational reads of equal-CAPS7 / different-topology G2 units"
+    },
+    {
+      "dependencies": [
+        "G3:S1"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S2",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s2_native",
+      "implementation_spec_resource": "G3_S2_CAPS7_PAIR_OBSERVER_QUOTIENT_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G3:S2",
+      "status": "REGISTERED",
+      "title": "CAPS7 exact pair-observer quotient certification on the frozen G3 topology-collision domain"
+    },
+    {
+      "dependencies": [
+        "G3:S2"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S3",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s3_native",
+      "implementation_spec_resource": "G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G3:S3",
+      "status": "REGISTERED",
+      "title": "Higher-order P3/K3 compatibility and irreducibility audit after certified CAPS7 pair quotient"
+    },
+    {
+      "dependencies": [
+        "G3:S3"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S4",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s4_native",
+      "implementation_spec_resource": "G3_S4_COMPOSITION_CLOSURE_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G3:S4",
+      "status": "REGISTERED",
+      "title": "One-step relation-valued composition closure of complete G3 pair candidates on the frozen P3 CAPS7 scope"
+    },
+    {
+      "dependencies": [
+        "G3:S4"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S5",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s5_native",
+      "implementation_spec_resource": "G3_S5_FINITE_READ_WRITE_DESCRIPTOR_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": true,
+      "stage_ref": "G3:S5",
+      "status": "REGISTERED",
+      "title": "Finite CAPS7 read/write descriptor for the frozen one-step relation-valued G3 candidate grammar"
+    },
+    {
+      "dependencies": [
+        "G3:S5"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G3:S6",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g3_s6_native",
+      "implementation_spec_resource": "G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G3_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": true,
+      "stage_ref": "G3:S6",
+      "status": "REGISTERED",
+      "title": "Recursive CAPS7 complete-relation closure and G3 graduation audit"
+    },
+    {
+      "dependencies": [
+        "G4:S6.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R0.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r0_rebase:finalize",
+      "implementation_spec_resource": "G4_R0_REBASE_STRUCTURAL_RECON_SPEC_V1.json",
+      "kind": "POST_GRADUATION_STRUCTURAL_REBASE_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R0.REBASE",
+      "status": "REGISTERED",
+      "title": "Post-rebase G4 hierarchical edge-graded tree structural reconnaissance"
+    },
+    {
+      "dependencies": [
+        "G4:S6"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R0.STRUCTURAL_AUDIT",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_r0_native",
+      "implementation_spec_resource": "G4_R0_STRUCTURAL_RECON_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R0",
+      "status": "REGISTERED",
+      "title": "Post-graduation intrinsic G3-unit / flattened G2 incidence reconnaissance"
+    },
+    {
+      "dependencies": [
+        "G4:R0.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R1.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r1_rebase:finalize",
+      "implementation_spec_resource": "G4_R1_REBASE_FIBER_GRAFT_AUDIT_SPEC_V1.json",
+      "kind": "POST_GRADUATION_FIBER_REBASE_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R1.REBASE",
+      "status": "REGISTERED",
+      "title": "Post-rebase G4 finite combinatorial fiber and decorated-tree grafting audit"
+    },
+    {
+      "dependencies": [
+        "G4:R1.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R2.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r2_rebase:finalize",
+      "implementation_spec_resource": "G4_R2_REBASE_PREDICTIVE_HIDDEN_READ_SPEC_V1.json",
+      "kind": "POST_GRADUATION_PREDICTIVE_HIDDEN_READ_REBASE_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R2.REBASE",
+      "status": "REGISTERED",
+      "title": "Post-rebase G4 compact predictive hidden action-read audit"
+    },
+    {
+      "dependencies": [
+        "G4:R2.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R3.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r3_rebase:finalize",
+      "implementation_spec_resource": "G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1.json",
+      "kind": "POST_GRADUATION_DECORATED_SCOPE_REBASE_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R3.REBASE",
+      "status": "REGISTERED",
+      "title": "Post-rebase G4 R2 hidden-read decorated-scope generalization challenge"
+    },
+    {
+      "dependencies": [
+        "G4:R3.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R4.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r4_rebase:finalize",
+      "implementation_spec_resource": "G4_R4_REBASE_DECORATION_AWARE_PREDICTIVE_READ_SPEC_V1.json",
+      "kind": "POST_GRADUATION_DECORATION_AWARE_PREDICTIVE_READ_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R4.REBASE",
+      "status": "REGISTERED",
+      "title": "Decoration-aware compact hidden action-read refinement"
+    },
+    {
+      "dependencies": [
+        "G4:R4.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R5.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r5_rebase:finalize",
+      "implementation_spec_resource": "G4_R5_REBASE_DEPTH_STABILIZATION_CHALLENGE_SPEC_V1.json",
+      "kind": "POST_GRADUATION_DECORATION_MESSAGE_DEPTH_STABILIZATION_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R5.REBASE",
+      "status": "REGISTERED",
+      "title": "Targeted next-size message-depth stabilization challenge"
+    },
+    {
+      "dependencies": [
+        "G4:R5.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R6.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r6_rebase:finalize",
+      "implementation_spec_resource": "G4_R6_REBASE_GENERIC_DECORATED_MESSAGE_LAW_SPEC_V1.json",
+      "kind": "POST_GRADUATION_GENERIC_DECORATED_TREE_MESSAGE_LAW_RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R6.REBASE",
+      "status": "REGISTERED",
+      "title": "Generic recursive decorated-tree message law and depth-growth theorem"
+    },
+    {
+      "dependencies": [
+        "G4:R6.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:R7.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_r7_rebase:finalize",
+      "implementation_spec_resource": "G4_R7_REBASE_REALIZABILITY_OBSERVER_QUOTIENT_SPEC_V1.json",
+      "kind": "POST_GRADUATION_ACTUAL_G4_REALIZABILITY_AND_OBSERVER_RELATIVE_QUOTIENT_CLOSEOUT",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:R7.REBASE",
+      "status": "REGISTERED",
+      "title": "Actual-G4 realizability bridge and parent-conditioned hidden-read quotient challenge"
+    },
+    {
+      "challenge_read_tier_resource": "G4_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G3:R2.ADAPTIVE_MATURATION"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S0",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s0_native",
+      "implementation_spec_resource": "G4_S0_INTERFACE_EXTRACTION_SPEC_V2.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G4:S0",
+      "status": "REGISTERED",
+      "title": "Whole graduated G3 construction-term carrier freeze and hidden-tree challenge hierarchy"
+    },
+    {
+      "dependencies": [
+        "G3:R1.FIBER_MODULI_AUDIT",
+        "G3:R3.STRUCTURAL_ALGEBRA_REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S0.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s0_rebase_native",
+      "implementation_spec_resource": "G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_STAGE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:S0.REBASE",
+      "status": "REGISTERED",
+      "title": "Rebase G4 leaf interface and challenge corpus on certified G3:R3 structural algebra"
+    },
+    {
+      "challenge_read_tier_resource": "G4_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G4:S0"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S1",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s1_native",
+      "implementation_spec_resource": "G4_S1_HIDDEN_STRUCTURE_CONTEXT_READ_SPEC_V2.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G4:S1",
+      "status": "REGISTERED",
+      "title": "Whole-G3-unit certified-term context audit for hidden-structure reads"
+    },
+    {
+      "challenge_read_tier_resource": "G4_REBASE_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G4:S0.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S1.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s1_rebase_native",
+      "implementation_spec_resource": "G4_S1_REBASE_CONTEXT_READ_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_STAGE",
+      "parallelizable": true,
+      "promotion": false,
+      "stage_ref": "G4:S1.REBASE",
+      "status": "REGISTERED",
+      "title": "Corrected G4 whole-G3-unit context-read audit under G3:R3 authority"
+    },
+    {
+      "challenge_read_tier_resource": "G4_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G4:S1"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S2",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s2_native",
+      "implementation_spec_resource": "G4_S2_MINIMAL_ADDED_READ_PAIR_QUOTIENT_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G4:S2",
+      "status": "REGISTERED",
+      "title": "Minimal preregistered added-read quotient for the complete G4:S1 pair observer"
+    },
+    {
+      "dependencies": [
+        "G4:S1.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S2.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s2_rebase_native",
+      "implementation_spec_resource": "G4_S2_REBASE_MINIMAL_SUFFICIENT_READ_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_STAGE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:S2.REBASE",
+      "status": "REGISTERED",
+      "title": "Lightweight corrected pair-observer quotient audit reusing certified S1.REBASE signatures"
+    },
+    {
+      "challenge_read_tier_resource": "G4_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G4:S2"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S3",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s3_native",
+      "implementation_spec_resource": "G4_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G4:S3",
+      "status": "REGISTERED",
+      "title": "Higher-order P3/K3 compatibility and irreducibility audit after certified Tier-1 S2 pair quotient"
+    },
+    {
+      "dependencies": [
+        "G4:S2.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S3.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s3_rebase_native",
+      "implementation_spec_resource": "G4_S3_REBASE_HIGHER_ORDER_IRREDUCIBILITY_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_STAGE",
+      "parallelizable": true,
+      "promotion": false,
+      "stage_ref": "G4:S3.REBASE",
+      "status": "REGISTERED",
+      "title": "Corrected higher-order P3/K3 irreducibility audit for repaired hidden-state H"
+    },
+    {
+      "challenge_read_tier_resource": "G4_CHALLENGE_READ_TIERS_V1.json",
+      "dependencies": [
+        "G4:S3"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S4",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s4_native",
+      "implementation_spec_resource": "G4_S4_COMPOSITION_CLOSURE_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": false,
+      "stage_ref": "G4:S4",
+      "status": "REGISTERED",
+      "title": "One-step relation-valued composition closure on the frozen G4 Tier-1 candidate domain"
+    },
+    {
+      "dependencies": [
+        "G4:S3.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S4.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s4_rebase_native",
+      "implementation_spec_resource": "G4_S4_REBASE_ONE_STEP_RELATION_CLOSURE_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_STAGE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G4:S4.REBASE",
+      "status": "REGISTERED",
+      "title": "Corrected one-step relation-valued composition closure for repaired hidden-state H"
+    },
+    {
+      "dependencies": [
+        "G4:S4"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S5",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s5_native",
+      "implementation_spec_resource": "G4_S5_FINITE_READ_WRITE_DESCRIPTOR_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": false,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": true,
+      "stage_ref": "G4:S5",
+      "status": "REGISTERED",
+      "title": "Finite CAPS7 plus Tier-1 class-bag read/write descriptor for the frozen one-step G4 candidate grammar"
+    },
+    {
+      "dependencies": [
+        "G4:S4.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S5.REBASE",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s5_rebase_native",
+      "promotion": true,
+      "stage_ref": "G4:S5.REBASE",
+      "status": "REGISTERED"
+    },
+    {
+      "dependencies": [
+        "G4:S5"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S6",
+      "handler_ref": "infinity_grid.uplift_campaign:run_g4_s6_native",
+      "implementation_spec_resource": "G4_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+      "kind": "STRUCTURAL_STAGE",
+      "parallelizable": true,
+      "phase0_spec_resource": "G4_PHASE0_ARCHITECTURE_FREEZE_V1.json",
+      "promotion": true,
+      "stage_ref": "G4:S6",
+      "status": "REGISTERED",
+      "title": "Recursive closure and G4 graduation audit for CAPS7 plus Tier-1 class-bag descriptor"
+    },
+    {
+      "dependencies": [
+        "G4:S5.REBASE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G4:S6.REBASE",
+      "handler_ref": "infinity_grid.uplift_g4_s6_rebase:finalize",
+      "implementation_spec_resource": "G4_S6_REBASE_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+      "kind": "STRUCTURAL_REBASE_GRADUATION_STAGE",
+      "parallelizable": false,
+      "promotion": true,
+      "stage_ref": "G4:S6.REBASE",
+      "status": "REGISTERED",
+      "title": "Corrected recursive closure and G4 re-graduation for CAPS7 plus H-class bag"
+    },
+    {
+      "dependencies": [
+        "G5:S6"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R0.STRUCTURAL_AUDIT",
+      "handler_ref": "infinity_grid.uplift_g5_r0:run_g5_r0_recon",
+      "implementation_spec_resource": "G5_R0_POST_GRADUATION_STRUCTURAL_RECON_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R0",
+      "status": "REGISTERED",
+      "title": "Post-graduation exact hidden decorated-tree structural reconnaissance"
+    },
+    {
+      "dependencies": [
+        "G5:R0.STRUCTURAL_AUDIT"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R1.FIBER_GRAFT_AUDIT",
+      "handler_ref": "infinity_grid.uplift_g5_r1:run_g5_r1_fiber_graft_audit",
+      "implementation_spec_resource": "G5_R1_FIBER_GRAFT_AUDIT_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R1",
+      "status": "REGISTERED",
+      "title": "Finite hidden combinatorial fiber and endpoint-typed relation-valued grafting audit"
+    },
+    {
+      "dependencies": [
+        "G5:R1.FIBER_GRAFT_AUDIT"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R2.PREDICTIVE_HIDDEN_ACTION_READ",
+      "handler_ref": "infinity_grid.uplift_g5_r2:run_g5_r2_predictive_hidden_read",
+      "implementation_spec_resource": "G5_R2_PREDICTIVE_HIDDEN_ACTION_READ_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R2",
+      "status": "REGISTERED",
+      "title": "Predictive hidden action-read audit and fixed-depth lower bound over G5 endpoint-typed hidden tree fiber"
+    },
+    {
+      "dependencies": [
+        "G5:R2.PREDICTIVE_HIDDEN_ACTION_READ"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R3.GENERIC_ENDPOINT_TYPED_MESSAGE_CONGRUENCE",
+      "handler_ref": "infinity_grid.uplift_g5_r3:run_g5_r3_generic_message_congruence",
+      "implementation_spec_resource": "G5_R3_GENERIC_ENDPOINT_TYPED_MESSAGE_CONGRUENCE_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R3",
+      "status": "REGISTERED",
+      "title": "Generic endpoint-typed recursive hidden-message law and finite graft-future congruence audit"
+    },
+    {
+      "dependencies": [
+        "G5:R3.GENERIC_ENDPOINT_TYPED_MESSAGE_CONGRUENCE"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R4.MARKED_LEAF_HIDDEN_MINIMALITY",
+      "handler_ref": "infinity_grid.uplift_g5_r4:run_g5_r4_marked_hidden_minimality",
+      "implementation_spec_resource": "G5_R4_MARKED_LEAF_HIDDEN_MINIMALITY_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R4",
+      "status": "REGISTERED",
+      "title": "Fresh-marker graft separation and scoped exact-hidden observer minimality audit"
+    },
+    {
+      "dependencies": [
+        "G5:R4.MARKED_LEAF_HIDDEN_MINIMALITY"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R5.MARKER_FREE_ONE_STEP_SEPARATION",
+      "handler_ref": "infinity_grid.uplift_g5_r5:run_g5_r5_marker_free_one_step_separation",
+      "implementation_spec_resource": "G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R5",
+      "status": "REGISTERED",
+      "title": "Marker-free full one-step hidden action signature separation audit"
+    },
+    {
+      "dependencies": [],
+      "execution_mode": "EXTERNAL_CERTIFIED_AUTHORITY",
+      "experiment_id": "G5:S6",
+      "kind": "CERTIFIED_EXTERNAL_V05_WORKFLOW_AUTHORITY",
+      "parallelizable": false,
+      "promotion": true,
+      "stage_ref": "G5:S6",
+      "status": "CERTIFIED",
+      "title": "Certified G5 recursive closure and graduation authority imported from Decoder v0.5 workflow"
+    },
+    {
+      "dependencies": [
+        "G5:R5.MARKER_FREE_ONE_STEP_SEPARATION"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R6.SINGLE_PAYLOAD_MARKER_FREE_SEPARATION",
+      "handler_ref": "infinity_grid.uplift_g5_r6:run_g5_r6_single_payload_separation",
+      "implementation_spec_resource": "G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": false,
+      "promotion": false,
+      "stage_ref": "G5:R6",
+      "status": "REGISTERED",
+      "title": "Single ordinary C/(0,0) marker-free hidden action separation audit"
+    },
+    {
+      "dependencies": [
+        "G5:R6.SINGLE_PAYLOAD_MARKER_FREE_SEPARATION"
+      ],
+      "execution_mode": "NATIVE_HANDLER",
+      "experiment_id": "G5:R7.SINGLE_PAYLOAD_ADVERSARIAL_ESCALATION",
+      "handler_ref": "infinity_grid.uplift_g5_r7:run_g5_r7_adversarial_escalation",
+      "implementation_spec_resource": "G5_R7_SINGLE_PAYLOAD_ADVERSARIAL_ESCALATION_SPEC_V1.json",
+      "kind": "RECONNAISSANCE",
+      "parallelizable": true,
+      "promotion": false,
+      "stage_ref": "G5:R7",
+      "status": "REGISTERED",
+      "title": "Larger fresh adversarial escalation of single ordinary C/(0,0) marker-free hidden separation"
+    }
+  ],
+  "generic_stage_templates": [
+    {
+      "meaning": "public interface extraction",
+      "stage_suffix": "S0"
+    },
+    {
+      "meaning": "pair connection census",
+      "stage_suffix": "S1"
+    },
+    {
+      "meaning": "pair quotient",
+      "stage_suffix": "S2"
+    },
+    {
+      "meaning": "higher-order compatibility/irreducibility",
+      "stage_suffix": "S3"
+    },
+    {
+      "meaning": "composition closure",
+      "stage_suffix": "S4"
+    },
+    {
+      "meaning": "finite state descriptor",
+      "stage_suffix": "S5"
+    },
+    {
+      "meaning": "recursive closure/graduation",
+      "stage_suffix": "S6"
+    }
+  ],
+  "hard_rules": [
+    "EVERY_G_UPLIFT_SCIENTIFIC_EXPERIMENT_MUST_BE_REGISTERED",
+    "NO_STAGE_SPECIFIC_SCIENCE_ENGINE_PROCESS",
+    "LOWER_G_POPULATION_MATERIALIZED_ONCE_PER_CAMPAIGN_PROCESS",
+    "DECOMPOSABLE_WORK_MUST_ROUTE_THROUGH_INFINITY_GRID_EXECUTION_EXECUTE_TASKS",
+    "SCIENTIFIC_NEGATIVE_RESULT_IS_NOT_AN_OPERATIONAL_FAILURE",
+    "WORKER_PROCESSES_MAY_NOT_CREATE_NESTED_POOLS",
+    "NO_GK_R_AXIS_BEFORE_GK_GRADUATION",
+    "COLD_REPLAY_CERTIFICATION_MUST_RERUN_THE_SAME_REGISTERED_DECODER_NATIVE_EXPERIMENT_FROM_COLD_SOURCE",
+    "G3_BASELINE_OBSERVER_IS_CAPS7_ONLY_UNTIL_A_REGISTERED_CONTEXT_READ_EARNS_MORE",
+    "G4_BASELINE_OBSERVER_IS_CAPS7_ONLY_UNTIL_A_REGISTERED_CONTEXT_READ_EARNS_MORE",
+    "G4_SHELL_PROFILE_MULTISET_IS_CHALLENGE_READ_ONLY_NOT_ASSUMED_STATE",
+    "G4_HIDDEN_READ_PROMOTION_MUST_USE_ASCENDING_PREREGISTERED_TIER_ORDER",
+    "G4_FORWARD_USE_BLOCKED_UNTIL_G3_R3_REBASE_CERTIFIES_AND_G4_IS_RERUN"
+  ],
+  "registry_sha256": "5b1ac5c519ec23cb4b483edc89e6a59b3883e6aeff0fdf5d1647b4f08cca3248",
+  "schema_id": "IG_G_UPLIFT_EXPERIMENT_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

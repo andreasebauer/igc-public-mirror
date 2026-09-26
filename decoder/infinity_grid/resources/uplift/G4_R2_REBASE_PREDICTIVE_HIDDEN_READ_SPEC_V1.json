@@ -1,0 +1,58 @@
+{
+  "authority": {
+    "g4_r1_closeout_science_sha256": "3e5d6b1a7ad97cf087883e0bb38c2d725aa9bd3956bcd0a1df046a21b92f50f4",
+    "g4_r1_primary_science_sha256": "6bb3beed8083b56e961d6e84e88ac36eaa9f0ac9c340243ce30ffb09a22bafe8",
+    "g4_r1_replay_science_sha256": "9d71bbf5553758e164822f51d840181292fb31ff186aa60af5d1b332a03af071",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG"
+  },
+  "bounded_scope": {
+    "action": "ONE_NEW_G3_UNIT_LEAF_GRAFT",
+    "full_tree_reference": "UNLABELLED_TREE_CANON",
+    "max_g3_units": 12,
+    "slice": "HOMOGENEOUS_SINGLE_H_CLASS_UNTYPED_COARSE_TOPOLOGY"
+  },
+  "candidate_ladder": [
+    "DEGREE_SEQUENCE",
+    "SIX_SCALAR_TREE_SUMMARY",
+    "SHELL_PROFILE_MULTISET",
+    "SHELL_CLASS_DISTANCE_HISTOGRAM_ACTION_BAG"
+  ],
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "max_unlabelled_tree_shapes": 1000,
+    "new_parallel_science_kernels": 0,
+    "owner_frontier_enumeration": false
+  },
+  "nonclaims": [
+    "NO_ALL_RANKS_COMPLETENESS",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_RAW_H_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC_EMBEDDING",
+    "NO_TIME",
+    "NO_G5_LAUNCH"
+  ],
+  "pass_classification": "G4_R2_REBASE_BOUNDED_PREDICTIVE_HIDDEN_ACTION_READ_EARNED_FULL_TREE_CANON_NOT_REQUIRED_ON_REGISTERED_SCOPE_R3_REBASE_DESIGN_AUTHORIZED",
+  "pass_requirements": [
+    "PRIMARY_AND_COLD_EXACT_MATCH",
+    "AUTHORITY_CHAIN_EXACT",
+    "SELECTED_ACTION_READ_STATE_SEPARATES_ALL_REGISTERED_SHAPES",
+    "ACTION_CLASS_CHILD_READ_WELL_DEFINED",
+    "PREDICTED_CHILD_READ_SET_EQUALS_EXACT_CHILD_READ_SET",
+    "STRICT_ACTION_COMPRESSION_EXISTS_WITHIN_SCOPE"
+  ],
+  "promotion": false,
+  "question": "Is there a compact predictive hidden action read below full H-coloured edge-graded tree canon that exactly preserves one-step hidden graft outcomes on the registered bounded homogeneous G4 fiber scope?",
+  "schema_id": "IG_G4_R2_REBASE_PREDICTIVE_HIDDEN_READ_SPEC_V1",
+  "science_sha256": "8203a8333ffd7534782155b47c2dd4ba82205e0910a96a99823ef7479298a2c7",
+  "selected_action_read": {
+    "name": "SHELL_CLASS_DISTANCE_HISTOGRAM_ACTION_BAG",
+    "prediction_rule": "Group attachment vertices by equal action signature; every member of a class must yield the same child state read after adjoining one leaf. The set of predicted child reads must equal the exact set from all vertices.",
+    "state_read": "Multiset of all vertex action signatures.",
+    "vertex_action_signature": "For attachment vertex v: its shell profile together with, for every shell-profile class C, the histogram of graph distances from v to vertices in C."
+  },
+  "stage_ref": "G4:R2.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

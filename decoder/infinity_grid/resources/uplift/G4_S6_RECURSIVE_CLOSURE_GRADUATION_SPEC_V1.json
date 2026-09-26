@@ -1,0 +1,1346 @@
+{
+  "authority": {
+    "g4_s0_term_corpus_sha256": "b19fb1edccba7e7768e8034f9b5d323460704ced33774cb3e1435fab3ed6eb3a",
+    "g4_s3_candidate_interface_index_sha256": "abac22fc540f43d5bf837f9bf7560abecd0d4836f2dbd7234b6503e8028aa891",
+    "g4_s4_pair_basis_sha256": "23081a78d9339cb002ddfa5797c31db42cb2c8b2fd4ebd3c39f07c27de5b17b3",
+    "g4_s5_classification": "G4_CAPS7_PLUS_TIER1_BAG_FINITE_READ_WRITE_DESCRIPTOR_EARNED_ON_FROZEN_GRAMMAR_S6_UNLOCKED",
+    "g4_s5_closeout_schema_id": "IG_G4_S5_CERTIFIED_CLOSEOUT_V1",
+    "g4_s5_closeout_sha256": "ef2f43df142a352e900c2c11bfc2f62b94c601033efe75a9259a7bfea24926b5",
+    "g4_s5_replay_comparison_sha256": "cc9d172dd4ff7e324ba282a30a36d48882a8f2969652633208c68bbca189d172",
+    "g4_s5_replay_schema_id": "IG_G4_S5_COLD_REPLAY_COMPARISON_V1",
+    "g4_s5_science_sha256": "894c81dca1645aef4e4210df545ceb4429e1e235b28d1f06c03cb854f3d88f52",
+    "required_g4_graduated": false,
+    "required_g4_s6_unlocked": true,
+    "required_promoted_descriptor": "CAPS7_PLUS_TIER1_CLASS_BAG",
+    "required_public_descriptor_promoted": true,
+    "required_s5_certification": "CERTIFIED_PASS",
+    "required_shell_profile_promoted": false,
+    "required_topology_promoted": false
+  },
+  "date": "2026-09-04",
+  "decision_rule": {
+    "PASS": "After exact cold replay certification, graduate G4 under the frozen CAPS7_PLUS_TIER1_CLASS_BAG relation grammar and unlock G4:R0 structural reconnaissance.",
+    "REVIEW_REQUIRED": "Any gate failure leaves G4 ungraduated and G4:R0 locked.",
+    "primary_run": "Primary PASS produces only a G4 graduation candidate awaiting cold replay."
+  },
+  "exact_gates": [
+    "CERTIFIED_G4_S5_AUTHORITY_EXACT",
+    "FULL_V0_30_43_REGRESSION_PASS_BEFORE_PRIMARY_SCIENCE",
+    "GENERAL_D_RECURSIVE_RELATION_FACTORISATION_ARGUMENT_PASS",
+    "ALL_31_FRESH_PAIR_PLUS_PAIR_CASES_PASS",
+    "ALL_8_FRESH_LEFT_DEEP_P5_CASES_PASS",
+    "ALL_8_FRESH_P4_REBRACKET_CASES_HAVE_IDENTICAL_D_QUOTIENT_OUTCOMES",
+    "BOUNDED_EXACT_RESERVATION_SENTINELS_PASS_WITH_TIER1_BAG_INVARIANT",
+    "NO_HIDDEN_TOPOLOGY_SHELL_OWNER_CONSTRUCTION_OR_ANCESTRY_SELECTOR_READ_IN_PROMOTABLE_LOGIC",
+    "INDEPENDENT_COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_G4_S6_EXPERIMENT_AND_MATCHES_SCIENCE_SOURCE_REGISTRY_AND_STABLE_PAYLOAD"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "DECODER_OWNS_PARALLEL_EXECUTION",
+    "PRIMARY_AND_COLD_FULL_REGRESSION_BEFORE_SCIENCE",
+    "LONG_RUNS_DETACHED_BY_DEFAULT",
+    "COLD_REPLAY_RERUNS_SAME_REGISTERED_G4_S6_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_SOURCE_REGISTRY_OR_STABLE_PAYLOAD_MISMATCH",
+    "NO_LOWER_LAYER_REMATERIALIZATION"
+  ],
+  "fresh_holdout": {
+    "deep_p5_cases": 8,
+    "exact_identity_role": "Operational deduplication and bounded transfer sentinels only; never a public selector.",
+    "freshness_scope": "P4_PAIR_PLUS_PAIR__LEFT_DEEP_P5__P4_REBRACKETING_NOT_USED_TO_PROMOTE_S5",
+    "full_plan": {
+      "deep_p5_cases": [
+        {
+          "case_id": "G4:S6:P5:0",
+          "operator_sequence": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:1",
+          "operator_sequence": [
+            [
+              0,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:2",
+          "operator_sequence": [
+            [
+              1,
+              1
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:3",
+          "operator_sequence": [
+            [
+              1,
+              6
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:4",
+          "operator_sequence": [
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:5",
+          "operator_sequence": [
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:6",
+          "operator_sequence": [
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        },
+        {
+          "case_id": "G4:S6:P5:7",
+          "operator_sequence": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shape": "LEFT_DEEP_P5"
+        }
+      ],
+      "pair_plus_pair_cases": [
+        {
+          "case_id": "G4:S6:PP:00",
+          "left_operator": [
+            1,
+            4
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            5,
+            0
+          ],
+          "root_operator": [
+            0,
+            0
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:01",
+          "left_operator": [
+            1,
+            5
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            5,
+            1
+          ],
+          "root_operator": [
+            0,
+            1
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:02",
+          "left_operator": [
+            1,
+            6
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            5,
+            3
+          ],
+          "root_operator": [
+            0,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:03",
+          "left_operator": [
+            2,
+            4
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            5,
+            4
+          ],
+          "root_operator": [
+            0,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:04",
+          "left_operator": [
+            3,
+            5
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            5,
+            5
+          ],
+          "root_operator": [
+            0,
+            6
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:05",
+          "left_operator": [
+            3,
+            6
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            5,
+            6
+          ],
+          "root_operator": [
+            1,
+            0
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:06",
+          "left_operator": [
+            4,
+            0
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            6,
+            0
+          ],
+          "root_operator": [
+            1,
+            1
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:07",
+          "left_operator": [
+            4,
+            1
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            6,
+            1
+          ],
+          "root_operator": [
+            1,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:08",
+          "left_operator": [
+            4,
+            2
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            6,
+            3
+          ],
+          "root_operator": [
+            1,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:09",
+          "left_operator": [
+            4,
+            4
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            6,
+            4
+          ],
+          "root_operator": [
+            1,
+            6
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:10",
+          "left_operator": [
+            4,
+            5
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            6,
+            5
+          ],
+          "root_operator": [
+            2,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:11",
+          "left_operator": [
+            4,
+            6
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            6,
+            6
+          ],
+          "root_operator": [
+            3,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:12",
+          "left_operator": [
+            5,
+            0
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            0,
+            0
+          ],
+          "root_operator": [
+            3,
+            6
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:13",
+          "left_operator": [
+            5,
+            1
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            0,
+            1
+          ],
+          "root_operator": [
+            4,
+            0
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:14",
+          "left_operator": [
+            5,
+            3
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            0,
+            4
+          ],
+          "root_operator": [
+            4,
+            1
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:15",
+          "left_operator": [
+            5,
+            4
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            0,
+            5
+          ],
+          "root_operator": [
+            4,
+            2
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:16",
+          "left_operator": [
+            5,
+            5
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            0,
+            6
+          ],
+          "root_operator": [
+            4,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:17",
+          "left_operator": [
+            5,
+            6
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            1,
+            0
+          ],
+          "root_operator": [
+            4,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:18",
+          "left_operator": [
+            6,
+            0
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            1,
+            1
+          ],
+          "root_operator": [
+            4,
+            6
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:19",
+          "left_operator": [
+            6,
+            1
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            1,
+            4
+          ],
+          "root_operator": [
+            5,
+            0
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:20",
+          "left_operator": [
+            6,
+            3
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            1,
+            5
+          ],
+          "root_operator": [
+            5,
+            1
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:21",
+          "left_operator": [
+            6,
+            4
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            1,
+            6
+          ],
+          "root_operator": [
+            5,
+            3
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:22",
+          "left_operator": [
+            6,
+            5
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            2,
+            4
+          ],
+          "root_operator": [
+            5,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:23",
+          "left_operator": [
+            6,
+            6
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            3,
+            5
+          ],
+          "root_operator": [
+            5,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:24",
+          "left_operator": [
+            0,
+            0
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            3,
+            6
+          ],
+          "root_operator": [
+            5,
+            6
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:25",
+          "left_operator": [
+            0,
+            1
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            4,
+            0
+          ],
+          "root_operator": [
+            6,
+            0
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:26",
+          "left_operator": [
+            0,
+            4
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            4,
+            1
+          ],
+          "root_operator": [
+            6,
+            1
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:27",
+          "left_operator": [
+            0,
+            5
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            4,
+            2
+          ],
+          "root_operator": [
+            6,
+            3
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:28",
+          "left_operator": [
+            0,
+            6
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            4,
+            4
+          ],
+          "root_operator": [
+            6,
+            4
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:29",
+          "left_operator": [
+            1,
+            0
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "right_operator": [
+            4,
+            5
+          ],
+          "root_operator": [
+            6,
+            5
+          ]
+        },
+        {
+          "case_id": "G4:S6:PP:30",
+          "left_operator": [
+            1,
+            1
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "right_operator": [
+            4,
+            6
+          ],
+          "root_operator": [
+            6,
+            6
+          ]
+        }
+      ],
+      "rebracketing_cases": [
+        {
+          "case_id": "G4:S6:RB:0",
+          "operator_sequence": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:1",
+          "operator_sequence": [
+            [
+              1,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:2",
+          "operator_sequence": [
+            [
+              2,
+              4
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:3",
+          "operator_sequence": [
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:4",
+          "operator_sequence": [
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:5",
+          "operator_sequence": [
+            [
+              6,
+              0
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:6",
+          "operator_sequence": [
+            [
+              6,
+              6
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "refs": [
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        },
+        {
+          "case_id": "G4:S6:RB:7",
+          "operator_sequence": [
+            [
+              0,
+              6
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "refs": [
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d",
+            "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9",
+            "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+          ],
+          "shapes": [
+            "LEFT_DEEP_P4",
+            "BALANCED_P4"
+          ]
+        }
+      ]
+    },
+    "outcome_retuning": false,
+    "pair_plus_pair_operator_cases": 31,
+    "rebracketing_cases": 8,
+    "reservation_check": "For every materialized bounded final relation or exact sentinel, every enabled endpoint type must yield a nonempty complete exact successor relation uniformly at D=(f-e_t,m).",
+    "total_cases": 47
+  },
+  "frozen_grammar": {
+    "binary_operator_count": 31,
+    "compose": "C_ab((f,m),(g,n))=(f+g-e_a-e_b,m+n) iff (a,b) is in the frozen operator basis and f_a>0 and g_b>0",
+    "exact_routing": "RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+    "operator_basis": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ]
+    ],
+    "relation_level_semantics": "Enumerate every exact branch/branch pair and every eligible recursive owner branch; exact-deduplicate only after branch generation.",
+    "reservation_actions": 7,
+    "reserve": "R_t(f,m)=(f-e_t,m) iff f_t>0"
+  },
+  "hard_firewalls": [
+    "NO_CHANGE_TO_CERTIFIED_G4_S0_S5_SCIENCE",
+    "NO_MINIMALITY_CLAIM",
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE_CLAIM",
+    "NO_EXACT_RELATION_CARDINALITY_OR_BRANCH_MULTIPLICITY_EQUIVALENCE_CLAIM",
+    "NO_TOPOLOGY_ERASURE_OR_PROMOTION",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_RAW_TOPOLOGY_ASSOCIATIVITY_CLAIM",
+    "NO_G4_R0_BEFORE_FINAL_S6_GRADUATION_CERTIFICATE",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_TIME_SPACETIME_COORDINATES_OR_METRIC_CLAIM"
+  ],
+  "observer": {
+    "does_not_observe": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "which internal owner supplied an endpoint",
+      "construction identity",
+      "hidden G3 incidence topology",
+      "shell profile",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "name": "G4_TRANSITION_GRAMMAR_CAPS7_TIER1_BAG_OBSERVER_V1",
+    "reads": [
+      "external reservation enabledness by endpoint type",
+      "31 frozen typed binary bridge enabledness",
+      "successor CAPS7",
+      "successor Tier-1 class bag"
+    ],
+    "state": "D=(f,m) with f in N^7 and m in N^2 for the frozen two-class Tier-1 alphabet"
+  },
+  "pass_effect": "Only a cold-certified S6 PASS may graduate G4 and unlock G4:R0. The graduated observer is CAPS7_PLUS_TIER1_CLASS_BAG over the frozen 7-reservation/31-binary complete-relation grammar; topology and shell profile remain unpromoted.",
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "question": "Does the certified G4 public descriptor D=(CAPS7, Tier-1 class bag) remain an exact quotient congruence under arbitrary finite recursive use of the frozen complete-relation reservation/binary G4 grammar, with fresh exact pair+pair/P5/rebracketing transfer and no hidden selector reads, so that G4 may graduate under this frozen observer?",
+  "recursive_proof_obligation": {
+    "base": "Every certified S0 G3 unit is a legal G4 leaf with public descriptor (CAPS7, one Tier-1 class token).",
+    "binary_step": "Uniform-D complete relations remain uniform after relation-valued binary composition: ((f,m),(g,n))->(f+g-e_a-e_b,m+n).",
+    "closure": "Enabled writes remain in N^7 x N^2 and preserve finite class-bag support.",
+    "context_consequence": "Equality of D is preserved through every finite admitted G4 context; exact identity/cardinality/topology may differ and remain outside this observer.",
+    "dedupe_step": "Exact construction deduplication cannot change a singleton public D image.",
+    "method": "STRUCTURAL_INDUCTION_ON_FINITE_COMPLETE_G4_RELATION_TERMS_AND_ACTION_SYNTAX",
+    "reserve_step": "Uniform-D complete relations remain uniform after relation-valued reserve: (f,m)->(f-e_t,m)."
+  },
+  "schema_id": "IG_G4_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "d3d650fac845f9a2285b5cab0f20a35b6fd5fe9191cece7e934717ccc31d4d81",
+  "stage_ref": "G4:S6",
+  "status": "FROZEN_BEFORE_G4_S6_EXECUTION"
+}

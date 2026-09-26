@@ -1,0 +1,46 @@
+{
+  "schema_id": "IG_G6_CHAINING_PROTOCOL_V1",
+  "protocol_version": "1.0.0",
+  "purpose": "Execute G6 as one fail-closed Decoder-owned chain while preserving stage-local preregistration, exact authority binding, durable resume, and adaptive-but-non-inventive R-series progression.",
+  "structural_series": {
+    "stages": ["S0", "S1", "S2", "S3", "S4", "S5", "S6"],
+    "freeze_rule": "Each S-stage has a concrete preregistration before campaign launch; questions, observers, domains, alternatives, equality rules, budgets, evidence contracts, and promotion rules are immutable during the run.",
+    "graduation_rule": "S6 mechanical PASS never auto-graduates; independent verification and explicit graduation review remain separate authority events."
+  },
+  "reconnaissance_series": {
+    "mandatory_slots": ["R0"],
+    "conditional_slots": ["R1", "R2", "R3", "R4", "R5", "R6", "R7"],
+    "adaptive_rule": "The chain never invents an R question. It can only follow a preregistered branch with a concrete hash-bound question/executor; otherwise it pauses for review.",
+    "early_close_rule": "If no further scientifically justified question remains, close rather than consume unused R slots.",
+    "extension_rule": "R8+ requires an explicit new protocol amendment."
+  },
+  "transition_semantics": {
+    "registered_outcomes_only": true,
+    "unregistered_outcome": "REVIEW_REQUIRED",
+    "auto_run_false_means_pause": true,
+    "no_posthoc_descriptor_invention": true
+  },
+  "durability": {
+    "master_registration_frozen": true,
+    "append_only_stage_commits": true,
+    "verified_resume": true,
+    "fsync_each_transition": true,
+    "official_external_mirror_required": true,
+    "external_mirror_target": "Google Drive IG/decoder/v0.5",
+    "external_mirror_receipt_bound_to_stage_commit": true
+  },
+  "resource_policy": {
+    "default_workers": 4,
+    "parallelism": "Only independent registered work within a stage may use the worker lease; chain dependencies are sequential."
+  },
+  "exactness": {
+    "structural_equality_for_exact_claims": true,
+    "hash_role": "Binding/indexing only; not a substitute for mathematical equality."
+  },
+  "nonclaims": [
+    "NO_G6_SCIENCE_FROM_CHAINING_IMPLEMENTATION",
+    "NO_AUTOMATIC_G6_GRADUATION",
+    "NO_R_QUESTION_INVENTION",
+    "NO_TOPOLOGY_OR_GEOMETRY_PROMOTION"
+  ]
+}

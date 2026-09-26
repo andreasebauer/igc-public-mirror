@@ -1,0 +1,65 @@
+{
+  "commands": [
+    {
+      "command": "ig scout-chain freeze",
+      "purpose": "create and verify immutable finite chain plan",
+      "required": [
+        "--parent-pin",
+        "--through or --max-levels",
+        "--budgets"
+      ]
+    },
+    {
+      "command": "ig scout-chain start",
+      "purpose": "start detached/checkpointed controller from frozen plan",
+      "required": [
+        "--plan"
+      ]
+    },
+    {
+      "command": "ig scout-chain status",
+      "purpose": "show chain state, current parent, current level, budgets and triggers",
+      "required": [
+        "--chain-id"
+      ]
+    },
+    {
+      "command": "ig scout-chain pause",
+      "purpose": "request safe-boundary operator pause",
+      "required": [
+        "--chain-id"
+      ]
+    },
+    {
+      "command": "ig scout-chain resume",
+      "purpose": "resume only operator/operational pauses under same immutable plan",
+      "required": [
+        "--chain-id"
+      ]
+    },
+    {
+      "command": "ig scout-chain verify",
+      "purpose": "verify plan, events, checkpoints, parent certificates, releases and catalog",
+      "required": [
+        "--chain-id"
+      ]
+    },
+    {
+      "command": "ig scout-chain release",
+      "purpose": "create chain closeout or escalation bundle",
+      "required": [
+        "--chain-id"
+      ]
+    }
+  ],
+  "detached_operation": "Implementation should run under a genuinely detached systemd-compatible controller with append-only events and stage/chunk checkpoints.",
+  "disallowed": [
+    "ig scout-chain start --until-trigger without finite --through/--max-levels",
+    "--force-continue-scientific-trigger",
+    "--ignore-checkpoint-corruption",
+    "--change-protocol-in-place",
+    "--promote-claims"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_CLI_CONTRACT_V0_1",
+  "spec_sha256": "a39c64469f585feb30a90156a22f89878d3a723d388a7867aaac51b0f1d3b395"
+}

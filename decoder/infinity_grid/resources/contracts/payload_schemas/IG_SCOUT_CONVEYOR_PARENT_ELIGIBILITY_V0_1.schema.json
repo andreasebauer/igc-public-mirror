@@ -1,0 +1,68 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_contents": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "eligible_status": {
+      "type": "string"
+    },
+    "ineligible_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "two_phase_commit": {
+      "additionalProperties": false,
+      "properties": {
+        "child_start_before_phase_2": {
+          "type": "boolean"
+        },
+        "phase_1": {
+          "type": "string"
+        },
+        "phase_2": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "child_start_before_phase_2",
+        "phase_1",
+        "phase_2"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "certificate_contents",
+    "eligible_status",
+    "ineligible_conditions",
+    "required_gates",
+    "schema_id",
+    "spec_sha256",
+    "two_phase_commit"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

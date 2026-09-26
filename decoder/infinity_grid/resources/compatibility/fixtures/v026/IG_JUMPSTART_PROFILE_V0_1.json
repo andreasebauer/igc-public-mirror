@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-08-29T10:49:40.009445+00:00",
+  "launch": {
+    "argv": [
+      "{python}",
+      "code/verify.py"
+    ],
+    "detachable": false,
+    "env": {},
+    "resume_semantics": "CERTIFICATE_REPLAY"
+  },
+  "materialization": {
+    "dependency_source": "GRAPH_MANDATORY_CLOSURE_ONLY",
+    "expected_material_root_count": 1,
+    "expected_tree_sha256": "4037b1737430f12679c58941401b921c6e99381425dbbfb4c45030ebb44a4381",
+    "manifest_relative_path": "PHASE5_JUMPSTART_MANIFEST.json",
+    "mode": "SINGLE_ZIP_PAYLOAD",
+    "mutable_globs": [
+      "PHASE5_JUMPSTART_VERIFICATION.json",
+      "**/__pycache__/**",
+      "**/*.pyc"
+    ]
+  },
+  "profile_id": "L10_PHASE5_V1",
+  "profile_sha256": "06f60a23aefe7e5a5eead785d805b6cb42f63da51265cf902e3f1b5ec0e2f054",
+  "profile_version": "1",
+  "schema_id": "IG_JUMPSTART_PROFILE_V0_1",
+  "smoke": {
+    "argv": [
+      "{python}",
+      "code/verify.py"
+    ],
+    "env": {},
+    "required_files": [
+      "PHASE5_JUMPSTART_VERIFICATION.json"
+    ],
+    "timeout_seconds": 60
+  },
+  "status_probe": {
+    "json_files": [
+      "PHASE5_JUMPSTART_VERIFICATION.json"
+    ],
+    "text_files": []
+  },
+  "target_alias": "ig:test/L10",
+  "target_node_id": "result:sha256:584eafebc07f1a1c9c63565818280c1d3dc766d41dafdd5eab57143c4657c714"
+}

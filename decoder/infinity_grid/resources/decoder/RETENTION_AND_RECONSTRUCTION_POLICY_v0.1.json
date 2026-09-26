@@ -1,0 +1,42 @@
+{
+  "deletion_rule": "Delete only after graph reachability, reconstructability, and replay-plan validation all PASS.",
+  "may_cache_if_all": [
+    "exact recipe exists",
+    "all transitive required inputs resolve",
+    "canonicalization/version pinned",
+    "replay acceptance hash or invariant is known",
+    "no evidence claim requires the raw artifact specifically rather than its exact reconstruction"
+  ],
+  "pin_if_any": [
+    "not exactly reproducible from other retained/reconstructable nodes",
+    "external authoritative input",
+    "frozen source/protocol/question needed to reproduce a certified run",
+    "formal/review decision that defines evidence scope",
+    "publication export explicitly promises standalone inclusion",
+    "legal/licensing policy requires preservation"
+  ],
+  "promotion_rule": "A checkpoint/cache becomes PINNED only if later evidence depends on its exact bytes and no exact reconstruction path exists.",
+  "retention_classes": {
+    "CACHE": {
+      "deletable": true,
+      "meaning": "rebuildable derived artifact retained for convenience",
+      "requires_replay_recipe": true
+    },
+    "CACHE_EXPENSIVE": {
+      "deletable": true,
+      "meaning": "rebuildable exactly but expensive enough to retain by default",
+      "requires_replay_recipe": true
+    },
+    "EPHEMERAL": {
+      "deletable": true,
+      "meaning": "workspace/temp/checkpoint not needed after sealed stage unless it is the only available recovery path",
+      "requires_replay_recipe": false
+    },
+    "PINNED": {
+      "deletable": false,
+      "meaning": "irreducible or policy-required permanent root"
+    }
+  },
+  "schema_id": "IG_RETENTION_RECONSTRUCTION_POLICY_V0_1",
+  "version": "0.1"
+}

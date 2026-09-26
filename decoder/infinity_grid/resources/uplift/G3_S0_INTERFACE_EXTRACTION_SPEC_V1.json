@@ -1,0 +1,43 @@
+{
+  "challenge_corpus": {
+    "max_g1_units": 4,
+    "must_include_exact_R0_path_star_pair": true,
+    "source": "deterministic reproduction of the G2:R0 homogeneous growth probe"
+  },
+  "date": "2026-09-03",
+  "fail_effect": "G3:S1 remains locked; preserve G2 closeout authority.",
+  "input_authority": [
+    "final G2 graduation certificate",
+    "certified G2:R0 result"
+  ],
+  "nonclaims": [
+    "NO_G3_GRADUATION",
+    "NO_TOPOLOGY_PROMOTION_IN_PHASE0_OR_S0",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "pass_effect": "Unlock G3:S1 pair-context read audit only; no topology promotion and no G3 graduation.",
+  "pass_gates": [
+    "G2_AUTHORITY_EXACT",
+    "R0_AUTHORITY_EXACT",
+    "G2_UNIT_DEFINITION_FROZEN",
+    "CAPS7_EXTRACTOR_CANONICAL",
+    "R0_COLLISION_PAIR_REPRODUCED_EXACTLY",
+    "PAIR_PUBLIC_INTERFACES_EQUAL",
+    "PAIR_TOPOLOGIES_DIFFER",
+    "TOPOLOGY_NOT_IN_PUBLIC_INTERFACE",
+    "NO_HIDDEN_PROVENANCE_IN_PUBLIC_INTERFACE"
+  ],
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "public_interface": "CAPS7 only",
+  "question": "Can complete finite graduated G2 units be canonically presented to the G3 uplift through inherited CAPS7 while exact topology is retained only as hidden challenge evidence?",
+  "schema_id": "IG_G3_S0_INTERFACE_EXTRACTION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "b6899f588161c997d37161818e92fa78013f34454d3992d1217efafe15aacea0",
+  "stage_ref": "G3:S0",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

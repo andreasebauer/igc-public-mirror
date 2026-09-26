@@ -1,0 +1,48 @@
+{
+  "certificate_contents": [
+    "level and source level",
+    "selected relation file and canonical science hashes",
+    "baseline and classification hashes",
+    "runtime/source/wheel/environment hashes",
+    "question/plan/protocol hashes",
+    "evidence boundary and forbidden inference list",
+    "bounded relation summary",
+    "Spectroscope recognition summary",
+    "trigger evaluation",
+    "release and catalog verification"
+  ],
+  "eligible_status": "ELIGIBLE_AUTO_PARENT",
+  "ineligible_conditions": [
+    "any failed gate",
+    "any active trigger",
+    "population completeness asserted",
+    "authority above RECONNAISSANCE_ONLY",
+    "any claim record emitted",
+    "source or policy identity drift"
+  ],
+  "required_gates": [
+    "parent input certificate and selected relation verify",
+    "derived child packet independently reproduces byte-identically",
+    "runtime/source/wheel/environment identities match chain plan",
+    "all science stages COMPLETE_VALID",
+    "all chunk checkpoints and dependency bindings verify",
+    "independent exact D/B/S/O/L recomputation matches",
+    "selected relation and metric projection replay byte-identically",
+    "classification is explicit-predicate driven",
+    "evidence tuple remains SCOUT_OBSERVED / RECONNAISSANCE_ONLY",
+    "no claim record is requested or emitted",
+    "Spectroscope token set is registered and non-feedback",
+    "compact level release verifies",
+    "forward-parent capsule verifies",
+    "catalog rebuilt after release generation",
+    "catalog contains the run and releases and zero claims",
+    "no integrity, operational or scientific escalation trigger is active"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1",
+  "spec_sha256": "672fa564b5c45a4ece7ea219aa861e467eaf83bba13cf513725c0754f7f70fc1",
+  "two_phase_commit": {
+    "child_start_before_phase_2": false,
+    "phase_1": "write PARENT_CANDIDATE certificate and capsule",
+    "phase_2": "after all gates and trigger evaluation pass, atomically rename to ELIGIBLE_AUTO_PARENT and update current-parent pointer"
+  }
+}

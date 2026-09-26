@@ -1,0 +1,51 @@
+{
+  "challenge_read_tier_science_sha256": "f17663e78ab794b0ed43a4d47022b1705fa874e54ef957fe1dd5b2d21355b3c8",
+  "date": "2026-09-04",
+  "firewalls": [
+    "NO_G1_R100_G2_OR_HISTORICAL_G3_REMATERIALIZATION",
+    "NO_DIRECT_TOPOLOGY_READ_IN_OPERATIONAL_OBSERVER",
+    "NO_CONSTRUCTION_DIGEST_OWNER_ID_ANCESTRY_OR_PROVENANCE_IN_QUOTIENT_KEY",
+    "NO_POSTHOC_DESCRIPTOR_INVENTION",
+    "NO_G4_GRADUATION",
+    "S3_MANDATORY_BEFORE_PUBLIC_DESCRIPTOR_PROMOTION"
+  ],
+  "input_evidence": {
+    "expected_s1_task_count": 248,
+    "required_g4_s1_outcome": "STRUCTURE_READ_EARNED",
+    "s0_base": "CERTIFIED_G4_S0_V2_REUSABLE_G3_TERM_CORPUS",
+    "s1_signature_index_schema": "IG_G4_S1_PAIR_CONTEXT_SIGNATURE_INDEX_V2"
+  },
+  "nonclaims": [
+    "NOT_GLOBAL_G4_MINIMALITY",
+    "NOT_G4_GRADUATION",
+    "NOT_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME",
+    "NOT_TOPOLOGY_PROMOTION_UNLESS_FULL_TREE_IS_MINIMAL",
+    "NOT_SHELL_PROFILE_PROMOTION_UNLESS_TIER4_IS_MINIMAL",
+    "BOUNDED_TO_CERTIFIED_TWO_TERM_S0_BASE_AND_COMPLETE_REGISTERED_S1_PAIR_OBSERVER"
+  ],
+  "outcomes": {
+    "PASS": "Lowest preregistered sufficient tier is certified on the complete frozen pair observer; earn it only as the bounded candidate read for S3 and unlock G4:S3.",
+    "REVIEW_REQUIRED": "No preregistered tier is sufficient, or authority/evidence binding fails; lock S3."
+  },
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "promotion_rule": "S2 does not globally promote a public G4 descriptor. It earns only the lowest bounded pair-observer candidate for mandatory S3 higher-order irreducibility testing.",
+  "question": "After certified G4:S1 proves CAPS7 insufficient on the frozen equal-CAPS7 G3 term pair, what is the lowest preregistered relabel-invariant challenge-read tier that makes the complete registered G4:S1 pair-context operational observer single-valued?",
+  "quotient_test": {
+    "no_posthoc_descriptors": true,
+    "rule": "For each preregistered tier, replace exact target/context refs in every certified S1 row by that tier descriptor value; group by (target descriptor, context descriptor, operator, orientation). The tier is sufficient iff every grouped key has exactly one operational signature SHA-256.",
+    "selection": "FIRST_SUFFICIENT_ELIGIBLE_TIER_ABOVE_PUBLIC_BASELINE",
+    "tier_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "schema_id": "IG_G4_S2_MINIMAL_ADDED_READ_PAIR_QUOTIENT_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "4de36feec2cf5862f7207019f55e56a356af1289341f63d69b20d887889c3add",
+  "stage_ref": "G4:S2",
+  "status": "FROZEN_BEFORE_G4_S2_EXECUTION"
+}

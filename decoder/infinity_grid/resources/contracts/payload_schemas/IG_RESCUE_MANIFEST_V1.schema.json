@@ -1,0 +1,42 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RESCUE_MANIFEST_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bytes": {
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bytes",
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_RESCUE_MANIFEST_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "files",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RESCUE_MANIFEST_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

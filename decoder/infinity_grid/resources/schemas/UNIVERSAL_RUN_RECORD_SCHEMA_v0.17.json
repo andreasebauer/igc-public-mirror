@@ -1,0 +1,123 @@
+{
+  "$id": "ig://schema/universal-run-record/v0.17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_refs": {
+      "type": "array"
+    },
+    "code_identity": {
+      "required": [
+        "source_sha256"
+      ],
+      "type": "object"
+    },
+    "environment_identity": {
+      "required": [
+        "runtime_sha256"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "required": [
+        "origin",
+        "scope",
+        "disposition",
+        "authority",
+        "protocol_label"
+      ],
+      "type": "object"
+    },
+    "finished_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_artifacts": {
+      "type": "array"
+    },
+    "lifecycle": {
+      "enum": [
+        "PLANNED",
+        "RUNNING",
+        "COMPLETE_VALID",
+        "FAILED",
+        "BLOCKED",
+        "CANCELLED",
+        "CORRUPT"
+      ]
+    },
+    "plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "protocol": {
+      "properties": {
+        "descriptor_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocol_id",
+        "version",
+        "descriptor_sha256"
+      ],
+      "type": "object"
+    },
+    "question_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "resource_summary": {
+      "type": "object"
+    },
+    "result_artifacts": {
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_UNIVERSAL_RUN_RECORD_V0_17"
+    },
+    "stages": {
+      "type": "array"
+    },
+    "started_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "subject": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_id",
+    "run_id",
+    "protocol",
+    "subject",
+    "question_sha256",
+    "plan_sha256",
+    "code_identity",
+    "environment_identity",
+    "input_artifacts",
+    "evidence",
+    "lifecycle",
+    "stages",
+    "result_artifacts",
+    "claim_refs"
+  ],
+  "title": "Infinity Grid Universal Run Record v0.17",
+  "type": "object"
+}

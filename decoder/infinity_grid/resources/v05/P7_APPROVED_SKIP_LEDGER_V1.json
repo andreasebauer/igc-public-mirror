@@ -1,0 +1,16 @@
+{
+  "schema_id": "IG_DECODER_V05_P7_APPROVED_SKIP_LEDGER_V1",
+  "status": "FROZEN_FOR_P7_GATE",
+  "policy": "These are optional historical-fixture tests. Missing fixtures must produce explicit pytest.skip with this ledger reason; silent return is forbidden. They are not claimed as v0.5 supported replay cases.",
+  "entries": [
+    {"test_id":"tests/test_g4_r1_rebase_v03056.py::test_registered_fiber_law_on_certified_r0_authority","reason":"G4 R0 full-chain root not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_r2_rebase_v03057.py::test_registered_r2_on_certified_r1_authority","reason":"G4 R1 full-chain root not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_r3_rebase_v03058.py::test_registered_r3_on_certified_r2_authority","reason":"G4 R2 full-chain root not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_r4_rebase_v03059.py::test_r4_on_certified_r3_authority","reason":"G4 R3 full-chain root not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_s2_v03039.py::test_g4_s2_frozen_authority_minimal_tier1","reason":"pre-rebase G4 S0/S1 fixture chain not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_s2_v03039.py::test_g4_s2_rejects_signature_index_not_bound_to_certified_s1","reason":"pre-rebase G4 S0/S1 fixture chain not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_s2_v03039.py::test_g4_s2_rejects_duplicate_task_key_even_at_same_row_count","reason":"pre-rebase G4 S0/S1 fixture chain not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_s6_rebase_v03053.py::test_symbolic_holdout_on_certified_s3","reason":"external G4 S3 full-chain root not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"},
+    {"test_id":"tests/test_g4_s6_rebase_v03053.py::test_recursive_theorem_premises","reason":"external G4 S4/S5 full-chain roots not packaged","disposition":"OPTIONAL_HISTORICAL_FIXTURE"}
+  ]
+}

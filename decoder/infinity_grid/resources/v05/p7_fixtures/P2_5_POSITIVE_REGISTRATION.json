@@ -1,0 +1,131 @@
+{
+  "authority_ceiling": "SCOPED_AUDIT_AUTHORITY",
+  "comparison_contract": {
+    "baseline_source_sha256": "863507615431e202496d68a40708ff98f288754895ad645490900a9e18f49ad4",
+    "candidate_predicate": {},
+    "comparison_id": "p2-5-base-l2-old-new-positive",
+    "expected_disposition": "MATCH",
+    "projection_fields": [
+      "boundary_records",
+      "compatible_paths",
+      "selected_max_score",
+      "selected_tied_max_records",
+      "sha256_sorted_repr",
+      "sha256_line_serialization"
+    ],
+    "role": "POSITIVE"
+  },
+  "contract_version": "1.4.0",
+  "environment_sha256": "e949bdb53668dfe65a6f30628b6530525eceb933913bd2f18fc9bc25368966bd",
+  "execution_policy": {
+    "heartbeat_interval_seconds": 0.1,
+    "logical_task_checkpointing": "DURABLE_APPEND_ONLY",
+    "packaging_state_separate": true,
+    "resume_policy": "REUSE_VERIFIED_TASK_COMMITS",
+    "terminal_telemetry": "REQUIRED"
+  },
+  "experiment_kind": "REPLAY",
+  "input_datasets": [
+    {
+      "dataset_sha256": "6ef1abbd3f2c7c0f2ead9d47281253ac26c77d4dd3af14b4b53291fe45fb3cb3",
+      "logical_role": "BASE_L2_PHASE1_FIXTURE"
+    }
+  ],
+  "operation": "BASE_L2_STEP10_REPLAY",
+  "output_contract": {
+    "logical_outputs": [
+      "BASE_L2_PRINCIPAL_RESULT.json"
+    ],
+    "science_oracle": {
+      "boundary_records": 19683,
+      "compatible_paths": 19683,
+      "selected_max_score": 2,
+      "selected_tied_max_records": 512,
+      "sha256_line_serialization": "4ba036bcd603b264e9794a3644c5819c11dd6e2df07c49250963707b0b02cd51",
+      "sha256_sorted_repr": "a519a51e6fc56a963b42a22ca6f3686921dcf001c5a18232d65d8568bf044832"
+    }
+  },
+  "protocol": {
+    "descriptor_sha256": "02e6d3249bfb198533d036836c9a530897dfea5bc94d0722183266aff56e9fc5",
+    "protocol_id": "BASE_REPLAY",
+    "version": "0.17"
+  },
+  "publication_policy": {
+    "authority_effect": "NONE_P2_5",
+    "protected_storage": "OWNER_ONLY_POSIX",
+    "publisher_id": "v05.protected.publisher",
+    "required_verification_status": "PASS"
+  },
+  "registration_id": "p2-5-base-l2-positive-v1",
+  "registration_sha256": "7c94e2f5513c4f7be9d47da051ac70d732c575b13661437b296e0d46cecb40e1",
+  "resource_budget": {
+    "bytes_read_max": 1048576,
+    "bytes_written_max": 1048576,
+    "checkpoint_bytes_max": 1048576,
+    "cpu_seconds_max": 20.0,
+    "logical_tasks_max": 27,
+    "peak_rss_bytes_max": 536870912,
+    "wall_seconds_max": 30.0,
+    "workspace_peak_bytes_max": 33554432
+  },
+  "runner": "adapter.base_l2_step10",
+  "schema_id": "IG_DECODER_V05_EXPERIMENT_REGISTRATION_V1_4",
+  "source_sha256": "e4a0a26f0add9149e29e37027323fa51077886246d39e0b175824bfaa6da9e4e",
+  "stage_id": "execute",
+  "status": "ACTIVE_CANDIDATE",
+  "stop_rules": {
+    "auto_expand": false,
+    "cpu_budget": "OS_LIMIT",
+    "memory_budget": "TERMINATE_WORKER",
+    "scientific_mismatch": "STOP",
+    "storage_budget": "TERMINATE_WORKER",
+    "task_budget": "FAIL_CLOSED",
+    "wall_budget": "TERMINATE_WORKER"
+  },
+  "subject": {
+    "hierarchy": "L",
+    "level": 2,
+    "target": "STEP10_SMALL"
+  },
+  "verification_policy": {
+    "cold_recompute": true,
+    "independent_process": true,
+    "mode": "COLD_RECOMPUTE_EXACT",
+    "required_checks": [
+      "records_present",
+      "records_json",
+      "envelope_hash",
+      "execution_terminal",
+      "registration_binding",
+      "plan_binding",
+      "source_identity",
+      "environment_identity",
+      "protocol_subject_binding",
+      "input_binding",
+      "plan_hash",
+      "run_core_hash",
+      "input_dataset_bytes",
+      "logical_output_set",
+      "result_artifact_bytes",
+      "checkpoint_binding",
+      "worker_boundary",
+      "result_json",
+      "cold_recompute_exact",
+      "science_projection_exact",
+      "task_journal_integrity",
+      "heartbeat_terminal_telemetry",
+      "packaging_state_separation",
+      "resource_budget_compliance",
+      "comparison_contract_binding",
+      "events_terminal_consistency"
+    ],
+    "verifier_id": "v05.base-l2.independent"
+  },
+  "worker_policy": {
+    "gid": 65534,
+    "kind": "POSIX_DROP_PRIVILEGE",
+    "publication_access": "DENY",
+    "store_access": "SNAPSHOT_ONLY",
+    "uid": 65534
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema_id": "IG_P9_O1_O3_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev58+lib",
+  "date": "2026-09-23",
+  "status": "PASS_FOCUSED_QUALIFICATION_PENDING_CONTROLLER_CAPTURE",
+  "regression": {
+    "replay_tests_passed": 52,
+    "failed": 0,
+    "expected_completed_nodes": 30,
+    "expected_next_node": "IG/O4_O7/S/ASSERTION_MAPPED_STRUCTURE",
+    "fresh_science_nodes_this_stage": 0
+  },
+  "source_hashes": [
+    {
+      "ref": "infinity_grid/replay_o1_o3_executor.py",
+      "sha256": "227673c25f9aaea8e2a2d4c2c2112f2b7a8b566e88d091aa191e86c8c08900cc"
+    },
+    {
+      "ref": "infinity_grid/replay_p8_frontier_import.py",
+      "sha256": "b25292ce7c0c12a663aaedd150ca7b8dcd9d124ca6b62cb5717e018878924764"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "a57e0eaa1167028544fe83f6cc15a16528db8dc8b0656c13728334ac88675bc5"
+    },
+    {
+      "ref": "tests/test_p9_o1_o3.py",
+      "sha256": "11956d4f674b3f51a6039268a9c8fd8f777f851992db5511f235fc8c655629e9"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P9_O1_O3_REGISTRATION_PROFILE_V1.json",
+      "sha256": "ff16c496441f933b6a23d5657b8ef7b7dc825f496a73a1992ac1bc8598b3e0cf"
+    }
+  ],
+  "scope": [
+    "Six S mappings include three LAUNCH declarations and three pinned oracle hashes; compiled S is HISTORICAL_RESULT_ONLY",
+    "R checks pinned O3 G4-G7 statuses and graduation statement as SOURCE_INTEGRITY_ONLY",
+    "C checks pinned O123 compatibility status and 34/34 checks",
+    "F retains ATOMIC_O3_NODE_NOT_EARNED"
+  ],
+  "nonclaims": [
+    "No O1, O2, or O3 fresh science execution in this stage",
+    "Launch registry entries are declarations, not executed jobs",
+    "Controller capture and full restore pending"
+  ]
+}

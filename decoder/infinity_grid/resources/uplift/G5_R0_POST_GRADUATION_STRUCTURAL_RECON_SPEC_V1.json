@@ -1,0 +1,61 @@
+{
+  "authority": {
+    "g5_graduation_decision_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "g5_s6_independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "g5_s6_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b",
+    "graduated_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "graduated_enabled_rule": "f_a>0 and g_b>0",
+    "graduated_scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR",
+    "graduated_write_law": "D_out=(f+g-e_a-e_b,m+n)"
+  },
+  "date": "2026-09-06",
+  "nonclaims": [
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_DESCRIPTOR_CHANGE",
+    "NO_DESCRIPTOR_MINIMALITY",
+    "NO_RAW_RELATION_CARDINALITY_CLAIM",
+    "NO_BRANCH_MULTIPLICITY_CLAIM",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "outcomes": {
+    "pass": "G5_R0_GLOBAL_HIDDEN_TREE_STRUCTURE_PRESENT_PUBLIC_DESCRIPTOR_TOPOLOGY_BLIND_NO_PROMOTION",
+    "review": "G5_R0_REVIEW_REQUIRED_NO_PROMOTION"
+  },
+  "promotion": false,
+  "question": "After certified G5 graduation, what exact finite hidden tree incidence remains behind the graduated CAPS7 + H-class bag descriptor, and can nonisomorphic hidden trees share the same graduated public state?",
+  "schema_id": "IG_G5_R0_POST_GRADUATION_STRUCTURAL_RECON_SPEC_V1",
+  "science_sha256": "03f8e5636f4ac715046afa1d91d2adebfc4538809d36dc1447f105adb7f8bb43",
+  "shape_census": {
+    "expected_unlabelled_tree_counts_n1_to_nmax": [
+      1,
+      1,
+      1,
+      2,
+      3,
+      6,
+      11
+    ],
+    "homogeneous_H_class": "C",
+    "max_hidden_vertices": 7,
+    "repeated_operator": [
+      0,
+      0
+    ]
+  },
+  "stage": "G5:R0",
+  "stop_rules": [
+    "AUTHORITY_MISMATCH",
+    "FROZEN_OPERATOR_BASIS_MISMATCH",
+    "TREE_THEOREM_FAILURE",
+    "SHAPE_CENSUS_MISMATCH",
+    "PUBLIC_STATE_NONUNIFORM_AT_FIXED_N",
+    "EXACT_CANON_COUNT_MISMATCH",
+    "NO_TOPOLOGY_SEPARATION_WITNESS"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,68 @@
+{
+  "capabilities": [
+    {
+      "description": "Exact/certified canonical identity of the active EntityInstance.",
+      "id": "EXACT_ENTITY_IDENTITY"
+    },
+    {
+      "description": "Declared behavioral boundary/interface representation in the certified scope.",
+      "id": "BOUNDARY_INTERFACE"
+    },
+    {
+      "description": "Intrinsic relation graph/multigraph over the active entity organization.",
+      "id": "RELATION_GRAPH"
+    },
+    {
+      "description": "Relation instances with exact declared relation/endpoint types.",
+      "id": "TYPED_RELATIONS"
+    },
+    {
+      "description": "Frozen action-labelled successor relation for the declared carrier/scope.",
+      "id": "TRANSITION_SYSTEM"
+    },
+    {
+      "description": "Which declared actions are currently legal.",
+      "id": "ACTION_ENABLEDNESS"
+    },
+    {
+      "description": "Declared multiplicity of legal action copies when multiplicity is observable.",
+      "id": "ACTION_MULTIPLICITY"
+    },
+    {
+      "description": "Certified block/owner/partition structure.",
+      "id": "BLOCK_STRUCTURE"
+    },
+    {
+      "description": "Certified construction/factor ancestry when explicitly observable for the Test; not behavioral state by default.",
+      "id": "ANCESTRY"
+    },
+    {
+      "description": "Certified reverse factorization/decomposition alternatives.",
+      "id": "FACTORIZATION"
+    },
+    {
+      "description": "Graph-intrinsic path distance derived from certified relations; no geometric interpretation implied.",
+      "id": "INTRINSIC_DISTANCE"
+    },
+    {
+      "description": "Graph-intrinsic distance shells/neighborhood growth.",
+      "id": "NEIGHBORHOOD_SHELLS"
+    },
+    {
+      "description": "Automorphism/orbit information under the declared canonical structure.",
+      "id": "CANONICAL_AUTOMORPHISMS"
+    },
+    {
+      "description": "Exact declared resource/capacity counters.",
+      "id": "RESOURCE_COUNTERS"
+    },
+    {
+      "description": "Certified observer-relative quotient/classes for a frozen observer/action scope.",
+      "id": "OBSERVER_QUOTIENT"
+    }
+  ],
+  "rule": "Capabilities define typed readable structure only; they do not imply scientific interpretation. A Test must declare every capability it reads.",
+  "schema_id": "IG_CAPABILITY_VOCABULARY_V1",
+  "schema_version": "1.0.0",
+  "status": "FROZEN_SPEC_V1"
+}

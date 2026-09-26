@@ -1,0 +1,52 @@
+INFINITY GRID DECODER 0.8lib — P5 C0_HISTORICAL
+DEV54 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_IMPLEMENTATION_AND_HARNESS
+CAPTURE_REQUIRED
+SCIENCE_AUTHORITY_UNCHANGED
+SHARED_POINTER_UNCHANGED
+
+1. WHAT CHANGED
+
+P5 binds exactly the four C0_HISTORICAL S/R/C/F obligations. It imports the
+real captured P4 L0 frontier instead of rerunning L0 or inventing a new root.
+The import is pinned to the 92 KB captured state object with SHA-256
+84b659ed7289f736dd54d8b292ebb1f48ae04b48fbde039081c67d8ac15bfef5.
+
+Before C0 execution the runtime verifies the P4 capture ID, L0-complete status,
+runner-state hash, empty-root identity, all five L0 checkpoints, all 20
+reference records, and the exact resume-frontier record. Only the runner and
+reference-data subset is materialized in the new registered output.
+
+2. HONEST C0 BOUNDARY
+
+S, R and C are SOURCE_INTEGRITY_ONLY. F is HISTORICAL_RESULT_ONLY. None counts
+toward fresh empty-root science. The executor preserves the monograph's C0/C1/
+C2 ladder and the exact L12/L13 C0 failure; it does not regenerate those old
+scientific computations.
+
+The C0 audit record is explicitly USER_BLANKET_REPLAY_AUTHORIZATION_ONLY. P5
+uses the pinned external decision/provenance record as its authority evidence;
+it does not claim that an absent per-layer audit report exists.
+
+3. QUALIFICATION
+
+Focused P5: 6 passed, 0 failed.
+Replay regression P1-P5: 76 passed, 0 failed.
+
+The clean harness reached C0_HISTORICAL_PILOT_COMPLETE, completed the C0 gate,
+stopped before L2J3, retained science_executed=false, and held 40 reference
+records. Mismatch injection, binding tampering and frontier-byte tampering all
+failed closed. Cold restore was byte-stable.
+
+4. NOT YET DONE
+
+The harness is not a Decoder controller capture. P5 remains incomplete until
+dev54 is captured, the P5 profile is registered, one controller-owned attempt
+reaches the C0 frontier, the terminal checkpoint is preserved, and a cold
+restore verifies the result.
+
+5. NEXT STEP
+
+Capture and execute the dev54 P5 profile. Do not bind L2J3 in that attempt.

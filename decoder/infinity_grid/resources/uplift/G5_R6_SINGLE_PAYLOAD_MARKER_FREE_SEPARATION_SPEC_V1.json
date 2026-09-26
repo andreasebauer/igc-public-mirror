@@ -1,0 +1,121 @@
+{
+  "authority": {
+    "g5_r5_closeout_sha256": "dacc222baa23cd1c7cdd2bef5fc737640d549d82a8fcfe1c09d0368f654e77e0",
+    "g5_r5_independent_verification_sha256": "da9700daeb65bbe71ab5a4c684fa0bc1766198bacae995366f3abece00d27b27",
+    "g5_r5_primary_science_sha256": "705652203f4f731e281358ce40d4aacfcc8b57353c24ed1984e80f3a8a514952",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r5_full_62_payload_bounded_separation": true
+  },
+  "cost_control": {
+    "expected_runtime_class": "LOW_MINUTES",
+    "parallel_stage_required": false,
+    "stop_after_registered_panels": true,
+    "workers": 1
+  },
+  "date": "2026-09-06",
+  "design_history": {
+    "adaptive_choice_disclosure": "Before freeze, non-authoritative feasibility probes examined n=8 fixed-(0,0) C/D parents and n=4 panels with one parent edge fixed at (0,0); they suggested C/(0,0) may suffice. Those exact domains are EXCLUDED from official R6 evidence. Official R6 uses untouched n=9 and n=5 domains above.",
+    "pilot_results_are_authority": false
+  },
+  "endpoint_typed_panel": {
+    "color_filter": "MIXED_ONLY_AT_LEAST_ONE_C_AND_ONE_D",
+    "edge_assignment_filter": "AT_LEAST_ONE_00_AND_AT_LEAST_ONE_NON00_SO_ACTION_OPERATOR_00_IS_NOT_FRESH_AND_TYPED_STRUCTURE_IS_PRESENT",
+    "edge_operator_subset": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "freshness": "N5_MULTI_TYPED_PANEL_NOT_USED_IN_R5_OR_PREFREEZE_R6_FEASIBILITY_PROBES",
+    "n": 5,
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "fresh_primary_panel": {
+    "color_filter": "MIXED_ONLY_AT_LEAST_ONE_C_AND_ONE_D_SO_C_IS_NOT_FRESH",
+    "existing_parent_edge_operator": [
+      0,
+      0
+    ],
+    "freshness": "N9_NOT_USED_IN_R5_OR_PREFREEZE_R6_FEASIBILITY_PROBES",
+    "n": 9,
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "next_authorized_stage": "G5:R7_DESIGN_AFTER_HUMAN_REVIEW",
+  "nonclaims": [
+    "NO_GLOBAL_SINGLE_PAYLOAD_MINIMALITY",
+    "NO_ALL_FINITE_CARRIER_SINGLE_PAYLOAD_SEPARATION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_EXACT_HIDDEN_CANON_PROMOTION_TO_PUBLIC_STATE",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "observer": {
+    "O1": "DEDUPLICATED_EXACT_UNROOTED_CHILD_CANON_SET_FOR_THE_SINGLE_PAYLOAD",
+    "Q": "EXACT_PUBLIC_CAPS7_PLUS_H_CLASS_BAG",
+    "empty_child_relation": "PRESERVED_AS_EMPTY_SET",
+    "hash_policy": "HASHES_ARE_AUDIT_HANDLES_ONLY; STRUCTURAL_TUPLE_EQUALITY_DECIDES_SCIENCE",
+    "parent_identity": "EXACT_UNROOTED_ENDPOINT_TYPED_DECORATED_TREE_CANON",
+    "single_payload": {
+      "directed_operator": [
+        0,
+        0
+      ],
+      "new_H_class": "C"
+    },
+    "sufficiency_predicate": "WITHIN_EQUAL_Q_FIBER, EQUAL_SINGLE_PAYLOAD_CHILD_RELATION_IMPLIES_EQUAL_EXACT_PARENT_CANON"
+  },
+  "outcome_rules": {
+    "COLLISION": "If distinct exact parents in one Q fiber have the same fixed-payload exact child relation, preserve the first lexicographic structural collision witness and record single-payload insufficiency on the frozen scope.",
+    "INJECTIVE": "If the fixed C/(0,0) child relation is injective within every equal-Q fiber on both fresh panels, earn bounded single-payload marker-free separation only; do not claim global minimality or all-finite separation."
+  },
+  "pass_classifications": {
+    "collision": "G5_R6_SINGLE_MARKER_FREE_PAYLOAD_C00_COLLISION_WITNESS_EARNED_SINGLE_PAYLOAD_INSUFFICIENT_ON_FROZEN_SCOPE_NO_PROMOTION_R7_DESIGN_AUTHORIZED",
+    "injective": "G5_R6_SINGLE_MARKER_FREE_PAYLOAD_C00_SEPARATES_EXACT_HIDDEN_PARENTS_ON_FROZEN_FRESH_SCOPE_NO_PROMOTION_R7_DESIGN_AUTHORIZED"
+  },
+  "promotion": false,
+  "question": "After R5 showed that the full 62-payload marker-free one-step action signature separates exact hidden parents on its frozen bounded scope, does one fixed ordinary certified payload C/(0,0) already separate exact hidden parents within equal public CAPS7 + H-class bag fibers on two fresh marker-free challenge panels?",
+  "schema_id": "IG_G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1",
+  "science_sha256": "7d6b4b2f2705b748cb9b802efc0543266345c3351b351253a668f0a2bb6dda42",
+  "stage": "G5:R6",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stops": [
+    "R5_AUTHORITY_MISMATCH",
+    "SPEC_HASH_MISMATCH",
+    "STRUCTURAL_EQUALITY_INTEGRITY_FAILURE",
+    "UNREGISTERED_OPERATOR_OR_H_CLASS",
+    "COLD_REPLAY_MISMATCH",
+    "INDEPENDENT_VERIFICATION_FAILURE",
+    "RESOURCE_OR_RUNTIME_INTEGRITY_FAILURE"
+  ]
+}

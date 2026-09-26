@@ -1,0 +1,146 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "comparison_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "absence": {
+          "type": "string"
+        },
+        "absolute_within_panel_counts": {
+          "type": "string"
+        },
+        "cross_level_count_or_fraction_comparison": {
+          "type": "string"
+        },
+        "deep_ancestry": {
+          "type": "string"
+        },
+        "directional_change": {
+          "type": "string"
+        },
+        "existence_persistence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absence",
+        "absolute_within_panel_counts",
+        "cross_level_count_or_fraction_comparison",
+        "deep_ancestry",
+        "directional_change",
+        "existence_persistence"
+      ],
+      "type": "object"
+    },
+    "observed_families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observer_id": {
+      "type": "string"
+    },
+    "observer_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+      "type": "string"
+    },
+    "science_projection": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline": {
+          "type": "string"
+        },
+        "host_paths_timestamps_resource_fields": {
+          "type": "string"
+        },
+        "selected_relation": {
+          "type": "string"
+        },
+        "spectroscope": {
+          "type": "string"
+        },
+        "wide": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseline",
+        "host_paths_timestamps_resource_fields",
+        "selected_relation",
+        "spectroscope",
+        "wide"
+      ],
+      "type": "object"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "historical_scope_replay": {
+          "type": "boolean"
+        },
+        "population_complete": {
+          "type": "boolean"
+        },
+        "primitive_sha256": {
+          "type": "string"
+        },
+        "root_count": {
+          "type": "integer"
+        },
+        "root_sha256": {
+          "type": "string"
+        },
+        "source_level": {
+          "type": "integer"
+        },
+        "target_level": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "historical_scope_replay",
+        "population_complete",
+        "primitive_sha256",
+        "root_count",
+        "root_sha256",
+        "source_level",
+        "target_level"
+      ],
+      "type": "object"
+    },
+    "spectroscope_metrics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "wide_metrics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "comparison_rules",
+    "observed_families",
+    "observer_id",
+    "observer_sha256",
+    "schema_id",
+    "science_projection",
+    "scope",
+    "spectroscope_metrics",
+    "wide_metrics"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

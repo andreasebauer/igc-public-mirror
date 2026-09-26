@@ -1,0 +1,16 @@
+{
+  "$id": "ig://schema/decoder-failure-record/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact": {"type": ["string", "null"]},
+    "context": {"type": "object"},
+    "error_type": {"minLength": 1, "type": "string"},
+    "message": {"type": "string"},
+    "operation": {"minLength": 1, "type": "string"},
+    "schema_id": {"const": "IG_DECODER_FAILURE_RECORD_V1"},
+    "status": {"const": "FAIL"}
+  },
+  "required": ["schema_id", "status", "operation", "error_type", "message", "artifact", "context"],
+  "type": "object"
+}

@@ -1,0 +1,56 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failures": {
+      "items": {},
+      "type": "array"
+    },
+    "migrated_profile": {
+      "additionalProperties": false,
+      "properties": {
+        "new_sha256": {
+          "type": "string"
+        },
+        "old_sha256": {
+          "type": "string"
+        },
+        "target_alias": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "new_sha256",
+        "old_sha256",
+        "target_alias"
+      ],
+      "type": "object"
+    },
+    "profiles": {
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "unique_target_aliases": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "failures",
+    "migrated_profile",
+    "profiles",
+    "schema_id",
+    "status",
+    "unique_target_aliases"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

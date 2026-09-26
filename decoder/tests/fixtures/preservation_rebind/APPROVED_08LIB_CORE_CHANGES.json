@@ -1,0 +1,30 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_AMENDMENT_V1",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "historical_sha256": "1d756cb35e863efa4972432785164b5222753fa74f832a8672257ce4c585eb8d",
+      "reviewed_sha256": "ed0bc2348f57d8d8169562acfa68951d8a89c3787ba9ba142383d220e2bcf82d",
+      "reason": "The active controller includes the exact native representative-qualification adapter, the dev34 recorded-attempt lifecycle for C6-supervised requests, and the dev50 controller-process allowlist entry for the orchestration-only replay root handler. The request attempt is written RUNNING before controller authority is minted and is closed COMPLETED or PAUSED afterward. Replay scientific node handlers remain unbound in P2B; general scientific handlers remain outside the controller-process allowlist. Full live-supervisor, refusal and replay-root routing checks are registered qualifications."
+    },
+    "infinity_grid/v05_origin_guard.py": {
+      "historical_sha256": "46ff3180f95c34b165d999ee2fc537c1192b57ba3d1f8a00b55d526894252730",
+      "reviewed_sha256": "d1f2922997d3f32952c62930d6234d3b557efc0dd33e0ff70709833fd94fcaa6",
+      "reason": "The C6 supervisor root scope now forwards the exact live recorded-attempt binding created by the controller loop. Supervisor process, namespace, lease, capsule, source, entrypoint, module and lifecycle-lock verification remain unchanged and precede context minting."
+    },
+    "infinity_grid/v05_validation_runtime.py": {
+      "historical_sha256": "98c97c0998d74bd07396f1e94cd813f5ebf5be89baaff04b57d8d82b15f02ada",
+      "reviewed_sha256": "fcbe7edd4f11fa5d447d8276bb8f12260f13280cc44c3d2077d9b0e200202b14",
+      "reason": "Explicitly reviewed dev10 observed-phase finalization, dev11 exclusive closed-log publication and exact parent readback, dev25/dev27 descendant and worker-evidence gates, dev28 fresh exec isolation, dev29 exact node-evidence-set binding, dev30 anonymous-pipe selector capture, and dev32 immutable resume baselines. Resumed validation retains prior worker and selector logs only when their name, size, and SHA-256 remain exact; current-attempt logs remain exclusively bound and new unbound or active evidence still fails closed. Scheduling stays in the registered native controller; source/origin/save/completion checks remain active and scientific routines are unchanged."
+    },
+    "infinity_grid/preservation.py": {
+      "historical_sha256": "4b011a926f6a17ef2a4c35ba6d3110f91771e8478ff4054aa2ec4fec1bfd95fc",
+      "reviewed_sha256": "74664cc08ea6e1ce3bc866bc9018ca22ea077392cb1afa26fa93cf8657be42e7",
+      "reason": "Explicitly reviewed dev15 preservation accounting distinguishes physically saved object hashes from still-unsaved physical bytes, so repeated checkpoint obligations do not consume backlog capacity again. Exact obligation acknowledgments, readback verification, checkpoint integrity and fail-closed limits remain required."
+    },
+    "infinity_grid/result_contracts.py": {
+      "historical_sha256": "098f0adaaeb44f512a27529faa986fa38f048473423ad2b580512886f7bb5512",
+      "reviewed_sha256": "0fd5396e23f0d463914a4756fa72eaf865ed315f0886aa462495ab9ba96e3f65",
+      "reason": "Explicitly reviewed dev15 preservation defaults provide a 512 MiB pending ceiling and 192 MiB maximum commit while retaining reserve validation, finite positive integer checks, age and commit-count limits, and the captured-contract normalization path."
+    }
+  }
+}

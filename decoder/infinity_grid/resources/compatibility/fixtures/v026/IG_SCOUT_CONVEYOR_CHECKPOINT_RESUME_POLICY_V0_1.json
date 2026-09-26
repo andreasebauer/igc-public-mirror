@@ -1,0 +1,20 @@
+{
+  "chain_rebuild": "Chain status must be reconstructible from immutable chain plan, events, per-level run records, parent certificates and catalog manifests.",
+  "controller_checkpoint": "After each level transition and parent commit, write a chain checkpoint containing chain state, current parent certificate SHA and cumulative resource totals.",
+  "corruption": {
+    "action": "FAIL_CLOSED_AND_QUARANTINE_REFERENCE",
+    "automatic_delete": false,
+    "automatic_recompute": false,
+    "repair": "explicitly authorized repair under recorded new attempt or new source identity"
+  },
+  "crash_recovery": {
+    "live_lock": "never steal",
+    "missing_heartbeat": "insufficient by itself to steal a live lock",
+    "same_host_dead_pid": "auditable recovery allowed only after verifying process is absent and lock metadata matches chain/run"
+  },
+  "reuse": "Reuse only byte-verified checkpoints whose plan, source, environment, stage/chunk specification, inputs and dependency bindings all match.",
+  "schema_id": "IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1",
+  "spec_sha256": "18da8cbf33d8445e39f8d65df0c05020769874b6776c844a3edcf0d22998b7b0",
+  "stale_downstream": "Never reuse downstream work if an upstream output/dependency binding changes.",
+  "wide_chunk_checkpoints": true
+}

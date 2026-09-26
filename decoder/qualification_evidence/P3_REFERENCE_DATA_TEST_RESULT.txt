@@ -1,0 +1,35 @@
+P3 UNIFIED REFERENCE-DATA CONTRACT QUALIFICATION
+Date: 2026-09-22
+Decoder version: 0.8.0.dev51+lib
+
+FOCUSED P3 CONTRACT
+13 passed, 0 failed
+Evidence: qualification_evidence/P3_REFERENCE_DATA_FOCUSED_JUNIT.xml
+
+P1/P2/P3 REPLAY REGRESSION
+102 passed, 0 failed
+Evidence: qualification_evidence/P3_REPLAY_REFERENCE_DATA_REGRESSION_JUNIT.xml
+
+PORTABLE R02 CONSOLIDATED REPEAT
+340 passed, 1 skipped, 0 failed
+Execution policy: NO_AUTOMATIC_RUNTIME_DEADLINE_V1
+Evidence: qualification_evidence/P3_PORTABLE_R02_FINAL_JUNIT.xml
+
+TIMING-RACE DIAGNOSTIC
+The first portable R02 run produced 339 passed, 1 skipped, 1 failed. The
+failure observed a completed request while its attempt record was momentarily
+still RUNNING in test_exact_supervisor_child_roundtrip_in_nested_pid_namespace.
+The exact test passed alone (1 passed), and the full consolidated repeat passed
+(340 passed, 1 skipped). Both diagnostic XML records are retained:
+  qualification_evidence/P3_PORTABLE_R02_JUNIT.xml
+  qualification_evidence/P3_PORTABLE_R02_RERUN_JUNIT.xml
+
+BACKEND/VERSION DIAGNOSTIC
+15 passed, 1 failed. The sole failure is the already named nonportable
+CAPTURE_REQUIRED boundary: this workspace has no saved production CAPTURE.json.
+Evidence: qualification_evidence/P3_VERSION_AND_BACKEND_JUNIT.xml
+
+BOUNDARY
+P3 stores and validates reference data only. No L0-through-G8 scientific node
+was executed, no audit authority was granted, no production replay capture was
+created, GLOBAL remains unauthorized, and P4 has not started.

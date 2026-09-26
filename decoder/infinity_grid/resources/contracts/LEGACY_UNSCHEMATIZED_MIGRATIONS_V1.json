@@ -1,0 +1,27 @@
+{
+  "schema_id": "IG_LEGACY_UNSCHEMATIZED_MIGRATION_REGISTRY_V1",
+  "version": "1.0.0",
+  "rule": "Match exact pre-migration canonical SHA-256, inject only the declared schema_id, preserve every pre-existing field/value, then validate strictly and envelope.",
+  "entries": {
+    "848ec1b0de4407b2a0bf944b96731c683f7cb5bac5ca0feba59d91bf72645500": {
+      "target_schema_id": "IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26",
+      "historical_path": "03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/GRAPH_REGISTRATION_RESULT.json"
+    },
+    "97bc6a001c30b58cd952f86771e0f696432b70257ae5a8fcc0bdb05a2cfe9871": {
+      "target_schema_id": "IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26",
+      "historical_path": "03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/SOURCE_REGISTRATION_RESULT.json"
+    },
+    "1570fda2d4d2122a2e25b44625c859666580048886ec58d5c771e69f92bc83a3": {
+      "target_schema_id": "IG_LEGACY_DOCTOR_RESULT_V0_26",
+      "historical_path": "05_ACCEPTANCE/DOCTOR.json"
+    },
+    "e090688a507c3c5191fcee7ee120383beb24d57c332b7fbe4a7a8d3ece0d386a": {
+      "target_schema_id": "IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26",
+      "historical_path": "05_ACCEPTANCE/PHASE_B_RUNTIME_PATCH_APPLY.json"
+    },
+    "d9aa110c785edd7ac984165773dd3ad5db0a5f79d88dacdd2db589d936d96b3d": {
+      "target_schema_id": "IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26",
+      "historical_path": "05_ACCEPTANCE/SCANNER_IMPORT_SMOKE.json"
+    }
+  }
+}

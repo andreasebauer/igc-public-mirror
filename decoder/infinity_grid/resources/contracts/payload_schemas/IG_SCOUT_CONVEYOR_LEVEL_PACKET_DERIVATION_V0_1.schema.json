@@ -1,0 +1,97 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "derived_packet_fields": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "packet_id": {
+          "type": "string"
+        },
+        "packet_seed_sha256": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "root_count": {
+          "type": "string"
+        },
+        "root_sha256": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "source_level": {
+          "type": "string"
+        },
+        "target_level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence",
+        "packet_id",
+        "packet_seed_sha256",
+        "question",
+        "root_count",
+        "root_sha256",
+        "run_id",
+        "source_level",
+        "target_level"
+      ],
+      "type": "object"
+    },
+    "deterministic_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "failure_rule": {
+      "type": "string"
+    },
+    "golden_rule": {
+      "type": "string"
+    },
+    "no_manual_freeze_per_level": {
+      "type": "string"
+    },
+    "packet_freeze_rule": {
+      "type": "string"
+    },
+    "precondition": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "derived_packet_fields",
+    "deterministic_inputs",
+    "failure_rule",
+    "golden_rule",
+    "no_manual_freeze_per_level",
+    "packet_freeze_rule",
+    "precondition",
+    "schema_id",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

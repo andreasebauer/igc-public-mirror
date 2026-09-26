@@ -1,0 +1,54 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "new_source_sha256": {
+      "type": "string"
+    },
+    "removed_count": {
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "superseded_recipes_removed": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "recipe_id": {
+            "type": "string"
+          },
+          "recipe_sha256": {
+            "type": "string"
+          },
+          "source_snapshot_ref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "recipe_id",
+          "recipe_sha256",
+          "source_snapshot_ref"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "new_source_sha256",
+    "removed_count",
+    "schema_id",
+    "status",
+    "superseded_recipes_removed"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

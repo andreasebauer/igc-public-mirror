@@ -1,0 +1,90 @@
+{
+  "schema_id": "IG_P3_REFERENCE_DATA_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev51+lib",
+  "date": "2026-09-22",
+  "status": "PASS_P3_UNIFIED_REFERENCE_DATA_CONTRACT",
+  "p3_complete": true,
+  "p4_started": false,
+  "science_executed": false,
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "contract": {
+    "record_type_count": 11,
+    "provenance_class_count": 6,
+    "empty_manifest_sha256": "6c30e064452567707dc410a214c3fad3bd219231f5ebf998a9651c8f9a0ad91b",
+    "content_addressed_records": true,
+    "immutable_record_ids": true,
+    "backward_dependency_order_required": true,
+    "two_phase_commits": true,
+    "exact_interruption_recovery": true,
+    "cold_restore_reverification": true,
+    "science_execution_rederived": true,
+    "unexplained_provenance_remains_open": true,
+    "external_audit_authority_only": true
+  },
+  "implementation_pins": [
+    {
+      "ref": "infinity_grid/replay_reference_data.py",
+      "sha256": "e150ab83215197be848edd520d6597377dc386748eaddeef0ed53baf2653d100"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P3_EMPTY_REFERENCE_DATA_ROOT_V1.json",
+      "sha256": "4c2d6fbc49b307b440806c734e6226375180116580ce36f93864479f35471c3f"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P3_REFERENCE_DATA_CONTRACT_V1.json",
+      "sha256": "a28090a05aacba71f2b414ef092816250edeaa2f567d94203555a1ae66136c00"
+    },
+    {
+      "ref": "tests/test_p3_replay_reference_data.py",
+      "sha256": "2ac9ab069df69ed151d26382e653dd3d5059936e59eadbb29788a925ffac05d6"
+    }
+  ],
+  "qualification": {
+    "focused": {
+      "passed": 13,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P3_REFERENCE_DATA_FOCUSED_JUNIT.xml",
+      "junit_sha256": "3362ab3de3006361db09bff165d837f7e5b333d190a5de99de1ec84c3c5fc77b"
+    },
+    "p1_p2_p3_replay_regression": {
+      "passed": 102,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P3_REPLAY_REFERENCE_DATA_REGRESSION_JUNIT.xml",
+      "junit_sha256": "1f6c8312b54fc763123d1be483a227416c673a7c33dbb08ba599893b09d208a1"
+    },
+    "portable_r02_consolidated": {
+      "passed": 340,
+      "skipped": 1,
+      "failed": 0,
+      "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+      "junit_ref": "qualification_evidence/P3_PORTABLE_R02_FINAL_JUNIT.xml",
+      "junit_sha256": "207a851566e7ae51036f1db159766479a0f9315075a628feb2ae2ea432521a24"
+    },
+    "portable_r02_timing_diagnostic": {
+      "initial": "339_PASS_1_SKIP_1_FAIL_TRANSIENT_ATTEMPT_STATUS_ORDERING",
+      "isolated_rerun": "1_PASS_0_FAIL",
+      "consolidated_repeat": "340_PASS_1_SKIP_0_FAIL",
+      "initial_junit_sha256": "348706be7b03417c13c354b52e391a77e58b8670d8cfa5550cb298b1761831eb",
+      "isolated_rerun_junit_sha256": "11d4b1b520c5be1ca5b9468be0b637890661016c52198d439c7abf453876bc88"
+    },
+    "known_nonportable_capture_boundary": {
+      "passed": 15,
+      "failed": 1,
+      "failure": "CAPTURE_REQUIRED",
+      "junit_ref": "qualification_evidence/P3_VERSION_AND_BACKEND_JUNIT.xml",
+      "junit_sha256": "e89c7b1e37e5b5cda7c3350654cf6928872fc24841a89b2575cf2552da872cee"
+    }
+  },
+  "nonclaims": [
+    "No L0-through-G8 scientific node was executed.",
+    "No reference-data record was populated from historical handoff archives in P3.",
+    "No audit authority was granted by the Decoder.",
+    "No production replay root capture was executed.",
+    "Full R02 remains incomplete because named nonportable capture, fixture, tooling and version requirements remain open.",
+    "GLOBAL remains unauthorized.",
+    "P4 L0 pilot has not started.",
+    "Reproduced will mean reproduced under the declared equality contract, not independently confirmed correct."
+  ],
+  "next_step": "P4_REAL_L0_PILOT"
+}

@@ -1,0 +1,136 @@
+{
+  "authority": {
+    "g4_s0_classification": "G4_BASELINE_G3_TERM_CORPUS_FROZEN_CAPS7_ONLY_HIDDEN_TREE_CHALLENGE_HIERARCHY_EARNED_S1_UNLOCKED",
+    "g4_s0_science_sha256": "ec0162c79642253f5c91d0dce8a293bdea865b208fa005e9d54dd133e7596141",
+    "g4_s0_status": "PASS",
+    "g4_s0_term_corpus_sha256": "b19fb1edccba7e7768e8034f9b5d323460704ced33774cb3e1435fab3ed6eb3a",
+    "g4_s1_classification": "G4_STRUCTURE_READ_EARNED_ON_CERTIFIED_G3_TERM_PAIR_CONTEXT_BASIS_TIER_ANALYSIS_REQUIRED_S2_UNLOCKED",
+    "g4_s1_outcome": "STRUCTURE_READ_EARNED",
+    "g4_s1_science_sha256": "57e9fa2fd919ec67515a18345683fe9550b3b94b10c4fc9c511fb949c8b8c81a",
+    "g4_s1_status": "PASS",
+    "g4_s2_classification": "G4_S2_TIER1_SCALAR_TREE_SUMMARIES_PAIR_OBSERVER_QUOTIENT_CERTIFIED_S3_UNLOCKED",
+    "g4_s2_closeout_sha256": "47297a70b6082bd92b01c96d77296aba46a434063bdde884fdc3ba5f686e9228",
+    "g4_s2_replay_comparison_sha256": "5b0433f531b3d6025e97a545f4b57437575e56d88ffce9c9fa5b52235fa961a0",
+    "g4_s2_s1_signature_binding_sha256": "1647c478a74509f0ec4c8aaaa875d7af7d6782d7524ae861a461fc1626422349",
+    "g4_s2_science_sha256": "4b551909a2836436f4d386c6ac092e0cd82d80c670ee1d8f3c3791e2d78ecc43",
+    "g4_s2_status": "PASS",
+    "g4_s2_tier1_audit_sha256": "46fa7e2544aff0298d9a3e0fb46b7bc4233c3c7a55049edffdc3581a72596508",
+    "required_candidate_read": {
+      "name": "SCALAR_TREE_SUMMARIES",
+      "tier": 1
+    },
+    "required_g4_graduated": false,
+    "required_g4_s3_unlocked": true,
+    "required_public_descriptor_promoted": false,
+    "required_shell_profile_promoted": false,
+    "required_topology_promoted": false
+  },
+  "boundedness_note": "Tier 1 separates the two exact S0 terms, so each frozen candidate class currently contains one exact representative. S3 can certify higher-order compatibility only on this exact frozen domain; it cannot establish global Tier-1 sufficiency or minimality for unseen G3 terms.",
+  "candidate_unit_interface": {
+    "added_candidate_name": "SCALAR_TREE_SUMMARIES",
+    "added_candidate_reads": [
+      "MAX_DEGREE",
+      "LEAF_COUNT",
+      "DIAMETER",
+      "RADIUS",
+      "ARTICULATION_COUNT",
+      "WIENER_INDEX"
+    ],
+    "added_candidate_tier": 1,
+    "candidate_key": "CAPS7_PLUS_SCALAR_TREE_SUMMARIES",
+    "inherited_public_read": "CAPS7",
+    "rule": "S3 may use the Tier-1 value only because S2 earned it as the bounded candidate on the frozen pair observer. S3 may not add any richer tier, topology, shell profile, construction identity, owner witness, ancestry, or provenance.",
+    "status": "BOUNDED_S2_CANDIDATE_ONLY_NOT_PUBLICLY_PROMOTED"
+  },
+  "challenge_read_tier_science_sha256": "f17663e78ab794b0ed43a4d47022b1705fa874e54ef957fe1dd5b2d21355b3c8",
+  "coverage_accounting": {
+    "k3_directed_operator_assignments_per_unit_assignment": 29791,
+    "k3_public_contexts": 238328,
+    "local_two_reservation_tasks": 98,
+    "note": "These are exact combinatorial coverage counts for the frozen two-class/31-operator P3/K3 domain. The scientific reduction is local factorisation, not sampled triple extrapolation.",
+    "ordered_candidate_unit_assignments": 8,
+    "p3_directed_operator_assignments_per_unit_assignment": 961,
+    "p3_public_contexts": 7688,
+    "total_public_contexts": 246016
+  },
+  "date": "2026-09-04",
+  "decision_rule": {
+    "PASS": "All authority and S1/S2 binding checks pass; the complete ordered 7x7 local two-reservation table is single-valued for every frozen CAPS7+Tier1 candidate class; the P3/K3 degree-2 factorisation premises hold. Certify no irreducible triple residual on the frozen scope and unlock G4:S4 only.",
+    "REVIEW_REQUIRED": "Any authority/binding mismatch, candidate-key mismatch, local continuation conflict inside a candidate class, or factorisation-premise failure. Lock S4. Do not escalate to a richer tier or promote topology post hoc."
+  },
+  "exact_reduction": [
+    "CERTIFIED_S2_RESULT_MUST_RECONSTRUCT_BYTE_IDENTICALLY_FROM_THE_CERTIFIED_S0_S1_EVIDENCE_AND_248_ROW_S1_SIGNATURE_INDEX",
+    "THE_TIER1_CANDIDATE_KEY_MUST_BE_RECOMPUTED_FROM_S0_AND_MATCH_THE_CERTIFIED_S2_SELECTION",
+    "WITHIN_EACH_CAPS7_PLUS_TIER1_CANDIDATE_CLASS_THE_COMPLETE_ORDERED_7_BY_7_TWO_RESERVATION_CONTINUATION_TABLE_MUST_BE_SINGLE_VALUED",
+    "P3_AND_K3_HAVE_MAX_VERTEX_DEGREE_2_SO_S2_EDGE_VALUES_PLUS_CANDIDATE_KEY_LOCAL_TWO_RESERVATION_TABLES_RECONSTRUCT_THE_DECLARED_JOINT_COMPATIBILITY_OBSERVER"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE",
+    "CONSUME_ONLY_CERTIFIED_G4_S0_S1_S2_EVIDENCE",
+    "NO_G1_R100_G2_OR_HISTORICAL_G3_REMATERIALIZATION",
+    "DECOMPOSABLE_LOCAL_CONTINUATION_WORK_VIA_INFINITY_GRID_EXECUTION_EXECUTE_TASKS",
+    "DECODER_RUNTIME_TELEMETRY_REQUIRED_AND_EXCLUDED_FROM_SCIENCE_HASH",
+    "COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_DECODER_NATIVE_EXPERIMENT",
+    "FAIL_CLOSED_ON_SOURCE_REGISTRY_AUTHORITY_SIGNATURE_OR_CHECKPOINT_MISMATCH",
+    "NO_POST_HOC_OBSERVER_CHANGE",
+    "LONG_OR_FULL_REGRESSION_AND_CERTIFICATION_CHAINS_RUN_DETACHED_BACKGROUND_BY_DEFAULT"
+  ],
+  "frozen_domain": {
+    "candidate_unit_classes": 2,
+    "carrier_instance_rule": "three independently instantiated complete frozen G4:S0 G3 terms; repeated term refs are permitted as repeated instances",
+    "directed_operator_basis": "31 graduated bridge operators inherited from the G3 public grammar",
+    "exact_unit_representatives": 2,
+    "lower_layer_rematerialization": false,
+    "max_vertex_degree": 2,
+    "pair_observer_basis": "complete certified G4:S1/S2 248-row basis; S3 replays its binding exactly before higher-order reduction",
+    "representatives_per_candidate_class": 1,
+    "triple_scope": [
+      "P3_CONNECTED_PATH",
+      "K3_TRIANGLE"
+    ],
+    "unit_corpus": "the two complete certified G3 construction terms frozen by G4:S0 V2"
+  },
+  "g4_s2_spec_sha256": "4de36feec2cf5862f7207019f55e56a356af1289341f63d69b20d887889c3add",
+  "joint_public_observer": {
+    "edge_reads": "For each ordered motif edge and directed bridge operator, use the exact certified S2 pair-observer value associated with the endpoint candidate keys; the full 248-row S1/S2 evidence is rebound before use.",
+    "forbidden_outputs": [
+      "tree topology",
+      "shell profile",
+      "degree sequence beyond the frozen Tier-1 scalars",
+      "construction digest as a reasoning key",
+      "owner witness",
+      "ancestry",
+      "raw provenance"
+    ],
+    "joint_legality": "An assembly is jointly legal exactly when each edge is pair-legal and every degree-two vertex has at least one exact branch realizing its two incident reservations in the declared order.",
+    "observed_outputs": [
+      "joint_legality",
+      "ordered local continuation signatures",
+      "certified S2 edge-observer values"
+    ],
+    "reservation_order": "All 49 ordered endpoint-type pairs are certified for every exact unit. Both orders are retained; order dependence is never silently quotiented.",
+    "vertex_reads": "CAPS7 + Tier-1 candidate key, plus the exact ordered one- and two-reservation branch-sensitive continuation that is mechanically certified to be a single-valued function of that candidate key on the frozen domain."
+  },
+  "nonclaims": [
+    "NO_GLOBAL_TIER1_SUFFICIENCY",
+    "NO_GLOBAL_TIER1_MINIMALITY",
+    "NO_ARBITRARY_N_BODY_IRREDUCIBILITY",
+    "NO_G4_COMPOSITION_CLOSURE",
+    "NO_G4_FINITE_READ_WRITE_DESCRIPTOR",
+    "NO_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_G4_GRADUATION",
+    "NO_PHYSICAL_SPACE_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "pass_effect": "Unlock G4:S4 composition-closure design/execution only. Tier 1 remains a bounded candidate and is not promoted into the public G4 descriptor; G4 remains ungraduated.",
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "promotion": false,
+  "question": "After certified G4:S2 selects Tier 1 SCALAR_TREE_SUMMARIES as the lowest bounded pair-observer candidate, are any branch-sensitive public compatibility facts of connected simple three-G3-unit P3/K3 motifs irreducible to the complete certified S2 pair observer plus the inherited CAPS7 and Tier-1 candidate unit key?",
+  "schema_id": "IG_G4_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "c7f6e64418439dd05dee8df730e040dda6031ade26fd646714b47e9fde732f2b",
+  "stage_ref": "G4:S3",
+  "status": "FROZEN_BEFORE_G4_S3_EXECUTION"
+}

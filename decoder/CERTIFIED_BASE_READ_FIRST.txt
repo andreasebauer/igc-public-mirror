@@ -1,0 +1,50 @@
+DECODER 0.7 CONTENT-CERTIFIED BASE — READ FIRST
+================================================
+
+The rule is simple: trust the exact data, not the version label.
+
+A reusable input is accepted when:
+  1. its bytes match the certified SHA-256;
+  2. its declared meaning, domain, schema and canonicalization match;
+  3. it covers what the consuming test needs;
+  4. its required invariants were certified; and
+  5. its exact block hash has not been revoked.
+
+Decoder, test, code and environment versions are saved as diagnostic history.
+They help reproduce old bugs, but a version mismatch alone MUST NOT reject
+otherwise identical certified data.
+
+HOW A CHAT ADDS REUSABLE DATA
+-----------------------------
+1. Put the smallest useful immutable object into `add_block`.
+2. Choose its category and state its exact meaning/domain/schema/coverage.
+3. Save producer versions in `producer`; this field is diagnostic only.
+4. Call `certify_block` after the declared semantics and invariants are checked.
+5. Add certified blocks to a named base with `create_base`.
+6. A test reads only admitted blocks and records actual use with `read_block`.
+
+Do not create a new copy merely because Decoder or a test was upgraded.  If
+the canonical bytes and certified semantics are unchanged, reuse the same
+block.  New or changed bytes receive a new content hash.  A discovered defect
+revokes the exact bad block; it does not invalidate unrelated data by version.
+
+STORAGE AND RECOVERY
+--------------------
+Physical bytes live once under their content SHA-256.  Logical bases reference
+those objects, and base deltas name only additions/removals.  Reconstruction
+verifies every object and the complete materialization hash.  Compaction is
+dry-run planning only in this candidate; it never silently deletes evidence.
+
+GOOGLE DRIVE
+------------
+Save after meaningful checkpoints.  Start large transport at 16 MiB per part;
+if the connector rejects that size, repack at 8 MiB, then 4 MiB.  Always save
+the ordered manifest and verify each downloaded part by SHA-256.  Never weaken
+content verification to make an upload pass.
+
+BOUNDARIES
+----------
+This candidate does not change the shared Decoder pointer, migrate a live
+project, grant a runtime exception, or authorize a scientific conclusion.
+Existing captures stay readable and unchanged.  Semantic TEST_NEEDS selection
+belongs to the next repair step.

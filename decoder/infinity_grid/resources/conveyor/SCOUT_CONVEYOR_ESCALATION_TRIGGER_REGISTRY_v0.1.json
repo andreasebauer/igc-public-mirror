@@ -1,0 +1,163 @@
+{
+  "evaluation_order": [
+    "INTEGRITY",
+    "OPERATIONAL",
+    "SCIENTIFIC",
+    "LIMIT",
+    "CONTINUE"
+  ],
+  "integrity_triggers": [
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "parent pin, selected relation, baseline or certificate hash mismatch",
+      "id": "I_PARENT_IDENTITY_MISMATCH"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "source/wheel/environment/protocol identity differs from chain plan",
+      "id": "I_RUNTIME_IDENTITY_DRIFT"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "two independent packet derivations differ",
+      "id": "I_PACKET_DERIVATION_MISMATCH"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "checkpoint bytes, dependency binding or stage identity mismatch",
+      "id": "I_CHECKPOINT_CORRUPT_OR_STALE"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "critical science projection or selected relation does not replay byte-identically",
+      "id": "I_NONDETERMINISTIC_REPLAY"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "independent exact lane recomputation differs",
+      "id": "I_SELECTION_REFERENCE_MISMATCH"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "release verification or catalog rebuild/accounting fails",
+      "id": "I_RELEASE_OR_CATALOG_MISMATCH"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "authority promotion, forbidden claim or claim record requested",
+      "id": "I_EVIDENCE_FIREWALL_VIOLATION"
+    },
+    {
+      "action": "FAIL_CLOSED",
+      "condition": "path escape, live conflicting lock or unaudited lock recovery",
+      "id": "I_PATH_LOCK_OR_CONTAINMENT"
+    }
+  ],
+  "limit_rule": "After producing an eligible parent at max_target_level, stop normally with COMPLETE_LIMIT_REACHED; do not derive another packet.",
+  "non_triggers": [
+    "PERSISTS alone",
+    "EXPANDS alone",
+    "REORGANIZES alone",
+    "a higher bounded maximum parent count",
+    "changes in inclusion height or width",
+    "positive abstract incidence cycle rank",
+    "sparse intersection or union realization",
+    "continued presence of an inherited review escalation already recorded in the parent"
+  ],
+  "operational_triggers": [
+    {
+      "action": "PAUSE_OPERATIONAL",
+      "condition": "predicted or actual attempts exceed frozen max_level_attempts",
+      "id": "O_ATTEMPT_BUDGET"
+    },
+    {
+      "action": "PAUSE_OPERATIONAL",
+      "condition": "exact unique candidates exceed frozen max_unique_candidates",
+      "id": "O_CANDIDATE_BUDGET"
+    },
+    {
+      "action": "PAUSE_OPERATIONAL",
+      "condition": "level wall time exceeds frozen max_level_wall_seconds",
+      "id": "O_LEVEL_TIME_BUDGET"
+    },
+    {
+      "action": "COMPLETE_RESOURCE_LIMIT",
+      "condition": "chain wall time exceeds frozen max_total_wall_seconds",
+      "id": "O_CHAIN_TIME_BUDGET"
+    },
+    {
+      "action": "PAUSE_OPERATIONAL",
+      "condition": "chain storage exceeds frozen max_total_storage_bytes",
+      "id": "O_STORAGE_BUDGET"
+    },
+    {
+      "action": "PAUSE_OPERATIONAL",
+      "condition": "available bytes below frozen minimum_free_bytes",
+      "id": "O_FREE_SPACE_RESERVE"
+    }
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1",
+  "scientific_triggers": [
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "lawful attachment count == 0",
+      "id": "S_ENDPOINT_NO_LAWFUL_CHILDREN"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "unique candidate count == 0",
+      "id": "S_ENDPOINT_NO_UNIQUE_CANDIDATES"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "unique candidate count < 256",
+      "id": "S_LOW_CANDIDATE_SUPPORT"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "selected union count == 0",
+      "id": "S_EMPTY_SELECTED_RELATION"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "a parent-persistent tracked relation has zero current support or is absent",
+      "id": "S_TRACKED_RELATION_DISAPPEARS"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "classification observed_or_new nonempty or Spectroscope emits an unregistered recognition token",
+      "id": "S_NEW_RELATION_OR_UNREGISTERED_TOKEN"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "current escalation set contains an item not already present in parent escalation set",
+      "id": "S_NEW_REVIEW_ESCALATION"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "parent max count > 1 and current selected max parent count <= 1",
+      "id": "S_PARENT_FIBER_COLLAPSE"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "for every distinct observed exact parent-fiber pair, both intersection and union are observed",
+      "id": "S_EXACT_PAIRWISE_CLOSURE_CANDIDATE"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "R_LOCAL_DEPTH_REORGANIZATION status is not UNRESOLVED_DEPTH_SCOPE",
+      "id": "S_DEPTH_MARKER_RESOLVED_OR_CHANGED"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC",
+      "condition": "predicate classifier is incomplete, contradictory or returns an unregistered state",
+      "id": "S_CLASSIFICATION_UNDEFINED"
+    },
+    {
+      "action": "PAUSE_SCIENTIFIC_FOR_SCANNER",
+      "condition": "equal frozen shallow descriptors show distinct exact one-step futures in a registered probe",
+      "id": "S_REPRESENTATION_OR_FUTURE_COLLISION"
+    }
+  ],
+  "spec_sha256": "619f393edd039116df533fabe96b7390c8cdc846e519834216eebf851fb57ea9"
+}

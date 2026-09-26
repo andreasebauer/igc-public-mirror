@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-03",
+  "firewall": {
+    "g1_r100_reopened": false,
+    "g1_reserve_external_modified": false,
+    "g2_graduated": false,
+    "s5_unlocked_by_spec_alone": false,
+    "unbounded_congruence_theorem_claimed": false
+  },
+  "rule": [
+    "ENUMERATE_ALL_ELIGIBLE_IMMEDIATE_CHILD_OWNERS",
+    "USE_FROZEN_EXISTING_RESERVE_EXTERNAL_FOR_LOWER_G_CHILDREN",
+    "RECURSE_RELATION_VALUED_WHEN_CHILD_IS_ALREADY_G2_COMPOSITE",
+    "NO_CONSTRUCTION_DIGEST_OR_CHILD_INDEX_SELECTOR",
+    "EXACT_DUPLICATE_IMPLEMENTATION_SUCCESSORS_MAY_BE_DEDUPED_OPERATIONALLY",
+    "PUBLIC_SEMANTICS_EXCLUDE_OWNER_WITNESSES_AND_CONSTRUCTION_IDENTITY"
+  ],
+  "s4_r0_authority": {
+    "candidate_conflict_classes": 0,
+    "classification": "RELATION_VALUED_G2_ROUTING_SELECTED_AS_IMPLEMENTATION_CANDIDATE",
+    "independent_replay_sha256": "4d67042db9091fe1716eeefd935e975a322620b45bc5b56eb435a94043f9bacf",
+    "nontrivial_s2_classes_exhausted": 3604,
+    "primary_science_sha256": "afa94b5395f8ecf64d5ed92608e3c6dd75cdcbd6af229326b2997f9f4bc44521",
+    "realized_records_exhausted": 7220,
+    "stage_ref": "G2:S4-R0"
+  },
+  "schema_id": "IG_G2_RELATION_VALUED_RESERVATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "scope": "G2_FACING_EXTERNAL_ENDPOINT_RESERVATION_RELATION",
+  "spec_sha256": "e1f2f7502ab44c5e79d98abe25d041f2068b545828c9fd8ca778bbdd7f574214",
+  "status": "FROZEN_FOR_IMPLEMENTATION_LEVEL_S4_REPLAY"
+}

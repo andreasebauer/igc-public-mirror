@@ -1,0 +1,62 @@
+{
+  "schema_id": "IG_P2A_DAG_RUNNER_CORE_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev49+lib",
+  "date": "2026-09-22",
+  "status": "PASS_RUNNER_CORE_ONLY",
+  "implementation_status": "RUNNER_CORE_ONLY_NO_SCIENCE_HANDLER_BINDINGS",
+  "p2_complete": false,
+  "science_executed": false,
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "manifest_binding": {
+    "ref": "infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V9.json",
+    "file_sha256": "9e554c77b18cc6849cbbf9f79d99fd08cc40c8fd35495d76fc65ee3de2159d48",
+    "dag_sha256": "e53f9637b0e1fec6f1b4ee76d98fbf70e98ed4c6268afab8666eff71786043ab",
+    "authorized_replay_through_layer": "G8",
+    "next_wait_layer": "GLOBAL"
+  },
+  "implementation": {
+    "ref": "infinity_grid/replay_dag_runner.py",
+    "sha256": "144ce9a2fcf4edc47cd284aaf186a6908f0bba329f3d6bb89603532175165702"
+  },
+  "focused_test": {
+    "ref": "tests/test_p2a_replay_dag_runner.py",
+    "sha256": "53c683684d9bc24bbf1747195b5fcda770039d0ea4fac5da56a331e3f2915f3e",
+    "passed": 10,
+    "failed": 0,
+    "junit_ref": "qualification_evidence/P2A_DAG_RUNNER_CORE_JUNIT.xml",
+    "junit_sha256": "8b7d8766e698ea39649465bfa2c36129d5ce51539decfa65ae9d8df4c81b8017"
+  },
+  "regression_result": {
+    "passed": 92,
+    "failed": 1,
+    "failure": "tests/test_decoder06_capture.py::test_current_validation_job_has_real_saved_source_records",
+    "classification": "KNOWN_R02_NONPORTABLE_SAVED_CURRENT_VALIDATION_WORKSPACE_GAP",
+    "production_regression": false
+  },
+  "properties_qualified": [
+    "compiled manifest verification before scheduling",
+    "empty dataset-root precondition",
+    "canonical topological scheduling",
+    "automatic continuation only for manifest-declared outcomes",
+    "automatic workflow-gate checkpointing",
+    "immutable content-addressed per-node checkpoints",
+    "first-discrepancy stop with content-addressed audit capsule",
+    "resume verifies and skips accepted checkpoints",
+    "checkpoint and state tampering fail closed",
+    "external decisions bind the exact capsule, run, node, result and evidence",
+    "missing historical authority requires external CERTIFY_AND_ADVANCE",
+    "GLOBAL is not launched after a clean G8 replay without external authority",
+    "equivalent runs produce identical semantic states and checkpoint hashes"
+  ],
+  "nonclaims": [
+    "No scientific handler is registered or executed in P2A.",
+    "The runner is not yet integrated with the controller or C6.",
+    "P2 is not complete.",
+    "No L0-through-G8 replay has been executed.",
+    "Full R02 is not complete; its 22 named nonportable gaps remain active.",
+    "A reproduced historical result is not independently confirmed scientific correctness.",
+    "GLOBAL has no replay authorization."
+  ],
+  "next_step": "P2B_CONTROLLER_C6_REGISTERED_ROOT_JOB_INTEGRATION"
+}

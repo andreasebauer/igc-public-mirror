@@ -1,0 +1,263 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_REPRO_GRAPH_NODE_MODEL_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_identity_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mandatory_common_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "node_identity": {
+      "type": "string"
+    },
+    "node_types": {
+      "additionalProperties": false,
+      "properties": {
+        "ARTIFACT": {
+          "additionalProperties": false,
+          "properties": {
+            "examples": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "examples",
+            "identity"
+          ],
+          "type": "object"
+        },
+        "CLAIM": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "DATASET": {
+          "additionalProperties": false,
+          "properties": {
+            "examples": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "examples",
+            "identity"
+          ],
+          "type": "object"
+        },
+        "ENVIRONMENT": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "EXTERNAL_ROOT": {
+          "additionalProperties": false,
+          "properties": {
+            "examples": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "examples",
+            "identity"
+          ],
+          "type": "object"
+        },
+        "PROTOCOL": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "QUESTION": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "RECIPE": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "RELEASE": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "RESULT": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "REVIEW_DECISION": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        },
+        "RUN": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "note"
+          ],
+          "type": "object"
+        },
+        "SOURCE_SNAPSHOT": {
+          "additionalProperties": false,
+          "properties": {
+            "examples": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "examples",
+            "identity"
+          ],
+          "type": "object"
+        },
+        "STAGE": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ARTIFACT",
+        "CLAIM",
+        "DATASET",
+        "ENVIRONMENT",
+        "EXTERNAL_ROOT",
+        "PROTOCOL",
+        "QUESTION",
+        "RECIPE",
+        "RELEASE",
+        "RESULT",
+        "REVIEW_DECISION",
+        "RUN",
+        "SOURCE_SNAPSHOT",
+        "STAGE"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_REPRO_GRAPH_NODE_MODEL_V0_1",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "forbidden_identity_fields",
+    "mandatory_common_fields",
+    "node_identity",
+    "node_types",
+    "schema_id",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_REPRO_GRAPH_NODE_MODEL_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

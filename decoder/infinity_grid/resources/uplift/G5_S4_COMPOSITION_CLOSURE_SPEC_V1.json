@@ -1,0 +1,154 @@
+{
+  "authority": {
+    "accepted_repair_source_sha256": "f4f93afbe715e1570883f83f2064a44e12d5685e2328a01f0a5f64e510916dce",
+    "decoder_release_line": "v0.5",
+    "g4_completion_science_sha256": "44db26880449be8b98e6ac332849db8bfb6ff7f731ced6b58c0a6394dcf7ac59",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+    "g5_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+    "g5_s2_stage_science_sha256": "abcecf9596fcdaf0597940707e34cdf82b3495aeec0abddff36af9649af3ce87",
+    "g5_s3_classification": "G5_S3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_FROZEN_P3_K3_SCOPE_S4_DESIGN_REVIEW",
+    "g5_s3_independent_verification_sha256": "5085d99054392626fb01d9e7781dbf69c0d469b6980baacd760c0c1067cf02d6",
+    "g5_s3_repair_primary_science_sha256": "70977c17d44029f83d24395154b60198fa451100c5b064464db86db6126c15a7",
+    "g5_s3_stage_science_sha256": "bc5e8b743e043840ebc6d3146533f460faf3ee5d58dcdaa4b3b3e5a01441de15",
+    "g5_s3_workflow_science_sha256": "99d2c22a147b9e8424611de3f3481bd8d05d82e02eff10dbdb816312f2b6123d"
+  },
+  "coverage_required": {
+    "direct_materialization_rows": 68,
+    "exact_representative_instantiation_count": 61504,
+    "public_recursive_context_count": 7688,
+    "representatives_per_context": 8,
+    "separator_count": 0,
+    "unexpected_empty_contexts": 0
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "PASS": "All authority bindings pass; all 7688 public recursive contexts have exactly eight exact representative instantiations; every context is structurally single-valued across those eight; no context is empty on the frozen domain; the direct materialization oracle agrees exactly with the factorized census; then certify S4 one-step composition closure on this frozen scope and unlock S5 preregistration/design review only.",
+    "REVIEW_REQUIRED": "Any authority, domain, operator, coverage, materialization-oracle, equality, budget, or evidence mismatch.",
+    "SEPARATOR_DETECTED": "Any same-public recursive context has two structurally different observer records across exact representative triples. Preserve the first separator and stop REVIEW_REQUIRED."
+  },
+  "direct_materialization_oracle": {
+    "d2_operator_pair_panel": "For every one of the 31 operators, use (op,op) so every operator appears in both first and second composition positions; materialize both all-PATH and all-BROOM exact triples in the D2 public class.",
+    "d4_spot_panel": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      [
+        [
+          6,
+          6
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    ],
+    "expected_d2_rows": 62,
+    "expected_d4_rows": 6,
+    "expected_total_rows": 68,
+    "observer": "Actual DecoratedG4Tree construction plus G4AcceptedAdapter.public_read on every legal final branch, with final owner-vector histogram read from materialized branch resources."
+  },
+  "exact_reduction": [
+    "BIND_CERTIFIED_S0_S3_STAGE_RESULTS_AND_S2_QUOTIENT_EXACTLY",
+    "PRECOMPUTE_EXACT_ONE_AND_TWO_RESERVATION_OWNER_VECTOR_PROFILES_FOR_ALL_4_CARRIERS_AND_7_ENDPOINT_TYPES",
+    "EVALUATE_ALL_7688_PUBLIC_RECURSIVE_CONTEXTS_AND_ALL_8_EXACT_REPRESENTATIVE_TRIPLES_PER_CONTEXT",
+    "COMPARE_NORMALIZED_RECURSIVE_OBSERVER_RECORDS_BY_FULL_STRUCTURAL_EQUALITY_WITH_HASHES_ONLY_AS_INDICES",
+    "RUN_AN_INDEPENDENT_DIRECT_TREE_MATERIALIZATION_ORACLE_COVERING_ALL_31_OPERATORS_IN_BOTH_COMPOSITION_POSITIONS_ON_THE_D2_PATH_BROOM_CHALLENGE_PLUS_D4_SPOT_CHECKS",
+    "PRESERVE_FIRST_SEPARATOR_AND_STOP_FOR_REVIEW_IF_ANY_REPRESENTATIVE_DEPENDENCE_APPEARS"
+  ],
+  "frozen_domain": {
+    "carrier_ids": [
+      "D2_PATH",
+      "D2_BROOM",
+      "D4_PATH",
+      "D4_BROOM"
+    ],
+    "directed_operator_count": 31,
+    "exact_carrier_count": 4,
+    "exact_representative_instantiation_count": 61504,
+    "exact_representatives_per_public_carrier_class": 2,
+    "ordered_operator_pairs": 961,
+    "ordered_public_carrier_triples": 8,
+    "public_carrier_class_count": 2,
+    "public_recursive_context_count": 7688,
+    "resource_note": "No synthetic near-exhaustion states are admitted. The certified G5 S0-S3 carriers have large positive capacities on the frozen operator basis; S4 tests exactly that certified domain.",
+    "synthetic_resource_exhaustion_cases": 0
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G5_CONGRUENCE",
+    "NO_UNBOUNDED_RECURSIVE_CLOSURE",
+    "NO_ASSOCIATIVITY_OR_REBRACKETING_THEOREM",
+    "NO_EXACT_HIDDEN_RELATION_EQUALITY_THEOREM",
+    "NO_G5_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_G5_COMPOSITION_LAW_PROMOTION",
+    "NO_G5_GRADUATION",
+    "NO_G4_CHANGE",
+    "NO_GEOMETRY_DISTANCE_TIME_OR_SPACETIME"
+  ],
+  "observer": {
+    "continuation": "For every final owner-choice branch retain the seven-entry vector counting currently eligible owners for one further reservation of each endpoint type; compare the complete histogram of these vectors.",
+    "equality": "Exact Python structural equality of normalized observer records decides equality. SHA-256 is recorded only as an index/audit handle and never substitutes for structural comparison.",
+    "exact_hidden_relation_equality_claimed": false,
+    "hidden_inputs_forbidden": [
+      "path/broom identity as a public selector",
+      "unrooted hidden canon as a public selector",
+      "owner identity",
+      "ancestry",
+      "construction digest",
+      "provenance"
+    ],
+    "input_public_state": "Inherited G4 CAPS7 + H-class bag for each of three carriers plus two directed operators.",
+    "public_outcome": "Complete multiset of inherited G4 public outputs over legal owner-choice branches; multiplicity is retained because S1/S2 certified that observer.",
+    "recursive_semantics": "First compose left/right through all legal explicit owner choices, then compose the resulting pair assembly with the third carrier through all legal explicit owner choices. No owner is privileged."
+  },
+  "promotion_constraints": {
+    "g4_change": false,
+    "g5_composition_law_promotion": false,
+    "g5_graduation": false,
+    "g5_public_descriptor_promotion": false,
+    "s5_execution_authorized": false,
+    "s5_preregistration_design_review_unlocked_on_pass": true
+  },
+  "question": "Does one recursive binary composition step over the certified G5 pair quotient remain exactly representative-independent under the inherited G4 public descriptor, when the observer retains the complete public owner-choice outcome multiset and the complete one-more-attachment owner-count continuation profile?",
+  "resource_budget": {
+    "cpu_seconds_max": 150.0,
+    "logical_tasks_max": 7,
+    "peak_rss_bytes_max": 805306368,
+    "stage_max_cases": 10000,
+    "wall_seconds_max": 180.0
+  },
+  "schema_id": "IG_G5_S4_COMPOSITION_CLOSURE_SPEC_V1",
+  "science_sha256": "7742bb05b33dd0fb622e22aff38747438e26099f442f442851a160c82847c195",
+  "stage_ref": "G5:S4",
+  "status": "FROZEN_BEFORE_G5_S4_EXECUTION",
+  "stop_rules": {
+    "authority_mismatch": "STOP",
+    "budget_exhausted": "STOP",
+    "changed_assumptions": "STOP",
+    "materialization_oracle_mismatch": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "separator": "STOP_AFTER_FIRST_SEPARATOR_PRESERVED",
+    "structural_equality_mismatch": "STOP",
+    "unmet_proof_obligations": "STOP"
+  },
+  "version": "1.0.0"
+}

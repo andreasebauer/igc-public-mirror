@@ -1,0 +1,126 @@
+{
+  "counts": {
+    "active": 3,
+    "blocking_all_replay": 0,
+    "conditional_continue": 3
+  },
+  "ledger_hash": "56a5836a1d85e9230d91beccb5254d65733a805461fbf73f7fcf3f4d51187eda",
+  "qualifications": [
+    {
+      "affected_assertion_ids": [
+        "IGAM/G6/F/TEST_G6_S8_INTRINSIC_DESCRIPTOR_PY"
+      ],
+      "affected_obligation_ids": [
+        "IG/G6/F/ASSERTION_MAPPED_FALSIFICATIONS"
+      ],
+      "boundary": "G6 S7 A30/FEX1 only; the unrelated L2/J3 oracle assertion named A30 is explicitly excluded.",
+      "category": "IN_SAMPLE_SHARED_DEFECT_HISTORY",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "RELEASE_0.6_READ_FIRST.txt",
+          "sha256": "4a08f549bd759c8450e08c758fe513e76c3cf84b67926b3fe0f619fa98a875d9"
+        },
+        {
+          "ref": "tests/test_g6_s7d2_compact_family_a30.py",
+          "sha256": "2a921e3f4a56014c8826df9f6c62d97323c3333812b4b8041b0222b55b563348"
+        },
+        {
+          "ref": "tests/test_g6_r0_post_graduation_fiber.py",
+          "sha256": "a171b0e745c03862c69c3b32c03db8e7ae7a0c978c958db8cf41ae4b2fca6d85"
+        }
+      ],
+      "evidence_status": "REPORTED_LINK_NOT_INDEPENDENTLY_REVERIFIED_IN_THIS_STEP",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1",
+      "record_hash": "b5124beebcfa99e901364366dddb5dbcfe32f6f859204bfd99641ababcf2c281",
+      "replay_effect": "CONTINUE_WITH_QUALIFICATION",
+      "required_result_language": "QUALIFIED_REPRODUCTION_IN_SAMPLE",
+      "status": "ACTIVE"
+    },
+    {
+      "affected_assertion_ids": [
+        "IGAM/G7/C/HANDOFF_CONTRACT",
+        "IGAM/G7/F/OPEN_NONCLAIMS",
+        "IGAM/G7/R/C9C_C9F_NECESSITY",
+        "IGAM/G7/S/C9A_C9B_STATE"
+      ],
+      "affected_obligation_ids": [
+        "IG/G7/C/ASSERTION_MAPPED_INTERFACES",
+        "IG/G7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+        "IG/G7/R/ASSERTION_MAPPED_RELATIONS",
+        "IG/G7/S/ASSERTION_MAPPED_STRUCTURE"
+      ],
+      "boundary": "No historical receipt may certify current bytes until its exact hashes are reconciled.",
+      "category": "UNRESOLVED_PROVENANCE_DISCREPANCY",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6"
+        }
+      ],
+      "evidence_status": "REPORTED_MISMATCH_EXACT_RECEIPT_FILE_PAIR_NOT_LOCATED",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1",
+      "record_hash": "47289df4693862127e965a4f312d25cbed51533bfd557d8341d9d318e35fca5c",
+      "replay_effect": "SOURCE_INTEGRITY_MAY_CONTINUE_RECEIPT_BASED_REUSE_MUST_STOP",
+      "required_result_language": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "status": "ACTIVE"
+    },
+    {
+      "affected_assertion_ids": [
+        "IGAM/G8/F/CAP37_ZERO_DATA"
+      ],
+      "affected_obligation_ids": [
+        "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS"
+      ],
+      "boundary": "Zero-data is not CAP37 completion; crossing the recorded frontier is UNAUDITED_G8_FRONTIER.",
+      "category": "NEGATIVE_INCOMPLETE_FRONTIER",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "p1b_external_sources/G8_CAP37_32768_ZERO_DATA_HANDOFF_2026-09-20.txt",
+          "sha256": "5b3dd7b6f301cf1609511d9c12151182cb741aa2c0170a59c52b40ecb3814b4d"
+        }
+      ],
+      "evidence_status": "PINNED_HISTORICAL_NEGATIVE_HANDOFF",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1",
+      "record_hash": "24639b3253d2b8394df772e239ea9bd49d821b1dcf7457ca662e7f2f1f8d51e2",
+      "replay_effect": "CONTINUE_TO_RECORDED_FRONTIER_THEN_STOP_UNAUDITED",
+      "required_result_language": "REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME",
+      "status": "ACTIVE"
+    }
+  ],
+  "result_language_policy": {
+    "forbidden_unqualified_terms": [
+      "CONFIRMED",
+      "INDEPENDENTLY_CONFIRMED",
+      "MATCH"
+    ],
+    "meaning": "Agreement with pinned expected evidence under the declared evidence mode and scope.",
+    "success_term": "REPRODUCED"
+  },
+  "schema_id": "IG/P1C3/KNOWN_REPLAY_QUALIFICATIONS/V1",
+  "status": "ACTIVE_QUALIFICATIONS_BOUND",
+  "version": "1.0"
+}

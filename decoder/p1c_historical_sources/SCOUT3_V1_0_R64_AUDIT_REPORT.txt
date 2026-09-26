@@ -1,0 +1,355 @@
+SCOUT3 V1.0 r0→r64 AUDIT
+Infinity Grid — 2026-08-27
+
+AUDIT VERDICT
+=============
+
+TRAJECTORY / EXECUTION: PASS.
+SCIENTIFIC INTERPRETATION OF THE FROZEN OBSERVERS: REQUIRES CORRECTION.
+
+Recommended audit status:
+
+  SCOUT3_V1_0_TRAJECTORY_PASS_OBSERVER_INTERPRETATION_FAIL
+
+The exact r0→r64 generated Scout trajectory is internally sound and reproducible. It should be preserved and reused. The audit does NOT support simply extending the unchanged V1.0 observer to r128, because the two observations that dominated the live interpretation — “H1 does not compress/recur” and “the O3 grammar has become quiet” — are substantially artifacts of how V1.0 defined those observers.
+
+This does not produce an O3 entity. It does not falsify O3 either. It says V1.0 successfully generated a bounded exact O3 relation-addition trajectory, but its maturation camera is not yet the camera the frozen specification says it is.
+
+
+1. EXECUTION AND REPRODUCIBILITY AUDIT
+======================================
+
+PASS.
+
+Verified independently:
+
+- Frozen manifest: 17 / 17 files match SHA-256.
+- Official science SHA-256 recomputes exactly:
+  de033dd4232df2a0ef33f0e813472de001d5df645699af0a19f5d68528176980
+- 67 per-command stderr files: all 0 bytes.
+- Detached controller record: PID 35308, PPID 1.
+- Sample deterministic replay at r1, r32 and r64:
+  selected carriers, observers, evaluations and d2 controls reproduced exactly;
+  metric science fields reproduced exactly (wall time/RSS intentionally differ).
+- Independent integrity sweep over all selected panels:
+  4,867 carriers, 155,458 stored O3 incidences,
+  0 illegal bridge endpoints,
+  0 self-entity incidences,
+  0 negative capacities,
+  0 missing parent references,
+  0 parent-count mismatches,
+  0 stored component/beta mismatches.
+- O2 source bank and O3 seed-panel internal science hashes recompute exactly.
+
+The generated trajectory itself is therefore usable evidence and does not need to be regenerated.
+
+
+2. CRITICAL FINDING C1 — H1 IS NOT THE FROZEN “CURRENT ACTION SUPPORT”
+=====================================================================
+
+The frozen spec says:
+
+  “H1 means only 'same currently available actions'.”
+
+The implementation does something materially finer.
+
+site_state_colors() includes the exact triples
+
+  (p, u_O2, U_O3)
+
+where U_O3 is the exact current inter-O2 reservation count at each site and port type. h1_support() then hashes those exact site states into both site colors and whole-entity colors before labeling the currently legal actions.
+
+So H1 does not merely ask:
+
+  “What can this carrier do now?”
+
+It also asks, implicitly:
+
+  “What are the exact current resource counts of the sites/entities through which it can act?”
+
+That is precisely the kind of distinction Scout2 taught us to keep OUT of a first current-support quotient and introduce later only if future transition behavior proves it necessary.
+
+Observed consequence:
+
+- direct_same_h1_selected = 0 at every single transition r1→r64.
+- At r32, the entire exact generated child pool was:
+    1,741 exact carriers → 1,726 implemented-H1 classes = 1.00869× compression.
+- At r64:
+    2,375 exact carriers → 2,367 implemented-H1 classes = 1.00338× compression.
+- The selected r64 panel was:
+    79 exact carriers → 79 implemented-H1 classes = 1.00000×.
+
+This is not primarily a selection-panel effect; the implemented H1 is nearly unique even in the full generated pool.
+
+AUDIT-ONLY DIAGNOSTIC
+---------------------
+
+To test whether this matters, an explicitly post-hoc diagnostic was run which defined a pure current-availability support signature using only whether each port type is currently available (>0), not its exact remaining multiplicity/reservation count.
+
+This is NOT a scientific O3 result and may not be used for graduation or retrospective claim promotion. It is a diagnostic of whether the implementation matches the stated role of H1.
+
+Under that diagnostic, the SAME selected r64 panel becomes:
+
+  79 exact carriers → 23 current-support classes = 3.43478× compression.
+
+Across the final r33→r64 32-level window, one support class exists at all 32 levels with:
+
+- direct same-support parent recurrence: 31 / 31 transitions,
+- multiple exact realizations: 32 / 32 checkpoints,
+- lane types: D, I, L,
+- cyclic: yes.
+
+That class is not selective, so this audit-only replacement does NOT satisfy the complete frozen Scout trigger. No retrospective trigger is being claimed.
+
+But the discrepancy is decisive: V1.0's reported “no compression / no recurrent H1” is not a trustworthy statement about current action support. The observer is overtyped.
+
+Conclusion C1:
+
+  H1 must be repaired before any prospective Scout3 extension.
+
+
+3. CRITICAL FINDING C2 — “MAIN GRAMMAR QUIET” IS ALPHABET SATURATION
+===================================================================
+
+The live run appeared to show that the O3 rule vocabulary became quiet early and stayed quiet.
+The code shows that the MAIN grammar observer is too small to support that interpretation.
+
+MAIN atoms consist only of:
+
+- RA:a-b  — an inherited Bridge-compatible typed relation pair is currently available;
+- RU:a-b  — that inherited typed relation pair is currently used.
+
+There are only 18 Bridge-compatible unordered relation types in the frozen port algebra.
+Therefore MAIN has a hard ceiling of 36 atoms.
+
+What happened:
+
+- r0: all 18 RA atoms already present.
+- r1: 17 of the 18 RU atoms appear.
+- r2: final RU:1-4 appears.
+- after r2: no new MAIN atom can be observed because the entire implemented alphabet is already exhausted.
+
+The structural marker observer is similarly coarse: only 8 Boolean population-level markers.
+All 8 have appeared by r2.
+
+Therefore late satisfaction of:
+
+- A_no_new_main_final16
+- B_markers_stable32
+
+does not demonstrate that a genuinely O3 organizational grammar has matured. It demonstrates that an inherited finite port-pair alphabet and an eight-marker checklist have saturated.
+
+Meanwhile the resource/interface observer remains active through the horizon:
+
+- new resource-support atoms appear at every one of the final 16 levels;
+- cumulative resource-support atoms reach 964 by r64;
+- cumulative exact resource atoms reach 3,146 by r64.
+
+Conclusion C2:
+
+  The final label FINITE_CONTROL_WITHOUT_O3_SCOUT_TRIGGER_V1_0 is too strong if read as “O3 finite control has been observed.”
+
+The defensible statement is narrower:
+
+  The inherited typed relation alphabet is saturated, relation addition remains live,
+  and the exact/resource organization remains active at r64.
+
+Scout3 V1.1 needs an O3-sensitive grammar observer that is not finite by construction at r2.
+
+
+4. CRITICAL FINDING C3 — d2 IS NOT BEHAVIORALLY QUIET
+======================================================
+
+The d2 sidecar was interpreted during the run as a quiet control because no new d2 grammar atoms appeared after r0.
+
+That is only true at the level of action TYPE vocabulary.
+
+The 115 d2 atoms are inherited finite action types:
+
+- rank-lift template/mode classes,
+- internal O2 relation-pair classes.
+
+They saturate immediately.
+
+But the sidecar itself records substantial O3-interface effects from those same actions.
+Across the nine d2 controls, 34.9% to 43.5% of exhausted d2 actions change the local external availability support.
+
+At r64 specifically:
+
+- d2 actions examined exactly: 7,211 rank lifts + 2,559 internal relation additions = 9,770;
+- actions changing local external availability support: 4,249;
+- changed fraction: 43.49%.
+
+A separate audit-only exact materialization probe took 192 deterministic d2 actions from the frozen r64 d2 panel and recomputed the implemented O3 H1 after each action. 192 / 192 changed implemented H1.
+(The latter is partly amplified by the H1 overtyping identified in C1, so it is not used as an independent scientific claim.)
+
+The frozen d2 criterion K only tests:
+
+- capacity integrity PASS;
+- no NEW d2 action-type atoms.
+
+It does not test whether d2 evolution leaves O3 behavior invariant.
+
+Conclusion C3:
+
+  d2 is a live coupled axis. It should not be described as behaviorally quiet.
+  Scout3 V1.1 should materialize a bounded exact d2×r3 interaction panel and observe the resulting O3 support/grammar changes directly.
+
+
+5. CRITICAL FINDING C4 — THE RUN DENSIFIES 3–6 ENTITIES; IT DOES NOT GROW O3
+=============================================================================
+
+Every Scout3 carrier inherits a fixed number of O2 entities from its r0 seed.
+The seed sizes are 3, 4, 5 or 6. Relation addition never introduces a fresh O2 entity.
+
+So r3 asks only:
+
+  “What happens as more incidences are added among this already fixed small set?”
+
+It does NOT ask:
+
+  “What happens as an O3 organization grows by recruiting/attaching additional O2 carriers?”
+
+By r64 the selected population is correspondingly very dense:
+
+- 79 selected carriers;
+- 55 / 79 contain 6 O2 entities;
+- median beta3 = 60;
+- median maximum parallel multiplicity = 19;
+- maximum parallel multiplicity = 64.
+
+Thus a large part of late-r3 organization is repeated/parallel incidence accumulation inside tiny fixed groups.
+
+This is not wrong; it is a valid r3 densification experiment.
+But it is not the complete O3 development program.
+
+Scout2's central methodological lesson was to separate genuinely different construction axes rather than infer one from another. Scout3 V1.0 currently has:
+
+- r3: inter-O2 relation addition;
+- d2: internal O2 maturation only as a thin sidecar.
+
+It lacks a third obvious axis:
+
+- g3 / n3: attachment of a fresh graduated O2 Q entity to an existing O3 carrier through one lawful O3 incidence.
+
+This is especially relevant because graduated Q carriers are recursively composable and can exceed the 2–6-site Q sizes represented in the current source bank.
+
+Conclusion C4:
+
+  A pure r65→r128 densification extension would deepen only one axis.
+  Before doing that, Scout3 should explicitly decide how to cover fresh-entity growth.
+
+
+6. SECONDARY FINDINGS
+=====================
+
+S1 — Frozen spec parameter contradiction
+----------------------------------------
+The spec's selection sections and README say official lane cap 16 and action cap 32.
+The RESOURCE POLICY paragraph says official launch uses lane cap 24 and action cap 64.
+The actual code/controller/log are unambiguous: 16 / 32 (bootstrap lane cap 32).
+This is a documentation freeze inconsistency, not a numerical ambiguity.
+Fix before V1.1.
+
+S2 — “lineage” is not independently implemented in the trigger
+-------------------------------------------------------------
+evaluate() increments lineage_cp from the same multiparent_any Boolean used for multi_cp.
+generation_action_count, although computed and used by lane L, is not used for the candidate lineage criterion.
+Fix the wording or implement the intended independent lineage diagnostic.
+
+S3 — Frozen builder scripts are not portable
+-------------------------------------------
+build_o2_source_bank.py and build_o3_seed_panel.py contain absolute pre-freeze /mnt/data staging paths.
+The frozen included source bank and seed panel themselves are valid and hash-checked, and the official Scout run is reproducible from those included inputs.
+But full third-party regeneration of those inputs requires editing the builder paths.
+V1.1 should use arguments/relative paths.
+
+S4 — Sparse action materialization is intentional and was functioning as designed
+---------------------------------------------------------------------------------
+At r64, 328,605 legal relation additions existed across the selected parent panel; only 2,432 were materialized (32 per parent) before exact child deduplication.
+This is Scout sampling, not a census.
+
+An audit of sampled ranks found:
+
+- 0 parents missing a representative of any available typed relation class;
+- 0 parents missing each declared structural stress category when that category was available.
+
+So the bounded action panel is internally coherent, but absence claims remain weak by design.
+
+
+7. WHAT THE r0→r64 RUN ACTUALLY EARNS
+=====================================
+
+It earns a trustworthy exact bounded trajectory for one construction axis:
+
+  repeated lawful inter-O2 incidence addition among fixed 3–6-entity O3 seeds,
+
+under deterministic bounded action and carrier panels.
+
+Within that trajectory we can safely say:
+
+- relation addition remains live at r64;
+- rich connectivity/cycle/parallel/multiparent/selectivity phenomena are represented;
+- exact/resource states continue changing at r64;
+- the inherited 18 typed Bridge relation classes are all represented;
+- no official V1.0 Scout trigger fired under the frozen implementation.
+
+We should NOT presently infer from V1.0 that:
+
+- a genuine O3 rulebook has stabilized;
+- O3 current-action classes fail to recur/compress;
+- d2 is behaviorally decoupled/quiet;
+- more r3 alone is the uniquely correct next axis;
+- O3 maturation is absent by r64.
+
+
+8. RECOMMENDED NEXT STEP
+========================
+
+DO NOT rerun r0→r64.
+DO NOT simply extend unchanged V1.0 to r128.
+
+Freeze Scout3 V1.1 as an observer/axis repair.
+
+Minimum V1.1 changes should be:
+
+1. Correct H1
+   Define H1 as genuinely CURRENT availability/action support, without exact remaining multiplicities or accumulated resource counts in the support identity.
+   Exact counts may re-enter only in H2/fixed-point refinement if future behavior proves them necessary.
+
+2. Add an O3-sensitive grammar observer
+   MAIN must not be only the inherited 18 RA/RU relation types.
+   Use exact anonymous relational role/refinement information that can distinguish new organization without importing geometry — e.g. typed incidence role refinement, anonymous endpoint-role neighborhoods, factorization/common-successor structure, and transition-support classes.
+
+3. Upgrade d2 from “quiet grammar control” to interaction control
+   On the deterministic d2 panel, actually materialize a bounded exact set of earned d2 transitions and recompute O3 support/grammar. Record a d2→O3 transition profile.
+
+4. Add / preregister a fresh-O2-entity growth axis
+   g3: attach a new graduated Q entity to an existing H through one lawful typed incidence while keeping all entities distinct.
+   This can be a thin Scout lane initially rather than a full Cartesian census.
+
+5. Repair the frozen spec and portable builders
+   Resolve 16/32 vs 24/64 wording; make builders path-parameterized; implement true lineage if retained.
+
+Then:
+
+- replay only the corrected V1.1 observers over the already-valid r0→r64 trajectory;
+- treat the audit-only support result in this bundle as hypothesis-generating only;
+- if V1.1 still has no Scout trigger, freeze the prospective extension using unseen r>64 and/or g3/d2 interaction data.
+
+
+9. PLAIN CONCLUSION
+===================
+
+Scout3 did not fail. The computation is good.
+
+But we made two familiar observational mistakes:
+
+- the “same abilities now” camera secretly remembered too much exact resource detail, making things look unique;
+- the “new grammar” camera watched an alphabet that was almost completely inherited and necessarily finite, making things look settled.
+
+At the same time, the supposedly quiet internal-O2 control is actually changing external O3 availability in roughly four out of ten legal internal moves, and the whole r-run only packs more relations into 3–6 fixed O2 entities rather than letting an O3 organization recruit new O2 entities.
+
+So r64 is a very useful roadmap result — but not a reason to blindly climb to r128.
+
+The right next move is to fix Scout3's camera and axes while keeping every expensive r0→r64 checkpoint.

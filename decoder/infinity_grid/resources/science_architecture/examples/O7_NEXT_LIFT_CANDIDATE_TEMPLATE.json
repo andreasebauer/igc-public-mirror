@@ -1,0 +1,26 @@
+{
+  "lift_candidate_id": "IG_O7_REGIME_NEXT_ENTITY_LIFT_TEMPLATE",
+  "plateau_certificate_refs": [
+    "IG_O7_REGIME_PLATEAU_TEMPLATE_COMPAT"
+  ],
+  "proposed_action_language_ref": "TO_BE_DERIVED_AND_FROZEN",
+  "proposed_capabilities": [],
+  "proposed_entity_class": {
+    "canonical_identity_rule": "TO_BE_AUDITED",
+    "entity_class_id": "TO_BE_EARNED_NEXT_ENTITY_CLASS",
+    "representation_schema_ref": "TO_BE_DERIVED_FROM_MATURE_ORGANIZATION"
+  },
+  "required_audits": [
+    "Exact/scoped substitution or observer-relative congruence",
+    "representative independence",
+    "transition/action closure",
+    "canonicalization",
+    "retained-relation semantics",
+    "theorem premise/freezewall definition"
+  ],
+  "schema_id": "IG_LIFT_CANDIDATE_V1",
+  "schema_version": "1.0.0",
+  "source_entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "source_regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "status": "PROPOSED"
+}

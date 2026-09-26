@@ -1,0 +1,83 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "frontier_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "full_support_certified": {
+      "type": "boolean"
+    },
+    "growth_bounds": {
+      "additionalProperties": false,
+      "properties": {
+        "leaf_count_max": {
+          "type": "integer"
+        },
+        "leaf_count_min": {
+          "type": "integer"
+        },
+        "max_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "min_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "relation_count_max": {
+          "type": "integer"
+        },
+        "relation_count_min": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "leaf_count_max",
+        "leaf_count_min",
+        "max_total_free_by_type",
+        "min_total_free_by_type",
+        "relation_count_max",
+        "relation_count_min"
+      ],
+      "type": "object"
+    },
+    "last_completed_level": {
+      "type": "integer"
+    },
+    "last_delta_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "next_level": {
+      "type": "integer"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_STREAMING_STATUS_V2",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "frontier_science_sha256",
+    "full_support_certified",
+    "growth_bounds",
+    "last_completed_level",
+    "last_delta_science_sha256",
+    "next_level",
+    "schema",
+    "spec_sha256",
+    "status"
+  ],
+  "type": "object"
+}

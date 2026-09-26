@@ -1,0 +1,41 @@
+DECODER 0.7 SEMANTIC TEST INPUTS
+================================
+
+For chats and engineers building a new test:
+
+1. State what the test needs with semantic_inputs.create_test_needs().
+   Declare schema, meaning, domain, capabilities, coverage, invariants, and
+   whether each need is data, a positive control, or a negative control.
+2. Resolve those needs against one certified base with
+   semantic_inputs.resolve_test_inputs(). Decoder selects the fewest blocks,
+   then the fewest bytes, then stable block IDs. Do not choose by producer,
+   Decoder version, or test version.
+3. Read only the selected blocks. Optional inputs must not affect the result;
+   anything the test consumes must be declared required.
+4. After the test, call semantic_inputs.record_run() with the selection ID,
+   exact test-code hash, Decoder-code hash, parameters, and result.
+5. Verify later reuse with semantic_inputs.verify_run_receipt(). Changed or
+   corrupt bytes, revoked blocks, incompatible semantics, or changed code
+   hashes refuse.
+
+INPUT NAMESPACES
+----------------
+
+Project inputs are scientific/business data supplied by the job.
+Administrative inputs are supplied by Decoder or the runtime environment.
+The names submission_contract and runtime_dependency_snapshot are reserved
+for administration. They are ignored when checking which project inputs are
+present, but their bytes remain captured and verified.
+
+Existing capture files are not rewritten. Their input class is derived when
+read, using semantic_inputs.classify_capture_inputs().
+
+TRUST RULE
+----------
+
+Certification follows exact bytes and declared semantics. Producer versions
+are kept only so bugs can be reproduced. A version mismatch alone is never a
+reason to reject otherwise certified data.
+
+This development candidate does not migrate live work, advance a shared
+pointer, or rerun scientific computations.

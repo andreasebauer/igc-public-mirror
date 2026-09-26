@@ -1,0 +1,213 @@
+{
+  "authority": {
+    "g3_r1_candidate_tree_read_audit_science_sha256": "a53e00ddd39aa892a9f020271e8f74977e32c16939d86bbb4dfcc144866d283d",
+    "g3_r1_science_sha256": "c9df07857a83ab21dbfaf9cb1755e459557ba400d34536900c3d3a5e6631a5ed",
+    "g3_r2_dense_maturation_science_sha256": "20ccc8c78b61fdd279ef811e90055ce7ebe62e63d1e7622a9c76fe70724455ba",
+    "g3_r2_science_sha256": "fe269f59917879684a89cb5dabf0a0f182c23cd290d48043235934f167d5c31e",
+    "g3_r2_sparse_sentinel_execution_science_sha256": "82cf0f4e9f2398b206ef82b71ce68dc6439c9ae0b8f50d4f425677a7b3f69d6e"
+  },
+  "date": "2026-09-04",
+  "nonclaims": [
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_GLOBAL_SHELL_PROFILE_COMPLETENESS",
+    "NO_G4_GRADUATION",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "ordered_tiers": [
+    {
+      "eligible_for_promotion": false,
+      "meaning": "Inherited graduated G3 public interface. This is the only G4 public state at Phase 0.",
+      "name": "PUBLIC_BASELINE",
+      "public": true,
+      "reads": [
+        "CAPS7"
+      ],
+      "tier": 0
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Cheap relabel-invariant scalar summaries. Every member already fails topology/continuation sufficiency somewhere by n<=7 in R1.",
+      "name": "SCALAR_TREE_SUMMARIES",
+      "public": false,
+      "r1_evidence": [
+        {
+          "candidate": "MAX_DEGREE",
+          "first_continuation_collision_g2_unit_count": 6,
+          "first_topology_collision_g2_unit_count": 6,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        },
+        {
+          "candidate": "LEAF_COUNT",
+          "first_continuation_collision_g2_unit_count": 6,
+          "first_topology_collision_g2_unit_count": 6,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        },
+        {
+          "candidate": "DIAMETER",
+          "first_continuation_collision_g2_unit_count": 6,
+          "first_topology_collision_g2_unit_count": 6,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        },
+        {
+          "candidate": "RADIUS",
+          "first_continuation_collision_g2_unit_count": 5,
+          "first_topology_collision_g2_unit_count": 5,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        },
+        {
+          "candidate": "ARTICULATION_COUNT",
+          "first_continuation_collision_g2_unit_count": 6,
+          "first_topology_collision_g2_unit_count": 6,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        },
+        {
+          "candidate": "WIENER_INDEX",
+          "first_continuation_collision_g2_unit_count": 7,
+          "first_topology_collision_g2_unit_count": 7,
+          "r1_complexity_tier": 1,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        }
+      ],
+      "reads": [
+        "MAX_DEGREE",
+        "LEAF_COUNT",
+        "DIAMETER",
+        "RADIUS",
+        "ARTICULATION_COUNT",
+        "WIENER_INDEX"
+      ],
+      "tier": 1
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Unlabelled degree multiset/sequence. R1 first collision occurs at n=6.",
+      "name": "DEGREE_PROFILE",
+      "public": false,
+      "r1_evidence": [
+        {
+          "candidate": "DEGREE_SEQUENCE",
+          "first_continuation_collision_g2_unit_count": 6,
+          "first_topology_collision_g2_unit_count": 6,
+          "r1_complexity_tier": 2,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        }
+      ],
+      "reads": [
+        "DEGREE_SEQUENCE"
+      ],
+      "tier": 2
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Degree sequence augmented by total pairwise graph distance. R1 first collision occurs at n=9.",
+      "name": "DEGREE_PLUS_GLOBAL_DISTANCE",
+      "public": false,
+      "r1_evidence": [
+        {
+          "candidate": "DEGREE_SEQUENCE_PLUS_WIENER",
+          "first_continuation_collision_g2_unit_count": 9,
+          "first_topology_collision_g2_unit_count": 9,
+          "r1_complexity_tier": 3,
+          "r1_one_step_continuation_sufficient_through_n11": false,
+          "r1_topology_separating_through_n12": false
+        }
+      ],
+      "reads": [
+        "DEGREE_SEQUENCE_PLUS_WIENER"
+      ],
+      "tier": 3
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Lowest R1 candidate that separated all frozen tree topologies through n=12 and preserved one-step leaf-grafting continuation through n=11; survived R2 exhaustive n=13..17 and sparse sentinel stress without promotion.",
+      "name": "SHELL_PROFILE_MULTISET",
+      "public": false,
+      "r1_evidence": [
+        {
+          "candidate": "SHELL_PROFILE_MULTISET",
+          "first_continuation_collision_g2_unit_count": null,
+          "first_topology_collision_g2_unit_count": null,
+          "r1_complexity_tier": 4,
+          "r1_one_step_continuation_sufficient_through_n11": true,
+          "r1_topology_separating_through_n12": true
+        }
+      ],
+      "r2_maturation_evidence": {
+        "all_dense_shell_profile_class_counts_equal_topology_counts": true,
+        "dense_topology_counts": [
+          1301,
+          3159,
+          7741,
+          19320,
+          48629
+        ],
+        "exhaustive_dense_ranks": [
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "sparse_no_event": true,
+        "sparse_scope_exhaustive": false,
+        "sparse_sentinel_ranks": [
+          20,
+          30,
+          50,
+          75,
+          100
+        ]
+      },
+      "reads": [
+        "SHELL_PROFILE_MULTISET"
+      ],
+      "tier": 4
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Full unlabeled G2-unit tree is the diagnostic ceiling. It may be considered only if every lower preregistered tier fails an earned operational G4 read.",
+      "name": "FULL_HIDDEN_TREE_CANON",
+      "public": false,
+      "r1_evidence": [
+        {
+          "candidate": "FULL_TREE_CANON",
+          "first_continuation_collision_g2_unit_count": null,
+          "first_topology_collision_g2_unit_count": null,
+          "r1_complexity_tier": 5,
+          "r1_one_step_continuation_sufficient_through_n11": true,
+          "r1_topology_separating_through_n12": true
+        }
+      ],
+      "reads": [
+        "FULL_TREE_CANON"
+      ],
+      "tier": 5
+    }
+  ],
+  "principle": "Challenge reads are hidden diagnostics only. A G4 context must first produce an operational separation without directly reading hidden structure. Only then may the lowest preregistered tier consistent with the separation be tested for promotion in a later registered stage.",
+  "schema_id": "IG_G4_CHALLENGE_READ_TIERS_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "f17663e78ab794b0ed43a4d47022b1705fa874e54ef957fe1dd5b2d21355b3c8",
+  "selection_rule": [
+    "NO_HIDDEN_READ_MAY_BE_PROMOTED_FROM_R1_OR_R2_EVIDENCE_ALONE",
+    "G4_OPERATIONAL_SEPARATION_MUST_PRECEDE_DESCRIPTOR_PROMOTION",
+    "TEST_LOWER_TIERS_BEFORE_HIGHER_TIERS",
+    "PROMOTE_AT_MOST_THE_LOWEST_TIER_NEEDED_FOR_THE_REGISTERED_OBSERVER",
+    "CONSTRUCTION_DIGEST_OWNER_ID_ANCESTRY_AND_RAW_PROVENANCE_ARE_NEVER_ELIGIBLE_SEMANTIC_READS",
+    "FULL_TREE_CANON_IS_LAST_RESORT_AFTER_TIER4_FAILURE"
+  ],
+  "status": "FROZEN_BEFORE_G4_S0_EXECUTION"
+}

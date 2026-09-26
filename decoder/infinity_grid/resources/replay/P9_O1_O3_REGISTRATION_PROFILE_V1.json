@@ -1,0 +1,92 @@
+{
+  "schema_id": "IG_P9_O1_O3_REGISTRATION_PROFILE_V1",
+  "job_id": "DECODER.REPLAY.L0_TO_G8.ROOT",
+  "question": {
+    "stage_id": "REPLAY:L0_TO_G8:ROOT",
+    "description": "Import hash-bound P8 frontier; extract and compare pinned O1\u2013O3 registry/oracle, graduation, compatibility and atomic nonclaim assertions; stop after O1_O3 gate.",
+    "outcomes": [
+      "O1_O3_PILOT_COMPLETE",
+      "WAITING_FOR_EXTERNAL_AUDIT"
+    ],
+    "stopping_rule": "Stop at first mismatch or after O1_O3 gate; do not execute O4_O7 or later layers."
+  },
+  "execution": {
+    "kind": "STAGE",
+    "handler_ref": "infinity_grid.replay_root_job:replay_root_job_handler",
+    "evaluator_refs": [],
+    "parameters": {
+      "operation": "EXECUTE_O1_O3_P9",
+      "manifest_input": "compiled_replay_manifest",
+      "manifest_file_sha256": "9e554c77b18cc6849cbbf9f79d99fd08cc40c8fd35495d76fc65ee3de2159d48",
+      "manifest_dag_sha256": "e53f9637b0e1fec6f1b4ee76d98fbf70e98ed4c6268afab8666eff71786043ab",
+      "reference_catalogue_input": "replay_reference_catalogue",
+      "reference_catalogue_file_sha256": "e27e2a3628cae583040733da9297d3043af8947acd5c1fa44cc9695b35b343ee",
+      "dataset_root_sha256": "6c30e064452567707dc410a214c3fad3bd219231f5ebf998a9651c8f9a0ad91b",
+      "root_run_id": "L0-G8-REPLAY-ROOT-V1",
+      "authorized_through_layer": "G8",
+      "next_wait_layer": "GLOBAL",
+      "node_executor_bindings": [
+        {
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "handler_ref": "infinity_grid.replay_o1_o3_executor:execute_o1_o3"
+        },
+        {
+          "node_id": "IG/O1_O3/R/ASSERTION_MAPPED_RELATIONS",
+          "handler_ref": "infinity_grid.replay_o1_o3_executor:execute_o1_o3"
+        },
+        {
+          "node_id": "IG/O1_O3/C/ASSERTION_MAPPED_INTERFACES",
+          "handler_ref": "infinity_grid.replay_o1_o3_executor:execute_o1_o3"
+        },
+        {
+          "node_id": "IG/O1_O3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "handler_ref": "infinity_grid.replay_o1_o3_executor:execute_o1_o3"
+        }
+      ],
+      "pilot_fault_injection": "NONE",
+      "p8_frontier_input": "p8_captured_state_object",
+      "p8_frontier_file_sha256": "4f8081232748c3e5fefe6540b6fde35f0cbdea2f4532498cbd895a2f75974424"
+    }
+  },
+  "resources": {
+    "workers": 1,
+    "start_method": "AUTO",
+    "memory_budget_bytes": 4294967296,
+    "workspace_budget_bytes": 2147483648,
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1"
+  },
+  "required_inputs": [
+    {
+      "logical_name": "compiled_replay_manifest",
+      "path": "infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V9.json",
+      "sha256": "9e554c77b18cc6849cbbf9f79d99fd08cc40c8fd35495d76fc65ee3de2159d48"
+    },
+    {
+      "logical_name": "replay_reference_catalogue",
+      "path": "infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V9.json",
+      "sha256": "e27e2a3628cae583040733da9297d3043af8947acd5c1fa44cc9695b35b343ee"
+    },
+    {
+      "logical_name": "p8_captured_state_object",
+      "path": "infinity_grid/resources/replay/P8_CAPTURED_STATE_OBJECT_V1.zip",
+      "sha256": "4f8081232748c3e5fefe6540b6fde35f0cbdea2f4532498cbd895a2f75974424"
+    }
+  ],
+  "result_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "EXECUTION_ONLY",
+    "required_artifacts": [],
+    "result_checks": [],
+    "prerequisites": [],
+    "preservation": {}
+  },
+  "p9_boundary": {
+    "imported_frontier": "SCOUT_HISTORICAL_PILOT_COMPLETE",
+    "bound_layer": "O1_O3",
+    "mapped_assertion_count": 9,
+    "fresh_science_node_count_this_stage": 0,
+    "next_layer": "O4_O7",
+    "next_layer_executed": false,
+    "global_authorized": false
+  }
+}

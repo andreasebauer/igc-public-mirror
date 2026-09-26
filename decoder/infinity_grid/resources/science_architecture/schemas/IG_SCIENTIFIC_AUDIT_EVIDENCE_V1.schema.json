@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_kind": {
+      "enum": [
+        "PLATEAU_CONFIRMATION",
+        "LIFT_REQUIREMENT"
+      ]
+    },
+    "authority_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "candidate_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "code_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "depth_window": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "start": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "evidence_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "independence_class": {
+      "enum": [
+        "INDEPENDENT_EXACT_ORACLE",
+        "INDEPENDENT_IMPLEMENTATION_REPLAY",
+        "FORMAL_ARGUMENT",
+        "SOURCE_SAME_PROVIDER",
+        "TEST_ONLY_SYNTHETIC"
+      ]
+    },
+    "issuer": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "kind": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind"
+      ],
+      "type": "object"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "requirement_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCIENTIFIC_AUDIT_EVIDENCE_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "source_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INCONCLUSIVE"
+      ]
+    },
+    "test_pack_ref": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "evidence_id",
+    "audit_kind",
+    "requirement_ref",
+    "status",
+    "independence_class",
+    "scope",
+    "authority_ref",
+    "evidence_sha256",
+    "notes",
+    "candidate_ref",
+    "depth_window",
+    "test_pack_ref",
+    "source_science_sha256",
+    "code_sha256",
+    "issuer"
+  ],
+  "title": "IG Scientific Audit Evidence V1",
+  "type": "object"
+}

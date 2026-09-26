@@ -1,0 +1,71 @@
+INFINITY GRID DECODER 0.8lib — P1C3 KNOWN QUALIFICATIONS
+DEV44 CANDIDATE — 2026-09-22
+
+DISPOSITION
+STEP_2_COMPLETE
+SUCCESS_LANGUAGE_IS_REPRODUCED_NOT_CONFIRMED
+THREE_KNOWN_QUALIFICATIONS_BOUND
+AUTHORIZED_PREFIX_STILL_THROUGH_G8
+GLOBAL_STILL_UNAUTHORIZED
+SHARED_POINTER_UNCHANGED
+
+1. RESULT-LANGUAGE CORRECTION
+
+The unqualified scientific verdict MATCH is no longer permitted. A successful
+comparison is REPRODUCED: agreement with pinned expected evidence under the
+declared evidence mode and scope. It is not independent confirmation, proof of
+correctness or evidence that the replay and history do not share a defect.
+
+All 15 pre-GLOBAL replay authorization contracts now use:
+
+REPRODUCED_WITH_DECLARED_EVIDENCE_MODE
+
+2. ACTIVE QUALIFICATIONS
+
+IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1
+  The reported FEX1/S7 A30 dependence is in-sample. A pass is
+  QUALIFIED_REPRODUCTION_IN_SAMPLE, not an independent challenge. The compiler
+  explicitly excludes the unrelated L2/J3 oracle assertion also named A30.
+
+IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1
+  The reported G7 receipt/current-file discrepancy remains unresolved. Exact
+  source-integrity comparison may continue, but receipt-based reuse must stop
+  until the exact receipt/file hashes are reconciled. No hashes were invented.
+
+IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1
+  CAP37 is preserved as REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME. Zero-data is
+  not completion; crossing the recorded boundary remains UNAUDITED_G8_FRONTIER.
+
+3. FAIL-CLOSED BINDING
+
+The qualifications are reciprocal at assertion and canonical-obligation level.
+Their decision/evidence files and ledger are SHA-256 pinned. The compiler rejects
+unknown, one-sided or altered qualification records. The corrected source and
+DAG are:
+
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V7.json
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V7.json
+infinity_grid/resources/replay/P1C3_KNOWN_REPLAY_QUALIFICATIONS_V1.json
+
+The corrected documentary certificate is:
+
+infinity_grid/resources/replay/P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V2.json
+
+It preserves dev42 as the underlying execution and states that dev44 performed
+no new science.
+
+4. QUALIFICATION
+
+Focused P1A2/P1B/P1B2/P1C/P1C2/P1C3/P1D suite: 45 passed.
+Corrected runner probe: QUALIFIED_REPRODUCTION.
+G6 runner modules: PASS, 22 tests.
+G1-G8 mapped assertions: 32 source comparisons reproduced in their declared
+evidence modes; affected records carry their stronger qualification language.
+Authorized replay through: G8.
+Next wait layer: GLOBAL.
+
+5. NEXT CORRECTION STEP
+
+Classify every replay node by execution class: FRESH_RECOMPUTE,
+VERIFIED_RESTORED_BLOCK, SOURCE_INTEGRITY_ONLY or HISTORICAL_RESULT_ONLY, and
+state whether it counts toward a genuine empty-root science replay.

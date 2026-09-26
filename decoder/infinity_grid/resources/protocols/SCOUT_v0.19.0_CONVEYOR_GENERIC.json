@@ -1,0 +1,306 @@
+{
+  "acceptance_gates": [
+    "C01: all new schemas and descriptors validate",
+    "C02: L16 bootstrap pin and closeout bundle verify exactly",
+    "C03: chain freeze rejects any plan without a finite target cap",
+    "C04: two independent child-packet derivations are byte-identical",
+    "C05: L17 packet dry derivation is deterministic and does not execute L17",
+    "C06: generic protocol template preserves the five-stage science DAG",
+    "C07: generic exact selection matches v0.18.3 D/B/S/O/L semantics",
+    "C08: chunked L16 generation scientific projection equals certified monolithic v0.18.3",
+    "C09: different frozen chunk sizes yield identical merged L16 candidates and incidences",
+    "C10: interrupted chunked generation resumes only missing verified chunks",
+    "C11: corrupt chunk checkpoint fails closed and is not silently recomputed",
+    "C12: stale dependency binding prevents downstream checkpoint reuse",
+    "C13: source/wheel/environment drift terminates chain",
+    "C14: independent exact D/B/S/O/L verifier matches production output",
+    "C15: Spectroscope cannot affect generation or selection",
+    "C16: classification is predicate-driven and rejects undefined states",
+    "C17: evidence firewall prevents claims and authority promotion",
+    "C18: each scientific trigger produces PAUSED_SCIENTIFIC and no child packet",
+    "C19: integrity trigger produces FAIL_CLOSED and no current-parent update",
+    "C20: operational trigger pauses while preserving verified work",
+    "C21: routine L16 reference scenario authorizes auto-advance in reference simulation",
+    "C22: finite max level stops normally after committing eligible final parent",
+    "C23: two-phase parent commit prevents child start from candidate certificate",
+    "C24: per-level compact release and parent capsule verify",
+    "C25: catalog rebuild occurs after release generation and records zero claims",
+    "C26: chain state rebuilds from plan/events/run records/certificates",
+    "C27: clean environment chain-start attestation passes",
+    "C28: same-environment per-level critical output replay is byte-identical",
+    "C29: original unified runtime 22/22 regression remains PASS",
+    "C30: Base L2, L15 Scout and OScout Phase-0 vertical slices remain unchanged",
+    "C31: external bundle/manifest verifier passes",
+    "C32: no L17 science is executed during implementation acceptance until explicit graduation test authorization"
+  ],
+  "allowed_protocol_labels": [
+    "SCOUT_OBSERVED"
+  ],
+  "claim_generation": "FORBIDDEN",
+  "descriptor_sha256": "de3be8dcad15675a0fdef51006e70f6ddf5a490b0fd11da3be7d200c9332af97",
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "OBSERVED",
+        "RECONNAISSANCE_ONLY",
+        "SCOUT_OBSERVED"
+      ]
+    ],
+    "max_authority": "RECONNAISSANCE_ONLY"
+  },
+  "forbidden_claims": [
+    "first occurrence",
+    "c_proved",
+    "population-wide negative",
+    "mechanism promotion",
+    "geometry promotion",
+    "physical topology promotion",
+    "transition level",
+    "graduated",
+    "lattice or closed algebra promotion"
+  ],
+  "input_contract": {
+    "bounded_preregistered": true,
+    "exact_root_and_primitive_hashes_required": true,
+    "parent_certificate_required_for_live": true,
+    "population_completeness": false,
+    "separate_lineage_required": true
+  },
+  "observer_contract": {
+    "must_be_explicit": true,
+    "observer_freeze_before_generation": true,
+    "observer_sha256": "ce8fc4c3e3c26b5f1fc58a99ca2ba958f421203c8e8d038dcaa3a35f46acf6f4"
+  },
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "bounded_preregistered",
+        "parent_certified",
+        "separate_lineage",
+        "observer_frozen",
+        "selection_sealed_before_relation_analysis",
+        "spectroscope_non_feedback",
+        "population_complete",
+        "conveyor_managed"
+      ],
+      "allowed_protocol_labels": [
+        "SCOUT_OBSERVED"
+      ],
+      "profile_id": "generic_scout_conveyor_level_v0_1",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count",
+            "selection_rules_sha256",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count",
+            "selection_rules_sha256",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "runner": "adapter.scout_level.preflight",
+          "stage_id": "preflight"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "root_sha256",
+            "primitive_sha256",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256",
+            "generation_chunk_parent_count",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [
+            "preflight"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "root_sha256",
+            "primitive_sha256",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256",
+            "generation_chunk_parent_count"
+          ],
+          "runner": "adapter.scout_level.wide_chunked",
+          "stage_id": "wide"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "target_level",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "depends_on": [
+            "wide"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "target_level",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "runner": "adapter.scout_level.spectroscope",
+          "stage_id": "spectroscope"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [
+            "wide",
+            "spectroscope"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "runner": "adapter.scout_level.classify",
+          "stage_id": "classify"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "selection_rules_sha256",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [
+            "classify"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "selection_rules_sha256",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "runner": "adapter.scout_level.verify_independent",
+          "stage_id": "verify"
+        }
+      ],
+      "subject_level_min": 17
+    }
+  ],
+  "planner_contract": {
+    "conveyor_chain_plan_required": true,
+    "freeze_before_execution": true,
+    "golden_terminal_only": true,
+    "historical_golden_equality_required": false,
+    "immutable_plan": true
+  },
+  "protocol_id": "SCOUT",
+  "purpose": "Generic parameterized bounded Scout level protocol executed only inside the frozen Scout Level Conveyor v0.1; reconnaissance only.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [
+    {
+      "role": "conveyor_phase0_spec",
+      "sha256": "7088af16d6ae15e92f21a1a14ab2bf2adf92c40febf9e225bd274d020ca38d09"
+    },
+    {
+      "role": "generic_protocol_template",
+      "sha256": "5e84d2cb83e1550fdd3f0df65539a5c4dfd360c9d029dc80c6e3cbb5745a44c5"
+    },
+    {
+      "role": "selection_rules",
+      "sha256": "6b6e784a8017525bf79ccd9dae4fa6bede7df765b8e6d55bb9621003765c61e7"
+    },
+    {
+      "role": "observer",
+      "sha256": "ce8fc4c3e3c26b5f1fc58a99ca2ba958f421203c8e8d038dcaa3a35f46acf6f4"
+    },
+    {
+      "role": "evidence_firewall",
+      "sha256": "2fb690da6d452a8033e847044363fa8e089dc5b88113ef0e3906c38088d69c48"
+    },
+    {
+      "role": "trigger_registry",
+      "sha256": "619f393edd039116df533fabe96b7390c8cdc846e519834216eebf851fb57ea9"
+    },
+    {
+      "role": "state_machine",
+      "sha256": "8b4efe71916403f2a92e0d2d0528927aec010c1b392c2cea007295b07552168e"
+    }
+  ],
+  "stage_dag": [
+    {
+      "depends_on": [],
+      "id": "preflight",
+      "purpose": "verify exact eligible parent inputs and frozen chain resources"
+    },
+    {
+      "depends_on": [
+        "preflight"
+      ],
+      "id": "wide",
+      "purpose": "complete one-step generation with immutable parent chunks and exact D/B/S/O/L selection"
+    },
+    {
+      "depends_on": [
+        "wide"
+      ],
+      "id": "spectroscope",
+      "purpose": "recognition-only shallow relational analysis after selection seal"
+    },
+    {
+      "depends_on": [
+        "wide",
+        "spectroscope"
+      ],
+      "id": "classify",
+      "purpose": "predicate-driven bounded classification against normalized parent baseline"
+    },
+    {
+      "depends_on": [
+        "classify"
+      ],
+      "id": "verify",
+      "purpose": "independent monolithic exact recomputation; no historical golden"
+    }
+  ],
+  "stopping_rules": {
+    "complete_one_step_generation": true,
+    "no_adaptive_panel_extension": true,
+    "no_deep_ancestry_search": true,
+    "no_population_census": true,
+    "selection_sealed_before_relation_analysis": true,
+    "spectroscope_after_seal_only": true
+  },
+  "version": "0.19.0"
+}

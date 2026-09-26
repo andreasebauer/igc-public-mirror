@@ -1,0 +1,78 @@
+{
+  "acceptance_gates": [
+    "V2_FORBIDS_PREPARED_EXECUTOR",
+    "NEW_V1_DISABLED_DEFAULT",
+    "LEGACY_V1_REPLAYABLE",
+    "PRIVATE_G6_MODULES_REJECTED",
+    "COMPLIANT_V2_PASS",
+    "ONE_WORKER_EQUALS_FOUR",
+    "CRASH_RESUME_EXACT",
+    "DIGEST_COLLISION_FALLBACK",
+    "COMPACT_STREAMING_EVIDENCE",
+    "RUNTIME_BUDGETS_FAIL_CLOSED",
+    "S3R_LEGACY_MIGRATION_NO_RERUN",
+    "S3R_MIGRATION_RSS_LT_1GIB",
+    "S3R_COMPACT_LT_100MIB",
+    "KERNEL_EXACT_EQUIVALENCE",
+    "BOUNDED_COMMON_RUNTIME_SPEEDUP_GTE_3X"
+  ],
+  "date": "2026-09-07",
+  "decoder_exclusive_ownership": [
+    "WORKER_LIFECYCLE",
+    "CPU_LEASES",
+    "SCHEDULING_AND_CHUNKING",
+    "NESTED_PARALLELISM_GUARD",
+    "CHECKPOINTS",
+    "DURABLE_WRITES",
+    "RESUME",
+    "EXECUTION_CACHES",
+    "COMPACT_EVIDENCE",
+    "STREAMING_REDUCTION",
+    "TELEMETRY",
+    "CANCELLATION",
+    "MEMORY_BUDGETS",
+    "WORKSPACE_BUDGETS"
+  ],
+  "durable_partition": {
+    "full_signature_per_task": false,
+    "runtime_metadata_excluded_from_science_hash": true,
+    "store": "SQLITE_COMPACT_ENGINE_OWNED",
+    "streaming": true
+  },
+  "governing_rule": "SCIENTIFIC_STAGES_DESCRIBE_SCIENCE_DECODER_ALONE_EXECUTES_SCIENCE",
+  "handler_allowed": [
+    "READ_FROZEN_AUTHORITY",
+    "BUILD_DETERMINISTIC_TASKS",
+    "CALL_STAGE_RUNTIME",
+    "INTERPRET_FROZEN_RESULT",
+    "RETURN_CHAIN_EXECUTION_RESULT"
+  ],
+  "handler_forbidden": [
+    "PRIVATE_PROCESS_POOL",
+    "PRIVATE_THREAD_POOL",
+    "SUBPROCESS_WORKERS",
+    "PRIVATE_CHECKPOINT_TREE",
+    "PRIVATE_RESUME",
+    "PRIVATE_REDUCER",
+    "PRIVATE_TELEMETRY",
+    "DIRECT_DURABLE_WRITES"
+  ],
+  "hash_safety": {
+    "collision_witness_required": true,
+    "different_digest": "STRUCTURALLY_DIFFERENT_CANONICAL_ENCODING",
+    "equal_digest": "CANDIDATE_BUCKET_ONLY_STRUCTURAL_REOPEN_REQUIRED"
+  },
+  "legacy_migration": {
+    "rerun_required": false,
+    "streaming_structural_reduction": true,
+    "verify_every_shard": true
+  },
+  "legacy_stage_kind": "PREPARED_EXECUTOR_V1_HISTORICAL_ONLY",
+  "new_chain_schema": "IG_DECODER_V05_SCIENTIFIC_CHAIN_REGISTRATION_V2",
+  "new_stage_kind": "DECODER_STAGE",
+  "promotion_effect": "NONE",
+  "release_line": "v0.5 / 0.50",
+  "schema_id": "IG_DECODER_V05_CONTROLLER_ONLY_SCIENTIFIC_STAGE_ARCHITECTURE_SPEC_V1",
+  "spec_sha256": "43b6b19041805bfaad95cbc1e3de242f5ceb7528b9f764be567ed6f689f0b5df",
+  "status": "NORMATIVE_FOR_NEW_SCIENTIFIC_STAGES"
+}

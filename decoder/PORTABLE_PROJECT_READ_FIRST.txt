@@ -1,0 +1,77 @@
+DECODER 0.6 — PORTABLE PROJECT WORKFLOW
+
+The version reported by `python -m infinity_grid.controller --version` is the
+single active release version. Old versioned module names and frozen historical
+records retain their original names and identities.
+
+Use one saved project history across chats. A new chat restores the newest
+known saved bundle and imports other branch histories before starting work.
+Decoder checks the history supplied to it; it cannot discover unseen Drive
+files or prove that no other disconnected chat is running the same work.
+
+Restore an exact complete workspace:
+  python -m infinity_grid.controller restore ARCHIVE DESTINATION SHA256
+Use the restored SOURCE directory on PYTHONPATH and install the captured
+dependency versions. The archive includes its project history. The native
+run command verifies source, registration, saves, environment and project
+binding before executing or reusing the original evidence.
+
+To continue with additional jobs after workspace restoration, export that
+workspace's embedded history and import it into a new local store:
+  ... project export RESTORED_WORKSPACE HISTORY.zip
+  ... project import STORE HISTORY.zip SHA256
+  ... capture STORE SPEC.json
+Then upload/read back pending objects and use confirm-save as before.
+  ... pending-saves WORKSPACE
+  ... confirm-save WORKSPACE SHA256 READBACK DRIVE_FILE_ID
+  ... run WORKSPACE JOB_ID
+
+For an existing standalone captured job, use project adopt STORE WORKSPACE.
+For a genuinely new project only, use project init STORE NAME ENGINE_SOURCE.
+Creating a new project does not join another project's history.
+
+Optional capture field repeat_id records an intentional repetition. Keep it
+absent/null for ordinary work. Changing a job label or question description
+does not make equivalent work new. Changing executable bytes, actual inputs,
+the substantive question, output contract, environment, resources, or bound
+optimization providers changes its identity. Exact repeats need distinct IDs.
+
+Every history event is immutable. Import preserves all events and objects.
+Conflicts are visible through project status STORE. An overlapping unresolved
+release/work/provider branch pauses the affected operation. Unrelated work can
+continue. Use project resolve STORE KEY SELECTED_HEAD REASON to record an
+explicit decision while keeping both original branches. Never delete the branch
+you did not choose or edit hashes to manufacture agreement.
+
+Engine changes use the existing `change open`, `capture-revision`, `test`,
+`prepare-activation`, `confirm-save`, `activate`, and `rollback` commands.
+New sessions bind the project release head. Activation also checks this head;
+an older change cannot silently replace a newer project release. The legacy
+CURRENT_LOCAL record remains a local change-session record. Project history is
+the authority consulted by ordinary runs. A crash between project activation
+and the local pointer write requires reconciliation; it never grants execution
+to a mismatched engine. All internals remain editable in captured revisions.
+
+Optimization provider request fields:
+  engine, role, path, expected_head, correctness_capsule,
+  performance_capsule, reason
+The path names the provider file inside the exact engine archive. Both checks
+must be successful registered VALIDATION completions with output_contract field:
+  optimization_check = {kind, engine, role, path, provider_sha256}
+kind is correctness or performance respectively. The frozen validation nodes
+must actually test the relevant claims; metadata alone is not a mathematical
+or performance proof. Existing role entries remain in history when replaced.
+Use project provider STORE REQUEST.json. Unknown or mismatched evidence refuses.
+
+Completed results keep their original registration, source and completion hash.
+Reuse returns that original completion plus a separate binding to the new
+request. Interrupted claims remain PAUSED/RUNNING until the original captured
+workspace is resumed or its conflict is explicitly reconciled. No timer silently
+expires a claim and duplicates unfinished work. Source changes require a new
+work identity; no cross-source or cross-environment compatibility is inferred.
+
+Drive saves are explicit in Step 5. Local completion is not proof of remote
+preservation. Step 6 adds result-contract and checkpoint/outbox improvements.
+Local file locks coordinate one filesystem; imported histories detect divergence
+between environments. This workflow does not promise a distributed lock, an
+unattended Drive transport, or control of arbitrary terminal commands.

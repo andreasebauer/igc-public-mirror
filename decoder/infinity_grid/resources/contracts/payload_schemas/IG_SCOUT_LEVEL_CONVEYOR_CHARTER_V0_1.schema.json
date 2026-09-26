@@ -1,0 +1,162 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bootstrap": {
+      "additionalProperties": false,
+      "properties": {
+        "L17_executed_in_phase0": {
+          "type": "boolean"
+        },
+        "parent_closeout_bundle_sha256": {
+          "type": "string"
+        },
+        "parent_level": {
+          "type": "integer"
+        },
+        "parent_pin_file_sha256": {
+          "type": "string"
+        },
+        "parent_status_required": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "L17_executed_in_phase0",
+        "parent_closeout_bundle_sha256",
+        "parent_level",
+        "parent_pin_file_sha256",
+        "parent_status_required"
+      ],
+      "type": "object"
+    },
+    "core_decision": {
+      "additionalProperties": false,
+      "properties": {
+        "new_scientific_protocol": {
+          "type": "boolean"
+        },
+        "one_catalog": {
+          "type": "boolean"
+        },
+        "one_runtime": {
+          "type": "boolean"
+        },
+        "one_store": {
+          "type": "boolean"
+        },
+        "outer_orchestrator_only": {
+          "type": "boolean"
+        },
+        "per_level_child_packet_is_derived_and_sealed_before_execution": {
+          "type": "boolean"
+        },
+        "per_level_run_remains_independent_and_immutable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "new_scientific_protocol",
+        "one_catalog",
+        "one_runtime",
+        "one_store",
+        "outer_orchestrator_only",
+        "per_level_child_packet_is_derived_and_sealed_before_execution",
+        "per_level_run_remains_independent_and_immutable"
+      ],
+      "type": "object"
+    },
+    "finite_execution_rule": {
+      "type": "string"
+    },
+    "hard_nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "immutability_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1",
+      "type": "string"
+    },
+    "scientific_scope": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "evidence_label": {
+          "type": "string"
+        },
+        "execution_type": {
+          "type": "string"
+        },
+        "hierarchy": {
+          "type": "string"
+        },
+        "population_complete": {
+          "type": "boolean"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "tracked_relation_families": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "unresolved_marker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "evidence_label",
+        "execution_type",
+        "hierarchy",
+        "population_complete",
+        "protocol",
+        "tracked_relation_families",
+        "unresolved_marker"
+      ],
+      "type": "object"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bootstrap",
+    "core_decision",
+    "finite_execution_rule",
+    "hard_nonclaims",
+    "immutability_rules",
+    "purpose",
+    "schema_id",
+    "scientific_scope",
+    "spec_sha256",
+    "status",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

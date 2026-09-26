@@ -1,0 +1,89 @@
+{
+  "admitted_operations": [
+    "recursive composition under the frozen 31 operators; no new operation"
+  ],
+  "date": "2026-09-06",
+  "decoder_release": "v0.5 / 0.50",
+  "dependencies": [
+    "G6:S0",
+    "G6:S1",
+    "G6:S2",
+    "G6:S3",
+    "G6:S4",
+    "G6:S5"
+  ],
+  "domain": {
+    "candidate_binding": "must bind the exact committed G6:S5 stage artifact and candidate-law hash; any change requires review",
+    "fresh_holdouts": "generated deterministically from the S5 candidate hash after S5 commits, using a preregistered domain-separation rule; holdouts are not used to choose the S5 state",
+    "independent_verification": "separate implementation path/cold process required",
+    "proof_obligations": [
+      "base generators map into candidate state",
+      "operator legality is candidate-state readable",
+      "binary write preserves candidate state",
+      "direct exact composition projects to the candidate write",
+      "induction covers every finite binary term under the frozen grammar"
+    ]
+  },
+  "evidence_contract": [
+    "formal proof-obligation record",
+    "direct-vs-abstract rows",
+    "fresh holdout generator seed/hash and cases",
+    "independent verification result",
+    "source/parent/S5 hashes",
+    "explicit nonclaims",
+    "graduation-candidate record"
+  ],
+  "exact_equality_rule": "Hashes may index/bind artifacts, but every exact scientific equality claim is decided by full structural equality of the declared carrier/outcome objects.",
+  "frozen_question": "Given the exact S5 candidate artifact as a hash-bound dependency, does its finite state and write law factor every finite generated G6 term under the frozen 31-operator grammar by structural induction, with independent cold verification and fresh preregistered holdouts?",
+  "nonclaims": [
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_UNREGISTERED_PUBLIC_FIELD_PROMOTION",
+    "NO_POSTHOC_QUESTION_CHANGE"
+  ],
+  "observer": {
+    "graduation": "mechanical PASS creates a graduation candidate only",
+    "primary": "factorization equality between exact direct composition projection and abstract recursive write",
+    "scope_if_pass": "ALL_FINITE_GENERATED_G6_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "parent_authority": {
+    "authority_ref": "Decoder_v0.5_G5_S6_READ_FIRST_2026-09-06.txt",
+    "graduation_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "public_law": "enabled iff f_a>0 and g_b>0; D_out=(f+g-e_a-e_b,m+n)",
+    "s6_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "promotion_constraints": [
+    "Mechanical PASS never changes G5 authority.",
+    "Any new G6 public field is candidate-only until S5 earns a finite state and S6 plus explicit graduation review approve it.",
+    "Hidden topology/canon/provenance may be used as oracle evidence but cannot enter the public descriptor unless a separately registered promotion test earns it.",
+    "G6 graduation requires a separate explicit scientific graduation review after S6; the chain cannot auto-promote."
+  ],
+  "purpose": "Recursive closure, independent verification, and graduation-candidate gate.",
+  "question_sha256": "6700d1e8c0550f9e57fd3193d02d517bc8193e0e4138ee522ecbbc189d1d6aa7",
+  "registered_alternatives": [
+    "RECURSIVE_CLOSURE_CANDIDATE",
+    "RECURSIVE_CLOSURE_FALSIFIED",
+    "INDEPENDENT_VERIFICATION_FAILED",
+    "HOLDOUT_FAILURE",
+    "BUDGET_INSUFFICIENT"
+  ],
+  "resource_budget": {
+    "fresh_holdout_cases": 256,
+    "max_proof_cases": 5000000,
+    "wall_seconds": 21600,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_STAGE_PREREGISTRATION_V1",
+  "stage_id": "G6:S6",
+  "status": "FROZEN_BEFORE_G6_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "changed scientific assumptions",
+    "unregistered operator/read/field required",
+    "runtime integrity failure",
+    "registered science budget exhausted",
+    "first decisive separator when the stage specifies first-separator stopping"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "active_regime_law_refs": [
+    "O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+    "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1"
+  ],
+  "active_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0"
+  ],
+  "available_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0",
+    "SPECTROSCOPE_LEGACY_COMPAT (future manifest)",
+    "PREGEOMETRY_COMPAT (future manifest)"
+  ],
+  "current_entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "current_regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "evidence_refs": [
+    {
+      "id": "v0.27_ARCHITECTURE_AUDIT",
+      "role": "design authority",
+      "scope": "architecture only",
+      "version": "2026-08-31"
+    }
+  ],
+  "frontier_id": "IG_O7_COMPAT_FRONTIER_EXAMPLE",
+  "latest_verified_regime_depth": null,
+  "lift_state": "NOT_EARNED_BY_THIS_SPEC",
+  "next_admissible_scientific_actions": [
+    "Implement generic protocol layer and prove compatibility replay",
+    "Then run selected Test Packs under a frozen RunPlan V2"
+  ],
+  "open_finding_refs": [],
+  "plateau_state": "NOT_ASSERTED_BY_THIS_SPEC",
+  "rule": "SCIENTIFIC_FRONTIER_IS_SEPARATE_FROM_SOFTWARE_RELEASE_STATE",
+  "schema_id": "IG_RESEARCH_FRONTIER_V1",
+  "schema_version": "1.0.0",
+  "software_release_state_ref": "IG_DECODER_CURRENT_STATE_V5",
+  "status": "EXAMPLE_NOT_AUTHORITATIVE_FRONTIER"
+}

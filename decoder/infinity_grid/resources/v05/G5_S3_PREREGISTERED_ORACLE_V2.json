@@ -1,0 +1,33 @@
+{
+  "allowed_s3_alternatives": [
+    "G5_S3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_FROZEN_P3_K3_SCOPE_S4_DESIGN_REVIEW",
+    "G5_S3_HIGHER_ORDER_HIDDEN_RESIDUAL_DETECTED",
+    "G5_S3_AUTHORITY_OR_HIGHER_RESIDUAL_FAILURE"
+  ],
+  "allowed_s3_outcomes": [
+    "PASS",
+    "REVIEW_REQUIRED",
+    "BLOCKED"
+  ],
+  "g4_changed": false,
+  "g5_composition_law_earned": false,
+  "g5_public_descriptor_promoted": false,
+  "graduated": false,
+  "required_authority_effect": "NONE_P6",
+  "required_exact_representatives_per_class": 2,
+  "required_historical_s3_classification": "G5_S3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_FROZEN_P3_K3_SCOPE_S4_DESIGN_REVIEW",
+  "required_historical_s3_primary_science_sha256": "cd878aa91b905d6b1826e2ee1453297b8d161d908be1efadc55ac92ffe6f54af",
+  "required_local_row_count": 196,
+  "required_post_s3_stop": "G5_S4_PREREGISTRATION_REQUIRED",
+  "required_public_class_count": 2,
+  "required_public_context_count": 246016,
+  "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+  "required_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+  "required_s2_repair_primary_science_sha256": "112386c99a7aa469fc43b436d96c0717e62da5ba23a7fed2fa0f6e692f781782",
+  "required_s2_stage_science_sha256": "abcecf9596fcdaf0597940707e34cdf82b3495aeec0abddff36af9649af3ce87",
+  "s4_execution_authorized": false,
+  "schema_id": "IG_G5_S3_PREREGISTERED_ORACLE_V2",
+  "science_sha256": "5921b1c26d7dbb3df62222fdce1e41444914ef95970f4e497bf7507055073d1d",
+  "spec_science_sha256": "823fdedf0487913302135c09e58485ab97966a842f4f4adc991872ae929da9e7",
+  "stage": "G5:S3_REPAIR_RECERTIFICATION"
+}

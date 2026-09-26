@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "type": "string"
+    },
+    "exactness": {
+      "enum": [
+        "EXACT",
+        "CERTIFIED_DERIVED",
+        "OBSERVER_RELATIVE"
+      ]
+    },
+    "output_schema_ref": {
+      "type": "string"
+    },
+    "provider_ref": {
+      "type": "string"
+    },
+    "read_set": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_CAPABILITY_PROVIDER_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "capability_id",
+    "version",
+    "provider_ref",
+    "output_schema_ref",
+    "exactness",
+    "read_set",
+    "reopen_conditions"
+  ],
+  "title": "IG Decoder Capability Provider V1",
+  "type": "object"
+}

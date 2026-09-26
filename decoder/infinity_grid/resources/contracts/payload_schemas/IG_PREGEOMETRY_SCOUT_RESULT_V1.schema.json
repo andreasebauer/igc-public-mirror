@@ -1,0 +1,334 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_PREGEOMETRY_SCOUT_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "O10_plus": {
+      "additionalProperties": false,
+      "properties": {
+        "O10_run": {
+          "type": "boolean"
+        },
+        "science_sha256": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O10_run",
+        "science_sha256",
+        "status"
+      ],
+      "type": "object"
+    },
+    "authority_gate": {
+      "additionalProperties": false,
+      "properties": {
+        "checks": {
+          "additionalProperties": false,
+          "properties": {
+            "GRRL_machine": {
+              "type": "boolean"
+            },
+            "GRRL_spec": {
+              "type": "boolean"
+            },
+            "O4_O7_grammar_delta": {
+              "type": "boolean"
+            },
+            "O7_graduated": {
+              "type": "boolean"
+            },
+            "O8_BP0_repeat": {
+              "type": "boolean"
+            },
+            "O8_graduated": {
+              "type": "boolean"
+            },
+            "O9_sentinel_repeat": {
+              "type": "boolean"
+            },
+            "fixed_grammar_stop": {
+              "type": "boolean"
+            },
+            "grammar_hash_O4_O9": {
+              "type": "boolean"
+            },
+            "post_O7_reconciled": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "GRRL_machine",
+            "GRRL_spec",
+            "O4_O7_grammar_delta",
+            "O7_graduated",
+            "O8_BP0_repeat",
+            "O8_graduated",
+            "O9_sentinel_repeat",
+            "fixed_grammar_stop",
+            "grammar_hash_O4_O9",
+            "post_O7_reconciled"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "status"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "intrinsic_pregeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "geometry_status": {
+          "type": "string"
+        },
+        "registered_functions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "basis": {
+                "type": "string"
+              },
+              "current_rank": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "basis",
+              "current_rank",
+              "id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "geometry_status",
+        "registered_functions",
+        "status"
+      ],
+      "type": "object"
+    },
+    "lane_A_primitive_read_break": {
+      "additionalProperties": false,
+      "properties": {
+        "H10_fixed_monotone_pairwise_grammar": {
+          "type": "boolean"
+        },
+        "H9_no_hidden_read": {
+          "type": "boolean"
+        },
+        "O8_operational_read": {
+          "type": "boolean"
+        },
+        "O9_new_operational_read": {
+          "type": "boolean"
+        },
+        "conclusion": {
+          "type": "string"
+        },
+        "representation_break": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "H10_fixed_monotone_pairwise_grammar",
+        "H9_no_hidden_read",
+        "O8_operational_read",
+        "O9_new_operational_read",
+        "conclusion",
+        "representation_break",
+        "scope",
+        "status"
+      ],
+      "type": "object"
+    },
+    "lane_B_same_grammar_collective_service": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_novelty_under_same_grammar": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "existing_evidence_reused": {
+          "type": "string"
+        },
+        "positive_evidence_required": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "why_not_closed_by_GRRL": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_novelty_under_same_grammar",
+        "existing_evidence_reused",
+        "positive_evidence_required",
+        "status",
+        "why_not_closed_by_GRRL"
+      ],
+      "type": "object"
+    },
+    "local_sufficiency_gate": {
+      "additionalProperties": false,
+      "properties": {
+        "gate": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gate",
+        "status"
+      ],
+      "type": "object"
+    },
+    "main_conclusion": {
+      "type": "string"
+    },
+    "meta_grammar": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "type": "string"
+        },
+        "raised_O_group_status": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "classification",
+        "raised_O_group_status",
+        "science_sha256"
+      ],
+      "type": "object"
+    },
+    "method": {
+      "additionalProperties": false,
+      "properties": {
+        "broad_census_cases": {
+          "type": "integer"
+        },
+        "new_O_levels_generated": {
+          "type": "integer"
+        },
+        "quarantined_phase9_side_experiment_used": {
+          "type": "boolean"
+        },
+        "scanner_template": {
+          "type": "string"
+        },
+        "spectroscope": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "broad_census_cases",
+        "new_O_levels_generated",
+        "quarantined_phase9_side_experiment_used",
+        "scanner_template",
+        "spectroscope"
+      ],
+      "type": "object"
+    },
+    "next": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase_status": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_PREGEOMETRY_SCOUT_RESULT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "source_pins_sha256": {
+      "type": "string"
+    },
+    "spectroscope_gate": {
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "status"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "O10_plus",
+    "authority_gate",
+    "date",
+    "intrinsic_pregeometry",
+    "lane_A_primitive_read_break",
+    "lane_B_same_grammar_collective_service",
+    "local_sufficiency_gate",
+    "main_conclusion",
+    "meta_grammar",
+    "method",
+    "next",
+    "nonclaims",
+    "phase_status",
+    "schema",
+    "science_sha256",
+    "source_pins_sha256",
+    "spectroscope_gate",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_PREGEOMETRY_SCOUT_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

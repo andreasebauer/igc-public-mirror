@@ -1,0 +1,107 @@
+{
+  "authority": {
+    "g4_s3_classification": "G4_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_TIER1_S2_SCOPE_S4_UNLOCKED",
+    "g4_s3_closeout_sha256": "1213b54ebbac7e97a81fa633799c437a8c5bdf4e48208ebcecf542cae6dba5c6",
+    "g4_s3_registry_sha256": "8b8cea074dedc8bb97592d4be08f9b4337253f0185506229f33f81fcd9995b13",
+    "g4_s3_replay_comparison_sha256": "e3441d974d4a0faf960de251d61612c0c7083a74c1042b010b05c79f68cd5bc0",
+    "g4_s3_replay_schema_id": "IG_G4_S3_COLD_REPLAY_COMPARISON_V1",
+    "g4_s3_science_sha256": "4ec2f89803f1f6fe939a6ae2f98b800c08e4b562d845ef11f75b32677b7c5f45",
+    "g4_s3_source_sha256": "d7a71b8bb5f269fc4c50ed2f9fb22c40a2ff319193e7c1e77813d6701e886ea0",
+    "g4_s3_status": "PASS",
+    "required_candidate": {
+      "name": "SCALAR_TREE_SUMMARIES",
+      "tier": 1
+    },
+    "required_g4_graduated": false,
+    "required_g4_s3_replay_certification": "CERTIFIED_PASS",
+    "required_g4_s4_unlocked": true,
+    "required_public_descriptor_promoted": false,
+    "required_s3_k3_context_count": 238328,
+    "required_s3_local_conflicts": 0,
+    "required_s3_p3_context_count": 7688,
+    "required_shell_profile_promoted": false,
+    "required_topology_promoted": false
+  },
+  "candidate_semantics": {
+    "base_candidate_key": "CAPS7_PLUS_SCALAR_TREE_SUMMARIES (bounded S2/S3 candidate only)",
+    "base_unit": "one certified G3 construction term from G4:S0, atomic at its G3 boundary",
+    "pair_candidate": "complete exact relation from compose_g4_pair_relation; no branch is selected or privileged",
+    "public_write_law": "for first edge (a,b) and second edge (c,d), aggregate CAPS7_out = CAPS7_1 + CAPS7_2 + CAPS7_3 - e_a - e_b - e_c - e_d",
+    "recursive_step": "for every exact branch of the pair candidate, reserve one legal endpoint on the pair assembly and one on a third certified G3 term, then retain and exact-deduplicate all resulting triple branches"
+  },
+  "date": "2026-09-04",
+  "decision_rule": {
+    "PASS": "Certified S3 authority binds exactly; all 686 local three-reservation cases are valid; all 7,688 exact recursive P3 contexts materialize nonempty complete relations whose every branch obeys the CAPS7 two-edge write law; and the 31-operator post-recursive reserve basis passes. Certify one-step G4 composition closure on this frozen domain and unlock G4:S5 only.",
+    "REVIEW_REQUIRED": "Any authority mismatch, local continuation defect, empty recursive relation, CAPS7 write mismatch, or reserve-capability failure locks S5. Do not promote a richer descriptor post hoc."
+  },
+  "exact_reduction": [
+    "BIND_CERTIFIED_S3_PRIMARY_COLD_CLOSEOUT_EXACTLY",
+    "CERTIFY_COMPLETE_ORDERED_7_CUBED_THREE_RESERVATION_TABLE_ON_BOTH_FROZEN_G3_TERMS",
+    "MATERIALIZE_ALL_2_CUBED_TIMES_31_SQUARED_EQUALS_7688_ORDERED_RECURSIVE_P3_CONTEXTS_FROM_COMPLETE_PAIR_RELATIONS",
+    "VERIFY_EVERY_RECURSIVE_BRANCH_OBEYS_THE_TWO_EDGE_CAPS7_WRITE_LAW_AND_EVERY_REGISTERED_CONTEXT_RELATION_IS_NONEMPTY",
+    "VERIFY_ALL_31_DIRECTED_OPERATORS_PRESERVE_POST_RECURSIVE_EXTERNAL_RESERVATION_CAPABILITY_ON_A_CANONICAL_COMPLETE_TRIPLE_RELATION"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "DECODER_OWNS_PARALLEL_EXECUTION",
+    "FOUR_WORKERS_REQUESTED_BY_BACKGROUND_CAMPAIGN_CONTROLLER",
+    "PRIMARY_COLD_CERTIFICATION_RUN_AS_ONE_DETACHED_FAIL_CLOSED_CHAIN",
+    "COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_EXPERIMENT_FROM_COLD_SOURCE",
+    "FAIL_CLOSED_ON_AUTHORITY_SOURCE_REGISTRY_OR_RESULT_MISMATCH",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE"
+  ],
+  "frozen_domain": {
+    "candidate_class_count": 2,
+    "complete_pair_candidate_count": 124,
+    "directed_operator_count": 31,
+    "exact_g3_term_count": 2,
+    "local_three_reservation_task_count": 686,
+    "ordered_base_triple_assignment_count": 8,
+    "ordered_pair_assignment_count": 4,
+    "pair_plus_pair_composition_in_scope": false,
+    "recursive_p3_public_context_count": 7688,
+    "recursive_reserve_operator_basis_count": 31,
+    "unbounded_recursive_closure_in_scope": false
+  },
+  "nonclaims": [
+    "NO_GLOBAL_TIER1_SUFFICIENCY",
+    "NO_GLOBAL_TIER1_MINIMALITY",
+    "NO_PAIR_PLUS_PAIR_G4_CLOSURE",
+    "NO_UNBOUNDED_RECURSIVE_G4_CLOSURE",
+    "NO_ASSOCIATIVITY_OR_REBRACKETING_THEOREM",
+    "NO_G4_FINITE_STATE_DESCRIPTOR_YET",
+    "NO_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_G4_GRADUATION",
+    "NO_PHYSICAL_SPACE_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "pass_effect": "Unlock G4:S5 finite read/write descriptor design/execution only. Tier1 remains bounded and not publicly promoted; no G4 graduation.",
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "promotion": false,
+  "public_observer": {
+    "allowed_reads": [
+      "certified base candidate key CAPS7+Tier1",
+      "complete relation cardinality",
+      "aggregate output CAPS7 set",
+      "complete branch-sensitive ordered three-reservation continuation",
+      "post-recursive external reservation relation cardinality and CAPS7 decrement"
+    ],
+    "forbidden_reads": [
+      "hidden G2-unit tree canon",
+      "shell profile",
+      "degree sequence beyond frozen Tier1 components",
+      "construction digest as semantic selector",
+      "owner witness",
+      "ancestry",
+      "provenance",
+      "lower-layer implementation carrier"
+    ]
+  },
+  "question": "Can every complete relation-valued G4 pair candidate on the frozen two-term CAPS7+Tier1 domain be reused as an atomic input for one further binary composition with a third certified G3 term, with exact branch retention, the inherited CAPS7 write law, and no added hidden read?",
+  "schema_id": "IG_G4_S4_COMPOSITION_CLOSURE_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "8bf6d2cf36c2e57cb006782216550c6c6b43ef580c0aced53adf3dd4dbf74d79",
+  "stage_ref": "G4:S4",
+  "status": "FROZEN_BEFORE_G4_S4_EXECUTION"
+}

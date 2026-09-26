@@ -1,0 +1,60 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "after_integrity_failure": {
+      "type": "string"
+    },
+    "after_operational_pause": {
+      "type": "string"
+    },
+    "after_scientific_pause": {
+      "type": "string"
+    },
+    "atomicity": {
+      "type": "string"
+    },
+    "decision_precedence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "no_retry_with_changed_semantics": {
+      "type": "boolean"
+    },
+    "no_skip": {
+      "type": "boolean"
+    },
+    "routine_continue_classifications": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "after_integrity_failure",
+    "after_operational_pause",
+    "after_scientific_pause",
+    "atomicity",
+    "decision_precedence",
+    "no_retry_with_changed_semantics",
+    "no_skip",
+    "routine_continue_classifications",
+    "schema_id",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

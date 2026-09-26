@@ -1,0 +1,57 @@
+{
+  "adapters": [],
+  "canonicalizer": {
+    "id": "IG_CANONICAL_JSON_V1",
+    "version": "1.0.0"
+  },
+  "content_sha256": "21c3707af25999299273bacee445eb6d28ecb27a5573a1b6ca6692bced273e54",
+  "decoder_release": {
+    "baseline_release": {
+      "archive_sha256": "0412a490488c785f2c7846e953f9316a4d2ccfd9b12cc5d72327c6440eb4b45f",
+      "decoder_version": "0.26.0",
+      "source_sha256": "71d13cec323def599e0489a41068bba75d4569ae4b104234c66f2a51383c1369"
+    },
+    "package_version": "0.26.1",
+    "release_id": "INFINITY_GRID_ALGEBRA_DECODER_V0_26_1_GATE1_MACHINE_CONTRACTS",
+    "semantic_delta": "NONE",
+    "source_sha256": "bada049f4e26ac3165ec4aadba3d7d258ac5e4fbfd84befa128b82b6807a5f39"
+  },
+  "dependencies": [],
+  "envelope_sha256": "bfaff001ae44f6a3ebb9fdf449d6b377acdd7ddecdfc4a2eb1aab472b22294ad",
+  "envelope_version": "1.0.0",
+  "operational_metadata": {
+    "migration": "EXACT_DIGEST_SCHEMA_INJECTION_AND_WRAP",
+    "pre_migration_payload_sha256": "1570fda2d4d2122a2e25b44625c859666580048886ec58d5c771e69f92bc83a3",
+    "source_name": "DOCTOR.json",
+    "target_schema_id": "IG_LEGACY_DOCTOR_RESULT_V0_26"
+  },
+  "payload": {
+    "base": {
+      "checks": {
+        "artifacts": true,
+        "catalogue": true,
+        "claims": true,
+        "datasets": true,
+        "directories": true,
+        "protocols": true,
+        "releases": true,
+        "runs": true
+      },
+      "counts": {
+        "artifacts": 187,
+        "protocols": 10
+      },
+      "failures": [],
+      "status": "PASS"
+    },
+    "schema_id": "IG_LEGACY_DOCTOR_RESULT_V0_26",
+    "status": "PASS"
+  },
+  "payload_schema_id": "IG_LEGACY_DOCTOR_RESULT_V0_26",
+  "payload_sha256": "50f822145cad2cf9879e95726b0cc5a98ae470525ce526b43a0e9afab46a3df3",
+  "schema_id": "IG_ARTIFACT_ENVELOPE_V1",
+  "semantic_profile": {
+    "profile_id": "LEGACY_V0_26_PRESERVED",
+    "version": "1.0.0"
+  }
+}

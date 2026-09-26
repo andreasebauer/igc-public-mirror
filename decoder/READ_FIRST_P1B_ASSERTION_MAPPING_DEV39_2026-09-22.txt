@@ -1,0 +1,129 @@
+INFINITY GRID DECODER 0.8lib — P1B ASSERTION-LEVEL HISTORICAL SCIENCE MAPPING
+DEV39 CANDIDATE — 2026-09-22
+
+DISPOSITION
+P1B_ASSERTION_MAPPING_CANDIDATE_COMPLETE_WITH_EXPLICIT_GAPS
+NOT_REPLAY_AUTHORIZED
+NO_SCIENCE_EXECUTED
+SHARED_POINTER_UNCHANGED
+
+1. WHAT CHANGED
+
+The P1A2 S/R/C/F catalogue compiler now accepts V3 historical assertion
+mappings. Every mapping retains its own canonical obligation binding,
+historical aliases, exact source hashes, locator, claim summary,
+classification reason, scope/bounds, expected outcome, evidence mode and
+mapping status.
+
+Mapped, ambiguous and excluded records are distinct. Ambiguities block the
+compiled replay DAG. Excluded records cannot bind a scientific obligation and
+must use a category already declared in excluded_from_scientific_catalogue.
+Bindings are reciprocal: a scientific node and every assertion mapped to it
+must name one another.
+
+Local-source qualification verifies the bytes of every pinned source. This is
+an integrity check only; it does not interpret historical science and does not
+create an audit authorization.
+
+2. CANDIDATE COUNTS
+
+Layers: 16
+Total DAG nodes: 80
+Mapped scientific nodes: 41
+Catalogue gaps: 23
+Workflow gates: 16
+Historical assertion records: 98
+Unambiguous mapped assertions: 85
+Ambiguous assertions: 13
+Excluded assertions: 0
+Historical audit authorizations: 0
+Unauthorized scientific nodes: 41
+
+Compiled status: BLOCKED_MAPPING_CATALOGUE_OR_AUTHORIZATION
+Execution authorized: false
+Logical DAG SHA-256: 90c2f01ec42a0cc32f3682deaa7b859e0e8a1551f3346af0d7bda54f83219c9b
+
+3. SOURCES NOW COVERED
+
+- Frozen v0.26 scientific-test registry: all 36 registry rows.
+- Frozen v0.26 oracle manifest: all 31 semantic assertions.
+- Representative pinned G2-G6 preregistration/design contracts and G6
+  executable scientific test modules.
+- G7 final scoped closeout, including C9 state/reduction claims, typed handoff
+  conditions, and preserved open/nonclaim boundaries.
+- G8 S0 design, conditional bounded integration closeout, and CAP37 32768
+  zero-data handoff.
+- Components Step41 Lean closeout and the later correlation-formation frontier.
+
+Design specifications map obligations but are explicitly recorded as
+DECLARED_CONTRACT_ONLY. Documentary closeouts preserve their stated scope and
+do not become independent recomputations. A zero-data result remains a
+negative result. Formal theorem evidence remains scoped to its typed context.
+
+4. CRITICAL HISTORICAL-AXIS SAFEGUARD
+
+O7.G1 through O7.G8 are graduation-gate labels inside the historical O7
+registry. They are mapped by assertion semantics into O4_O7 S/R/C/F nodes.
+They are not relabelled as the later G1 through G8 layers.
+
+5. EXPLICIT UNRESOLVED ASSERTIONS
+
+O7.H1 through O7.H13 remain AMBIGUOUS. The registry calls them GRRL
+hypotheses but does not include enough bound assertion content to choose S,
+R or C without guessing. Each retains those three candidate bindings and
+blocks replay until its historical source is pinned and classified.
+
+6. EXPLICIT CATALOGUE GAPS
+
+All four S/R/C/F lanes remain unmapped for:
+- L0
+- C0_HISTORICAL
+- NODE_IN
+- SCOUT_HISTORICAL
+- G1
+
+O1_O3 additionally lacks R, C and F assertion mappings. Its primary structure
+and per-level frozen science identities are mapped.
+
+7. AUDIT BOUNDARY
+
+The user has stated that audits are complete through G8, mostly including G8.
+This candidate does not convert that statement into synthetic Decoder
+authority. P1C must bind the actual audit records, decisions, scopes and
+nonclaims by hash. Until then all 41 mapped scientific nodes remain
+MISSING_HISTORICAL_AUDIT_AUTHORIZATION. GLOBAL/Components also retains an open
+correlation-formation frontier and is not treated as audited completion.
+
+8. QUALIFICATION
+
+P1A2 compatibility tests plus P1B tests: 22 passed.
+The suite verifies V2 compatibility, V3 schema behavior, deterministic
+compilation, local source hashes, reciprocal mappings, ambiguity blocking,
+exclusion discipline, historical-axis preservation, and G7/G8/open-frontier
+scope preservation.
+
+9. PRIMARY FILES
+
+Source catalogue:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V3.json
+File SHA-256: 9617b1ca85cf99c6afd442ff38a1b46b8c9a38c9584f87d055c3e3dedb77c4a9
+
+Compiled DAG:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V3.json
+File SHA-256: d1b3a9dca3c48b5808ed50ddcfc9b701bea4794db4aa7b692848570165ad134b
+
+Compiler:
+infinity_grid/replay_obligation_compiler.py
+File SHA-256 at qualification: a7badb6e56166760683c63a939010b00895fcad2c910ccfe3d3584a904d0171f
+
+P1B tests:
+tests/test_replay_obligation_compiler_p1b.py
+File SHA-256 at qualification: 13223e87b3108b75d798fb95c4463e9ecfe1cb070144aabb5ef67d2e97d05011
+
+10. NEXT LANE
+
+Resolve the 13 GRRL assertion ambiguities and map the remaining 23 catalogue
+gaps from their exact historical sources. Then execute P1C by binding the
+already-completed historical audit decisions through G8, while preserving any
+G8 qualifications and leaving GLOBAL/Components open where the sources say it
+is open.

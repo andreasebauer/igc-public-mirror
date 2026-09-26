@@ -1,0 +1,16 @@
+{
+  "schema_id": "IG_DECODER_V05_P7_SUPPORT_POLICY_V1",
+  "status": "FROZEN_FOR_GATE_V05_07",
+  "current_guarded_runners": [
+    "adapter.base_l2_step10",
+    "adapter.scout_l15",
+    "adapter.oscout_phase0",
+    "adapter.v05_workflow"
+  ],
+  "legacy_runner_policy": "Legacy Scout/L16 runners remain readable compatibility routes but are not v0.5 production support and carry no bypass authority.",
+  "historical_uplift_policy": "Historical G_UPLIFT_EXPERIMENT_REGISTRY execution_mode labels are preserved as history. v0.5 current support is declared separately by the P7 support matrix; an old NATIVE_HANDLER label is not itself a v0.5 support claim.",
+  "historical_test_policy": "Every legacy scientific-test and pytest entry receives an explicit P7 disposition. Imported/certificate-only/archive-only are distinct from v0.5 supported replay.",
+  "mandatory_missing_fixture_policy": "Current v0.5 supported tests may not skip for missing fixtures. Optional historical-fixture tests may skip only when listed in P7_APPROVED_SKIP_LEDGER_V1.json.",
+  "warnings_policy": "The P7 supported regression is run with Python warnings promoted to errors; approved warnings count is zero.",
+  "retirement_policy": "Do not delete historical source. A redundant production route may be retired only after replacement equivalence; otherwise it is preserved but not claimed as current v0.5 production support."
+}

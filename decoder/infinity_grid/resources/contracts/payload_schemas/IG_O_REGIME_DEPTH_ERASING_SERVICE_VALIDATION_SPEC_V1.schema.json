@@ -1,0 +1,209 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance": {
+      "additionalProperties": false,
+      "properties": {
+        "all_endpoint_types_supported_in_every_owner": {
+          "type": "boolean"
+        },
+        "all_packet_builds_exact": {
+          "type": "boolean"
+        },
+        "exact_construction_digests_differ_across_depths": {
+          "type": "boolean"
+        },
+        "interior_leaf_complexity_strictly_grows_across_target_depths": {
+          "type": "boolean"
+        },
+        "packet_signature_byte_identical_at_all_target_depths": {
+          "type": "boolean"
+        },
+        "reference_lineages_remain_exactly_distinct": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "all_endpoint_types_supported_in_every_owner",
+        "all_packet_builds_exact",
+        "exact_construction_digests_differ_across_depths",
+        "interior_leaf_complexity_strictly_grows_across_target_depths",
+        "packet_signature_byte_identical_at_all_target_depths",
+        "reference_lineages_remain_exactly_distinct"
+      ],
+      "type": "object"
+    },
+    "authority_scope": {
+      "additionalProperties": false,
+      "properties": {
+        "O10_plus": {
+          "type": "string"
+        },
+        "O7": {
+          "type": "string"
+        },
+        "O8": {
+          "type": "string"
+        },
+        "O9": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O10_plus",
+        "O7",
+        "O8",
+        "O9"
+      ],
+      "type": "object"
+    },
+    "classification_on_pass": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "depth_erased_observer": {
+      "additionalProperties": false,
+      "properties": {
+        "deliberately_excludes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reads": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "returns": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "deliberately_excludes",
+        "reads",
+        "returns"
+      ],
+      "type": "object"
+    },
+    "execution_cost_correction": {
+      "additionalProperties": false,
+      "properties": {
+        "change": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "scientific_scope_changed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "change",
+        "reason",
+        "scientific_scope_changed"
+      ],
+      "type": "object"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "validation_packet": {
+      "additionalProperties": false,
+      "properties": {
+        "auxiliary_single_depth_structure_audit": {
+          "type": "string"
+        },
+        "discovery_window": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "holdout_depths": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "motifs": {
+          "type": "string"
+        },
+        "owner_lanes": {
+          "additionalProperties": false,
+          "properties": {
+            "HET_TYPE0": {
+              "type": "string"
+            },
+            "HOM_CYCLIC": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "HET_TYPE0",
+            "HOM_CYCLIC"
+          ],
+          "type": "object"
+        },
+        "target_depths": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "auxiliary_single_depth_structure_audit",
+        "discovery_window",
+        "holdout_depths",
+        "motifs",
+        "owner_lanes",
+        "target_depths"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "acceptance",
+    "authority_scope",
+    "classification_on_pass",
+    "date",
+    "depth_erased_observer",
+    "execution_cost_correction",
+    "nonclaims",
+    "question",
+    "schema",
+    "status",
+    "trigger",
+    "validation_packet"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

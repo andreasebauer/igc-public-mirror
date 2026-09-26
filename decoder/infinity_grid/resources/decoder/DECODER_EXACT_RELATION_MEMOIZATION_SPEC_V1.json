@@ -1,0 +1,52 @@
+{
+  "acceptance_tests": [
+    "test_cached_vs_uncached_exact_relation_equivalence",
+    "test_cached_direct_vs_cached_dedup_equivalence",
+    "test_cache_metadata_excluded_from_science_hash"
+  ],
+  "cache_classes": {
+    "observer_reservation_profile": {
+      "key": [
+        "exact_carrier_construction_digest"
+      ],
+      "value": "complete frozen endpoint-type reservation observer profile"
+    },
+    "pair_composition": {
+      "key": [
+        "left_construction_digest",
+        "right_construction_digest",
+        "left_endpoint_type",
+        "right_endpoint_type"
+      ],
+      "value": "exact output relation"
+    },
+    "reservation_relation": {
+      "key": [
+        "exact_carrier_construction_digest",
+        "endpoint_type"
+      ],
+      "value": "exact relation-valued reserved successors including all branch/multiplicity semantics required by the frozen handler"
+    }
+  },
+  "cache_metadata_in_science_hash": false,
+  "cache_scope": "EXECUTION_ONLY",
+  "cross_release_reuse": "FORBIDDEN_UNLESS_SOURCE_AND_EXPERIMENT_SPEC_IDENTITY_MATCH_EXACTLY",
+  "date": "2026-09-04",
+  "equivalence_requirement": "UNCACHED_DIRECT, CACHED_DIRECT, and CACHED_DEDUP executions must produce identical normalized task-table SHA-256 and identical final science SHA-256.",
+  "forbidden_shortcuts": [
+    "Do not replace exact relation cardinality with a CAPS7 inference",
+    "Do not drop branches",
+    "Do not setify multiplicities when multiplicity is observed",
+    "Do not use hidden topology descriptors as semantic cache keys except exact construction identity for computational identity"
+  ],
+  "purpose": "Reuse deterministic exact relation-valued reservation, pair-composition, and observer-profile kernels without changing any branch, multiplicity, successor identity, or registered observer output.",
+  "registered_experiment_semantics_changed": false,
+  "release_target": "0.30.30",
+  "schema_id": "IG_DECODER_EXACT_RELATION_MEMOIZATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "4ab36dab5e4acdfae1c3fe9079e6c6b77affb68aa3b90d65bcec7dc9f2a82d1a",
+  "scientific_semantics_changed": false,
+  "scope": "EXECUTION_INFRASTRUCTURE_ONLY",
+  "stable_science_payload_changed": false,
+  "status": "IMPLEMENTED_EQUIVALENCE_GATED"
+}

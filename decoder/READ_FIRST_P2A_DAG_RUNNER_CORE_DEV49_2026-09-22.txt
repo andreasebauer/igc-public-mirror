@@ -1,0 +1,78 @@
+INFINITY GRID DECODER 0.8lib — P2A DAG RUNNER CORE
+DEV49 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_RUNNER_CORE_ONLY
+P2_NOT_COMPLETE
+NO_SCIENCE_EXECUTED
+NO_AUTHORITY_CHANGE
+SHARED_POINTER_UNCHANGED
+FULL_R02_STILL_NOT_COMPLETE
+
+1. RESULT
+
+P2A adds the deterministic, fail-closed state machine for the compiled
+L0-upward replay DAG. It verifies the V9 manifest, requires an empty dataset
+root, schedules nodes in the compiler's canonical topological order, seals a
+content-addressed checkpoint after every accepted node or workflow gate, and
+resumes by verifying every stored hash before skipping completed work.
+
+This is runner infrastructure only. It has no scientific handler bindings and
+is not yet a registered controller/C6 root job. Those are P2B.
+
+2. STOP AND RESUME CONTRACT
+
+Manifest-declared historical replay outcomes continue automatically. Every
+declared discrepancy outcome stops at the first affected node and emits one
+compact audit capsule containing the exact manifest, run, node, dependency
+frontier, result and evidence bindings.
+
+External decisions are accepted only when their canonical hash and capsule,
+run, node, result and evidence bindings all match. REPEAT reopens only the
+stopped node. A missing historical authorization can be opened only by an
+external CERTIFY_AND_ADVANCE decision, after which the scientific node still
+has to execute and produce a result.
+
+The runner never interprets earned algebra or creates its own authority.
+
+3. G8 / GLOBAL BOUNDARY
+
+The V9 manifest authorizes the replay prefix through G8. A clean synthetic
+replay checkpoints IG/G8/GATE/CERTIFY, then stops before launching
+IG/GLOBAL/S/ASSERTION_MAPPED_STRUCTURE with
+MISSING_HISTORICAL_AUDIT_AUTHORIZATION. GLOBAL remains unauthorized.
+
+4. QUALIFICATION
+
+Focused P2A runner suite:
+
+  10 passed, 0 failed
+
+The P1/R02/H1-H13/version regression selection produced:
+
+  92 passed, 1 failed
+
+The one failure is the already recorded R02 saved-current-validation-workspace
+gap: the portable source tree does not contain the required parent CAPTURE.json.
+It is not a new product failure. Full R02 remains incomplete with the same 22
+named nonportable requirements.
+
+5. ARTIFACTS
+
+infinity_grid/replay_dag_runner.py
+tests/test_p2a_replay_dag_runner.py
+infinity_grid/resources/replay/P2A_DAG_RUNNER_CORE_QUALIFICATION_V1.json
+qualification_evidence/P2A_DAG_RUNNER_CORE_JUNIT.xml
+qualification_evidence/P2A_DAG_RUNNER_CORE_TEST_RESULT.txt
+
+6. NONCLAIMS
+
+No scientific computation or L0-through-G8 replay occurred. No controller/C6
+integration, handler registration, full P2 completion, full-R02 completion,
+independent confirmation, GLOBAL authorization or shared-pointer advance is
+claimed.
+
+7. NEXT STEP
+
+P2B: integrate this state machine as one registered root job owned by the
+Decoder controller/C6 path, without introducing an external execution wrapper.

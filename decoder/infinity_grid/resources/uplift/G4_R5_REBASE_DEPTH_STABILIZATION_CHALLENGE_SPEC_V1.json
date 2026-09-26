@@ -1,0 +1,51 @@
+{
+  "authority": {
+    "g4_r4_closeout_science_sha256": "56a889256488c38ceda0169a77aa37336ff6753664a76d580a718bcfd1e724cc",
+    "g4_r4_primary_science_sha256": "ff00155b4ae02fc84eb296ab37ce4f9cfe22cf016869d9e4224f05b1be0ba504",
+    "g4_r4_replay_science_sha256": "2fbddc603520187896b52ab0df6f2cb496bacb0623508759cafa5333ac0cc682",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG"
+  },
+  "bounded_scope": {
+    "action": "ONE_NEW_G3_UNIT_LEAF_GRAFT_WITH_FIXED_NEW_H_CLASS_0_AND_EDGE_GRADE_0",
+    "decorations": "EXHAUSTIVE_BINARY_VERTEX_H_CLASS_AND_BINARY_EDGE_GRADE_ASSIGNMENTS_ON_P6",
+    "edge_grade_palette_size": 2,
+    "h_class_palette_size": 2,
+    "parent_g3_units": 6,
+    "underlying_shape": "PATH_P6_ONLY_TARGETED_STABILIZATION_CHALLENGE"
+  },
+  "candidate_ladder": [
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_4",
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_5"
+  ],
+  "cost_control": {
+    "full_decorated_tree_canon_in_science_loop": false,
+    "lower_layer_rematerialization": false,
+    "new_parallel_science_kernels": 0,
+    "owner_frontier_enumeration": false,
+    "parent_g3_units": 6,
+    "underlying_shapes": 1
+  },
+  "nonclaims": [
+    "NO_ALL_RANKS_COMPLETENESS",
+    "NO_DEPTH5_GLOBAL_PROMOTION",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_RAW_H_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_G5_LAUNCH"
+  ],
+  "pass_classification": "G4_R5_REBASE_DEPTH4_NOT_STABLE_AT_N6_DEPTH5_REPAIRS_TARGETED_P6_SCOPE_MESSAGE_DEPTH_GROWTH_WITNESS_EARNED_R6_REBASE_DESIGN_AUTHORIZED",
+  "pass_requirements": [
+    "AUTHORITY_CHAIN_EXACT",
+    "PRIMARY_AND_COLD_EXACT_MATCH",
+    "DEPTH4_COUNTEREXAMPLE_FOUND_ON_REGISTERED_P6_SCOPE",
+    "DEPTH5_PREDICTIVE_ON_SAME_REGISTERED_P6_SCOPE",
+    "STRICT_ACTION_COMPRESSION_OBSERVED_AT_DEPTH5"
+  ],
+  "promotion": false,
+  "question": "Does the R4 depth-4 decoration message read stabilize immediately beyond its certified n<=5 scope, or is greater decoration-message depth already required at n=6?",
+  "schema_id": "IG_G4_R5_REBASE_DEPTH_STABILIZATION_CHALLENGE_SPEC_V1",
+  "science_sha256": "548c2dd5496fcd71f80c0fc693135dd8a0fa42bd1a4b39ac349a79194068f707",
+  "stage_ref": "G4:R5.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

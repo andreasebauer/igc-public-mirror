@@ -1,0 +1,66 @@
+{
+  "B": {
+    "ordering": [
+      "parent_count_bounded DESC",
+      "witness_count DESC",
+      "sha256 ASC"
+    ]
+  },
+  "D": {
+    "binary_float_in_ordering_key": false,
+    "distance": "EXACT_SQUARED_EUCLIDEAN",
+    "features": [
+      "port_count",
+      "distinct_port_types",
+      "max_port_multiplicity",
+      "port_multiplicity_square_sum",
+      "destination_count",
+      "distinct_destination_types",
+      "max_destination_multiplicity",
+      "destination_multiplicity_square_sum",
+      "label",
+      "score",
+      "stay"
+    ],
+    "implementation": "INTEGER_COMMON_DENOMINATOR_LCM_OF_RANGE_SQUARES",
+    "initial_seed": "MINIMUM_SHA256",
+    "normalization": "EXACT_RATIONAL_MIN_MAX",
+    "tie_direction_after_seed": "MAXIMUM_SHA256",
+    "tolerance_pseudo_ties": false
+  },
+  "L": {
+    "ordering": "In parent SHA order, select each parent's minimum-SHA lawful child if not already selected; then fill by candidate SHA ascending."
+  },
+  "O": {
+    "implementation_note": "Preserve the exact Counter-based v0.18.3 expression.",
+    "ordering": [
+      "within-carrier duplicate-pair score DESC",
+      "parent_count_bounded DESC",
+      "witness_count DESC",
+      "sha256 ASC"
+    ]
+  },
+  "S": {
+    "implementation_note": "Preserve the exact record-field expression used by the v0.18.3 adapter; rename only after an audited semantic refactor.",
+    "ordering": [
+      "distinct multiplicity-carrier types ASC",
+      "maximum carrier multiplicity ASC",
+      "sha256 ASC"
+    ]
+  },
+  "candidate_count_rule": "N = min(256, exact unique candidate count). If N < 256, complete the level with all candidates and raise LOW_CANDIDATE_SUPPORT as a scientific pause trigger.",
+  "lane_order": [
+    "D",
+    "B",
+    "S",
+    "O",
+    "L"
+  ],
+  "lineage": "Exact generalization of L16 v0.18.3 selection semantics; no scientific change.",
+  "no_outcome_feedback": true,
+  "per_lane": 256,
+  "schema_id": "IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1",
+  "sealed_before_relational_analysis": true,
+  "spec_sha256": "6b6e784a8017525bf79ccd9dae4fa6bede7df765b8e6d55bb9621003765c61e7",
+  "union": "Set union of the five lane SHA lists, sorted SHA ascending."
+}

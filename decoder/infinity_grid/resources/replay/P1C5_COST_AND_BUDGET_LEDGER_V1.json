@@ -1,0 +1,1445 @@
+{
+  "cost_budget_policy": {
+    "budget_exceeded_outcome": "PERFORMANCE_BUDGET_EXCEEDED",
+    "default_current_node_budgets": {
+      "FRESH_RECOMPUTE": {
+        "cost_band": "UNKNOWN",
+        "memory_gib": 8,
+        "wall_seconds": 1800
+      },
+      "HISTORICAL_RESULT_ONLY": {
+        "cost_band": "TINY",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "SOURCE_INTEGRITY_ONLY": {
+        "cost_band": "TINY",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "VERIFIED_RESTORED_BLOCK": {
+        "cost_band": "LOW",
+        "memory_gib": 8,
+        "wall_seconds": 900
+      }
+    },
+    "launch_rule": "A prospective full empty-root run may not launch while any authorized pre-GLOBAL node is BUDGET_REQUIRED_BEFORE_RUN or PERFORMANCE_BUDGET_EXCEEDED_EXPECTED without an explicit external budget decision.",
+    "measurement_rule": "Do not sum shared measurements or infer full-science cost from focused tests.",
+    "purpose": "Operational ceilings and launch-readiness classifications, not fabricated runtime predictions.",
+    "unknown_cost_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+  },
+  "counts": {
+    "current_pre_global_outcomes": {
+      "BUDGET_REQUIRED_BEFORE_RUN": 1,
+      "LIKELY_WITHIN_BUDGET": 59
+    },
+    "pre_global_scientific_nodes": 60,
+    "prospective_full_empty_root_pre_global_outcomes": {
+      "BUDGET_REQUIRED_BEFORE_RUN": 57,
+      "LIKELY_WITHIN_BUDGET": 2,
+      "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED": 1
+    },
+    "scientific_nodes": 64
+  },
+  "layer_summary": [
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "L0",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "C0_HISTORICAL",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "L2J3",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "current_evidence_replay_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 1,
+        "LIKELY_WITHIN_BUDGET": 3
+      },
+      "layer": "NODE_IN",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "SCOUT_HISTORICAL",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "O1_O3",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "O4_O7",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G1",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G2",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G3",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G4",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G5",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G6",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 2,
+        "LIKELY_WITHIN_BUDGET": 2
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G7",
+      "prospective_full_empty_root_layer_status": "BUDGET_REQUIRED_BEFORE_RUN",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 4
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "G8",
+      "prospective_full_empty_root_layer_status": "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED",
+      "prospective_full_empty_root_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 3,
+        "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED": 1
+      },
+      "scientific_nodes": 4
+    },
+    {
+      "current_evidence_replay_layer_status": "LIKELY_WITHIN_BUDGET",
+      "current_evidence_replay_outcomes": {
+        "LIKELY_WITHIN_BUDGET": 4
+      },
+      "layer": "GLOBAL",
+      "prospective_full_empty_root_layer_status": "NOT_AUTHORIZED",
+      "prospective_full_empty_root_outcomes": {
+        "NOT_AUTHORIZED": 4
+      },
+      "scientific_nodes": 4
+    }
+  ],
+  "ledger_hash": "fcfbf938c69d096a19e7f9e0786a857fdf25e6a8d80c2c5d6159dbb44d24b883",
+  "measurement_evidence": [
+    {
+      "ref": "qualification_evidence/P1C4_RUNNER_PROBE_RESULT_V3.json",
+      "sha256": "240fc6f002e10c5c840ed3f8551b0318a172941061886a8cb1f4bcf739c05377"
+    }
+  ],
+  "node_records": [
+    {
+      "canonical_id": "IG/C0_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "C0_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/C0_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "C0_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/C0_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "C0_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "C0_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G1/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G1",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G1/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G1",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G1/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G1",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G1/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G1",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G2/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G2",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G2/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G2",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G2/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G2",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G2/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G2",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G3/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G3/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G3/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G4/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G4",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G4/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G4",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G4/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G4",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G4/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G4",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G5/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G5",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G5/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G5",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G5/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G5",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G5/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G5",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G6/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G6",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G6/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "MEASURED_SHARED_TWO_MODULE_PROBE_NOT_NODE_SEPARABLE",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "measurement_evidence": [
+          {
+            "ref": "qualification_evidence/P1C4_RUNNER_PROBE_RESULT_V3.json",
+            "sha256": "240fc6f002e10c5c840ed3f8551b0318a172941061886a8cb1f4bcf739c05377"
+          }
+        ],
+        "measurement_group_elapsed_seconds": 0.447,
+        "measurement_group_id": "G6_DEV45_TWO_MODULE_PROBE",
+        "measurement_group_tests_passed": 22,
+        "memory_gib": 8,
+        "wall_seconds": 1800
+      },
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "layer": "G6",
+      "prospective_full_empty_root_recompute": {
+        "basis": "MEASURED_MAPPED_SUBSET_ONLY_NOT_FULL_HISTORICAL_G6_SCIENCE",
+        "cost_band": "TINY_FOR_CURRENT_MAPPED_SUBSET",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G6/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "MEASURED_SHARED_TWO_MODULE_PROBE_NOT_NODE_SEPARABLE",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "measurement_evidence": [
+          {
+            "ref": "qualification_evidence/P1C4_RUNNER_PROBE_RESULT_V3.json",
+            "sha256": "240fc6f002e10c5c840ed3f8551b0318a172941061886a8cb1f4bcf739c05377"
+          }
+        ],
+        "measurement_group_elapsed_seconds": 0.447,
+        "measurement_group_id": "G6_DEV45_TWO_MODULE_PROBE",
+        "measurement_group_tests_passed": 22,
+        "memory_gib": 8,
+        "wall_seconds": 1800
+      },
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "layer": "G6",
+      "prospective_full_empty_root_recompute": {
+        "basis": "MEASURED_MAPPED_SUBSET_ONLY_NOT_FULL_HISTORICAL_G6_SCIENCE",
+        "cost_band": "TINY_FOR_CURRENT_MAPPED_SUBSET",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G6/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G6",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G7/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G7/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G7/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/G8/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G8",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "G8",
+      "prospective_full_empty_root_recompute": {
+        "basis": "CAP37_ZERO_DATA_INCOMPLETE_FRONTIER_AND_NO_COMPLETION_COST_MODEL",
+        "cost_band": "EXTREME_OR_UNBOUNDED_AT_CURRENT_FRONTIER",
+        "expected_outcome": "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/G8/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G8",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/G8/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "G8",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/GLOBAL/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "GLOBAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "GLOBAL_COMPONENTS_REPLAY_NOT_AUTHORIZED",
+        "cost_band": "NOT_APPLICABLE",
+        "expected_outcome": "NOT_AUTHORIZED"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/GLOBAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "GLOBAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "GLOBAL_COMPONENTS_REPLAY_NOT_AUTHORIZED",
+        "cost_band": "NOT_APPLICABLE",
+        "expected_outcome": "NOT_AUTHORIZED"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/GLOBAL/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "GLOBAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "GLOBAL_COMPONENTS_REPLAY_NOT_AUTHORIZED",
+        "cost_band": "NOT_APPLICABLE",
+        "expected_outcome": "NOT_AUTHORIZED"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/GLOBAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "GLOBAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "GLOBAL_COMPONENTS_REPLAY_NOT_AUTHORIZED",
+        "cost_band": "NOT_APPLICABLE",
+        "expected_outcome": "NOT_AUTHORIZED"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/L0/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "L0",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/L0/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "L0",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "L0",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "L0",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "L2J3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "L2J3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "L2J3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/L2J3/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "L2J3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/NODE_IN/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "NODE_IN",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/NODE_IN/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "NODE_IN",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/NODE_IN/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "NO_NODE_SPECIFIC_RUNTIME_MEASUREMENT",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN",
+        "memory_gib": 8,
+        "wall_seconds": 1800
+      },
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "layer": "NODE_IN",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/NODE_IN/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "NODE_IN",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/O1_O3/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "O1_O3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/O1_O3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "O1_O3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/O1_O3/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "O1_O3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "O1_O3",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/O4_O7/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "O4_O7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/O4_O7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "LOW",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 8,
+        "wall_seconds": 900
+      },
+      "effective_execution_class": "VERIFIED_RESTORED_BLOCK",
+      "layer": "O4_O7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/O4_O7/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "O4_O7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/O4_O7/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "O4_O7",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    },
+    {
+      "canonical_id": "IG/SCOUT_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "layer": "SCOUT_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "C"
+    },
+    {
+      "canonical_id": "IG/SCOUT_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "SCOUT_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "F"
+    },
+    {
+      "canonical_id": "IG/SCOUT_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "SCOUT_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "R"
+    },
+    {
+      "canonical_id": "IG/SCOUT_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "current_evidence_replay": {
+        "basis": "POLICY_CEILING_NOT_MEASURED_RUNTIME",
+        "cost_band": "TINY",
+        "expected_outcome": "LIKELY_WITHIN_BUDGET",
+        "memory_gib": 2,
+        "wall_seconds": 120
+      },
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "layer": "SCOUT_HISTORICAL",
+      "prospective_full_empty_root_recompute": {
+        "basis": "NO_COMPLETE_FRESH_HANDLER_AND_EMPIRICAL_COST_MODEL_BOUND_TO_THIS_NODE",
+        "cost_band": "UNKNOWN",
+        "expected_outcome": "BUDGET_REQUIRED_BEFORE_RUN"
+      },
+      "series": "S"
+    }
+  ],
+  "programme_summary": {
+    "current_evidence_replay": {
+      "pre_global_node_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 1,
+        "LIKELY_WITHIN_BUDGET": 59
+      },
+      "status": "BUDGET_INCOMPLETE_ONE_FRESH_NODE_UNMEASURED",
+      "total_runtime_estimate": "NOT_SUMMABLE_FROM_AVAILABLE_MEASUREMENTS"
+    },
+    "prospective_full_empty_root_recompute": {
+      "expected_performance_budget_exceeded_nodes": [
+        "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS"
+      ],
+      "pre_global_node_outcomes": {
+        "BUDGET_REQUIRED_BEFORE_RUN": 57,
+        "LIKELY_WITHIN_BUDGET": 2,
+        "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED": 1
+      },
+      "status": "DO_NOT_LAUNCH_COST_MODEL_INCOMPLETE",
+      "total_runtime_estimate": "UNAVAILABLE"
+    }
+  },
+  "schema_id": "IG/P1C5/COST_AND_BUDGET_LEDGER/V1",
+  "status": "COST_MODEL_INCOMPLETE_FULL_EMPTY_ROOT_RUN_BLOCKED",
+  "version": "1.0"
+}

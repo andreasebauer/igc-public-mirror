@@ -1,0 +1,73 @@
+{
+  "abstract_read_write_law": {
+    "bridge_enabled": "compose_{a,b}(f,g) is defined iff (a,b) is in the frozen 31-operator basis and f_a>0 and g_b>0",
+    "bridge_write": "compose_{a,b}(f,g)=f+g-e_a-e_b",
+    "reserve_enabled": "reserve_t(f) is defined iff f_t > 0",
+    "reserve_write": "reserve_t(f)=f-e_t"
+  },
+  "candidate_descriptor": {
+    "excluded": [
+      "skin",
+      "construction_digest",
+      "child_index",
+      "owner_witness",
+      "children",
+      "topology",
+      "ancestry",
+      "branch_multiplicity"
+    ],
+    "fields": [
+      "total_free_by_type[0..6]"
+    ],
+    "name": "CAPS7",
+    "schema_id": "IG_G2_CAPS7_STATE_V1",
+    "state": "f=(f0,...,f6) in N^7, where ft is the total currently free public capacity of endpoint type t across the complete G2 unit"
+  },
+  "date": "2026-09-03",
+  "exact_gates": [
+    "S5_UNLOCK_CERTIFICATE_AND_S4_SCIENCE_IDENTITY_PASS",
+    "ALL_193_S0_ATOMS_OBEY_ONE_RESERVATION_TOTAL_CAPACITY_DECREMENT_LAW_FOR_ALL_AVAILABLE_TYPES",
+    "ALL_580351_CERTIFIED_S1_PAIR_OUTPUTS_MAP_TO_VALID_CAPS7_DESCRIPTORS_WITH_DETERMINISTIC_CANONICAL_CLASS_HASH",
+    "S4_RELATION_VALUED_OPERATOR_BASIS_REPLAYS_CAPS7_BINARY_WRITE_LAW_FOR_ALL_31_OPERATORS_AND_EVERY_EXACT_BRANCH",
+    "IMPLEMENTED_G2_RELATION_LEGALITY_DOES_NOT_READ_SKIN_OR_CONSTRUCTION_IDENTITY_AS_A_SELECTOR",
+    "INDEPENDENT_COLD_REPLAY_MATCHES_PRIMARY_S5_SCIENCE_PAYLOAD"
+  ],
+  "frozen_observer": {
+    "branch_quotient_rule": "all exact relation-valued branches that map to the same CAPS7 vector are one abstract successor",
+    "does_not_observe": [
+      "raw lower-G/G2 skin",
+      "which child supplied an endpoint",
+      "number of exact owner branches",
+      "construction identity",
+      "hidden topology"
+    ],
+    "name": "G2_TRANSITION_GRAMMAR_CAPS7_OBSERVER_V1",
+    "reads": [
+      "external reservation enabledness by endpoint type",
+      "earned typed binary bridge enabledness",
+      "successor CAPS7 state(s)"
+    ]
+  },
+  "g2_relation_spec_sha256": "e1f2f7502ab44c5e79d98abe25d041f2068b545828c9fd8ca778bbdd7f574214",
+  "hard_firewalls": [
+    "NO_CHANGE_TO_FROZEN_G1_RESERVE_EXTERNAL",
+    "NO_CHANGE_TO_RELATION_VALUED_G2_ROUTING",
+    "NO_CONSTRUCTION_DIGEST_OR_CARRIER_REF_IN_DESCRIPTOR",
+    "NO_RAW_SKIN_EQUIVALENCE_CLAIM",
+    "NO_BRANCH_MULTIPLICITY_EQUIVALENCE_CLAIM",
+    "NO_MINIMALITY_CLAIM",
+    "NO_G2_GRADUATION"
+  ],
+  "parent_s4_science_sha256": "99f4f6845b6c34a9b6238d48e81548e8aca141389f360bd3265baf2ec52ad671",
+  "parent_s5_unlock_science_sha256": "dd4737d1f68de1fea644fdd7e10326b64cd1e66b7ff83e52cde858ca8a8cd6c8",
+  "pass_effect": "unlock G2:S6 recursive closure/graduation audit only; no G2 graduation",
+  "promotion": false,
+  "proof_obligation": "The exact G2 relation may branch internally, but every reservation branch must decrement exactly one coordinate and every binary-composition branch must realize the same CAPS7 output. Therefore the exact transition relation factors through CAPS7. S5 does not claim raw-public-state equivalence or branch-count equivalence.",
+  "question": "Under the frozen v0.30.2 relation-valued G2 routing and the 31 earned bridge operators, is the seven-coordinate total-free-resource vector a finite read/write quotient state sufficient for every admitted G2 external-reservation and binary-composition transition?",
+  "schema_id": "IG_G_UPLIFT_S5_FINITE_STATE_DESCRIPTOR_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "95521eadcf9a8eefea1291ff358da757b26cc59a4022abf45e270c99b35c3bf2",
+  "source_stage": "G2:S4",
+  "stage_ref": "G2:S5",
+  "status": "FROZEN_BEFORE_S5_EXECUTION"
+}

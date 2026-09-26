@@ -1,0 +1,140 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_EARNED_LAW_REGISTRY_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "laws": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "classification": {
+            "type": "string"
+          },
+          "conclusion": {
+            "type": "string"
+          },
+          "discovery_backbone_signature_sha256": {
+            "type": "string"
+          },
+          "discovery_scanner_science_sha256": {
+            "type": "string"
+          },
+          "discovery_window": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "evidence": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "factorization": {
+            "type": "string"
+          },
+          "holdout_depths": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "hypotheses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "law_id": {
+            "type": "string"
+          },
+          "nonclaims": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "observer": {
+            "type": "string"
+          },
+          "observer_families": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reopen_if": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "scanner_effect": {
+            "type": "string"
+          },
+          "science_sha256": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "source_audit_science_sha256": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "verified_depths": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "verified_recipe_count": {
+            "type": "integer"
+          },
+          "wide_validation_signature_sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "classification",
+          "factorization",
+          "law_id",
+          "nonclaims",
+          "reopen_if",
+          "scanner_effect",
+          "science_sha256",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_O_REGIME_EARNED_LAW_REGISTRY_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "laws",
+    "registry_sha256",
+    "schema_id",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_EARNED_LAW_REGISTRY_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

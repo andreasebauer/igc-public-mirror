@@ -1,0 +1,16 @@
+{
+  "ambiguity": "More than one admissible candidate without an exact precedence rule is an error, never a best-effort choice.",
+  "offline_requirement": "A standalone export must resolve all required roots without network access.",
+  "path_handling": "Paths are materialization destinations or provenance hints only.",
+  "remote_requirement": "A compact export may reference remote/pinned roots by hash if the export explicitly declares non-standalone mode.",
+  "resolution_order": [
+    "exact node_id/content hash locally verified",
+    "exact logical node materialized from local object store",
+    "exact node imported from verified graph export/remote store",
+    "deterministically rebuild dependency from a validated recipe",
+    "FAIL_CLOSED"
+  ],
+  "schema_id": "IG_DEPENDENCY_RESOLUTION_POLICY_V0_1",
+  "semantic_aliases": "Human-readable aliases (e.g. ig:O6/graduated-carrier/v1) resolve to one immutable node identity through a versioned alias record; aliases are never themselves scientific identities.",
+  "version": "0.1"
+}

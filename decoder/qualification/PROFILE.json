@@ -1,0 +1,293 @@
+{
+  "schema_id": "IG_QUALIFICATION_PROFILE_V1",
+  "identity_source": "infinity_grid/_version.py",
+  "support": {
+    "os": "Linux",
+    "python_tested": "CPython 3.12",
+    "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified"
+  },
+  "environment": [
+    {
+      "distribution": "pytest",
+      "version": "8.3.5",
+      "imports": [
+        "pytest"
+      ]
+    },
+    {
+      "distribution": "cryptography",
+      "version": "46.0.4",
+      "imports": [
+        "cryptography"
+      ]
+    },
+    {
+      "distribution": "igraph",
+      "version": "1.0.0",
+      "imports": [
+        "igraph"
+      ]
+    },
+    {
+      "distribution": "sympy",
+      "version": "1.14.0",
+      "imports": [
+        "sympy"
+      ]
+    },
+    {
+      "distribution": "networkx",
+      "version": "3.4.2",
+      "imports": [
+        "networkx"
+      ]
+    },
+    {
+      "distribution": "mpmath",
+      "version": "1.3.0",
+      "imports": [
+        "mpmath"
+      ]
+    },
+    {
+      "distribution": "cffi",
+      "version": "2.1.1",
+      "imports": [
+        "cffi"
+      ]
+    },
+    {
+      "distribution": "pycparser",
+      "version": "3.0",
+      "imports": [
+        "pycparser"
+      ]
+    },
+    {
+      "distribution": "texttable",
+      "version": "1.7.0",
+      "imports": [
+        "texttable"
+      ]
+    },
+    {
+      "distribution": "pluggy",
+      "version": "1.6.0",
+      "imports": [
+        "pluggy"
+      ]
+    },
+    {
+      "distribution": "iniconfig",
+      "version": "2.3.0",
+      "imports": [
+        "iniconfig"
+      ]
+    },
+    {
+      "distribution": "packaging",
+      "version": "26.3",
+      "imports": [
+        "packaging"
+      ]
+    },
+    {
+      "distribution": "setuptools",
+      "version": "84.0.0",
+      "imports": [
+        "setuptools"
+      ]
+    },
+    {
+      "distribution": "wheel",
+      "version": "0.48.0",
+      "imports": [
+        "wheel"
+      ]
+    },
+    {
+      "distribution": "pip",
+      "version": "26.2.1",
+      "imports": [
+        "pip"
+      ]
+    }
+  ],
+  "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+  "group_order": [
+    "functional",
+    "workspace",
+    "representative",
+    "timing"
+  ],
+  "groups": {
+    "functional": {
+      "workers": 4,
+      "selectors": [
+        "tests/test_08lib_backend.py",
+        "tests/test_08lib_graph_metrics.py",
+        "tests/test_08lib_group_closure.py",
+        "tests/test_audit_stop_recovery.py",
+        "tests/test_change_preservation_rebind.py",
+        "tests/test_completion_publication.py",
+        "tests/test_decoder061_combined_contract.py",
+        "tests/test_decoder06_capture.py",
+        "tests/test_decoder06_changes.py",
+        "tests/test_decoder06_invocation.py",
+        "tests/test_decoder06_portable_registry.py",
+        "tests/test_decoder06_project_stage.py",
+        "tests/test_decoder06_results_preservation.py",
+        "tests/test_decoder06_shared_authority.py",
+        "tests/test_decoder06_transport.py",
+        "tests/test_decoder07_candidate_workflow.py",
+        "tests/test_decoder07_certified_base.py",
+        "tests/test_decoder07_migration_continuation.py",
+        "tests/test_decoder07_semantic_inputs.py",
+        "tests/test_e3_g6_controller_generation_evaluators.py",
+        "tests/test_engine_kernel_e1.py",
+        "tests/test_exact_relation_profile_bridge_fastpath_a24r.py",
+        "tests/test_exact_tree_relation_kernel_v03087.py",
+        "tests/test_execution_start_method_portability.py",
+        "tests/test_g6_fresh_marker_operations.py",
+        "tests/test_g6_marker_cache_optimization.py",
+        "tests/test_g6_r0_post_graduation_fiber.py",
+        "tests/test_g6_s1_repair_v03083.py",
+        "tests/test_g6_s2_repaired_v03085.py",
+        "tests/test_g6_s3_repaired_v03086.py",
+        "tests/test_g6_s5r_compositional_read_write.py",
+        "tests/test_g6_s5r_crw1.py",
+        "tests/test_g6_s5r_observer_continuity.py",
+        "tests/test_g6_s5r_wider_feature_search.py",
+        "tests/test_g6_s6r_global_observer_congruence.py",
+        "tests/test_g6_s6r_l2_proof_reduction.py",
+        "tests/test_g6_s6r_l2_repair.py",
+        "tests/test_g6_s6r_support.py",
+        "tests/test_g6_s7_a6_reuse_provenance.py",
+        "tests/test_g6_s7_depth2_completion.py",
+        "tests/test_g6_s7_ordinary_future_quotient.py",
+        "tests/test_g6_s7d2_compact_family_a30.py",
+        "tests/test_g6_s7d2_e2_export_a22.py",
+        "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py",
+        "tests/test_g6_s7d2_profile_batch_a27.py",
+        "tests/test_g6_s7d2_semantic_equivalence_a21.py",
+        "tests/test_g6_s8_intrinsic_descriptor.py",
+        "tests/test_g6_s8_v3_targeted_probe.py",
+        "tests/test_g6_stage_executors_v03082.py",
+        "tests/test_h1_h13_semantic_classification_spot_check.py",
+        "tests/test_legacy_capture_receipts.py",
+        "tests/test_no_deadline_conveyor_run_operation.py",
+        "tests/test_o7_c1_broader_lanes.py",
+        "tests/test_o7_c1_graph_comparison.py",
+        "tests/test_o7_c1_high_lanes.py",
+        "tests/test_o7_c1_hybrid_lane_extension.py",
+        "tests/test_o7_c1_independent_canonicalization.py",
+        "tests/test_o7_c1_independent_materialization.py",
+        "tests/test_o7_c1_independent_merkle.py",
+        "tests/test_o7_c1_independent_o6_lanes.py",
+        "tests/test_o7_c1_independent_o6_observer.py",
+        "tests/test_o7_c1_independent_parent_orbits.py",
+        "tests/test_o7_c1_median_lanes.py",
+        "tests/test_o7_c1_next_ten.py",
+        "tests/test_o7_c1_next_uncovered.py",
+        "tests/test_o7_c1_outer_action_profile.py",
+        "tests/test_o7_c1_remaining_151.py",
+        "tests/test_o7_c1_remaining_maxima.py",
+        "tests/test_o7_c1_typed_baseline.py",
+        "tests/test_o7_historical_structural_comparison.py",
+        "tests/test_o7_legacy_library_comparison.py",
+        "tests/test_o7_symmetry_library_comparison.py",
+        "tests/test_p1c2_audit_provenance_ledger.py",
+        "tests/test_p1c3_known_replay_qualifications.py",
+        "tests/test_p1c4_execution_classes.py",
+        "tests/test_p1c5_cost_budget_ledger.py",
+        "tests/test_p1d_fresh_replay_certificate.py",
+        "tests/test_p2a_replay_dag_runner.py",
+        "tests/test_p2b_registered_replay_root.py",
+        "tests/test_p3_replay_reference_data.py",
+        "tests/test_p4_l0_pilot.py",
+        "tests/test_p5_c0_historical.py",
+        "tests/test_p6_l2j3_historical.py",
+        "tests/test_p7_node_in.py",
+        "tests/test_p8_scout_historical.py",
+        "tests/test_p9_o1_o3.py",
+        "tests/test_qualification_contract.py",
+        "tests/test_r02_replay_self_qualification.py",
+        "tests/test_repair7r_reuse_evidence.py",
+        "tests/test_repair7r_sqlite_lifecycle.py",
+        "tests/test_replay_checkpoint_consistency.py",
+        "tests/test_replay_index_preservation.py",
+        "tests/test_replay_obligation_compiler_p1a2.py",
+        "tests/test_replay_obligation_compiler_p1b.py",
+        "tests/test_replay_obligation_compiler_p1b2.py",
+        "tests/test_replay_obligation_compiler_p1c.py",
+        "tests/test_structural_encoding_e2.py",
+        "tests/test_v05_c5_origin_exclusivity.py",
+        "tests/test_v05_c6_namespace_identity.py",
+        "tests/test_v05_c6_persistent_recovery.py",
+        "tests/test_v05_cancel_control.py",
+        "tests/test_v05_controller_namespace_portability.py",
+        "tests/test_v05_controller_process_handler_routing.py",
+        "tests/test_v05_engineering_same_identity_authorization.py",
+        "tests/test_v05_g6_chaining_v03081.py",
+        "tests/test_v05_memory_housekeeping.py",
+        "tests/test_v05_o3a_kernel_service_boundary.py",
+        "tests/test_v05_o3b_kernel_service_migration.py",
+        "tests/test_v05_o3c_shared_exact_caches.py",
+        "tests/test_v05_passive_intake_idempotency.py",
+        "tests/test_v05_s8_optimization_acceptance.py",
+        "tests/test_v05_stage_runtime_exact_byte_handoff.py",
+        "tests/test_v05_stage_runtime_resume_kernel_view.py",
+        "tests/test_validation_recorder_finalization.py",
+        "tests/test_validation_worker_log_publication.py"
+      ]
+    },
+    "workspace": {
+      "workers": 4,
+      "selectors": [
+        "tests/test_v05_registered_workspace.py"
+      ]
+    },
+    "representative": {
+      "workers": 4,
+      "selectors": [
+        "tests/test_v05_stage_runtime_representative_bytes.py"
+      ]
+    },
+    "timing": {
+      "workers": 1,
+      "selectors": [
+        "tests/test_v05_o3c_benchmarks.py"
+      ]
+    }
+  },
+  "required_fixtures": [
+    {
+      "logical_name": "step2_parent_snapshot",
+      "sha256": "713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8",
+      "bytes": 14778768,
+      "drive_id": "1wMPapx4NjbldwpZi10NlE8SdOgf6pjG9",
+      "rule": "Immutable historical dev2 fixture; preserve original bytes."
+    },
+    {
+      "logical_name": "saved_stage_one",
+      "rule": "Generate through saved native capture on the exact candidate; record archive hash and completion or expected refusal before dependent gate."
+    },
+    {
+      "logical_name": "saved_stage_four",
+      "rule": "Generate through saved native capture on the exact candidate; record archive hash and completion or expected refusal before dependent gate."
+    },
+    {
+      "logical_name": "saved_stage_outcome",
+      "rule": "Generate through saved native capture on the exact candidate; record archive hash and completion or expected refusal before dependent gate."
+    },
+    {
+      "logical_name": "saved_representative_qualification",
+      "rule": "Generate through saved native capture on the exact candidate; record archive hash and completion or expected refusal before dependent gate."
+    },
+    {
+      "logical_name": "saved_stage_one_prerun",
+      "rule": "Export the genuine saved stage-one capture before its first execution. No completion, prepared record, attempts or edited history. This independent archive is required for interruption injection."
+    }
+  ],
+  "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited."
+}

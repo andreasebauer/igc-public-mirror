@@ -1,0 +1,1037 @@
+{
+  "authorized_replay_through_layer": "G8",
+  "dag_declared_sha256": "53d91202fef43918396567e0c069c8ce91e58f78390b7b03e51d7f0ea86e2f46",
+  "dag_path": "/workspace/scratch/7d00d84faa68/dev33_minimal_restore/dev44_source/infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V7.json",
+  "dag_sha256": "4aa7822bbb2ede67228cb4a087ff044b8de3e0389f26fa2c306abe618276a33a",
+  "fail_closed": true,
+  "g_layer_qualifications": {
+    "G1": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G2": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G3": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G4": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G5": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G6": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": true,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 2,
+      "status": "PASS"
+    },
+    "G7": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    },
+    "G8": {
+      "assertion_mappings": 4,
+      "fresh_recomputation": false,
+      "independent_confirmation": false,
+      "source_integrity_only_assertions": 4,
+      "status": "PASS"
+    }
+  },
+  "independent_test_records": [
+    {
+      "elapsed_seconds": 0.602,
+      "independent_confirmation": false,
+      "layer": "G6",
+      "mode": "FRESH_RECOMPUTATION",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "......................                                                   [100%]\n22 passed in 0.22s\n",
+      "test_file_sha256": {
+        "tests/test_g6_s6r_global_observer_congruence.py": "2e08c49de4f28e9739a205b36f6d424a43e04562fa80e836ce7fe65b6c6a8d57",
+        "tests/test_g6_s8_intrinsic_descriptor.py": "44f109776cf205379d6ec1ad457b8713abb9b0f03edb34203f21d1bf832daaca"
+      },
+      "test_paths": [
+        "tests/test_g6_s6r_global_observer_congruence.py",
+        "tests/test_g6_s8_intrinsic_descriptor.py"
+      ]
+    }
+  ],
+  "known_replay_qualifications": [
+    {
+      "affected_assertion_ids": [
+        "IGAM/G6/F/TEST_G6_S8_INTRINSIC_DESCRIPTOR_PY"
+      ],
+      "affected_obligation_ids": [
+        "IG/G6/F/ASSERTION_MAPPED_FALSIFICATIONS"
+      ],
+      "boundary": "G6 S7 A30/FEX1 only; the unrelated L2/J3 oracle assertion named A30 is explicitly excluded.",
+      "category": "IN_SAMPLE_SHARED_DEFECT_HISTORY",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "RELEASE_0.6_READ_FIRST.txt",
+          "sha256": "4a08f549bd759c8450e08c758fe513e76c3cf84b67926b3fe0f619fa98a875d9"
+        },
+        {
+          "ref": "tests/test_g6_s7d2_compact_family_a30.py",
+          "sha256": "2a921e3f4a56014c8826df9f6c62d97323c3333812b4b8041b0222b55b563348"
+        },
+        {
+          "ref": "tests/test_g6_r0_post_graduation_fiber.py",
+          "sha256": "a171b0e745c03862c69c3b32c03db8e7ae7a0c978c958db8cf41ae4b2fca6d85"
+        }
+      ],
+      "evidence_status": "REPORTED_LINK_NOT_INDEPENDENTLY_REVERIFIED_IN_THIS_STEP",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1",
+      "record_hash": "b5124beebcfa99e901364366dddb5dbcfe32f6f859204bfd99641ababcf2c281",
+      "replay_effect": "CONTINUE_WITH_QUALIFICATION",
+      "required_result_language": "QUALIFIED_REPRODUCTION_IN_SAMPLE",
+      "status": "ACTIVE"
+    },
+    {
+      "affected_assertion_ids": [
+        "IGAM/G7/C/HANDOFF_CONTRACT",
+        "IGAM/G7/F/OPEN_NONCLAIMS",
+        "IGAM/G7/R/C9C_C9F_NECESSITY",
+        "IGAM/G7/S/C9A_C9B_STATE"
+      ],
+      "affected_obligation_ids": [
+        "IG/G7/C/ASSERTION_MAPPED_INTERFACES",
+        "IG/G7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+        "IG/G7/R/ASSERTION_MAPPED_RELATIONS",
+        "IG/G7/S/ASSERTION_MAPPED_STRUCTURE"
+      ],
+      "boundary": "No historical receipt may certify current bytes until its exact hashes are reconciled.",
+      "category": "UNRESOLVED_PROVENANCE_DISCREPANCY",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6"
+        }
+      ],
+      "evidence_status": "REPORTED_MISMATCH_EXACT_RECEIPT_FILE_PAIR_NOT_LOCATED",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1",
+      "record_hash": "47289df4693862127e965a4f312d25cbed51533bfd557d8341d9d318e35fca5c",
+      "replay_effect": "SOURCE_INTEGRITY_MAY_CONTINUE_RECEIPT_BASED_REUSE_MUST_STOP",
+      "required_result_language": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "status": "ACTIVE"
+    },
+    {
+      "affected_assertion_ids": [
+        "IGAM/G8/F/CAP37_ZERO_DATA"
+      ],
+      "affected_obligation_ids": [
+        "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS"
+      ],
+      "boundary": "Zero-data is not CAP37 completion; crossing the recorded frontier is UNAUDITED_G8_FRONTIER.",
+      "category": "NEGATIVE_INCOMPLETE_FRONTIER",
+      "evidence_pins": [
+        {
+          "ref": "p1c3_qualification_records/KNOWN_REPLAY_QUALIFICATIONS_DECISION_2026-09-22.txt",
+          "sha256": "fc047caaf3db45161665dcae5136d42915a2a744383e90146c3d806c38e423bf"
+        },
+        {
+          "ref": "p1b_external_sources/G8_CAP37_32768_ZERO_DATA_HANDOFF_2026-09-20.txt",
+          "sha256": "5b3dd7b6f301cf1609511d9c12151182cb741aa2c0170a59c52b40ecb3814b4d"
+        }
+      ],
+      "evidence_status": "PINNED_HISTORICAL_NEGATIVE_HANDOFF",
+      "nonclaims": [
+        "A reproduced result is not independently confirmed.",
+        "This qualification does not alter frozen historical result bytes."
+      ],
+      "qualification_id": "IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1",
+      "record_hash": "24639b3253d2b8394df772e239ea9bd49d821b1dcf7457ca662e7f2f1f8d51e2",
+      "replay_effect": "CONTINUE_TO_RECORDED_FRONTIER_THEN_STOP_UNAUDITED",
+      "required_result_language": "REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME",
+      "status": "ACTIVE"
+    }
+  ],
+  "next_wait_layer": "GLOBAL",
+  "qualification_note": "REPRODUCED means agreement under the declared evidence mode and scope, not independent confirmation. Fresh computation is claimed only for the formal, finite-L2, O-target, and named G6 executable checks. Other G1-G8 assertions are source-integrity qualifications.",
+  "result_language_policy": {
+    "forbidden_unqualified_terms": [
+      "CONFIRMED",
+      "INDEPENDENTLY_CONFIRMED",
+      "MATCH"
+    ],
+    "meaning": "Agreement with pinned expected evidence under the declared evidence mode and scope.",
+    "success_term": "REPRODUCED"
+  },
+  "schema_id": "IG_P1D_AUTHORIZED_PREFIX_REPLAY_RESULT_V2",
+  "science_executed": true,
+  "source_records": [
+    {
+      "assertion_id": "IGAM/G1/C/PUBLIC_ONE_ENDPOINT_INTERFACE",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G1",
+      "locator": {
+        "selector": "public interface contract and implementation",
+        "source_ref": "infinity_grid/resources/uplift/G_UPLIFT_ARCHITECTURE_CONTRACT_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "observed_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_ARCHITECTURE_CONTRACT_V1.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "f383ca5fb1e06c5bd9c9f9149f64e551d92697a0724e6ba46c9f6c614cb0ff55",
+          "observed_sha256": "f383ca5fb1e06c5bd9c9f9149f64e551d92697a0724e6ba46c9f6c614cb0ff55",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_S0_S1_IMPLEMENTATION_SPEC_V2.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "3eb7e414c918e76deb176979abc8cfec1e278f90f70273bbeda6da71f68c13e6",
+          "observed_sha256": "3eb7e414c918e76deb176979abc8cfec1e278f90f70273bbeda6da71f68c13e6",
+          "ref": "infinity_grid/uplift_structural.py",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G1/F/REOPEN_AND_NONCLAIM_BOUNDARY",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G1",
+      "locator": {
+        "selector": "nonclaims and reopen/stop rules",
+        "source_ref": "p1c_historical_sources/O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "observed_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "ref": "p1c_historical_sources/O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "observed_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_ARCHITECTURE_CONTRACT_V1.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "f383ca5fb1e06c5bd9c9f9149f64e551d92697a0724e6ba46c9f6c614cb0ff55",
+          "observed_sha256": "f383ca5fb1e06c5bd9c9f9149f64e551d92697a0724e6ba46c9f6c614cb0ff55",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_S0_S1_IMPLEMENTATION_SPEC_V2.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G1/R/GRRL_RECURSIVE_FUTURE_CONTROL",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "THEOREM",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G1",
+      "locator": {
+        "selector": "H1-H13, conclusions C1-C10, O7 instantiation",
+        "source_ref": "p1c_historical_sources/GRRL_THEOREM_SPEC_v1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "45f3e6c187db650379b0e01ba4f0f08799310d30912cd0d1f6fb91336d9a7f99",
+          "observed_sha256": "45f3e6c187db650379b0e01ba4f0f08799310d30912cd0d1f6fb91336d9a7f99",
+          "ref": "p1c_historical_sources/GRRL_THEOREM_SPEC_v1.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "a6250559080bf6c82baf6cb21e70e4f844fb3de4fe288a0c56dbe2d77b79425c",
+          "observed_sha256": "a6250559080bf6c82baf6cb21e70e4f844fb3de4fe288a0c56dbe2d77b79425c",
+          "ref": "p1c_historical_sources/O7_GRRL_INSTANTIATION_RESULT.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "observed_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "ref": "p1c_historical_sources/O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G1/S/O7_TO_G1_EARNED_CARRIER",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "THEOREM",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G1",
+      "locator": {
+        "selector": "O7 carrier statement plus explicit active-axis crosswalk",
+        "source_ref": "p1c_historical_sources/O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "observed_sha256": "de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab",
+          "ref": "p1c_historical_sources/O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "observed_sha256": "8aec7066010ae1643bfe662adf20ebdbdc44f8e985a3d671cd1ec39e4ed7debf",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_ARCHITECTURE_CONTRACT_V1.json",
+          "status": "PASS"
+        },
+        {
+          "expected_sha256": "02a3c498bc0ef467c41a80c74efc98e116e14932f64ffc3bb5bddb4d24695f49",
+          "observed_sha256": "02a3c498bc0ef467c41a80c74efc98e116e14932f64ffc3bb5bddb4d24695f49",
+          "ref": "infinity_grid/resources/uplift/G_UPLIFT_NOMENCLATURE_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/C_G2_RELATION_VALUED_RESERVATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G2",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G2_RELATION_VALUED_RESERVATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "e30fbc49328a52b8273e6cd72bc024272d3d56666caac86d5ed6fd81361fc985",
+          "observed_sha256": "e30fbc49328a52b8273e6cd72bc024272d3d56666caac86d5ed6fd81361fc985",
+          "ref": "infinity_grid/resources/uplift/G2_RELATION_VALUED_RESERVATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/F_G2_TORIC_STRUCTURE_AUDIT_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G2",
+      "locator": {
+        "selector": "/authority",
+        "source_ref": "infinity_grid/resources/uplift/G2_TORIC_STRUCTURE_AUDIT_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "c622d2b9a73cd0ccb54976cbf6e85cb1059fa31742ff365acb44542e22fac4fd",
+          "observed_sha256": "c622d2b9a73cd0ccb54976cbf6e85cb1059fa31742ff365acb44542e22fac4fd",
+          "ref": "infinity_grid/resources/uplift/G2_TORIC_STRUCTURE_AUDIT_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/R_G2_R0_STRUCTURAL_RECON_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G2",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G2_R0_STRUCTURAL_RECON_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "3f6a8c215e8e46f8819eaf48ff2bdfe77481c31c55a989572e772be55b1763fd",
+          "observed_sha256": "3f6a8c215e8e46f8819eaf48ff2bdfe77481c31c55a989572e772be55b1763fd",
+          "ref": "infinity_grid/resources/uplift/G2_R0_STRUCTURAL_RECON_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/S_G2_TORIC_STRUCTURE_AUDIT_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G2",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G2_TORIC_STRUCTURE_AUDIT_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "c622d2b9a73cd0ccb54976cbf6e85cb1059fa31742ff365acb44542e22fac4fd",
+          "observed_sha256": "c622d2b9a73cd0ccb54976cbf6e85cb1059fa31742ff365acb44542e22fac4fd",
+          "ref": "infinity_grid/resources/uplift/G2_TORIC_STRUCTURE_AUDIT_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/C_G3_S0_INTERFACE_EXTRACTION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G3",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G3_S0_INTERFACE_EXTRACTION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "731b8dfc0a0342e71d0bf1347b27c1f9c05cd6a72a44fcd8129c25b595a07234",
+          "observed_sha256": "731b8dfc0a0342e71d0bf1347b27c1f9c05cd6a72a44fcd8129c25b595a07234",
+          "ref": "infinity_grid/resources/uplift/G3_S0_INTERFACE_EXTRACTION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/F_G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G3",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "119a6003dc223109482493ea4c7aae064865c42c09c0da5e0665a56522bfec2c",
+          "observed_sha256": "119a6003dc223109482493ea4c7aae064865c42c09c0da5e0665a56522bfec2c",
+          "ref": "infinity_grid/resources/uplift/G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/R_G3_R3_STRUCTURAL_ALGEBRA_REBASE_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G3",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G3_R3_STRUCTURAL_ALGEBRA_REBASE_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "ddc5a8a997d9a256c6c9128acc3d1873d613f00bab72a24b0fb7a7e2981ff9d3",
+          "observed_sha256": "ddc5a8a997d9a256c6c9128acc3d1873d613f00bab72a24b0fb7a7e2981ff9d3",
+          "ref": "infinity_grid/resources/uplift/G3_R3_STRUCTURAL_ALGEBRA_REBASE_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/S_G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G3",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "25816a8bdb0ef473a7413df211f2dced113065dc8f3bfd75bc03097e81f752e1",
+          "observed_sha256": "25816a8bdb0ef473a7413df211f2dced113065dc8f3bfd75bc03097e81f752e1",
+          "ref": "infinity_grid/resources/uplift/G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/C_G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G4",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "9be479b698b9ba60d7ba23d977eda334e3b6fdff13387c9b8f041849f2a4a634",
+          "observed_sha256": "9be479b698b9ba60d7ba23d977eda334e3b6fdff13387c9b8f041849f2a4a634",
+          "ref": "infinity_grid/resources/uplift/G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/F_G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G4",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "62ebe655867ab4fd353a3a9b149809394f6686db236b56c11b6a57fa4411fda7",
+          "observed_sha256": "62ebe655867ab4fd353a3a9b149809394f6686db236b56c11b6a57fa4411fda7",
+          "ref": "infinity_grid/resources/uplift/G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/R_G4_R7_REBASE_REALIZABILITY_OBSERVER_QUOTIENT_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G4",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G4_R7_REBASE_REALIZABILITY_OBSERVER_QUOTIENT_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "27a671abf193dde6f6425a15e475529369a477803a02c46f93d64affeffc1b79",
+          "observed_sha256": "27a671abf193dde6f6425a15e475529369a477803a02c46f93d64affeffc1b79",
+          "ref": "infinity_grid/resources/uplift/G4_R7_REBASE_REALIZABILITY_OBSERVER_QUOTIENT_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/S_G4_S6_REBASE_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G4",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G4_S6_REBASE_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "2bbba76e965b61bea7e7efd9fd9392e0ea6119086e62e94f91b19dab76f89c29",
+          "observed_sha256": "2bbba76e965b61bea7e7efd9fd9392e0ea6119086e62e94f91b19dab76f89c29",
+          "ref": "infinity_grid/resources/uplift/G4_S6_REBASE_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/C_G5_S4_COMPOSITION_CLOSURE_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G5",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G5_S4_COMPOSITION_CLOSURE_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "fe64213dc5820e653764c2278d774d969d02084ca0eef636719b59b064bedf17",
+          "observed_sha256": "fe64213dc5820e653764c2278d774d969d02084ca0eef636719b59b064bedf17",
+          "ref": "infinity_grid/resources/uplift/G5_S4_COMPOSITION_CLOSURE_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/F_G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G5",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "7b9e523e3eabf39451d84791663ce2128a2c91ddedcd53e74d28105b27e8d4ac",
+          "observed_sha256": "7b9e523e3eabf39451d84791663ce2128a2c91ddedcd53e74d28105b27e8d4ac",
+          "ref": "infinity_grid/resources/uplift/G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/R_G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G5",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "a49e85cc6ee95975375ba4e8ea5ba5518d26854b3b9b414ce8e43ac4b4ea9049",
+          "observed_sha256": "a49e85cc6ee95975375ba4e8ea5ba5518d26854b3b9b414ce8e43ac4b4ea9049",
+          "ref": "infinity_grid/resources/uplift/G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/S_G5_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G5",
+      "locator": {
+        "selector": "/question",
+        "source_ref": "infinity_grid/resources/uplift/G5_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "a9841bad9b01ea9e515baff28c40a04ee2c9fc4dfb1dacdb7b6a1e2f395e3dcb",
+          "observed_sha256": "a9841bad9b01ea9e515baff28c40a04ee2c9fc4dfb1dacdb7b6a1e2f395e3dcb",
+          "ref": "infinity_grid/resources/uplift/G5_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G6/C/G6_MASTER_CHAIN_DESIGN_TEMPLATE_V1_JSON",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G6",
+      "locator": {
+        "selector": "/interface",
+        "source_ref": "infinity_grid/resources/uplift/G6_MASTER_CHAIN_DESIGN_TEMPLATE_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "64a17fd837fcd1e582593925eb3709d7137933c6645117f02ca965aca4c8ecb8",
+          "observed_sha256": "64a17fd837fcd1e582593925eb3709d7137933c6645117f02ca965aca4c8ecb8",
+          "ref": "infinity_grid/resources/uplift/G6_MASTER_CHAIN_DESIGN_TEMPLATE_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G6/F/TEST_G6_S8_INTRINSIC_DESCRIPTOR_PY",
+      "comparison_result": "QUALIFIED_REPRODUCTION_IN_SAMPLE",
+      "evidence_mode": "INDEPENDENT_RECOMPUTATION",
+      "known_qualification_ids": [
+        "IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1"
+      ],
+      "known_qualifications": [
+        "QUALIFIED_REPRODUCTION_IN_SAMPLE"
+      ],
+      "layer": "G6",
+      "locator": {
+        "selector": "test_*",
+        "source_ref": "tests/test_g6_s8_intrinsic_descriptor.py"
+      },
+      "locator_present": true,
+      "qualification": "FRESH_RECOMPUTATION_QUALIFIED",
+      "source_pins": [
+        {
+          "expected_sha256": "44f109776cf205379d6ec1ad457b8713abb9b0f03edb34203f21d1bf832daaca",
+          "observed_sha256": "44f109776cf205379d6ec1ad457b8713abb9b0f03edb34203f21d1bf832daaca",
+          "ref": "tests/test_g6_s8_intrinsic_descriptor.py",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G6/R/TEST_G6_S6R_GLOBAL_OBSERVER_CONGRUENCE_PY",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "INDEPENDENT_RECOMPUTATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G6",
+      "locator": {
+        "selector": "test_*",
+        "source_ref": "tests/test_g6_s6r_global_observer_congruence.py"
+      },
+      "locator_present": true,
+      "qualification": "FRESH_RECOMPUTATION",
+      "source_pins": [
+        {
+          "expected_sha256": "2e08c49de4f28e9739a205b36f6d424a43e04562fa80e836ce7fe65b6c6a8d57",
+          "observed_sha256": "2e08c49de4f28e9739a205b36f6d424a43e04562fa80e836ce7fe65b6c6a8d57",
+          "ref": "tests/test_g6_s6r_global_observer_congruence.py",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G6/S/G6_CHAINING_PROTOCOL_V1_JSON",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G6",
+      "locator": {
+        "selector": "/chain",
+        "source_ref": "infinity_grid/resources/uplift/G6_CHAINING_PROTOCOL_V1.json"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "f2f76dc47aab713c1c2187bfbf246ec6736459cd0f27d2ee91e159e913dbced8",
+          "observed_sha256": "f2f76dc47aab713c1c2187bfbf246ec6736459cd0f27d2ee91e159e913dbced8",
+          "ref": "infinity_grid/resources/uplift/G6_CHAINING_PROTOCOL_V1.json",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G7/C/HANDOFF_CONTRACT",
+      "comparison_result": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [
+        "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1"
+      ],
+      "known_qualifications": [
+        "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION"
+      ],
+      "layer": "G7",
+      "locator": {
+        "selector": "section 6",
+        "source_ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "observed_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G7/F/OPEN_NONCLAIMS",
+      "comparison_result": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [
+        "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1"
+      ],
+      "known_qualifications": [
+        "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION"
+      ],
+      "layer": "G7",
+      "locator": {
+        "selector": "section 5",
+        "source_ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "observed_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G7/R/C9C_C9F_NECESSITY",
+      "comparison_result": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [
+        "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1"
+      ],
+      "known_qualifications": [
+        "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION"
+      ],
+      "layer": "G7",
+      "locator": {
+        "selector": "sections 2-3",
+        "source_ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "observed_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G7/S/C9A_C9B_STATE",
+      "comparison_result": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [
+        "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1"
+      ],
+      "known_qualifications": [
+        "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION"
+      ],
+      "layer": "G7",
+      "locator": {
+        "selector": "section 1",
+        "source_ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "observed_sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6",
+          "ref": "p1b_external_sources/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G8/C/BOUNDED_GRADUATION",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G8",
+      "locator": {
+        "selector": "disposition and handoff",
+        "source_ref": "p1b_external_sources/IG_G8_INTEGRATION_CLOSEOUT_2026-09-17.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "4d889b1bf988b43ac8f00e7e31f73701dec68b9f34a343cfa0472fe435f93516",
+          "observed_sha256": "4d889b1bf988b43ac8f00e7e31f73701dec68b9f34a343cfa0472fe435f93516",
+          "ref": "p1b_external_sources/IG_G8_INTEGRATION_CLOSEOUT_2026-09-17.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G8/F/CAP37_ZERO_DATA",
+      "comparison_result": "REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME",
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "known_qualification_ids": [
+        "IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1"
+      ],
+      "known_qualifications": [
+        "REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME"
+      ],
+      "layer": "G8",
+      "locator": {
+        "selector": "entire handoff",
+        "source_ref": "p1b_external_sources/G8_CAP37_32768_ZERO_DATA_HANDOFF_2026-09-20.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "5b3dd7b6f301cf1609511d9c12151182cb741aa2c0170a59c52b40ecb3814b4d",
+          "observed_sha256": "5b3dd7b6f301cf1609511d9c12151182cb741aa2c0170a59c52b40ecb3814b4d",
+          "ref": "p1b_external_sources/G8_CAP37_32768_ZERO_DATA_HANDOFF_2026-09-20.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G8/R/REDUCTION_COMPANION",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G8",
+      "locator": {
+        "selector": "section 12",
+        "source_ref": "p1b_external_sources/IG_G8_S0_DESIGN_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "660dc2326f5a310340edc1aec32619d2d1a04655cfe49dd93243d89d9e9fce0e",
+          "observed_sha256": "660dc2326f5a310340edc1aec32619d2d1a04655cfe49dd93243d89d9e9fce0e",
+          "ref": "p1b_external_sources/IG_G8_S0_DESIGN_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "assertion_id": "IGAM/G8/S/RELATIONAL_COLLECTIONS",
+      "comparison_result": "REPRODUCED",
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "known_qualification_ids": [],
+      "known_qualifications": [],
+      "layer": "G8",
+      "locator": {
+        "selector": "sections 4-6",
+        "source_ref": "p1b_external_sources/IG_G8_S0_DESIGN_V1_2026-09-16.txt"
+      },
+      "locator_present": true,
+      "qualification": "SOURCE_INTEGRITY_ONLY",
+      "source_pins": [
+        {
+          "expected_sha256": "660dc2326f5a310340edc1aec32619d2d1a04655cfe49dd93243d89d9e9fce0e",
+          "observed_sha256": "660dc2326f5a310340edc1aec32619d2d1a04655cfe49dd93243d89d9e9fce0e",
+          "ref": "p1b_external_sources/IG_G8_S0_DESIGN_V1_2026-09-16.txt",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "status": "QUALIFIED_REPRODUCTION",
+  "upstream_checkpoints": [
+    {
+      "checkpoint_id": "formal_foundation",
+      "path": "/workspace/scratch/7d00d84faa68/dev44_qualification_run/formal.json",
+      "reported_status": "PASS",
+      "sha256": "cc272982687daa127c5a8010b804b69603fcbc32a40f3ea63649eeb36ad474fa",
+      "status": "PASS"
+    },
+    {
+      "checkpoint_id": "finite_l2",
+      "path": "/workspace/scratch/7d00d84faa68/dev44_qualification_run/l2.json",
+      "reported_status": "PASS",
+      "sha256": "cc272982687daa127c5a8010b804b69603fcbc32a40f3ea63649eeb36ad474fa",
+      "status": "PASS"
+    },
+    {
+      "checkpoint_id": "o1_o7",
+      "path": "/workspace/scratch/7d00d84faa68/dev44_qualification_run/o.json",
+      "reported_status": "PASS",
+      "sha256": "cc272982687daa127c5a8010b804b69603fcbc32a40f3ea63649eeb36ad474fa",
+      "status": "PASS"
+    }
+  ]
+}

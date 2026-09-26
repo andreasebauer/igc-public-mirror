@@ -1,0 +1,40 @@
+{
+  "classification": "EXPLICIT_METRIC_PREDICATES_ONLY",
+  "closure_interpretation": {
+    "comparable_pairs": "TAUTOLOGICAL_FOR_MEET_AND_JOIN_IF_BOTH_ENDPOINT_FIBERS_ALREADY_OBSERVED",
+    "forbidden_marker": "OBSERVED_FIBER_FAMILY_IS_A_LATTICE_OR_CLOSED_ALGEBRA",
+    "licensed_marker": "MEET_SKEWED_PARTIAL_CLOSURE_NONTRIVIAL_INTERSECTIONS_PRESENT",
+    "nontrivial_test": "INCOMPARABLE_FIBER_PAIRS",
+    "union_marker": "NONTRIVIAL_UNIONS_EXTREMELY_SPARSE"
+  },
+  "observer_id": "SCOUT_L16_FORWARD_SHALLOW_RELATIONAL_V1_1",
+  "observer_sha256": "c13e4a9f7e815cfe3692ac9628175dd939215efe155d59f5c449c0eb673eda7a",
+  "schema_id": "IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1",
+  "science_projection": "V2_EXCLUDES_COST_AND_COST_DERIVED_SELF_HASHES",
+  "scope": {
+    "population_complete": false,
+    "root_count": 1089,
+    "source_level": 15,
+    "target_level": 16
+  },
+  "spectroscope_metrics": [
+    "incidence/refinement/order",
+    "formal pair closure",
+    "comparable/incomparable observed-fiber intersection/union realization",
+    "abstract cycle rank recognition only"
+  ],
+  "wide_metrics": [
+    "attempts",
+    "lawful",
+    "global_unique_L16_candidates",
+    "multi_parent_candidates",
+    "max_bounded_parent_count",
+    "selected_union",
+    "relation_edges",
+    "selected_multi_parent",
+    "selected_parent_histogram",
+    "distinct_exact_parent_fibers",
+    "shared_parent_pair_count",
+    "shared_parent_multiplicity_histogram"
+  ]
+}

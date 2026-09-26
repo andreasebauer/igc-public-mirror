@@ -1,0 +1,36 @@
+{
+  "candidate": {
+    "key": "CAPS7_PLUS_REPAIRED_HIDDEN_STATE_H",
+    "name": "REPAIRED_HIDDEN_STATE_H",
+    "tier": 4
+  },
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "new_science_kernels": 196,
+    "reuse_certified_s0_term_corpus": true,
+    "triple_contexts_counted_by_exact_factorization_not_materialized": true
+  },
+  "frozen_domain": {
+    "directed_operator_count": 31,
+    "local_continuation_task_count": 196,
+    "motifs": [
+      "P3_CONNECTED_PATH",
+      "K3_TRIANGLE"
+    ],
+    "ordered_endpoint_pair_count_per_term": 49,
+    "term_count": 4
+  },
+  "nonclaims": [
+    "NO_G4_GRADUATION",
+    "NO_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_GLOBAL_MINIMALITY",
+    "NO_FULL_TOPOLOGY_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "pass_effect": "Unlock G4:S4.REBASE only. No public descriptor promotion and no G4 graduation.",
+  "promotion": false,
+  "question": "Does the repaired hidden-state H candidate earned by G4:S2.REBASE leave any irreducible branch-sensitive triple compatibility residual on the registered connected P3/K3 scope?",
+  "schema_id": "IG_G4_S3_REBASE_HIGHER_ORDER_IRREDUCIBILITY_SPEC_V1",
+  "science_sha256": "a77fa971b40ee47ba096c37985b340e1e8e098f6d22b10cad5ff9e878dfdc8c6",
+  "stage_ref": "G4:S3.REBASE"
+}

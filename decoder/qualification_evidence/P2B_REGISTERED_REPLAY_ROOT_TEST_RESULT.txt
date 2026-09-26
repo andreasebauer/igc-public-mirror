@@ -1,0 +1,23 @@
+P2B REGISTERED REPLAY ROOT QUALIFICATION — DEV50 — 2026-09-22
+
+FOCUSED CONTROLLER/ROOT TESTS
+26 passed, 0 failed
+
+P1 AND REPLAY REGRESSION
+89 passed, 0 failed
+
+PORTABLE R02 CORE
+340 passed, 1 skipped, 0 failed
+Execution policy: NO_AUTOMATIC_RUNTIME_DEADLINE_V1
+
+The first portable-core attempt exposed two qualification issues: the frozen
+controller pin correctly detected the new allowlist entry, and the command had
+omitted the suite's declared no-deadline environment. The controller change was
+recorded in the reviewed amendment with its exact hash and rationale. Under the
+proper policy, the full portable core passed.
+
+BOUNDARY
+P2B registers one controller-owned replay root and verifies durable pause/resume
+at the first unbound L0 node. No scientific node ran. No production root capture
+was executed; that waits for the P3 data contract and P4 L0 pilot. Full R02's 22
+named nonportable gaps remain open.

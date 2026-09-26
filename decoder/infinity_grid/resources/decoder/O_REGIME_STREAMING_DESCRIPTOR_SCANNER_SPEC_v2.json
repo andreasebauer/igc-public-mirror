@@ -1,0 +1,160 @@
+{
+  "authority": {
+    "depth_erased_normalized_org_law_id": "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1",
+    "depth_erased_normalized_org_law_science_sha256": "1bbc1b182124e30ab83b49b0d27148b3719f67264859396626809b96f99c685e",
+    "depth_erased_service_law_id": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+    "depth_erased_service_law_science_sha256": "78b4308055255706ed6085ec9f665ed2caf1fd6d222b4a6a1d7f6960f79352ef",
+    "full_pool_lane_hashes": {
+      "branching": "fefa9911886385df08d6fc48a2474ce460037a70547821c3ddb060edc259224f",
+      "lineage": "1e3aecfdfe4f98ead4b66a18db7a1c1b981db85bf81473c0056345090a85c05f",
+      "symmetry": "3050e1b9a978bc71635962acde66747271b1db13a6e655fa981a2f0c98752907",
+      "topology_services": "d3cf1bb646a602ea97e89e46c1c57294fa5909f3efb11d582f15b1df14c4be2e"
+    },
+    "full_pool_recipe_count": 193,
+    "normalized_grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "o12_o13_raise_audit_science_sha256": "bb72e245aa1549db41c9aaf5dfccc735aafefb469666084f2cfee9accb2593f1",
+    "o7_normalized_signature_sha256": "e19019a26469b2ec68804384e5774fb04d3633e523caf52f19c68f72eee7d462",
+    "o7_streaming_seed_sha256": "8e20653bb8d2e2b8c31e05b9f85ded189ecf5d774c6a435816fe1179e6da18f2",
+    "phase8_seed_sha256": "b28dc2c306f389a5191a9f512e6cbeeb03251e8b1234df187524f331ad3b0c9b",
+    "streaming_recipe_baseline_resource_sha256": "6c9f302861f32945aacb25bae3567f26034377043a044fab92d7a167e1f8e678",
+    "theorem_accelerated_calibration_science_sha256": "0db1137d559109a3a212d4043256a431474ae6b53582c7a1aaf73df68f7be31c"
+  },
+  "contract": {
+    "lift_schema": {
+      "effect": "monotone add only",
+      "forbidden": [
+        "deletion",
+        "rewiring",
+        "retagging",
+        "endpoint replacement",
+        "copying",
+        "multiway",
+        "feedback"
+      ],
+      "ownership": "finite connected top-owner component",
+      "recipe_library": "all connected unlabeled simple graphs on 4,5,6 owners + frozen HOM/HET/MIX/TWIN schedules",
+      "relation_arity": 2,
+      "reservation": "one typed endpoint per side"
+    },
+    "lift_schema_sha256": "036991f5b16aa923dbef3c6ea88bc1e88f2b5769f5c217faf6c1f58402a1cc65",
+    "observer": {
+      "excludes": [
+        "Counter magnitude from novelty",
+        "exact skin hash",
+        "level tag",
+        "leaf count from novelty",
+        "total relation count from novelty",
+        "physical geometry/time claims"
+      ],
+      "includes": [
+        "full frozen 193-recipe topology/organizational census",
+        "normalized branching support/orbits",
+        "support-colored symmetry/orbits",
+        "reverse factorization lineage",
+        "topology/access-bottleneck services",
+        "obstruction/full-support sentinels"
+      ],
+      "name": "O_REGIME_STREAMING_NORMALIZED_OBSERVER_V2"
+    },
+    "observer_sha256": "80e459e22f9bcfc284146aa9bab5956f565bb5975afbac255717625378d9f41b",
+    "read_set": [
+      "hierarchical_occurrence_structure",
+      "typed_p_f",
+      "Bridge",
+      "scope",
+      "multiplicity"
+    ],
+    "read_set_sha256": "2236b462555abebc3dde24348aa7e0710fbe09fe95449f333ac3d6c0359c905c",
+    "successor_semantics": "COUNTER"
+  },
+  "date": "2026-08-30",
+  "forbidden_claims": [
+    "historical O10+ existence or graduation",
+    "O9 graduation",
+    "infinite O tower",
+    "global carrier/type fixed point",
+    "raised algebraic O-group from observer invariance alone",
+    "physical geometry/dimension/time/propagation/actualisation/cosmology",
+    "negative theorem from bounded depth budget"
+  ],
+  "growth_bounds": {
+    "capacity_upper": "Mmax_next[t]=6*Mmax_parent[t]",
+    "diagnostic_only": true,
+    "leaf": "Lmin_next=4*Lmin; Lmax_next=6*Lmax",
+    "relations": "Rmin_next=4*Rmin+3; Rmax_next=6*Rmax+15"
+  },
+  "promotion_policy": {
+    "candidate_requires": "a real reopen/contract change or independently earned matched-longitudinal representation change not already covered by an earned law",
+    "no_raise_from_exploratory_beam_membership": true,
+    "no_raise_from_raw_growth": true,
+    "no_raise_from_transported_invariance": true
+  },
+  "purpose": "Scan arbitrarily deep synthetic fixed-GRRL O levels with exactly-once streaming checkpoints and theorem-transported normalized organization, without replaying O7 history or materializing recursive carriers.",
+  "reopen_action": "STOP_FAIL_CLOSED_AND_REQUIRE_TARGETED_EXACT_CARRIER_AUDIT",
+  "reopen_triggers": [
+    "grammar hash changes",
+    "read-set hash changes",
+    "observer hash changes",
+    "lift schema hash changes",
+    "Counter/Set semantic change",
+    "endpoint full-support induction fails",
+    "new action family",
+    "new state/boundary field",
+    "relation arity/type schedule changes",
+    "hidden topology/ancestry/provenance becomes operational",
+    "orientation/order/direction becomes operational",
+    "deletion/rewiring/retagging/endpoint replacement",
+    "copying/multiway/feedback",
+    "native generator adds recipe outside frozen catalogue",
+    "earned-law authority mismatch or missing authority pin"
+  ],
+  "routine_per_level_pipeline": [
+    "verify parent frontier and contract hashes",
+    "verify theorem-transport eligibility and earned-law pins",
+    "advance exact conservative support/capacity and raw-growth bounds by recurrence",
+    "reuse frozen full-193-recipe normalized organizational lane hashes while hypotheses hold",
+    "write one atomic immutable level delta and replace CURRENT_FRONTIER atomically",
+    "update rolling W=4 summary and continue"
+  ],
+  "schema": "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2",
+  "spec_sha256": "9bfe7473a24b18a9c5d9487b881d431d5510499a78390c889e5f23966deba603",
+  "status": "FROZEN_IMPLEMENTATION_TARGET",
+  "streaming": {
+    "checkpoint_files": {
+      "delta_dir": "deltas",
+      "frontier": "CURRENT_FRONTIER.json",
+      "result": "O_REGIME_STREAMING_RESULT.json",
+      "snapshot_dir": "snapshots",
+      "state": "RUN_STATE.json"
+    },
+    "history_policy": "one small immutable delta per completed level; no cumulative rewrite during advancement",
+    "memory_policy": "current compact growth frontier + W=4 summaries + immutable recipe cache; O(1) in total depth",
+    "rolling_window": 4,
+    "snapshot_interval_default": 100,
+    "start_anchor_level": 7,
+    "theorem_transport_default_from_level": 11
+  },
+  "support_induction": {
+    "max_endpoint_consumption_per_owner_by_type": [
+      5,
+      4,
+      1,
+      2,
+      5,
+      5,
+      4
+    ],
+    "max_endpoint_consumption_per_state_by_type": [
+      10,
+      7,
+      2,
+      3,
+      9,
+      8,
+      8
+    ],
+    "maximum_owner_count": 6,
+    "minimum_owner_count": 4,
+    "rule": "m_next[t] = 4*m_parent[t] - max_state_consumption[t] is a conservative lower bound for total free type-t capacity of every generated state; owner support at next level is certified when m_parent[t] > max_owner_consumption[t]."
+  }
+}

@@ -1,0 +1,95 @@
+INFINITY GRID DECODER 0.8lib — P1C4 EXECUTION-CLASS LEDGER
+DEV45 CANDIDATE — 2026-09-22
+
+DISPOSITION
+STEP_3_COMPLETE
+ALL_121_ASSERTIONS_CLASSIFIED
+ALL_64_SCIENTIFIC_NODES_CLASSIFIED
+FULL_EMPTY_ROOT_REPLAY_NOT_ACHIEVED
+AUTHORIZED_EVIDENCE_REPLAY_STILL_THROUGH_G8
+GLOBAL_STILL_UNAUTHORIZED
+SHARED_POINTER_UNCHANGED
+
+1. FOUR EXECUTION CLASSES
+
+FRESH_RECOMPUTE
+  Registered code executes the declared target again from permitted inputs.
+  This is the only class that may count toward empty-root science replay.
+
+VERIFIED_RESTORED_BLOCK
+  A previously produced block is restored or embedded and verified. Its
+  science is not regenerated from an empty generated-data root.
+
+SOURCE_INTEGRITY_ONLY
+  Pinned theorem, design or documentary bytes and declarations are checked.
+
+HISTORICAL_RESULT_ONLY
+  A frozen historical result or disposition is compared/preserved without
+  regenerating its science.
+
+2. ASSERTION COUNTS
+
+FRESH_RECOMPUTE:          12
+VERIFIED_RESTORED_BLOCK:  14
+SOURCE_INTEGRITY_ONLY:    55
+HISTORICAL_RESULT_ONLY:   40
+TOTAL:                   121
+
+Evidence-mode mapping is deterministic and compiler-enforced. DIRECT_TARGET_REPLAY
+and the legacy-named INDEPENDENT_RECOMPUTATION mode map to FRESH_RECOMPUTE;
+embedded evidence/gates map to VERIFIED_RESTORED_BLOCK; theorem/design/documentary
+records map to SOURCE_INTEGRITY_ONLY; historical results remain historical-only.
+
+3. CONSERVATIVE NODE COUNTS
+
+A node receives the least-fresh class among its mapped assertions. A mixed node
+counts as empty-root science only if every mapped assertion is FRESH_RECOMPUTE.
+
+FRESH_RECOMPUTE:           3
+VERIFIED_RESTORED_BLOCK:   1
+SOURCE_INTEGRITY_ONLY:    43
+HISTORICAL_RESULT_ONLY:   17
+MIXED-CLASS NODES:         6
+TOTAL SCIENTIFIC NODES:   64
+
+4. EMPTY-ROOT VERDICT
+
+Pre-GLOBAL scientific nodes: 60
+Nodes counting as wholly fresh: 3
+Coverage: 3/60
+Complete pre-GLOBAL empty-root layers: none
+
+Therefore the dev42 result is correctly described as a QUALIFIED EVIDENCE
+REPLAY THROUGH G8. It is not the full empty-root regeneration of all mapped
+science required by the original end-boss wording.
+
+This does not invalidate the reproduced results. It identifies which kind of
+evidence each result actually supplies and removes the contradiction between
+reusing expensive certified blocks and claiming that every block was freshly
+generated inside one replay.
+
+5. ARTIFACTS
+
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V8.json
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V8.json
+infinity_grid/resources/replay/P1C4_EXECUTION_CLASS_LEDGER_V1.json
+infinity_grid/resources/replay/P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V3.json
+
+The ledger contains all assertion, node and per-layer classifications. The
+compiler rejects optimistic node classification, inconsistent empty-root flags
+and execution classes that disagree with declared evidence modes.
+
+6. QUALIFICATION
+
+Focused P1A2/P1B/P1B2/P1C/P1C2/P1C3/P1C4/P1D suite: 51 passed.
+Corrected runner probe: QUALIFIED_EVIDENCE_REPRODUCTION.
+G6 runner modules: PASS, 22 tests.
+Authorized evidence replay through: G8.
+Next wait layer: GLOBAL.
+Science executed by this correction: none.
+
+7. NEXT CORRECTION STEP
+
+Build a per-node/per-layer cost and budget ledger, including expected
+PERFORMANCE_BUDGET_EXCEEDED outcomes and separate estimates for fresh
+recomputation versus restored/source-only work.

@@ -1,0 +1,58 @@
+{
+  "acceptance_fields": [
+    "expected_hashes",
+    "expected_invariants",
+    "evidence_scope",
+    "fail_closed_conditions"
+  ],
+  "input_requirement_fields": [
+    "semantic_role",
+    "accepted_node_types",
+    "exact_identity_or_constraint",
+    "resolution_policy",
+    "optional"
+  ],
+  "producer_fields": [
+    "source_snapshot_ref",
+    "entrypoint",
+    "runtime_family"
+  ],
+  "required_fields": [
+    "recipe_id",
+    "recipe_version",
+    "producer",
+    "protocol_ref",
+    "question_ref",
+    "input_requirements",
+    "environment_ref",
+    "stages",
+    "outputs",
+    "canonicalization",
+    "acceptance",
+    "resource_policy"
+  ],
+  "rules": [
+    "No absolute path is permitted as a required dependency.",
+    "Historical path hints may appear only under provenance_hints.",
+    "A recipe that depends on nondeterministic external state is not EXACT_REPLAY and cannot certify byte-identical reconstruction.",
+    "If several artifacts satisfy a semantic role, resolution must be unambiguous by identity/version/authority constraints or fail.",
+    "ARCHIVE_COMMAND_REPLAY is exact only when the pinned archive, frozen command, runtime/source identities, and expected result hash are all explicit and verified."
+  ],
+  "schema_id": "IG_REPLAY_RECIPE_SCHEMA_V0_1",
+  "stage_fields": [
+    "stage_id",
+    "dependencies",
+    "action",
+    "output_roles",
+    "checkpoint_policy",
+    "determinism_contract"
+  ],
+  "supported_action_types": [
+    "COPY_INPUT",
+    "PYTHON_SCRIPT",
+    "UNIFIED_RUNTIME_PLAN",
+    "STANDALONE_CAPSULE_REPLAY",
+    "ARCHIVE_COMMAND_REPLAY"
+  ],
+  "version": "0.1"
+}

@@ -1,0 +1,53 @@
+{
+  "admissibility": {
+    "constraints": [
+      "PrimitiveSemanticsSentinel is a separate gate.",
+      "Exploratory beam membership drift alone is not promotion evidence."
+    ],
+    "entity_class_refs": [
+      "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0"
+    ],
+    "regime_refs": [
+      "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0"
+    ]
+  },
+  "claim_ceiling": "RECONNAISSANCE",
+  "computation": {
+    "deterministic_science_projection": "changed independent matched-longitudinal families + next-depth persistence",
+    "entrypoint_ref": "future RegimeBoundarySentinel; legacy compatibility rule from O_REGIME_ADAPTIVE_SCANNER_SPEC_v1 structural_shock",
+    "kind": "DECLARATIVE_META_TEST"
+  },
+  "cost_class": "CHEAP",
+  "default_cadence": "after dependency findings for each completed depth",
+  "dependency_test_refs": [
+    "IG_TEST_O7_BRANCHING_COMPAT@1.0.0",
+    "IG_TEST_O7_SYMMETRY_COMPAT@1.0.0",
+    "IG_TEST_O7_LINEAGE_COMPAT@1.0.0",
+    "IG_TEST_O7_TOPOLOGY_SERVICES_COMPAT@1.0.0"
+  ],
+  "evidence_schema_ref": "IG_REGIME_BOUNDARY_SENTINEL_EVIDENCE_V1_TO_BE_DEFINED_AT_IMPLEMENTATION",
+  "input_mode": "FINDING_DEPENDENCIES",
+  "observer_definition": "Finding-level meta observer over independent branching, symmetry, lineage and topology/service lanes.",
+  "outcome_rules": {
+    "counterexample": "A claimed boundary signal is explained by panel membership drift, primitive-semantic change, or fails next-depth persistence.",
+    "null": "Fewer than the preregistered independent-family threshold change persistently.",
+    "positive": "At least the preregistered independent-family threshold changes on matched longitudinal evidence and persists at the next depth; emit CANDIDATE/REOPEN_TRIGGER for a new Regime/Lift investigation, not automatic promotion."
+  },
+  "read_only": true,
+  "reopen_conditions": [
+    "dependency Test versions change",
+    "independence threshold changes",
+    "persistence rule changes",
+    "matched-longitudinal definition changes"
+  ],
+  "required_capabilities": [],
+  "sampling_policy": "dependency findings only; no raw hidden state reads",
+  "schema_id": "IG_TEST_SPEC_V1",
+  "schema_version": "1.0.0",
+  "scientific_question": "Has collective organization changed in a persistent, multi-lane way that warrants a new Regime/Lift investigation even though primitive semantics may be unchanged?",
+  "scope_class": "RECONNAISSANCE",
+  "shared_projection_refs": [],
+  "status": "LEGACY_COMPAT_META_TEST_NO_NEW_CLAIM",
+  "test_id": "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT",
+  "version": "1.0.0"
+}

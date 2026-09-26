@@ -1,0 +1,142 @@
+{
+  "baseline_sha256": "232cc81127d68187ea75f6dff5323c4bc0cac06a85af99a613c993ff861fc7d6",
+  "hash_scheme": "EXACT_NORMALIZED_SOURCE_V1",
+  "migration_note": "v0.28.8 replaces CPython-version-sensitive AST-dump hashing with exact normalized callable source hashing; registered action contracts and callable source were re-pinned under the new hash scheme.",
+  "schema_id": "IG_O_NATIVE_SEMANTICS_BASELINE_V1",
+  "scientific_rule": "Any exact registered callable source text or declared action-contract change is a theorem reopen event until explicitly re-audited.",
+  "snapshot": {
+    "action_registry_sha256": "3509e3c3459691be799ed1592365608943c2287db4f73a52438015a89610ca88",
+    "actions": [
+      {
+        "action_id": "EXACT_CANONICAL_RESERVATION_SAMPLER_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactLiftState.reserve_canonical",
+        "callable_semantic_sha256": "63ca8189fdfa1d8ec360e4f89fec623db67bec7254691f334f86381b0be68f46",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "anonymous_owner_canonical_labels",
+          "exact_H_structure",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "CONSTRUCTION_SAMPLER",
+        "successor_semantics": "SINGLE_CANONICAL_POINTED_ORBIT_FOR_CONSTRUCTION_ONLY",
+        "writes": [
+          "exact_H_overlay",
+          "one_visible_p_f_reservation"
+        ]
+      },
+      {
+        "action_id": "EXACT_PROJECTED_RELATION_ADD_PROFILE_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactProjectedActionOracle.current_level_profile",
+        "callable_semantic_sha256": "7a9520c4dedd24983cb8aa32ad70abb28f763cc567c320e21bcddc7fa579b208",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "Bridge",
+          "hierarchical_occurrence_structure",
+          "multiplicity",
+          "scope",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "hidden_outer_incidence",
+          "visible_p_f_reservation"
+        ]
+      },
+      {
+        "action_id": "FIXED_GRAMMAR_FRONTIER_ADVANCE_V1",
+        "callable": "infinity_grid.fixed_grammar_transport:_advance_frontier",
+        "callable_semantic_sha256": "8c2267d31505d03e62fe7d92b388054d3223682894b393b9c1218ba1be33ed9c",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "compact_growth_frontier",
+          "earned_law_pins",
+          "frozen_contract_hashes",
+          "support_bounds"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "THEOREM_TRANSPORT_ENGINE",
+        "successor_semantics": "THEOREM_TRANSPORTED_COMPACT_FRONTIER",
+        "writes": [
+          "compact_frontier",
+          "immutable_level_delta"
+        ]
+      },
+      {
+        "action_id": "RESOURCE_SCANNER_RELATION_ADD_AGGREGATE_V1",
+        "callable": "infinity_grid.regime_scanner:_action_aggregate",
+        "callable_semantic_sha256": "e92ce37a778f9fa285045d9a0bded7afaca1e550caf9d23f3c6fa3b6f9692fe4",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "Bridge",
+          "hierarchical_occurrence_structure",
+          "multiplicity",
+          "scope",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "hidden_outer_incidence",
+          "visible_p_f_reservation"
+        ]
+      }
+    ],
+    "hash_scheme": "EXACT_NORMALIZED_SOURCE_V1",
+    "schema_id": "IG_O_NATIVE_SEMANTICS_SNAPSHOT_V1",
+    "science_sha256": "26f2062f9032c423e425ed8fef409deee4c2fec8443b47492582cdcb97c94103"
+  },
+  "status": "ACCEPTED_TRUST_REPAIR_SOURCE_HASH_BASELINE",
+  "version": "2.0.0"
+}

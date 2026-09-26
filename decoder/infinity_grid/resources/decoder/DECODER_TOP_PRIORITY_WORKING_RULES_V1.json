@@ -1,0 +1,31 @@
+{
+  "engineering_scope": [
+    "source edits",
+    "test migrations",
+    "regressions",
+    "packaging",
+    "recovery",
+    "publication",
+    "release preparation"
+  ],
+  "priority": [
+    1,
+    2,
+    3
+  ],
+  "rules": [
+    {
+      "id": 1,
+      "text": "All Decoder engineering must itself go through the Decoder registered engineering path. Do not sidestep the Decoder."
+    },
+    {
+      "id": 2,
+      "text": "Long-running code and validation run detached/background through Decoder-owned execution."
+    },
+    {
+      "id": 3,
+      "text": "Every durable Infinity Grid / Decoder deliverable is copied to Google Drive and filenames are reported."
+    }
+  ],
+  "schema_id": "IG_DECODER_TOP_PRIORITY_WORKING_RULES_V1"
+}

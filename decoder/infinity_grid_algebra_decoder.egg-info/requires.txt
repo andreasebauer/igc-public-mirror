@@ -1,0 +1,14 @@
+cryptography>=46.0.4
+igraph==1.0.0
+sympy==1.14.0
+
+[qualification]
+cryptography==46.0.4
+networkx==3.4.2
+pytest==8.3.5
+setuptools==84.0.0
+wheel==0.48.0
+pip==26.2.1
+
+[verification]
+networkx==3.4.2
