@@ -1,5 +1,5 @@
 // Transport integrity tests only; not Decoder science or qualification.
-const {load} = require('../microscope/shared-data.js');
+const {load} = require('./shared-data.js');
 const {webcrypto, createHash} = require('node:crypto');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');

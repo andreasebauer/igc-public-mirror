@@ -35,6 +35,8 @@ No Decoder scientific tests or native qualification were run for this import.
 No live cloud endpoint, browser visual QA, remote CORS, offline remote caching,
 or cold restore from the proposed store has been qualified.
 No shared Decoder release or runtime pointer was changed.
-The Microscope integration is proposed on the import branch, not deployed.
+The transport prototype is retained under shared-data/ and is not wired into
+the Microscope. Concurrent main-branch viewer work was detected at be0a9b1;
+our launcher/cache edits were withdrawn to preserve that independent work.
 The obsolete mirror workflow is removed on this branch and recoverable in Git
 history. The existing Microscope Pages deployment workflow is unchanged.

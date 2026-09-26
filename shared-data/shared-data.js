@@ -1,4 +1,4 @@
-/* Transport-only loader. Scientific validation remains in the existing viewer. */
+/* Transport-only prototype; not connected to the deployed Microscope. */
 (function (root) {
   'use strict';
   async function load(config, fetchImpl = fetch, cryptoImpl = crypto) {

@@ -1,4 +1,4 @@
-SHARED INFINITY GRID DATA STORE — PREPARED, NOT YET PROVISIONED
+SHARED INFINITY GRID DATA STORE — PROTOTYPE, NOT YET PROVISIONED
 26 September 2026
 
 Decision proposed: one authoritative S3-compatible object store, with a private
@@ -7,7 +7,7 @@ Use Cloudflare R2 Standard as the first candidate. AWS S3 is an alternative.
 Source code remains in GitHub. Keep Drive as a recovery backup during migration.
 One authoritative store does not mean deleting the independent backup.
 
-WHY THIS FITS THE CURRENT CODE
+WHY THIS FITS THE INSPECTED SOURCE SNAPSHOTS
 Decoder preservation already names many objects by SHA-256. Keep those exact
 bytes and hashes. A downloaded object is only a transport input: the Decoder's
 native verification, role checks, source binding and restore still apply.
@@ -15,16 +15,17 @@ Do not mount object storage as a running workspace: qualification/PROFILE.json
 requires local POSIX locks, hard links, fsync and atomic rename. Run locally,
 publish closed immutable objects, restore locally on the next machine/chat.
 
-The current Microscope contains a 9,322,589-byte JSON pack embedded in a gzip
+The inspected Microscope baseline (commit 4c2a04d) contains a 9,322,589-byte JSON pack embedded in a gzip
 HTML application split into 20 base64 files. Its own Load another bundle action
 already accepts the same JSON schema. The staging utility extracts the exact
 JSON bytes, without changing records, IDs, provenance, or claimed coverage.
-The browser loader on this branch can also use a pinned HTTPS object descriptor.
-This transitional loader still downloads the existing bundled HTML/data payload;
-splitting application code from that payload is a separate step before claiming
-reduced startup bandwidth. No existing payload files have been removed.
-Its default configuration retains the existing bundled dataset until a store
-endpoint is configured. No cloud account, charge or public release is created.
+shared-data.js is a tested standalone transport prototype for pinned HTTPS
+objects. It is deliberately NOT wired into the Microscope: another chat updated
+main to a newer multi-pack viewer during this import. Its current interface must
+be reconciled before integration. No Microscope file is changed by the final PR.
+The staging pilot extracts the legacy embedded pack, not the new complete viewer
+catalogue. Do not mistake the pilot for a current or exhaustive corpus export.
+No cloud account, charge or public release is created.
 
 LAYOUT AND IDENTITY
 objects/sha256/<first-two-hex>/<full-sha256> = exact immutable file bytes.
@@ -79,7 +80,9 @@ private archive/public-view access model and a public custom domain. Configure
 GET/HEAD CORS for https://andreasebauer.github.io and expose ETag if desired.
 For production public delivery, use a custom domain; r2.dev is rate-limited
 development access. Then set microscope/data-source.json base_url to that HTTPS
-endpoint and its microscope descriptor to the staged catalogue's view record.
+endpoint and its microscope descriptor to the staged catalogue's view record
+only AFTER adapting and testing the latest viewer. The example configuration is
+shared-data/data-source.example.json; it is not an active viewer setting.
 The loader checks length and SHA-256 before passing JSON to the existing viewer.
 Incorrect or unavailable remote data fails visibly; it does not silently show a
 different dataset. The existing offline service worker needs a separate reviewed
