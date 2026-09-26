@@ -311,14 +311,22 @@ def _compact_prepare_tree(
     interner: _ExactStructuralInterner,
     frozen_vertex_labels: Mapping[str, tuple[Any, ...]],
     owner_capacities: Mapping[str, tuple[int, ...]] | None = None,
+    *, frozen_edge_labels: Mapping[tuple[int, int], tuple[Any, ...]] | None = None,
 ) -> _CompactPreparedTree:
     """Build exact directed messages and, when requested, owner classes once."""
     _check_immutable_carrier(tree)
     adjacency: list[list[tuple[int, tuple[Any, ...]]]] = [[] for _ in range(tree.n)]
     edge_labels: dict[tuple[int, int], tuple[Any, ...]] = {}
     for (u, v), op in zip(tree.edges, tree.edge_operators):
-        forward = freeze_label(op)
-        reverse = freeze_label((op[1], op[0]))
+        # Reuse the kernel's finite authority-label table. No new cache or
+        # cross-interner state: absent labels retain the exact generic path.
+        forward = frozen_edge_labels.get(op) if frozen_edge_labels is not None else None
+        reverse_op = (op[1], op[0])
+        reverse = frozen_edge_labels.get(reverse_op) if frozen_edge_labels is not None else None
+        if forward is None:
+            forward = freeze_label(op)
+        if reverse is None:
+            reverse = freeze_label(reverse_op)
         adjacency[u].append((v, forward))
         adjacency[v].append((u, reverse))
         edge_labels[(u, v)] = forward
@@ -492,9 +500,12 @@ def _compact_unrooted_signature(
     tree: DecoratedG4Tree,
     interner: _ExactStructuralInterner,
     frozen_vertex_labels: Mapping[str, tuple[Any, ...]],
+    *, frozen_edge_labels: Mapping[tuple[int, int], tuple[Any, ...]] | None = None,
 ) -> tuple[Any, ...]:
     """Complete unrooted tree invariant in one shared exact-interner scope."""
-    prepared = _compact_prepare_tree(tree, interner, frozen_vertex_labels)
+    prepared = _compact_prepare_tree(
+        tree, interner, frozen_vertex_labels, frozen_edge_labels=frozen_edge_labels,
+    )
     return ("CENTER_ROOT_IDS", tree.n, tuple(sorted(prepared.root_ids[v] for v in _compact_centers(prepared))))
 
 
@@ -791,9 +802,13 @@ class ExactTreeRelationKernel:
         interner = _ExactStructuralInterner()
         left_compact = _compact_prepare_tree(
             left_tree, interner, self._frozen_keys, self._caps,
+            frozen_edge_labels=self._endpoint_labels,
         )
         right_compact = tuple(
-            _compact_prepare_tree(right_tree, interner, self._frozen_keys, self._caps)
+            _compact_prepare_tree(
+                right_tree, interner, self._frozen_keys, self._caps,
+                frozen_edge_labels=self._endpoint_labels,
+            )
             for right_tree in right_trees
         )
         right_sizes = {int(right_tree.n) for right_tree in right_trees}
@@ -883,6 +898,7 @@ class ExactTreeRelationKernel:
                         graft_pair_raw(left_tree, right_tree, left_owner, right_owner, op),
                         interner,
                         self._frozen_keys,
+                        frozen_edge_labels=self._endpoint_labels,
                     ))
                 certified_unique_total += certified_unique
                 ambiguous_total += len(ambiguous)
