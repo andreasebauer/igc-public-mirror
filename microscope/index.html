@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08111f"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="IG Microscope">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>Infinity Grid · Reverse Microscope</title>
+<style>html,body{height:100%;margin:0;background:#08111f;color:#e8f0fb;font:16px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}body{display:grid;place-items:center}.card{max-width:34rem;padding:2rem;text-align:center}.orb{width:62px;height:62px;border-radius:50%;margin:0 auto 18px;background:radial-gradient(circle at 35% 30%,#8be8ff,#2486c8 45%,#5235a7 72%,#08111f 73%);box-shadow:0 0 38px #38bdf866}.muted{color:#9cb0c9;font-size:.9rem}progress{width:100%;height:7px;margin-top:18px}</style>
+</head><body><div class="card"><div class="orb"></div><h1>Infinity Grid</h1><p>Opening Reverse Microscope…</p><progress id="p" max="20" value="0"></progress><p class="muted" id="s">Loading bundled scientific data locally.</p></div>
+<script>
+(async()=>{const files=["payload/part-00.b64", "payload/part-01.b64", "payload/part-02.b64", "payload/part-03.b64", "payload/part-04.b64", "payload/part-05.b64", "payload/part-06.b64", "payload/part-07.b64", "payload/part-08.b64", "payload/part-09.b64", "payload/part-10.b64", "payload/part-11.b64", "payload/part-12.b64", "payload/part-13.b64", "payload/part-14.b64", "payload/part-15.b64", "payload/part-16.b64", "payload/part-17.b64", "payload/part-18.b64", "payload/part-19.b64"]; const out=[]; const p=document.getElementById('p'),s=document.getElementById('s'); try {
+for(let i=0;i<files.length;i++){const r=await fetch('./'+files[i]); if(!r.ok) throw new Error(files[i]+' '+r.status); out.push(await r.text()); p.value=i+1; s.textContent='Loading bundled data '+(i+1)+' / '+files.length;}
+const b64=out.join('').replace(/\s/g,''); const raw=atob(b64); const bytes=new Uint8Array(raw.length); for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);
+if(!('DecompressionStream' in window)) throw new Error('This Safari version does not support local gzip decompression.');
+const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip')); const html=await new Response(stream).text(); document.open(); document.write(html); document.close();
+}catch(e){s.textContent='Could not open microscope: '+e.message; console.error(e);}})();
+</script></body></html>
