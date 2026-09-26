@@ -1,3 +1,6 @@
+Decoder source import: see [decoder-import/README.txt](decoder-import/README.txt).
+Shared data storage: see [shared-data/README.txt](shared-data/README.txt).
+
 # Infinity Grid — Python Orchestrator & Analysis (IGC)
 
 This repository contains the Python rewrite of the Infinity Grid stack:
