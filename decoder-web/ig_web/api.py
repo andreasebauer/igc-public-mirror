@@ -256,6 +256,22 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     def pause(job_id: Identifier, body: PauseBody, idempotency_key: IdempotencyKey):
         return accept(native.command("pause", job_by_id(job_id), reason=body.reason), idempotency_key)
 
+    def save_service():
+        from .saves import Saves
+        return Saves(settings,submissions)
+
+    @app.post('/api/v1/jobs/{job_id}/save-requests',status_code=202)
+    def save_request(job_id: Identifier,body: EmptyBody,idempotency_key: IdempotencyKey):
+        return save_service().submit(job_by_id(job_id),idempotency_key)
+
+    @app.get('/api/v1/jobs/{job_id}/save-requests')
+    def save_requests(job_id: Identifier):
+        return save_service().history(job_by_id(job_id))
+
+    @app.post('/api/v1/save-requests/{request_id}/retry')
+    def retry_save(request_id: Identifier,body: EmptyBody):
+        return save_service().retry(request_id)
+
     @app.post('/api/v1/jobs/{job_id}/preserve/{operation}',status_code=202,response_model=AcceptedRequest)
     def preserve_action(job_id: Identifier,operation: str,body: EmptyBody,idempotency_key: IdempotencyKey):
         from .exports import OPERATIONS

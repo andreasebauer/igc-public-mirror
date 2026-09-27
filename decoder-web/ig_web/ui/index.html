@@ -49,6 +49,9 @@
 <section><p class="eyebrow">EVIDENCE VERIFICATION</p><h2 id="results-evidence">Unknown</h2><p>Status reported in the completion record. This view has not independently rechecked the artifacts.</p></section>
 <section><p class="eyebrow">WORKSPACE SAVE STATUS</p><h2 id="results-save">Unknown</h2><p>Current native capture and checkpoint save observations. Save status does not decide scientific validity.</p></section>
 </div><dl id="results-summary" class="facts"></dl>
+<section aria-labelledby="save-heading"><h2 id="save-heading">Save to Google Drive</h2>
+<p>Upload required capture and checkpoint objects, download them again, then ask Decoder to confirm their exact bytes and roles.</p>
+<p id="save-transport" role="status"></p><button id="save-submit" class="primary" disabled>Save pending objects</button><button id="save-refresh">Refresh transfers</button><button id="save-reconcile" hidden>Reconcile last request</button><p id="save-message" role="status"></p><div id="save-requests"></div></section>
 <section aria-labelledby="preserve-heading"><h2 id="preserve-heading">Checkpoint and download</h2>
 <p>Checkpoint and export requests wait for the worker. Decoder requires an idle or paused workspace.</p>
 <p class="small">A complete archive contains its restart objects. A slim archive needs its separately saved objects. Neither a local export nor a download confirms a Drive save.</p>

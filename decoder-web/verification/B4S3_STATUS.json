@@ -1,0 +1,639 @@
+{
+  "block": 4,
+  "step": 3,
+  "status": "DRIVE_SAVE_IMPLEMENTED_ENGINEERING_PASS_HOST_AUTH_AND_VISUAL_GATES_OPEN",
+  "production_activation": "NOT_ACTIVATED",
+  "native_job_id": "WEB.B4S3.VALIDATION.R1",
+  "test_source_sha256": "7764dd1bf28af159477e47a6ad3c15fd6d540a157c16ce578b01b97d622f620a",
+  "completion_sha256": "084f38773ff28cdf7d8f78d1c753e51b4be8ff328be445cdddc892e78ab1a917",
+  "evidence_status": "VERIFIED",
+  "checks": [
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_auth_and_schema",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_catalog_failures",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_native_fixture_projection",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_native_refusal_preserved",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_observation_parsing",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_paths_and_environment",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_result_states_and_corruption",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_size_and_host",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_validation_and_worker",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_ambiguous_dispatch_not_replayed",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_auth_and_typed_action",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_download_rechecks_bytes_after_ticket",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_duplicate_survives_reopen_and_conflicts",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_exact_native_commands",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_expired_and_unknown_tickets",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_finalize_requires_archive_hash",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_finalized_archive_keeps_save_false",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_history_recovers_requests",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_native_output_path_is_not_authority",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_refusal_retains_native_busy_reason",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_symlink_and_path_injection_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_ticket_auth_single_use_and_streamed_bytes",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_ui_syntax_and_no_credential_persistence",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_exports_b4s2.py::ExportChecks::test_worker_reconstructs_path_and_refuses_changed_command",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_browser_projection_logic",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_completed_pause_does_not_hide_active_run",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_empty_is_not_error",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_no_client_persistence_or_html_injection",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_registration_corruption_is_attention",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_rejected_result_remains_attention",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_route_limits",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_running_request_is_not_native_running",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_search_filter_and_pagination",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_static_shell_and_api_auth",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_capture_exactly_one_durable_request",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_changed_task_requires_new_review",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_draft_creation_idempotency_after_catalog_removed",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_draft_key_conflict",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_missing_and_changed_input_block_capture",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_prepare_assets_no_execution_or_token_storage",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_restart_recovery_listing",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_review_auth_and_no_path",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_symlink_input_not_verified",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_prepare_b3s2.py::PrepareChecks::test_wrong_review_and_unknown_fields_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_absent_result_not_error_or_pass",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_capture_job_mismatch_unknown_save",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_completion_does_not_invent_scientific_pass",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_corrupt_record_unknown_without_hiding_save",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_javascript_projection_and_safe_markup",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_missing_pending_list_unknown",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_native_read_refusal_does_not_become_zero",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_negative_outcome_verified_evidence_pending_save",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_no_checkpoint_not_preserved",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_pending_publication_keeps_partial_report",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_read_only_route_and_auth",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_record_symlink_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_rejected_evidence_can_have_saved_workspace",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_retained_native_fixture",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_results_b4s1.py::ResultsChecks::test_unknown_evidence_enum_not_verified",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_authenticated_typed_routes",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_capture_link_requires_committed_index",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_changed_view_and_unavailable_action_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_javascript_helpers_and_safe_assets",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_lost_response_retries_one_request",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_operator_pause_only_resume",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_pause_delivery_is_not_acknowledgment",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_pause_uses_control_lane_and_idempotency",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_prepared_is_requestable_not_native_ready",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_request_uncertainty_blocks_new_start",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_runtime_gate_blocks_start",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_stale_running_and_other_job_busy_block",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_status_identity_mismatch_refuses_actions",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_terminal_and_pending_completion_block_start",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_run_b3s3.py::RunChecks::test_unsaved_and_unknown_backup_block",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_auth_strict_body_and_durable_duplicate",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_confirmation_crash_reconciles_native_state",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_corrupt_readback_keeps_gate_pending_and_retry_same_id",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_different_key_active_save_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_download_size_overrun_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_drive_credentials_private_and_session_host_bound",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_drive_resumable_and_actual_download",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_expired_drive_authorization_no_upload",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_native_confirmation_exact_cli_and_pinned_environment",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_native_refusal_not_save_success",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_one_object_two_role_bound_confirmations",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_public_history_omits_session_paths_and_credentials",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_restart_marks_ambiguity_and_does_not_replay",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_resuming_upload_queries_same_session",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_retry_refused_while_worker_holds_lock",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_same_key_changed_job_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_source_change_prevents_upload",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_ui_syntax_no_browser_save_attestation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_unconfigured_is_pending_not_saved",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_saves_b4s3.py::SaveChecks::test_verified_bytes_before_native_confirmation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_alias_cannot_duplicate_native_run",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_capture_index_atomic_and_persistent",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_capture_wrong_registration_cannot_index",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_corrupted_output_blocks_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_events_logs_auth_and_bounds",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_exit_receipt_recovers_database_gap",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_independent_process_retry_one_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_live_lane_refuses_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_log_symlink_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_native_completion_is_diagnostic_only",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_separate_process_crash_after_exit_receipt",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_simultaneous_retry_one_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_unknown_dispatch_never_replayed",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_wrong_receipt_request_blocks",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_capture_is_not_blindly_repeated",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_dispatch_revalidates_catalogue",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_durable_idempotency_and_conflict",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_native_refusal_retained",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_private_queue_and_process_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_process_output_and_secret_isolation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_separate_control_and_ambiguous_restart",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_unparseable_requires_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "scope": "20 Drive save checks plus 96 regressions through native VALIDATION. Drive HTTP provider and native confirmation fixtures are synthetic. Qualification evidence itself used actual connected Drive upload/readback and native confirmation. No live hosted OAuth or rendered browser/device qualification.",
+  "preservation": {
+    "latest_checkpoint": "b261095ab18c47a93f8c2ea69c3023391e79bc89a0a7e7fc6bcf6741f3b8a2f0",
+    "oldest_pending_age_seconds": 0,
+    "pending_bytes": 0,
+    "pending_checkpoints": [],
+    "pending_objects": [],
+    "status": "PRESERVED",
+    "transport": "EXPLICIT_CONNECTOR; NO_UNATTENDED_TRANSPORT_CONFIGURED"
+  },
+  "cold_restore": {
+    "checkpoint_sha256": "b261095ab18c47a93f8c2ea69c3023391e79bc89a0a7e7fc6bcf6741f3b8a2f0",
+    "source_sha256": "7764dd1bf28af159477e47a6ad3c15fd6d540a157c16ce578b01b97d622f620a",
+    "status": "RESTORED_NOT_RUNNING",
+    "workspace": "/workspace/scratch/69f4243afc4e/b4s3/cold-restore"
+  },
+  "tested_files": {
+    "ig_web/runview.py": "b50461840df217ec15dbfd30e171993cbcdd0c30495db51bba2d284a77af2d84",
+    "ig_web/overview.py": "b7675f45c40e2805f3520fdcb7dbd1d76807e3a9a67f68d274b93a6f317278d8",
+    "ig_web/saves.py": "9675ab002b5cca3d5c8d96cd5a7d690c5270158422eb2744c0f59fc871804c8a",
+    "ig_web/native.py": "3ea5fe2e7d0f5a6ef087f5c36d4a3a19951dfedb2071cb253172a2fc14ede6d6",
+    "ig_web/worker.py": "14c27918f2d48ec451fb0f4884927e0b8d50d185d7b51a42414352feb2a4a4f4",
+    "ig_web/drive.py": "59aba02c5faaa6b03b9b17db475961613ac0dc79a5f0d1961d8772f0e766ad6a",
+    "ig_web/exports.py": "52c46448a7c5afc43a947a5ee5305e1835f536ba28b61bb5f1dd82c1f2804185",
+    "ig_web/drafts.py": "c6137a6be946901e8c94ecf62dcf7332e5b718bceb3b6391c0d056b6076f34b8",
+    "ig_web/__init__.py": "0266c39c82bfa6445dcf495188b6df68060cde867be01baed1b4ac209d9f3de4",
+    "ig_web/tracking.py": "bb51d6f14a874ae95bfbb924265ea14edc06098207dfbfbcc4181e2ec8d180e0",
+    "ig_web/api.py": "21658f9392ff2a4faffebf743e1b09c82d79c688fa5acc30cfeb9a5dafbb3832",
+    "ig_web/models.py": "48c5913dd030b027ebb107dddcd8a3ad9faee26260c424489b7cad58ea8ddbcc",
+    "ig_web/resultsview.py": "6e8c2935c29b58244e87663af4a3cbd7145f785d4165a70db3989c2c9490b601",
+    "ig_web/results.py": "3f5cf9413979ae772a8ce7da8be57e3e8ec9cee4f75cf2c3951de32bcca0b6f7",
+    "ig_web/ui/index.html": "16e6565d37c935c0db17be031f428ae597852b617b1e493e7e957e2376e9b32d",
+    "ig_web/ui/app.mjs": "a276c3e42b4064f1e43994e30b4dcc788b70205358ea176b16abc6f7981eee07",
+    "ig_web/ui/style.css": "9503b2fce126a1f5147930c23bf37be0e14d8922b3398fd1001164929a083348",
+    "ig_web/ui/prepare.mjs": "9698945e91cb4dc505cd703d8fba8088aa80f3ffe539844bbe654d8fade09123",
+    "ig_web/ui/run.mjs": "c168045928c43b7cf990e8748ec986b24558291d385f67283246abf705f5240f",
+    "ig_web/ui/results.mjs": "dfbf772d33074516975ad5ed01808a5a83877d2789a5a333b9111ead9bbea2f9",
+    "ig_web/ui/saves.mjs": "05a0ace8bfff0436178d93c44afe614c4b11b001c4c700387f08c92dbade010b",
+    "ig_web/ui/preserve.mjs": "1063ad24d81ca5e2cecbda8ce10c67feceae872b97f1506710c8daf398dd94c7"
+  },
+  "next": "Block 5 Step 1 \u2014 pinned runtime, persistent workspace and background services",
+  "remaining_gates": [
+    "Host Drive authorization provisioning/rotation and live OAuth transfer test",
+    "Visual/browser/physical iPhone qualification",
+    "Native end-to-end production job",
+    "Hosted runtime and authentication"
+  ]
+}

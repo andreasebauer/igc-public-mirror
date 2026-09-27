@@ -1,0 +1,77 @@
+BLOCK 4 STEP 3 — DRIVE UPLOAD, READBACK AND NATIVE CONFIRMATION
+
+Implemented Results controls: Save pending objects, transfer history, and explicit
+retry/reconciliation. Capture and checkpoint obligations remain distinct. Request
+completion is not scientific success or an unconditional workspace-preserved claim.
+The existing native save-status card remains the authority for current save state.
+
+POST /api/v1/jobs/{id}/save-requests accepts only {} and Idempotency-Key.
+GET /api/v1/jobs/{id}/save-requests returns most recent 50 requests and transport
+configuration status. POST /api/v1/save-requests/{id}/retry continues the same
+request after failure or ambiguity. Browser input cannot supply hashes, paths,
+Drive IDs, native command arguments, or claimed readback verification.
+
+RUN THE SEPARATE SAVE WORKER
+python -m ig_web.saves --config /absolute/server-config.json
+--once processes at most one queued request. Use the web environment containing
+httpx; native confirmation still invokes the exact pinned engine interpreter and
+captured source. No scientific handler is imported or invoked by this transport.
+The worker uses its own save lock so transfer does not wait behind a science run.
+Native confirmation locks and source/runtime admission are preserved.
+
+HOST AUTHORIZATION
+Optional server Settings: drive_token_file (absolute path), drive_folder_id
+(optional existing folder ID; omit for My Drive). The credential file is private
+mode 0600, nonsymlink JSON with access_token. Host credential provisioning must
+supply and rotate a Google OAuth access token authorized to create/download its
+Drive files. This implementation rereads that file on each HTTP operation; it
+does not implement consent screens or refresh-token storage. Do not commit or
+bundle credentials. Do not copy the ChatGPT connector's credentials to the host.
+No token is sent to the browser or native child environment.
+Missing configuration disables Save in the UI and refuses new submissions.
+Expired/revoked authorization retains failed state and leaves obligations pending.
+Configured means configured, not connected, verified, or production-qualified.
+The live hosted OAuth gate remains open until tested on the deployment host.
+
+TRANSFER AND RECOVERY
+The worker verifies current job binding, native source and runtime, reads native
+pending-saves/preserve status, then freezes exact obligations in private SQLite.
+Object paths must be contained in the configured workspace/capture roots without
+symlinks; exact local size and SHA-256 are checked before upload.
+A Google-generated file ID is committed before upload. Resumable 8 MiB chunks
+use that same ID; the session URL stays private. After interruption, reconciliation
+queries the session position or existing file; it never creates a second ID for
+that object. Network redirects are not followed and upload sessions must target
+Google's exact upload endpoint. Arbitrary browser URLs are never accepted.
+
+Downloaded bytes are streamed to a separate local file, size-bounded, fsynced and
+SHA-256 checked. Metadata checksums do not substitute for downloading the bytes.
+Only then does the worker invoke native confirm-save or preserve confirm with
+its exact role/name/obligation. Native stdout/stderr are retained; nonzero exit or
+still-pending obligation refuses success. A crash after native confirmation is
+reconciled against fresh native pending records before any repeat confirmation.
+New obligations arising during a save remain pending for a subsequent request.
+
+Same key returns the same durable request. Another active request for the same
+native workspace/job is rejected. An orphaned running transfer becomes
+needs_reconciliation; no blind automatic replay. Retry requires the save lock and
+cannot interrupt an active transfer. Partial downloads and native refusals remain
+as evidence. Bounded browser history excludes credential paths and session URLs.
+
+QUALIFICATION AND LIMITS
+Registered native VALIDATION tests cover HTTP authorization, strict bodies,
+idempotency, role binding, corrupt readbacks, native refusal, restart/retry,
+resumable HTTP fixtures, credentials, URL containment, bounded downloads and UI
+syntax, plus prior regressions. These use a synthetic Drive HTTP provider and
+synthetic native confirmation fixtures; they do not establish real hosted OAuth
+or physical iPhone behavior. Actual qualification evidence is separately uploaded
+and read back through the connected Drive service and confirmed by native Decoder.
+Production engine, science activation and microscope are unchanged.
+
+API PROTOCOL REFERENCES
+https://developers.google.com/workspace/drive/api/guides/manage-uploads
+https://developers.google.com/workspace/drive/api/reference/rest/v3/files/generateIds
+https://developers.google.com/workspace/drive/api/reference/rest/v3/files/get
+
+NEXT: Block 5 Step 1 — pinned runtime, persistent workspace and background service.
+Host access and host-managed Drive authorization are external dependencies.

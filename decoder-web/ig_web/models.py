@@ -45,10 +45,12 @@ class Settings(StrictModel):
     capture_store: str
     catalog: str
     worker_state: str | None = None
+    drive_token_file: str | None = None
+    drive_folder_id: str | None = Field(default=None, pattern=r'^[A-Za-z0-9_-]{10,200}$')
     # No browser-selected paths. Token is supplied separately via environment.
     allowed_hosts: list[str] = Field(default_factory=lambda: ["127.0.0.1", "localhost", "testserver"])
 
-    @field_validator("engine_repository", "engine_python", "workspace_root", "specification_root", "capture_store", "catalog", "worker_state")
+    @field_validator("engine_repository", "engine_python", "workspace_root", "specification_root", "capture_store", "catalog", "worker_state", "drive_token_file")
     @classmethod
     def absolute_path(cls, value):
         if value is None:
