@@ -1,0 +1,38 @@
+B6S1 FOLLOW-UP — PROCESS IDENTITY FIX — 2026-09-27
+Status: engineering fix qualified; live E2E remains blocked.
+
+The previous readiness PASS was misleading. Read-only observation established:
+os.getpid() and /proc/self/stat report different PID namespaces, while the
+numeric /proc/<pid>/stat entry reports a different process start time. A numeric
+PID existing in this mount is insufficient proof that it represents our process.
+
+Interface worker process_identity now checks that /proc/self/stat reports the
+caller's PID before trusting numeric paths; it also checks the numeric record's
+PID and refuses malformed values. All service readiness users inherit the check.
+No namespace restriction or native Decoder admission check was relaxed.
+Native source pin and 1,253 source files remain unchanged.
+
+Native registered validation: WEB.B6S1.IDENTITY.VALIDATION.R1, 10/10 PASS.
+Completion: 8f3bebe5d826405412f18cb75374672a2e262d8e8d8d3d62d09b88e4890353b3
+Source: ea3441d1cab4d0bd1f7d3b87882f90c548cfeb45ad1857169f6be66f921e449a
+Live readiness after fix: PROCESS_IDENTITY_UNAVAILABLE, correctly refused.
+
+HTTP PROGRESS BEFORE FIX
+API and client in the same tool session successfully created a reviewed draft
+and queued capture req-d651e616fcbd41e79f9a048506b41240.
+Worker refused before claiming it. Capture remains QUEUED, no child PID, no native
+capture or job completion. No service remains running. Retain private b6s1 queue
+for explicit continuation; never blindly submit a second capture.
+Preparation is now observed through real HTTP; end-to-end execution is NOT passed.
+An initial shared-session launch also refused readiness; its stderr is preserved.
+Prior logs and blockers are historical evidence, not current readiness authority.
+
+USER CONSTRAINTS
+iPhone page opens and is clickable (user report). Offline testing deferred while
+phone provides hotspot. Home Screen installation not separately confirmed.
+Hetzner remains deferred; static Pages preview unchanged. No request for access.
+
+NEXT
+Resume B6S1 in a supported runtime with matching PID/proc visibility and shared
+loopback access. B6S2 live lifecycle checks remain dependent on that capability.
+This fix intentionally strengthens refusal; it does not make chat a server host.

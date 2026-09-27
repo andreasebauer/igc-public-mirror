@@ -97,3 +97,5 @@ Current completion: B5S2_STATUS.txt. Published static preview; B5S3 device check
 Latest: B5S3_STATUS.txt. Desktop preview checks passed; actual iPhone/offline check pending. B5S3 remains open.
 
 Latest: B6S1_STATUS.txt. iPhone page access confirmed by user; offline deferred. Live E2E blocked by chat loopback/process-identity availability; no job submitted.
+
+Latest: B6S1_IDENTITY_FIX.txt. Fixed false-positive readiness under mismatched PID/proc namespace; 10 registered checks pass. Live E2E still blocked; one capture request is queued, unexecuted.

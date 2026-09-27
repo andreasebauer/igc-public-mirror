@@ -108,10 +108,21 @@ class WorkerChecks(unittest.TestCase):
         # Native validation hides parts of /proc; qualify parsing and explicit
         # missing-identity behavior without claiming a live host readiness check.
         fields = ['0'] * 20; fields[19] = '123456'
-        with patch.object(Path,'read_text',side_effect=['9 (name with spaces) '+ ' '.join(fields),'boot-id\n']):
+        with patch.object(Path,'read_text',side_effect=[str(os.getpid())+' (self) '+' '.join(fields),'9 (name with spaces) '+ ' '.join(fields),'boot-id\n']):
             self.assertEqual(process_identity(9),'boot-id:123456')
         with patch.object(Path,'read_text',side_effect=OSError('restricted')):
             self.assertIsNone(process_identity(9))
         env=NativeAdapter(self.settings).environment(source=self.root/'captured')
         self.assertEqual(env['PYTHONPATH'],str(self.root/'captured'))
         self.assertEqual(env['PYTHONNOUSERSITE'],'1')
+
+    def test_namespace_mismatch_refuses_even_if_numeric_pid_exists(self):
+        with patch.object(Path,'read_text',return_value=str(os.getpid()+1000)+' (different namespace) '+ ' '.join(['0']*20)) as read:
+            self.assertIsNone(process_identity(os.getpid()))
+            self.assertEqual(read.call_count,1)
+
+    def test_wrong_numeric_record_and_malformed_identity_refused(self):
+        own=str(os.getpid())+' (self) '+' '.join(['0']*20)
+        for value in ('not-a-pid (bad) fields','77 (wrong target) '+' '.join(['0']*20)):
+            with patch.object(Path,'read_text',side_effect=[own,value]):
+                self.assertIsNone(process_identity(9))

@@ -233,11 +233,20 @@ def prepare(settings, row, directory):
 
 def process_identity(pid):
     try:
+        # Numeric /proc paths are usable only when the mount reports this
+        # process in the same PID namespace. Otherwise a reused number may
+        # identify an unrelated process and falsely satisfy readiness.
+        own = Path('/proc/self/stat').read_text()
+        if int(own.split(' ', 1)[0]) != os.getpid():
+            return None
         # Field 22 follows the parenthesized comm, which may contain spaces.
-        start = Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[19]
+        record = Path(f'/proc/{pid}/stat').read_text()
+        if int(record.split(' ', 1)[0]) != pid:
+            return None
+        start = record.rsplit(')',1)[1].split()[19]
         boot = Path('/proc/sys/kernel/random/boot_id').read_text().strip()
         return boot + ':' + start
-    except (OSError, IndexError):
+    except (OSError, IndexError, ValueError):
         return None
 
 
