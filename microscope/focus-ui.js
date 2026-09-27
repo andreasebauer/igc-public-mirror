@@ -31,10 +31,12 @@ function accepted(o){return questions.every(q=>!checked.has(q.id)||q.test(o))}
 function renderQuestions(){
  const box=$('rm-questions');box.replaceChildren();
  if(!foundation()){
+  $('rm-focus').disabled=true;
   box.textContent='No per-object observer answers are bundled at this level.';
   $('rm-status').textContent='Questions unavailable';$('rm-provenance').textContent='The displayed evidence stays inspectable. An answer table is needed before checkboxes can select its objects.';
   $('rm-all').hidden=$('rm-clear').hidden=true;$('rm-collection').hidden=true;return;
  }
+ $('rm-focus').disabled=false;
  const all=objects();$('rm-all').hidden=$('rm-clear').hidden=false;$('rm-collection').hidden=!api.state().object;
  for(const q of questions){const label=document.createElement('label');label.className='rm-question';const input=document.createElement('input');input.type='checkbox';input.checked=checked.has(q.id);input.onchange=()=>{input.checked?checked.add(q.id):checked.delete(q.id);apply()};const span=document.createElement('span');span.textContent=q.label+' · '+all.filter(q.test).length+'/'+all.length;label.append(input,span);box.append(label)}
  $('rm-provenance').textContent='Exact saved row [L, ports, score, destinations, stay]. Checked answers combine with AND. Unchecked questions impose no constraint. This filters the view; it does not select which possibility is actual.';
