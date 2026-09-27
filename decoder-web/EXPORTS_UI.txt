@@ -1,0 +1,37 @@
+BLOCK 4 STEP 2 — CHECKPOINT, EXPORT AND DOWNLOAD
+
+Results now offers native preserve snapshot, export (complete) and export --slim.
+All three submit durable, idempotent requests to the execution worker. Native
+workspace locks remain authoritative. A queued request can wait behind a run;
+checkpoint/export does not pause a running job. Native refusals remain visible.
+
+Output paths are generated from request keys under the private worker queue.
+No browser path or native-reported arbitrary path is accepted. Dispatch resolves
+the catalogue again, rebuilds the command from the persisted key, checks its
+digest and verifies the pinned captured source and runtime. Existing output is
+never overwritten by a new dispatch. Ambiguous dispatch still blocks the lane;
+reconciliation requires the original exit receipt and unchanged log hashes.
+
+An export becomes finished only after native EXPORTED_LOCAL, exact expected
+path and SHA-256 of actual archive bytes agree. Receipt/hash errors leave it
+unresolved. A download rechecks the hash both before issuing a ticket and when
+consuming it. Authenticated POST issues a random, hashed, 120-second single-use
+capability. /downloads/<capability> streams the file with attachment disposition,
+no-store and no-referrer; it never receives the API bearer token in a URL.
+If a transfer fails, request a fresh link. Tickets survive service restart in
+SQLite but cannot be reused. There is no public file directory or path endpoint.
+The queue and archives must remain writable only by the service account.
+
+The UI retains uncertain submissions while the tab stays open and retries the
+same key. Most recent 50 durable preservation requests recover after reconnect.
+Switching jobs cancels stale display updates. Downloading uses a normal browser
+link rather than loading a complete archive into browser JavaScript memory.
+
+Complete archives contain restart objects; slim archives require their separately
+saved dependencies. Neither export completion nor downloading confirms a Drive
+save. No save acknowledgement is fabricated. Drive automation is Block 4 Step 3.
+
+Qualification: registered native VALIDATION, isolated test source, synthetic HTTP,
+worker/recovery and download fixtures plus existing regression/native record
+fixtures. Browser/iPhone visual and hosted end-to-end gates remain outstanding.
+Production engine and microscope are unchanged; no science job is activated.

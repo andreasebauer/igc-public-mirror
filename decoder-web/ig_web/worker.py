@@ -111,7 +111,7 @@ class Queue:
             db.close()
 
     def submit(self, command: Command, key: str, digest: str):
-        if command.operation not in {'capture', 'run', 'pause'} or command_digest(command) != digest:
+        if command.operation not in {'capture', 'run', 'pause', 'snapshot', 'export-full', 'export-slim'} or command_digest(command) != digest:
             raise AdapterError('INVALID_COMMAND', 400)
         with self.transaction() as db:
             row = db.execute('SELECT * FROM requests WHERE key=?', (key,)).fetchone()
@@ -195,7 +195,9 @@ def prepare(settings, row, directory):
         job = next((x for x in catalog.jobs if x.id == row['target']), None)
         if job is None:
             raise AdapterError('JOB_NOT_FOUND',404)
-        command = adapter.command(operation,job,reason=stored['argv'][-1] if operation == 'pause' else None)
+        options = {'reason':stored['argv'][-1]} if operation == 'pause' else {}
+        if operation in ('export-full','export-slim'): options['export_id'] = canonical_hash(row['key'])
+        command = adapter.command(operation,job,**options)
     if command_digest(command) != row['digest']:
         raise AdapterError('COMMAND_CHANGED',409)
     adapter.verify_runtime()
@@ -220,6 +222,12 @@ def prepare(settings, row, directory):
         if workspace.get('source_sha256') != PIN_SOURCE:
             raise AdapterError('CAPTURE_SOURCE_NOT_SUPPORTED')
         cwd = str(source)
+    if operation in ('export-full','export-slim'):
+        from .exports import export_path
+        output = export_path(settings.worker_state, canonical_hash(row['key']))
+        output.parent.mkdir(mode=0o700, exist_ok=True)
+        export_path(settings.worker_state, canonical_hash(row['key']))
+        if output.exists(): raise AdapterError('EXPORT_ALREADY_EXISTS',409)
     return argv, cwd, adapter.environment(source=Path(cwd))
 
 

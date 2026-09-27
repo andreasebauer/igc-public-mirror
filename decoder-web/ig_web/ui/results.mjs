@@ -1,3 +1,4 @@
+import {mountPreserve} from './preserve.mjs';
 export function presentResults(value){
   if(!value || !value.facts || !value.save || !value.job || typeof value.observed_at!=='number')throw new Error('INVALID_RESULTS_VIEW');
   const f=value.facts,outcome=f.scientific_outcome?.value;
@@ -8,6 +9,7 @@ export function presentResults(value){
   return {scientific,evidence,save,publication};
 }
 export function mountResults(token){
+  const preserve=mountPreserve(token);
   const $=id=>document.getElementById(id),s={job:null,epoch:0,controller:null,busy:false};
   const node=(tag,value)=>{const el=document.createElement(tag);el.textContent=value;return el;};
   function clear(){for(const id of ['results-outcome','results-evidence','results-save'])$(id).textContent='Unknown';$('results-publication').textContent='Loading result observations…';$('results-summary').replaceChildren();$('results-raw').textContent='';$('results-observed').textContent='';$('results-error').hidden=true;}
@@ -20,6 +22,6 @@ export function mountResults(token){
   $('results-refresh').addEventListener('click',refresh);
   window.addEventListener('offline',()=>{if(s.job){$('results-error').hidden=false;$('results-error').textContent='Offline. Displayed observations may be stale.';}});window.addEventListener('online',refresh);
   setInterval(()=>{if(s.job && !document.hidden)refresh();},15000);
-  function hide(){s.epoch++;s.job=null;s.busy=false;s.controller?.abort();$('results-content').hidden=true;}
-  return {hide,reset(){hide();clear();},open(job){hide();clear();s.job=job;$('results-content').hidden=false;$('results-content').focus();refresh();}};
+  function hide(){preserve.hide();s.epoch++;s.job=null;s.busy=false;s.controller?.abort();$('results-content').hidden=true;}
+  return {hide,reset(){preserve.reset();hide();clear();},open(job){hide();clear();s.job=job;preserve.open(job);$('results-content').hidden=false;$('results-content').focus();refresh();}};
 }

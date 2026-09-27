@@ -256,6 +256,25 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     def pause(job_id: Identifier, body: PauseBody, idempotency_key: IdempotencyKey):
         return accept(native.command("pause", job_by_id(job_id), reason=body.reason), idempotency_key)
 
+    @app.post('/api/v1/jobs/{job_id}/preserve/{operation}',status_code=202,response_model=AcceptedRequest)
+    def preserve_action(job_id: Identifier,operation: str,body: EmptyBody,idempotency_key: IdempotencyKey):
+        from .exports import OPERATIONS
+        if operation not in OPERATIONS: raise AdapterError('UNSUPPORTED_OPERATION',400)
+        if not hasattr(submissions,'connect'): raise AdapterError('BACKGROUND_WORKER_NOT_CONFIGURED')
+        options={'export_id':canonical_hash(idempotency_key)} if operation.startswith('export-') else {}
+        return accept(native.command(operation,job_by_id(job_id),**options),idempotency_key)
+
+    @app.get('/api/v1/jobs/{job_id}/preserve-requests')
+    def preserve_history(job_id: Identifier):
+        from .exports import history
+        return history(submissions,job_by_id(job_id))
+
+    @app.post('/api/v1/requests/{request_id}/download-ticket')
+    def download_ticket(request_id: Identifier,body: EmptyBody):
+        from .exports import issue_ticket
+        if not hasattr(submissions,'connect'): raise AdapterError('BACKGROUND_WORKER_NOT_CONFIGURED')
+        return issue_ticket(submissions,request_id)
+
     @app.get("/api/v1/requests/{request_id}")
     def request_status(request_id: Identifier):
         return submissions.get(request_id)
@@ -283,6 +302,9 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
 
     # Static shell carries no credentials or job data. API routes stay authenticated.
     from starlette.staticfiles import StaticFiles
+    if hasattr(submissions,'connect'):
+        from .exports import download_app
+        app.mount('/downloads',download_app(submissions))
     app.mount('/ui',StaticFiles(directory=Path(__file__).parent/'ui',html=True),name='jobs-ui')
     return app
 

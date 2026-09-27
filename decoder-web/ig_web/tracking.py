@@ -95,6 +95,9 @@ def finalize(settings, queue, row):
             if isinstance(value,dict): native=value; break
         except AdapterError: pass
     state='needs_reconciliation' if native is None else 'refused' if rc else 'finished'
+    if row['operation'] in ('export-full','export-slim') and rc==0 and native is not None:
+        from .exports import verify_archive
+        verify_archive(queue,row,native)
     indexed=None
     if row['operation']=='capture' and rc==0 and native is not None:
         indexed=capture_job(settings,row,directory,native)

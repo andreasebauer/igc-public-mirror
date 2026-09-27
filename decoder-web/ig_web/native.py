@@ -107,7 +107,7 @@ class NativeAdapter:
         return {"status": "BYTE_EXACT_SOURCE_PASS", "files": len(rows), "source_sha256": actual}
 
     def command(self, operation: str, job: Job | None = None, *, task: Task | None = None,
-                reason: str | None = None) -> Command:
+                reason: str | None = None, export_id: str | None = None) -> Command:
         self.verify_source()
         interpreter = Path(self.settings.engine_python)
         # venv Python is often a symlink; resolve it only to check existence,
@@ -123,7 +123,7 @@ class NativeAdapter:
             store = contained(Path(self.settings.capture_store), self.settings.capture_store, directory=True)
             args = ["capture", str(store), str(spec)]
             target = task.id
-        elif job is not None and operation in {"status", "pending-saves", "preservation", "run", "pause"}:
+        elif job is not None and operation in {"status", "pending-saves", "preservation", "run", "pause", "snapshot", "export-full", "export-slim"}:
             workspace = contained(Path(self.settings.workspace_root), job.workspace, directory=True)
             target = job.id
             if operation == "run":
@@ -132,6 +132,13 @@ class NativeAdapter:
                 if not reason or len(reason) > 500 or "\x00" in reason:
                     raise AdapterError("INVALID_PAUSE_REASON", 400)
                 args = ["preserve", "pause", str(workspace), reason]
+            elif operation == "snapshot":
+                args = ["preserve", "snapshot", str(workspace)]
+            elif operation in {"export-full", "export-slim"}:
+                from .exports import export_path
+                output = export_path(self.settings.worker_state, export_id)
+                args = ["export", str(workspace), str(output)]
+                if operation == "export-slim": args.append("--slim")
             elif operation == "preservation":
                 args = ["preserve", "status", str(workspace)]
             else:

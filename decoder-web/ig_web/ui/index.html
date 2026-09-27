@@ -49,6 +49,11 @@
 <section><p class="eyebrow">EVIDENCE VERIFICATION</p><h2 id="results-evidence">Unknown</h2><p>Status reported in the completion record. This view has not independently rechecked the artifacts.</p></section>
 <section><p class="eyebrow">WORKSPACE SAVE STATUS</p><h2 id="results-save">Unknown</h2><p>Current native capture and checkpoint save observations. Save status does not decide scientific validity.</p></section>
 </div><dl id="results-summary" class="facts"></dl>
+<section aria-labelledby="preserve-heading"><h2 id="preserve-heading">Checkpoint and download</h2>
+<p>Checkpoint and export requests wait for the worker. Decoder requires an idle or paused workspace.</p>
+<p class="small">A complete archive contains its restart objects. A slim archive needs its separately saved objects. Neither a local export nor a download confirms a Drive save.</p>
+<div class="filters"><button data-preserve="snapshot">Create checkpoint</button><button data-preserve="export-full">Export complete archive</button><button data-preserve="export-slim">Export slim archive</button><button id="preserve-refresh">Refresh requests</button></div>
+<p id="preserve-message" role="status"></p><button id="preserve-retry" hidden>Reconcile last request</button><div id="preserve-requests"></div></section>
 <details><summary>Reported result and verification details</summary><pre id="results-raw"></pre></details>
 </section>
 </section>
