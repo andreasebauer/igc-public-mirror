@@ -66,3 +66,7 @@ Connect only through a durable gateway; do not use FastAPI background tasks as
 persistent job tracking. Step 3 completes duplicate/restart reconciliation checks.
 
 Acceptance A01-A16 remain end-to-end gates; this bounded check does not close them.
+
+BLOCK 2 STEP 2
+Separate worker and durable submission foundation added. See WORKER.txt and
+verification/B2S2_STATUS.json. No production worker or science execution enabled.

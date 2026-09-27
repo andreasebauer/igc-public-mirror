@@ -44,12 +44,15 @@ class Settings(StrictModel):
     specification_root: str
     capture_store: str
     catalog: str
+    worker_state: str | None = None
     # No browser-selected paths. Token is supplied separately via environment.
     allowed_hosts: list[str] = Field(default_factory=lambda: ["127.0.0.1", "localhost", "testserver"])
 
-    @field_validator("engine_repository", "engine_python", "workspace_root", "specification_root", "capture_store", "catalog")
+    @field_validator("engine_repository", "engine_python", "workspace_root", "specification_root", "capture_store", "catalog", "worker_state")
     @classmethod
     def absolute_path(cls, value):
+        if value is None:
+            return value
         if not Path(value).is_absolute() or ".." in Path(value).parts or "\x00" in value:
             raise ValueError("Configuration paths must be absolute without traversal")
         return value

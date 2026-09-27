@@ -1,0 +1,64 @@
+DECODER WEB — BLOCK 2 STEP 2
+27 September 2026
+
+Separate POSIX background execution
+The API commits a request to SQLite before returning 202. Run and capture use
+one execution worker; cooperative pause uses a separate control worker. The
+worker invokes only a freshly resolved native command using argument arrays,
+never shell text. The HTTP process never owns the native execution process.
+
+Configuration
+Keep worker_state absent/null to leave mutations disabled. For operator staging,
+set it to an absolute private directory with mode 0700. Use the same config for
+API and both workers, and a local POSIX filesystem supporting flock and fsync.
+Use a dedicated web venv with requirements.lock.txt; engine_python must point to
+an independently managed CPython 3.12 engine environment matching the pinned
+qualification/PROFILE.json. Do not install web dependencies into that environment.
+
+From decoder-web, in separate supervised service processes:
+  python -m ig_web.worker --config /absolute/config.json --lane execution
+  python -m ig_web.worker --config /absolute/config.json --lane control
+The existing API factory uses the configured queue. --once processes at most
+one request for operator diagnostics. No service is installed or activated by
+this change. Deployment and supervisor shutdown policy are later gates; a
+service manager configured to kill an entire cgroup can still stop a child.
+
+Admission and environment
+The worker resolves the server catalogue again and compares the complete command
+digest. Capture specifications are hash-checked and copied into the private
+request directory before invocation. This version supports the exact pinned
+engine with no added project source. A different captured source is refused;
+there is no fallback to another engine. Job commands execute with cwd and
+PYTHONPATH set to the verified captured source. Interpreter distribution versions
+are checked against the pinned engine profile. Native run then enforces captured
+environment, save, registration, project-binding and execution admission itself.
+The worker never edits capture environment requirements or bypasses native gates.
+Only PATH, LANG, LC_ALL, TZ, HOME and TMPDIR are inherited. The bearer token,
+ambient PYTHONPATH and arbitrary environment variables are not forwarded.
+
+Process lifetime and records
+A per-lane flock is inherited by the native child, so a replacement worker cannot
+acquire that lane while that child retains the descriptor. Child processes have
+a separate session and write stdout/stderr directly to per-request files; there
+is no science timeout and no growing in-memory log buffer. PID, Linux boot ID,
+process start time, exit code and bounded parsed native JSON are retained.
+Both raw streams remain available on disk even when JSON cannot be parsed.
+The web state 'finished' means process finished, never scientific PASS.
+
+Safety boundary for the next step
+An ambiguous dispatch/running record becomes needs_reconciliation and blocks its
+lane. It is never requeued automatically. Successful captures also require
+reconciliation before further execution: native output is retained, but automatic
+job indexing is intentionally not implemented yet. Do not manually clear rows to
+resume work. Block 2 step 3 must implement native-record reconciliation, indexing,
+operator recovery, and broader crash/concurrent-process qualification. The web
+engine endpoint continues to report execution_ready=false.
+
+Qualification scope
+Registered native VALIDATION runs synthetic engineering checks, including real
+small subprocesses for transport/output tests. This is not a production science
+run, real native pause/resume test, deployment qualification, or crash-window
+end-to-end proof. Initial failures and corrected receipt are retained separately. Worker startup
+refuses if Linux process identity cannot be read. Identity parsing and missing-file
+behavior use synthetic fixtures because the native validation sandbox hides /proc.
+See verification/B2S2_STATUS.json for exact identities and results.

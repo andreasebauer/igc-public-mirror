@@ -87,8 +87,8 @@ class NativeAdapter:
         self.repository = Path(settings.engine_repository)
         self.source = self.repository / "decoder"
 
-    def verify_source(self):
-        source = self.source
+    def verify_source(self, source=None):
+        source = source or self.source
         if source.is_symlink() or not source.is_dir():
             raise AdapterError("ENGINE_SOURCE_UNAVAILABLE")
         rows = []
@@ -141,10 +141,29 @@ class NativeAdapter:
         return Command(operation, target, (str(interpreter), "-B", "-m", "infinity_grid.controller", *args),
                        str(self.source), PIN_SOURCE, task.specification_sha256 if operation == "capture" else None)
 
-    def environment(self):
+    def verify_runtime(self):
+        # Probe distribution identity in the configured interpreter, never in
+        # the web venv. Native captured-environment admission still runs later.
+        profile = read_json(self.source / "qualification" / "PROFILE.json")
+        probe = "import sys,platform,json,importlib.metadata as m; print(json.dumps({'python':list(sys.version_info[:2]),'implementation':platform.python_implementation(),'os':platform.system(),'versions':{n:m.version(n) for n in sys.argv[1:]}}))"
+        try:
+            result = subprocess.run([self.settings.engine_python, "-I", "-B", "-c", probe,
+                                     *[r['distribution'] for r in profile['environment']]],
+                                    env=self.environment(), stdin=subprocess.DEVNULL,
+                                    capture_output=True, timeout=20, check=True)
+            actual = json.loads(result.stdout)
+        except (OSError, ValueError, subprocess.SubprocessError) as exc:
+            raise AdapterError("ENGINE_RUNTIME_UNAVAILABLE") from exc
+        if (actual['python'] != [3,12] or actual['implementation'] != 'CPython'
+                or actual['os'] != 'Linux' or actual['versions'] !=
+                {r['distribution']:r['version'] for r in profile['environment']}):
+            raise AdapterError("ENGINE_RUNTIME_MISMATCH")
+        return actual
+
+    def environment(self, source=None):
         # Do not pass the web bearer token or ambient PYTHONPATH to Decoder.
         env = {k: os.environ[k] for k in ("PATH", "LANG", "LC_ALL", "TZ", "HOME", "TMPDIR") if k in os.environ}
-        env.update(PYTHONPATH=str(self.source), PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
+        env.update(PYTHONPATH=str(source or self.source), PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
         return env
 
     def observe(self, operation: str, job: Job) -> NativeObservation:

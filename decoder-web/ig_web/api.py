@@ -204,4 +204,6 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
 def app_from_environment():
     """uvicorn ig_web.api:app_from_environment --factory --host 127.0.0.1"""
     settings = Settings.model_validate(read_json(Path(os.environ["IG_WEB_CONFIG"])))
-    return create_app(settings, os.environ["IG_WEB_TOKEN"])
+    from .worker import Queue
+    gateway = Queue(settings.worker_state) if settings.worker_state else None
+    return create_app(settings, os.environ["IG_WEB_TOKEN"], gateway=gateway)

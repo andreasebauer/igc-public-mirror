@@ -5,5 +5,9 @@
   "specification_root": "/srv/infinity-grid/specifications",
   "capture_store": "/srv/infinity-grid/store",
   "catalog": "/srv/infinity-grid/private/catalog.json",
-  "allowed_hosts": ["127.0.0.1", "localhost"]
+  "allowed_hosts": [
+    "127.0.0.1",
+    "localhost"
+  ],
+  "worker_state": null
 }

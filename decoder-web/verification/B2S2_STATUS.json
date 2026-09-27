@@ -1,0 +1,91 @@
+{
+  "block": 2,
+  "step": 2,
+  "status": "WORKER_FOUNDATION_IMPLEMENTED_SYNTHETIC_NATIVE_VALIDATION_PASS",
+  "production_activation": "NOT_ACTIVATED",
+  "engine_source_sha256": "03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d",
+  "test_source_sha256": "b80d2c578722f5227bdba2d2dc2391f8d0ae81d40dda94c3aee9dd950aea1747",
+  "native_job_id": "WEB.B2S2.VALIDATION.R4",
+  "completion_sha256": "e80487def99c77e598e48f913249561b8888946e382f4c104eab18fb29fee2f8",
+  "evidence_status": "VERIFIED",
+  "checks": [
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_capture_is_not_blindly_repeated",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_dispatch_revalidates_catalogue",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_durable_idempotency_and_conflict",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_native_refusal_retained",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_private_queue_and_process_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_process_output_and_secret_isolation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_separate_control_and_ambiguous_restart",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_unparseable_requires_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "scope": "Synthetic engineering tests through native VALIDATION, including small real subprocesses; not live Decoder execution, native pause or deployment qualification.",
+  "prior_attempts": [
+    {
+      "job": "WEB.B2S2.VALIDATION.R1",
+      "result": "6 PASS, 2 FAIL",
+      "issues": [
+        "reconciliation transaction rollback",
+        "test directory umask"
+      ]
+    },
+    {
+      "job": "WEB.B2S2.VALIDATION.R2",
+      "result": "CAPTURED_NOT_RUN",
+      "reason": "Staging command used wrong working directory; superseded without execution"
+    },
+    {
+      "job": "WEB.B2S2.VALIDATION.R3",
+      "result": "7 PASS, 1 FAIL",
+      "issue": "Linux process identity files unavailable inside native validation sandbox"
+    }
+  ],
+  "open_gates": [
+    "Capture output indexing",
+    "Native restart reconciliation",
+    "Concurrent independent worker crash tests",
+    "Live process identity and service shutdown qualification",
+    "Real native pause/resume",
+    "Production runtime and deployment activation"
+  ],
+  "next": "Block 2 step 3 \u2014 durable job tracking and native reconciliation",
+  "tested_files": {
+    "ig_web/__init__.py": "0266c39c82bfa6445dcf495188b6df68060cde867be01baed1b4ac209d9f3de4",
+    "ig_web/api.py": "b2b3135b459b0dc227cce12669198b0ae70aa02f77fc6b16718e37e60f82f855",
+    "ig_web/models.py": "5bc983f16900be1ba10fe2d94af264b516f986de31f7955ef948fcc2c85a2465",
+    "ig_web/native.py": "e2ded3a5c357167668786b389b029804e221e7a44911f8e3ef7e49a32c4dc951",
+    "ig_web/results.py": "3f5cf9413979ae772a8ce7da8be57e3e8ec9cee4f75cf2c3951de32bcca0b6f7",
+    "ig_web/worker.py": "89bc4b7db7787e85b65357d20631c57ac2003fe5a18274b5a9a1639ea9d03521"
+  }
+}
