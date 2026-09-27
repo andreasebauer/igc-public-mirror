@@ -1,0 +1,38 @@
+BLOCK 5 STEP 3 — PREVIEW DEVICE CHECK — 2026-09-27
+Status: PARTIAL — desktop browser checks passed; physical iPhone/offline pending.
+Preview: https://andreasebauer.github.io/igc-public-mirror/decoder/
+Published main source: 1c68ba4b087ad162aa450c6df519d67bd944bd05
+Interface source/evidence: a76cc55a3081695a92939b7489dc26edc104bdca
+No preview code changes in this step. Prior native qualification remains 6/6 PASS.
+
+OBSERVED THIS STEP
+1. Search comparison: exactly the comparison sample remains.
+2. Search missing: explicit No matching sample jobs message.
+3. Closed preview tab and opened a new tab at the same HTTPS URL.
+4. Jobs view reopened with all three samples and an empty search field.
+5. Page reported preview ready for offline use.
+This is online tab-reopening evidence, not an offline test or evidence that a
+running native Decoder job survives browser closure. No native job was started.
+
+PREVIOUSLY OBSERVED
+Jobs -> sample Run -> Results navigation and Prepare review work. Separate
+scientific outcome, evidence verification and save status remain visible.
+Microscope root loaded successfully after publishing the preview.
+
+IPHONE CHECK — TO BE REPORTED BY USER
+1. Open the preview in Safari. Check all four tabs fit and respond to taps.
+2. Share > Add to Home Screen; launch using the new icon.
+3. Wait until the preview-ready message appears while online.
+4. Turn off both Wi-Fi and mobile data (airplane mode alone may leave Wi-Fi on).
+5. Close and reopen the Home Screen app. Check Jobs and Results still open.
+6. Restore connectivity. Report success or the screen that failed.
+
+LIMITS
+No actual iPhone, mobile viewport, offline reload, or Home Screen installation
+is claimed tested here. Available browser controls do not expose device/network
+emulation. Service-worker ready text alone cannot establish offline success.
+The unchanged Microscope worker can clear other origin caches when it updates;
+revisit Decoder online if its cached shell has been evicted.
+Live backend execution and browser-disconnect survival remain deferred under
+the user's no-Hetzner-yet instruction. B5S3 is not closed. Original plan numbering
+is retained; do not silently advance to B6 based on this partial device check.
