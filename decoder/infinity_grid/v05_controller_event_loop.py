@@ -109,6 +109,32 @@ def _start_controller_attempt(runtime:Path,request_id:str,request:dict[str,Any],
                  attempt_sha256=canonical_sha256(running))
     return attempt_path,binding
 
+def _reconcile_workspace_attempts(attempts:Path, request_id:str, job_id:str,
+                                  source_sha256:str, registration_sha256:str)->None:
+    """Close interrupted records only while the caller owns workspace/work locks.
+
+    PID values are deliberately not liveness evidence across restored namespaces.
+    Retain the entire original record and its digest in the recovery transition.
+    Validate every pending transition before writing any of them.
+    """
+    pending=[]
+    for path in sorted(attempts.glob('*.json')):
+        record=json.loads(path.read_text(encoding='utf-8'))
+        if record.get('status')!='RUNNING': continue
+        expected={'request_id':request_id,'job_id':job_id,
+                  'source_sha256':source_sha256,'registration_sha256':registration_sha256,
+                  'attempt_id':request_id+':'+path.stem}
+        if any(record.get(k)!=v for k,v in expected.items()):
+            raise ControllerLoopError('INTERRUPTED_ATTEMPT_BINDING_MISMATCH')
+        pending.append((path,record))
+    for path,record in pending:
+        recovered=dict(record,status='INTERRUPTED',finished_unix=time.time(),
+                       reason='New registered attempt acquired exclusive workspace and work locks',
+                       recovery={'prior_record':record,'prior_record_sha256':canonical_sha256(record),
+                                 'basis':'EXCLUSIVE_WORKSPACE_AND_WORK_CLAIM'})
+        write_json_atomic(path,recovered)
+
+
 def _finish_controller_attempt(attempt_path:Path,status:str,reason:str|None=None)->None:
     record=json.loads(attempt_path.read_text(encoding='utf-8'))
     if record.get('status')!='RUNNING': raise ControllerLoopError('CONTROLLER_ATTEMPT_NOT_RUNNING')
@@ -860,6 +886,8 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
             gate = preflight_job(admission)
             write_json_atomic(runtime/'registrations'/f'{rid}.json',job)
             attempts = runtime/'attempts'/rid; attempts.mkdir(parents=True,exist_ok=True)
+            _reconcile_workspace_attempts(attempts,rid,job_id,admission['source_sha256'],
+                                          job['registration_sha256'])
             attempt_no = len(list(attempts.glob('*.json'))) + 1
             attempt_path = attempts/f'{attempt_no:06d}.json'
             running = {'status':'RUNNING','request_id':rid,'job_id':job_id,'pid':os.getpid(),

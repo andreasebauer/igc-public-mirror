@@ -169,3 +169,33 @@ def test_private_process_refused_with_separate_admission_root(tmp_path, allow_sc
             subprocess.run([sys.executable, '-c',
                 'from pathlib import Path; Path('+repr(str(marker))+').write_text("bad")'], check=True)
     assert not marker.exists()
+
+
+def test_interrupted_attempt_reconciliation_retains_original(tmp_path):
+    from infinity_grid.canon import canonical_sha256
+    original={'status':'RUNNING','request_id':'r','job_id':'j','attempt_id':'r:000001',
+              'source_sha256':'s','registration_sha256':'g','pid':os.getpid(),
+              'output_root':'/previous/environment','started_unix':1}
+    p=tmp_path/'000001.json';p.write_text(json.dumps(original))
+    done=tmp_path/'000002.json';done.write_text('{"status":"COMPLETED"}')
+    unchanged=done.read_bytes()
+    loop._reconcile_workspace_attempts(tmp_path,'r','j','s','g')
+    result=json.loads(p.read_text())
+    assert result['status']=='INTERRUPTED'
+    assert result['recovery']['prior_record']==original
+    assert result['recovery']['prior_record_sha256']==canonical_sha256(original)
+    assert done.read_bytes()==unchanged
+    first=p.read_bytes()
+    loop._reconcile_workspace_attempts(tmp_path,'r','j','s','g')
+    assert p.read_bytes()==first
+
+
+def test_interrupted_attempt_binding_mismatch_is_atomic(tmp_path):
+    original={'status':'RUNNING','request_id':'r','job_id':'j','attempt_id':'r:000001',
+              'source_sha256':'s','registration_sha256':'g'}
+    a=tmp_path/'000001.json';a.write_text(json.dumps(original))
+    b=tmp_path/'000002.json';b.write_text(json.dumps(dict(original,attempt_id='r:000002',source_sha256='other')))
+    before={p.name:p.read_bytes() for p in (a,b)}
+    with pytest.raises(loop.ControllerLoopError,match='INTERRUPTED_ATTEMPT_BINDING_MISMATCH'):
+        loop._reconcile_workspace_attempts(tmp_path,'r','j','s','g')
+    assert {p.name:p.read_bytes() for p in (a,b)}==before
