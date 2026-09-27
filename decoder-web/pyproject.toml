@@ -14,3 +14,6 @@ test = ["httpx>=0.27,<1"]
 
 [tool.setuptools.packages.find]
 include = ["ig_web*"]
+
+[tool.setuptools.package-data]
+ig_web = ["ui/*"]

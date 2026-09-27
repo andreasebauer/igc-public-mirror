@@ -95,6 +95,8 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
         response = await call_next(request)
         response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["Content-Security-Policy"] = "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
         return response
 
     @app.exception_handler(AdapterError)
@@ -154,6 +156,14 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     def inputs():
         return {"items": [i.model_dump() for i in catalogue().inputs]}
 
+    @app.get("/api/v1/job-overview")
+    def jobs_overview(query: Annotated[str,Query(max_length=200)]='',
+                      filter_by: Annotated[str,Query(pattern='^(all|active|attention|finished)$')]='all',
+                      offset: Annotated[int,Query(ge=0)]=0,limit: Annotated[int,Query(ge=1,le=100)]=20):
+        from .overview import overview
+        return overview(settings,submissions if hasattr(submissions,'connect') else None,
+                        query,filter_by,offset,limit)
+
     @app.get("/api/v1/jobs")
     def jobs(offset: Annotated[int, Query(ge=0)] = 0, limit: Annotated[int, Query(ge=1, le=100)] = 50):
         items = catalogue().jobs
@@ -211,6 +221,9 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     def results(job_id: Identifier):
         return results_observation(settings, job_by_id(job_id))
 
+    # Static shell carries no credentials or job data. API routes stay authenticated.
+    from starlette.staticfiles import StaticFiles
+    app.mount('/ui',StaticFiles(directory=Path(__file__).parent/'ui',html=True),name='jobs-ui')
     return app
 
 

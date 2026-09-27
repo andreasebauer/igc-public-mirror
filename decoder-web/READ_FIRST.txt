@@ -74,3 +74,7 @@ verification/B2S2_STATUS.json. No production worker or science execution enabled
 BLOCK 2 STEP 3
 Persistent capture index, request events, bounded logs and conservative exit-receipt
 reconciliation added. See TRACKING.txt and verification/B2S3_STATUS.json.
+
+BLOCK 3 STEP 1
+Jobs UI implemented at /ui/. See JOBS_UI.txt for state meanings and the explicit
+blocked visual-review gate. Prepare, Run and Results views follow separately.

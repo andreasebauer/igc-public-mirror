@@ -1,0 +1,50 @@
+DECODER WEB — BLOCK 3 STEP 1: JOBS SCREEN
+27 September 2026
+
+Open /ui/ on the same configured API host. The public static shell contains no
+credentials or job data. Enter the existing API access token to load the Jobs
+view. The token stays in JavaScript memory; it is not stored in browser storage,
+cookies or a URL. Disconnect clears it. API endpoints remain authenticated.
+Production hosting, TLS and the final sign-in experience belong to Block 5.
+
+Implemented
+- Responsive monochrome Jobs list, search by name/job ID, four filters,
+  attention/active-first ordering, pagination and refresh.
+- Last successful update and distinct loading, empty, read-error and stale states.
+  Failed fetches retain the last successful list; they never become an empty list.
+- Job overview disclosure using native execution and preservation observations.
+  Technical JSON stays in a disclosure. No Start action in list rows.
+- Same-origin static assets, restrictive content security policy, visible focus,
+  labelled fields, 44px minimum controls and safe-area padding.
+- Client text is written as text, never interpreted as HTML.
+- Package data configuration includes the HTML, CSS and JavaScript assets.
+
+Status boundaries
+Jobs list labels distinguish Web request, Registered job and Native record.
+Run requested is not proof of Running. Finished is not scientific PASS.
+The selected job only reports running activity when native status reports a busy
+workspace and a matching running job record, and labels this as a report.
+An idle workspace with an old RUNNING record needs reconciliation.
+Backup remains Unknown in the list until separately inspected; it is never
+inferred from completion. The detail says Native reports preserved only when
+native capture/outbox observations show no pending objects/checkpoints and
+PRESERVED. This is a native report, not an independent remote-save audit.
+A completed pause request does not hide an active run request.
+
+Step boundary
+New job is disabled with an explanation: Prepare is the next step. The selected
+job view is a read-only overview, not the later Run or Results screen. No science
+execution controls or production services are activated here.
+
+Validation
+Native registered suite: 10 Jobs UI/API checks plus 31 prior regression checks.
+Includes JavaScript projection assertions under the recorded Node toolchain.
+Native receipts and exact source identities are in verification/B3S1_STATUS.json.
+
+Visual and device checks: BLOCKED / NOT QUALIFIED.
+The local Chromium download was invalid/truncated. The available cloud browser
+rejected the file:// preview under its URL security policy. No workaround was
+attempted. No rendered layout, browser interaction or physical iPhone PASS is
+claimed. Synthetic desktop/390px preview HTML is retained in the handoff for a
+later permitted review. Review at the planned hosted staging environment before
+production activation; correct any layout or browser-only issue found there.

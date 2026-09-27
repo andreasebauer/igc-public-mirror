@@ -1,0 +1,246 @@
+{
+  "block": 3,
+  "step": 1,
+  "status": "JOBS_UI_IMPLEMENTED_ENGINEERING_CHECKS_PASS_VISUAL_GATE_BLOCKED",
+  "production_activation": "NOT_ACTIVATED",
+  "native_job_id": "WEB.B3S1.VALIDATION.R2",
+  "test_source_sha256": "b9ba971ba001ffff5f6216675279b6a1c417010201f685aa20f800510e603f45",
+  "completion_sha256": "fd4f528c6472f15fc23863d684537fb116bba52f85174321aa9ba08d243e3230",
+  "evidence_status": "VERIFIED",
+  "checks": [
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_auth_and_schema",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_catalog_failures",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_native_fixture_projection",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_native_refusal_preserved",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_observation_parsing",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_paths_and_environment",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_result_states_and_corruption",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_size_and_host",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_adapter_b2s1.py::Checks::test_validation_and_worker",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_browser_projection_logic",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_completed_pause_does_not_hide_active_run",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_empty_is_not_error",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_no_client_persistence_or_html_injection",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_registration_corruption_is_attention",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_rejected_result_remains_attention",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_route_limits",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_running_request_is_not_native_running",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_search_filter_and_pagination",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_jobs_b3s1.py::JobsChecks::test_static_shell_and_api_auth",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_alias_cannot_duplicate_native_run",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_capture_index_atomic_and_persistent",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_capture_wrong_registration_cannot_index",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_corrupted_output_blocks_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_events_logs_auth_and_bounds",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_exit_receipt_recovers_database_gap",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_independent_process_retry_one_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_live_lane_refuses_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_log_symlink_refused",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_native_completion_is_diagnostic_only",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_separate_process_crash_after_exit_receipt",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_simultaneous_retry_one_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_unknown_dispatch_never_replayed",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_tracking_b2s3.py::TrackingChecks::test_wrong_receipt_request_blocks",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_capture_is_not_blindly_repeated",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_dispatch_revalidates_catalogue",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_durable_idempotency_and_conflict",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_native_refusal_retained",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_private_queue_and_process_identity",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_process_output_and_secret_isolation",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_separate_control_and_ambiguous_restart",
+      "return_code": 0,
+      "status": "PASS"
+    },
+    {
+      "node": "tests/test_web_worker_b2s2.py::WorkerChecks::test_unparseable_requires_reconciliation",
+      "return_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "scope": "10 Jobs UI/API engineering checks including JavaScript projection assertions, plus 31 regression checks. No rendered browser interaction or device qualification.",
+  "visual_review": {
+    "status": "BLOCKED",
+    "reasons": [
+      "Local Chromium archive download invalid/truncated",
+      "Cloud browser rejected file:// preview by URL security policy"
+    ],
+    "workaround_attempted": false,
+    "physical_iphone_tested": false
+  },
+  "prior_capture": {
+    "job": "WEB.B3S1.VALIDATION.R1",
+    "status": "CAPTURED_NOT_EXECUTED",
+    "reason": "Pre-execution review added completed-pause/active-run regression case and corrected projection."
+  },
+  "next": "Block 3 step 2 \u2014 Prepare screen",
+  "tested_files": {
+    "ig_web/__init__.py": "0266c39c82bfa6445dcf495188b6df68060cde867be01baed1b4ac209d9f3de4",
+    "ig_web/api.py": "78712157632b2f9ed81fa93d28e7726271a149cbcdae5be46abdbe6c7111c673",
+    "ig_web/models.py": "5bc983f16900be1ba10fe2d94af264b516f986de31f7955ef948fcc2c85a2465",
+    "ig_web/native.py": "e2ded3a5c357167668786b389b029804e221e7a44911f8e3ef7e49a32c4dc951",
+    "ig_web/overview.py": "b7675f45c40e2805f3520fdcb7dbd1d76807e3a9a67f68d274b93a6f317278d8",
+    "ig_web/results.py": "3f5cf9413979ae772a8ce7da8be57e3e8ec9cee4f75cf2c3951de32bcca0b6f7",
+    "ig_web/tracking.py": "0c6db73512722ecdbb9078230902a51a9dcfc8f7c4c6e6c055b3e9f33bd6bb1e",
+    "ig_web/ui/app.mjs": "a842746813093b4046cf0a2a8ce6f5c8112766887af4337f3e8fef87fb3a7e95",
+    "ig_web/ui/index.html": "d65d9c672fda651d08b9e6e0b7c1097e56e70b88458c303688a2d22d76ed1382",
+    "ig_web/ui/style.css": "19f55073a668f9aaca5ac6fc3bb159c68a93d0d83ccd8571462e13a06e43767c",
+    "ig_web/worker.py": "e90c48c23afae4602648edb0fb7e8c423071ea332827c7c0cdc3fb32f0cdc721"
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer">
+<title>Jobs · Decoder</title><link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<div class="app-shell">
+<header class="masthead"><a class="brand" href="./" aria-label="Decoder Jobs home"><span class="brand-mark" aria-hidden="true">◇</span> Decoder</a><span class="section-label">WORKSPACE</span><button id="disconnect" class="quiet" hidden>Disconnect</button></header>
+<main id="main">
+<section id="connect-panel" class="connect-panel" aria-labelledby="connect-title">
+<p class="eyebrow">YOUR REGISTERED WORK</p><h1 id="connect-title">Everything in view.</h1><p class="intro">Connect to see your Decoder jobs and what needs your attention.</p>
+<form id="connect-form"><label for="token">Access token</label><div class="token-row"><input id="token" type="password" autocomplete="off" spellcheck="false" required aria-describedby="token-help"><button class="primary" type="submit">Connect <span aria-hidden="true">→</span></button></div><p id="token-help" class="small">Kept in memory for this tab only. Closing the tab clears it.</p></form>
+</section>
+<section id="jobs-panel" hidden aria-labelledby="jobs-heading">
+<div class="page-heading"><div><p class="eyebrow">YOUR REGISTERED WORK</p><h1 id="jobs-heading">Jobs</h1></div><button id="new-job" class="primary" disabled aria-describedby="prepare-note">＋ New job</button></div>
+<p id="prepare-note" class="small align-right">Job preparation comes in the next step.</p>
+<div class="connection-line"><span id="connection" class="connection" role="status">Connecting…</span><span id="updated">No successful update yet</span><button id="refresh" class="quiet">Refresh <span aria-hidden="true">↻</span></button></div>
+<div class="toolbar"><div class="filters" role="group" aria-label="Filter jobs"><button data-filter="all" aria-pressed="true">All <span id="count-all">—</span></button><button data-filter="active" aria-pressed="false">Active <span id="count-active">—</span></button><button data-filter="attention" aria-pressed="false">Needs attention <span id="count-attention">—</span></button><button data-filter="finished" aria-pressed="false">Finished <span id="count-finished">—</span></button></div><div class="search"><label for="search" class="sr-only">Search by name or job ID</label><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search jobs" autocomplete="off"></div></div>
+<p id="view-description" class="small">Active jobs and items needing attention appear first.</p>
+<div id="jobs-list" class="jobs-list" aria-live="polite" aria-busy="false"></div>
+<div class="pagination"><span id="page-label" class="small"></span><div><button id="previous" class="quiet" disabled>← Previous</button><button id="next" class="quiet" disabled>Next →</button></div></div>
+</section>
+<p id="message" class="message" role="alert" hidden></p>
+<section id="job-detail" class="job-detail" hidden aria-labelledby="detail-heading" tabindex="-1"><div class="detail-top"><p class="eyebrow">JOB OVERVIEW</p><button id="close-detail" class="quiet">Close ×</button></div><h2 id="detail-heading"></h2><p id="detail-question" class="intro"></p><p id="detail-note"></p><dl id="detail-facts" class="facts"></dl><details><summary>Technical details</summary><pre id="detail-raw"></pre></details><p class="small">Run controls and results views come in the following steps.</p></section>
+</main>
+<footer><span>Infinity Grid</span><span>Execution · Evidence · Preservation</span></footer>
+</div>
+</body></html>
