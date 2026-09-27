@@ -1,8 +1,8 @@
 DECODER SQLITE SEAL AND ATTEMPT RECOVERY CANDIDATE — NOT ACTIVATED
-Source identity: d4130b53a7820ff0cd3a8d777d6841a0024f113984351cebf11083b58ce439a5
+Source identity: a599a49c3882efc5a04f11d23edc100825ec650fedb19f3f36a64f11289cb92f
 
 This branch contains a candidate repair based on dev84 revision 5. The source
-manifest verifies its 1,253 files. Run python decoder-import/verify_source.py.
+manifest verifies its 1,254 files. Run python decoder-import/verify_source.py.
 The historical REVISION5_QUALIFICATION_RECEIPT.json applies only to revision 5;
 it does NOT qualify this changed candidate. Full qualification remains pending.
 
@@ -30,3 +30,11 @@ refuse before any write. Same-PID records across namespaces are not liveness.
 Combined native focused qualification: 36 PASS. Exact BEFORE_EXECUTION
 checkpoint restoration and replay: 36 PASS. Full functional qualification
 is running; expected 1063 tests across 116 selectors. No activation.
+
+Qualification correction: the first full capture omitted its required parent
+snapshot fixture and the controller byte-pin successor. It was paused and
+its failed checks retained. A corrected capture includes the exact historical
+parent fixture and an explicit prospective pin successor. No production code
+changed in this correction; no historical pin or assertion was removed.
+The 36+36 focused results above refer to the preceding candidate identity.
+Full qualification of this corrected identity is now running; not qualified.

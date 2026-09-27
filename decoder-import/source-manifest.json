@@ -1,7 +1,7 @@
 {
   "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "d4130b53a7820ff0cd3a8d777d6841a0024f113984351cebf11083b58ce439a5",
-  "package_sha256": "2ac2e295a9c89e6ff62a34b4757b76e42f7b7e6db45e13ebae530a15d61d045f",
+  "source_sha256": "a599a49c3882efc5a04f11d23edc100825ec650fedb19f3f36a64f11289cb92f",
+  "package_sha256": "11baecf1d3ff1e5a24085cb14ff3cdf40ae15d60345fa4dfd91755f8adef870a",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -842,6 +842,10 @@
     [
       "infinity_grid/research_frontier.py",
       "cd52f68b28916056dcb5348e7f7ed26cee9496847d97ec532f7f401f674fce72"
+    ],
+    [
+      "infinity_grid/resources.py",
+      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
     ],
     [
       "infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
@@ -3592,10 +3596,6 @@
       "547498ded6c19b914447f2f005c3e0719e7eea2004cc4b3a0c997772eb62fc3e"
     ],
     [
-      "infinity_grid/resources.py",
-      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
-    ],
-    [
       "infinity_grid/result_contracts.py",
       "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1"
     ],
@@ -4476,6 +4476,10 @@
       "3be7a8df61bafd3f426659b168488a3a0ec0be5513edc66300a2475a369066bc"
     ],
     [
+      "tests/fixtures/preservation_rebind/ATTEMPT_RECOVERY_REVIEWED_CORE_CHANGES.json",
+      "8681733964409cfb59acc9463ffff3c354866f3048b9e7d7483943098b11b2c1"
+    ],
+    [
       "tests/fixtures/preservation_rebind/CAPTURE.json",
       "eb8e90197114b032aa07d5a16e8ae6544a82e801c6291a7e9320a6f7e40a2118"
     ],
@@ -4521,7 +4525,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "72ba2a7daba5ab70eb6aa3d18f00a69db4f530e0bfa07eb8c21c9e93542339d9"
+      "a21f3a903ad5d8b8c4b001c71b98972198dec382afc20b2d9f9e7a181b1da162"
     ],
     [
       "tests/test_compact_label_reuse.py",
