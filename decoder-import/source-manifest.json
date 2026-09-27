@@ -1,7 +1,7 @@
 {
   "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "27372093c74897c1170e58b10eb6fc493005b765a3cd7fd5e1285e9ee398d205",
-  "package_sha256": "1855d9cb6cdf14d64cab5ddf83b7e4feace430e22c802cd36f878dd9e5c49906",
+  "source_sha256": "b1e42c5ddb20630e0481bdfac3a3e0083221fd3fb1c44b35b07bc6bf31e2a66b",
+  "package_sha256": "a69556c98d2faa1443f29ee799ccf6d8f2596d38e4f452717b56258a129a73bf",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -193,7 +193,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "a54aa9c86395ad5d2f1b82f6aa2375dcbf214446751e812e696280bf6bfe835b"
+      "24964d139e1f745f30d295b6ed8baf5771569f5bd0dba2840784fdfb51d2f979"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -3953,7 +3953,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "bb9ca40612ed53863e4fa893d20238b1f8163f3dc6aaa5789c0c1958578a5c2f"
+      "f6913f6b87a8c8919ead77796f3b12f96dfa83b2caa1ffd604b3a0204d297f52"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4934,6 +4934,10 @@
     [
       "tests/test_separate_completion_evidence.py",
       "cb53948d08d8a00f44dfad729e2db5998ea7e848a6880c63203bd104bdce8bf6"
+    ],
+    [
+      "tests/test_snapshot_evidence_filters.py",
+      "3564ed1933149b1454b0adc0447d79544c48d7d5adef03b1314397af11de8d40"
     ],
     [
       "tests/test_structural_encoding_e2.py",
