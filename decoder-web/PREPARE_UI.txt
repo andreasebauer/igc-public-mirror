@@ -1,0 +1,28 @@
+BLOCK 3 STEP 2 — PREPARE
+
+Prepare supports the current catalogue's fixed, versioned server tasks.
+New job -> choose version -> Review job -> durable review -> Prepare job.
+Saved reviews recover requests after response loss, browser closure or restart.
+Capture retries for a review use one durable queue key. Changed specification,
+command or required input availability requires a new review. Capture invokes
+no run operation. Captured configuration remains immutable.
+
+The present Task model contains no editable parameter schema or alternate
+input-role bindings. Resources, parameters and inputs therefore remain fixed.
+This is an explicit implementation limit: arbitrary schema-driven template
+editing and revision ancestry are not implemented. No scientific template or
+missing data was invented. The existing lower-level /captures route is retained.
+
+POST /drafts {task_id}, Idempotency-Key -> durable review (201)
+GET /drafts -> latest 100 reviews; GET /drafts/{id} -> review/request
+POST /drafts/{id}/capture {review_sha256} -> same durable request (202)
+Draft IDs are not credentials. All data routes require bearer authentication.
+No browser-persisted token, filesystem input, executable upload or HTML injection.
+Inputs are checked against available catalogue identities and actual bytes;
+review verification is a point-in-time observation, not native admission.
+Worker source/runtime/specification gates and native capture validation remain.
+
+Run view integration follows in Block 3 Step 3. A completed capture currently
+returns to Jobs for native backup observation. Prepare never claims Ready or
+preserved based on process exit. Browser/device visual qualification remains
+BLOCKED pending an allowed hosted staging surface; no visual PASS is claimed.

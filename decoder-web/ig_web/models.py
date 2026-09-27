@@ -82,3 +82,7 @@ class NativeObservation(StrictModel):
 class AcceptedRequest(StrictModel):
     request_id: Identifier
     status: Literal["queued", "dispatching", "running", "finished", "refused", "interrupted", "needs_reconciliation"]
+
+
+class DraftCaptureBody(StrictModel):
+    review_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")

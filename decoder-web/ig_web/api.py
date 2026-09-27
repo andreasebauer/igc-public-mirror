@@ -13,7 +13,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import ValidationError
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from .models import AcceptedRequest, CaptureBody, Catalog, EmptyBody, Identifier, PauseBody, Settings
+from .models import AcceptedRequest, DraftCaptureBody, CaptureBody, Catalog, EmptyBody, Identifier, PauseBody, Settings
 from .native import AdapterError, Command, NativeAdapter, PIN_COMMIT, PIN_SOURCE, PIN_VERSION, canonical_hash, read_json
 from .results import results_observation
 
@@ -184,8 +184,38 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
         j = job_by_id(job_id)
         return {"capture": native.observe("pending-saves", j), "outbox": native.observe("preservation", j)}
 
-    # Lower-level typed capture route for frozen server-owned specifications.
-    # Draft editing is a later UI service; it must freeze a spec before using this.
+    def draft_build(task_id):
+        from .drafts import review
+        catalog = catalogue()
+        task = next((t for t in catalog.tasks if t.id == task_id),None)
+        if task is None: raise AdapterError('TASK_NOT_FOUND',404)
+        return review(settings,task,catalog),native.command('capture',task=task)
+
+    def drafts():
+        from .drafts import Drafts
+        return Drafts(submissions)
+
+    @app.post('/api/v1/drafts',status_code=201)
+    def save_draft(body: CaptureBody,idempotency_key: IdempotencyKey):
+        return drafts().create(body.task_id,idempotency_key,lambda:draft_build(body.task_id))
+
+    @app.get('/api/v1/drafts')
+    def list_drafts():
+        service = drafts()
+        from contextlib import closing
+        with closing(submissions.connect()) as db:
+            rows = db.execute('SELECT id FROM drafts ORDER BY created DESC LIMIT 100').fetchall()
+        return {'items':[service.get(r['id']) for r in rows]}
+
+    @app.get('/api/v1/drafts/{draft_id}')
+    def get_draft(draft_id: Identifier):
+        return drafts().get(draft_id)
+
+    @app.post('/api/v1/drafts/{draft_id}/capture',status_code=202,response_model=AcceptedRequest)
+    def capture_draft(draft_id: Identifier,body: DraftCaptureBody):
+        return drafts().capture(draft_id,body.review_sha256,draft_build)
+
+    # Compatibility route for server-owned specifications.
     @app.post("/api/v1/captures", status_code=202, response_model=AcceptedRequest)
     def capture(body: CaptureBody, idempotency_key: IdempotencyKey):
         task = next((t for t in catalogue().tasks if t.id == body.task_id), None)
