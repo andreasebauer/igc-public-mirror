@@ -1,0 +1,92 @@
+BLOCK 5 STEP 1 — HOST INSTALLATION PACKET
+Status: prepared and engineering-tested; NOT installed on Hetzner.
+No SSH/server connection is available in this session. The server hostname,
+account, approved connection mechanism and current host state remain unknown.
+Do not treat the local chat container as the production server.
+
+LAYOUT
+/opt/infinity-grid/releases/<exact-interface-commit>/repo
+/opt/infinity-grid/releases/<exact-interface-commit>/engine-venv
+/opt/infinity-grid/releases/<exact-interface-commit>/web-venv
+/var/lib/infinity-grid/workspaces/store       native captures and objects
+/var/lib/infinity-grid/workspaces/projects    native project registries
+/var/lib/infinity-grid/specifications         approved task specifications
+/var/lib/infinity-grid/web-state              queue, logs, exports, transfer state
+/var/lib/infinity-grid/catalog.json           catalogue, initially empty
+/etc/infinity-grid/config.json               server-owned configuration
+/etc/infinity-grid/web-token                 API credential (B5S2 provisioning)
+
+Dedicated Linux user/group: igdecoder, with persistent state owned by that user.
+Code and environments remain root-owned, outside writable scientific workspaces.
+The native engine environment uses the exact CPython 3.12/Linux qualification
+profile and its hash-pinned requirements. Web dependencies are installed into a
+separate environment from the version lock. No web libraries enter native runtime.
+HTTPX is now an explicit application dependency because the save worker uses it.
+
+CREATE THE PACKET
+Use this checked-out interface revision's deploy/render.py:
+python3 decoder-web/deploy/render.py --commit EXACT_REVIEWED_40_CHARACTER_COMMIT --output NEW_PACKET_DIRECTORY
+The generated packet contains install.sh, config/catalog templates, four systemd
+units and RELEASE.json. The generator refuses branch names, existing output and
+symlink output paths. It does not touch system directories or start services.
+The handoff includes a packet generated for its published commit.
+
+HOST PREREQUISITES AND INSTALLATION
+Before running install.sh: inspect the actual server, Linux/systemd version,
+CPython 3.12, git, disk/memory/mounts, existing services, users and datasets.
+Use a local POSIX filesystem supporting flock, fsync, atomic rename and hardlinks;
+network filesystem behavior is unqualified. Verify native package hashes resolve
+for the host platform; do not relax the requirements on installation failure.
+Package downloads require the host's normal package-index access.
+
+Run install.sh as root only after reviewing its exact commit and paths. It is a
+fresh-install procedure and refuses an existing release/config/API unit. It
+preserves an existing catalogue and contains no deletion commands. Failures leave
+partial staging for inspection; there is no automatic cleanup or destructive retry.
+Existing host deployments need an explicit migration review, not this fresh installer.
+
+The installer fetches the exact commit, verifies source, creates both environments,
+installs dependencies, creates private state directories and installs the units.
+It reloads systemd definitions, but does NOT enable/start services. It finishes by
+running host runtime/source/config readiness as igdecoder. A failure leaves the
+installation unready. The generated API listens on 127.0.0.1:8765 only.
+
+SERVICES
+ig-decoder-api: authenticated API/UI; credential loaded through systemd
+LoadCredential, not a command argument or environment variable. Access logging
+is disabled to keep single-use download capabilities out of access logs.
+ig-decoder-execution: long-running capture/run/checkpoint/export lane.
+ig-decoder-control: independent cooperative pause lane.
+ig-decoder-save: independent Drive transfer and native confirmation lane.
+Workers receive no API credential directory or token. Drive access is configured
+separately using the B4S3 server-managed private token file and its rotation process.
+
+START/STOP AND RECOVERY
+There is no service-imposed science runtime deadline. Units use RuntimeMaxSec and
+TimeoutStopSec infinity, KillMode mixed, SendSIGKILL no. Normal operation is not
+stopped by closing a browser. This configuration is not proof of device/disconnect
+qualification; that remains B5S3/B6. Before upgrades or planned stops, use native
+cooperative pause, wait for acknowledgement, save pending objects and inspect
+worker state. Do not forcibly restart a service with active science children.
+A main-worker failure may leave a native child running with the inherited lane
+lock. Service restart must not replay it; existing queue reconciliation applies.
+Do not edit/delete native locks, request rows or ambiguous evidence to force start.
+
+HOST ACCEPTANCE (OPEN)
+Record source verification, exact engine/web runtime versions, writable persistent
+paths, /proc process identity and empty/approved catalogue. Check systemd-analyze
+verify on generated units and actual executable paths. Provision API credential
+and HTTPS in B5S2 before public access. Then explicitly start the reviewed services,
+record loopback health/auth results and verify logs contain no credentials.
+Test actual service restart, native child lifetime and iPhone access in B5S3/B6.
+No host PASS, systemd launch PASS or deployment completion is claimed by the
+registered local packet/entrypoint checks.
+
+NEXT
+Host connection and installation verification are still part of B5S1. Only then
+continue to B5S2 HTTPS and single-user authentication. Original numbering remains.
+
+SYSTEMD REFERENCES
+https://github.com/systemd/systemd/blob/main/man/systemd.kill.xml
+https://github.com/systemd/systemd/blob/main/man/systemd.service.xml
+https://github.com/systemd/systemd/blob/main/docs/CREDENTIALS.md
