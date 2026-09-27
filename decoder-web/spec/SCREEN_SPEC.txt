@@ -1,0 +1,131 @@
+DECODER WEB — BLOCK 1 STEP 2: SCREEN SPECIFICATION v1
+27 September 2026
+Status: specification complete; implementation and device checks pending.
+Baseline: 0.8.0.dev84+lib revision 5, commit
+792fc17f557c1414c882fa424b77f9a7f3bee458. See enclosed engine-pin.json.
+
+PURPOSE AND NAVIGATION
+One user operates existing registered Decoder tasks from a phone or desktop.
+Four views: Jobs, Prepare, Run, Results. Jobs is home; Prepare opens from New
+job; selecting a job opens its Run view with a Results tab. Run and Results
+always retain the selected job identity. Do not provide empty global Run tabs.
+No microscope redesign or integration in this step.
+
+SHARED PRESENTATION
+Quiet monochrome layout, readable text, generous spacing, one primary action
+per view. Status uses words as well as color. Technical identities, raw JSON,
+source/runtime versions and hashes live in a Details disclosure.
+Phone: one column, minimum 44px touch targets, safe-area-aware action bar,
+no page-wide horizontal scrolling. Desktop: same information in wider rows.
+Labels remain visible above fields. Keyboard navigation, visible focus,
+screen-reader labels and readable contrast are required.
+Server connection and last successful update are visible. Disconnection marks
+cached values stale, disables mutations, and says execution may still continue.
+Reconnection refreshes server state before offering any run action.
+
+1. JOBS — WHAT NEEDS MY ATTENTION?
+Header: Decoder; New job button.
+Filters: All / Active / Needs attention / Finished; search by name or job ID.
+Each row: job name, short question, execution state, last activity, backup
+state. Show exact progress only if native telemetry provides a known total.
+Active and attention items appear first; remaining items newest first.
+Tap a row to open that job. No start button in list rows.
+Empty state: No jobs yet; Prepare a job. Loading, read error and disconnected
+states must be distinct from an empty list. Never replace a failed load by [].
+New job opens Prepare. Existing immutable jobs are not editable or deletable
+in version 1. Preparing a revision creates a new draft linked to its parent.
+
+2. PREPARE — WHAT WILL THIS JOB DO?
+One form with three sections, followed by a review summary on the same view:
+Task: choose an available, versioned task template. Show its question,
+predeclared outcomes, stopping rule and expected outputs in plain language.
+Inputs: choose required inputs by logical role from the server catalogue;
+show name, version/identity, availability and verification status. Do not ask
+the user to type server filesystem paths or invent unavailable master data.
+Resources: workers and only resource settings supported by this template.
+Preserve supplied defaults; never silently truncate work or invent deadlines.
+Editable parameters come from the task schema, with units and validation.
+Do not silently invent scientific questions, stopping rules or outcome choices.
+Missing fields show inline errors. Missing task/input support explains the
+reason and blocks preparation. No placeholder O4-G8 execution buttons.
+Primary action: Review job; then Prepare job after the summary is visible.
+Preparation invokes native capture, not execution. Successful preparation
+opens Run. A capture requiring backup shows Awaiting backup, not Ready.
+Draft changes may be saved before capture; captured fields become read-only.
+Repeated submission must resolve to one captured job or a clear failure.
+No arbitrary code editor or free-form executable upload in version 1.
+
+3. RUN — WHAT IS HAPPENING?
+Header: job name and question; tabs Run / Results; back to Jobs.
+Main area: execution state, current stage/task when reported, elapsed time,
+last observation, completed/total units when reported. Unknown totals use
+counts or an indeterminate indicator; never a fabricated percent or ETA.
+Distinguish web queue time, loading/warmup and native execution if observable.
+Primary action by state:
+  Prepared, all native prerequisites satisfied: Start.
+  Awaiting backup or refused: Resolve requirement (show actual next action).
+  Queued: show Queued; no second Start.
+  Running: Request pause.
+  Pause requested: show request pending; do not label Paused yet.
+  Paused or interrupted: Resume only when native checks permit.
+  Finished: View results.
+Pause is cooperative; no instant-stop promise. Resume uses the original
+registered job; source/input changes require a new capture.
+Backup panel: pending obligations, transfer state, last verified save and
+supported retry/confirmation action. Never let the user mark a save verified
+with a checkbox. Preserve actual transfer failures and refusal reasons.
+Activity log collapsed by default; expand for timestamped native events and
+bounded stdout/stderr pages. Auto-follow may be paused without pausing science.
+Refusal card: what happened, unmet condition, next supported action. Keep raw
+reason code in Details. An interrupted browser request is not proof of failure;
+reconcile the server request/job before allowing retry.
+Closing the browser changes no job state. Runtime settings are read-only
+after capture. No repeated permission dialogs for an ordinary Start action.
+
+4. RESULTS — WHAT WAS LEARNED AND CAN WE TRUST THE RECORD?
+Header: same job identity and question; Results selected.
+Show three independent facts prominently:
+  Scientific outcome: exact reported outcome in understandable wording.
+  Evidence: verified / rejected / pending / unknown, as reported.
+  Preservation: verified saved / pending / failed / unknown, as reported.
+Execution Finished alone never becomes scientific PASS or Saved.
+Present summary, measured values/counters and limitations supplied by the
+result contract. Negative findings and falsifications remain first-class.
+If no accepted result exists, say so; show retained partial evidence labelled
+Partial, and link back to Run. Do not manufacture a summary from exit code.
+Artifact list: logical name, type, size, verification state; inspect supported
+text/JSON or download. Paginate large inventories; never load whole data sets
+into the browser simply to display a list.
+Actions: Download result; Export recovery bundle when native state permits;
+Prepare new revision (copies choices into a draft, never edits the old job).
+Details: registration/capture identity, engine identity, inputs, attempts,
+checkpoint lineage, result contract and preservation receipts.
+Microscope link is deferred until a verified compatible data contract exists.
+
+STATE AND LANGUAGE RULES
+UI labels are a projection of native evidence, not new scientific authority.
+Web state (draft, queued, connected) must remain distinct from engine state.
+Busy workspace + fresh native record can indicate activity; stale RUNNING
+without a held lock is Interrupted/needs reconciliation, never live Running.
+Pending checkpoint publication remains pending, even after process exit.
+Show unavailable information as Unknown, never zero, success or an empty set.
+Completion reuse should say Reused verified result, with its original identity.
+Audit stops remain visible and cannot be bypassed by Resume.
+
+REVIEW SCENARIOS FOR IMPLEMENTATION
+A. Empty installation -> Prepare -> capture -> Awaiting backup -> Ready ->
+   Start -> Running -> Finished -> inspect outcome/evidence/preservation.
+B. Request pause -> pending -> acknowledged pause -> native resume of same job.
+C. Close browser during run -> reopen -> same active job, no duplicate start.
+D. Network loss during Start -> reconnect -> reconcile before retry.
+E. Native refusal -> useful explanation -> supported correction/new capture.
+F. Process finished with rejected evidence -> show rejection, no PASS badge.
+G. Scientific negative outcome with valid evidence -> retain negative finding.
+H. Server restart -> Interrupted or verified active state; never stale Running.
+I. No available task/input -> explicit unavailable state, no invented data.
+J. Result exists but save is pending -> usable distinction, no Saved claim.
+
+BOUNDARY OF THIS STEP
+This is an implementation specification, not a working UI or runtime test.
+Exact endpoint/command mapping and acceptance gates belong to Block 1 step 3.
+No Decoder source, production runtime, GitHub main or microscope changes.

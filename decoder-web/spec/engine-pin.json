@@ -1,0 +1,14 @@
+{
+  "schema": "DECODER_WEB_ENGINE_PIN_V1",
+  "repository": "andreasebauer/igc-public-mirror",
+  "commit": "792fc17f557c1414c882fa424b77f9a7f3bee458",
+  "source_directory": "decoder",
+  "version": "0.8.0.dev84+lib",
+  "revision": 5,
+  "source_sha256": "03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d",
+  "qualification_status": "QUALIFIED_FOR_ENGINEERING_USE_NOT_ACTIVATED",
+  "entrypoint": "ig-decoder",
+  "runtime_profile": "decoder/qualification/PROFILE.json",
+  "source_verification_command": "python decoder-import/verify_source.py",
+  "verification_scope": "Pinned source inspection; no engine execution, activation or full source reconstruction in this step"
+}

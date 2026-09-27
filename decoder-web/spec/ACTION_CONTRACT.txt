@@ -1,0 +1,162 @@
+DECODER WEB — BLOCK 1 STEP 3: ACTION CONTRACT v1
+27 September 2026
+Status: specification complete; acceptance checks NOT RUN.
+Baseline and screen specification are included in this bundle.
+
+ARCHITECTURE
+Browser -> authenticated web API -> persistent request queue -> native CLI
+process, using the pinned engine environment. Web code never imports science
+handlers or grants execution authority. Native checks remain authoritative.
+Queue records live separately from native workspaces. A web job record maps
+an opaque web ID to a native workspace and registered job ID. No browser-supplied
+filesystem paths, executable names, arbitrary command arguments or shell text.
+Each operation has a durable request ID. Browser disconnect does not stop it.
+Version 1 serializes science runs across the server; native multicore remains
+available inside a run. Monitoring and cooperative pause use a separate control
+path and must not wait behind the long-running run request.
+
+API CONTRACT — proposed /api/v1 routes, not existing Decoder endpoints
+GET /engine
+  Return pinned version, readiness and source/runtime verification status.
+GET /tasks; GET /inputs
+  Read server-managed catalogues, with availability and exact identities.
+  These are adapter catalogues, not inferred scientific completeness claims.
+GET /jobs; GET /jobs/{id}
+  Read paginated web index and native observations; index is not proof of result.
+POST /drafts; PATCH /drafts/{id}; GET /drafts/{id}
+  Save validated choices only; no native execution or capture.
+POST /drafts/{id}/capture
+  Freeze draft revision and server-resolved specification, then enqueue
+  [ig-decoder, capture, STORE, SPECIFICATION]. Return durable request ID.
+  Resolve resulting workspace/job identity from native capture output. If output
+  cannot be parsed or process outcome is ambiguous, retain it and reconcile;
+  do not repeat capture blindly. Capture is preparation, not execution.
+POST /jobs/{id}/run
+  Start/resume through [ig-decoder, run, WORKSPACE, NATIVE_JOB_ID].
+  Same operation for start and resume. Native save, source, environment,
+  registration and result gates may refuse; preserve and display the refusal.
+POST /jobs/{id}/pause
+  [ig-decoder, preserve, pause, WORKSPACE, REASON]. Response acknowledges the
+  request only. Paused is shown after native pause/interruption evidence.
+GET /jobs/{id}/status
+  [ig-decoder, status, WORKSPACE], reconciled with queue/process observations.
+GET /jobs/{id}/preservation
+  [ig-decoder, pending-saves, WORKSPACE] and
+  [ig-decoder, preserve, status, WORKSPACE]. Keep capture/outbox roles distinct.
+POST /jobs/{id}/snapshot
+  [ig-decoder, preserve, snapshot, WORKSPACE]. Respect native busy refusal.
+POST /jobs/{id}/exports
+  [ig-decoder, export, WORKSPACE, SERVER_ALLOCATED_OUTPUT, optional --slim].
+POST /recoveries
+  Operator-selected verified archive -> [ig-decoder, restore, ARCHIVE,
+  NEW_DESTINATION, EXPECTED_SHA256]. Destination is allocated by server.
+  restore-capture and preserve restore remain typed recovery modes, enabled
+  only after their separate input requirements are validated in implementation.
+GET /requests/{id}
+  Read durable request state and native response/refusal, including exit code.
+GET /jobs/{id}/events?cursor=...&limit=...
+  Read bounded logs/events with stable cursors; no unbounded file reads.
+GET /jobs/{id}/results; GET /jobs/{id}/artifacts
+  Read-only adapter projection of native result records. Missing/invalid records
+  yield unknown/rejected, not PASS. Read paths and schemas must be confirmed
+  against restored native fixtures before these endpoints are enabled.
+GET /jobs/{id}/artifacts/{artifact_id}/download
+  Resolve manifest-listed artifact, ensure contained regular file, verify its
+  identity as required, then stream. Never serve arbitrary workspace paths.
+
+DRIVE PRESERVATION — BLOCK 4 IMPLEMENTATION
+POST /jobs/{id}/save-requests starts a typed transfer request, not a confirmation.
+Transfer worker uploads pending native objects, downloads their actual bytes,
+then invokes the appropriate native confirmation:
+capture: confirm-save WORKSPACE SHA READBACK DRIVE_ID [role/name options]
+outbox: preserve confirm WORKSPACE SHA READBACK DRIVE_ID [role/name/obligation]
+Native confirm-transport variants handle multipart saves. Hashes and role-bound
+obligations come from native records. Never accept a browser claim of verified
+bytes. Preserve failures; disconnected/unconfigured Drive means save pending.
+No credentials in browser code, logs, GitHub or exported handoff bundles.
+
+REQUEST AND RESPONSE RULES
+All mutations require authentication and CSRF protection when cookie-based.
+Use structured validated request bodies; reject unknown fields and oversized
+payloads. Parameter limits derive from task/runtime contracts, not guesses.
+Mutations require Idempotency-Key. Store key, canonical body digest, operation,
+target and response transactionally before dispatch. Same key/body returns the
+same request; same key/different body returns conflict. A uniqueness constraint
+prevents two active run requests for one job even when different keys arrive.
+Requests: queued, dispatching, running, finished, refused, interrupted,
+needs_reconciliation. These describe web operations, not scientific outcomes.
+Record intended invocation before spawn; record process identity and attempt
+after spawn. A crash between them is ambiguous and requires native reconciliation.
+Never blindly replay a dispatching/running mutation after server restart.
+HTTP 202 means queued, never completed. HTTP 400 is invalid input; 401 is
+unauthenticated; 404 unknown ID; 409 conflicting/busy operation; 503 dependency
+unavailable. Native refusals after dispatch are retained in request results.
+Return request ID, job ID, observation time, raw native status and projected UI
+state. Keep execution, scientific outcome, evidence and preservation separate.
+Native JSON may be on stdout or stderr. Capture both plus exit code. Never
+classify success from exit code alone or discard unparseable output.
+Use argument arrays with shell=False and controlled environment/cwd. Pin the
+engine interpreter; web dependencies must not change captured runtime identity.
+Before enabling execution, verify full source manifest and native environment.
+Historical jobs requiring another engine are unavailable until explicitly
+supported with their exact runtime; do not silently run them under this pin.
+
+STATUS RECONCILIATION
+Workspace busy is not necessarily this job running: check native job/attempt.
+Last RUNNING record with idle workspace is interrupted/needs reconciliation.
+On missing connection, show last observation as stale; do not infer failure.
+After process exit, inspect native completion/checkpoint/refusal records.
+COMPLETION_PENDING_CHECKPOINT remains pending. Reuse retains producer identity.
+Native registered execution may perform final verified reuse; a web database
+row or matching filename alone must never become verified result evidence.
+No automatic resume across an audit stop, changed source or unmet save gate.
+
+ACCEPTANCE GATES — ALL PENDING, TO BE EXECUTED IN LATER BLOCKS
+A01 PIN: full checkout passes source verifier; configured runtime matches profile.
+A02 CAPTURE: valid template produces native immutable capture; edited source or
+    missing input is refused with retained reason; preparation runs no science.
+A03 SAVE: required unsaved capture cannot run; wrong readback cannot confirm;
+    correct real readback satisfies only its exact native obligation.
+A04 EXECUTE: one small registered job runs through native entrypoint and produces
+    expected native evidence; no direct scientific handler path exists in web API.
+A05 DUPLICATE: simultaneous same/different-key Start requests launch at most one
+    active native job; same-key changed payload conflicts.
+A06 DISCONNECT: closing/reopening browser preserves the same server job; a lost
+    Start response is reconciled rather than creating another run.
+A07 PAUSE: request reaches active job independently of run queue; pending is
+    visible until native acknowledgment; resume reuses committed work correctly.
+A08 RESTART: web-service and worker interruption cases, including spawn window,
+    reconcile with native lock/attempt records without blind duplicate dispatch.
+A09 REFUSAL: preserve native reason, unmet checks and supported next action;
+    changed-source, busy-workspace and missing-save cases never become success.
+A10 RESULT: demonstrate accepted, negative, rejected and partial records; process
+    completion, evidence validity and saved status remain distinct in the UI.
+A11 EXPORT: idle export and cold restore verify unchanged identity; running export
+    follows native busy behavior. Corrupt archive refuses without false success.
+A12 FILES: unknown artifact, traversal and symlink paths cannot expose files;
+    bounded logs and large downloads do not load whole datasets into memory.
+A13 ACCESS: unauthenticated mutations denied; cookie mutations require CSRF;
+    secrets absent from browser bundle, logs and handoff.
+A14 PHONE: verify narrow viewport, taps, scrolling, labels and reconnect states;
+    do not claim physical iPhone testing unless performed on one.
+A15 DRIVE: real transfer/readback succeeds; failed transfer remains pending or
+    failed without invented acknowledgment. Gate remains open without credentials.
+A16 REGRESSION: engine and microscope source unchanged by interface work;
+    any necessary engine change uses its native change/qualification workflow.
+
+TEST EXECUTION DISCIPLINE
+Native science and qualification probes use registered Decoder execution.
+Adapter tests can use explicitly labelled synthetic responses but cannot count
+as native end-to-end evidence. Register executable checks under the appropriate
+supported native workflow before treating them as project test results.
+Keep test scripts, exact inputs, outcomes and failures. Do not inherit PASS from
+the pinned engine receipt as proof that this new adapter works.
+Each gate records NOT_RUN/PASS/FAIL/BLOCKED, evidence location and source identity.
+
+BLOCK 1 CLOSEOUT
+Step 1: engine pinned and native operation inventory recorded.
+Step 2: four screens and state presentation specified.
+Step 3: action mapping, request rules and acceptance gates specified.
+Next: Block 2 step 1 — implement native API adapter against this contract.
+No runtime deployment, source reconstruction, live execution or test PASS is
+claimed in Block 1. Source artifacts remain on GitHub; data remain external.

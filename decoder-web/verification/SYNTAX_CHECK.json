@@ -1,0 +1,11 @@
+{
+  "check": "AST syntax parsing only; no imports or runtime tests",
+  "status": "PASS",
+  "files": [
+    "ig_web/__init__.py",
+    "ig_web/api.py",
+    "ig_web/models.py",
+    "ig_web/native.py"
+  ],
+  "acceptance_gates": "NOT_RUN"
+}
