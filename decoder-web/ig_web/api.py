@@ -272,6 +272,11 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
         if not hasattr(submissions,'logs'): raise AdapterError('BACKGROUND_WORKER_NOT_CONFIGURED')
         return submissions.logs(request_id,stream,offset,limit)
 
+    @app.get('/api/v1/jobs/{job_id}/results-view')
+    def results_view(job_id: Identifier):
+        from .resultsview import observe
+        return observe(settings,native,job_by_id(job_id))
+
     @app.get("/api/v1/jobs/{job_id}/results")
     def results(job_id: Identifier):
         return results_observation(settings, job_by_id(job_id))

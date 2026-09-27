@@ -1,0 +1,32 @@
+BLOCK 4 STEP 1 — RESULTS VIEW
+
+The selected job has Run / Results navigation and retains job identity.
+Results displays three separate cards:
+- Scientific outcome: exact native-reported value, including negative findings.
+  No outcome is inferred from process exit, validation PASS or evidence status.
+- Evidence verification: native completion's VERIFIED/REJECTED/PENDING/UNKNOWN
+  report. This is explicitly reported evidence, not independent artifact recheck.
+- Workspace save status: current native capture/outbox observations, separately
+  identifying pending capture obligations, checkpoint objects and checkpoints.
+
+GET /api/v1/jobs/{id}/results-view is authenticated and read-only. It combines
+existing hash/registration-bound result projection with native pending-saves
+and preservation status. Capture save observation must match the selected job.
+Read errors, mismatched records and native refusals remain unknown/unavailable.
+Published, pending-checkpoint, absent and invalid result states are distinct.
+A pending completion is labelled Partial; its reported outcome is not hidden.
+A failed refresh retains prior values with an explicit stale warning.
+No checkpoint does not mean preserved; missing counts never become zero.
+Native-reported preservation does not grant scientific validity or reuse.
+
+Run action state is retained while changing tabs. A result read cannot enqueue
+execution, pause, capture, checkpoint, export or confirmation. Text uses DOM
+textContent. Tokens remain tab-memory-only. Raw reports are in a disclosure.
+No artifact download or checkpoint/export operation was added in this step.
+These belong to Block 4 Step 2; Drive transfers belong to Block 4 Step 3.
+
+Qualification is registered native VALIDATION with labelled synthetic cases
+and a retained native completion fixture. No live scientific job is activated.
+Visual/browser/physical iPhone validation remains blocked pending permitted
+hosted staging. Historical step-number errors remain in immutable evidence;
+MASTER_PLAN.txt and the current READ_FIRST pointer contain the correction.

@@ -1,0 +1,43 @@
+DECODER INTERFACE — ORIGINAL MASTER PLAN
+Six blocks, three steps each: 18 steps.
+Source: Decoder interface chat.md, saved 27 September 2026.
+
+Block 1 — Freeze the interface contract
+1. Pin the Decoder revision and list its supported operations.
+2. Define the screens: Jobs, Prepare, Run, Results.
+3. Map each action to native Decoder commands and define acceptance checks.
+
+Block 2 — Connect the native engine
+1. Create a small web API for registered capture, execution, status, and results.
+2. Run Decoder in separate background processes, preserving its captured environment.
+3. Add durable job tracking and duplicate-start protection.
+
+Block 3 — Build the interface
+1. Build an iPhone-friendly job list and job details.
+2. Add preparation forms for existing registered tasks, inputs, and resources.
+3. Add status, logs, pause/resume controls, and clear refusal explanations.
+
+Block 4 — Preserve and inspect results
+1. Display scientific outcome, evidence verification, and save status separately.
+2. Connect native checkpoint/export operations and downloads.
+3. Connect Drive upload/readback confirmation, keeping required save gates intact.
+
+Block 5 — Put it on Hetzner
+1. Set up the pinned runtime, persistent workspace, and background service.
+2. Add HTTPS and single-user authentication.
+3. Verify access from your iPhone and that jobs continue when the browser closes.
+
+Block 6 — Prove it and hand it over
+1. Exercise one small registered job from preparation through verified results.
+2. Check duplicate clicks, pause/resume, service restart, and preserved failure evidence.
+3. Commit the interface code to GitHub and save a compact TXT/ZIP handoff to Drive.
+
+Scope: existing registered jobs, one user, one server. The microscope stays as
+it is; integration follows the master data block. Server access and unattended
+Drive credentials remain external dependencies. Deployment cannot be called
+complete before testing on the user's server.
+
+Numbering correction: the B3S3 handoff incorrectly called Results B3S4.
+Results is B4S1. Historical evidence bundles remain unchanged.
+Current implementation scope: Block 4 Step 1.
+Next: Block 4 Step 2. Visual/device and native end-to-end gates remain open.
