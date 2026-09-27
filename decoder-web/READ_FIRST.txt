@@ -70,3 +70,7 @@ Acceptance A01-A16 remain end-to-end gates; this bounded check does not close th
 BLOCK 2 STEP 2
 Separate worker and durable submission foundation added. See WORKER.txt and
 verification/B2S2_STATUS.json. No production worker or science execution enabled.
+
+BLOCK 2 STEP 3
+Persistent capture index, request events, bounded logs and conservative exit-receipt
+reconciliation added. See TRACKING.txt and verification/B2S3_STATUS.json.

@@ -1,0 +1,56 @@
+DECODER WEB — BLOCK 2 STEP 3
+27 September 2026
+
+Persistent jobs and requests
+The private SQLite store now holds captured web jobs, requests and ordered events.
+Existing Step 2 stores migrate on opening. Active native-run uniqueness uses the
+native workspace/job arguments as well as the existing web target constraint;
+web aliases cannot bypass duplicate protection. Conflicting old rows cause
+migration to refuse rather than silently discard a request.
+
+Capture completion binds the frozen specification, capture hash, registration,
+workspace metadata, input/environment identities and pinned source before adding
+the web job. Index insertion and request finalization commit together. Later API
+and worker catalogue reads include this index. A native capture never becomes a
+scientific result or save confirmation. The configured workspace_root must
+contain capture_store/captures; the example config now uses that directory.
+
+Process exit and reconciliation
+After native process exit, both streams are flushed and hashed. An atomic,
+directory-fsynced exit.json binds request ID, command digest, exit code and stream
+hashes before the database is finalized. If a worker stops in that gap, an
+operator can finish recording the existing request without executing it again:
+  python -m ig_web.worker --config /absolute/config.json --reconcile REQUEST_ID
+
+Reconciliation takes the same per-lane lock as the worker and native child.
+An active lane refuses reconciliation. Corrupt or mismatched receipts remain
+blocked. No exit receipt means unresolved dispatch: native result records are
+recorded only as diagnostic observations and the lane remains blocked. An old
+completion is never used as proof that the latest web request finished.
+
+This version has no force-clear, automatic retry, automatic restart/resume or
+operator override for an unresolved spawn window. Resolution of that case needs
+native attempt/process evidence and a separately qualified recovery procedure.
+A missing receipt does not imply failure, interruption or successful completion.
+
+Observation endpoints
+GET /api/v1/requests/{id}/events?cursor=0&limit=100
+GET /api/v1/requests/{id}/logs/stdout?offset=0&limit=65536
+GET /api/v1/requests/{id}/logs/stderr?offset=0&limit=65536
+They retain bearer authentication, expose no arbitrary filesystem paths, reject
+unknown streams and symlinks, and cap page/byte limits. Log offsets are bytes;
+a multibyte character split between requests may be displayed as a replacement
+character. Events are transport history, not native scientific evidence.
+
+Qualification scope
+The registered suite contains 14 new tracking checks and 17 API/worker regression
+checks. Synthetic checks include independent database clients and a process that
+exits after writing its exit receipt, before finalizing its database request.
+Capture fixtures are explicitly synthetic and source verification is mocked only
+inside that fixture test. Production code always enforces the full source pin.
+No real science, production service deployment, native pause/resume qualification,
+or claim that every process-crash window is resolved is made here.
+
+The source-only engine boundary from Step 2 still applies: added project source
+and historical engine versions are refused. Native admission remains authoritative.
+Production readiness stays false. Later deployment/end-to-end gates remain open.

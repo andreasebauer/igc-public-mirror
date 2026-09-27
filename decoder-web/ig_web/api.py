@@ -109,7 +109,8 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
 
     def catalogue():
         try:
-            catalog = Catalog.model_validate(read_json(Path(settings.catalog)))
+            from .tracking import catalogue as tracked_catalogue
+            catalog = tracked_catalogue(settings,submissions if hasattr(submissions,"connect") else None)
             for rows in (catalog.jobs, catalog.tasks, catalog.inputs):
                 if len({x.id for x in rows}) != len(rows):
                     raise AdapterError("CATALOG_DUPLICATE_ID")
@@ -193,6 +194,18 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     @app.get("/api/v1/requests/{request_id}")
     def request_status(request_id: Identifier):
         return submissions.get(request_id)
+
+    @app.get("/api/v1/requests/{request_id}/events")
+    def request_events(request_id: Identifier, cursor: Annotated[int,Query(ge=0)]=0,
+                       limit: Annotated[int,Query(ge=1,le=100)]=100):
+        if not hasattr(submissions,'events'): raise AdapterError('BACKGROUND_WORKER_NOT_CONFIGURED')
+        return submissions.events(request_id,cursor,limit)
+
+    @app.get("/api/v1/requests/{request_id}/logs/{stream}")
+    def request_logs(request_id: Identifier, stream: str, offset: Annotated[int,Query(ge=0)]=0,
+                     limit: Annotated[int,Query(ge=1,le=65536)]=65536):
+        if not hasattr(submissions,'logs'): raise AdapterError('BACKGROUND_WORKER_NOT_CONFIGURED')
+        return submissions.logs(request_id,stream,offset,limit)
 
     @app.get("/api/v1/jobs/{job_id}/results")
     def results(job_id: Identifier):

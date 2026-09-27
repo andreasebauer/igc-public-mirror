@@ -45,14 +45,12 @@ process start time, exit code and bounded parsed native JSON are retained.
 Both raw streams remain available on disk even when JSON cannot be parsed.
 The web state 'finished' means process finished, never scientific PASS.
 
-Safety boundary for the next step
+Tracking update (Block 2 step 3)
 An ambiguous dispatch/running record becomes needs_reconciliation and blocks its
-lane. It is never requeued automatically. Successful captures also require
-reconciliation before further execution: native output is retained, but automatic
-job indexing is intentionally not implemented yet. Do not manually clear rows to
-resume work. Block 2 step 3 must implement native-record reconciliation, indexing,
-operator recovery, and broader crash/concurrent-process qualification. The web
-engine endpoint continues to report execution_ready=false.
+lane. It is never requeued automatically. Step 3 adds receipt-bound finalization,
+validated capture indexing, durable events and bounded log reads. See TRACKING.txt
+for the current reconciliation command and exact remaining limitations. Do not
+manually clear rows to resume work. Production execution_ready remains false.
 
 Qualification scope
 Registered native VALIDATION runs synthetic engineering checks, including real

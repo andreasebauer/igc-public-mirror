@@ -46,7 +46,50 @@ class Queue:
                 WHERE operation='run' AND status IN
                 ('queued','dispatching','running','needs_reconciliation');
             ''')
+            db.executescript("""
+                CREATE TABLE IF NOT EXISTS jobs(id TEXT PRIMARY KEY,capture_id TEXT UNIQUE NOT NULL,
+                    registration TEXT NOT NULL,job TEXT NOT NULL,created REAL NOT NULL);
+                CREATE TABLE IF NOT EXISTS events(cursor INTEGER PRIMARY KEY AUTOINCREMENT,
+                    request_id TEXT NOT NULL,kind TEXT NOT NULL,detail TEXT NOT NULL,created REAL NOT NULL);
+            """)
+            columns={r[1] for r in db.execute('PRAGMA table_info(requests)')}
+            if 'run_key' not in columns:
+                db.execute('ALTER TABLE requests ADD COLUMN run_key TEXT')
+                for row in db.execute("SELECT id,command FROM requests WHERE operation='run'").fetchall():
+                    db.execute('UPDATE requests SET run_key=? WHERE id=?',
+                               (self.run_key(json.loads(row['command'])),row['id']))
+            db.execute("CREATE UNIQUE INDEX IF NOT EXISTS active_native_run ON requests(run_key) "
+                       "WHERE operation='run' AND status IN ('queued','dispatching','running','needs_reconciliation')")
             db.commit()
+
+    @staticmethod
+    def run_key(command):
+        argv=command['argv']
+        return canonical_hash(argv[-2:] if len(argv)>=2 else [command['target']])
+
+    @staticmethod
+    def event(db,rid,kind,detail):
+        db.execute('INSERT INTO events(request_id,kind,detail,created) VALUES (?,?,?,?)',
+                   (rid,kind,json.dumps(detail),time.time()))
+
+    def events(self,rid,cursor=0,limit=100):
+        self.get(rid)
+        with closing(self.connect()) as db:
+            rows=db.execute('SELECT * FROM events WHERE request_id=? AND cursor>? ORDER BY cursor LIMIT ?',
+                            (rid,cursor,limit)).fetchall()
+        return {'items':[dict(r,detail=json.loads(r['detail'])) for r in rows],
+                'next_cursor':rows[-1]['cursor'] if rows else cursor}
+
+    def logs(self,rid,stream,offset=0,limit=65536):
+        self.get(rid)
+        if stream not in ('stdout','stderr'): raise AdapterError('LOG_NOT_FOUND',404)
+        from .native import contained
+        path=self.root/rid/stream
+        if not path.exists() and not path.is_symlink():
+            return {'text':'','next_offset':offset,'available':False}
+        with contained(self.root,str(path),directory=False).open('rb') as f:
+            f.seek(offset);raw=f.read(limit)
+        return {'text':raw.decode('utf-8','replace'),'next_offset':offset+len(raw),'available':True}
 
     def connect(self):
         db = sqlite3.connect(self.root / 'requests.sqlite3', timeout=10)
@@ -80,11 +123,12 @@ class Queue:
             now = time.time()
             try:
                 db.execute('''INSERT INTO requests
-                    (id,key,digest,operation,target,lane,command,status,created,updated)
-                    VALUES (?,?,?,?,?,?,?,'queued',?,?)''',
+                    (id,key,digest,operation,target,lane,command,status,created,updated,run_key)
+                    VALUES (?,?,?,?,?,?,?,'queued',?,?,?)''',
                     (rid,key,digest,command.operation,command.target,
                      'control' if command.operation == 'pause' else 'execution',
-                     json.dumps(asdict(command)),now,now))
+                     json.dumps(asdict(command)),now,now,self.run_key(asdict(command)) if command.operation=='run' else None))
+                self.event(db,rid,'QUEUED',{'operation':command.operation})
             except sqlite3.IntegrityError as exc:
                 raise AdapterError('JOB_ALREADY_ACTIVE', 409) from exc
         return AcceptedRequest(request_id=rid, status='queued')
@@ -110,6 +154,7 @@ class Queue:
         with self.transaction() as db:
             db.execute('UPDATE requests SET '+','.join(k+'=?' for k in values)+' WHERE id=?',
                        (*values.values(),rid))
+            self.event(db,rid,'STATE_UPDATED',{'status':values.get('status'),'error':values.get('error')})
 
     def claim(self, lane):
         blocked = False
@@ -125,6 +170,7 @@ class Queue:
                                  (lane,)).fetchone()
                 if row:
                     db.execute("UPDATE requests SET status='dispatching',updated=? WHERE id=?",(time.time(),row['id']))
+                    self.event(db,row['id'],'DISPATCH_INTENT',{})
         if blocked:
             raise AdapterError('LANE_NEEDS_RECONCILIATION')
         return dict(row) if row else None
@@ -133,7 +179,8 @@ class Queue:
 def prepare(settings, row, directory):
     """Resolve current server catalogue again; a stored argv is never executed."""
     adapter = NativeAdapter(settings)
-    catalog = Catalog.model_validate(read_json(Path(settings.catalog)))
+    from .tracking import catalogue
+    catalog = catalogue(settings,Queue(settings.worker_state) if settings.worker_state else None)
     for group in (catalog.jobs, catalog.tasks):
         if len({x.id for x in group}) != len(group):
             raise AdapterError('CATALOG_DUPLICATE_ID')
@@ -203,21 +250,12 @@ def execute(settings, queue, row, lock_fd):
             queue.update(rid,status='running',pid=process.pid,process_start=process_identity(process.pid))
             rc = process.wait()  # Intentionally no science deadline.
             os.fsync(stdout.fileno()); os.fsync(stderr.fileno())
-        native = None
-        for name in (('stderr','stdout') if rc else ('stdout','stderr')):
-            try:
-                value = read_json(directory/name)
-                if isinstance(value,dict):
-                    native = value
-                    break
-            except AdapterError:
-                pass
-        # A zero exit only means process exit. Capture indexing/reconciliation
-        # remains an explicit step; never automatically repeat a capture.
-        status = 'needs_reconciliation' if native is None or (row['operation']=='capture' and rc==0) else 'refused' if rc else 'finished'
-        queue.update(rid,status=status,exit_code=rc,
-                     classification='UNPARSEABLE' if native is None else 'REFUSED' if rc else 'RESPONSE',
-                     native=json.dumps(native) if native is not None else None)
+        from .tracking import atomic_record, file_hash, finalize
+        atomic_record(directory/'exit.json',{
+            'schema':'IG_WEB_EXIT_V1','request_id':rid,'digest':row['digest'],'exit_code':rc,
+            'stdout_sha256':file_hash(directory/'stdout'),
+            'stderr_sha256':file_hash(directory/'stderr')})
+        finalize(settings,queue,row)
     except Exception as exc:
         queue.update(rid,status='needs_reconciliation' if spawned else 'refused',
                      error=exc.code if isinstance(exc,AdapterError) else type(exc).__name__)
@@ -226,7 +264,8 @@ def execute(settings, queue, row, lock_fd):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config',required=True)
-    parser.add_argument('--lane',choices=['execution','control'],required=True)
+    parser.add_argument('--lane',choices=['execution','control'])
+    parser.add_argument('--reconcile',metavar='REQUEST_ID')
     parser.add_argument('--once',action='store_true')
     args = parser.parse_args()
     settings = Settings.model_validate(read_json(Path(args.config)))
@@ -236,6 +275,11 @@ def main():
         parser.error('Linux process identity unavailable; worker startup refused')
     os.umask(0o077)
     queue = Queue(settings.worker_state)
+    if args.reconcile:
+        from .tracking import reconcile
+        print(json.dumps(reconcile(settings,queue,args.reconcile)))
+        return
+    if not args.lane: parser.error('--lane or --reconcile is required')
     with (queue.root / (args.lane+'.lock')).open('a+b') as lock:
         try:
             fcntl.flock(lock,fcntl.LOCK_EX | fcntl.LOCK_NB)
