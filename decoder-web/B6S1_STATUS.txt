@@ -1,0 +1,41 @@
+BLOCK 6 STEP 1 — LIVE INTERFACE END-TO-END ATTEMPT — 2026-09-27
+Status: BLOCKED BY CHAT EXECUTION ENVIRONMENT. No live E2E pass claimed.
+
+B5S3 USER REPORT
+User confirmed on iPhone: page opens and is clickable. Offline test deferred:
+phone supplies hotspot to other people. Do not ask user to disconnect hotspot.
+Home Screen installation was not separately confirmed. Server disconnect survival
+remains deferred with Hetzner. User authorized moving to B6S1.
+
+B6S1 PREPARED
+Pinned source unchanged: 792fc17f557c1414c882fa424b77f9a7f3bee458.
+Native source verification: 1,253 byte-exact files PASS.
+Exact native runtime was available read-only at retained dependency
+/workspace/scratch/00830121d7fb/tuple_repair/venv/bin/python.
+Retain workspace 00830121d7fb. No environment packages were modified.
+Prepared one existing registered engineering node:
+tests/test_structural_encoding_e2.py::test_fast_structural_encoder_random_nested_equivalence
+Job ID: WEB.B6S1.E2E.R1. Spec and catalog prepared, but not captured or run.
+
+OBSERVED
+1. Native/web runtime readiness command returned HOST_RUNTIME_CHECK_PASS.
+2. API process logged successful localhost:8765 startup.
+3. Separate command's authenticated preparation request failed connection refused;
+   later unauthenticated curl also failed connection refused (HTTP 000).
+4. Worker --lane execution --once refused startup twice with:
+   Linux process identity unavailable; worker startup refused.
+The ready check and worker observations differ. This environment has not earned
+stable cross-process readiness. Exact isolation mechanism was not established.
+No API request reached the service; no capture, run, result or export was produced.
+No source pin, runtime admission, process identity check or native save gate was
+relaxed. No fake adapter, direct pytest or replacement native run was used.
+
+NEXT
+B6S1 remains open. Resume in an environment where the authenticated API client
+can reach the loopback listener and worker can observe required process identity.
+Hetzner is still deferred by user. Static Pages preview remains usable.
+Do not label a standalone native qualification as web-interface E2E completion.
+B6S2 live lifecycle checks depend on the same environment capability.
+Existing synthetic and native qualifications remain valid within their recorded
+scope, but they do not close this live gate. Continue documentation/handoff if
+requested, explicitly retaining these gates rather than changing the plan.
