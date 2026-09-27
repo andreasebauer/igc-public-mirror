@@ -1,0 +1,98 @@
+DECODER INTERFACE — CONSOLIDATED HANDOFF — 2026-09-27
+
+CURRENT RESULT
+Phone-accessible sample preview published:
+https://andreasebauer.github.io/igc-public-mirror/decoder/
+User confirmed it opens and is clickable on iPhone.
+Backend implementation is committed and engineering-qualified, but live end-to-end
+execution is NOT qualified. No Hetzner installation was performed or authorized.
+
+EXACT SOURCE
+Repository: https://github.com/andreasebauer/igc-public-mirror
+Interface branch: decoder/web-interface
+Executable interface revision: 3207338ec04a5a63ea2f3d49e26d8358a7bc4274
+Published preview main revision: 1c68ba4b087ad162aa450c6df519d67bd944bd05
+Native engine pinned revision: 792fc17f557c1414c882fa424b77f9a7f3bee458
+Native source SHA-256: 03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d
+No science-engine changes were made by the interface work.
+
+PLAN POSITION
+B1-B4: implemented with recorded engineering qualifications.
+B5S1: host installation packet prepared; actual host installation deferred.
+B5S2: static HTTPS preview published under user's microscope-style amendment;
+       production backend HTTPS and single-user deployment remain deferred.
+B5S3: user-reported iPhone access confirmed. Offline and Home Screen installation
+       unverified. User must keep hotspot online; do not request disconnection.
+       Native job survival after browser closure is not tested.
+B6S1: HTTP draft/review/queue observed; execution blocked by PID/proc mismatch.
+B6S2: synthetic lifecycle coverage exists; LIVE duplicate, pause/resume and service
+       restart checks remain OPEN. Do not equate simulated checks with live proof.
+B6S3: code and consolidated recovery handoff saved; final acceptance still OPEN
+       because B6S1/B6S2 and deferred host gates are incomplete.
+
+QUALIFICATION EVIDENCE
+B5S1: 128/128 engineering checks passed on the earlier interface revision.
+B5S2: 6/6 static preview checks passed.
+B6S1 identity fix: 10/10 worker checks passed on the current changed worker.
+These are separate scopes/revisions, not one 144-test latest-revision full suite.
+All three native evidence sets are PRESERVED, zero pending obligations, with
+successful cold restores. Per-node inventory and Drive object maps are included.
+The 128-check suite was not rerun merely to repeat unchanged checks.
+
+LIFECYCLE COVERAGE ALREADY AVAILABLE
+Duplicate submission: durable idempotency/conflict, alias duplicate prevention,
+concurrent capture request deduplication and export duplicate recovery.
+Pause: control-lane delivery and distinction between delivery and native ack.
+Restart: durable drafts, ambiguous dispatch reconciliation and no blind replay.
+Failure retention: native refusals, corrupted-output rejection and save failures.
+These checks use synthetic fixtures and registered engineering execution.
+They do not demonstrate a live scientific job through a deployed service.
+
+ENVIRONMENT BLOCKER AND FIX
+The tool environment's numeric /proc paths do not match its process PID namespace.
+The earlier readiness PASS could identify an unrelated process. Fixed worker now
+checks its own namespace before trusting numeric process records; malformed and
+mismatched records are refused. Ten registered checks passed. This intentionally
+preserves refusal and does not make this environment a supported backend host.
+API/client in one execution session did communicate before the strengthened check.
+
+PENDING REQUEST — DO NOT DUPLICATE BLINDLY
+Request: req-d651e616fcbd41e79f9a048506b41240
+Task B6S1; intended native job WEB.B6S1.E2E.R1.
+Read-only SQLite backup confirms exactly one request, QUEUED, no child PID or
+exit code. No native capture/job was created. Services are stopped.
+Included queue backup is an audit/recovery snapshot, not an instruction to start it.
+All command paths/digests are bound to the original workspace configuration.
+If rebuilding elsewhere, preserve this snapshot and document it as unexecuted;
+use a fresh configuration and reviewed request only after confirming there is no
+existing native capture. Do not edit stored command digests or bypass admission.
+No bearer credential is included. Provision a new private credential for later use.
+
+FRESH-ENVIRONMENT PICKUP
+1. Read this file and decoder-web/MASTER_PLAN.txt, then current B6S1 identity notes.
+2. Clone the repository and check out the exact executable interface revision above.
+   Retain native source pin; run decoder-import/verify_source.py for byte checks.
+3. Use the pinned web lock, native PROFILE and deploy/bootstrap.lock.txt; separate
+   environments. The archive contains interface code, not all native engine bytes.
+   GitHub supplies the exact pinned source. Drive maps supply evidence objects.
+4. Only attempt live startup in a supported environment with consistent PID/proc
+   visibility, working process locks and shared loopback. Do not weaken the check.
+5. Resume B6S1: authenticated reviewed preparation -> queued worker capture ->
+   required Drive raw-byte confirmations -> registered execution -> verified result
+   -> native export -> Drive raw-byte confirmations -> cold restore.
+6. Then perform LIVE B6S2 duplicate click, pause/resume, restart and refusal cases,
+   preserving failures. Only then close the live acceptance gates.
+The static Pages preview is separate and remains labelled sample data.
+
+STORAGE AND DEPENDENCIES
+Keep /workspace/scratch/69f4243afc4e and retained /workspace/scratch/00830121d7fb.
+Native runtime used read-only: 00830121d7fb/tuple_repair/venv/bin/python.
+User also requested retention of d16ee037b69f; it was not present in this session's
+observed directory list. Do not infer deletion or claim restoration.
+Other workspaces require dependency checks before deletion. No cleanup performed.
+
+RECOVERY OBJECTS
+Each evidence/*/drive-objects.json maps SHA-256 to Drive ID and local original path.
+Download actual bytes, verify SHA-256, and supply them to native preserve restore
+with the corresponding NATIVE_RECOVERY.zip. Local original paths are provenance,
+not portable download locations. Credentials are deliberately excluded.
