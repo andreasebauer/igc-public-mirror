@@ -13,7 +13,7 @@ import tempfile
 import time
 import zipfile
 
-from .canon import canonical_sha256, write_json_atomic
+from .canon import canonical_bytes, canonical_sha256, write_json_atomic
 from . import submission as sub
 
 _ACTIVE = ContextVar('decoder_preservation', default=None)
@@ -294,8 +294,8 @@ def _verify_terminal_state_evidence(files):
     runs={}
     for name,raw in sorted(files.items()):
         parts=name.split('/')
-        if len(parts)>=4 and parts[:2]==['runtime','runs']:
-            runs.setdefault(parts[2],[]).append({
+        if len(parts)>=4 and parts[:2] in (['runtime','runs'], ['runtime','sealed']):
+            runs.setdefault('/'.join(parts[:3]),[]).append({
                 'path':'/'.join(parts[3:]),'sha256':sub._sha(raw),'size_bytes':len(raw)})
     completion_bytes={}
     for name,raw in files.items():
@@ -304,8 +304,18 @@ def _verify_terminal_state_evidence(files):
             if rid in completion_bytes and completion_bytes[rid]!=raw:
                 raise sub.SubmissionError('CHECKPOINT_PREPARED_COMPLETION_MISMATCH',name)
             completion_bytes[rid]=raw
-            evidence=json.loads(raw).get('evidence')
-            if not evidence or sum(rows==evidence for rows in runs.values())!=1:
+            done=json.loads(raw); evidence=done.get('evidence')
+            if 'evidence_protocol' in done or 'evidence_root' in done:
+                from .completion_evidence import PROTOCOL
+                location=done.get('evidence_root', '')
+                valid=(done.get('evidence_protocol')==PROTOCOL
+                       and location.startswith('runtime/sealed/intent-')
+                       and len(location.split('/'))==3
+                       and runs.get(location)==evidence)
+            else:
+                valid=sum(rows==evidence for name,rows in runs.items()
+                          if name.startswith('runtime/runs/'))==1
+            if not evidence or not valid:
                 raise sub.SubmissionError('CHECKPOINT_COMPLETION_EVIDENCE_MISMATCH',name,
                     'Preserve the original completion and failed bytes. Do not rewrite completion evidence to fit an archive.')
     # The completion lists immutable evidence files, but replay also publishes
@@ -331,10 +341,13 @@ def _state_files(workspace):
     files={}
     quiescent=any(any((Path(workspace)/'runtime/intake'/name).glob('*.json'))
                   for name in ('completed','prepared_completions'))
+    legacy = any('evidence_protocol' not in sub._read(p)
+                 for folder in ('completed','prepared_completions')
+                 for p in (Path(workspace)/'runtime/intake'/folder).glob('*.json'))
     for p,name in _snapshot_files(workspace):
         if (name.startswith(('source/','coordination/','runtime/intake/artifacts/','durability/outbox/','durability/base_objects/'))
-            or name=='PROJECT_LOCATION.json' or name.endswith(('-wal','-shm'))):continue
-        files[name]=_stable_file(p,quiescent=quiescent)
+            or name=='PROJECT_LOCATION.json' or (name.endswith(('-wal','-shm')) and not name.startswith('runtime/sealed/'))):continue
+        files[name]=_stable_file(p,quiescent=legacy or name.startswith('runtime/sealed/'))
     if quiescent:_verify_terminal_state_evidence(files)
     return files
 
@@ -429,7 +442,11 @@ def ensure_terminal_completion(workspace, done):
     files=_zip_files(_bytes(workspace,row['state']))
     name='runtime/intake/prepared_completions/'+done['request_id']+'.json'
     if name not in files:name='runtime/intake/completed/'+done['request_id']+'.json'
-    if (json.loads(files.get(name,b'null'))!=done
+    # Compare the existing canonical JSON representation, not Python container
+    # identity: persisted arrays are lists even when the producer used tuples.
+    # Byte equality also keeps bool/int and int/float distinctions that Python
+    # equality would erase. No saved bytes or completion hashes are rewritten.
+    if (canonical_bytes(json.loads(files.get(name,b'null')))!=canonical_bytes(done)
             or row.get('terminal_completions',{}).get(done['request_id'])!=done['completion_sha256']):
         raise sub.SubmissionError('TERMINAL_COMPLETION_CHECKPOINT_MISMATCH')
     _verify_terminal_state_evidence(files)
@@ -476,7 +493,7 @@ def safe_point(reason,*,force=False):
 
 def check_budget(admission,*,extra_bytes=0):
     root=Path(admission['workspace']);budget=admission['job']['resources']['workspace_budget_bytes']
-    total=sum(p.stat().st_size for base in (root/'runtime/runs',_root(root)) for p in base.rglob('*') if p.is_file())+extra_bytes
+    total=sum(p.stat().st_size for base in (root/'runtime/runs',root/'runtime/sealed',_root(root)) for p in base.rglob('*') if p.is_file())+extra_bytes
     if total>budget:raise sub.SubmissionError('REGISTERED_WORKSPACE_BUDGET',str(total))
 
 

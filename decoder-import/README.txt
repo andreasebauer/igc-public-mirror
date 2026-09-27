@@ -1,30 +1,19 @@
-DECODER REVISION 5 SOURCE IMPORT — 27 September 2026
+TERMINAL JSON EQUIVALENCE REPAIR — DRAFT, NOT ACTIVATED
 
-The decoder/ directory contains the exact dev84 revision 5 candidate.
-Source SHA-256: 03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d
-Original archive SHA-256: 33179d68af57e336561ec6537d4bec78fc1f716c07de0dc6c34ace8c2043709d
-Original archive: https://drive.google.com/file/d/1EYfDGZfLlSAGPmFJES8go3LDBRIJTql3/view
+Current source SHA-256: 27372093c74897c1170e58b10eb6fc493005b765a3cd7fd5e1285e9ee398d205 (1,266 files).
 
-Run python decoder-import/verify_source.py from the repository root.
-Use an explicit Git commit and verify all 1,253 source files before use.
-Work from decoder/, not the root legacy IGC package. Use Linux CPython 3.12
-and decoder/qualification/PROFILE.json for the recorded environment.
+Nested tuples serialize as JSON lists. Python equality at the terminal checkpoint boundary rejected an otherwise byte-equivalent completed result. Publication retries had the same comparison. Both boundaries now compare Decoder canonical JSON bytes. This accepts tuple/list equivalents without rewriting saved records or hashes, and rejects bool/int, int/float, value and list-order changes. Existing checkpoint binding and artifact checks remain mandatory.
 
-Recorded native engineering qualification: 1082/1082 PASS (1059 functional,
-13 workspace, 5 representative, 5 timing). The receipt records completion
-identities. These are existing results, not a new run in GitHub CI.
-Status: QUALIFIED_FOR_ENGINEERING_USE_NOT_ACTIVATED.
-No release/runtime pointer is promoted by this source import.
-Historical claim dispositions remain pending; engineering qualification does
-not establish primitive completeness or a canonical L0–G8 scientific release.
+Native registered focused validation: 79 PASS, 0 FAIL, COMPLETED/VERIFIED.
+Six modules cover new JSON-equivalence regressions, publication, separate sealed evidence, replay consistency, prospective core pins and qualification registration. Synthetic boundary fixtures do not grant execution authority. No historical science workload was rerun.
 
-Read decoder/DECODER_06_CAPTURE_GUIDE.txt, DECODER_06_CHANGES_GUIDE.txt and
-DECODER_V07_CONTRIBUTOR_WORKFLOW.txt before execution or modification.
-Science and qualification must use the registered native controller.
-Preserve failures; never transfer receipts to a changed source identity.
+Completion SHA-256: d76896d30516b1300240099befbce6af4350b936c49b96f6cbc5a8863b2b5024.
+Result SHA-256: c7099bdec07e299d1a0b876198356f69f741d86c0242d758b16e369fbe734ec0.
 
-The source archive is complete; the science recovery workspace is not included.
-Inputs, captures, closed checkpoints and receipts retain their external recovery
-locations. Keep Drive backups and prove native cold restore before cutover.
-shared-data/ remains a prototype, not an operational or exhaustive data store.
-Earlier import records are preserved under history/ and in Git history.
+Inherited changes:
+- Separate SQLite working stores and sealed completion evidence; historical sidecar creator remains unidentified.
+- Bounded two-sorted igraph/BLISS relation adapter, previously validated by 22 focused tests on source c03fdf0e43d0440ef4ac25ab6e43a64da73be44049070e1797c818ccf5821d8d. That result is not silently transferred to this source.
+
+Full qualification stays deferred to the release candidate. No merge, activation, canonical science promotion or independent-review claim. Full contextual sufficiency and recursive quotient validity remain NOT_ESTABLISHED. Next science obligation: intended primitive exactness and candidate-ID interpretation.
+
+Use decoder/ as source root. decoder-import/verify_source.py checks exact source bytes. Revision-5 qualification applies only to revision 5. Code and synthetic tests are in GitHub; datasets, native records and checkpoints remain on Drive.

@@ -2,7 +2,7 @@
 
 | Area | Purpose |
 | --- | --- |
-| [`decoder/`](decoder/) | Exact dev84 revision 5 candidate; engineering-qualified, not activated |
+| [`decoder/`](decoder/) | SQLite seal candidate based on dev84 revision 5; focused checks passed, full qualification pending |
 | [`decoder-import/`](decoder-import/README.txt) | Source hashes, verifier, provenance and qualification receipt |
 | [`microscope/`](microscope/) | Independently maintained public viewer |
 | [`shared-data/`](shared-data/README.txt) | Storage prototype; no complete recovery migration |
