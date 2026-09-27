@@ -13,7 +13,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import ValidationError
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from .models import AcceptedRequest, DraftCaptureBody, CaptureBody, Catalog, EmptyBody, Identifier, PauseBody, Settings
+from .models import AcceptedRequest, RunActionBody, DraftCaptureBody, CaptureBody, Catalog, EmptyBody, Identifier, PauseBody, Settings
 from .native import AdapterError, Command, NativeAdapter, PIN_COMMIT, PIN_SOURCE, PIN_VERSION, canonical_hash, read_json
 from .results import results_observation
 
@@ -174,6 +174,31 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     def job(job_id: Identifier):
         j = job_by_id(job_id)
         return {"id": j.id, "name": j.name, "native_job_id": j.native_job_id}
+
+    @app.get('/api/v1/jobs/{job_id}/run-view')
+    def run_view(job_id: Identifier):
+        from .runview import observe
+        return observe(settings,submissions,native,job_by_id(job_id))
+
+    @app.post('/api/v1/jobs/{job_id}/run-actions',status_code=202,response_model=AcceptedRequest)
+    def run_action(job_id: Identifier,body: RunActionBody):
+        from .runview import submit
+        return submit(settings,submissions,native,job_by_id(job_id),body)
+
+    @app.get('/api/v1/requests/{request_id}/job')
+    def captured_job(request_id: Identifier):
+        row=submissions.get(request_id)
+        if row['operation']!='capture' or row['status']!='finished':
+            raise AdapterError('CAPTURE_NOT_INDEXED',409)
+        cid=(row.get('native') or {}).get('capture_id')
+        if not isinstance(cid,str):raise AdapterError('CAPTURE_NOT_INDEXED',409)
+        from contextlib import closing
+        with closing(submissions.connect()) as db:
+            saved=db.execute('SELECT job FROM jobs WHERE capture_id=?',(cid,)).fetchone()
+        if saved is None:raise AdapterError('CAPTURE_NOT_INDEXED',409)
+        import json
+        j=json.loads(saved['job'])
+        return {k:j[k] for k in ('id','name','native_job_id')}
 
     @app.get("/api/v1/jobs/{job_id}/status")
     def status(job_id: Identifier):

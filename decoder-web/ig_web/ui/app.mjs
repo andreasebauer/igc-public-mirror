@@ -1,3 +1,4 @@
+import {mountRun} from './run.mjs';
 import {mountPrepare} from './prepare.mjs';
 export function validateOverview(value) {
   if (!value || !Array.isArray(value.items) || !Number.isInteger(value.total) || value.total < 0 || !value.counts) throw new Error('Invalid job list');
@@ -46,7 +47,7 @@ if (typeof document !== 'undefined') {
       const status=text('span','', 'job-status');status.append(text('span',job.execution,'job-state'),text('span',job.state_source,'job-meta'),text('span',timeLabel(job.last_activity),'job-meta'));
       const backup=text('span','', 'job-backup');backup.append(text('span','Backup','backup-label'),text('span',job.backup,'backup-value'));
       const chevron=text('span','›','chevron');chevron.setAttribute('aria-hidden','true');button.append(identity,status,backup,chevron);
-      button.addEventListener('click',()=>openJob(job,button));list.append(button);
+      button.addEventListener('click',()=>run.open(job));list.append(button);
     }
     if (!value.items.length) empty(value.counts.all===0?'No jobs yet':'No matching jobs',value.counts.all===0?'Choose New job to review and prepare an available task.':'Try another filter or search by name or job ID.');
     for(const key of ['all','active','attention','finished']) $('count-'+key).textContent=String(value.counts[key] ?? '—');
@@ -93,9 +94,10 @@ if (typeof document !== 'undefined') {
       $('detail-note').textContent='Unable to read this job. Its execution may still continue. Retry by reopening it.';
     } finally {clearTimeout(timer);}
   }
-  const prepare=mountPrepare(()=>state.token,refresh);
+  const run=mountRun(()=>state.token,refresh);
+  const prepare=mountPrepare(()=>state.token,refresh,job=>run.open(job));
   $('connect-form').addEventListener('submit',event=>{event.preventDefault();state.token=$('token').value;$('token').value='';$('connect-panel').hidden=true;$('jobs-panel').hidden=false;$('disconnect').hidden=false;refresh();});
-  $('disconnect').addEventListener('click',()=>{prepare.reset();state.token='';state.epoch++;state.detailEpoch++;state.controller?.abort();state.cached=null;state.updated=null;state.offset=0;$('connect-panel').hidden=false;$('jobs-panel').hidden=true;$('job-detail').hidden=true;$('disconnect').hidden=true;$('jobs-list').replaceChildren();$('detail-raw').textContent='';message('');$('token').focus();});
+  $('disconnect').addEventListener('click',()=>{run.reset();prepare.reset();state.token='';state.epoch++;state.detailEpoch++;state.controller?.abort();state.cached=null;state.updated=null;state.offset=0;$('connect-panel').hidden=false;$('jobs-panel').hidden=true;$('job-detail').hidden=true;$('disconnect').hidden=true;$('jobs-list').replaceChildren();$('detail-raw').textContent='';message('');$('token').focus();});
   $('refresh').addEventListener('click',refresh);
   document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{state.filter=button.dataset.filter;state.offset=0;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));refresh();}));
   let searchTimer; $('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{state.query=$('search').value;state.offset=0;refresh();},250);});

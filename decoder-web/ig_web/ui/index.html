@@ -31,6 +31,15 @@
 <button id="prepare-submit" class="primary" hidden>Prepare job</button><button id="prepare-check" hidden>Refresh request</button>
 <h2 class="drafts-title">Saved reviews</h2><p class="small">Open a saved review to recover its capture request. Most recent 100 shown.</p><div id="prepare-drafts"></div>
 </section>
+<section id="run-panel" hidden tabindex="-1" aria-labelledby="run-name">
+<div class="page-heading"><div><p class="eyebrow">REGISTERED EXECUTION</p><h1 id="run-name"></h1></div><button id="run-back" class="quiet">Back to Jobs</button></div>
+<p id="run-question" class="intro"></p><div class="connection-line"><strong id="run-state"></strong><span id="run-observed"></span><button id="run-refresh">Refresh</button></div>
+<p id="run-note" role="status"></p><dl id="run-facts" class="facts"></dl>
+<div id="run-reason" hidden><label for="run-reason-input">Pause reason</label><input id="run-reason-input" maxlength="500" value="Operator requested pause from Run screen"></div><button id="run-action" class="primary" hidden></button>
+<details><summary>Backup requirements</summary><div id="run-backup"></div></details>
+<details id="run-activity"><summary>Requests and activity</summary><div id="run-requests"></div><label for="run-stream">Log stream</label><select id="run-stream"><option value="stdout">Standard output</option><option value="stderr">Errors / native refusals</option></select><button id="run-log-more">Load next log page</button><label><input type="checkbox" id="run-follow"> Follow log (does not pause execution)</label><pre id="run-log"></pre><pre id="run-events"></pre><details><summary>Selected request and native response</summary><pre id="run-request-detail"></pre></details></details>
+<details><summary>Technical observations</summary><pre id="run-raw"></pre></details><p class="small">Dedicated Results view follows in Step 4.</p>
+</section>
 <p id="message" class="message" role="alert" hidden></p>
 <section id="job-detail" class="job-detail" hidden aria-labelledby="detail-heading" tabindex="-1"><div class="detail-top"><p class="eyebrow">JOB OVERVIEW</p><button id="close-detail" class="quiet">Close ×</button></div><h2 id="detail-heading"></h2><p id="detail-question" class="intro"></p><p id="detail-note"></p><dl id="detail-facts" class="facts"></dl><details><summary>Technical details</summary><pre id="detail-raw"></pre></details><p class="small">Run controls and results views come in the following steps.</p></section>
 </main>

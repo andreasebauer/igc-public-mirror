@@ -86,3 +86,9 @@ class AcceptedRequest(StrictModel):
 
 class DraftCaptureBody(StrictModel):
     review_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+
+
+class RunActionBody(StrictModel):
+    action: Literal['start','resume','pause']
+    view_token: str = Field(pattern=r"^[a-f0-9]{64}$")
+    reason: str = Field(default='Operator requested pause from Run screen', min_length=1, max_length=500, pattern=r"^[^\x00]+$")

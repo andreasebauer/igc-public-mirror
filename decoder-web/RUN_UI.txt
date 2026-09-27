@@ -1,0 +1,40 @@
+BLOCK 3 STEP 3 — RUN SCREEN
+
+Jobs open Run. A finished Prepare capture resolves its job through the committed
+index and opens Run when Refresh request is selected. Run shows execution,
+backup, stage/operation when reported, elapsed time at the native observation,
+and unknown progress totals without a fabricated percentage.
+
+GET /jobs/{id}/run-view returns native status, capture/outbox preservation,
+latest run/pause requests, results record projection and a bound view token.
+POST /jobs/{id}/run-actions {action,view_token,reason?} requests start/resume/pause.
+Server derives the durable idempotency key from job, action and view identity.
+A retry returns the same saved request; changed observations require refresh.
+The original typed /run and /pause compatibility endpoints remain available.
+They still use the same worker gates and queue uniqueness constraints.
+
+Start requires a known idle workspace, bound registration, no unresolved prior
+request, no published/pending result, confirmed native preservation and exact
+pinned source/runtime profile. The button says Request start, never Ready.
+Native captured-environment/input/source/admission checks remain authoritative.
+Resume is offered only for native PAUSED + REQUESTED_PAUSE, after backup and
+runtime checks. Other audit/error/interrupted stops require review. No force
+clear, automatic resume, replay or engine gate weakening was introduced.
+
+Pause reaches the separate control lane. Process completion acknowledges
+request delivery only: Pause requested remains until native pause evidence.
+Status must match the selected job, registration and source. An idle RUNNING
+record means reconciliation; busy another job never enables Pause.
+
+Requests/activity is collapsed; logs have explicit 16 KiB pages and bounded
+client buffers, stdout/stderr selection, event cursors and optional follow.
+Raw native refusals remain visible in the selected request response. Disconnect
+marks observations stale and disables new actions; a lost-response action may
+only retry its original body/key. Reopening reads persisted requests.
+
+Current limits: no dedicated Results view until Step 4, no Drive transfer buttons
+until Block 4, and no operator reconciliation override. Runtime verification
+is a profile match rather than a promise that native admission will accept.
+No production deployment or real science activation occurred. Qualification
+uses synthetic web/native fixtures through registered native VALIDATION.
+Visual/browser/physical iPhone gate remains BLOCKED pending hosted staging.
