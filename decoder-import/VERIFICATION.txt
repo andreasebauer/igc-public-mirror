@@ -1,42 +1,12 @@
-GITHUB IMPORT VERIFICATION — 26 September 2026
+REVISION 5 VERIFICATION
+All 1,253 files are copied byte-exact from the preserved revision 5 candidate.
+1,249 files match the revision 2 import; exactly four paths change:
+infinity_grid/v05_stage_runtime.py
+qualification/PROFILE.json
+tests/test_decoder06_results_preservation.py
+tests/test_repair7r_sqlite_lifecycle.py
 
-Source commit dev83 revision 6:
-f1e86c372db678e7b1c206abd09f6f25ef943861
-Source commit dev84 revision 2:
-9f435cdf7e6c0cc51d0fed0472f7e74d8e705af0
-
-Both original source archives matched their recorded SHA-256 hashes.
-The independently calculated source/package hashes matched the native records.
-The source delta matched the recorded three changed paths exactly.
-The DEV84 evidence bundle and all 428 manifest members passed byte checks.
-Known credential-signature scans of source text and 1,918 nested ZIP members
-found no matches. This is a bounded scan, not a guarantee about all private data.
-
-A fresh clone from GitHub of decoder/import-0.8lib matched all 1,253 DEV84
-source files byte-for-byte against the original verified source archive.
-Verification command for future checkouts:
-  python decoder-import/verify_source.py
-
-Shared-data staging:
-  706 references; 620 distinct content hashes; 48,885,778 unique bytes.
-  This is the packaged resource/fixture plus Microscope slice, NOT all Drive data.
-  Microscope JSON: 9,322,589 bytes.
-  SHA-256: 8bfdb999fda9de1bb7b3e8b05f19a5557d5f3121801b010a8ec5c2452844f8aa
-  Exact extraction preserves the original schema, records and provenance.
-
-Transport tests passed under Node using WebCrypto and mocked HTTP responses:
-  exact accepted bytes; disabled remote configuration; hash mismatch;
-  truncation; oversize; HTTP 404; insecure endpoint; invalid object key;
-  full actual staged Microscope dataset byte equality and dataset ID equality.
-Command:
-  node shared-data/test-loader.cjs /absolute/path/to/staged-store
-
-No Decoder scientific tests or native qualification were run for this import.
-No live cloud endpoint, browser visual QA, remote CORS, offline remote caching,
-or cold restore from the proposed store has been qualified.
-No shared Decoder release or runtime pointer was changed.
-The transport prototype is retained under shared-data/ and is not wired into
-the Microscope. Concurrent main-branch viewer work was detected at be0a9b1;
-our launcher/cache edits were withdrawn to preserve that independent work.
-The obsolete mirror workflow is removed on this branch and recoverable in Git
-history. The existing Microscope Pages deployment workflow is unchanged.
+Read-only manifest verification passes. The source identity matches the native
+qualification receipt. No scientific execution was performed for this import.
+Microscope files and Pages workflow match the reconciled main baseline.
+The obsolete force/prune mirror workflow remains removed.

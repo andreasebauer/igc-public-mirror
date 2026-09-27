@@ -5,10 +5,11 @@ Tracking references deliberately prevent GC from hiding missing close() calls.
 """
 from contextlib import closing
 from pathlib import Path
-import hashlib,json,sqlite3
+import hashlib,json,sqlite3,subprocess,sys
 import pytest
 from infinity_grid import preservation as pr
 from infinity_grid import v05_controller_event_loop as loop
+from infinity_grid.v05_stage_runtime import StageScienceRuntime
 
 
 def emit(case, **kw):
@@ -109,6 +110,22 @@ def test_completion_gate_refuses_open_engine_database_without_deleting_files(tmp
     finally:writer.close()
     pr.require_quiescent_task_databases(root)
     emit('engine_database_quiescence',open_refused=True,closed_accepted=True,no_deletion=True)
+
+
+def test_idle_partition_finalizer_uses_sqlite_to_retire_stale_wal(tmp_path):
+    root,db=phase_db(tmp_path);db.parent.mkdir(parents=True)
+    code=("import os,sqlite3,sys; c=sqlite3.connect(sys.argv[1]); "
+          "c.execute('PRAGMA journal_mode=WAL'); "
+          "c.execute('CREATE TABLE items (value TEXT)'); "
+          "c.execute(\"INSERT INTO items VALUES ('committed')\"); c.commit(); os._exit(0)")
+    subprocess.run([sys.executable,'-c',code,str(db)],check=True)
+    assert Path(str(db)+'-wal').exists()
+    with pytest.raises(pr.sub.SubmissionError,match='TASK_DATABASE_NOT_QUIESCENT'):
+        pr.require_quiescent_task_databases(root)
+    StageScienceRuntime._finalize_idle_partition_database(db)
+    pr.require_quiescent_task_databases(root)
+    with closing(sqlite3.connect(db)) as reader:
+        assert reader.execute('SELECT value FROM items').fetchone()==('committed',)
 
 
 def test_completion_gate_does_not_rewrite_script_artifacts(tmp_path):

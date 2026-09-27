@@ -1,8 +1,9 @@
 {
-  "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d",
-  "package_sha256": "334429d912aa0b2824995cf29a97ba6b6e521316a6bc9fc4fcbb91c7f75e0783",
-  "source_archive_sha256": "33179d68af57e336561ec6537d4bec78fc1f716c07de0dc6c34ace8c2043709d",
+  "schema": "ig.decoder-import.manifest/1",
+  "version": "0.8.0.dev84+lib",
+  "revision": "032ecfde01348982193453853d1f3b576a686d8f3136596f64ec855c1bace07e",
+  "source_sha256": "1484b9f5637099c60773db8ecf66de887daa52686e68bebb81844c765e74764c",
+  "package_sha256": "33ce2fe699a673741870959cceff27f27e3b0fd3b157fef362a673beceb6931b",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -4086,7 +4087,7 @@
     ],
     [
       "infinity_grid/v05_stage_runtime.py",
-      "236b1bb507dc3d56c2ae4d81f8eb6fbc7ecce1bc7d34fa9979c7058c096527a5"
+      "a57e0eaa1167028544fe83f6cc15a16528db8dc8b0656c13728334ac88675bc5"
     ],
     [
       "infinity_grid/v05_tasks.py",
@@ -4306,7 +4307,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "b025a7369719833f5b056ee243c6864f00b42d10dd067631a0cc98b5b784a35c"
+      "8950bb88e81d528c48ef8a479103eb5a3e20deeefd03b3e3079884d2ae6e7ff7"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -4558,7 +4559,7 @@
     ],
     [
       "tests/test_decoder06_results_preservation.py",
-      "3def5a9e06e57ff77518fb0a05b844b950742112609065c741bcadc2ed680a8e"
+      "9261861aaef43d9b207a4a74f9be47b5190564abf656552f8634ec174a92d2d4"
     ],
     [
       "tests/test_decoder06_shared_authority.py",
@@ -4866,7 +4867,7 @@
     ],
     [
       "tests/test_repair7r_sqlite_lifecycle.py",
-      "f61b853ef893233cededeaef6a666fc2d1ac66c4de643f04cf958914f77ec353"
+      "b62a52a05c1de1ac4ec6de1b4d49609607358dd5ae159cdf395b217db55bee69"
     ],
     [
       "tests/test_replay_checkpoint_consistency.py",

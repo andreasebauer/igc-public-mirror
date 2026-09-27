@@ -16,6 +16,7 @@ import json
 import os
 import sqlite3
 import time
+from contextlib import closing
 
 from .canon import canonical_sha256, canonical_text, write_json_atomic
 from .structural_encoding import structural_canonical_bytes, structural_canonical_sha256, STRUCTURAL_ENCODER_ID
@@ -399,6 +400,10 @@ def _closed_json_store_bytes(
     for item in root.iterdir():
         if item.is_symlink():
             raise StageRuntimeError(f"replay workspace symlink {item.name}")
+        if item.name == ".replay-index.lock":
+            if not item.is_file() or item.stat().st_size != 0:
+                raise StageRuntimeError(f"unexpected replay workspace entry {item.name}")
+            continue
         if item.name in root_files:
             if not item.is_file():
                 raise StageRuntimeError(f"unexpected replay workspace entry {item.name}")
@@ -1173,6 +1178,20 @@ class StageScienceRuntime:
         conn.commit()
         return conn
 
+    @staticmethod
+    def _finalize_idle_partition_database(path: Path) -> None:
+        """Let SQLite retire an idle WAL after the reducer's connection closes.
+
+        Valid sidecars can remain even though the reducer has committed and
+        closed; the holder in the observed refusal is not yet established.
+        A normal SQLite connection lifecycle
+        checkpoints them; an active holder still leaves the completion gate to
+        refuse the result.  Never remove journals as ordinary files.
+        """
+        with closing(sqlite3.connect(path, timeout=5)) as finalizer:
+            if finalizer.execute("PRAGMA quick_check").fetchone()[0] != "ok":
+                raise StageRuntimeError("partition database failed final integrity check")
+
     def _status(self, phase_root: Path, **fields: Any) -> None:
         base = {
             "schema_id": STAGE_RUNTIME_STATUS_SCHEMA,
@@ -1342,7 +1361,9 @@ class StageScienceRuntime:
         evaluator = _resolve_ref(evaluator_ref, self._project_callable_bindings.get(evaluator_ref))
         gate = require_controller_only_callable(evaluator, role="scientific worker evaluator")
         phase_root = self._phase_root(phase_id)
-        conn = self._open_db(phase_root / "partition.sqlite3")
+        db_path = phase_root / "partition.sqlite3"
+        conn = self._open_db(db_path)
+        phase_complete = False
         try:
             admission_started = time.perf_counter()
             scope_sha = self._bind_scope(conn, phase_id=phase_id, tasks=tasks, evaluator_ref=evaluator_ref)
@@ -1648,6 +1669,7 @@ class StageScienceRuntime:
                 class_count=class_count, multi_class_count=multi_count,
                 evidence_bytes=evidence, reducer_rss_bytes=rss,
             )
+            phase_complete = True
             return StructuralPartitionResult(summary=summary, execution_metadata=exec_meta)
         finally:
             try:
@@ -1656,6 +1678,8 @@ class StageScienceRuntime:
                     clear_kernel_view()
             finally:
                 conn.close()
+                if phase_complete:
+                    self._finalize_idle_partition_database(db_path)
 
     def run_content_indexed_generation(
         self,

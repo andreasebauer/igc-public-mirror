@@ -1,3 +1,23 @@
+# Infinity Grid source archive
+
+| Area | Purpose |
+| --- | --- |
+| [`decoder/`](decoder/) | Exact dev84 revision 5 candidate; engineering-qualified, not activated |
+| [`decoder-import/`](decoder-import/README.txt) | Source hashes, verifier, provenance and qualification receipt |
+| [`microscope/`](microscope/) | Independently maintained public viewer |
+| [`shared-data/`](shared-data/README.txt) | Storage prototype; no complete recovery migration |
+| `igc/` and root `pyproject.toml` | Legacy IGC orchestrator, separate from Decoder |
+
+For Decoder, first run `python decoder-import/verify_source.py`, then follow
+[the import guide](decoder-import/README.txt). Installing the repository root
+installs the legacy package. Pin an exact commit for recovery.
+
+CI checks source integrity only. Scientific runs and qualification use the
+Decoder native controller. Preserve independent backups; this checkout does
+not contain the full scientific recovery closure.
+
+---
+
 Decoder source import: see [decoder-import/README.txt](decoder-import/README.txt).
 Shared data storage: see [shared-data/README.txt](shared-data/README.txt).
 

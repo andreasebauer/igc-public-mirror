@@ -205,6 +205,13 @@ def test_stage_budget_counts_closed_replay_stores_and_rejects_unknown_entries(tm
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_bytes(raw)
     assert _stage_workspace_bytes(tmp_path) == 33
+    for store in ('replay_runner', 'replay_reference_data'):
+        (tmp_path / store / '.replay-index.lock').write_bytes(b'')
+    assert _stage_workspace_bytes(tmp_path) == 33
+    (tmp_path / 'replay_runner/.replay-index.lock').write_bytes(b'not a lock file')
+    with pytest.raises(StageRuntimeError, match='unexpected replay workspace entry'):
+        _stage_workspace_bytes(tmp_path)
+    (tmp_path / 'replay_runner/.replay-index.lock').write_bytes(b'')
     (tmp_path / 'replay_runner/unknown.bin').write_bytes(b'bad')
     with pytest.raises(StageRuntimeError, match='unexpected replay workspace entry'):
         _stage_workspace_bytes(tmp_path)

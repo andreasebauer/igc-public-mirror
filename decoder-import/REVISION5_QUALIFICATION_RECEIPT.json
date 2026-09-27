@@ -1,0 +1,48 @@
+{
+  "schema": "IG_DEV84_R5_QUALIFICATION_RECEIPT_V1",
+  "status": "QUALIFIED_FOR_ENGINEERING_USE_NOT_ACTIVATED",
+  "source_sha256": "03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d",
+  "source_archive_sha256": "33179d68af57e336561ec6537d4bec78fc1f716c07de0dc6c34ace8c2043709d",
+  "groups": {
+    "FUNCTIONAL": {
+      "passed": 1059,
+      "total": 1059,
+      "completion_sha256": "8562c37280bfa84440e32f5850c05f41cdf95a740d6aebe7fbb612937bcb424e",
+      "preservation": "PRESERVED"
+    },
+    "WORKSPACE": {
+      "passed": 13,
+      "total": 13,
+      "completion_sha256": "cf1a37d27a4b8fe79c5b7572a5fa61eda4d970c5759848ce7e195836b3c9935e",
+      "preservation": "PRESERVED"
+    },
+    "REPRESENTATIVE": {
+      "passed": 5,
+      "total": 5,
+      "completion_sha256": "63a9829e01ddc2b21bc95942379a5f4be2b0c487205bc61b70ad5b607c070cdc",
+      "preservation": "PRESERVED"
+    },
+    "TIMING": {
+      "passed": 5,
+      "total": 5,
+      "completion_sha256": "bb09bd729b9327511824ddf15c3c6a5d03b13572e8720de8db5fbddf3284db67",
+      "preservation": "PRESERVED"
+    }
+  },
+  "total_passed": 1082,
+  "timing_a30": {
+    "median_speedup": 12.862769099957342,
+    "required_median_speedup": 10.0,
+    "gate": "PASS",
+    "cases": 9
+  },
+  "historical_replay": {
+    "p9_completion_sha256": "981ad56a6e14a36a70cbdc88b55e5b3430e2f4036f56dd189ef3524994d8a4d3",
+    "completed_dag_nodes": 30,
+    "total_dag_nodes": 80,
+    "mapped_assertions_reproduced": 40,
+    "mapped_assertions_pending": 81,
+    "claim_disposition": "PENDING_CLAIM_LEVEL_REVIEW"
+  },
+  "qualification_scope": "Engineering tests and frozen replay coverage; no O4-O7/G1-G8 executor, no canonical L0-G8 release or activation."
+}
