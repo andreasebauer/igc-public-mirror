@@ -1,0 +1,93 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "authority_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "contract_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "G0_parent_certificate": {
+          "type": "string"
+        },
+        "G1_authority": {
+          "type": "string"
+        },
+        "G2_contract_unchanged": {
+          "type": "string"
+        },
+        "G3_counter_observer": {
+          "type": "string"
+        },
+        "G4_material_instance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "G0_parent_certificate",
+        "G1_authority",
+        "G2_contract_unchanged",
+        "G3_counter_observer",
+        "G4_material_instance"
+      ],
+      "type": "object"
+    },
+    "level": {
+      "type": "integer"
+    },
+    "material_instance_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parent_certificate_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reopen_triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_EXACT_CARRIER_FACTORISATION_TRANSPORT_CERTIFICATE_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "scientific_scope": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority_science_sha256",
+    "contract_sha256",
+    "gates",
+    "level",
+    "material_instance_sha256",
+    "nonclaims",
+    "parent_certificate_sha256",
+    "reopen_triggers",
+    "schema",
+    "science_sha256",
+    "scientific_scope",
+    "status"
+  ],
+  "type": "object"
+}

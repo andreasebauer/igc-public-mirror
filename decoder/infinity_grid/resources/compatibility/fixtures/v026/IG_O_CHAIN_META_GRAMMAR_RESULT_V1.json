@@ -1,0 +1,63 @@
+{
+  "classification": "STRATIFIED_FIXED_GRAMMAR_PLATEAU_EARNED_TYPE_FIXED_POINT_NOT_EARNED",
+  "date": "2026-08-30",
+  "gates": {
+    "P0_normalized_grammar_plateau": {
+      "authority_note": "O4-O7 normalized by the O7 C3 audit; O8 by exact BP0/theorem application and graduation; O9 by bounded existence/repeat sentinel. O9 is not graduated.",
+      "levels": [
+        "O4",
+        "O5",
+        "O6",
+        "O7",
+        "O8",
+        "O9"
+      ],
+      "normalized_grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "status": "EARNED"
+    },
+    "P1_generic_recursive_transport": {
+      "machine_status": "GENERIC_O_HIERARCHY_LIFT_MACHINE_CHECKED_ABSTRACT_SCHEMA",
+      "scope": "synthetic fixed-grammar recursion for CertifiedOverlayModule/LiftPresentation hypotheses; not historical existence of every level",
+      "status": "EARNED_CONDITIONALLY_MACHINE_CHECKED"
+    },
+    "P2_material_instances": {
+      "O7": "FULL_GRADUATED_ANCHOR",
+      "O8": "THEOREM_ACCELERATED_GRADUATED",
+      "O9": "BOUNDED_EXISTENCE_REPEAT_SENTINEL_NOT_GRADUATED",
+      "status": "EARNED_THROUGH_O9_WITH_MIXED_AUTHORITY"
+    },
+    "P3_carrier_type_fixed_point": {
+      "GRRL_C10": "recurrence is stratified self-similarity, not a type fixed point",
+      "status": "NOT_EARNED"
+    },
+    "P4_depth_independent_service_quotient": {
+      "status": "OPEN"
+    },
+    "P5_meta_composition_substitution": {
+      "status": "OPEN"
+    },
+    "P6_meta_full_abstraction_minimality": {
+      "status": "OPEN"
+    }
+  },
+  "interpretation": "The O4-O9 evidence supports a plateau of the normalized recursive grammar: level number is currently a stratification/depth parameter inside one repeated construction regime. This is not a proof that O_n and O_(n+1) are the same carrier type, and it does not erase the ownership layer. A genuine raised O-group requires at least a depth-independent exact service quotient and an exact meta-composition/substitution theorem.",
+  "nonclaims": [
+    "historical O10+ existence",
+    "infinite O-tower",
+    "type fixed point",
+    "geometry"
+  ],
+  "normalized_grammar_hashes": {
+    "O4": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "O5": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "O6": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "O7": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "O8": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "O9": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07"
+  },
+  "raised_O_group_status": "DESCRIPTIVE_META_REGIME_ONLY_NOT_NEW_ALGEBRAIC_CARRIER",
+  "regime_name": "O_GRRL_FIXED_GRAMMAR_REGIME",
+  "schema": "IG_O_CHAIN_META_GRAMMAR_RESULT_V1",
+  "science_sha256": "5195e86981398aaf2d2122c7359ac764e7436427f7fc6a8c78a31ff0935e7af4",
+  "status": "PASS"
+}

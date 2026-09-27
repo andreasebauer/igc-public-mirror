@@ -1,0 +1,122 @@
+{
+  "abstract_read_write_law": {
+    "binary_enabled": "compose_{a,b}((f,m),(g,n)) for a frozen earned operator iff f_a>0 and g_b>0",
+    "binary_write": "compose_{a,b}((f,m),(g,n))=(f+g-e_a-e_b,m+n)",
+    "reserve_enabled": "reserve_t(f,m) iff f_t>0",
+    "reserve_write": "reserve_t(f,m)=(f-e_t,m)"
+  },
+  "authority": {
+    "g4_s3_candidate_interface_index_sha256": "abac22fc540f43d5bf837f9bf7560abecd0d4836f2dbd7234b6503e8028aa891",
+    "g4_s4_classification": "G4_ONE_STEP_RELATION_VALUED_COMPOSITION_CLOSURE_ON_FROZEN_TIER1_P3_SCOPE_S5_UNLOCKED",
+    "g4_s4_closeout_sha256": "8f58801d8c253e7fd1fced07da0d6bca54d2e16277ac6fc9fa9b8892c41ce395",
+    "g4_s4_replay_comparison_sha256": "83ab4240bcb2fe14ea88243129dce8135eecdfd23acf76711963116d3167286e",
+    "g4_s4_science_sha256": "bd65bb3a594754c27dff8ca8f4d4f6f214be933b871eb25361b6279a18278ed5",
+    "required_g4_graduated": false,
+    "required_g4_s5_unlocked": true,
+    "required_public_descriptor_promoted": false,
+    "required_s4_certification": "CERTIFIED_PASS",
+    "required_shell_profile_promoted": false,
+    "required_topology_promoted": false
+  },
+  "candidate_descriptor": {
+    "excluded": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "hidden owner witness",
+      "construction identity",
+      "topology canon",
+      "shell profile",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "fields": [
+      "total_free_by_type[0..6]",
+      "tier1_class_counts[0..1]"
+    ],
+    "frozen_coordinate_count": 9,
+    "mathematical_state": "D=(f,m) with f in N^7 and m in N^C for the frozen finite S2 Tier-1 class alphabet C",
+    "name": "CAPS7_PLUS_TIER1_CLASS_BAG",
+    "schema_id": "IG_G4_CAPS7_TIER1_BAG_READ_WRITE_STATE_V1",
+    "tier1_fields": [
+      "MAX_DEGREE",
+      "LEAF_COUNT",
+      "diameter",
+      "radius",
+      "articulation_count",
+      "wiener_index"
+    ]
+  },
+  "date": "2026-09-04",
+  "decision_rule": {
+    "PASS": "Promote CAPS7_PLUS_TIER1_CLASS_BAG as the finite-coordinate read/write descriptor for the frozen one-step G4 transition observer and unlock G4:S6 only.",
+    "REVIEW_REQUIRED": "Any gate fails: do not promote a descriptor post hoc; S6 remains locked."
+  },
+  "exact_gates": [
+    "S4_CERTIFIED_COLD_REPLAY_AND_CLOSEOUT_AUTHORITY_EXACT",
+    "S3_TIER1_CLASS_ALPHABET_EXACTLY_BOUND_TO_CERTIFIED_CANDIDATE_INTERFACE_INDEX",
+    "ALL_124_COMPLETE_PAIR_CANDIDATES_MAP_TO_ONE_CAPS7_PLUS_TIER1_BAG_STATE",
+    "ALL_7688_RECURSIVE_P3_CONTEXTS_MAP_TO_ONE_CAPS7_PLUS_TIER1_BAG_STATE_WITH_ZERO_ABSTRACT_WRITE_CONFLICTS",
+    "ALL_31_CERTIFIED_RECURSIVE_RESERVE_BASIS_ROWS_HAVE_ZERO_CAPS7_WRITE_FAILURES_AND_TIER1_BAG_IS_INVARIANT",
+    "ABSTRACT_IMPLEMENTATION_READ_SURFACE_EXCLUDES_TOPOLOGY_SHELL_OWNER_CONSTRUCTION_IDENTITY_ANCESTRY_AND_LOWER_LAYER_CARRIER",
+    "INDEPENDENT_COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_G4_S5_EXPERIMENT_AND_MATCHES_SCIENCE_SOURCE_REGISTRY_AND_STABLE_PAYLOAD"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE",
+    "S5_CONSUMES_CERTIFIED_S4_EVIDENCE_WITHOUT_REBUILDING_THE_HEAVY_S4_CENSUS",
+    "FULL_REGRESSION_PRIMARY_AND_COLD_REPLAY_CHAIN_DETACHED",
+    "COLD_REPLAY_RERUNS_SAME_REGISTERED_G4_S5_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_SOURCE_REGISTRY_OR_EVIDENCE_SCHEMA_MISMATCH"
+  ],
+  "frozen_evidence_domain": {
+    "certified_s4_pair_candidate_rows": 124,
+    "certified_s4_recursive_p3_public_contexts": 7688,
+    "certified_s4_recursive_reserve_operator_basis_rows": 31,
+    "frozen_directed_operator_count": 31,
+    "frozen_tier1_class_count": 2
+  },
+  "frozen_observer": {
+    "does_not_observe": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "which internal owner supplied an endpoint",
+      "construction identity",
+      "hidden G3 incidence topology",
+      "shell profile",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "name": "G4_TRANSITION_GRAMMAR_CAPS7_TIER1_BAG_OBSERVER_V1",
+    "reads": [
+      "external reservation enabledness by endpoint type",
+      "frozen 31 typed binary bridge enabledness",
+      "successor CAPS7",
+      "successor Tier-1 class bag"
+    ]
+  },
+  "nonclaims": [
+    "NO_GLOBAL_OR_MINIMAL_G4_DESCRIPTOR_CLAIM",
+    "NO_GLOBAL_TIER1_SUFFICIENCY",
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE",
+    "NO_EXACT_RELATION_CARDINALITY_EQUIVALENCE",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE",
+    "NO_PAIR_PLUS_PAIR_G4_CLOSURE",
+    "NO_UNBOUNDED_RECURSIVE_G4_CLOSURE",
+    "NO_TOPOLOGY_ERASURE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_G4_GRADUATION",
+    "NO_PHYSICAL_SPACE_DIMENSION_TIME_SPACETIME_COORDINATES_OR_METRIC"
+  ],
+  "pass_effect": "Promote the bounded G4 finite read/write descriptor and unlock G4:S6 recursive closure/graduation audit only. No G4 graduation, topology promotion, or shell-profile promotion.",
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "promotion": true,
+  "question": "Does the bounded S2/S3/S4 candidate promote to a finite-coordinate G4 transition state D=(CAPS7, bag of S2 Tier-1 scalar-tree classes) for the frozen one-step relation-valued grammar, without reopening hidden G3 topology, shell profile, owner witnesses, construction identity, ancestry, or lower-layer carriers?",
+  "schema_id": "IG_G4_S5_FINITE_READ_WRITE_DESCRIPTOR_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "8f4f051e9e3ca63b680b358da2d4e43ba20e50ce621babc0b03afcee0be0ddab",
+  "stage_ref": "G4:S5",
+  "status": "FROZEN_BEFORE_G4_S5_EXECUTION"
+}

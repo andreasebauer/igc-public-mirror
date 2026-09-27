@@ -1,0 +1,71 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_REPLAY_RECIPE_SCHEMA_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "input_requirement_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "producer_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_REPLAY_RECIPE_SCHEMA_V0_1",
+      "type": "string"
+    },
+    "stage_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "supported_action_types": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acceptance_fields",
+    "input_requirement_fields",
+    "producer_fields",
+    "required_fields",
+    "rules",
+    "schema_id",
+    "stage_fields",
+    "supported_action_types",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_REPLAY_RECIPE_SCHEMA_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

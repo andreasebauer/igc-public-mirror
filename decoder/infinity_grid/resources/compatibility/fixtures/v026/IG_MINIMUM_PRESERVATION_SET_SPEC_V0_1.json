@@ -1,0 +1,14 @@
+{
+  "algorithm": [
+    "Compute target transitive closure over mandatory computation edges and explicit evidence/claim dependencies.",
+    "For each reachable node, mark RECONSTRUCTABLE only if a validated exact replay recipe exists and all of that recipe's own roots are resolvable.",
+    "Collapse reconstructable derived nodes into their irreducible ancestor roots.",
+    "Union policy-pinned nodes required by publication/claim/review status.",
+    "Return REQUIRED_ROOTS, OPTIONAL_EXPENSIVE_CACHE, OPTIONAL_CACHE, EPHEMERAL, and UNRESOLVED."
+  ],
+  "definition": "For a target set T of runs/results/claims/releases, the logical minimum preservation set is the smallest set of non-reconstructable required nodes whose retention plus frozen recipes/source/environment permits exact reconstruction of every target under declared acceptance rules.",
+  "optimization_note": "Logical minimality is separate from practical storage optimization; keeping expensive caches is allowed without pretending they are epistemically necessary.",
+  "safety": "The algorithm is advisory until an independent replay from the proposed root set passes. gc may not use a minimum set that lacks a successful reconstruction proof.",
+  "schema_id": "IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1",
+  "version": "0.1"
+}

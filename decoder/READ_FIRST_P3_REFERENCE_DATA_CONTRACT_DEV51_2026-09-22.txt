@@ -1,0 +1,96 @@
+INFINITY GRID DECODER 0.8lib — P3 UNIFIED REFERENCE-DATA CONTRACT
+DEV51 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_P3_UNIFIED_REFERENCE_DATA_CONTRACT
+P3_COMPLETE
+NO_SCIENCE_EXECUTED
+NO_AUTHORITY_CHANGE
+SHARED_POINTER_UNCHANGED
+P4_NOT_STARTED
+
+1. RESULT
+
+P3 defines one strict, content-addressed reference-data contract for all eleven
+required replay categories: canonical objects, mechanisms, graduations, S/R/C/F
+evidence, negative results, audit authorizations, earned-algebra statements,
+dependency links, generation recipes, old/new comparisons and resume frontiers.
+
+Every record has a stable namespaced ID, canonical SHA-256 identity, explicit
+scope and nonclaims, exact provenance classification, dependencies, epistemic
+status, science-execution status and authority effect. Type-specific payloads
+are closed schemas; unknown or missing fields fail closed.
+
+2. EMPTY ROOT AND PROVENANCE
+
+The frozen empty root has no records, no invented carrier or correlation seed,
+and science_executed=false. Its canonical manifest identity is:
+
+  6c30e064452567707dc410a214c3fad3bd219231f5ebf998a9651c8f9a0ad91b
+
+Provenance distinguishes derived theorem, certified construction, finite
+computational observation, imported assumption, external audit decision and
+unexplained. Unexplained records must remain OPEN. Audit authorization records
+require external-audit provenance; ordinary Decoder records cannot record an
+external decision.
+
+3. EQUALITY, NEGATIVES AND SCIENCE STATE
+
+Equality records explicitly bind set, multiset, count, byte, canonical-JSON or
+certified-semantic meaning, cardinality semantics, compression and observer.
+Negative results keep their tested scope and required nonclaims; they cannot be
+relabelled as graduations. Reproduction is not represented as confirmation.
+
+Each record says whether scientific execution occurred. The manifest's
+science_executed bit is derived from its indexed records and rechecked during a
+cold restore; it cannot be asserted independently.
+
+4. DURABILITY
+
+Records are immutable and content addressed. Dependencies must already exist in
+manifest order. Writes use a transaction, immutable record, manifest and commit
+sequence. An interrupted write is verified and recovered exactly once. A cold
+restore rehashes every indexed record and rederives type counts, dependency
+order and science-execution state. Unindexed content-store bytes are not
+authoritative.
+
+5. QUALIFICATION
+
+Focused P3 contract:
+  13 passed, 0 failed
+
+P1/P2/P3 replay regression:
+  102 passed, 0 failed
+
+Portable R02 consolidated repeat:
+  340 passed, 1 skipped, 0 failed
+
+The first portable run hit one timing-sensitive supervisor assertion after the
+completion file appeared while its attempt record was momentarily RUNNING. The
+exact test passed alone, and the complete repeat passed. All three records are
+retained. The backend/version diagnostic remains 15 passed with the known
+CAPTURE_REQUIRED failure because this workspace has no saved production
+capture; that nonportable boundary is not claimed complete.
+
+6. ARTIFACTS
+
+infinity_grid/replay_reference_data.py
+infinity_grid/resources/replay/P3_EMPTY_REFERENCE_DATA_ROOT_V1.json
+infinity_grid/resources/replay/P3_REFERENCE_DATA_CONTRACT_V1.json
+infinity_grid/resources/replay/P3_REFERENCE_DATA_QUALIFICATION_V1.json
+tests/test_p3_replay_reference_data.py
+qualification_evidence/P3_REFERENCE_DATA_FOCUSED_JUNIT.xml
+qualification_evidence/P3_REPLAY_REFERENCE_DATA_REGRESSION_JUNIT.xml
+qualification_evidence/P3_PORTABLE_R02_FINAL_JUNIT.xml
+qualification_evidence/P3_REFERENCE_DATA_TEST_RESULT.txt
+
+7. NONCLAIMS
+
+P3 did not populate historical handoff data, execute any L0-through-G8 science,
+grant audit authority, create a production replay capture, authorize GLOBAL or
+advance the shared pointer. P4 has not started.
+
+8. NEXT STEP
+
+P4: bind the real L0 node executors to this contract and run the first empty-root
+pilot through the registered replay root, stopping at the first declared brake.

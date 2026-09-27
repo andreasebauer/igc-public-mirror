@@ -1,0 +1,131 @@
+{
+  "assertions": [
+    {
+      "equals": "PASS",
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": 120,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/automorphism_context_checks"
+    },
+    {
+      "equals": 15,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/attachment_contexts"
+    },
+    {
+      "equals": "NO_SEPARATING_CONTEXT_FOUND",
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": 833424,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/stage1/admissible_contexts"
+    },
+    {
+      "equals": 3936600,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/stage2/admissible_depth2_contexts"
+    },
+    {
+      "equals": true,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_isomorphism_reverification_all4_results.json",
+      "pointer": "/all_four_pass"
+    },
+    {
+      "equals": true,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "pointer": "/all_exact"
+    },
+    {
+      "equals": 11,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "pointer": "/cases"
+    },
+    {
+      "equals": true,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "pointer": "/all_500_exact_selected_sets_equal_by_relation_congruence"
+    },
+    {
+      "equals": true,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "pointer": "/all_500_independent_maxima_agree"
+    },
+    {
+      "equals": "PASS",
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_recursive_completeness_constructor_audit_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": true,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/exact_set_equal"
+    },
+    {
+      "equals": 1966080,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/raw_count"
+    },
+    {
+      "equals": 1966080,
+      "file": "07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/macro_count"
+    }
+  ],
+  "authority_note": "These are frozen outputs from the canonical final finite recursive L2 algebra bundle. Gate 2 treats them as regression/oracle evidence in their original audited scope, not as new theorem claims.",
+  "result_files": [
+    {
+      "canonical_sha256": "77f984562a9b45cba062d67e8efc38c6fdd9a5828894c9b6ec4854142fad3d9a",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "sha256": "fdc5bcafec7a17655d683ad36934a3721176b83956c4cbd768f5294959915639",
+      "size_bytes": 6891
+    },
+    {
+      "canonical_sha256": "f8f06849bba1a9e68b77317782fb3ecc47cfa7edbe502697d712a8447318b757",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "sha256": "6d20f06dbea45c86913be6c009d8f647c6e3900cf34ec3ebc411b6b8ba6f7811",
+      "size_bytes": 1438
+    },
+    {
+      "canonical_sha256": "14e655cf21ab37101f252a97db461472b502e5b5c1a7a5e5c0261a012a4f124d",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_isomorphism_reverification_all4_results.json",
+      "sha256": "5a344c997d610d00acffb277fa2e7b46ca4250fa5c0b4e86e02223ee63457804",
+      "size_bytes": 2898
+    },
+    {
+      "canonical_sha256": "f1e48570b5763c6ff16bd091a992db0151ccd65b16614fecc6405a78f5ccaba8",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "sha256": "c06e1ec388b9f4e09ddf9ccce37353f1a17d79ef997272b30c797d0e1f05e3c0",
+      "size_bytes": 11460
+    },
+    {
+      "canonical_sha256": "39ab82487ba001a7e14dcf5a992db2d2715a4d5f60dc724b2f82091e295652a1",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "sha256": "adb4ebb5eaf2d709b76b7b6a3b9a916b6544a3dce0ddc0d28e69e6e3553e7259",
+      "size_bytes": 722474
+    },
+    {
+      "canonical_sha256": "afa45245cf87f4bcb3f373ef6ef55b3349f083f01ca6fd6a23d976f5e8772137",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_recursive_completeness_constructor_audit_results.json",
+      "sha256": "60d631acac0c4ac0d8c4fac9b7463029f4ae1b26ded17c8c11bff5fdada166b5",
+      "size_bytes": 1361
+    },
+    {
+      "canonical_sha256": "5bbbce9f68395d63fe03839b326d0259431f0a56bf40a8f01be0c370c373dff2",
+      "path": "07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "sha256": "702c0d879374b578c996e89b258a1761cfb22a8bf96f7b37162301021128c4ac",
+      "size_bytes": 115
+    }
+  ],
+  "schema_id": "IG_V026_L2_ORACLE_INDEX_V1",
+  "source_archive": {
+    "path": "Infinity_Grid_Algebra_Final_2026-08-15.zip",
+    "sha256": "1a65bf05d8df6b8ec64ba42810ddab4b17f858320f78b0d0fcf8b6707f3861d2",
+    "size_bytes": 150581
+  },
+  "status": "PASS"
+}

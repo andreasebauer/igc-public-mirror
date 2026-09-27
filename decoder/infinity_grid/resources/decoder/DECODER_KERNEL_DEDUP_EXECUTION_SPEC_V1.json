@@ -1,0 +1,34 @@
+{
+  "acceptance_tests": [
+    "test_direct_vs_dedup_science_equivalence",
+    "test_resume_preserves_completed_kernel_results",
+    "test_completion_order_not_science"
+  ],
+  "checkpoint_key_fields": [
+    "kernel_key",
+    "source_sha256",
+    "experiment_spec_sha256"
+  ],
+  "completion_order": "NON_SCIENTIFIC_AND_CANONICALLY_SORTED_BEFORE_HASHING",
+  "date": "2026-09-04",
+  "enablement_gate": "Optimized execution may become default only after direct and deduplicated execution produce identical normalized scientific task-table SHA-256 and identical final science SHA-256 on the frozen corpus.",
+  "formal_equivalence": "For every scientific task t, DirectEvaluate(t) must equal Expand(EvaluateKernel(K(t)), metadata(t)) byte-for-byte after canonical normalization.",
+  "kernel_key_fields": [
+    "exact_left_carrier_digest",
+    "exact_right_carrier_digest",
+    "directed_operator_id",
+    "orientation_or_exact_ordering_fields_required_by_the_handler"
+  ],
+  "purpose": "Separate preregistered scientific task identity from deterministic computational kernel identity so exact duplicate kernels are evaluated once while every registered scientific task row is still emitted.",
+  "registered_experiment_semantics_changed": false,
+  "release_target": "0.30.30",
+  "resume_rule": "Reuse only completed matching kernels; rerun incomplete kernels; reject mismatching checkpoints; certify only after a complete deterministic task table is rebuilt.",
+  "schema_id": "IG_DECODER_KERNEL_DEDUP_EXECUTION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "296d9f97e01ad2c9b0d237c76ce4c4453cb2adaaabacf1bf40a5de7fc61f6b47",
+  "scientific_semantics_changed": false,
+  "scientific_task_rule": "Every preregistered task remains present in the final normalized scientific task table.",
+  "scope": "EXECUTION_INFRASTRUCTURE_ONLY",
+  "stable_science_payload_changed": false,
+  "status": "IMPLEMENTED_EQUIVALENCE_GATED"
+}

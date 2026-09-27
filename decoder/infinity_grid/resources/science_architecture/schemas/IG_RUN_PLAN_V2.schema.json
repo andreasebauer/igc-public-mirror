@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compile_target": {
+      "const": "EXISTING_CONTROLLER_EXECUTION_TASK_INFRASTRUCTURE"
+    },
+    "development_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_depth": {
+          "type": [
+            "integer",
+            "string",
+            "null"
+          ]
+        },
+        "max_steps": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "resource_budget_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "max_depth",
+        "max_steps",
+        "resource_budget_ref"
+      ],
+      "type": "object"
+    },
+    "entity_class_ref": {
+      "type": "string"
+    },
+    "exact_reopen_policy": {
+      "type": "string"
+    },
+    "execution_policy_ref": {
+      "type": "string"
+    },
+    "legacy_execution_plan_preserved": {
+      "const": true
+    },
+    "lift_policy_ref": {
+      "type": "string"
+    },
+    "novelty_trigger_policy": {
+      "type": "string"
+    },
+    "operational_integrity": {
+      "additionalProperties": false,
+      "properties": {
+        "external_ack_required": {
+          "type": "boolean"
+        },
+        "external_required_providers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "resource_budget": {
+          "additionalProperties": false,
+          "properties": {
+            "max_effective_workers": {
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_mirror_dir_bytes": {
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_rss_bytes": {
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_run_dir_bytes": {
+              "minimum": 1,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "max_wall_seconds_per_depth": {
+              "exclusiveMinimum": 0,
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "max_wall_seconds_total": {
+              "exclusiveMinimum": 0,
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "external_ack_required",
+        "external_required_providers",
+        "resource_budget"
+      ],
+      "type": "object"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "plateau_policy_ref": {
+      "type": "string"
+    },
+    "regime_ref": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_RUN_PLAN_V2"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "selected_test_pack_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "selected_test_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "start": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_or_state_ref": {
+          "type": "string"
+        },
+        "regime_depth": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "entity_or_state_ref",
+        "regime_depth"
+      ],
+      "type": "object"
+    },
+    "stopping_rule": {
+      "type": "string"
+    },
+    "storage_retention_policy_ref": {
+      "type": "string"
+    },
+    "test_cadence_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "plan_id",
+    "entity_class_ref",
+    "regime_ref",
+    "start",
+    "development_budget",
+    "selected_test_pack_refs",
+    "selected_test_refs",
+    "test_cadence_policy",
+    "novelty_trigger_policy",
+    "plateau_policy_ref",
+    "lift_policy_ref",
+    "exact_reopen_policy",
+    "execution_policy_ref",
+    "storage_retention_policy_ref",
+    "stopping_rule",
+    "compile_target",
+    "legacy_execution_plan_preserved"
+  ],
+  "title": "IG Decoder Run Plan V2",
+  "type": "object"
+}

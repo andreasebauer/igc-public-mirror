@@ -1,0 +1,133 @@
+{
+  "const": {
+    "actions": [
+      {
+        "action_id": "EXACT_PROJECTED_RELATION_ADD_PROFILE_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactProjectedActionOracle.current_level_profile",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "hierarchical_occurrence_structure",
+          "typed_p_f",
+          "Bridge",
+          "scope",
+          "multiplicity"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "visible_p_f_reservation",
+          "hidden_outer_incidence"
+        ]
+      },
+      {
+        "action_id": "RESOURCE_SCANNER_RELATION_ADD_AGGREGATE_V1",
+        "callable": "infinity_grid.regime_scanner:_action_aggregate",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "hierarchical_occurrence_structure",
+          "typed_p_f",
+          "Bridge",
+          "scope",
+          "multiplicity"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "visible_p_f_reservation",
+          "hidden_outer_incidence"
+        ]
+      },
+      {
+        "action_id": "EXACT_CANONICAL_RESERVATION_SAMPLER_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactLiftState.reserve_canonical",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "exact_H_structure",
+          "typed_p_f",
+          "anonymous_owner_canonical_labels"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "CONSTRUCTION_SAMPLER",
+        "successor_semantics": "SINGLE_CANONICAL_POINTED_ORBIT_FOR_CONSTRUCTION_ONLY",
+        "writes": [
+          "one_visible_p_f_reservation",
+          "exact_H_overlay"
+        ]
+      },
+      {
+        "action_id": "FIXED_GRAMMAR_FRONTIER_ADVANCE_V1",
+        "callable": "infinity_grid.fixed_grammar_transport:_advance_frontier",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "frozen_contract_hashes",
+          "earned_law_pins",
+          "support_bounds",
+          "compact_growth_frontier"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "THEOREM_TRANSPORT_ENGINE",
+        "successor_semantics": "THEOREM_TRANSPORTED_COMPACT_FRONTIER",
+        "writes": [
+          "compact_frontier",
+          "immutable_level_delta"
+        ]
+      }
+    ],
+    "registry_sha256": "3509e3c3459691be799ed1592365608943c2287db4f73a52438015a89610ca88",
+    "schema_id": "IG_O_NATIVE_ACTION_REGISTRY_V1",
+    "scientific_rule": "ACTION_METADATA_IS_VALID_ONLY_WHILE_BOUND_REGISTERED_CALLABLE_SEMANTIC_HASHES_MATCH_THE_ACCEPTED_NATIVE_SEMANTICS_BASELINE",
+    "status": "FROZEN_V027_DEL001",
+    "version": "1.0.0"
+  },
+  "type": "object"
+}

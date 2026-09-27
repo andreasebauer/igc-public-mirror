@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "legacy_class": {
+      "type": "string"
+    },
+    "legality_reads": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_LEGACY_BLIND_READ_TRACE_V1",
+      "type": "string"
+    },
+    "scientific_disposition": {
+      "type": "string"
+    },
+    "witness_selection_reads": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "write_target": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "legacy_class",
+    "legality_reads",
+    "schema",
+    "scientific_disposition",
+    "witness_selection_reads",
+    "write_target"
+  ],
+  "type": "object"
+}

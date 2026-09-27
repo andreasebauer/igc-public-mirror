@@ -1,0 +1,89 @@
+INFINITY GRID DECODER 0.8lib — H1-H13 SEMANTIC CLASSIFICATION SPOT-CHECK
+DEV48 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_NO_RECLASSIFICATION
+ALL_13_CLASSIFICATIONS_CONFIRMED
+NO_SCIENCE_EXECUTED
+NO_AUTHORITY_CHANGE
+SHARED_POINTER_UNCHANGED
+
+1. RESULT
+
+The dev40 H1-H13 lane assignments were checked individually against the exact
+frozen GRRL theorem text, the paper-proof dependency roles, the O7 premise
+ledger and the frozen O7 instantiation result. All thirteen are supportable
+under the active dev38 SRCF meanings:
+
+  H1=C   H2=S   H3=S   H4=R   H5=S   H6=C   H7=R
+  H8=R   H9=C  H10=R  H11=S  H12=C  H13=C
+
+No classification changed.
+
+2. ACTIVE LANE MEANINGS
+
+  S  structure objects and intrinsic properties
+  R  relations within one layer
+  C  components and typed cross-layer interfaces
+  F  falsification and free scientific probes
+
+These are the active SRCF meanings. The older plan V1.2 description of R as
+reconstruction/residual challenge is historical plan text and is not used to
+classify these assertions.
+
+3. BORDERLINE ADJUDICATIONS
+
+H2 remains S. It defines finite anonymous owner occurrences, hierarchical
+isomorphism and multiplicity-bearing structural equality. Merely mentioning
+q_n does not turn the assertion into a producer/consumer interface.
+
+H7 remains R. Its primary subject is inherited relation-add at its declared
+relative scope. Factorisation through q_n is a compatibility qualification,
+while H6 separately covers inherited non-relational action transport as C.
+
+H11 remains S. Counter alternatives and representative-free labels define the
+intrinsic multiplicity-bearing transition structure. The fact that Counter/Set
+changes reopen the theorem does not make H11 an F assertion.
+
+No H premise maps to F. Verification methods and negative reopen conditions do
+not change the semantic subject of a theorem premise.
+
+4. SOURCE IDENTITY
+
+Original GRRL nested bundle SHA-256:
+378735121aa83e64f62a4d773f5cde26581b33c4157a9e6a7b64d3793dc58fd8
+
+GRRL theorem specification SHA-256:
+45f3e6c187db650379b0e01ba4f0f08799310d30912cd0d1f6fb91336d9a7f99
+
+O7 instantiation result SHA-256:
+a6250559080bf6c82baf6cb21e70e4f844fb3de4fe288a0c56dbe2d77b79425c
+
+The local theorem and instantiation bytes match the files inside the original
+frozen bundle. Proof, lemma, premise-gate and H1-H13 evidence-ledger hashes are
+recorded in the machine-readable spot-check result.
+
+5. EPISTEMIC BOUNDARY
+
+The historical O7 result reports H1-H13 PASS. This review checks that each
+premise was assigned to the correct SRCF lane. It does not independently
+confirm those historical PASS results, graduate O7, establish global closure,
+prove observer-independent minimality or license O8/an infinite tower.
+
+6. ARTIFACTS
+
+infinity_grid/resources/replay/H1_H13_SEMANTIC_CLASSIFICATION_SPOT_CHECK_V1.json
+tests/test_h1_h13_semantic_classification_spot_check.py
+qualification_evidence/H1_H13_SEMANTIC_SPOT_CHECK_TEST_RESULT.txt
+
+Focused semantic/P1/version qualification: 72 passed, 0 failed.
+
+The existing V9 source catalogue and DAG remain byte-unchanged because the
+spot-check found no mapping defect.
+
+7. NEXT STEP
+
+The semantic-review concern is closed. P2 runner construction may proceed,
+subject to the separately recorded dev47 R02 boundary: the portable R02 core
+passes, but full R02 still has 22 named nonportable fixture/tooling/version
+requirements and must not be overstated as complete.

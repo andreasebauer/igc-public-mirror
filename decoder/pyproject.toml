@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infinity-grid-algebra-decoder"
+dynamic = ["version"]
+description = "Infinity Grid Decoder — registered capture and execution"
+requires-python = ">=3.11"
+authors = [{name = "Andreas Erich Bauer"}]
+classifiers = ["Operating System :: POSIX :: Linux", "Programming Language :: Python :: 3"]
+dependencies = ["cryptography>=46.0.4", "igraph==1.0.0", "sympy==1.14.0"]
+
+[project.optional-dependencies]
+verification = ["networkx==3.4.2"]
+qualification = ["cryptography==46.0.4", "networkx==3.4.2", "pytest==8.3.5", "setuptools==84.0.0", "wheel==0.48.0", "pip==26.2.1"]
+
+[project.scripts]
+ig = "infinity_grid.controller:main"
+igref = "infinity_grid.controller:main"
+ig-lockdown = "infinity_grid.v05_execution_authority:main"
+ig-execution-status = "infinity_grid.v05_execution_authority:main"
+ig-registered-service = "infinity_grid.controller:main"
+ig-decoder = "infinity_grid.controller:main"
+ig-decoder-recover = "infinity_grid.change_sessions:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["infinity_grid*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "infinity_grid._version.__version__"}
+
+[tool.setuptools.package-data]
+infinity_grid = ["_build_meta.json", "resources/**/*.json", "resources/**/*.zip"]

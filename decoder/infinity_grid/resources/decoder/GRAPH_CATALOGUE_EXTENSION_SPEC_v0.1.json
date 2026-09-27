@@ -1,0 +1,67 @@
+{
+  "existing_tables_preserved": [
+    "artifacts",
+    "datasets",
+    "protocols",
+    "runs",
+    "stages",
+    "claims",
+    "releases"
+  ],
+  "migration": "Additive schema migration only; existing run/artifact identities are imported by adapters without rewriting old records.",
+  "new_tables_proposed": {
+    "aliases": [
+      "alias",
+      "version",
+      "node_id",
+      "record_path",
+      "status"
+    ],
+    "gc_journal": [
+      "transaction_id",
+      "node_id",
+      "action",
+      "status",
+      "timestamp_utc"
+    ],
+    "graph_edges": [
+      "edge_id PK",
+      "edge_type",
+      "source_node_id",
+      "target_node_id",
+      "record_path",
+      "mandatory",
+      "scope"
+    ],
+    "graph_nodes": [
+      "node_id PK",
+      "node_type",
+      "schema_version",
+      "status",
+      "retention_class",
+      "semantic_role",
+      "record_path",
+      "content_sha256",
+      "producer_node_id"
+    ],
+    "recipes": [
+      "recipe_id",
+      "version",
+      "recipe_sha256 PK",
+      "record_path",
+      "replay_class"
+    ],
+    "reconstruction_proofs": [
+      "proof_id PK",
+      "target_node_id",
+      "root_set_sha256",
+      "recipe_closure_sha256",
+      "status",
+      "result_sha256",
+      "record_path"
+    ]
+  },
+  "schema_id": "IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1",
+  "truth_model": "Canonical node/edge/recipe/alias/proof records live in immutable/rebuildable store directories; SQLite is rebuilt from them.",
+  "version": "0.1"
+}

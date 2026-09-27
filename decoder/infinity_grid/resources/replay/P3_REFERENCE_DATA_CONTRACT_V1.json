@@ -1,0 +1,75 @@
+{
+  "schema_id": "IG_P3_REFERENCE_DATA_CONTRACT_PROFILE_V1",
+  "contract_version": "1.0.0",
+  "record_schema": "IG_REPLAY_REFERENCE_RECORD_V1",
+  "manifest_schema": "IG_REPLAY_REFERENCE_DATASET_MANIFEST_V1",
+  "transaction_schema": "IG_REPLAY_REFERENCE_TRANSACTION_V1",
+  "commit_schema": "IG_REPLAY_REFERENCE_COMMIT_V1",
+  "record_types": [
+    "AUDIT_AUTHORIZATION",
+    "CANONICAL_OBJECT",
+    "COMPARISON",
+    "DEPENDENCY_LINK",
+    "EARNED_ALGEBRA",
+    "GENERATION_RECIPE",
+    "GRADUATION",
+    "MECHANISM",
+    "NEGATIVE_RESULT",
+    "RESUME_FRONTIER",
+    "SRCF_EVIDENCE"
+  ],
+  "provenance_classes": [
+    "CERTIFIED_CONSTRUCTION",
+    "DERIVED_THEOREM",
+    "EXTERNAL_AUDIT_DECISION",
+    "FINITE_COMPUTATIONAL_OBSERVATION",
+    "IMPORTED_ASSUMPTION",
+    "UNEXPLAINED"
+  ],
+  "epistemic_statuses": [
+    "EXTERNAL_DECISION",
+    "HISTORICAL",
+    "OPEN",
+    "REPLAYED"
+  ],
+  "equality_modes": [
+    "CANONICAL_JSON",
+    "CERTIFIED_SEMANTIC_EQUIVALENCE",
+    "COUNT",
+    "EXACT_BYTES",
+    "MULTISET",
+    "NOT_APPLICABLE",
+    "SET"
+  ],
+  "science_execution_states": [
+    "EXECUTED",
+    "NONE"
+  ],
+  "storage_contract": {
+    "record_identity": "IMMUTABLE_CONTENT_ADDRESSED_SHA256",
+    "manifest_identity": "CANONICAL_SHA256",
+    "dependency_order": "BACKWARD_ONLY_AND_FAIL_CLOSED",
+    "write_protocol": "TWO_PHASE_TRANSACTION_AND_COMMIT",
+    "interrupted_write_policy": "VERIFY_AND_RECOVER_EXACTLY_ONCE",
+    "cold_restore_policy": "REHASH_RECORDS_AND_REDERIVE_COUNTS_AND_SCIENCE_EXECUTION",
+    "unindexed_record_policy": "NOT_AUTHORITATIVE"
+  },
+  "authority_contract": {
+    "decoder_may_grant_audit_authority": false,
+    "audit_authorization_requires": "EXTERNAL_AUDIT_DECISION",
+    "unexplained_provenance_must_remain": "OPEN",
+    "negative_result_implies_graduation": false,
+    "reproduced_means_confirmed_correct": false
+  },
+  "empty_root": {
+    "resource": "infinity_grid/resources/replay/P3_EMPTY_REFERENCE_DATA_ROOT_V1.json",
+    "manifest_sha256": "6c30e064452567707dc410a214c3fad3bd219231f5ebf998a9651c8f9a0ad91b",
+    "invented_seed_count": 0,
+    "science_executed": false
+  },
+  "phase_boundary": {
+    "p3_defines_storage_and_validation_only": true,
+    "p4_l0_pilot_executed": false,
+    "shared_pointer_advanced": false
+  }
+}

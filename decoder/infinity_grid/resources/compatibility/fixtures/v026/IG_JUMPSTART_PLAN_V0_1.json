@@ -1,0 +1,41 @@
+{
+  "cache_candidates": [],
+  "mandatory_edges": [
+    "edge:sha256:bfd4fba476d9947747dd9e08921132f15a689a4bf837395d4dfb52bffbde6d54"
+  ],
+  "mandatory_nodes": [
+    "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+    "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+  ],
+  "material_roots": [
+    {
+      "content_ref": {
+        "kind": "ARTIFACT",
+        "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+        "size_bytes": 533342
+      },
+      "node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+      "retention_class": "PINNED",
+      "semantic_role": "O_FRONTIER_SEED_ROOT_V1"
+    }
+  ],
+  "plan_sha256": "e72db5fa1ae232157eda8c8a180d6bd8e9febdacb99e4b902558ce33d44c1cb4",
+  "profile_sha256": "0ab9a7a32fee7b13c5195591b91902a4c72152791da725a8e6c96b53b59b0621",
+  "replay_contract": {
+    "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+    "contract_sha256": "eb7ab0f01a54869bd76b2800ce4f961ba9d2faa1ba468eb4b4fa13c58562e007",
+    "does_not_recompute": "Every historical O7 exploratory subtest as an independently named target.",
+    "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+    "legacy_resume_semantics": "PHASE7_THEOREM_AWARE_COMPACT_REPLAY",
+    "limitations": [
+      "This is the canonical graduated O7 authority; test-level registration is a later Recovery-v7 gate."
+    ],
+    "recomputes": "The O7 Phase-2 graduation audit from the frozen graduated O7 material root and reproduces the graduation science digest.",
+    "replay_class": "RERUN_GRADUATION_AUDIT"
+  },
+  "schema_id": "IG_JUMPSTART_PLAN_V0_1",
+  "status": "PASS",
+  "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+  "target_ref": "ig:test/O7",
+  "unresolved": []
+}

@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "g4_r2_closeout_science_sha256": "e749cae9fb66260a2335cef7f944250162c1279bbd27e87871c27c686eeb51cf",
+    "g4_r2_primary_science_sha256": "1bb74ceaa1cdfca4763930d08d01825a45f6388ed618101ec6df20cf92eca3e8",
+    "g4_r2_replay_science_sha256": "61cff50901d6c447fbb1f3ffa88eb7ab5da6f9cc729a4de90d0c128fdd4239ba",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r2_read": "SHELL_CLASS_DISTANCE_HISTOGRAM_ACTION_BAG"
+  },
+  "challenge_scope": {
+    "action": "ONE_NEW_G3_UNIT_LEAF_GRAFT_WITH_FIXED_NEW_H_CLASS_AND_EDGE_GRADE",
+    "decorations": "EXHAUSTIVE_BINARY_VERTEX_H_CLASS_AND_BINARY_EDGE_GRADE_DECORATIONS",
+    "edge_grade_palette_size": 2,
+    "h_class_palette_size": 2,
+    "max_g3_units": 4,
+    "underlying_shapes": "ALL_UNLABELLED_TREES_THROUGH_N4"
+  },
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "max_g3_units": 4,
+    "new_parallel_science_kernels": 0,
+    "owner_frontier_enumeration": false
+  },
+  "nonclaims": [
+    "NO_R2_RETRACTION_INSIDE_CERTIFIED_HOMOGENEOUS_SCOPE",
+    "NO_DECORATION_AWARE_COMPACT_READ_EARNED",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_RAW_H_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_G5_LAUNCH"
+  ],
+  "pass_classification": "G4_R3_REBASE_R2_READ_SCOPE_BOUNDARY_SHARP_H_COLOR_AND_EDGE_GRADE_COUNTEREXAMPLES_EARNED_DECORATION_AWARE_R4_DESIGN_AUTHORIZED",
+  "pass_requirements": [
+    "PRIMARY_AND_COLD_EXACT_MATCH",
+    "AUTHORITY_CHAIN_EXACT",
+    "R2_READ_H_COLOR_COUNTEREXAMPLE_EXISTS",
+    "R2_READ_EDGE_GRADE_COUNTEREXAMPLE_EXISTS",
+    "BOUNDED_DECORATED_SWEEP_CONFIRMS_NONPREDICTIVITY"
+  ],
+  "promotion": false,
+  "question": "Does the G4:R2 topology-only predictive hidden action read remain predictive when the R1-certified hidden H-class vertex colours and typed G4_CROSS edge grades are activated?",
+  "schema_id": "IG_G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1",
+  "science_sha256": "96ec24ae95c3e522742115ab59b63854f0e19b0cf5367b601eba283ed2885103",
+  "stage_ref": "G4:R3.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

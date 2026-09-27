@@ -1,0 +1,36 @@
+{
+  "schema_id": "IG_G6_MASTER_CHAIN_DESIGN_TEMPLATE_V1",
+  "status": "DESIGN_TEMPLATE_NOT_EXECUTABLE_UNTIL_CONCRETE_STAGE_PREREGISTRATIONS_ARE_HASH_BOUND",
+  "subject": "G6",
+  "series_order": ["S0", "S1", "S2", "S3", "S4", "S5", "S6", "GRADUATION_REVIEW", "R0", "R_ADAPTIVE_PROGRAM", "CLOSEOUT"],
+  "s_series": {
+    "all_concrete_before_launch": true,
+    "auto_advance_on_registered_pass": true,
+    "registered_nonpass_branches_only": true,
+    "s6_auto_graduation": false
+  },
+  "r_series": {
+    "r0_concrete_before_launch": true,
+    "r1_plus_are_conditional_slots": true,
+    "invent_questions": false,
+    "advance_only_when_concrete_preregistration_exists": true,
+    "human_review_on_novelty": true,
+    "early_close_allowed": true,
+    "r8_plus_requires_protocol_amendment": true
+  },
+  "durability": {
+    "append_only_stage_commits": true,
+    "verified_resume": true,
+    "external_mirror_receipt_required_for_official_campaign": true,
+    "mirror_target": "Google Drive IG/decoder/v0.5"
+  },
+  "execution": {
+    "default_workers": 4,
+    "parallelize_only_independent_registered_work": true,
+    "chain_dependencies_sequential": true
+  },
+  "exactness": {
+    "structural_equality_for_exact_claims": true,
+    "hashes_are_binding_and_indexing_not_mathematical_equality": true
+  }
+}

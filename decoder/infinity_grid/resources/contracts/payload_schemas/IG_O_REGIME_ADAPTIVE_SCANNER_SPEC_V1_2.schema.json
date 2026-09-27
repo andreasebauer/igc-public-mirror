@@ -1,0 +1,559 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "O10_plus": {
+          "type": "string"
+        },
+        "O7": {
+          "type": "string"
+        },
+        "O8": {
+          "type": "string"
+        },
+        "O9": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O10_plus",
+        "O7",
+        "O8",
+        "O9"
+      ],
+      "type": "object"
+    },
+    "calibration": {
+      "additionalProperties": false,
+      "properties": {
+        "O7_overlap_required": {
+          "type": "string"
+        },
+        "O8_reconciliation": {
+          "type": "string"
+        },
+        "O9_reconciliation": {
+          "type": "string"
+        },
+        "depth_service_v1": {
+          "type": "string"
+        },
+        "required_levels": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "O7_overlap_required",
+        "O8_reconciliation",
+        "O9_reconciliation",
+        "depth_service_v1",
+        "required_levels"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "earned_law_inheritance": {
+      "additionalProperties": false,
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "historical_replay": {
+          "type": "string"
+        },
+        "registry": {
+          "type": "string"
+        },
+        "reopen": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "default",
+        "historical_replay",
+        "registry",
+        "reopen"
+      ],
+      "type": "object"
+    },
+    "forbidden_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lanes": {
+      "additionalProperties": false,
+      "properties": {
+        "L0_grammar": {
+          "type": "string"
+        },
+        "L10_representation": {
+          "type": "string"
+        },
+        "L11_structural_shock": {
+          "type": "string"
+        },
+        "L1_diversity": {
+          "type": "string"
+        },
+        "L2_branching": {
+          "type": "string"
+        },
+        "L3_symmetry": {
+          "type": "string"
+        },
+        "L4_overlap_gluing": {
+          "type": "string"
+        },
+        "L5_lineage": {
+          "type": "string"
+        },
+        "L6_quotient_observer": {
+          "type": "string"
+        },
+        "L7_topology_services": {
+          "type": "string"
+        },
+        "L8_obstruction_relief": {
+          "type": "string"
+        },
+        "L9_saturation_fixed_point": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "L0_grammar",
+        "L10_representation",
+        "L11_structural_shock",
+        "L1_diversity",
+        "L2_branching",
+        "L3_symmetry",
+        "L4_overlap_gluing",
+        "L5_lineage",
+        "L6_quotient_observer",
+        "L7_topology_services",
+        "L8_obstruction_relief",
+        "L9_saturation_fixed_point"
+      ],
+      "type": "object"
+    },
+    "maturation_states": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observer": {
+      "additionalProperties": false,
+      "properties": {
+        "finite_horizon_meta_representation": {
+          "type": "integer"
+        },
+        "meta_representation_note": {
+          "type": "string"
+        },
+        "primitive_semantics": {
+          "type": "string"
+        },
+        "service_effect_normalization": {
+          "type": "string"
+        },
+        "service_effect_vector": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "service_observer": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "finite_horizon_meta_representation",
+        "meta_representation_note",
+        "primitive_semantics",
+        "service_effect_normalization",
+        "service_effect_vector",
+        "service_observer"
+      ],
+      "type": "object"
+    },
+    "panel": {
+      "additionalProperties": false,
+      "properties": {
+        "base_O7": {
+          "type": "string"
+        },
+        "beam": {
+          "type": "integer"
+        },
+        "candidate_cap": {
+          "type": "integer"
+        },
+        "extra_twin_lane": {
+          "type": "string"
+        },
+        "higher_levels": {
+          "type": "string"
+        },
+        "matched_longitudinal_backbone": {
+          "additionalProperties": false,
+          "properties": {
+            "construction": {
+              "type": "string"
+            },
+            "motifs": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "signature_excludes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "signature_includes": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "start_level": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "construction",
+            "motifs",
+            "purpose",
+            "signature_excludes",
+            "signature_includes",
+            "start_level"
+          ],
+          "type": "object"
+        },
+        "motif_library": {
+          "type": "string"
+        },
+        "no_broad_population_claim": {
+          "type": "boolean"
+        },
+        "pre_outcome_selection_only": {
+          "type": "boolean"
+        },
+        "selection": {
+          "type": "string"
+        },
+        "top_edge_type_schedule": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "base_O7",
+        "beam",
+        "candidate_cap",
+        "extra_twin_lane",
+        "higher_levels",
+        "matched_longitudinal_backbone",
+        "motif_library",
+        "no_broad_population_claim",
+        "pre_outcome_selection_only",
+        "selection",
+        "top_edge_type_schedule"
+      ],
+      "type": "object"
+    },
+    "preflight_correction_notice": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "corrections_before_official_run": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "o12_o13_raise_audit": {
+          "additionalProperties": false,
+          "properties": {
+            "classification": {
+              "type": "string"
+            },
+            "repair": {
+              "type": "string"
+            },
+            "science_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "classification",
+            "repair",
+            "science_sha256"
+          ],
+          "type": "object"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "corrections_before_official_run",
+        "o12_o13_raise_audit",
+        "status"
+      ],
+      "type": "object"
+    },
+    "promotion": {
+      "additionalProperties": false,
+      "properties": {
+        "maturation_review": {
+          "additionalProperties": false,
+          "properties": {
+            "eligible": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "require_lane_stability": {
+              "type": "boolean"
+            },
+            "require_next_level_persistence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "eligible",
+            "require_lane_stability",
+            "require_next_level_persistence"
+          ],
+          "type": "object"
+        },
+        "new_relation_official_test": {
+          "additionalProperties": false,
+          "properties": {
+            "minimum_independent_lanes": {
+              "type": "integer"
+            },
+            "require_next_level_persistence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "minimum_independent_lanes",
+            "require_next_level_persistence"
+          ],
+          "type": "object"
+        },
+        "plateau": {
+          "additionalProperties": false,
+          "properties": {
+            "W": {
+              "type": "integer"
+            },
+            "classification": {
+              "type": "string"
+            },
+            "nonclaim": {
+              "type": "string"
+            },
+            "required": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "W",
+            "classification",
+            "nonclaim",
+            "required"
+          ],
+          "type": "object"
+        },
+        "representation_transition": {
+          "additionalProperties": false,
+          "properties": {
+            "W": {
+              "type": "integer"
+            },
+            "classification": {
+              "type": "string"
+            },
+            "nonclaim": {
+              "type": "string"
+            },
+            "required": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "W",
+            "classification",
+            "nonclaim",
+            "required"
+          ],
+          "type": "object"
+        },
+        "structural_shock": {
+          "additionalProperties": false,
+          "properties": {
+            "audit_note": {
+              "type": "string"
+            },
+            "classification": {
+              "type": "string"
+            },
+            "eligible_matched_families": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "exploratory_beam_policy": {
+              "type": "string"
+            },
+            "minimum_changed_families": {
+              "type": "integer"
+            },
+            "require_next_level_persistence": {
+              "type": "boolean"
+            },
+            "required": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "audit_note",
+            "classification",
+            "eligible_matched_families",
+            "exploratory_beam_policy",
+            "minimum_changed_families",
+            "require_next_level_persistence",
+            "required"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "maturation_review",
+        "new_relation_official_test",
+        "plateau",
+        "representation_transition",
+        "structural_shock"
+      ],
+      "type": "object"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "scanner_kernel": {
+      "additionalProperties": false,
+      "properties": {
+        "first_adapter": {
+          "type": "string"
+        },
+        "future_adapter_rule": {
+          "type": "string"
+        },
+        "subject_contract": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_adapter",
+        "future_adapter_rule",
+        "subject_contract"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2",
+      "type": "string"
+    },
+    "scientific_question": {
+      "type": "string"
+    },
+    "source_exclusions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stopping": {
+      "additionalProperties": false,
+      "properties": {
+        "budget_exhaustion": {
+          "type": "string"
+        },
+        "confirmation_rule": {
+          "type": "string"
+        },
+        "max_level": {
+          "type": "integer"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "stop_after_confirmed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "budget_exhaustion",
+        "confirmation_rule",
+        "max_level",
+        "start",
+        "stop_after_confirmed"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "authority",
+    "calibration",
+    "date",
+    "earned_law_inheritance",
+    "forbidden_claims",
+    "lanes",
+    "maturation_states",
+    "observer",
+    "panel",
+    "preflight_correction_notice",
+    "promotion",
+    "purpose",
+    "scanner_kernel",
+    "schema",
+    "scientific_question",
+    "source_exclusions",
+    "status",
+    "stopping"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,133 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RETENTION_RECONSTRUCTION_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deletion_rule": {
+      "type": "string"
+    },
+    "may_cache_if_all": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "pin_if_any": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "promotion_rule": {
+      "type": "string"
+    },
+    "retention_classes": {
+      "additionalProperties": false,
+      "properties": {
+        "CACHE": {
+          "additionalProperties": false,
+          "properties": {
+            "deletable": {
+              "type": "boolean"
+            },
+            "meaning": {
+              "type": "string"
+            },
+            "requires_replay_recipe": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "deletable",
+            "meaning",
+            "requires_replay_recipe"
+          ],
+          "type": "object"
+        },
+        "CACHE_EXPENSIVE": {
+          "additionalProperties": false,
+          "properties": {
+            "deletable": {
+              "type": "boolean"
+            },
+            "meaning": {
+              "type": "string"
+            },
+            "requires_replay_recipe": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "deletable",
+            "meaning",
+            "requires_replay_recipe"
+          ],
+          "type": "object"
+        },
+        "EPHEMERAL": {
+          "additionalProperties": false,
+          "properties": {
+            "deletable": {
+              "type": "boolean"
+            },
+            "meaning": {
+              "type": "string"
+            },
+            "requires_replay_recipe": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "deletable",
+            "meaning",
+            "requires_replay_recipe"
+          ],
+          "type": "object"
+        },
+        "PINNED": {
+          "additionalProperties": false,
+          "properties": {
+            "deletable": {
+              "type": "boolean"
+            },
+            "meaning": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "deletable",
+            "meaning"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "CACHE",
+        "CACHE_EXPENSIVE",
+        "EPHEMERAL",
+        "PINNED"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_RETENTION_RECONSTRUCTION_POLICY_V0_1",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deletion_rule",
+    "may_cache_if_all",
+    "pin_if_any",
+    "promotion_rule",
+    "retention_classes",
+    "schema_id",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RETENTION_RECONSTRUCTION_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

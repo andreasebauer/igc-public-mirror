@@ -1,0 +1,78 @@
+{
+  "authority": {
+    "g3_r1_classification": "G3_HIDDEN_TREE_MODULI_PRESENT_RELATION_VALUED_FIBER_GRAFTING_SHELL_PROFILE_READ_CANDIDATE_EARNED_G4_NOT_STARTED",
+    "g3_r1_replay_science_sha256": "26e7a0f3ae3f10b47f12cb0e649c18f97e5642fb9199437fc6fcda07f0ee1df0",
+    "g3_r1_science_sha256": "c9df07857a83ab21dbfaf9cb1755e459557ba400d34536900c3d3a5e6631a5ed",
+    "r1_exhaustive_max_g2_units": 12,
+    "r1_unlabelled_tree_count_at_12": 551,
+    "selected_read": "SHELL_PROFILE_MULTISET"
+  },
+  "date": "2026-09-04",
+  "dense_phase": {
+    "event_classification_rule": "If equal shell profiles first appear, report whether the colliding topologies nevertheless have identical one-leaf child topology sets. Distinguish topology-invariant failure from continuation-quotient failure.",
+    "event_stop_rule": "Stop dense maturation immediately at the first topology-separation or continuation-sufficiency failure of SHELL_PROFILE_MULTISET.",
+    "generator": "Continue the certified R1 unlabeled-tree census rank-by-rank by all one-leaf attachments with AHU canonical deduplication; do not rematerialize exact G3 relation frontiers.",
+    "hard_max_g2_units": 18,
+    "memory_rule": "Keep only the current and next unlabeled-tree ranks plus compact shell-profile keys; do not retain the full R1-style all-rank topology table.",
+    "minimum_plateau_decision_rank": 17,
+    "plateau_rule": "If ranks through at least 17 complete with no selected-read event and the last 4 dense ranks retain the same no-break grammar/read signature, declare a local dense plateau and proceed to sparse sentinels. Rank 18 is a hard reserve rank only if the plateau rule has not yet fired.",
+    "selected_read_continuation_gate": "Within each exhaustively enumerated parent rank, equal SHELL_PROFILE_MULTISET must imply the same set of unlabeled child topologies under all one-leaf attachments.",
+    "selected_read_topology_gate": "Within each exhaustively enumerated rank, equal SHELL_PROFILE_MULTISET must imply equal unlabeled tree canonical form.",
+    "stabilization_window_ranks": 4,
+    "start_g2_units": 13
+  },
+  "gates": {
+    "authority": "Certified R1 primary result and exact cold replay comparison must pass; G3 graduation preserved; G4 unstarted.",
+    "no_promotion": "R2 cannot promote shell profiles/topology into G3 state and cannot launch G4.",
+    "r1_prefix": "The dense seed rank n=12 must exactly reproduce the 551 certified R1 topology canons and selected shell-profile values before extension.",
+    "science_stop": "A selected-read break is a scientific event/PASS classification, not an operational failure; only authority/integrity mismatches fail closed."
+  },
+  "lanes": [
+    "STRUCTURE_MATURATION",
+    "READ_CANDIDATE_STRESS",
+    "FIBER_GRAFTING_CONTINUATION",
+    "SPARSE_SENTINEL_STRESS"
+  ],
+  "nonclaims": [
+    "NO_TOPOLOGY_PROMOTION_TO_G3_STATE",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_G4_LAUNCH",
+    "NO_GLOBAL_COMPLETENESS_OF_SHELL_PROFILE",
+    "NO_EXHAUSTIVE_TREE_ENUMERATION_AT_SENTINEL_RANKS_20_30_50_75_100",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_METRIC_EMBEDDING",
+    "NO_TIME",
+    "NO_EXACT_G3_RELATION_FRONTIER_REMATERIALIZATION"
+  ],
+  "outcomes": {
+    "dense_continuation_event": "G3_R2_MATURATION_EVENT_SHELL_PROFILE_CONTINUATION_BREAK_ON_EXHAUSTIVE_DENSE_SCOPE_G4_NOT_STARTED",
+    "dense_topology_only_event": "G3_R2_MATURATION_EVENT_SHELL_PROFILE_TOPOLOGY_COLLISION_BUT_CONTINUATION_SURVIVES_ON_EXHAUSTIVE_DENSE_SCOPE_G4_NOT_STARTED",
+    "fail": "G3_R2_REVIEW_REQUIRED_NO_PROMOTION",
+    "plateau": "G3_R2_LOCAL_MATURATION_PLATEAU_SHELL_PROFILE_SURVIVES_DENSE_AND_SPARSE_SENTINELS_G4_PHASE0_READY",
+    "sentinel_continuation_event": "G3_R2_MATURATION_EVENT_SHELL_PROFILE_CONTINUATION_BREAK_ON_SPARSE_SENTINEL_SCOPE_G4_NOT_STARTED",
+    "sentinel_topology_only_event": "G3_R2_MATURATION_EVENT_SHELL_PROFILE_TOPOLOGY_COLLISION_BUT_CONTINUATION_SURVIVES_ON_SPARSE_SENTINEL_SCOPE_G4_NOT_STARTED"
+  },
+  "question": "After certified G3:R1, does the hidden one-cross tree-grafting grammar or the selected SHELL_PROFILE_MULTISET challenge read exhibit a delayed break under adaptive post-graduation maturation, and if not, is there enough dense-plus-sparse evidence to declare a local reconnaissance plateau before G4 Phase 0?",
+  "schema_id": "IG_G3_R2_ADAPTIVE_MATURATION_SPEC_V1",
+  "science_sha256": "25ea762502d9fce431cd7963f28ac43c3df6fc47d5e260d7042b22e097e4ad83",
+  "sparse_sentinels": {
+    "broom_cap_per_rank": 24,
+    "event_classification_rule": "If a sentinel shell-profile collision appears, distinguish topology-only collision from one-step continuation collision.",
+    "family": "Deterministic adversarial tree family per sentinel: path, star, all double-stars, bounded brooms, all unordered 3-arm spiders, bounded deterministic 4-arm spiders, and 256 fixed-seed Pr\u00fcfer trees; canonical-deduplicate before audit.",
+    "four_arm_partition_cap_per_rank": 128,
+    "g2_unit_counts": [
+      20,
+      30,
+      50,
+      75,
+      100
+    ],
+    "gate": "Search the frozen sentinel family for nonisomorphic equal-SHELL_PROFILE_MULTISET trees; if found, compare their full one-leaf child topology sets and report a sentinel event. Absence is sentinel support only, never exhaustive proof at that rank.",
+    "parallelization": "Independent sentinel ranks are decomposable and must execute through the Decoder execution backend.",
+    "random_sample_count_per_rank": 256,
+    "seed_rule": "SHA256(\"IG_G3_R2_SENTINEL_V1|n|sample_index\") interpreted deterministically; no adaptive reseeding from outcomes."
+  },
+  "stage_ref": "G3:R2",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

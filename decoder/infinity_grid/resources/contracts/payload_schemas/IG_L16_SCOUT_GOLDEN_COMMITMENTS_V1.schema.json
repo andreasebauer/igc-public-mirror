@@ -1,0 +1,144 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_SCOUT_GOLDEN_COMMITMENTS_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commitments": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_full_sha256": {
+              "type": "string"
+            },
+            "file_sha256": {
+              "type": "string"
+            },
+            "science_no_cost_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_full_sha256",
+            "file_sha256",
+            "science_no_cost_sha256"
+          ],
+          "type": "object"
+        },
+        "classification_projection": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_sha256"
+          ],
+          "type": "object"
+        },
+        "selected_relation": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_sha256": {
+              "type": "string"
+            },
+            "file_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_sha256",
+            "file_sha256"
+          ],
+          "type": "object"
+        },
+        "spectroscope": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_full_sha256": {
+              "type": "string"
+            },
+            "file_sha256": {
+              "type": "string"
+            },
+            "science_no_cost_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_full_sha256",
+            "file_sha256",
+            "science_no_cost_sha256"
+          ],
+          "type": "object"
+        },
+        "wide": {
+          "additionalProperties": false,
+          "properties": {
+            "canonical_full_sha256": {
+              "type": "string"
+            },
+            "file_sha256": {
+              "type": "string"
+            },
+            "science_no_cost_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "canonical_full_sha256",
+            "file_sha256",
+            "science_no_cost_sha256"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "baseline",
+        "classification_projection",
+        "selected_relation",
+        "spectroscope",
+        "wide"
+      ],
+      "type": "object"
+    },
+    "golden_access_rule": {
+      "type": "string"
+    },
+    "golden_commitment_sha256": {
+      "type": "string"
+    },
+    "historical_script_file_sha256": {
+      "type": "string"
+    },
+    "historical_source_zip_sha256": {
+      "type": "string"
+    },
+    "mismatch_action": {
+      "type": "string"
+    },
+    "primary_comparison": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_SCOUT_GOLDEN_COMMITMENTS_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "commitments",
+    "golden_access_rule",
+    "golden_commitment_sha256",
+    "historical_script_file_sha256",
+    "historical_source_zip_sha256",
+    "mismatch_action",
+    "primary_comparison",
+    "schema_id"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_SCOUT_GOLDEN_COMMITMENTS_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

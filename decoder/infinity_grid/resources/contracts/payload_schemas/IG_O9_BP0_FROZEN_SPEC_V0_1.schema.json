@@ -1,0 +1,88 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O9_BP0_FROZEN_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "construction": {
+      "type": "string"
+    },
+    "data_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_read_twins": {
+          "type": "integer"
+        },
+        "broad_census": {
+          "type": "integer"
+        },
+        "existence_witnesses": {
+          "type": "integer"
+        },
+        "heavy_cases": {
+          "type": "integer"
+        },
+        "minimal_O8_carriers_max": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "adversarial_read_twins",
+        "broad_census",
+        "existence_witnesses",
+        "heavy_cases",
+        "minimal_O8_carriers_max"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "deterministic_parent_selection": {
+      "type": "string"
+    },
+    "gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "outcomes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O9_BP0_FROZEN_SPEC_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "construction",
+    "data_budget",
+    "date",
+    "deterministic_parent_selection",
+    "gates",
+    "nonclaims",
+    "outcomes",
+    "question",
+    "schema",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O9_BP0_FROZEN_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

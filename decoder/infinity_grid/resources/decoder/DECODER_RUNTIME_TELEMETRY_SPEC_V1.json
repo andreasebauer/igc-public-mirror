@@ -1,0 +1,91 @@
+{
+  "acceptance_tests": [
+    "test_runtime_status_schema",
+    "test_runtime_status_excluded_from_science_hash",
+    "test_single_parent_writer",
+    "test_phase_transition_order",
+    "test_worker_count_not_science"
+  ],
+  "date": "2026-09-04",
+  "eta_policy": {
+    "allow_null_when_cost_variance_high": true,
+    "label_as_operational_estimate": true,
+    "minimum_completed": "max(4, 5% of kernels_total)",
+    "rolling_throughput": true
+  },
+  "final_artifact": "RUNTIME_TIMINGS.json",
+  "final_timing_required": [
+    "phase_seconds",
+    "primary_total_seconds",
+    "cold_total_seconds_if_present",
+    "wall_total_seconds_if_present"
+  ],
+  "live_artifact": "RUNTIME_STATUS.json",
+  "purpose": "Expose common live phase/task/kernel/worker/timing state for every registered Decoder experiment without entering scientific hashing.",
+  "registered_experiment_semantics_changed": false,
+  "release_target": "0.30.30",
+  "runtime_status_required_fields": [
+    "schema",
+    "experiment_id",
+    "run_id",
+    "status",
+    "phase",
+    "started_at",
+    "phase_started_at",
+    "updated_at",
+    "elapsed_seconds",
+    "phase_elapsed_seconds",
+    "workers_requested",
+    "workers_leased",
+    "workers_active",
+    "tasks_total",
+    "tasks_started",
+    "tasks_completed",
+    "tasks_failed",
+    "kernels_total",
+    "kernels_started",
+    "kernels_completed",
+    "throughput_tasks_per_second",
+    "throughput_kernels_per_second",
+    "eta_seconds",
+    "eta_confidence",
+    "last_checkpoint_at",
+    "last_error"
+  ],
+  "schema_id": "IG_DECODER_RUNTIME_TELEMETRY_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_hash_policy": {
+    "RUNTIME_STATUS.json": "EXCLUDED",
+    "RUNTIME_TIMINGS.json": "EXCLUDED",
+    "completion_order": "NON_SCIENTIFIC",
+    "wall_clock_values": "NON_SCIENTIFIC",
+    "worker_count": "NON_SCIENTIFIC"
+  },
+  "science_sha256": "bdaaa6c35394030fe1865c695212bedb02bb99426db5b78197c7dcd0c42a902f",
+  "scientific_semantics_changed": false,
+  "scope": "EXECUTION_INFRASTRUCTURE_ONLY",
+  "single_writer_rule": "Only the Decoder parent process writes runtime status. Workers return scientific results and operational counters to the parent; workers never mutate the shared status file.",
+  "stable_science_payload_changed": false,
+  "standard_phases": [
+    "PREFLIGHT",
+    "AUTHORITY_LOAD",
+    "INPUT_MATERIALIZATION",
+    "CARRIER_REPRODUCTION",
+    "TASK_GENERATION",
+    "SCIENCE_CENSUS",
+    "MERGE",
+    "INTERPRETATION",
+    "RESULT_SEAL",
+    "COLD_MATERIALIZATION",
+    "COLD_REPLAY",
+    "CERTIFICATION_COMPARE",
+    "CLOSEOUT",
+    "COMPLETE"
+  ],
+  "status": "IMPLEMENTED_EQUIVALENCE_GATED",
+  "update_policy": {
+    "completion_interval": "implementation may additionally update every N completed kernels; N is non-scientific",
+    "on_phase_change": true,
+    "wall_clock_interval_seconds": 30
+  }
+}

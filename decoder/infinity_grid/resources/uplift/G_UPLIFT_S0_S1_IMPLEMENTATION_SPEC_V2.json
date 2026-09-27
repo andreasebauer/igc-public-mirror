@@ -1,0 +1,80 @@
+{
+  "architecture_contract_sha256": "282e49781b3a7f7a2b6e786f5c7611d621b08381751f23f15f5bbafaf6ba8541",
+  "date": "2026-09-02",
+  "hard_nonclaims": [
+    "NO_G2_GRADUATION",
+    "NO_G2_STATE_DESCRIPTOR",
+    "NO_S2_PAIR_QUOTIENT_YET",
+    "NO_HIDDEN_INTERNAL_READS",
+    "NO_CHANGE_TO_G1_GENERATOR_OR_OBSERVER"
+  ],
+  "implemented_stages": [
+    "G2:S0",
+    "G2:S1"
+  ],
+  "next_stage": "G2:S1_FULL_REALIZATION_CONGRUENCE_REAUDIT",
+  "pair_census": {
+    "bridge_operator_catalog_sha256": "f10a566c1f8e8faf7419cca50e1ee84977c388beb9c5d2948e01290b68034e1a",
+    "declared_attempts": "all earned G1 typed bridge operators for every canonical carrier pair",
+    "failed_attempts": "RETAIN",
+    "outcome_semantics": "projected two-endpoint public outcome refined by realized assembly Q2 one-reservation successor-skin projection; candidate pending full congruence re-audit",
+    "pair_mode": "UNORDERED_WHOLE_CARRIER_PAIRS_WITH_REPLACEMENT",
+    "storage": "canonical JSONL gzip plus deterministic stream and per-pair hashes"
+  },
+  "promotion": false,
+  "public_interface_scope": {
+    "claim": "exact public one-endpoint surface needed by S1 only; not an unbounded future interface",
+    "forbidden_reads": [
+      "children",
+      "owner_caps",
+      "top_pairs",
+      "typed_edges",
+      "internal_paths",
+      "ancestry",
+      "hidden_topology"
+    ],
+    "reads": [
+      "construction_digest_as_provenance_ref",
+      "boundary_resource_skin",
+      "total_free_by_type",
+      "reserve_external(type)_successor_public_boundary"
+    ],
+    "reservation_witness": "DISCARDED_NOT_SERIALIZED_NOT_HASHED",
+    "resource_types": 7
+  },
+  "repair_status": "STRICT_PUBLIC_Q2_REPAIR_CANDIDATE_PENDING_FULL_REAUDIT",
+  "s1_strict_public_repair": {
+    "allowed_realized_reads": [
+      "assembly.total_free_by_type",
+      "assembly.reserve_external(type)_successor_public_boundary_skin"
+    ],
+    "basis": "G2:S1 strict-public repair probe, frozen discovery/holdout",
+    "final_candidate": "D4_PLUS_Q2",
+    "forbidden_reads": [
+      "children",
+      "construction_digest_as_descriptor",
+      "owner_caps",
+      "top_pairs",
+      "typed_edges_as_descriptor",
+      "internal_paths",
+      "ancestry",
+      "reservation_witness"
+    ],
+    "precursor": "D4_OLD_PLUS_OPERATOR_PLUS_ORDERED_CONTINUATIONS",
+    "precursor_residual_classes": 1952,
+    "precursor_science_sha256": "38b11b9a986be57629cc6c5c64a73946e15f3d17dec921e20eb0cec12bb8306e",
+    "promotion_status": "D4_PLUS_Q2_CANDIDATE_PENDING_FULL_580351_REALIZATION_CONGRUENCE_REAUDIT",
+    "repaired_outcome_semantics": "old projected S1 outcome + ordered bridge operator + ordered strictly-public post-reservation continuation signatures + realized assembly Q2 one-reservation successor-skin projection",
+    "s2_unlock": false,
+    "winner": "Q2_ONE_RESERVATION_SUCCESSOR_SKINS_ON_D4_RESIDUAL",
+    "winner_science_sha256": "a00ee594058d1d3f38c9b7ceb99fe7842c4574e7cde6441c593e62fdfa107ab8"
+  },
+  "schema_id": "IG_G_UPLIFT_S0_S1_IMPLEMENTATION_SPEC_V2",
+  "schema_version": "2.0.0",
+  "source_layer": "G1",
+  "source_population": "COMPLETE_DETERMINISTIC_PRE_SELECTION_CANDIDATE_COHORT",
+  "source_stage": "G1:R100",
+  "spec_sha256": "a6bd48305e0fb40c29474944add5fe9245ea59ce93098a363e4e06557e5aec1a",
+  "status": "FROZEN_S0_S1_IMPLEMENTATION_SCOPE",
+  "target_layer": "G2"
+}

@@ -1,0 +1,75 @@
+{
+  "admitted_operations": [
+    "two inherited G5 grafts forming a three-leaf tree; no extra operation"
+  ],
+  "date": "2026-09-06",
+  "decoder_release": "v0.5 / 0.50",
+  "dependencies": [
+    "G6:S0",
+    "G6:S1",
+    "G6:S2"
+  ],
+  "domain": {
+    "motifs": "all canonical three-leaf binary composition motifs whose leaves are S0 basis carriers and whose internal joins are lawful under the 31 operators",
+    "orientations": "both binary bracketings and every directed operator assignment admitted by the inherited grammar",
+    "pass_scope": "complete only if the enumerated canonical motif universe fits the registered budget; otherwise BUDGET_INSUFFICIENT",
+    "quotienting": "canonicalize by S1/S2 public classes but retain exact representatives"
+  },
+  "evidence_contract": [
+    "canonical motif count",
+    "exact realization count",
+    "bracketing/orientation coverage",
+    "residual classification",
+    "minimal witness if present",
+    "coverage completeness proof"
+  ],
+  "exact_equality_rule": "Hashes may index/bind artifacts, but every exact scientific equality claim is decided by full structural equality of the declared carrier/outcome objects.",
+  "frozen_question": "Does any irreducible residual appear in complete canonical three-leaf P3/K3 composition motifs built from the S0 basis after quotienting by the S1/S2 public classes?",
+  "nonclaims": [
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_UNREGISTERED_PUBLIC_FIELD_PROMOTION",
+    "NO_POSTHOC_QUESTION_CHANGE"
+  ],
+  "observer": {
+    "irreducible_residual": "same complete public motif context but structurally different exact final relation not already explained by a registered S1/S2 separator",
+    "primary": "exact final outcome relation and all intermediate public class labels"
+  },
+  "parent_authority": {
+    "authority_ref": "Decoder_v0.5_G5_S6_READ_FIRST_2026-09-06.txt",
+    "graduation_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "public_law": "enabled iff f_a>0 and g_b>0; D_out=(f+g-e_a-e_b,m+n)",
+    "s6_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "promotion_constraints": [
+    "Mechanical PASS never changes G5 authority.",
+    "Any new G6 public field is candidate-only until S5 earns a finite state and S6 plus explicit graduation review approve it.",
+    "Hidden topology/canon/provenance may be used as oracle evidence but cannot enter the public descriptor unless a separately registered promotion test earns it."
+  ],
+  "purpose": "Higher-context residual audit beyond pair and one-step quotient tests.",
+  "question_sha256": "29f476d7cb5e551b27d3c9bc6f0edfad170396efd76c657d1955fba27f8f1b09",
+  "registered_alternatives": [
+    "PASS_NO_HIGHER_RESIDUAL",
+    "IRREDUCIBLE_RESIDUAL_FOUND",
+    "BUDGET_INSUFFICIENT"
+  ],
+  "resource_budget": {
+    "max_exact_realizations": 20000000,
+    "max_public_motif_contexts": 2500000,
+    "wall_seconds": 14400,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_STAGE_PREREGISTRATION_V1",
+  "stage_id": "G6:S3",
+  "status": "FROZEN_BEFORE_G6_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "changed scientific assumptions",
+    "unregistered operator/read/field required",
+    "runtime integrity failure",
+    "registered science budget exhausted",
+    "first decisive separator when the stage specifies first-separator stopping"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "adapter_id": "v05.science.g4-accepted-r7",
+  "budgets": {
+    "max_cases": 8,
+    "max_steps": 9
+  },
+  "continuation": {
+    "of_registration_sha256": null,
+    "version": 0
+  },
+  "promotion_policy": {
+    "authority_effect": "NONE_P6",
+    "graduation_authorized": false,
+    "graduation_requested": false
+  },
+  "question": {
+    "A": "R6_NONBACKTRACKING_CAVITY_MESSAGE_AT_DECLARED_DEPTH",
+    "O": "EXACT_UNROOTED_DECORATED_CHILD_CANON",
+    "Q": "PUBLIC_G4_DESCRIPTOR_CAPS7_PLUS_H_CLASS_BAG",
+    "candidate_family": "CAVITY_MESSAGE_DEPTH_2",
+    "capability_id": "p6.g4.r7-path-broom",
+    "exact_baseline": "EXACT_ROOTED_DECORATED_ACTION_CANON",
+    "freshness_role": "HISTORICAL_R7_REGRESSION_NOT_FRESH_HOLDOUT",
+    "legal_domain": "ACTUAL_G4_RESOURCE_REALIZABLE_C_UNIT_PATH_BROOM_FAMILY",
+    "parameters": {
+      "message_depth": 2,
+      "witness_depth": 2
+    },
+    "predicate": "PARENT_CONDITIONED",
+    "proof_obligations": [
+      "ACTUAL_G4_REALIZABILITY",
+      "FIXED_CHILD_OBSERVER",
+      "NO_GLOBAL_MINIMALITY_TRANSFER"
+    ],
+    "registered_alternatives": [
+      "NO_ROWS_EXPECTED"
+    ]
+  },
+  "registration_id": "p6-g4-r7-novelty-stop-v1",
+  "registration_sha256": "d2e7623ff262ece4fdeca14fc8bf94ca7ef95f75a4bead26a9cc9fa8f7b3db4d",
+  "schema_id": "IG_DECODER_V05_WORKFLOW_REGISTRATION_V1",
+  "status": "ACTIVE_CANDIDATE",
+  "stop_rules": {
+    "budget_exhausted": "STOP",
+    "changed_assumptions": "STOP",
+    "falsification": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "unmet_proof_obligations": "STOP"
+  },
+  "subject": {
+    "scope": "G4_R7_ACTUAL_PATH_BROOM"
+  },
+  "workflow_kind": "R_INVESTIGATION",
+  "workflow_mode": "LAW_TRANSPORT"
+}

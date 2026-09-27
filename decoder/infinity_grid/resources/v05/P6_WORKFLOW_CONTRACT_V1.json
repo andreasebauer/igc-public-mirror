@@ -1,0 +1,101 @@
+{
+  "authority_effect": "NONE_P6",
+  "control_rules": {
+    "budget_exhausted": "STOP",
+    "candidate_parent_two_phase_commit": true,
+    "changed_assumptions": "REVIEW_REQUIRED_STOP",
+    "child_derivation_requires_verified_triggered_parent_commit": true,
+    "falsification": "VERIFIED_SCIENTIFIC_STOP",
+    "mechanical_s6_pass_can_graduate": false,
+    "novelty_outside_registered_alternatives": "REVIEW_REQUIRED_STOP",
+    "scientific_pause_requires_versioned_continuation": true,
+    "unmet_proof_obligations": "REVIEW_REQUIRED_STOP"
+  },
+  "engine_boundary": {
+    "controller": "EXISTING_V05_CONTROLLER_RUNTIME",
+    "new_certificate_writer": false,
+    "new_checkpoint_writer": false,
+    "new_stage_specific_controller": false,
+    "new_worker_launcher": false,
+    "workflow_engine": "PURE_REGISTERED_ORCHESTRATION_UNDER_CONTROLLER"
+  },
+  "nonclaims": [
+    "NO_NEW_G3_OR_G4_SCIENCE",
+    "NO_G4_REOPEN",
+    "NO_G5_LAUNCH",
+    "NO_UNIVERSAL_ALGEBRA_ASSUMPTION",
+    "NO_AUTOMATIC_NEW_LAW_DISCOVERY",
+    "NO_AUTOMATIC_GRADUATION"
+  ],
+  "phase": "P6",
+  "question_rules": {
+    "exact_baseline_required": true,
+    "full_canon_encoding_is_not_nontrivial_compression": true,
+    "information_reduction_baseline": "EXACT_CANONICAL_STATES_OR_ACTIONS",
+    "parent_conditioned": "Group across all admissible parents in equal-Q fibres using (Q,A); keep O fixed.",
+    "standalone_action": "Group by A alone and register as a distinct question."
+  },
+  "r_entry_points": [
+    "HYPOTHESIS_FAMILY",
+    "Q_A_O_FREEZE",
+    "EXACT_BASELINE",
+    "ACTION_TRANSITION_EVALUATION",
+    "COUNTEREXAMPLE_EXTRACTION",
+    "REFINEMENT",
+    "ABLATION",
+    "FRESH_CHALLENGE",
+    "PROOF_OBLIGATIONS"
+  ],
+  "schema_id": "IG_DECODER_V05_P6_WORKFLOW_CONTRACT_V1",
+  "science_sha256": "db435e82eabdec6e90551389f66628d89ddfb87a2b6d1f0302fe8187f8760c71",
+  "structural_stage_templates": [
+    {
+      "name": "CARRIER_INTERFACE_EXTRACTION",
+      "promotion": false,
+      "question": "What exact public interface does each complete G(k-1) carrier expose to the uplift?",
+      "stage": "S0"
+    },
+    {
+      "name": "PAIR_CONNECTION_CENSUS",
+      "promotion": false,
+      "question": "Which ordered/unordered carrier pairs admit each declared connection attempt and what canonical outcomes result?",
+      "stage": "S1"
+    },
+    {
+      "name": "PAIR_OUTCOME_QUOTIENT",
+      "promotion": false,
+      "question": "What is the minimal relabel-invariant quotient of pair connection outcomes under the declared observer?",
+      "stage": "S2"
+    },
+    {
+      "name": "TRIPLE_COMPATIBILITY_IRREDUCIBILITY",
+      "promotion": false,
+      "question": "Are any joint triple facts not reconstructible from all unary interfaces and pair outcomes?",
+      "stage": "S3"
+    },
+    {
+      "name": "COMPOSITION_CLOSURE",
+      "promotion": false,
+      "question": "Are the resulting higher assemblies closed under the candidate connection/composition grammar?",
+      "stage": "S4"
+    },
+    {
+      "name": "CANDIDATE_Gk_STATE_DESCRIPTOR",
+      "promotion": false,
+      "question": "Is there a finite read/write state sufficient for all admitted higher-level transitions?",
+      "stage": "S5"
+    },
+    {
+      "name": "RECURSIVE_CLOSURE_AND_GRADUATION_AUDIT",
+      "promotion": "GATE_ONLY",
+      "question": "Does the candidate grammar close recursively, survive holdouts, and satisfy every graduation gate?",
+      "stage": "S6"
+    }
+  ],
+  "version": "1.0.0",
+  "workflow_modes": [
+    "DISCOVERY",
+    "LAW_TRANSPORT",
+    "RECURSIVE_DEPTH_APPLICATION"
+  ]
+}

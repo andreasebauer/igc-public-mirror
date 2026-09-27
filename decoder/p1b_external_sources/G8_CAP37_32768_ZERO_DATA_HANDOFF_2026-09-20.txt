@@ -1,0 +1,64 @@
+G8 CAP37 ZERO-DATA HANDOFF — 2026-09-20
+
+PURPOSE
+  Restore the exact preserved G8 frontier into a new empty chat environment
+  without copying unrelated algebra archives, theory documents, old Decoder
+  development sandboxes, or optional fallback transports.
+
+AUTHORITATIVE STATE
+  Job: G8.CAP37.FULL_LOCAL_FRONTIER.V1
+  Native checkpoint SHA-256:
+    94b8c7a19505a3d4d587b801cde14a3ccca82bff5630ed7516ea41dd079e85a9
+  Status: PRESERVED; pending save objects: 0
+  Registered method binding:
+    7489dff7dd0a1523225ae8eeb8af635528fc9ed708f26829d28d7e239cf6e5dd
+  Committed batches: 2,048 of 5,950
+  Covered sources: 32,768 of 95,199
+  Exact successor occurrences: 2,056,575
+  Next missing batch: 2,048
+
+SCIENTIFIC BOUNDARY
+  This is an exact partial LOCAL cap37 frontier, not a completed G8 result.
+  Full expansion, global full-key deduplication, MATCH closure, behavioural
+  quotient computation, H5 sufficiency, intrinsic MATCH derivation, and G8/G9
+  graduation remain open.
+
+MINIMAL COLD-RESTORE PROCEDURE
+  1. Download this TXT and ZIP only. Do not download the user's old theory,
+     concept, chat-history, or historical Decoder bundles.
+  2. Verify the ZIP against the separate SHA256 file and extract it.
+  3. Run: python3 scripts/verify_handoff.py EXTRACTED_DIRECTORY
+  4. Read REMOTE_OBJECT_INDEX.json. Fetch only its required_drive_file_ids
+     using the Google Drive connector. There are 17 required Drive files.
+  5. Put those downloaded files in one temporary directory. Filenames do not
+     matter. Run:
+       python3 scripts/verify_and_assemble.py REMOTE_OBJECT_INDEX.json DOWNLOADS OBJECTS
+     This hashes every downloaded file, hard-links direct objects where
+     possible, assembles the checkpoint-state chunks in manifest order, and
+     verifies the complete state-object hash. It never accepts a mismatch.
+  6. Extract the saved engine source object into a clean source directory.
+     Do not substitute another Decoder version.
+  7. Restore only through the native command:
+       PYTHONPATH=SOURCE python -m infinity_grid.controller preserve restore          checkpoint/FINAL_CHECKPOINT_32768_SLIM.zip RESTORED_WORKSPACE          b171c9d165c68fd16528d8ecbeae3caabffd61bcba9c699b66302a4587fe2af6          --objects OBJECTS
+     The final argument above is the slim-archive SHA-256, not the checkpoint ID.
+  8. Run native status and scripts/audit_commit_files.py. Require exactly
+     2,048 commits, 4,096 referenced payload hashes, and zero mismatches.
+  9. Check available disk before execution. Preserve the Decoder's 4 GiB
+     launcher reserve and 3 GiB scientific floor. If insufficient, stop.
+ 10. Resume the same registered job only. It must reuse batches 0–2,047 and
+     begin at missing batch 2,048. Do not replay the completed prefix.
+
+SPACE DISCIPLINE
+  The required remote payload is approximately 475 MB before extraction.
+  REMOTE_OBJECT_INDEX.json also records two optional fallback transport sets;
+  do not fetch them during a normal restore. After native restore and the full
+  commit/payload audit pass, the temporary downloaded chunks may be removed.
+  Keep the restored native workspace, outbox/receipts, scientific commits,
+  checkpoint, provenance, and this handoff. Never delete another chat's files.
+
+FAIL-CLOSED RULES
+  Stop on a missing Drive ID, size mismatch, SHA-256 mismatch, restore refusal,
+  changed job/method binding, non-contiguous commit range, or unexpected replay.
+  Do not manually reconstruct scientific state and do not switch to 0.8lib.
+  The future 0.8lib L0/C0→G8 replay is a separate comparison dataset.
+

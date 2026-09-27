@@ -1,0 +1,136 @@
+{
+  "gates": [
+    {
+      "gate": "all new schemas and descriptors validate",
+      "id": "C01"
+    },
+    {
+      "gate": "L16 bootstrap pin and closeout bundle verify exactly",
+      "id": "C02"
+    },
+    {
+      "gate": "chain freeze rejects any plan without a finite target cap",
+      "id": "C03"
+    },
+    {
+      "gate": "two independent child-packet derivations are byte-identical",
+      "id": "C04"
+    },
+    {
+      "gate": "L17 packet dry derivation is deterministic and does not execute L17",
+      "id": "C05"
+    },
+    {
+      "gate": "generic protocol template preserves the five-stage science DAG",
+      "id": "C06"
+    },
+    {
+      "gate": "generic exact selection matches v0.18.3 D/B/S/O/L semantics",
+      "id": "C07"
+    },
+    {
+      "gate": "chunked L16 generation scientific projection equals certified monolithic v0.18.3",
+      "id": "C08"
+    },
+    {
+      "gate": "different frozen chunk sizes yield identical merged L16 candidates and incidences",
+      "id": "C09"
+    },
+    {
+      "gate": "interrupted chunked generation resumes only missing verified chunks",
+      "id": "C10"
+    },
+    {
+      "gate": "corrupt chunk checkpoint fails closed and is not silently recomputed",
+      "id": "C11"
+    },
+    {
+      "gate": "stale dependency binding prevents downstream checkpoint reuse",
+      "id": "C12"
+    },
+    {
+      "gate": "source/wheel/environment drift terminates chain",
+      "id": "C13"
+    },
+    {
+      "gate": "independent exact D/B/S/O/L verifier matches production output",
+      "id": "C14"
+    },
+    {
+      "gate": "Spectroscope cannot affect generation or selection",
+      "id": "C15"
+    },
+    {
+      "gate": "classification is predicate-driven and rejects undefined states",
+      "id": "C16"
+    },
+    {
+      "gate": "evidence firewall prevents claims and authority promotion",
+      "id": "C17"
+    },
+    {
+      "gate": "each scientific trigger produces PAUSED_SCIENTIFIC and no child packet",
+      "id": "C18"
+    },
+    {
+      "gate": "integrity trigger produces FAIL_CLOSED and no current-parent update",
+      "id": "C19"
+    },
+    {
+      "gate": "operational trigger pauses while preserving verified work",
+      "id": "C20"
+    },
+    {
+      "gate": "routine L16 reference scenario authorizes auto-advance in reference simulation",
+      "id": "C21"
+    },
+    {
+      "gate": "finite max level stops normally after committing eligible final parent",
+      "id": "C22"
+    },
+    {
+      "gate": "two-phase parent commit prevents child start from candidate certificate",
+      "id": "C23"
+    },
+    {
+      "gate": "per-level compact release and parent capsule verify",
+      "id": "C24"
+    },
+    {
+      "gate": "catalog rebuild occurs after release generation and records zero claims",
+      "id": "C25"
+    },
+    {
+      "gate": "chain state rebuilds from plan/events/run records/certificates",
+      "id": "C26"
+    },
+    {
+      "gate": "clean environment chain-start attestation passes",
+      "id": "C27"
+    },
+    {
+      "gate": "same-environment per-level critical output replay is byte-identical",
+      "id": "C28"
+    },
+    {
+      "gate": "original unified runtime 22/22 regression remains PASS",
+      "id": "C29"
+    },
+    {
+      "gate": "Base L2, L15 Scout and OScout Phase-0 vertical slices remain unchanged",
+      "id": "C30"
+    },
+    {
+      "gate": "external bundle/manifest verifier passes",
+      "id": "C31"
+    },
+    {
+      "gate": "no L17 science is executed during implementation acceptance until explicit graduation test authorization",
+      "id": "C32"
+    }
+  ],
+  "graduation_test": "After C01-C32 pass, a separately authorized controlled L16->L17 transition may serve as the final Pro graduation audit. Until then the conveyor remains implementation-only.",
+  "new_chain_execution_allowed_only_after_all_gates": true,
+  "schema_id": "IG_SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_V0_1",
+  "spec_sha256": "862cb80f6595cdcffedd4dafd58ec89098ecfbb7dc3b9a37187cef3121ea0762"
+}

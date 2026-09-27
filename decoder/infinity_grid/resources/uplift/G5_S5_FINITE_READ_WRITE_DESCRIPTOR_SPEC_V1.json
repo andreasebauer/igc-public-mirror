@@ -1,0 +1,109 @@
+{
+  "abstract_read_write_law": {
+    "compose_enabled": "compose_{a,b}(D,E) iff f_a>0 and g_b>0 for a frozen admitted directed operator (a,b)",
+    "compose_write": "compose_{a,b}((f,m),(g,n))=(f+g-e_a-e_b,m+n)",
+    "state_read": "read(X)=(CAPS7(X),H_class_bag(X))"
+  },
+  "authority": {
+    "decoder_release_line": "v0.5",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+    "g5_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+    "g5_s3_stage_science_sha256": "bc5e8b743e043840ebc6d3146533f460faf3ee5d58dcdaa4b3b3e5a01441de15",
+    "g5_s4_classification": "G5_S4_ONE_STEP_COMPOSITION_CLOSURE_ON_FROZEN_RECURSIVE_P3_SCOPE_S5_DESIGN_REVIEW",
+    "g5_s4_independent_verification_sha256": "ef5e8092d649fffd7568f49a4d93502a104b7e462f9c8130152ead736559b2b5",
+    "g5_s4_primary_science_sha256": "42fdb712b70deff2e19c0af0d975c107ee86a6a10e494f3b7331253711ef2af8",
+    "g5_s4_stage_science_sha256": "64a23285f0e15e699166f4f610e23398abc67aac0b8b755913d3d5462f770de3",
+    "required_s4_pass": true,
+    "required_s5_unlocked": true
+  },
+  "candidate_descriptor": {
+    "H_class_alphabet": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "excluded": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "hidden owner identity",
+      "construction identity",
+      "hidden topology canon",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "fields": [
+      "total_free_by_type[0..6]",
+      "H_class_counts[A,B,C,D]"
+    ],
+    "frozen_coordinate_count": 11,
+    "mathematical_state": "D=(f,m) with f in N^7 and m in N^4 over frozen H-class alphabet [A,B,C,D]",
+    "name": "CAPS7_PLUS_H_CLASS_BAG",
+    "schema_id": "IG_G5_CAPS7_H_BAG_READ_WRITE_STATE_V1"
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "PASS": "Earn CAPS7_PLUS_H_CLASS_BAG as the bounded G5 finite read/write transition state and unlock G5:S6 preregistration/design review only.",
+    "REVIEW_REQUIRED": "Any authority, write-law, structural equality, coverage, or read-surface gate fails; do not promote a G5 transition state post hoc and keep S6 locked."
+  },
+  "exact_gates": [
+    "CERTIFIED_S4_PASS_AUTHORITY_EXACT_AND_S5_UNLOCKED",
+    "INHERITED_G4_PUBLIC_DESCRIPTOR_AND_31_OPERATOR_BASIS_EXACT",
+    "ALL_496_S1_EXACT_PAIR_ROWS_MATCH_ABSTRACT_BINARY_WRITE_ON_PUBLIC_OUTCOME",
+    "ALL_124_S2_PUBLIC_PAIR_KEYS_REMAIN_SINGLE_VALUED",
+    "ALL_7688_S4_RECURSIVE_PUBLIC_CONTEXTS_MATCH_ITERATED_ABSTRACT_WRITE_WITH_ZERO_CONFLICTS",
+    "ALL_FOUR_FROZEN_H_CLASSES_HAVE_VALID_ONE_VERTEX_PUBLIC_READS",
+    "ABSTRACT_IMPLEMENTATION_READ_SURFACE_EXCLUDES_HIDDEN_TOPOLOGY_OWNER_CONSTRUCTION_ANCESTRY_AND_RELATION_MULTIPLICITY",
+    "INDEPENDENT_COLD_RECOMPUTE_MATCHES_THE_SAME_REGISTERED_S5_SCIENCE"
+  ],
+  "frozen_evidence_domain": {
+    "H_class_alphabet_count": 4,
+    "directed_operator_count": 31,
+    "exact_carrier_count": 4,
+    "public_carrier_class_count": 2,
+    "s1_exact_pair_rows": 496,
+    "s2_public_pair_context_keys": 124,
+    "s4_recursive_public_contexts": 7688
+  },
+  "frozen_observer": {
+    "does_not_observe": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "which exact owner supplied an endpoint",
+      "construction identity",
+      "hidden decorated-tree topology",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "name": "G5_FINITE_READ_WRITE_STATE_OBSERVER_V1",
+    "reads": [
+      "typed binary composition enabledness for the frozen 31 operators",
+      "successor CAPS7",
+      "successor H-class bag"
+    ]
+  },
+  "nonclaims": [
+    "NO_GLOBAL_OR_MINIMAL_G5_DESCRIPTOR_CLAIM",
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE",
+    "NO_EXACT_RELATION_CARDINALITY_EQUIVALENCE",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE",
+    "NO_UNBOUNDED_RECURSIVE_G5_CLOSURE",
+    "NO_ASSOCIATIVITY_OR_REBRACKETING_THEOREM",
+    "NO_HIDDEN_TOPOLOGY_ERASURE",
+    "NO_HIDDEN_TOPOLOGY_PROMOTION",
+    "NO_G5_GRADUATION",
+    "NO_G4_CHANGE",
+    "NO_GEOMETRY_DISTANCE_TIME_SPACETIME_OR_PHYSICS_CLAIM"
+  ],
+  "pass_effect": "Earn the bounded G5 finite read/write state/read-write law on the frozen observer and unlock S6 design review. No G5 graduation and no global/unbounded composition theorem.",
+  "question": "Does the inherited G4 public state D=(CAPS7,H-class bag) factor the frozen G5 one-step transition grammar as a finite-coordinate read/write state, with typed binary composition writing only D and without reopening hidden topology, owner identity, construction provenance, ancestry, exact relation identity/cardinality, or branch multiplicity?",
+  "schema_id": "IG_G5_S5_FINITE_READ_WRITE_DESCRIPTOR_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "2af286ec3507ef8ea528bfc5aae03aa2d0fa74af264567ef684ec61823a90191",
+  "stage_ref": "G5:S5",
+  "status": "FROZEN_BEFORE_G5_S5_EXECUTION"
+}

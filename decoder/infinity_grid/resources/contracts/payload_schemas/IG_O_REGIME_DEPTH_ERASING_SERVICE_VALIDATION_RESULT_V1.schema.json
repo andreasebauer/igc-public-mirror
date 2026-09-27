@@ -1,0 +1,743 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance": {
+      "additionalProperties": false,
+      "properties": {
+        "all_endpoint_types_supported_in_every_owner": {
+          "type": "boolean"
+        },
+        "all_packet_builds_exact": {
+          "type": "boolean"
+        },
+        "exact_construction_digests_differ_across_depths": {
+          "type": "boolean"
+        },
+        "interior_leaf_complexity_strictly_grows_across_target_depths": {
+          "type": "boolean"
+        },
+        "packet_signature_byte_identical_at_all_target_depths": {
+          "type": "boolean"
+        },
+        "reference_lineages_remain_exactly_distinct": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "all_endpoint_types_supported_in_every_owner",
+        "all_packet_builds_exact",
+        "exact_construction_digests_differ_across_depths",
+        "interior_leaf_complexity_strictly_grows_across_target_depths",
+        "packet_signature_byte_identical_at_all_target_depths",
+        "reference_lineages_remain_exactly_distinct"
+      ],
+      "type": "object"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "depth_erased_signature_sha256": {
+      "type": "string"
+    },
+    "motif_count": {
+      "type": "integer"
+    },
+    "next": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase8_seed_sha256": {
+      "type": "string"
+    },
+    "reference_lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "10": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        },
+        "11": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        },
+        "12": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        },
+        "13": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        },
+        "7": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_skin": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "A",
+            "A_skin",
+            "B",
+            "B_skin"
+          ],
+          "type": "object"
+        },
+        "8": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        },
+        "9": {
+          "additionalProperties": false,
+          "properties": {
+            "A": {
+              "type": "string"
+            },
+            "A_leaf_count": {
+              "type": "integer"
+            },
+            "A_min_cap": {
+              "type": "integer"
+            },
+            "A_skin": {
+              "type": "string"
+            },
+            "B": {
+              "type": "string"
+            },
+            "B_leaf_count": {
+              "type": "integer"
+            },
+            "B_min_cap": {
+              "type": "integer"
+            },
+            "B_skin": {
+              "type": "string"
+            },
+            "distinct_construction": {
+              "type": "boolean"
+            },
+            "distinct_skin": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "A",
+            "A_leaf_count",
+            "A_min_cap",
+            "A_skin",
+            "B",
+            "B_leaf_count",
+            "B_min_cap",
+            "B_skin",
+            "distinct_construction",
+            "distinct_skin"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "7",
+        "8",
+        "9"
+      ],
+      "type": "object"
+    },
+    "scanner_spec_sha256": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "scientific_interpretation": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "target_depths": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "target_results": {
+      "additionalProperties": false,
+      "properties": {
+        "11": {
+          "additionalProperties": false,
+          "properties": {
+            "all_endpoint_types_supported_in_every_owner": {
+              "type": "boolean"
+            },
+            "build_failures": {
+              "items": {},
+              "type": "array"
+            },
+            "construction_set_sha256": {
+              "type": "string"
+            },
+            "expected_packet_states": {
+              "type": "integer"
+            },
+            "min_owner_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "packet_states": {
+              "type": "integer"
+            },
+            "raw_growth": {
+              "additionalProperties": false,
+              "properties": {
+                "median_leaf_count": {
+                  "type": "integer"
+                },
+                "median_total_relations": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "median_leaf_count",
+                "median_total_relations"
+              ],
+              "type": "object"
+            },
+            "reference_distinct": {
+              "type": "boolean"
+            },
+            "signature_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "all_endpoint_types_supported_in_every_owner",
+            "build_failures",
+            "construction_set_sha256",
+            "expected_packet_states",
+            "min_owner_free_by_type",
+            "packet_states",
+            "raw_growth",
+            "reference_distinct",
+            "signature_sha256"
+          ],
+          "type": "object"
+        },
+        "12": {
+          "additionalProperties": false,
+          "properties": {
+            "all_endpoint_types_supported_in_every_owner": {
+              "type": "boolean"
+            },
+            "build_failures": {
+              "items": {},
+              "type": "array"
+            },
+            "construction_set_sha256": {
+              "type": "string"
+            },
+            "expected_packet_states": {
+              "type": "integer"
+            },
+            "min_owner_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "packet_states": {
+              "type": "integer"
+            },
+            "raw_growth": {
+              "additionalProperties": false,
+              "properties": {
+                "median_leaf_count": {
+                  "type": "integer"
+                },
+                "median_total_relations": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "median_leaf_count",
+                "median_total_relations"
+              ],
+              "type": "object"
+            },
+            "reference_distinct": {
+              "type": "boolean"
+            },
+            "signature_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "all_endpoint_types_supported_in_every_owner",
+            "build_failures",
+            "construction_set_sha256",
+            "expected_packet_states",
+            "min_owner_free_by_type",
+            "packet_states",
+            "raw_growth",
+            "reference_distinct",
+            "signature_sha256"
+          ],
+          "type": "object"
+        },
+        "13": {
+          "additionalProperties": false,
+          "properties": {
+            "all_endpoint_types_supported_in_every_owner": {
+              "type": "boolean"
+            },
+            "build_failures": {
+              "items": {},
+              "type": "array"
+            },
+            "construction_set_sha256": {
+              "type": "string"
+            },
+            "expected_packet_states": {
+              "type": "integer"
+            },
+            "min_owner_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "packet_states": {
+              "type": "integer"
+            },
+            "raw_growth": {
+              "additionalProperties": false,
+              "properties": {
+                "median_leaf_count": {
+                  "type": "integer"
+                },
+                "median_total_relations": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "median_leaf_count",
+                "median_total_relations"
+              ],
+              "type": "object"
+            },
+            "reference_distinct": {
+              "type": "boolean"
+            },
+            "signature_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "all_endpoint_types_supported_in_every_owner",
+            "build_failures",
+            "construction_set_sha256",
+            "expected_packet_states",
+            "min_owner_free_by_type",
+            "packet_states",
+            "raw_growth",
+            "reference_distinct",
+            "signature_sha256"
+          ],
+          "type": "object"
+        },
+        "8": {
+          "additionalProperties": false,
+          "properties": {
+            "all_endpoint_types_supported_in_every_owner": {
+              "type": "boolean"
+            },
+            "build_failures": {
+              "items": {},
+              "type": "array"
+            },
+            "construction_set_sha256": {
+              "type": "string"
+            },
+            "expected_packet_states": {
+              "type": "integer"
+            },
+            "min_owner_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "packet_states": {
+              "type": "integer"
+            },
+            "raw_growth": {
+              "additionalProperties": false,
+              "properties": {
+                "median_leaf_count": {
+                  "type": "integer"
+                },
+                "median_total_relations": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "median_leaf_count",
+                "median_total_relations"
+              ],
+              "type": "object"
+            },
+            "reference_distinct": {
+              "type": "boolean"
+            },
+            "signature_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "all_endpoint_types_supported_in_every_owner",
+            "build_failures",
+            "construction_set_sha256",
+            "expected_packet_states",
+            "min_owner_free_by_type",
+            "packet_states",
+            "raw_growth",
+            "reference_distinct",
+            "signature_sha256"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "11",
+        "12",
+        "13",
+        "8"
+      ],
+      "type": "object"
+    },
+    "theorem": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "proof_obligations": {
+          "additionalProperties": false,
+          "properties": {
+            "enabledness_reads_only_support_and_bridge_matrix": {
+              "type": "string"
+            },
+            "graph_effect_reads_only_top_level_graph_and_selected_owner_pair": {
+              "type": "string"
+            },
+            "independent_exact_holdout_depths": {
+              "type": "string"
+            },
+            "support_invariant_on_validation_packet": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enabledness_reads_only_support_and_bridge_matrix",
+            "graph_effect_reads_only_top_level_graph_and_selected_owner_pair",
+            "independent_exact_holdout_depths",
+            "support_invariant_on_validation_packet"
+          ],
+          "type": "object"
+        },
+        "reopen_if": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "statement": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "proof_obligations",
+        "reopen_if",
+        "statement"
+      ],
+      "type": "object"
+    },
+    "validation_spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acceptance",
+    "classification",
+    "date",
+    "depth_erased_signature_sha256",
+    "motif_count",
+    "next",
+    "nonclaims",
+    "phase8_seed_sha256",
+    "reference_lineage",
+    "scanner_spec_sha256",
+    "schema",
+    "science_sha256",
+    "scientific_interpretation",
+    "status",
+    "target_depths",
+    "target_results",
+    "theorem",
+    "validation_spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

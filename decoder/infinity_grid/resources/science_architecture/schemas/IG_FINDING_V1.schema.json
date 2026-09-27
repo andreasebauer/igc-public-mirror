@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "entity_instance_ref": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "evidence_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "finding_id": {
+      "type": "string"
+    },
+    "historical_labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operational_status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_APPLICABLE",
+        "BLOCKED",
+        "ERROR"
+      ]
+    },
+    "regime_depth": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "regime_ref": {
+      "type": "string"
+    },
+    "reopen_triggered": {
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "IG_FINDING_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "scientific_status": {
+      "enum": [
+        "NULL",
+        "OBSERVED_VARIATION",
+        "INVARIANT",
+        "CANDIDATE",
+        "COUNTEREXAMPLE",
+        "REOPEN_TRIGGER",
+        "PLATEAU_SUPPORT",
+        "LIFT_SUPPORT"
+      ]
+    },
+    "source_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "test_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "finding_id",
+    "test_ref",
+    "entity_instance_ref",
+    "regime_ref",
+    "regime_depth",
+    "operational_status",
+    "scientific_status",
+    "evidence_class",
+    "claim_ceiling",
+    "summary",
+    "evidence_refs",
+    "source_science_sha256",
+    "historical_labels",
+    "reopen_triggered"
+  ],
+  "title": "IG Decoder Finding Protocol V1",
+  "type": "object"
+}

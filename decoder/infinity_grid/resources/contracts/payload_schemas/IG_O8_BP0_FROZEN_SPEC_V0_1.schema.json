@@ -1,0 +1,109 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O8_BP0_FROZEN_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "construction": {
+      "type": "string"
+    },
+    "data_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_read_twins_max": {
+          "type": "integer"
+        },
+        "broad_census": {
+          "type": "integer"
+        },
+        "existence_witnesses": {
+          "type": "integer"
+        },
+        "heavy_C1_C5_cases": {
+          "type": "integer"
+        },
+        "optional_regression_sentinels": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adversarial_read_twins_max",
+        "broad_census",
+        "existence_witnesses",
+        "heavy_C1_C5_cases",
+        "optional_regression_sentinels"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "deterministic_parent_selection": {
+      "type": "string"
+    },
+    "gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "outcomes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parent_authority": {
+      "additionalProperties": false,
+      "properties": {
+        "required_status": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "required_status",
+        "science_sha256"
+      ],
+      "type": "object"
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O8_BP0_FROZEN_SPEC_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stop_rule": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "construction",
+    "data_budget",
+    "date",
+    "deterministic_parent_selection",
+    "gates",
+    "nonclaims",
+    "outcomes",
+    "parent_authority",
+    "question",
+    "schema",
+    "status",
+    "stop_rule"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O8_BP0_FROZEN_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

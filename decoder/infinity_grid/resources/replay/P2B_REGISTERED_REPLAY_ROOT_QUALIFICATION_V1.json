@@ -1,0 +1,92 @@
+{
+  "schema_id": "IG_P2B_REGISTERED_REPLAY_ROOT_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev50+lib",
+  "date": "2026-09-22",
+  "status": "PASS_P2B_REGISTERED_ROOT_INTEGRATION",
+  "p2_complete": true,
+  "p2_implementation_complete": true,
+  "science_executed": false,
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "registered_root": {
+    "job_id": "DECODER.REPLAY.L0_TO_G8.ROOT",
+    "stage_id": "REPLAY:L0_TO_G8:ROOT",
+    "handler_ref": "infinity_grid.replay_root_job:replay_root_job_handler",
+    "controller_process_handler_count": 1,
+    "node_executor_bindings": [],
+    "initial_disposition": "WAITING_FOR_NODE_EXECUTOR_BINDING",
+    "initial_node": "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+    "terminal_completion_written_on_wait": false,
+    "resume_semantics": "VERIFY_EXISTING_STATE_AND_REOPEN_SAME_NODE"
+  },
+  "authority_boundary": {
+    "authorized_replay_through_layer": "G8",
+    "next_wait_layer": "GLOBAL",
+    "global_authorized": false
+  },
+  "implementation_pins": [
+    {
+      "ref": "infinity_grid/replay_root_job.py",
+      "sha256": "d50ac555f307de648fc4ae0ec012fcc94e16b9e58c5fd668096a15c5af4bd724"
+    },
+    {
+      "ref": "infinity_grid/replay_dag_runner.py",
+      "sha256": "144ce9a2fcf4edc47cd284aaf186a6908f0bba329f3d6bb89603532175165702"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "b968cd78b7529f52c5b8d5978ae4c6bdcdc24ac2801e152cacc240dddf0c8690"
+    },
+    {
+      "ref": "infinity_grid/v05_controller_event_loop.py",
+      "sha256": "ed0bc2348f57d8d8169562acfa68951d8a89c3787ba9ba142383d220e2bcf82d"
+    },
+    {
+      "ref": "infinity_grid/workflow_guard.py",
+      "sha256": "80eee49ad31c7885a041515af0aef11868207ad39b1b94be196828ce5a52e651"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P2B_REPLAY_ROOT_REGISTRATION_PROFILE_V1.json",
+      "sha256": "0932884aaa0527d19d9894e498cb4f11344842fe5b5a3eb9db206ab4c9aafe77"
+    },
+    {
+      "ref": "tests/fixtures/preservation_rebind/APPROVED_08LIB_CORE_CHANGES.json",
+      "sha256": "3be7a8df61bafd3f426659b168488a3a0ec0be5513edc66300a2475a369066bc"
+    }
+  ],
+  "qualification": {
+    "focused": {
+      "passed": 26,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P2B_REGISTERED_REPLAY_ROOT_JUNIT.xml",
+      "junit_sha256": "0e4358b12ab19e5eb18a6b1c7522eef00fc468a1bac0a865e1dd6d7374a136b9"
+    },
+    "p1_replay_regression": {
+      "passed": 89,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P2B_P1_REPLAY_REGRESSION_JUNIT.xml",
+      "junit_sha256": "28f5ace34ab31a6ba094eb95b339847a00c62e2d043923ce2909197f7f907d51"
+    },
+    "portable_r02_core": {
+      "passed": 340,
+      "skipped": 1,
+      "failed": 0,
+      "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1"
+    }
+  },
+  "r02_boundary": {
+    "portable_core_pass": true,
+    "full_r02_complete": false,
+    "named_nonportable_gap_count": 22
+  },
+  "nonclaims": [
+    "No L0-through-G8 scientific node was executed.",
+    "No scientific node executor is bound in P2B.",
+    "The registration profile was schema-admitted and controller-routed, but no saved production root capture was executed.",
+    "The production root capture waits for the P3 data contract and P4 L0 pilot.",
+    "Full R02 remains incomplete with 22 named nonportable gaps.",
+    "GLOBAL remains unauthorized.",
+    "A reproduced historical result will not mean independently confirmed scientific correctness."
+  ],
+  "next_step": "P3_UNIFIED_REFERENCE_DATA_CONTRACT"
+}

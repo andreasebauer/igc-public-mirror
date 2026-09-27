@@ -1,0 +1,103 @@
+{
+  "authority": {
+    "G6:S0": {
+      "commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+      "outcome": "PASS_INTERFACE_AND_BASIS_FROZEN",
+      "question_sha256": "148d70fbdcd4e07de6399a89a20692999698d806637339278fa68492f7c8d7f0",
+      "result_sha256": "32012482e5f237b148392526baaff5de4837b6f55fd0155c5e1282bc142cdf23",
+      "science_sha256": "5fadf5d30fa7eec0243c421d309a6e9f872fd76ac86b76321c46f72879aff2e5"
+    },
+    "G6:S1": {
+      "commit_sha256": "d384733310698e2540642bc535c6650cea620573ec35156aa59403f51b215a8d",
+      "outcome": "SEPARATOR_FOUND",
+      "question_sha256": "93ff249fe073e1678d549a691e9eb5091b9b059c253c45828d7be6a204b2e2d7",
+      "result_sha256": "1969153499628a7e145b681c22d3e071f66b3482c8034c22e79e9cb500cec9a0",
+      "science_sha256": "53cb0bb7c79614dfac2ad2c7bf75a25ef3c8ec022ab5921ab7c018a878f3c210"
+    },
+    "basis_rho01_values": {
+      "D2_BROOM": 12,
+      "D2_PATH": 9,
+      "D4_BROOM": 18,
+      "D4_PATH": 12
+    },
+    "descriptor_review_audit_sha256": "7b08f4b0f987eab14fec762d342685f5343bcb2a60912188c4d64da811e7bac8",
+    "expected_exact_s1_child_universe_count": 4520,
+    "expected_s1_exact_legal_owner_realizations": 17856,
+    "expected_s1_pair_context_rows": 496,
+    "expected_s1_separator_fibres": 124
+  },
+  "candidate_ladder": [
+    {
+      "candidate_id": "C1_RHO01",
+      "definition": "rho01(X)=|Rel_exact(X,D2_PATH;(0,1))| with X in the left slot and D2_PATH the frozen certified S0 probe.",
+      "interpretation": "single ordinary fixed-probe response cardinality; no topology label"
+    },
+    {
+      "candidate_id": "C2_TYPED_OWNER_ORBITS",
+      "definition": "o_a(X)=number of distinct exact rooted canons among lawful attachment owners for endpoint type a, for a=0..6.",
+      "interpretation": "typed inequivalent attachment-position counts; structural explanation if C1 fails"
+    },
+    {
+      "candidate_id": "C3_ROOTED_OWNER_RESPONSE_BAG",
+      "definition": "for each endpoint type a, the multiplicity bag of exact rooted owner canons over all lawful owners of type a.",
+      "interpretation": "finite rooted-owner response upper bound; still candidate-only and non-public"
+    }
+  ],
+  "date": "2026-09-07",
+  "decoder_release": "v0.5 / 0.50",
+  "frozen_question": "What is the smallest registered observer-derived per-carrier read in the frozen repair ladder that removes the G6:S1 residual on the S0 basis and is representative-independent for all exact S1 child states under the registered one-step continuation observer?",
+  "independent_verification": {
+    "method": "separate rooted/unrooted canonicalization path and manual cross-edge construction for selected candidate read",
+    "read_sample_size": 128,
+    "required": true,
+    "sample_rule": "128 exact S1 child states with lexicographically smallest SHA-256 of exact structural canon; hash used only for deterministic sample selection."
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G6_MINIMALITY",
+    "NO_GLOBAL_RHO01_SUFFICIENCY",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_G6_GRADUATION",
+    "NO_AUTOMATIC_RESUME_OF_OLD_S2"
+  ],
+  "promotion_constraints": [
+    "No result of G6:S1R promotes a G6 public descriptor.",
+    "A passing read is only an earned candidate input for a newly frozen repaired S2 registration.",
+    "Hidden topology, exact canon, owner identity, ancestry, geometry, metric, dimension, time and spacetime remain non-public.",
+    "G5 authority is unchanged."
+  ],
+  "purpose": "Controlled descriptor/read repair after the official G6:S1 separator stop.",
+  "question_sha256": "a7a157576d336933d945e41036636417093cf82570758170f1f4487d74df60d3",
+  "registered_outcomes": [
+    "PASS_RHO01_EXPANDED_UNIVERSE",
+    "PASS_TYPED_OWNER_ORBITS_EXPANDED_UNIVERSE",
+    "PASS_ROOTED_OWNER_RESPONSE_BAG_EXPANDED_UNIVERSE",
+    "NO_REGISTERED_REPAIR_SUFFICIENT",
+    "BUDGET_INSUFFICIENT",
+    "INDEPENDENT_VERIFICATION_FAILED"
+  ],
+  "resource_budget": {
+    "max_candidates": 3,
+    "max_continuation_relation_evaluations": 3000000,
+    "wall_seconds": 7200,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_S1_REPAIR_PREREGISTRATION_V1",
+  "stage_id": "G6:S1R",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stopping_rules": [
+    "authority/question/source mismatch",
+    "exact regenerated S1 universe differs structurally from official S1 authority",
+    "registered science budget exhausted",
+    "independent verification failure",
+    "candidate ladder exhausted",
+    "first passing candidate closes the repair stage and requires repaired-S2 registration review"
+  ],
+  "test_protocol": {
+    "basis_replay": "Regroup all 496 official S1 rows by inherited public state plus the candidate read on each parent; require no structural exact-relation separator.",
+    "decision_equality": "full structural canonical tuples only; hashes are provenance/index handles",
+    "expanded_universe": "Regenerate and structurally bind the complete 4,520-state exact S1 child universe from the frozen S0 basis and all 31 operators.",
+    "ladder_rule": "test C1 first; advance to C2 only on exact conflict; advance to C3 only on exact conflict; stop at the first candidate that passes both basis replay and expanded-universe continuation equivalence.",
+    "representative_independence": "Within each equal (inherited public + candidate read) class, compare exact relation-valued continuation signatures against every frozen S0 probe, all 31 directed operators, in both left/right positions."
+  }
+}

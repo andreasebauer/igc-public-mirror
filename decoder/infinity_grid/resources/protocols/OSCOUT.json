@@ -1,0 +1,189 @@
+{
+  "acceptance_gates": [
+    "OScout cannot graduate an O-level"
+  ],
+  "allowed_protocol_labels": [
+    "OSCOUT_V0_1_PHASE0_SPECIFICATION_FORMALIZATION_COMPLETE",
+    "RECURSIVE_REPEAT_CANDIDATE",
+    "NEW_HIGHER_ORDER_GRAMMAR_CANDIDATE",
+    "SATURATION_CANDIDATE",
+    "RECURSION_BREAK_CANDIDATE",
+    "UNRESOLVED_REPRESENTATION"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "EXACT_BOUNDED",
+        "PASS",
+        "SCOPED_AUDIT_AUTHORITY",
+        "OSCOUT_V0_1_PHASE0_SPECIFICATION_FORMALIZATION_COMPLETE"
+      ],
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "PROVISIONAL",
+        "RECONNAISSANCE_ONLY",
+        "RECURSIVE_REPEAT_CANDIDATE"
+      ],
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "PROVISIONAL",
+        "RECONNAISSANCE_ONLY",
+        "NEW_HIGHER_ORDER_GRAMMAR_CANDIDATE"
+      ],
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "PROVISIONAL",
+        "RECONNAISSANCE_ONLY",
+        "SATURATION_CANDIDATE"
+      ],
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "PROVISIONAL",
+        "RECONNAISSANCE_ONLY",
+        "RECURSION_BREAK_CANDIDATE"
+      ],
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "PROVISIONAL",
+        "RECONNAISSANCE_ONLY",
+        "UNRESOLVED_REPRESENTATION"
+      ]
+    ],
+    "max_authority": "SCOPED_AUDIT_AUTHORITY"
+  },
+  "forbidden_claims": [
+    "graduated",
+    "infinite tower proved",
+    "geometry emerged",
+    "global minimality"
+  ],
+  "input_contract": {
+    "parent_certificate_required_for_live": true
+  },
+  "observer_contract": {
+    "observer_freeze_before_generation": true
+  },
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [],
+      "allowed_protocol_labels": [
+        "OSCOUT_V0_1_PHASE0_SPECIFICATION_FORMALIZATION_COMPLETE"
+      ],
+      "profile_id": "phase0_selftest",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "adapter.oscout_phase0",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "O",
+        "level": 0,
+        "live_generation": false,
+        "target": "PHASE0_SELFTEST"
+      }
+    },
+    {
+      "allowed_input_flags": [
+        "parent_certified",
+        "observer_frozen",
+        "bounded_preregistered"
+      ],
+      "allowed_protocol_labels": [
+        "RECURSIVE_REPEAT_CANDIDATE",
+        "NEW_HIGHER_ORDER_GRAMMAR_CANDIDATE",
+        "SATURATION_CANDIDATE",
+        "RECURSION_BREAK_CANDIDATE",
+        "UNRESOLVED_REPRESENTATION"
+      ],
+      "profile_id": "future_live_oscout",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "NOT_IMPLEMENTED.oscout_live",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "O",
+        "live_generation": true
+      },
+      "subject_level_min": 7
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "OSCOUT",
+  "purpose": "Certified non-graduating O-level reconnaissance protocol and Phase-0 self-test surface.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "S0",
+      "purpose": "certified parent intake"
+    },
+    {
+      "id": "S1",
+      "purpose": "null construction"
+    },
+    {
+      "id": "S2",
+      "purpose": "observer freeze"
+    },
+    {
+      "id": "S3",
+      "purpose": "cheap necessity attacks"
+    },
+    {
+      "id": "S4",
+      "purpose": "bounded generation"
+    },
+    {
+      "id": "S5",
+      "purpose": "same-skin future profiles"
+    },
+    {
+      "id": "S6",
+      "purpose": "grammar delta"
+    },
+    {
+      "id": "S7",
+      "purpose": "plateau probes"
+    },
+    {
+      "id": "S8",
+      "purpose": "classification"
+    },
+    {
+      "id": "S9",
+      "purpose": "seal/escalate"
+    }
+  ],
+  "stopping_rules": {
+    "fail_closed": true,
+    "no_adaptive_lane_extension": true,
+    "one_level_one_sealed_checkpoint": true
+  },
+  "version": "0.1"
+}

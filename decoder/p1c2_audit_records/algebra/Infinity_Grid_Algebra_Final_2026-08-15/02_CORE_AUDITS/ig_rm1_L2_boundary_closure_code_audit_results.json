@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "generic recursive compose function exists",
+      "pass": true
+    },
+    {
+      "check": "consumes exactly one selected boundary slot from each side",
+      "pass": true
+    },
+    {
+      "check": "retained boundary slots copied by value from declared input boundary tuples",
+      "pass": true
+    },
+    {
+      "check": "L output is join/bitwise union of stored input labels",
+      "pass": true
+    },
+    {
+      "check": "score output is minimum of stored input scores",
+      "pass": true
+    },
+    {
+      "check": "T output concatenates normalized stored input destinations",
+      "pass": true
+    },
+    {
+      "check": "stay output is conjunction of stored input stay flags",
+      "pass": true
+    },
+    {
+      "check": "constructor returns a set/frozenset of same five-field record shape",
+      "pass": true
+    },
+    {
+      "check": "all TABC records are valid R_5 records",
+      "detail": {
+        "records": 19683
+      },
+      "pass": true
+    },
+    {
+      "check": "all TABC destination tuples have length 3",
+      "pass": true
+    },
+    {
+      "check": "dynamic TABC*D outputs are all valid R_6 records",
+      "detail": {
+        "distinct_outputs": 531441,
+        "parent_pairs": 531441
+      },
+      "pass": true
+    },
+    {
+      "check": "dynamic TABC*D destination tuples have length 4",
+      "pass": true
+    },
+    {
+      "check": "dynamic TABC*D arity obeys 5+3-2=6",
+      "pass": true
+    },
+    {
+      "check": "dynamic TABC*TABC outputs are all valid R_8 records",
+      "detail": {
+        "distinct_outputs": 262144,
+        "parent_pairs": 262144
+      },
+      "pass": true
+    },
+    {
+      "check": "dynamic TABC*TABC destination tuples have length 6",
+      "pass": true
+    },
+    {
+      "check": "dynamic macro-macro arity obeys 5+5-2=8",
+      "pass": true
+    },
+    {
+      "check": "earlier inductive lift reports same bridge law applies without new higher-level rule",
+      "pass": true
+    },
+    {
+      "check": "earlier inductive lift reports boundary arity 6",
+      "pass": true
+    },
+    {
+      "check": "earlier macro-macro closure reports boundary arity 8",
+      "pass": true
+    },
+    {
+      "check": "earlier nested closure passed all contraction-order cases",
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "generic_arity_law": "R_n star R_m -> R_(n+m-2) for a single bridge consuming one port from each input",
+  "record_family": "R_n = (L, ((P,M))^n, s, T_tuple, stay), with primitive scalar T normalized to a 1-tuple on composition",
+  "result": "PASS",
+  "scope": "Current finite algebra/compositor. Establishes type/record closure under the audited single-bridge composition law; it does not prove semantic completeness of B.",
+  "test": "Boundary Closure Lemma code/type audit"
+}

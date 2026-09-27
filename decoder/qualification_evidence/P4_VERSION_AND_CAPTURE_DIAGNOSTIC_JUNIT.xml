@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="16" time="24.231" timestamp="2026-09-22T06:51:36.707646-07:00" hostname="3782b7b149c4"><testcase classname="tests.test_08lib_backend" name="test_exact_owner_maps_and_downstream_summary" time="0.357" /><testcase classname="tests.test_08lib_backend" name="test_dispatch_and_no_error_fallback" time="0.008" /><testcase classname="tests.test_08lib_backend" name="test_version_contract" time="0.014" /><testcase classname="tests.test_08lib_backend" name="test_representative_qualification_cannot_mint_external_authority" time="0.001" /><testcase classname="tests.test_decoder06_capture" name="test_active_version_has_one_source" time="0.002" /><testcase classname="tests.test_decoder06_capture" name="test_unchanged_capture_is_reused_and_helper_change_is_new" time="6.601" /><testcase classname="tests.test_decoder06_capture" name="test_unsaved_or_failed_save_cannot_start_a_job" time="2.342" /><testcase classname="tests.test_decoder06_capture" name="test_wrong_readback_is_preserved_and_cannot_confirm" time="1.904" /><testcase classname="tests.test_decoder06_capture" name="test_capture_objects_restore_after_working_project_deletion" time="2.349" /><testcase classname="tests.test_decoder06_capture" name="test_unresolved_helper_and_generated_code_are_actionable" time="2.241" /><testcase classname="tests.test_decoder06_capture" name="test_input_hash_and_symlink_mismatches_are_refused" time="2.047" /><testcase classname="tests.test_decoder06_capture" name="test_contract_and_environment_are_bound_to_revision" time="3.468" /><testcase classname="tests.test_decoder06_capture" name="test_project_import_guard_checks_helper_bytes" time="0.002" /><testcase classname="tests.test_decoder06_capture" name="test_current_validation_job_has_real_saved_source_records" time="0.000"><failure message="infinity_grid.submission.SubmissionError: CAPTURE_REQUIRED:/workspace/scratch/7d00d84faa68/dev33_minimal_restore">def test_current_validation_job_has_real_saved_source_records():
+        root = _engine().parent
+&gt;       state = sub.save_status(root)
+                ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_decoder06_capture.py:153: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+infinity_grid/submission.py:382: in save_status
+    root = Path(workspace).resolve(strict=True); rec = capture_record(root)
+                                                       ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+workspace = PosixPath('/workspace/scratch/7d00d84faa68/dev33_minimal_restore')
+
+    def capture_record(workspace):
+        root = Path(workspace).resolve(strict=True)
+        if not (root / 'CAPTURE.json').is_file():
+&gt;           raise SubmissionError('CAPTURE_REQUIRED', str(root),
+                'Use Decoder capture STORE SPEC.json, then confirm each pending Drive save.')
+E           infinity_grid.submission.SubmissionError: CAPTURE_REQUIRED:/workspace/scratch/7d00d84faa68/dev33_minimal_restore
+
+infinity_grid/submission.py:293: SubmissionError</failure></testcase><testcase classname="tests.test_decoder06_capture" name="test_capture_metadata_change_cannot_rebind_frozen_job" time="1.605" /><testcase classname="tests.test_decoder06_capture" name="test_rejected_capture_preserves_original_script_and_intent" time="1.148" /></testsuite></testsuites>

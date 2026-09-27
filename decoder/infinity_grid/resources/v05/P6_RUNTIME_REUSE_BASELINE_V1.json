@@ -1,0 +1,48 @@
+{
+  "allowed_p6_delta": {
+    "controller.py": "RUNNER_POLICY_DATASET_PARAM_PLUMBING_ONLY",
+    "unchanged_runtime_components": [
+      "v05_worker.py",
+      "v05_runtime.py",
+      "checkpoints.py",
+      "v05_publication.py",
+      "v05_verifier.py",
+      "v05_tasks.py"
+    ],
+    "v05.py": "GENERIC_RUNNER_POLICY_DATASET_PARAM_ADMISSION_ONLY"
+  },
+  "files": [
+    {
+      "p5_sha256": "e3941765b3ddb99c2d29b0b9532405a333d55b92a184dd884d1e82d91db102b6",
+      "path": "controller.py"
+    },
+    {
+      "p5_sha256": "6b3de48196daecbcfbe1d909fb256e8e4cc71803478dd174b4c3a85b7ada786e",
+      "path": "v05_worker.py"
+    },
+    {
+      "p5_sha256": "57f370419df94d7d79793c2d58404429a857afdb8c98424057ab0782eaa3448f",
+      "path": "v05_runtime.py"
+    },
+    {
+      "p5_sha256": "2a0ba86b10e4789207c53db53af7af604517157c81681cab4e9197d460f352a9",
+      "path": "checkpoints.py"
+    },
+    {
+      "p5_sha256": "373fa01531f2fb8d24a0b24b4f0919f30aefd706170067eab2fba1b0b6d3dd9a",
+      "path": "v05_publication.py"
+    },
+    {
+      "p5_sha256": "bf1e087a5602cb92238ee1049462fc3cde6a8d464255066d64ecc013e42db7f7",
+      "path": "v05_verifier.py"
+    },
+    {
+      "p5_sha256": "c70ffd9ee8d9219ae6e89229a76c3e8833190d275a9d1938712eb11da3c7bcab",
+      "path": "v05_tasks.py"
+    }
+  ],
+  "meaning": "P5 runtime hash baseline. P6 reuses the accepted controller/worker/checkpoint/publication architecture; only the existing runner-policy/admission metadata is extended to declare the registered dataset parameter for the single generic workflow runner. No new controller, worker launcher, checkpoint writer or publisher is introduced.",
+  "p5_candidate_source_sha256": "66216ca19b318b5fcb974748f604548f77ffd4ddbc57a55accd9e72746494991",
+  "schema_id": "IG_DECODER_V05_P6_RUNTIME_REUSE_BASELINE_V1",
+  "science_sha256": "09f823cb818d22c275f5e6fb6f6840dbd7b4c05af3ff330f887da74cad8eae1d"
+}

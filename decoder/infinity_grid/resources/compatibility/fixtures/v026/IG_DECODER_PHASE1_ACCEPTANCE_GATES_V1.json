@@ -1,0 +1,207 @@
+{
+  "count": 40,
+  "gates": [
+    {
+      "category": "IDENTITY",
+      "id": "DG01",
+      "requirement": "Node identity is byte/canonical-content based and invariant to absolute path, hostname and workspace."
+    },
+    {
+      "category": "IDENTITY",
+      "id": "DG02",
+      "requirement": "Same artifact imported from two paths produces one ARTIFACT node."
+    },
+    {
+      "category": "IDENTITY",
+      "id": "DG03",
+      "requirement": "Different bytes cannot collide under one artifact identity; mismatch fails closed."
+    },
+    {
+      "category": "SCHEMA",
+      "id": "DG04",
+      "requirement": "All node types validate against frozen schema and reject unknown required semantic fields."
+    },
+    {
+      "category": "SCHEMA",
+      "id": "DG05",
+      "requirement": "All edge types validate and unresolved endpoints fail graph validation."
+    },
+    {
+      "category": "SCHEMA",
+      "id": "DG06",
+      "requirement": "Computation REQUIRES/PRODUCED_BY subgraph for replay targets is acyclic."
+    },
+    {
+      "category": "MIGRATION",
+      "id": "DG07",
+      "requirement": "Existing artifact/dataset/protocol/run/stage/claim/release records ingest without changing their original hashes."
+    },
+    {
+      "category": "MIGRATION",
+      "id": "DG08",
+      "requirement": "Catalogue can be deleted and rebuilt from graph/object records with byte-identical semantic rows."
+    },
+    {
+      "category": "ALIAS",
+      "id": "DG09",
+      "requirement": "Versioned alias resolves to exactly one node; ambiguity fails closed."
+    },
+    {
+      "category": "ALIAS",
+      "id": "DG10",
+      "requirement": "Historical path hints cannot satisfy a dependency without content identity."
+    },
+    {
+      "category": "RESOLUTION",
+      "id": "DG11",
+      "requirement": "Exact local object resolution PASS."
+    },
+    {
+      "category": "RESOLUTION",
+      "id": "DG12",
+      "requirement": "Materialization from content store PASS and resulting bytes match expected hash."
+    },
+    {
+      "category": "RESOLUTION",
+      "id": "DG13",
+      "requirement": "Dependency rebuild from validated recipe PASS."
+    },
+    {
+      "category": "RESOLUTION",
+      "id": "DG14",
+      "requirement": "Missing irreducible root produces explicit unresolved-root error, not silent fallback."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG15",
+      "requirement": "Base/L2 selected vertical replay succeeds from graph dependencies in a clean root."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG16",
+      "requirement": "One certified Scout parent->child replay succeeds without using historical absolute paths."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG17",
+      "requirement": "OScout Phase-0 self-test/replay succeeds through graph resolution."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG18",
+      "requirement": "Replay from different workspace path produces identical scientific artifacts."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG19",
+      "requirement": "Replay after deleting rebuildable derived outputs restores identical hashes."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG20",
+      "requirement": "Environment mismatch is detected before exact replay."
+    },
+    {
+      "category": "REPLAY",
+      "id": "DG21",
+      "requirement": "Canonicalization-version mismatch is detected before acceptance."
+    },
+    {
+      "category": "EVIDENCE",
+      "id": "DG22",
+      "requirement": "Computation edge alone cannot create SUPPORTS edge or claim."
+    },
+    {
+      "category": "EVIDENCE",
+      "id": "DG23",
+      "requirement": "Existing claim firewall remains authoritative and all prior claim tests pass."
+    },
+    {
+      "category": "EVIDENCE",
+      "id": "DG24",
+      "requirement": "Review decision can qualify a result without mutating source result bytes."
+    },
+    {
+      "category": "ROOTS",
+      "id": "DG25",
+      "requirement": "Minimum-root algorithm returns irreducible roots plus optional caches separately."
+    },
+    {
+      "category": "ROOTS",
+      "id": "DG26",
+      "requirement": "Deleting a proposed CACHE in test fixture then replaying from roots succeeds exactly."
+    },
+    {
+      "category": "ROOTS",
+      "id": "DG27",
+      "requirement": "Any unresolved target appears in UNRESOLVED and prevents gc eligibility."
+    },
+    {
+      "category": "GC",
+      "id": "DG28",
+      "requirement": "gc defaults to dry-run and cannot delete PINNED nodes."
+    },
+    {
+      "category": "GC",
+      "id": "DG29",
+      "requirement": "gc dry-run refuses nodes reachable as irreducible roots from selected targets."
+    },
+    {
+      "category": "GC",
+      "id": "DG30",
+      "requirement": "Destructive gc command is disabled in Phase 1."
+    },
+    {
+      "category": "EXPORT",
+      "id": "DG31",
+      "requirement": "Compact export explicitly marks external root references and verifies graph closure."
+    },
+    {
+      "category": "EXPORT",
+      "id": "DG32",
+      "requirement": "Standalone export replays selected target offline from clean root."
+    },
+    {
+      "category": "EXPORT",
+      "id": "DG33",
+      "requirement": "Publication export includes computation closure, evidence closure, scope and forbidden inferences."
+    },
+    {
+      "category": "IMPORT",
+      "id": "DG34",
+      "requirement": "Verified import rejects conflicting immutable node identities."
+    },
+    {
+      "category": "DOCTOR",
+      "id": "DG35",
+      "requirement": "Graph doctor detects dangling edge, hash mismatch, ambiguous alias and unreconstructable target."
+    },
+    {
+      "category": "O7",
+      "id": "DG36",
+      "requirement": "O7 graph ingestion records current reconstruction status as unresolved rather than fabricating missing artifacts."
+    },
+    {
+      "category": "O7",
+      "id": "DG37",
+      "requirement": "O7 post-run review qualification is represented without any O7_GRADUATED claim edge."
+    },
+    {
+      "category": "REGRESSION",
+      "id": "DG38",
+      "requirement": "Unified Runtime existing acceptance/regression suite remains PASS."
+    },
+    {
+      "category": "REGRESSION",
+      "id": "DG39",
+      "requirement": "Scout Conveyor certified source/results remain unaffected by graph-core implementation."
+    },
+    {
+      "category": "PACKAGING",
+      "id": "DG40",
+      "requirement": "Phase-1 bundle contains source, schemas, tests, migration fixtures, manifests and independent verification."
+    }
+  ],
+  "graduation": "ALL_MANDATORY_GATES_PASS; no waivers for identity, resolution, evidence, root-set, replay, or GC safety categories.",
+  "schema": "IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1"
+}

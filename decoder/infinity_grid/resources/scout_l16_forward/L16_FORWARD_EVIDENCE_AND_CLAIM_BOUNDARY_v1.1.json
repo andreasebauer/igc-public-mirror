@@ -1,0 +1,27 @@
+{
+  "authority": "RECONNAISSANCE_ONLY",
+  "boundary_sha256": "5991a811beac9b81835bb620127bf8d445b09cdf95bcce13f47d3f66ae9a452a",
+  "child_rule": "L17 requires a separately frozen child packet; no population completeness is inherited.",
+  "evidence_label": "SCOUT_OBSERVED",
+  "forbidden": [
+    "first occurrence",
+    "population-wide absence",
+    "mechanism",
+    "geometry",
+    "physical topology",
+    "transition level",
+    "C-PROVED",
+    "graduation",
+    "mature-node promotion",
+    "lattice/closed-algebra promotion"
+  ],
+  "licensed": [
+    "bounded persistence of tracked relation families",
+    "bounded observed maximum parent count",
+    "bounded relational reorganization",
+    "use as exact bounded L16 Scout parent input after successful closeout"
+  ],
+  "population_complete": false,
+  "schema_id": "IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1",
+  "scope": "BOUNDED_PREREGISTERED"
+}

@@ -1,0 +1,131 @@
+{
+  "adapter_id": "v05.science.g4-accepted-r7",
+  "budgets": {
+    "max_cases": 600,
+    "max_steps": 7
+  },
+  "continuation": {
+    "of_registration_sha256": "2a388be8062212e1f146d8ac7eb064620a95b73ea802ad2224efcdbd906aaf5b",
+    "version": 3
+  },
+  "promotion_policy": {
+    "authority_effect": "NONE_P6",
+    "graduation_authorized": false,
+    "graduation_requested": false
+  },
+  "question": {
+    "scope": "G5:S2 F01 endpoint-typed repair recertification; public quotient must exactly equal historical S2; S3-S6 locked pending bound repair continuation",
+    "stage_rows": [
+      {
+        "capability_id": "g5.s0.carrier-interface.v1",
+        "parameters": {
+          "spec_science_sha256": "dde534060ba9f76b6831576e73ffd398f299c8aefc6f17adbba4c885bd819a58",
+          "witness_depths": [
+            2,
+            4
+          ]
+        },
+        "registered_alternatives": [
+          "G5_S0_G4_AUTHORITY_FROZEN_CAPS7_PLUS_H_CLASS_BAG_PUBLIC_ACTUAL_G4_HIDDEN_DECORATED_TREE_CHALLENGE_CORPUS_EARNED_S1_DESIGN_REVIEW",
+          "G5_S0_AUTHORITY_OR_INTERFACE_FREEZE_FAILURE"
+        ],
+        "stage": "S0"
+      },
+      {
+        "capability_id": "g5.s1.pair-census.v1",
+        "parameters": {
+          "required_s0_stage_science_sha256": "34b2dd21c1517657388a7b002c3566ddd36d96f20d85d3194519add123e72593",
+          "spec_science_sha256": "dbf6a45394e1011aaac904bb46c59f598f21ae71d9449cdd17d9a0902281f759"
+        },
+        "registered_alternatives": [
+          "G5_S1_PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE",
+          "G5_S1_PAIR_CENSUS_HIDDEN_RESIDUAL_DETECTED",
+          "G5_S1_AUTHORITY_OR_CENSUS_FAILURE"
+        ],
+        "stage": "S1"
+      },
+      {
+        "capability_id": "g5.s2.pair-quotient.v1",
+        "parameters": {
+          "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+          "required_s1_stage_science_sha256": "179e68f524a03063798d421b941d6b7b52f38f598c624ee437e3ed55c9161f84",
+          "spec_science_sha256": "d64e15ba04556e65ba971d85b2b7145c583fdc12189c2e472d9aaef8434c29b7"
+        },
+        "registered_alternatives": [
+          "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+          "G5_S2_PAIR_OBSERVER_QUOTIENT_NOT_CERTIFIED",
+          "G5_S2_AUTHORITY_OR_QUOTIENT_FAILURE"
+        ],
+        "stage": "S2"
+      },
+      {
+        "capability_id": "g5.stage.locked.v1",
+        "parameters": {
+          "review_alternative": "G5_S3_PREREGISTRATION_REQUIRED",
+          "stage": "S3"
+        },
+        "registered_alternatives": [
+          "G5_S3_PREREGISTRATION_REQUIRED",
+          "G5_STAGE_LOCK_BINDING_MISMATCH"
+        ],
+        "stage": "S3"
+      },
+      {
+        "capability_id": "g5.stage.locked.v1",
+        "parameters": {
+          "review_alternative": "G5_S4_PREREGISTRATION_REQUIRED",
+          "stage": "S4"
+        },
+        "registered_alternatives": [
+          "G5_S4_PREREGISTRATION_REQUIRED",
+          "G5_STAGE_LOCK_BINDING_MISMATCH"
+        ],
+        "stage": "S4"
+      },
+      {
+        "capability_id": "g5.stage.locked.v1",
+        "parameters": {
+          "review_alternative": "G5_S5_PREREGISTRATION_REQUIRED",
+          "stage": "S5"
+        },
+        "registered_alternatives": [
+          "G5_S5_PREREGISTRATION_REQUIRED",
+          "G5_STAGE_LOCK_BINDING_MISMATCH"
+        ],
+        "stage": "S5"
+      },
+      {
+        "capability_id": "g5.stage.locked.v1",
+        "parameters": {
+          "review_alternative": "G5_S6_PREREGISTRATION_REQUIRED",
+          "stage": "S6"
+        },
+        "registered_alternatives": [
+          "G5_S6_PREREGISTRATION_REQUIRED",
+          "G5_STAGE_LOCK_BINDING_MISMATCH"
+        ],
+        "stage": "S6"
+      }
+    ]
+  },
+  "registration_id": "g5-s2-pair-quotient-repair-v2",
+  "registration_sha256": "d65eaa19314579a32a4279ae07094e8b568d03de08280c719aedf590add7bb95",
+  "schema_id": "IG_DECODER_V05_WORKFLOW_REGISTRATION_V1",
+  "status": "ACTIVE_CANDIDATE",
+  "stop_rules": {
+    "budget_exhausted": "STOP",
+    "changed_assumptions": "STOP",
+    "falsification": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "unmet_proof_obligations": "STOP"
+  },
+  "subject": {
+    "hierarchy": "G",
+    "level": 5,
+    "parent": "G5:S1",
+    "purpose": "PAIR_OBSERVER_QUOTIENT",
+    "stage": "S2"
+  },
+  "workflow_kind": "STRUCTURAL_S0_S6",
+  "workflow_mode": "DISCOVERY"
+}

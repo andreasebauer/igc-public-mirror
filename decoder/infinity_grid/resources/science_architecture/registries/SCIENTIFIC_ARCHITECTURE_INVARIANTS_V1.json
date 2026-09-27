@@ -1,0 +1,55 @@
+{
+  "invariants": [
+    {
+      "id": "SCI-INV-001",
+      "text": "Every scientific Test run binds to one certified EntityClass and one Regime."
+    },
+    {
+      "id": "SCI-INV-002",
+      "text": "RegimeDepth never creates a new EntityClass by itself."
+    },
+    {
+      "id": "SCI-INV-003",
+      "text": "Tests may read only declared capabilities."
+    },
+    {
+      "id": "SCI-INV-004",
+      "text": "TestProtocol V1 is read-only; Tests cannot affect development/selection."
+    },
+    {
+      "id": "SCI-INV-005",
+      "text": "Plateau is observer/Test-Pack-relative and never implies Lift."
+    },
+    {
+      "id": "SCI-INV-006",
+      "text": "Lift requires a separate LiftCertificate with explicit scope and reopen rules."
+    },
+    {
+      "id": "SCI-INV-007",
+      "text": "Execution topology (1 core, N cores, machine) cannot alter the scientific projection."
+    },
+    {
+      "id": "SCI-INV-008",
+      "text": "AI/interpretation can propose but cannot certify or silently mutate exact science."
+    },
+    {
+      "id": "SCI-INV-009",
+      "text": "Theorem/Law transport and novelty scanning are distinct operations."
+    },
+    {
+      "id": "SCI-INV-010",
+      "text": "PrimitiveSemanticsSentinel and RegimeBoundarySentinel answer different questions."
+    },
+    {
+      "id": "SCI-INV-011",
+      "text": "Historical L/O labels remain provenance aliases, not architecture types."
+    },
+    {
+      "id": "SCI-INV-012",
+      "text": "Legacy Scout/OScout outputs remain scientific oracles until generic interfaces reproduce them."
+    }
+  ],
+  "schema_id": "IG_DECODER_SCIENTIFIC_ARCHITECTURE_INVARIANTS_V1",
+  "schema_version": "1.0.0",
+  "status": "FROZEN_SPEC_V1"
+}

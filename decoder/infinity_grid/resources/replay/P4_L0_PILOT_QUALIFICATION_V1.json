@@ -1,0 +1,86 @@
+{
+  "schema_id": "IG_P4_L0_PILOT_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev52+lib",
+  "date": "2026-09-22",
+  "status": "PASS_IMPLEMENTATION_AND_HARNESS__CAPTURE_BLOCKED",
+  "p4_implementation_complete": true,
+  "p4_plan_acceptance_complete": false,
+  "recorded_controller_attempt_executed": false,
+  "blocker": "CAPTURE_REQUIRED",
+  "shared_pointer_advanced": false,
+  "automatic_harness_result": {
+    "outcome": "L0_PILOT_COMPLETE",
+    "source_integrity_nodes_executed": 4,
+    "fresh_empty_root_science_node_count": 0,
+    "science_executed": false,
+    "reference_record_count": 20,
+    "next_node_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE"
+  },
+  "injected_harness_result": {
+    "completed_source_integrity_nodes": 1,
+    "stopped_node_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+    "stop_outcome": "RESULT_MISMATCH",
+    "disposition": "WAITING_FOR_EXTERNAL_AUDIT",
+    "cold_restore_byte_stable": true
+  },
+  "implementation_pins": [
+    {
+      "ref": "infinity_grid/replay_l0_executor.py",
+      "sha256": "151905302fb370c0aa2deda154be6d511a14e6d4814675bcafdf5e92279fa6a1"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "5c84056d4275d73f98d903599c987f1a40f5214a6359ee8674cc122bb28d137b"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P4_L0_PILOT_REGISTRATION_PROFILE_V1.json",
+      "sha256": "31dc8e275ab1808dd26ff831b28041693e1c862ce28112cf9ad6456fb7c4c8a3"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P4_L0_PILOT_RUNTIME_HARNESS_RESULT_V1.json",
+      "sha256": "81b8c477add69e8e858db53a52579022eaa60cf7f8ed08c9f0b8eedece10ab30"
+    },
+    {
+      "ref": "tests/test_p4_l0_pilot.py",
+      "sha256": "50af5aa8dfdd0a0f4e9a3e588f39756417f4320d22cca16bbbaa0fc363533d63"
+    }
+  ],
+  "qualification": {
+    "focused": {
+      "passed": 10,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P4_L0_PILOT_FOCUSED_JUNIT.xml",
+      "junit_sha256": "96e38cbf6bcdaa28fdade06f9ff8dfe1a6fd5978b9de7f5849ba8fc884ecaabd"
+    },
+    "p1_p2_p3_p4_replay_regression": {
+      "passed": 112,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P4_P1_P2_P3_REPLAY_REGRESSION_JUNIT.xml",
+      "junit_sha256": "33d52bf4df7f88294c80a7b780e285dfc8651b8d12e1ce84a30458484c65b723"
+    },
+    "portable_r02": {
+      "passed": 340,
+      "skipped": 1,
+      "failed": 0,
+      "junit_ref": "qualification_evidence/P4_PORTABLE_R02_JUNIT.xml",
+      "junit_sha256": "01e248639f9a2eaad4156b3e1ccd6771c60f1855e21d5d538eded15d45fcde58"
+    },
+    "capture_diagnostic": {
+      "passed": 15,
+      "failed": 1,
+      "failure": "CAPTURE_REQUIRED",
+      "junit_ref": "qualification_evidence/P4_VERSION_AND_CAPTURE_DIAGNOSTIC_JUNIT.xml",
+      "junit_sha256": "0994724428a01699621087f5c3b118d3923e9a99cebcd27e436f71eb43e51082"
+    }
+  },
+  "nonclaims": [
+    "The runtime qualification harness is not a recorded production controller attempt.",
+    "The current L0 obligations are SOURCE_INTEGRITY_ONLY and do not count as fresh empty-root scientific recomputation.",
+    "No fresh J3 census was executed.",
+    "No C0 or later-layer obligation was executed.",
+    "No audit authority was created by the Decoder.",
+    "GLOBAL remains unauthorized.",
+    "P4 plan acceptance remains open until the registered profile completes under a real saved capture."
+  ],
+  "next_step": "CREATE_OR_RESTORE_VALID_DECODER_CAPTURE_AND_RUN_REGISTERED_P4_PROFILE"
+}

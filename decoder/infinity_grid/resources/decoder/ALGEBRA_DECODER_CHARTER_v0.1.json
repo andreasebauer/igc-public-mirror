@@ -1,0 +1,38 @@
+{
+  "core_principles": [
+    "A scientific dependency is identified by content identity and typed role, never by filesystem path.",
+    "A run is a computation DAG plus frozen recipe, not a directory.",
+    "Computation dependencies and evidence/claim dependencies are distinct graphs.",
+    "Irreplaceable roots are pinned; derived artifacts are rebuildable; checkpoints are disposable unless explicitly promoted to cache.",
+    "Deletion eligibility is determined by exact reconstructability plus retention policy, not by age or folder membership.",
+    "The graph catalogue is rebuildable from immutable graph records and object-store metadata; SQLite is an index, not sole truth.",
+    "Replay is fail-closed on missing, ambiguous, hash-mismatched, version-mismatched, or authority-incompatible dependencies.",
+    "Historical paths may be stored as provenance hints but never as dependency identities.",
+    "Evidence edges cannot be inferred from computation edges; claim support must be explicit and protocol-authorized.",
+    "No garbage collection may delete a node required by any pinned root, certified run, exported publication, or earned claim closure."
+  ],
+  "name": "Infinity Grid Algebra Decoder",
+  "non_goals": [
+    "change algebra semantics",
+    "change protocol semantics",
+    "upgrade evidence authority",
+    "make Scout or OScout claims",
+    "infer missing historical results",
+    "replace formal graduation programmes"
+  ],
+  "purpose": "Path-independent reproduction, evidence tracing, minimal preservation, and publication export for the Infinity Grid research programme.",
+  "schema_id": "IG_ALGEBRA_DECODER_CHARTER_V0_1",
+  "status": "FROZEN_PHASE0",
+  "subsystems": [
+    "Unified Runtime",
+    "Content-Addressed Store",
+    "Reproducibility Graph",
+    "Evidence Graph",
+    "Catalogue/Index",
+    "Protocol Registry",
+    "Scout Conveyor",
+    "Release/Publication Exporter"
+  ],
+  "user_facing_system": "Infinity Grid Algebra Decoder",
+  "version": "0.1"
+}

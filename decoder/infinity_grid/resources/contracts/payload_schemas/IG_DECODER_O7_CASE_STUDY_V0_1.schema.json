@@ -1,0 +1,55 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_DECODER_O7_CASE_STUDY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "known_available_roots_or_candidates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "known_missing_from_compact_closeout": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mandatory_certification_debts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "no_assumption": {
+      "type": "string"
+    },
+    "phase0_decision": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_DECODER_O7_CASE_STUDY_V0_1",
+      "type": "string"
+    },
+    "scientific_scope_from_postrun_review": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "known_available_roots_or_candidates",
+    "known_missing_from_compact_closeout",
+    "mandatory_certification_debts",
+    "no_assumption",
+    "phase0_decision",
+    "schema",
+    "scientific_scope_from_postrun_review",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_DECODER_O7_CASE_STUDY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

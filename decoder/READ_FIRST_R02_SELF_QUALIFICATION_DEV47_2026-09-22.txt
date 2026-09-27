@@ -1,0 +1,83 @@
+INFINITY GRID DECODER 0.8lib — R02 REPLAY SELF-QUALIFICATION
+DEV47 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PORTABLE_R02_CORE_PASS
+FULL_R02_NOT_COMPLETE
+NO_PRODUCTION_REGRESSION_FOUND
+22_NONPORTABLE_GAPS_EXPLICITLY_RECORDED
+P2_MUST_NOT_ASSUME_FULL_R02
+SCIENCE_AUTHORITY_UNCHANGED
+SHARED_POINTER_UNCHANGED
+
+1. RESULT
+
+The curated portable controller/C6/preservation qualification is green:
+
+  340 passed
+    1 skipped (the fixture interpreter matches this environment)
+    3 current-workspace checks deselected
+
+The restored dev33 registered-workspace archives pass at their portable
+evidence boundary:
+
+    9 passed
+    4 source-mismatched positive execution cases deselected
+
+The P1 compiler regression suite remains green:
+
+   57 passed
+
+"PASS" here means reproduced under the recorded dev47 boundary. It does not
+mean independently confirmed scientific correctness.
+
+2. WHY FULL R02 IS NOT CLAIMED
+
+Twenty-two nodes need evidence that is unavailable or intentionally
+incompatible in this portable workspace:
+
+  10  historical step2 parent snapshot fixture
+   1  offline setuptools/build dependency
+   3  saved current-validation workspace
+   4  saved representative qualification
+   4  dev33 positive execution under dev47 loaded code
+
+Every node is named in
+infinity_grid/resources/replay/R02_REPLAY_SELF_QUALIFICATION_MANIFEST_V1.json.
+The four dev33 execution cases fail closed with
+WORKSPACE_LOADED_CODE_MISMATCH; this is correct controller behavior, not a
+production regression.
+
+3. DIAGNOSTIC HISTORY
+
+The first raw broad run produced 307 passed, 1 skipped, 51 failed and 14
+errors. A source-local .venv symlink and absent capture context made that run
+invalid as qualification evidence. The generated symlink environment was
+quarantined outside the source tree.
+
+After correcting the test infrastructure and stale version assertions, the
+raw diagnostic produced 341 passed, 1 skipped, 17 failed and 14 errors. Those
+31 outcomes reduce to the named historical/current fixture and build-tool
+gaps. Direct historical stage execution was not reclassified as portable.
+
+4. EVIDENCE
+
+qualification_evidence/R02_PORTABLE_CORE_JUNIT.xml
+qualification_evidence/R02_DEV33_ARCHIVE_COMPAT_JUNIT.xml
+qualification_evidence/R02_P1_COMPILER_REGRESSION.txt
+infinity_grid/resources/replay/R02_REPLAY_SELF_QUALIFICATION_MANIFEST_V1.json
+
+The three recovered dev33 archives are pinned by SHA-256 in the manifest.
+The temporary qualification capture remains SAVE_REQUIRED and is explicitly
+NON_AUTHORITATIVE_FIXTURE_ACCESS_ONLY.
+
+5. AUTHORITY AND NEXT STEP
+
+This step changes no science result, audit decision, replay authorization or
+shared pointer. It resolves the broad-suite ambiguity by separating a passing
+portable R02 core from 22 named nonportable requirements.
+
+Before P2 can rely on a full-R02 claim, matching saved dev47 fixtures and an
+offline build dependency must close those requirements. The planned H1-H13
+semantic spot-check may proceed as a separate evidence review, but it must not
+erase or bypass this R02 boundary.

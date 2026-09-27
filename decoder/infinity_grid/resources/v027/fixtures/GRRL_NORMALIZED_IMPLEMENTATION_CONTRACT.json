@@ -1,0 +1,37 @@
+{
+  "forbidden_features_present": {
+    "ancestry_provenance_read": false,
+    "copying": false,
+    "deletion": false,
+    "endpoint_replacement": false,
+    "feedback": false,
+    "hidden_topology_read": false,
+    "multiway": false,
+    "orientation_order_read": false,
+    "retagging": false,
+    "rewiring": false
+  },
+  "grrl_application_gate_sha256": "81fe94531bc274cab2e8bea96dd6e12e5a073786f9f3d1cdfa157ecb7d838d8c",
+  "hidden_reads": [],
+  "native_semantics_baseline_sha256": "2ca50e140b5aa1d8ad0de3d05d81c5047b4a29482fb10a98b7819b423519450a",
+  "native_semantics_science_sha256": "dce478f44fb07521abffceaeb3cd82b52a13337dac119d6a1045fa4527da8a71",
+  "normalized_grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+  "ownership_scope": "DISTINCT_TOP_OWNER_OCCURRENCES",
+  "rank_lift_effect": "LOCAL_P_F_INCREMENT_OWNERSHIP_PRESERVED",
+  "read_set": [
+    "Bridge",
+    "hierarchical_occurrence_structure",
+    "multiplicity",
+    "scope",
+    "typed_p_f"
+  ],
+  "relation_arity": 2,
+  "relation_effect": "MONOTONE_ADD_ONLY",
+  "reservation_effect": "ONE_TYPED_ENDPOINT_PER_SIDE",
+  "schema": "IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V2",
+  "successor_semantics": "COUNTER",
+  "writes": [
+    "hidden_outer_incidence",
+    "visible_p_f_reservation"
+  ]
+}

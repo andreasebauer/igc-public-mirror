@@ -1,0 +1,27 @@
+{
+  "active_axes": {
+    "C": "candidate/reconnaissance",
+    "R": "post-graduation recursive depth",
+    "S": "structural uplift derivation"
+  },
+  "current_status": {
+    "G1": "EARNED",
+    "G1_recursive_validation": "R100_REEARNED_UNDER_REPAIRED_DECODER",
+    "G2": "NOT_EARNED",
+    "G2_reconnaissance_last": "G2:C103",
+    "G2_structural_next": "G2:S0"
+  },
+  "date": "2026-09-02",
+  "legacy_rules": {
+    "O7": "G1_EARNED_ANCHOR",
+    "O8_O100": "G1:R8-G1:R100"
+  },
+  "nonclaims": [
+    "G2:C0-C103 are reconnaissance only",
+    "G2:S0-S6 do not imply G2 graduation",
+    "G2:Rn is illegal before a G2 graduation certificate"
+  ],
+  "schema_id": "IG_G_UPLIFT_NOMENCLATURE_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "9ef011cab9e197f6964c3dc4c8d1c79f8c3673c4280c348accd3960b62608926"
+}

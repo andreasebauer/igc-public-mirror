@@ -1,0 +1,150 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_rule": {
+      "type": "string"
+    },
+    "assertions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "equals": {
+            "type": [
+              "boolean",
+              "integer",
+              "string"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "pointer": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "equals",
+          "file",
+          "pointer"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_sha256": {
+          "type": "string"
+        },
+        "decoder_version": {
+          "type": "string"
+        },
+        "executable_source_sha256": {
+          "type": "string"
+        },
+        "gate1_decoder_version": {
+          "type": "string"
+        },
+        "gate1_source_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "archive_sha256",
+        "decoder_version",
+        "executable_source_sha256",
+        "gate1_decoder_version",
+        "gate1_source_sha256"
+      ],
+      "type": "object"
+    },
+    "corpus_files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "canonical_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "canonical_sha256",
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "oracle_sha256": {
+      "type": "string"
+    },
+    "oracle_version": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1",
+      "type": "string"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration": {
+          "type": "string"
+        },
+        "determinism": {
+          "type": "string"
+        },
+        "low_level": {
+          "type": "string"
+        },
+        "o_levels": {
+          "type": "string"
+        },
+        "semantic_delta": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "calibration",
+        "determinism",
+        "low_level",
+        "o_levels",
+        "semantic_delta"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acceptance_rule",
+    "assertions",
+    "baseline",
+    "corpus_files",
+    "oracle_sha256",
+    "oracle_version",
+    "schema_id",
+    "scope",
+    "status"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

@@ -1,0 +1,111 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "default": {
+      "type": "string"
+    },
+    "execution": {
+      "additionalProperties": false,
+      "properties": {
+        "O10_run": {
+          "type": "boolean"
+        },
+        "O11_run": {
+          "type": "boolean"
+        },
+        "O12_run": {
+          "type": "boolean"
+        },
+        "first_recommended_probe": {
+          "type": "string"
+        },
+        "first_use_existing_data": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O10_run",
+        "O11_run",
+        "O12_run",
+        "first_recommended_probe",
+        "first_use_existing_data",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "execution_rule": {
+      "type": "string"
+    },
+    "probe_families": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "positive": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "question": {
+            "type": "string"
+          },
+          "stop": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "method",
+          "positive",
+          "priority",
+          "question"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "shared_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "default",
+    "execution_rule",
+    "probe_families",
+    "schema",
+    "shared_requirements",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

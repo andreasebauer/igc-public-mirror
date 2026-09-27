@@ -1,0 +1,225 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "as_of_utc": {
+      "type": "string"
+    },
+    "authority_class": {
+      "type": "string"
+    },
+    "canonical_code": {
+      "additionalProperties": false,
+      "properties": {
+        "decoder_version": {
+          "type": "string"
+        },
+        "oracle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "parent_source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "parent_version": {
+          "type": "string"
+        },
+        "release_id": {
+          "type": "string"
+        },
+        "semantic_delta": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "v027_contract_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "decoder_version",
+        "oracle_sha256",
+        "parent_source_sha256",
+        "parent_version",
+        "release_id",
+        "semantic_delta",
+        "source_sha256",
+        "v027_contract_registry_sha256"
+      ],
+      "type": "object"
+    },
+    "gate_status": {
+      "additionalProperties": false,
+      "properties": {
+        "del_001_v0_27_semantic_integration": {
+          "type": "string"
+        },
+        "det_001_determinism": {
+          "type": "string"
+        },
+        "gate_0_baseline_freeze": {
+          "type": "string"
+        },
+        "gate_1_machine_contracts": {
+          "type": "string"
+        },
+        "gate_2_v0_26_oracle": {
+          "type": "string"
+        },
+        "gate_3_arc001_pure_core": {
+          "type": "string"
+        },
+        "mig_001_compatibility_spec": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "del_001_v0_27_semantic_integration",
+        "det_001_determinism",
+        "gate_0_baseline_freeze",
+        "gate_1_machine_contracts",
+        "gate_2_v0_26_oracle",
+        "gate_3_arc001_pure_core",
+        "mig_001_compatibility_spec"
+      ],
+      "type": "object"
+    },
+    "hard_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operational_snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "active_runs": {
+          "items": {},
+          "type": "array"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "active_runs",
+        "freshness",
+        "rule"
+      ],
+      "type": "object"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_DECODER_CURRENT_STATE_V5",
+      "type": "string"
+    },
+    "scientific_status": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_reopen_mode": {
+          "type": "string"
+        },
+        "frozen_v026_oracle": {
+          "type": "string"
+        },
+        "normal_transport_mode": {
+          "type": "string"
+        },
+        "o_regime_authority_pack_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "phase8_seed_bytes_present": {
+          "type": "boolean"
+        },
+        "phase8_seed_expected_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "exact_reopen_mode",
+        "frozen_v026_oracle",
+        "normal_transport_mode",
+        "o_regime_authority_pack_sha256",
+        "phase8_seed_bytes_present",
+        "phase8_seed_expected_sha256"
+      ],
+      "type": "object"
+    },
+    "semantic_authority": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_reopen": {
+          "type": "string"
+        },
+        "fixed_grammar_transport": {
+          "type": "string"
+        },
+        "native_semantics_baseline_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "native_semantics_science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "native_semantics_status": {
+          "type": "string"
+        },
+        "theorem_premise_science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "theorem_premise_status": {
+          "type": "string"
+        },
+        "theorem_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "exact_reopen",
+        "fixed_grammar_transport",
+        "native_semantics_baseline_sha256",
+        "native_semantics_science_sha256",
+        "native_semantics_status",
+        "theorem_premise_science_sha256",
+        "theorem_premise_status",
+        "theorem_registry_sha256"
+      ],
+      "type": "object"
+    },
+    "state_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "as_of_utc",
+    "authority_class",
+    "canonical_code",
+    "gate_status",
+    "hard_rules",
+    "operational_snapshot",
+    "purpose",
+    "schema_id",
+    "scientific_status",
+    "semantic_authority",
+    "state_sha256",
+    "state_version"
+  ],
+  "type": "object"
+}

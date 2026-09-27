@@ -1,0 +1,188 @@
+{
+  "authority": {
+    "G6:S0": {
+      "commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+      "outcome": "PASS_INTERFACE_AND_BASIS_FROZEN",
+      "science_sha256": "5fadf5d30fa7eec0243c421d309a6e9f872fd76ac86b76321c46f72879aff2e5"
+    },
+    "G6:S1": {
+      "commit_sha256": "d384733310698e2540642bc535c6650cea620573ec35156aa59403f51b215a8d",
+      "outcome": "SEPARATOR_FOUND",
+      "science_sha256": "53cb0bb7c79614dfac2ad2c7bf75a25ef3c8ec022ab5921ab7c018a878f3c210"
+    },
+    "G6:S1R": {
+      "commit_sha256": "411444399f52c8d88d068ae476f841afbba8a0c01635afc12bc7503ab70a5811",
+      "exact_s1_child_universe_count": 4520,
+      "exact_s1_child_universe_sha256": "2c1ffee315adada202ec472acb06f9fef9871ebbb273075b0dd0ef2a7d523f30",
+      "outcome": "PASS_ROOTED_OWNER_RESPONSE_BAG_EXPANDED_UNIVERSE",
+      "science_sha256": "20d53753244fd41506d139adb93be046667fa45a631abc7bbcaaa9f141615930"
+    },
+    "G6:S2R": {
+      "commit_sha256": "98775b0e2e8902a1514aa1340f5f4969c131fa1a857f16602c418983bccbe27e",
+      "exact_s1_child_universe_count": 4520,
+      "exact_s1_child_universe_sha256": "2c1ffee315adada202ec472acb06f9fef9871ebbb273075b0dd0ef2a7d523f30",
+      "outcome": "PASS_DISCRETE_KERNEL_L1",
+      "science_sha256": "bc3cbcee98d74a82e021d35b831b9bea8a50d7963ea5d785c6de54a2927a4235",
+      "separating_context": {
+        "operator": [
+          0,
+          0
+        ],
+        "position": "LEFT",
+        "probe_ref": "D2_PATH"
+      }
+    }
+  },
+  "date": "2026-09-07",
+  "decoder_release": "v0.5 / 0.50",
+  "frozen_question": "Does the same ordinary D2_PATH/(0,0)/LEFT exact relation response that separated all 4,520 S1 states remain separating on a fresh, higher three-atom G6 panel generated after S2R? If not, do the preregistered larger one-step observers separate the collisions, or does a nontrivial higher behavior quotient remain?",
+  "higher_panel": {
+    "axis_A_complete_00_motifs": {
+      "bracketings": [
+        "LEFT_ASSOC",
+        "RIGHT_ASSOC"
+      ],
+      "description": "Complete fixed-(0,0),(0,0) three-atom family over all ordered triples of the four S0 basis carriers and both binary bracketings; enumerate every exact final outcome and deduplicate structurally.",
+      "motif_context_count": 128,
+      "operator_pair": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ordered_triples": 64
+    },
+    "axis_B_adversarial_h4": {
+      "contexts": [
+        {
+          "operator": [
+            0,
+            0
+          ],
+          "position": "LEFT",
+          "probe_ref": "D2_PATH"
+        },
+        {
+          "operator": [
+            0,
+            1
+          ],
+          "position": "LEFT",
+          "probe_ref": "D2_PATH"
+        },
+        {
+          "operator": [
+            1,
+            0
+          ],
+          "position": "RIGHT",
+          "probe_ref": "D2_PATH"
+        },
+        {
+          "operator": [
+            2,
+            4
+          ],
+          "position": "LEFT",
+          "probe_ref": "D4_PATH"
+        }
+      ],
+      "description": "Deterministic disjoint-from-S2-independent-sample stress panel: select the 128 S1 exact states with lexicographically largest exact-canon SHA-256 and enumerate every exact child under four frozen ordinary continuations.",
+      "relation_context_count": 512,
+      "sample_rule": "128 S1 exact states with lexicographically largest SHA-256 of exact structural canon; S2R independent verification used lexicographically smallest 128.",
+      "sample_size": 128
+    },
+    "union_rule": "Union all exact outcomes from axes A and B, deduplicate by full exact unrooted structural canon, and require every resulting carrier to be outside the certified S1 universe."
+  },
+  "independent_verification": {
+    "method": "Independent manual cross-edge construction plus independent unrooted canon for every context actually used by the selected observer level.",
+    "required": true,
+    "sample_rule": "128 fresh higher states with lexicographically smallest exact-canon SHA-256.",
+    "sample_size": 128
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G6_MINIMALITY",
+    "NO_GLOBAL_SINGLE_CONTEXT_THEOREM",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_G6_GRADUATION",
+    "NO_AUTOMATIC_RESUME_OF_OLD_S3_OR_S4"
+  ],
+  "observer_ladder": [
+    {
+      "contexts": [
+        {
+          "operator": [
+            0,
+            0
+          ],
+          "position": "LEFT",
+          "probe_ref": "D2_PATH"
+        }
+      ],
+      "level": "L1_S2R_CONTEXT"
+    },
+    {
+      "contexts": "D2_PATH x all 31 frozen operators x LEFT/RIGHT; includes L1",
+      "expected_total_contexts": 62,
+      "level": "L2_SINGLE_PROBE_FULL_OPERATOR"
+    },
+    {
+      "contexts": "all four S0 probes x all 31 frozen operators x LEFT/RIGHT; includes L2",
+      "expected_total_contexts": 248,
+      "level": "L3_FULL_ONE_STEP_OBSERVER"
+    }
+  ],
+  "promotion_constraints": [
+    "No S3R result promotes C3, the L1 response, hidden topology/canon, or any new public descriptor.",
+    "No S3R result graduates G6.",
+    "A discrete higher kernel is scoped evidence on the frozen higher panel only.",
+    "A nontrivial L3 quotient is candidate-only input for a newly frozen S4/review branch.",
+    "G5 authority remains unchanged."
+  ],
+  "purpose": "Challenge the scoped G6:S2R single-context separation result on genuinely new three-atom/higher G6 carriers before any descriptor promotion or S4 closure claim.",
+  "question_sha256": "81ce239357512b07ba42d126cc8b42661c08f1f242b3db02aa24a2e16f3f1563",
+  "registered_outcomes": [
+    "PASS_HIGHER_DISCRETE_KERNEL_L1",
+    "PASS_HIGHER_DISCRETE_KERNEL_L2",
+    "PASS_HIGHER_DISCRETE_KERNEL_L3",
+    "PASS_HIGHER_NONTRIVIAL_ONE_STEP_QUOTIENT",
+    "GENERATION_BUDGET_INSUFFICIENT",
+    "OBSERVER_BUDGET_INSUFFICIENT",
+    "INDEPENDENT_VERIFICATION_FAILED"
+  ],
+  "resource_budget": {
+    "max_generation_relation_contexts": 1000,
+    "max_higher_exact_states": 50000,
+    "max_independent_relation_evaluations": 40000,
+    "max_primary_observer_relation_evaluations": 1200000,
+    "wall_seconds": 10800,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_S3_REPAIRED_PREREGISTRATION_V1",
+  "stage_id": "G6:S3R",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "regenerated S1 universe mismatch",
+    "higher-panel generation exceeds registered budget",
+    "freshness failure: any higher-panel state is already in S1 universe",
+    "unregistered scientific assumption/context required",
+    "observer budget exhausted",
+    "independent verification failure",
+    "first observer level yielding a discrete partition",
+    "completion of L3 with a nontrivial partition"
+  ],
+  "test_protocol": {
+    "checkpointing": "Generation and observer evaluations are durably sharded; existing hash-bound shards are reused on exact resume only.",
+    "collision_evidence": "Preserve exact structural witness pairs and their complete response sets for the first surviving collision at each nonterminal level.",
+    "decision_equality": "Full canonical structural tuples only; SHA-256 may index states, freeze samples, and bind evidence but never decides scientific equality.",
+    "generation": "Enumerate complete exact relation outcomes for every registered higher-panel generation context, then structurally deduplicate.",
+    "monotonicity": "If L1 or L2 is injective, every registered superset observer is injective on the same frozen higher universe.",
+    "partition_refinement": "Evaluate the observer ladder only on states still in non-singleton response classes; stop at the first discrete partition."
+  }
+}

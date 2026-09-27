@@ -1,0 +1,30 @@
+{
+  "schema_id": "IG_RUN_PLAN_V2",
+  "schema_version": "2.0.0",
+  "plan_id": "IG_RUN_PLAN_O7_GENERIC_PROTOCOL_COMPAT_O7_O13",
+  "entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "start": {
+    "entity_or_state_ref": "O7_SOURCE_AUTHORITY_SEED",
+    "regime_depth": 7
+  },
+  "development_budget": {
+    "max_depth": 13,
+    "max_steps": null,
+    "resource_budget_ref": null
+  },
+  "selected_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0"
+  ],
+  "selected_test_refs": [],
+  "test_cadence_policy": "Execute the frozen generic compatibility TestPack at every completed depth O7..O13.",
+  "novelty_trigger_policy": "RegimeBoundarySentinel is recognition-only and cannot mutate development semantics.",
+  "plateau_policy_ref": "IG_O7_REGIME_PLATEAU_TEMPLATE_COMPAT",
+  "lift_policy_ref": "SEPARATE_LIFT_REQUIRED_NO_AUTOMATIC_PROMOTION",
+  "exact_reopen_policy": "FAIL_CLOSED_TARGETED_EXACT_REOPEN_ON_PREMISE_OR_COUNTEREXAMPLE_TRIGGER",
+  "execution_policy_ref": "existing v0.27 execution backend policy",
+  "storage_retention_policy_ref": "content-addressed evidence + compact checkpoints + exact scientific provenance",
+  "stopping_rule": "Stop on fail-closed semantic/theorem reopen, explicit budget, or operator stop; this compatibility run never certifies plateau or lift.",
+  "compile_target": "EXISTING_CONTROLLER_EXECUTION_TASK_INFRASTRUCTURE",
+  "legacy_execution_plan_preserved": true
+}

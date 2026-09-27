@@ -1,0 +1,88 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_rebuild": {
+      "type": "string"
+    },
+    "controller_checkpoint": {
+      "type": "string"
+    },
+    "corruption": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "automatic_delete": {
+          "type": "boolean"
+        },
+        "automatic_recompute": {
+          "type": "boolean"
+        },
+        "repair": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "automatic_delete",
+        "automatic_recompute",
+        "repair"
+      ],
+      "type": "object"
+    },
+    "crash_recovery": {
+      "additionalProperties": false,
+      "properties": {
+        "live_lock": {
+          "type": "string"
+        },
+        "missing_heartbeat": {
+          "type": "string"
+        },
+        "same_host_dead_pid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "live_lock",
+        "missing_heartbeat",
+        "same_host_dead_pid"
+      ],
+      "type": "object"
+    },
+    "reuse": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "stale_downstream": {
+      "type": "string"
+    },
+    "wide_chunk_checkpoints": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "chain_rebuild",
+    "controller_checkpoint",
+    "corruption",
+    "crash_recovery",
+    "reuse",
+    "schema_id",
+    "spec_sha256",
+    "stale_downstream",
+    "wide_chunk_checkpoints"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

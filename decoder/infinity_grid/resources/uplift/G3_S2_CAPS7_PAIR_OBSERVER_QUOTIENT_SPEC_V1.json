@@ -1,0 +1,63 @@
+{
+  "authority": {
+    "g3_s0_classification": "G3_BASELINE_UNIT_INTERFACE_FROZEN_CAPS7_ONLY_TOPOLOGY_COLLISION_CORPUS_EARNED_S1_UNLOCKED",
+    "g3_s0_science_sha256": "42832d682c1e0175f6f7c02eff6047f9ba8bf2a165c6017d8f4776166e766199",
+    "g3_s1_classification": "G3_TOPOLOGY_NOT_READ_ON_REGISTERED_PAIR_CONTEXT_BASIS_CAPS7_SURVIVES_S2_UNLOCKED",
+    "g3_s1_outcome": "TOPOLOGY_NOT_READ",
+    "g3_s1_science_sha256": "0d4ab3493930ac1b0b3b29deaca52496ffacf30484d3742e8b4e54c7d4937e7c",
+    "required_g3_graduated": false,
+    "required_s1_s2_unlocked": true,
+    "required_s1_task_count": 2232,
+    "required_topology_promoted": false
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "PASS": "All 62 public pair-context keys are representative-independent across all 36 exact target/context pairs, the CAPS7 collision class equals the operational observer kernel on the frozen domain, and no added read is required. Unlock S3.",
+    "REVIEW_REQUIRED": "Any public pair-context key contains multiple operational observer values, any S1 evidence/authority mismatch occurs, or the observer-kernel/CAPS7 partitions disagree. Lock S3 and do not promote a descriptor post hoc."
+  },
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "COLD_REPLAY_RERUNS_SAME_REGISTERED_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_OR_SIGNATURE_INDEX_MISMATCH",
+    "NO_POST_HOC_OBSERVER_CHANGE",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE"
+  ],
+  "input_evidence": {
+    "expected_exact_pair_rows": 2232,
+    "expected_public_context_keys": 62,
+    "expected_representatives_per_public_context_key": 36,
+    "s0_challenge_domain": "all six exact four-G1-unit G2 carriers from certified G3:S0",
+    "s1_context_basis": "6 targets x 6 contexts x 31 bridge operators x 2 orientations",
+    "s1_signature_index_schema": "IG_G3_S1_PAIR_CONTEXT_SIGNATURE_INDEX_V1"
+  },
+  "nonclaims": [
+    "NO_GLOBAL_CAPS7_MINIMALITY",
+    "NO_UNBOUNDED_G3_FUTURE_EQUIVALENCE",
+    "NO_G3_COMPOSITION_CLOSURE",
+    "NO_G3_FINITE_DESCRIPTOR_BEYOND_TESTED_PAIR_OBSERVER",
+    "NO_TOPOLOGY_ERASURE_FROM_EXACT_G2_STRUCTURE",
+    "NO_G3_GRADUATION",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "pass_effect": "Certify the CAPS7 collision class as an exact quotient for the frozen G3 pair observer and unlock G3:S3 only. No topology descriptor is promoted.",
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "question": "On the complete frozen G3:S0 collision corpus and the complete registered G3:S1 pair-context evidence, does the operational pair observer factor exactly through inherited CAPS7 with no additional relabel-invariant topology read?",
+  "quotient_rule": {
+    "exact_congruence_gate": "For every public pair-context key, all exact representative pairs must have one and only one observer value.",
+    "observer_kernel_gate": "On the frozen S0 collision domain, the CAPS7 partition and the operational target-behavior kernel must coincide.",
+    "observer_value": "complete G3:S1 operational_signature science_sha256, preserving relation cardinality and branch-profile multiplicity",
+    "public_pair_context_key": "(target_CAPS7, context_CAPS7, bridge_operator, orientation)",
+    "public_unit_key": "inherited IG_G2_CAPS7_STATE_V1 science_sha256 only",
+    "topology_usage": "Topology labels may be used only after quotient construction as a diagnostic that distinct hidden topologies occur inside the same certified public class."
+  },
+  "schema_id": "IG_G3_S2_CAPS7_PAIR_OBSERVER_QUOTIENT_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "02610d9c5d0fa1d147bbe98eb68b8706ba762439faa78ba09ecde03c58a6b704",
+  "stage_ref": "G3:S2",
+  "status": "FROZEN_BEFORE_G3_S2_EXECUTION"
+}

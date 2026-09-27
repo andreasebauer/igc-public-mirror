@@ -1,0 +1,87 @@
+{
+  "acceptance": {
+    "evidence_scope": "O4 exact certified result only",
+    "expected_hashes": {
+      "O4_EXACT_RESULT": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    "expected_invariants": {
+      "target_result_sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    "fail_closed_conditions": [
+      "source mismatch",
+      "runtime mismatch",
+      "root archive mismatch",
+      "command failure",
+      "missing output",
+      "output SHA mismatch"
+    ]
+  },
+  "canonicalization": {
+    "version": "IG_CANONICAL_JSON_V1"
+  },
+  "created_utc": "2026-08-30T02:50:07.085953+00:00",
+  "environment_ref": "environment:sha256:fbc50d01ba79c2d7ded5ca438b14f8193bca08fa5e3ed6f85d2fe7585a9958b7",
+  "input_requirements": [
+    {
+      "accepted_node_types": [
+        "ARTIFACT"
+      ],
+      "exact_identity_or_constraint": {
+        "node_id": "artifact:sha256:5c2f56a57ff7921a7fe480db79d1f5e199e434cba2fc9bc4d48ca55bdf02593b"
+      },
+      "materialize_as": "inputs/root.zip",
+      "optional": false,
+      "resolution_policy": "EXACT_NODE",
+      "semantic_role": "ROOT_ARCHIVE"
+    }
+  ],
+  "outputs": [
+    {
+      "expected_sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+      "node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+      "relative_path": "outputs/O4_result.json",
+      "semantic_role": "O4_EXACT_RESULT"
+    }
+  ],
+  "producer": {
+    "entrypoint": "ARCHIVE_COMMAND_REPLAY",
+    "runtime_family": "INFINITY_GRID_DECODER",
+    "source_snapshot_ref": "source:sha256:b8950d3786c278df92b0fe03d17343d08f5856e43d98746ef20d588ea0b86461"
+  },
+  "protocol_ref": "protocol:sha256:0f4ca85444422bc1ff5643c5bfd3d00df1f71e9e2b971d8e6acd3ba265d54504",
+  "question_ref": "question:sha256:d0f647682315c97b68fd514194c1d2c9fd797d4374ceb753cbe0ede8c23eba05",
+  "recipe_id": "RECOVERY_V7_O4_EXACT_ARCHIVE_REPLAY",
+  "recipe_sha256": "03e09684f6c39fc70da551c9475dfbaebc99c339a803a4b5adaa987a83ef61d8",
+  "recipe_version": "1",
+  "replay_class": "EXACT_REPLAY",
+  "resource_policy": {
+    "offline": true,
+    "timeout_seconds": 600
+  },
+  "schema_id": "IG_REPLAY_RECIPE_V0_1",
+  "stages": [
+    {
+      "action": {
+        "archive_input_role": "ROOT_ARCHIVE",
+        "argv": [
+          "bash",
+          "02_CODE/RUN_REPRO.sh"
+        ],
+        "output_role": "O4_EXACT_RESULT",
+        "required_files": [
+          "03_RESULTS/O4_PHASE2_GRADUATION_AUDIT_RESULT.json"
+        ],
+        "result_relative_path": "03_RESULTS/O4_PHASE2_GRADUATION_AUDIT_RESULT.json",
+        "timeout_seconds": 600,
+        "type": "ARCHIVE_COMMAND_REPLAY"
+      },
+      "checkpoint_policy": "NONE",
+      "dependencies": [],
+      "determinism_contract": "BYTE_IDENTICAL",
+      "output_roles": [
+        "O4_EXACT_RESULT"
+      ],
+      "stage_id": "replay"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+DECODER 0.7 PROJECT MIGRATION, CONTINUATION, AND DRIVE SAVE
+=========================================================
+
+Read this before changing or resuming any project. These are administrative
+operations. They do not grant permission to change a scientific question,
+alter a result, rerun completed science, or advance a shared Decoder pointer.
+
+1. PROJECT-LOCAL ENGINE MIGRATION
+
+Use `python -m infinity_grid.project_migration COORDINATION_ROOT REQUEST.json`.
+
+The request must bind:
+- the exact project ID;
+- the current release head and historical engine object hash;
+- the target source archive, archive hash, source-tree hash, package hash;
+- a sealed candidate qualification record whose tests all PASS;
+- explicit operator authorization scoped to ONE_PROJECT_NO_SHARED_POINTER;
+- a non-empty reason.
+
+The command verifies the historical producer bytes and target bytes separately.
+It does not ask the old engine to parse a new policy. It appends one release
+event in that project only. It never edits history or changes a shared pointer.
+An exact retry is idempotent. A stale head, changed source, bad qualification,
+or missing authorization refuses.
+
+After migration, new captures use the new local release. Existing completion
+capsules remain tied to their own captured source and historical producer.
+Do not replace their producer identity with the migration target.
+
+2. INTERRUPTED CAMPAIGN CONTINUATION
+
+Use `infinity_grid.continuation` to seal the plan, construct and verify the
+completed prefix, then create a continuation record.
+
+The prefix must begin at action zero, contain no gaps or duplicates, and bind
+each completed action to its source, inputs, result, evidence role, evidence
+hash, and size. Only PAUSED or INTERRUPTED work may continue. FAILED and other
+terminal work refuses. The continuation selects exactly the missing suffix,
+uses a new capture/attempt output namespace, and enforces a cumulative byte
+budget across prior and future work. Exact retries reuse the same record;
+conflicting use of the same new attempt refuses.
+
+3. PRESERVATION-ONLY AMENDMENT
+
+Use `python -m infinity_grid.change_preservation` only for a pre-test capture
+paused by SAVE_BACKLOG_PAUSE. Only max_pending_bytes may increase. Source,
+question, inputs, execution, environment, result checks, and prior attempt
+bytes must remain exact. Reapplying the same amendment is idempotent.
+
+4. GOOGLE DRIVE SAVING
+
+Large connector transfers should be split instead of repeatedly retried whole.
+Use `python -m infinity_grid.chunked_save pack FILE PARTS_DIR` (16 MiB default).
+If the connector still rejects a part, repack at 8 MiB, then 4 MiB. Upload the
+manifest and parts. Download each part again into a clean readback directory.
+Use the `pending` command to upload/download only missing or invalid parts, and
+the `reconstruct` command to prove the downloaded parts recreate the original
+SHA-256 exactly. Never claim a Drive save from upload success alone.
+
+5. CHAT HANDOFF CHECKLIST
+
+- Work on a copy; never mutate the live historical fixture.
+- Record exact source, project, capture, attempt, and object hashes.
+- Keep old producer evidence separate from the new target qualification.
+- Preserve completed work and schedule only a verified missing suffix.
+- Save evidence in small chunks and verify raw downloads.
+- Stop for a scientific-scope change, corrupt evidence, history conflict,
+  spending decision, or shared-pointer change. Ordinary project-local repair
+  does not require inventing a new ownership barrier.

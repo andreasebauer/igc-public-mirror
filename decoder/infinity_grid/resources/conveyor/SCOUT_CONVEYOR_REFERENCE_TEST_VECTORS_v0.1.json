@@ -1,0 +1,365 @@
+{
+  "decision_cases": [
+    {
+      "expected": "AUTO_ADVANCE_AUTHORIZED",
+      "id": "normal_continue",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [],
+      "operator_stop": false,
+      "parent_eligible": true,
+      "scientific": [],
+      "target_level": 17
+    },
+    {
+      "expected": "COMPLETE_LIMIT_REACHED",
+      "id": "normal_limit",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [],
+      "operator_stop": false,
+      "parent_eligible": true,
+      "scientific": [],
+      "target_level": 20
+    },
+    {
+      "expected": "FAIL_CLOSED",
+      "id": "integrity_precedence",
+      "integrity": [
+        "I_NONDETERMINISTIC_REPLAY"
+      ],
+      "max_target_level": 20,
+      "operational": [
+        "O_STORAGE_BUDGET"
+      ],
+      "operator_stop": true,
+      "parent_eligible": false,
+      "scientific": [
+        "S_NEW_RELATION_OR_UNREGISTERED_TOKEN"
+      ],
+      "target_level": 17
+    },
+    {
+      "expected": "PAUSED_OPERATOR",
+      "id": "operator_pause",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [],
+      "operator_stop": true,
+      "parent_eligible": true,
+      "scientific": [],
+      "target_level": 17
+    },
+    {
+      "expected": "PAUSED_OPERATIONAL",
+      "id": "operational_pause",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [
+        "O_FREE_SPACE_RESERVE"
+      ],
+      "operator_stop": false,
+      "parent_eligible": true,
+      "scientific": [],
+      "target_level": 17
+    },
+    {
+      "expected": "PAUSED_SCIENTIFIC",
+      "id": "scientific_pause",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [],
+      "operator_stop": false,
+      "parent_eligible": true,
+      "scientific": [
+        "S_ENDPOINT_NO_LAWFUL_CHILDREN"
+      ],
+      "target_level": 17
+    },
+    {
+      "expected": "FAIL_CLOSED",
+      "id": "ineligible_parent",
+      "integrity": [],
+      "max_target_level": 20,
+      "operational": [],
+      "operator_stop": false,
+      "parent_eligible": false,
+      "scientific": [],
+      "target_level": 17
+    }
+  ],
+  "registered_recognition_tokens": [
+    "NONTRIVIAL_PARENT_FIBER_INCLUSION_ORDER",
+    "NONTRIVIAL_FORMAL_CONCEPT_STYLE_PAIR_CLOSURE",
+    "MEET_SKEWED_PARTIAL_CLOSURE_NONTRIVIAL_INTERSECTIONS_PRESENT",
+    "NONTRIVIAL_UNIONS_EXTREMELY_SPARSE",
+    "NO_INCOMPARABLE_FIBER_PAIR_WITH_BOTH_MEET_AND_JOIN_REALIZED",
+    "CYCLE_RICH_ABSTRACT_INCIDENCE_GRAPH_RECOGNITION_ONLY",
+    "INCLUSION_POSET_WIDTH_COMPUTED"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1",
+  "spec_sha256": "ddfea411331bfc5d6f129ca7156a923637408dffedabf492c55d52d6d9549147",
+  "trigger_cases": [
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_ENDPOINT_NO_LAWFUL_CHILDREN",
+        "S_ENDPOINT_NO_UNIQUE_CANDIDATES",
+        "S_LOW_CANDIDATE_SUPPORT",
+        "S_EMPTY_SELECTED_RELATION"
+      ],
+      "id": "endpoint_lawful",
+      "metrics": {
+        "lawful": 0,
+        "selected_union": 0,
+        "unique_candidates": 0
+      },
+      "parent": {
+        "max_parent_count": 16,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_LOW_CANDIDATE_SUPPORT"
+      ],
+      "id": "low_support",
+      "metrics": {
+        "lawful": 100,
+        "selected_max_parent_count": 2,
+        "selected_union": 200,
+        "unique_candidates": 200
+      },
+      "parent": {
+        "max_parent_count": 16,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [
+          "R_NEW"
+        ],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_NEW_RELATION_OR_UNREGISTERED_TOKEN"
+      ],
+      "id": "new_relation",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 4,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "max_parent_count": 3,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [
+          "R_PARENT_FIBER"
+        ],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_absent": [
+        "S_NEW_REVIEW_ESCALATION"
+      ],
+      "id": "inherited_review_not_trigger",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 18,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "escalated": [
+          "R_PARENT_FIBER"
+        ],
+        "max_parent_count": 16,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [
+          "R_PARENT_FIBER",
+          "R_PARTIAL_CLOSURE"
+        ],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_NEW_REVIEW_ESCALATION"
+      ],
+      "id": "new_review_trigger",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 18,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "escalated": [
+          "R_PARENT_FIBER"
+        ],
+        "max_parent_count": 16,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_PARENT_FIBER_COLLAPSE"
+      ],
+      "id": "fiber_collapse",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 1,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "max_parent_count": 16,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_EXACT_PAIRWISE_CLOSURE_CANDIDATE"
+      ],
+      "id": "closure_candidate",
+      "metrics": {
+        "distinct_fiber_pairs": 25,
+        "distinct_fiber_pairs_both_realized": 25,
+        "lawful": 1000,
+        "selected_max_parent_count": 4,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "max_parent_count": 4,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "depth_status": "RESOLVED",
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": []
+      },
+      "expected_contains": [
+        "S_DEPTH_MARKER_RESOLVED_OR_CHANGED"
+      ],
+      "id": "depth_resolved",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 4,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "max_parent_count": 4,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": []
+      }
+    },
+    {
+      "classification": {
+        "current_level_escalated_for_review": [],
+        "observed_or_new": [],
+        "persistent": [],
+        "unresolved": [
+          "R_LOCAL_DEPTH_REORGANIZATION"
+        ]
+      },
+      "expected_contains": [
+        "S_NEW_RELATION_OR_UNREGISTERED_TOKEN"
+      ],
+      "id": "unknown_token",
+      "metrics": {
+        "lawful": 1000,
+        "selected_max_parent_count": 4,
+        "selected_union": 800,
+        "unique_candidates": 1000
+      },
+      "parent": {
+        "max_parent_count": 4,
+        "persistent": []
+      },
+      "spectroscope": {
+        "recognition_summary": [
+          "UNKNOWN_RECOGNITION"
+        ]
+      }
+    }
+  ]
+}

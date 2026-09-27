@@ -1,0 +1,30 @@
+{
+  "compile_target": "EXISTING_CONTROLLER_EXECUTION_TASK_INFRASTRUCTURE",
+  "development_budget": {
+    "max_depth": 72,
+    "max_steps": null,
+    "resource_budget_ref": null
+  },
+  "entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "exact_reopen_policy": "FAIL_CLOSED_TARGETED_EXACT_REOPEN_ON_PREMISE_OR_COUNTEREXAMPLE_TRIGGER",
+  "execution_policy_ref": "existing v0.27 execution backend policy",
+  "legacy_execution_plan_preserved": true,
+  "lift_policy_ref": "SEPARATE_LIFT_REQUIRED_NO_AUTOMATIC_PROMOTION",
+  "novelty_trigger_policy": "RegimeBoundarySentinel candidates schedule focused audit but do not alter development semantics.",
+  "plan_id": "IG_RUN_PLAN_O7_MATURATION_COMPAT_EXAMPLE",
+  "plateau_policy_ref": "IG_O7_REGIME_PLATEAU_TEMPLATE_COMPAT",
+  "regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "schema_id": "IG_RUN_PLAN_V2",
+  "schema_version": "2.0.0",
+  "selected_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0"
+  ],
+  "selected_test_refs": [],
+  "start": {
+    "entity_or_state_ref": "O7_SOURCE_AUTHORITY_SEED",
+    "regime_depth": 7
+  },
+  "stopping_rule": "Stop on fail-closed semantic/theorem reopen, certified plateau if plan requests plateau stop, explicit resource budget, or operator stop; never stop merely because O-number increased.",
+  "storage_retention_policy_ref": "content-addressed evidence + compact checkpoints + exact scientific provenance",
+  "test_cadence_policy": "Cheap tests every completed depth; expensive tests according to frozen pack/default cadence; exact reopen only on declared trigger."
+}

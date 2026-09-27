@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "action": "resume same immutable plan",
+      "case": "ordinary process crash",
+      "preserve": "all verified checkpoints"
+    },
+    {
+      "action": "fail closed; quarantine reference; explicit repair only",
+      "case": "corrupt checkpoint",
+      "preserve": "corrupt bytes and metadata"
+    },
+    {
+      "action": "new source identity and new chain",
+      "case": "source/wheel change",
+      "preserve": "last eligible parent"
+    },
+    {
+      "action": "stop; Pro/Scanner review; no auto-advance",
+      "case": "scientific trigger",
+      "preserve": "verified child result and escalation packet"
+    },
+    {
+      "action": "operational pause; same plan may resume after resources restored",
+      "case": "resource budget",
+      "preserve": "verified work"
+    },
+    {
+      "action": "rebuild catalog; no science rerun",
+      "case": "catalog damage",
+      "preserve": "manifests and object store"
+    },
+    {
+      "action": "parent ineligible; fail closed until release repair",
+      "case": "release verification failure",
+      "preserve": "run evidence"
+    },
+    {
+      "action": "new versioned chain plan; never edit active chain",
+      "case": "observer/selection change desired",
+      "preserve": "last eligible parent"
+    },
+    {
+      "action": "normal COMPLETE_LIMIT_REACHED",
+      "case": "finite max level reached",
+      "preserve": "eligible final parent"
+    },
+    {
+      "action": "PAUSED_SCIENTIFIC; no forced continuation",
+      "case": "no lawful children",
+      "preserve": "endpoint result"
+    }
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_FAILURE_MATRIX_V0_1",
+  "spec_sha256": "1ecfe212cf9c6702a5fee63aa13edf1d15f5e0310ea1f5f493c9c078087c342c"
+}

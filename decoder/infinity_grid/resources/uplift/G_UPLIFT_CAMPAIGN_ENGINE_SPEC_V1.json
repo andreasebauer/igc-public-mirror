@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-02",
+  "future_rule": "Instantiate the same S0-S6 templates for G3, G4, ... using the earned lower-G public interface; do not hard-code G1 resource semantics into the generic engine contract.",
+  "lifecycle": [
+    "LOAD_AND_VERIFY_REGISTERED_EXPERIMENT_DAG",
+    "OPEN_ONE_MATERIALIZED_DISCOVERY_SESSION_WITH_AUTO_TRANSPORT",
+    "MATERIALIZE_LOWER_G_POPULATION_ONCE",
+    "RUN_REGISTERED_STAGES_IN_DEPENDENCY_ORDER",
+    "USE_DECODER_EXECUTION_BACKEND_FOR_PARALLEL_TASKS",
+    "PERSIST_STAGE_RESULTS_AND_SCIENTIFIC_STOP_STATE",
+    "CLOSE_SESSION_ON_CAMPAIGN_EXIT"
+  ],
+  "negative_result_semantics": "A registered stage returning REVIEW_REQUIRED/LOCKED is a successful scientific stop with process return code 0, not an orchestration failure.",
+  "parallel_runtime": {
+    "backend": "AUTO",
+    "materialization_start_method": "AUTO",
+    "materialization_transport": "IN_PROCESS_EXACT_STATE_REFERENCE_SERIAL_V2_FOR_DEEP_CANDIDATE_BUILD",
+    "requested_workers": "AUTO",
+    "scheduler": "COST_WEIGHTED_SHARDS",
+    "scientific_authority_platform": "CPython 3.13.5 Linux",
+    "stage_rationale": "fork inherits the already-materialized read-only lower-G state into Decoder-owned workers; deep maturation does not fork/serialize the recursive DAG at every level",
+    "stage_start_method": "fork"
+  },
+  "purpose": "Generic persistent reconnaissance/graduation engine for G(k-1) -> Gk uplift",
+  "schema_id": "IG_G_UPLIFT_CAMPAIGN_ENGINE_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "a61d58084436e89a943019b45e425da28671291986ed09296b4c4ae3503467aa",
+  "version": "0.30.1"
+}

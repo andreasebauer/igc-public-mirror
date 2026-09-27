@@ -1,0 +1,89 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "environment_node_id": {
+      "type": "string"
+    },
+    "environment_sha256": {
+      "type": "string"
+    },
+    "exact_clean_rebuild_subset": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "protocol_node_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_result_sha256": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "question_node_id": {
+            "type": "string"
+          },
+          "recipe_node_id": {
+            "type": "string"
+          },
+          "recipe_sha256": {
+            "type": "string"
+          },
+          "root_node_id": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_result_sha256",
+          "level",
+          "question_node_id",
+          "recipe_node_id",
+          "recipe_sha256",
+          "root_node_id",
+          "target_node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1",
+      "type": "string"
+    },
+    "source_node_id": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "environment_node_id",
+    "environment_sha256",
+    "exact_clean_rebuild_subset",
+    "protocol_node_id",
+    "rows",
+    "schema_id",
+    "source_node_id",
+    "source_sha256",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

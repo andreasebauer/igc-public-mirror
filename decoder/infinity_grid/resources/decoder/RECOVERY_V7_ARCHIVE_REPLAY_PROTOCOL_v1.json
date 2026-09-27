@@ -1,0 +1,10 @@
+{
+  "schema_id": "IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1",
+  "protocol_id": "RECOVERY_V7_ARCHIVE_REPLAY",
+  "version": "1",
+  "purpose": "Exact byte-identity replay of selected certified O-level result files from pinned single-ZIP jump-start roots using their frozen in-archive command.",
+  "action_type": "ARCHIVE_COMMAND_REPLAY",
+  "determinism": "Exact output SHA-256 is mandatory; any source/runtime/root/output mismatch fails closed.",
+  "scope": ["O1 certified replay", "O4 Phase-2 graduation", "O6 Phase-2 graduation", "O7 graduated compact audit"],
+  "nonclaims": ["does not make O2 a clean historical rebuild", "does not turn O5 reconstruction into historical byte identity", "does not imply every Decoder target has an exact recipe"]
+}

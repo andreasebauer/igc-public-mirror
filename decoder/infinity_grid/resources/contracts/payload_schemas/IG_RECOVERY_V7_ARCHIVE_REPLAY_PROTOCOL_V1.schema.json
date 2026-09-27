@@ -1,0 +1,52 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_type": {
+      "type": "string"
+    },
+    "determinism": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1",
+      "type": "string"
+    },
+    "scope": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_type",
+    "determinism",
+    "nonclaims",
+    "protocol_id",
+    "purpose",
+    "schema_id",
+    "scope",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

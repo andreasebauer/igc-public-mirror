@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "leases": {
+      "items": {},
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_DECODER_CPU_LEASES_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "leases",
+    "schema"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,109 @@
+{
+  "admitted_operations": [
+    "G4_PUBLIC_READ",
+    "G4_ENDPOINT_TYPED_EXACT_HIDDEN_CANONICALIZATION_DIAGNOSTIC_ONLY",
+    "FROZEN_G4_OPERATOR_BASIS_READ",
+    "OWNER_SYMMETRIC_BINARY_CONNECTION_RELATION"
+  ],
+  "authority": {
+    "accepted_decoder_parent_source_sha256": "a3672d03824160889521c824c01d11934548d66abc4b0bf5d49696523b98116b",
+    "g4_completion_science_sha256": "44db26880449be8b98e6ac332849db8bfb6ff7f731ced6b58c0a6394dcf7ac59",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s0_classification": "G5_S0_G4_AUTHORITY_FROZEN_CAPS7_PLUS_H_CLASS_BAG_PUBLIC_ACTUAL_G4_HIDDEN_DECORATED_TREE_CHALLENGE_CORPUS_EARNED_S1_DESIGN_REVIEW",
+    "g5_s0_outcome": "PASS",
+    "g5_s0_primary_science_sha256": "3fc75ad0fe5c456d117e41e66f0f036d415332e7d4b97dc30f643cac290ab66a"
+  },
+  "challenge_domain": {
+    "carrier_ids": [
+      "D2_PATH",
+      "D2_BROOM",
+      "D4_PATH",
+      "D4_BROOM"
+    ],
+    "construction": "exact same path/broom decorated-G4 carriers used by G5:S0, H-class C and internal operator (0,0)",
+    "latent_owner_rule": "quantify every vertex pair (u,v); never select or expose owner identity as public state",
+    "operator_basis": "all frozen directed G4 operators from accepted G4 grammar",
+    "ordered_pair_count": 16
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "PAIR_CENSUS_HIDDEN_RESIDUAL_DETECTED": "At least one equal public input key has two hidden carrier realizations with different public pair-outcome signatures; record witness and unlock S2 to isolate the minimal relabel-invariant added read. Do not promote hidden topology in S1.",
+    "PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE": "For every equal public input key, all hidden carrier realizations induce the same public pair-outcome signature.",
+    "REVIEW_REQUIRED": "Any authority mismatch, incomplete census, non-owner-symmetric execution, or result outside the preregistered alternatives."
+  },
+  "nonclaims": [
+    "NO_G5_COMPOSITION_LAW",
+    "NO_G5_GRADUATION",
+    "NO_G4_DESCRIPTOR_CHANGE",
+    "NO_HIDDEN_TOPOLOGY_PROMOTION",
+    "NO_UNBOUNDED_G5_CONGRUENCE",
+    "NO_GEOMETRY_DISTANCE_TIME_OR_SPACETIME",
+    "NO_S2_EXECUTION_WITHOUT_SEPARATE_PREREGISTRATION"
+  ],
+  "observer": {
+    "forbidden_public_reads": [
+      "attachment owner identity",
+      "raw tree topology",
+      "degree sequence",
+      "diameter",
+      "shell profile",
+      "construction history",
+      "hidden child canon as public quotient key"
+    ],
+    "hidden_diagnostic": [
+      "exact child canon count",
+      "exact child canon digests for reproducibility only"
+    ],
+    "input_public_key": "ordered pair of exact G4 public reads plus directed operator",
+    "public_pair_outcome_signature": [
+      "legal_realization_count",
+      "public_outcome_multiset_by_exact_normalized_public_read"
+    ]
+  },
+  "pass_gates": [
+    "EXACT_S0_AUTHORITY_BINDING",
+    "ALL_16_ORDERED_CARRIER_PAIRS_CENSUSED",
+    "ALL_FROZEN_G4_OPERATORS_CENSUSED",
+    "ALL_LATENT_OWNER_PAIRS_QUANTIFIED",
+    "PUBLIC_SIGNATURE_CANONICAL_AND_OWNER_INVARIANT",
+    "NO_HIDDEN_STATE_PROMOTION",
+    "INDEPENDENT_ENDPOINT_TYPED_ORACLE_ALL_31_OPERATORS",
+    "HISTORICAL_PUBLIC_S1_PROJECTION_EXACT_COMPATIBILITY"
+  ],
+  "promotion_constraints": {
+    "g4_change": false,
+    "g5_graduation": false,
+    "g5_law_promotion": false,
+    "g5_public_descriptor_promotion": false,
+    "s2_execution_authorized": false
+  },
+  "question": "Which ordered pairs of S0-certified G4 challenge carriers admit each frozen G4 connection operator when all latent attachment-owner pairs are quantified, and what canonical public outcome relations result?",
+  "repair_context": {
+    "audit": "Decoder_v0.5_Audit_2026-09-06.txt:F01",
+    "authority_effect": "NONE_REPAIR_RECERTIFICATION",
+    "frozen_hypothesis": "PUBLIC_PAIR_SIGNATURES_AND_S1_CLASSIFICATION_UNCHANGED; HIDDEN_DIAGNOSTIC_IDENTITY_MAY_CHANGE",
+    "historical_s1_primary_science_sha256": "834e36c3eea8238d7c66c2440e88134cb5170688d4f3350d87a8d718105907e9",
+    "historical_s1_rows_sha256": "5e017d0529da53900e2b1d8cee993b20315bbd9630cd5d8e6584b9f25e27c863",
+    "historical_source_sha256": "cc1e25a25ea12c317b4da85823d72f27524b719909c5884336c3346f8d0d517c",
+    "purpose": "COMPATIBILITY_RECERTIFICATION_AFTER_ENDPOINT_TYPED_HIDDEN_CANONICALIZATION_REPAIR"
+  },
+  "resource_budget": {
+    "cpu_seconds_max": 150.0,
+    "expected_pair_operator_tasks": 496,
+    "logical_tasks_max": 7,
+    "peak_rss_bytes_max": 805306368,
+    "wall_seconds_max": 180.0
+  },
+  "schema_id": "IG_G5_S1_PAIR_CONNECTION_CENSUS_SPEC_V2",
+  "science_sha256": "dbf6a45394e1011aaac904bb46c59f598f21ae71d9449cdd17d9a0902281f759",
+  "stage_ref": "G5:S1",
+  "status": "FROZEN_BEFORE_REPAIR_RECERTIFICATION",
+  "stop_rules": {
+    "after_s1_pass": "STOP_AT_S2_REVIEW_REQUIRED_UNTIL_SEPARATE_PREREGISTRATION",
+    "authority_mismatch": "STOP",
+    "budget_exhausted": "STOP",
+    "novelty_outside_registered_alternatives": "STOP"
+  },
+  "version": "2.0.0"
+}

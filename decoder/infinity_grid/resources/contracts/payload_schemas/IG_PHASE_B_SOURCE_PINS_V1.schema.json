@@ -1,0 +1,70 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_PHASE_B_SOURCE_PINS_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "science_sha256": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "file",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_PHASE_B_SOURCE_PINS_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "specs": {
+      "additionalProperties": false,
+      "properties": {
+        "meta_grammar": {
+          "type": "string"
+        },
+        "o10_plus": {
+          "type": "string"
+        },
+        "pregeometry": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "meta_grammar",
+        "o10_plus",
+        "pregeometry"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "files",
+    "schema",
+    "science_sha256",
+    "specs"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_PHASE_B_SOURCE_PINS_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

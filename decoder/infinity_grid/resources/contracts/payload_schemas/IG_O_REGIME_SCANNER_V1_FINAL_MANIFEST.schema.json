@@ -1,0 +1,42 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bytes": {
+            "type": "integer"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bytes",
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST",
+      "type": "string"
+    }
+  },
+  "required": [
+    "files",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

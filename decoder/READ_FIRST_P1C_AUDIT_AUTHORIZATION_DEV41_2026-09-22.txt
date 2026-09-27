@@ -1,0 +1,120 @@
+INFINITY GRID DECODER 0.8lib — P1C HISTORICAL AUDIT AUTHORIZATION
+DEV41 CANDIDATE — 2026-09-22
+
+DISPOSITION
+P1C_AUTHORIZED_REPLAY_PREFIX_THROUGH_QUALIFIED_G8
+GLOBAL_COMPONENTS_WAIT_BOUNDARY_PRESERVED
+NO_REPLAY_SCIENCE_EXECUTED
+SHARED_POINTER_UNCHANGED
+
+1. OUTCOME
+
+The user's external chat audit decision is now recorded by exact bytes and
+bound to the completed dev40 assertion catalogue. Fifteen hash-bound audit
+authorizations cover every S/R/C/F obligation from L0 through G8. The four
+GLOBAL/Components obligations remain unauthorized because their
+correlation-formation frontier is still open.
+
+This is the short Decoder brake requested by the user: a fresh replay may
+automatically continue across the complete authorized prefix while results,
+scope and nonclaims match, and then wait before GLOBAL/Components.
+
+2. AUTHORIZATION STATE
+
+Layers: 16
+Total DAG nodes: 80
+Scientific nodes: 64
+Mapped assertions: 121/121
+Historical audit authorizations: 15
+Authorized scientific nodes: 60
+Unauthorized scientific nodes: 4
+Catalogue gaps: 0
+Ambiguous assertion mappings: 0
+
+Authorized replay prefix:
+L0, C0_HISTORICAL, L2J3, NODE_IN, SCOUT_HISTORICAL, O1_O3,
+O4_O7, G1, G2, G3, G4, G5, G6, G7, G8
+
+Authorized through: G8
+Next wait layer: GLOBAL
+Prefix replay ready: true
+Full-DAG execution authorized: false
+Compiled status: BLOCKED_UNAUTHORIZED
+Science executed: false
+
+The full-DAG status remains blocked because GLOBAL is deliberately outside
+this decision. It does not prevent a future runner from executing the explicit
+authorized prefix through G8.
+
+3. G8 QUALIFICATION
+
+G8 authority is CONDITIONAL and binds only the four mapped bounded/conditional
+G8 obligations. It preserves the CAP37 32768 zero-data result as a negative
+result. It does not authorize unbounded extrapolation, stronger G8 completion,
+or an open-frontier crossing. UNAUDITED_G8_FRONTIER remains a stop outcome.
+
+4. EXTERNAL DECISION BOUNDARY
+
+The decision record quotes the user's instructions and freezes their operational
+interpretation. It does not make a design specification into empirical
+evidence, reinterpret earned algebra, waive a mismatch, or create new science.
+The fresh replay is the independent check. Any result, provenance, scope,
+nonclaim or determinism mismatch returns control to external chat audit.
+
+Decision record:
+p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt
+SHA-256: 818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c
+
+5. COMPILER SUPPORT
+
+The compiler now exposes:
+- authorized_replay_prefix
+- authorized_replay_through_layer
+- next_wait_layer
+- prefix_replay_ready
+
+Full-DAG execution_authorized retains its prior strict meaning. Local-source
+qualification now verifies audit provenance, historical audit sources and
+accepted equivalence certificates in addition to assertion-mapping sources.
+
+6. QUALIFICATION
+
+P1A2, P1B, P1B2 and P1C focused replay/compiler suite: 33 passed.
+The source builder and DAG compiler both reproduce byte-identical outputs.
+All local mapping and audit hashes match candidate bytes. Decision hashes,
+reciprocal bindings, four-lane layer coverage, the qualified G8 rule and the
+GLOBAL wait boundary are regression tested.
+
+The repository-wide historical suite remains outside this extracted-candidate
+gate. Its first failure is the pre-existing missing external registry input:
+dev33_minimal_restore/registry/DECODER.06.STEP1.VALIDATION.R2.json.
+
+7. PRIMARY FILES
+
+Source catalogue:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V5.json
+File SHA-256: ae2d0fe36e93b3ef8b42a99a281b3ab77c7ac546a14e97bd87d2cb3dbfbfff11
+
+Compiled DAG:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V5.json
+File SHA-256: f0da8731c4bb2b81373531ed5af22cff0b1d829e2a1e6380b476cd57ded90d38
+Logical DAG SHA-256: afbb82a4915a84e7b4a6d92900a10f82f341815cce76aa523325a37f2a22f5dc
+
+Compiler:
+infinity_grid/replay_obligation_compiler.py
+File SHA-256: 91195c41fd144ab6e1b783778fdb3b5d6b263dd4b7bb4b2fdfebb3e6ee01d86d
+
+Authorization builder:
+tools/build_p1c_authorizations.py
+File SHA-256: 792ed8f5d62967def45a09e4654ceca7d6ec4a36e7635c2e89b49d64cda785b8
+
+P1C tests:
+tests/test_replay_obligation_compiler_p1c.py
+File SHA-256: 3444495ac240bedf7907786720372aaaf0abebcb8e7c613409869568db320d02
+
+8. NEXT LANE
+
+Execute the fresh L0-through-G8 replay under these comparison contracts. The
+runner may continue automatically while every authorized obligation matches;
+on mismatch it must stop for chat audit. After G8 it must wait before the open
+GLOBAL/Components lane.

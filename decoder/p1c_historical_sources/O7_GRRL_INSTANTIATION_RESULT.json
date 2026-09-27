@@ -1,0 +1,72 @@
+{
+  "accelerator_decision": "RETIRE_EXHAUSTIVE_C1_C5_AS_RECURRING_SCIENCE_GATES_AFTER_GRRL_ACCEPTANCE; KEEP_AS_REGRESSION_SENTINELS",
+  "all_H1_H13_pass": true,
+  "epistemic_boundary": {
+    "earned": "conditional generic one-step relational-lift theorem applied to the frozen O6->O7 resource observer/constructor scope; exact O7 data are consistent with every premise and conclusion audited",
+    "not_earned": [
+      "O7 graduation",
+      "global transition closure",
+      "observer-independent minimality",
+      "existence/persistence at all n",
+      "infinite tower",
+      "automatic O8"
+    ]
+  },
+  "formal_program_status": "F0_COMPLETE_F1_F2_PAPER_PROOF_COMPLETE_F3_FROZEN_IMPLEMENTATION_INSTANTIATION_COMPLETE_MACHINE_PROOF_PENDING",
+  "hypotheses": {
+    "H1": "PASS",
+    "H10": "PASS",
+    "H11": "PASS",
+    "H12": "PASS",
+    "H13": "PASS",
+    "H2": "PASS",
+    "H3": "PASS",
+    "H4": "PASS",
+    "H5": "PASS",
+    "H6": "PASS",
+    "H7": "PASS",
+    "H8": "PASS",
+    "H9": "PASS"
+  },
+  "next": "Use proof-gated accelerated certification at any next O-level: verify H1-H13 first, then optional regression sentinels. Do not repeat full C1/C5 census unless a premise/reopen condition changes or a sentinel fails.",
+  "o7": {
+    "classification": "RECURSIVE_REPEAT_CANDIDATE",
+    "closeout_status": "SEALED",
+    "graduated": false,
+    "science_sha256": "6d407f0521a6568b52428b5d16eabe36b3c0e38d0c7c171034e34e1d34f5431a"
+  },
+  "parent": {
+    "science_sha256": "7b9e3ec0fbabcdb0fa46c2d5d153ac186cdd2d2343275a407e82b6fd14d9da37",
+    "status": "O6_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_6_PHASE2"
+  },
+  "schema": "IG_O7_GRRL_INSTANTIATION_RESULT_V1",
+  "science_sha256": "c192cee9c62d70d7628f176f47ea382489bb3ed056af00a54a865e0148015388",
+  "status": "PASS",
+  "supporting_exact_replay": {
+    "C1_cases": 192,
+    "C1_failures": 0,
+    "C1_sha": "dcddc8a855fa1e8f9094f11ade0d87284cc6aab732d067ebf3ad5de0be390ded",
+    "C5_failures": 0,
+    "C5_rows": 205,
+    "C5_sha": "eaf768565f5ea52e35bd07456c1ad50d6d0dc2f8902b940a1991534276e984ca",
+    "grammar_hashes": {
+      "O4": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "O5": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "O6": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "O7": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07"
+    },
+    "reference_kernel_sha": "7974c423630fe575d8df5d0ef5f21260c8badca3228975d8bf59252f8b4797f1"
+  },
+  "theorem_conclusions_in_frozen_scope": {
+    "accounting_grade_parity_euler": "THEOREM_BACKED_UNDER_PAIRWISE_MONOTONE_RESERVATION",
+    "finite_future_trees": "CONDITIONAL_ON_TRANSITION_CLOSURE_NOT_GLOBALLY_PROMOTED",
+    "inherited_action_transport": "THEOREM_BACKED_UNDER_H1_H13",
+    "next_level_boundary": "THEOREM_BACKED_DEFINITIONAL_GUARD",
+    "one_step_counter_factorization": "THEOREM_BACKED_UNDER_H1_H13",
+    "outer_action_transport": "THEOREM_BACKED_UNDER_H1_H13",
+    "ownership_erasure": "PROVED_UNSOUND_IN_GENERAL",
+    "q7_well_defined": "THEOREM_BACKED_UNDER_H1_H13",
+    "recurrence_type": "STRATIFIED_RECURSIVE_LIFT_NOT_FIXED_POINT",
+    "same_level_one_cross_closure": "THEOREM_BACKED_UNDER_H13"
+  }
+}

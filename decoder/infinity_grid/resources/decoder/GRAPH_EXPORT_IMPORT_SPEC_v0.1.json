@@ -1,0 +1,20 @@
+{
+  "export_modes": {
+    "COMPACT": "graph closure + recipes + manifests + results + explicit hash references to external pinned roots; not standalone",
+    "PUBLICATION": "selected claims/results plus exact evidence and computation closure, with scope statements and reproducibility instructions",
+    "STANDALONE": "transitive required root closure materialized into export; offline replay required"
+  },
+  "import": "Verify archive, node identities, object hashes, schema versions, and edge referential integrity before merging. Never overwrite conflicting immutable node identity.",
+  "requirements": [
+    "canonical graph manifest",
+    "all node/edge records used",
+    "object manifest",
+    "alias map snapshot",
+    "source/environment locks",
+    "replay commands/recipes",
+    "evidence scope and forbidden inferences",
+    "archive sha256"
+  ],
+  "schema_id": "IG_GRAPH_EXPORT_IMPORT_SPEC_V0_1",
+  "version": "0.1"
+}

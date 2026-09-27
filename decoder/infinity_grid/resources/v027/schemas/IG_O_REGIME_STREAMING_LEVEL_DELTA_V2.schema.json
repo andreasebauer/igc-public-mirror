@@ -1,0 +1,573 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "contract": {
+      "additionalProperties": false,
+      "properties": {
+        "grammar_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "lift_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "observer_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "read_set_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "successor_semantics": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grammar_sha256",
+        "lift_schema_sha256",
+        "observer_sha256",
+        "read_set_sha256",
+        "successor_semantics"
+      ],
+      "type": "object"
+    },
+    "earned_laws_honored": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "frontier_after_payload": {
+      "additionalProperties": false,
+      "properties": {
+        "earned_law_registry_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "full_support_certified": {
+          "type": "boolean"
+        },
+        "grammar_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "growth_bounds": {
+          "additionalProperties": false,
+          "properties": {
+            "leaf_count_max": {
+              "type": "integer"
+            },
+            "leaf_count_min": {
+              "type": "integer"
+            },
+            "max_total_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "min_total_free_by_type": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "relation_count_max": {
+              "type": "integer"
+            },
+            "relation_count_min": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "leaf_count_max",
+            "leaf_count_min",
+            "max_total_free_by_type",
+            "min_total_free_by_type",
+            "relation_count_max",
+            "relation_count_min"
+          ],
+          "type": "object"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "lift_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "observer_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "parent_frontier_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "phase8_seed_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "read_set_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "recipe_catalogue_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "schema": {
+          "const": "IG_O_REGIME_STREAMING_FRONTIER_V2",
+          "type": "string"
+        },
+        "spec_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "static_recipe_signature_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "support_certificate_basis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "earned_law_registry_sha256",
+        "full_support_certified",
+        "grammar_sha256",
+        "growth_bounds",
+        "level",
+        "lift_schema_sha256",
+        "observer_sha256",
+        "parent_frontier_sha256",
+        "phase8_seed_sha256",
+        "read_set_sha256",
+        "recipe_catalogue_sha256",
+        "schema",
+        "spec_sha256",
+        "static_recipe_signature_sha256",
+        "support_certificate_basis"
+      ],
+      "type": "object"
+    },
+    "frontier_after_payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "growth_bounds": {
+      "additionalProperties": false,
+      "properties": {
+        "leaf_count_max": {
+          "type": "integer"
+        },
+        "leaf_count_min": {
+          "type": "integer"
+        },
+        "max_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "min_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "relation_count_max": {
+          "type": "integer"
+        },
+        "relation_count_min": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "leaf_count_max",
+        "leaf_count_min",
+        "max_total_free_by_type",
+        "min_total_free_by_type",
+        "relation_count_max",
+        "relation_count_min"
+      ],
+      "type": "object"
+    },
+    "level": {
+      "type": "integer"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "normalized_organization": {
+      "additionalProperties": false,
+      "properties": {
+        "diversity": {
+          "additionalProperties": false,
+          "properties": {
+            "edge_count_hist": {
+              "additionalProperties": false,
+              "properties": {
+                "10": {
+                  "type": "integer"
+                },
+                "11": {
+                  "type": "integer"
+                },
+                "12": {
+                  "type": "integer"
+                },
+                "13": {
+                  "type": "integer"
+                },
+                "14": {
+                  "type": "integer"
+                },
+                "15": {
+                  "type": "integer"
+                },
+                "3": {
+                  "type": "integer"
+                },
+                "4": {
+                  "type": "integer"
+                },
+                "5": {
+                  "type": "integer"
+                },
+                "6": {
+                  "type": "integer"
+                },
+                "7": {
+                  "type": "integer"
+                },
+                "8": {
+                  "type": "integer"
+                },
+                "9": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "type": "object"
+            },
+            "organizational_classes": {
+              "type": "integer"
+            },
+            "owner_count_hist": {
+              "additionalProperties": false,
+              "properties": {
+                "4": {
+                  "type": "integer"
+                },
+                "5": {
+                  "type": "integer"
+                },
+                "6": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "4",
+                "5",
+                "6"
+              ],
+              "type": "object"
+            },
+            "topology_classes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "edge_count_hist",
+            "organizational_classes",
+            "owner_count_hist",
+            "topology_classes"
+          ],
+          "type": "object"
+        },
+        "genealogy": {
+          "additionalProperties": false,
+          "properties": {
+            "branching": {
+              "type": "string"
+            },
+            "diversity": {
+              "type": "string"
+            },
+            "grammar": {
+              "type": "string"
+            },
+            "lineage": {
+              "type": "string"
+            },
+            "obstruction_relief": {
+              "type": "string"
+            },
+            "overlap_gluing": {
+              "type": "string"
+            },
+            "quotient": {
+              "type": "string"
+            },
+            "representation": {
+              "type": "string"
+            },
+            "symmetry": {
+              "type": "string"
+            },
+            "topology_services": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "branching",
+            "diversity",
+            "grammar",
+            "lineage",
+            "obstruction_relief",
+            "overlap_gluing",
+            "quotient",
+            "representation",
+            "symmetry",
+            "topology_services"
+          ],
+          "type": "object"
+        },
+        "lane_hashes": {
+          "additionalProperties": false,
+          "properties": {
+            "branching": {
+              "type": "string"
+            },
+            "lineage": {
+              "type": "string"
+            },
+            "symmetry": {
+              "type": "string"
+            },
+            "topology_services": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "branching",
+            "lineage",
+            "symmetry",
+            "topology_services"
+          ],
+          "type": "object"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "obstruction_relief": {
+          "additionalProperties": false,
+          "properties": {
+            "all_bridge_types_supported_everywhere": {
+              "type": "boolean"
+            },
+            "all_owner_pairs_have_some_action": {
+              "type": "boolean"
+            },
+            "zero_action_states": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "all_bridge_types_supported_everywhere",
+            "all_owner_pairs_have_some_action",
+            "zero_action_states"
+          ],
+          "type": "object"
+        },
+        "overlap_gluing": {
+          "additionalProperties": false,
+          "properties": {
+            "intersection_realized_fraction": {
+              "type": "number"
+            },
+            "shared_fiber_pairs": {
+              "type": "integer"
+            },
+            "strict_inclusions": {
+              "type": "integer"
+            },
+            "union_realized_fraction": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "intersection_realized_fraction",
+            "shared_fiber_pairs",
+            "strict_inclusions",
+            "union_realized_fraction"
+          ],
+          "type": "object"
+        },
+        "quotient_observer": {
+          "additionalProperties": false,
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "resource_population_materialized": {
+              "type": "boolean"
+            },
+            "same_resource_topology_hidden_witness": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "note",
+            "resource_population_materialized",
+            "same_resource_topology_hidden_witness"
+          ],
+          "type": "object"
+        },
+        "raw_magnitude_excluded_from_novelty": {
+          "type": "boolean"
+        },
+        "recipe_count": {
+          "type": "integer"
+        },
+        "static_signature_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diversity",
+        "genealogy",
+        "lane_hashes",
+        "mode",
+        "obstruction_relief",
+        "overlap_gluing",
+        "quotient_observer",
+        "raw_magnitude_excluded_from_novelty",
+        "recipe_count",
+        "static_signature_sha256"
+      ],
+      "type": "object"
+    },
+    "parent_frontier_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reopen_triggered": {
+      "type": "boolean"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_STREAMING_LEVEL_DELTA_V2",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stop": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "through": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "classification",
+        "reason",
+        "through"
+      ],
+      "type": "object"
+    },
+    "support_certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "full_seven_type_support_preserved": {
+          "type": "boolean"
+        },
+        "max_endpoint_consumption_per_owner_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "next_min_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "owner_support_margin_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "parent_min_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "full_seven_type_support_preserved",
+        "max_endpoint_consumption_per_owner_by_type",
+        "next_min_total_free_by_type",
+        "owner_support_margin_by_type",
+        "parent_min_total_free_by_type"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "classification",
+    "contract",
+    "earned_laws_honored",
+    "frontier_after_payload",
+    "frontier_after_payload_sha256",
+    "growth_bounds",
+    "level",
+    "nonclaims",
+    "normalized_organization",
+    "parent_frontier_sha256",
+    "reopen_triggered",
+    "schema",
+    "science_sha256",
+    "status",
+    "stop",
+    "support_certificate"
+  ],
+  "type": "object"
+}

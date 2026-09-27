@@ -1,0 +1,53 @@
+{
+  "schema_id": "IG_P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V1",
+  "status": "QUALIFIED_PASS_WAITING_AT_GLOBAL",
+  "decoder_version": "0.8.0.dev42+lib",
+  "authorized_replay_through_layer": "G8",
+  "next_wait_layer": "GLOBAL",
+  "fail_closed": true,
+  "science_executed": true,
+  "fresh_recomputation": {
+    "formal_foundation": {
+      "status": "PASS",
+      "stages": 8,
+      "byte_identical_files": 10,
+      "checkpoint_sha256": "b9f35f44bd38ccf8d7ee96b4410493659ea5ed4fb4bc8b1a9af070c144afa029"
+    },
+    "finite_l2": {
+      "status": "PASS",
+      "registered_checks": 9,
+      "completed_checks": 9,
+      "bridge_truth_table_cases": 16777216,
+      "checkpoint_sha256": "6e9d7e8c763e969cde7b54fb395c3744d546d720c89df9f3ba04881b23c0d887"
+    },
+    "o1_o7": {
+      "status": "PASS",
+      "registered_targets": 10,
+      "completed_targets": 10,
+      "registered_obligations": 36,
+      "completed_obligations": 36,
+      "topology_read_science_sha256": "51079cc1598aa5d3d1e80c998dafbd855d14c26667661b87ef138e1730058303",
+      "checkpoint_sha256": "ec039eba7ed55975d360fc2180a65b92c1fff73c591d6fca4cdad7d2adb129db"
+    },
+    "g6_named_executors": {
+      "status": "PASS",
+      "tests_passed": 22,
+      "test_modules": [
+        "tests/test_g6_s6r_global_observer_congruence.py",
+        "tests/test_g6_s8_intrinsic_descriptor.py"
+      ]
+    }
+  },
+  "g1_g8_assertion_source_integrity": {
+    "status": "PASS",
+    "assertion_mappings": 32,
+    "qualification": "THEOREM_DESIGN_DOCUMENTARY_AND_HISTORICAL_ONLY_ASSERTIONS_RETAIN_THEIR_DECLARED_EVIDENCE_MODE"
+  },
+  "prefix_checkpoint_sha256": "9884383a814991af9724961bfb5c7902959c68cffff9eec5dc731eb7be8a7e08",
+  "nonclaims": [
+    "Source-integrity qualification is not relabelled as fresh empirical recomputation.",
+    "G8 remains conditional and bounded; CAP37 zero-data remains a negative result.",
+    "No GLOBAL/Components assertion was executed or authorized.",
+    "The shared release pointer was not advanced."
+  ]
+}

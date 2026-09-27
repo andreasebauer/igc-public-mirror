@@ -1,0 +1,12 @@
+{
+  "schema_id": "IG_L16_LEGACY_BASELINE_COST_COMPAT_V1",
+  "purpose": "Non-scientific historical serialization compatibility only. L16 legacy baseline_sha256 included cost fields even though the frozen science projection removes cost. Current runtime resource usage is recorded independently in universal stage/run records.",
+  "cost": {
+    "spectroscope_cpu_seconds": 0.22761704000000005,
+    "spectroscope_peak_rss_kb": 130828,
+    "spectroscope_wall_seconds": 0.22761987799822236,
+    "wide_cpu_seconds": 18.948670956,
+    "wide_peak_rss_kb": 187692,
+    "wide_wall_seconds": 18.955088448001334
+  }
+}

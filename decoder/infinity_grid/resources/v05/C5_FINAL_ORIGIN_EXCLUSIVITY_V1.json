@@ -1,0 +1,19 @@
+{
+  "bootstrap_scope": "ABSENT",
+  "engineering_worker_runs_validation": false,
+  "external_execution_default": "DENY",
+  "final_origin_exclusivity": true,
+  "g6_science_effect": "NONE",
+  "migration_bootstrap_direct_start": "REJECT_DIRECT_EXECUTION_ROUTE:C5_BOOTSTRAP_CLOSED",
+  "normal_external_request_surfaces": [
+    "passive_request.submit",
+    "passive_cancel.submit"
+  ],
+  "read_only_external_surfaces": "NARROW_ALLOWLIST",
+  "registered_service_external_dispatch": "REJECT",
+  "schema_id": "IG_DECODER_C5_FINAL_ORIGIN_EXCLUSIVITY_V1",
+  "temporary_exceptions": [],
+  "test_controller_scope": "ABSENT",
+  "test_worker_scope": "ABSENT",
+  "validation_topology_owner": "DECODER_CONTROLLER_RUNTIME"
+}

@@ -1,0 +1,54 @@
+{
+  "cost_control": {
+    "new_parallel_science_kernels": 0,
+    "reason": "Exact factorization over four distinct P3 base CAPS7 sums and operator-pair resource states replaces explicit 1.9M post-reserve contexts.",
+    "symbolic_checks": 119164
+  },
+  "decision_rule": {
+    "PASS": "All entering authority identities bind and all 119,164 exact symbolic post-recursive reserve checks satisfy legality/write factorization. Unlock G4:S5.REBASE only.",
+    "REVIEW_REQUIRED": "Any authority mismatch or reserve-factorization failure locks S5.REBASE. No post-hoc read escalation."
+  },
+  "entering_authority": {
+    "candidate": {
+      "name": "REPAIRED_HIDDEN_STATE_H",
+      "tier": 4
+    },
+    "required_classification": "G4_S3_REBASE_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_H_SCOPE_S4_REBASE_UNLOCKED",
+    "required_stage": "G4:S3.REBASE"
+  },
+  "exact_reduction": [
+    "Bind certified G4:S3.REBASE primary/cold/closeout identities exactly.",
+    "Use the certified S3 result that every registered P3/K3 branch-sensitive compatibility query factors through H plus the certified pair observer.",
+    "For one further reservation, quotient the 61,504 P3 contexts first by the exact inherited CAPS7 write law. The four H classes contain two distinct CAPS7 leaf classes, so the 64 ordered H-class triples collapse to four exact order-insensitive P3 base resource sums (0,1,2,3 high-cap leaves).",
+    "For each of the four exact P3 base resource sums, enumerate all 31^2 ordered bridge-operator pairs and all 31 post-recursive directed reservation actions, for 119,164 exact symbolic reserve checks.",
+    "Require reserve legality and output resource decrement to depend only on the inherited CAPS7 resource state; no H/topology/owner selector may be read at this post-recursive step."
+  ],
+  "frozen_scope": {
+    "candidate_unit_classes": 4,
+    "connected_p3_class_assignments": 64,
+    "connected_p3_public_contexts": 61504,
+    "directed_binary_operators": 31,
+    "distinct_leaf_caps7_classes": 2,
+    "distinct_order_insensitive_p3_base_sums": 4,
+    "factorized_operator_pair_states": 961,
+    "factorized_post_reserve_checks": 119164,
+    "lower_layer_rematerialization": false,
+    "materialize_p3_contexts": false,
+    "materialize_post_reserve_contexts": false,
+    "post_recursive_reservation_types": 31
+  },
+  "nonclaims": [
+    "NO_GLOBAL_H_MINIMALITY",
+    "NO_PAIR_PLUS_PAIR_G4_CLOSURE",
+    "NO_UNBOUNDED_RECURSIVE_G4_CLOSURE",
+    "NO_G4_FINITE_PUBLIC_DESCRIPTOR_YET",
+    "NO_PUBLIC_H_PROMOTION",
+    "NO_G4_GRADUATION",
+    "NO_PHYSICAL_GEOMETRY"
+  ],
+  "question": "Does the certified repaired-hidden-state H pair/triple observer remain closed under one additional external reservation after a connected P3 composition, with no added hidden read, on the exact registered rebase scope?",
+  "schema_id": "IG_G4_S4_REBASE_ONE_STEP_RELATION_CLOSURE_SPEC_V1",
+  "science_sha256": "146335dd00d842b662d33c133976e9c9cb9bf8b31dbc57cf7c7d95bd20c238c6",
+  "stage_ref": "G4:S4.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

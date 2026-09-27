@@ -1,0 +1,84 @@
+INFINITY GRID DECODER 0.8lib — P4 L0 PILOT
+DEV52 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_P4_IMPLEMENTATION_AND_RUNTIME_HARNESS
+RECORDED_CONTROLLER_ATTEMPT_BLOCKED_CAPTURE_REQUIRED
+P4_PLAN_ACCEPTANCE_REMAINS_OPEN
+NO_FRESH_SCIENCE_EXECUTED
+NO_AUTHORITY_CHANGE
+SHARED_POINTER_UNCHANGED
+
+1. IMPLEMENTED
+
+The registered replay root now accepts a second exact operation:
+
+  EXECUTE_L0_PILOT_P4
+
+It binds only the four compiled L0 S/R/C/F nodes to one source-integrity
+executor. The bindings, compiled DAG, V9 reference catalogue and P3 empty-root
+identity are hash-pinned. Any additional, missing or reordered binding fails
+closed. The root stops after the L0 gate and cannot execute C0 in P4.
+
+The executor verifies every pinned monograph, audit and external-decision byte
+hash; checks lane-specific semantic anchors; regenerates the declared canonical
+observation; and emits sealed historical evidence, replay evidence, generation
+recipes, comparisons, the L0 negative record and certified resume frontier.
+The Decoder runtime alone writes these records through the P3 store.
+
+2. HONEST SCIENTIFIC BOUNDARY
+
+The compiled V9 DAG says all four current L0 obligations are:
+
+  effective_execution_class = SOURCE_INTEGRITY_ONLY
+  counts_toward_empty_root_science_replay = false
+
+P4 preserves those declarations. It does not relabel pinned theorem/source
+verification as a fresh J3 census. Therefore science_executed remains false and
+REPRODUCED means source-integrity reproduction under the declared observer, not
+independent confirmation.
+
+3. RUNTIME QUALIFICATION PILOTS
+
+Automatic harness path:
+
+  S -> R -> C -> F -> L0 gate
+  4 source-integrity nodes reproduced
+  20 immutable P3 records
+  next node: IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE
+  outcome: L0_PILOT_COMPLETE
+
+Injected-stop harness path:
+
+  S reproduced
+  intentional R RESULT_MISMATCH
+  immediate WAITING_FOR_EXTERNAL_AUDIT
+  exact audit capsule and resume frontier
+  cold restoration left runner state and reference manifest byte-identical
+
+The frozen harness result explicitly says it is not a recorded controller
+attempt.
+
+4. PRODUCTION CAPTURE BLOCKER
+
+The production-controller precondition was attempted and rejected before
+execution:
+
+  CAPTURE_REQUIRED:/workspace/scratch/7d00d84faa68/dev33_minimal_restore
+
+This workspace has no CAPTURE.json. The Decoder correctly refused to mint a
+recorded execution context. P4 plan acceptance therefore remains incomplete;
+the harness result is not promoted to a production capture.
+
+5. QUALIFICATION
+
+Focused P4: 10 passed, 0 failed.
+P1/P2/P3/P4 replay regression: 112 passed, 0 failed.
+Portable R02: 340 passed, 1 skipped, 0 failed.
+Capture diagnostic: 15 passed, 1 known CAPTURE_REQUIRED failure.
+
+6. NEXT ACTION
+
+Create or restore a valid Decoder capture, register the P4 profile against the
+accepted source, and execute DECODER.REPLAY.L0_TO_G8.ROOT under the real C6
+controller. Only that recorded attempt can close P4 and permit P5.

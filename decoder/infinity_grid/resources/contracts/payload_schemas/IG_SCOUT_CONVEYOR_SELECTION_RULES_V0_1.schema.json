@@ -1,0 +1,166 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "B": {
+      "additionalProperties": false,
+      "properties": {
+        "ordering": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ordering"
+      ],
+      "type": "object"
+    },
+    "D": {
+      "additionalProperties": false,
+      "properties": {
+        "binary_float_in_ordering_key": {
+          "type": "boolean"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "initial_seed": {
+          "type": "string"
+        },
+        "normalization": {
+          "type": "string"
+        },
+        "tie_direction_after_seed": {
+          "type": "string"
+        },
+        "tolerance_pseudo_ties": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "binary_float_in_ordering_key",
+        "distance",
+        "features",
+        "implementation",
+        "initial_seed",
+        "normalization",
+        "tie_direction_after_seed",
+        "tolerance_pseudo_ties"
+      ],
+      "type": "object"
+    },
+    "L": {
+      "additionalProperties": false,
+      "properties": {
+        "ordering": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ordering"
+      ],
+      "type": "object"
+    },
+    "O": {
+      "additionalProperties": false,
+      "properties": {
+        "implementation_note": {
+          "type": "string"
+        },
+        "ordering": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "implementation_note",
+        "ordering"
+      ],
+      "type": "object"
+    },
+    "S": {
+      "additionalProperties": false,
+      "properties": {
+        "implementation_note": {
+          "type": "string"
+        },
+        "ordering": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "implementation_note",
+        "ordering"
+      ],
+      "type": "object"
+    },
+    "candidate_count_rule": {
+      "type": "string"
+    },
+    "lane_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lineage": {
+      "type": "string"
+    },
+    "no_outcome_feedback": {
+      "type": "boolean"
+    },
+    "per_lane": {
+      "type": "integer"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1",
+      "type": "string"
+    },
+    "sealed_before_relational_analysis": {
+      "type": "boolean"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "union": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "B",
+    "D",
+    "L",
+    "O",
+    "S",
+    "candidate_count_rule",
+    "lane_order",
+    "lineage",
+    "no_outcome_feedback",
+    "per_lane",
+    "schema_id",
+    "sealed_before_relational_analysis",
+    "spec_sha256",
+    "union"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

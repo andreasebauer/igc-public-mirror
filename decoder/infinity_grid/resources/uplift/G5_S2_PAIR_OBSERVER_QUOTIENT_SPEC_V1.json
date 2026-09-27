@@ -1,0 +1,89 @@
+{
+  "authority": {
+    "g4_completion_science_sha256": "44db26880449be8b98e6ac332849db8bfb6ff7f731ced6b58c0a6394dcf7ac59",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s1_classification": "G5_S1_PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE",
+    "g5_s1_outcome": "PASS",
+    "g5_s1_payload_sha256": "65a95b512c96c14b9b6a40f3bde55aa9dbc636c4c6694ef455c0030da02156e3",
+    "g5_s1_primary_science_sha256": "834e36c3eea8238d7c66c2440e88134cb5170688d4f3350d87a8d718105907e9",
+    "g5_s1_rows_sha256": "5e017d0529da53900e2b1d8cee993b20315bbd9630cd5d8e6584b9f25e27c863",
+    "g5_s1_stage_result_sha256": "d38564dadf3f8349790ec93e556e7354fe58f2419f56e26bf3cdcb9ee9e76cb2",
+    "g5_s1_workflow_science_sha256": "4b81bc7da4e47ae432d179e9270fe7f270c209886687419d5edb44cb969aa1f1"
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ": "All public pair-context fibres are single-valued and the public-carrier partition equals the operational target kernel. Certify no added read on the frozen pair observer and unlock S3 preregistration.",
+    "PAIR_OBSERVER_QUOTIENT_NOT_CERTIFIED": "Any public fibre splits, representative count is incomplete, S1 evidence binding fails, or public-carrier and target-kernel partitions disagree. Stop for review; do not invent a descriptor post hoc.",
+    "REVIEW_REQUIRED": "Any authority, evidence, observer, or execution mismatch."
+  },
+  "frozen_domain": {
+    "carrier_ids": [
+      "D2_PATH",
+      "D2_BROOM",
+      "D4_PATH",
+      "D4_BROOM"
+    ],
+    "exact_carrier_count": 4,
+    "exact_representatives_per_public_pair_context_key_expected": 4,
+    "operator_count": 31,
+    "ordered_exact_pair_count": 16,
+    "public_carrier_class_count_expected": 2,
+    "public_pair_context_key_count_expected": 124,
+    "s1_census_row_count": 496
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G5_CONGRUENCE",
+    "NO_UNBOUNDED_FUTURE_EQUIVALENCE",
+    "NO_G5_COMPOSITION_LAW",
+    "NO_G5_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_G5_GRADUATION",
+    "NO_G4_DESCRIPTOR_CHANGE",
+    "NO_HIDDEN_TOPOLOGY_PROMOTION",
+    "NO_GEOMETRY_DISTANCE_TIME_OR_SPACETIME",
+    "NO_S3_EXECUTION_WITHOUT_SEPARATE_PREREGISTRATION"
+  ],
+  "pass_gates": [
+    "EXACT_S1_ROWS_BINDING",
+    "124_PUBLIC_PAIR_CONTEXT_KEYS",
+    "FOUR_EXACT_REPRESENTATIVES_PER_KEY",
+    "ALL_PUBLIC_FIBRES_SINGLE_VALUED",
+    "PUBLIC_CARRIER_PARTITION_EQUALS_TARGET_BEHAVIOR_KERNEL",
+    "NO_HIDDEN_STATE_IN_QUOTIENT_KEY",
+    "NO_PROMOTION"
+  ],
+  "promotion_constraints": {
+    "g4_change": false,
+    "g5_graduation": false,
+    "g5_law_promotion": false,
+    "g5_public_descriptor_promotion": false,
+    "s3_execution_authorized": false
+  },
+  "question": "On the complete frozen G5:S1 pair census, does the operational pair observer factor exactly through the inherited G4 public carrier state CAPS7 + H-class bag with no additional read?",
+  "quotient_rule": {
+    "exact_congruence_gate": "Every one of the 124 public pair-context keys must have exactly four exact representative pairs and exactly one observer value.",
+    "hidden_topology_usage": "Diagnostic only after quotient construction; never enters a quotient key.",
+    "observer_kernel_gate": "On the four-carrier frozen domain, the public carrier partition must equal the complete target-behavior kernel induced by all public context classes and all 31 operators.",
+    "observer_value": "complete S1 public_signature = legal_realization_count + attempted_owner_pairs + public outcome multiset",
+    "public_carrier_key": "exact G4 public read = CAPS7 + H-class bag; no hidden fields",
+    "public_pair_context_key": "(left public carrier key, right public carrier key, directed frozen G4 operator)"
+  },
+  "resource_budget": {
+    "cpu_seconds_max": 150.0,
+    "logical_tasks_max": 1,
+    "peak_rss_bytes_max": 805306368,
+    "wall_seconds_max": 180.0
+  },
+  "schema_id": "IG_G5_S2_PAIR_OBSERVER_QUOTIENT_SPEC_V1",
+  "science_sha256": "a1d9c18bbc709ec3b49bc9cb796e509cb7678ff2b4f8b2971fb669d5f0157d28",
+  "stage_ref": "G5:S2",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stop_rules": {
+    "after_s2_pass": "STOP_AT_S3_REVIEW_REQUIRED_UNTIL_SEPARATE_PREREGISTRATION",
+    "authority_mismatch": "STOP",
+    "budget_exhausted": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "s1_evidence_mismatch": "STOP"
+  },
+  "version": "1.0.0"
+}

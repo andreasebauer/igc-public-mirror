@@ -1,0 +1,387 @@
+{
+  "counts": {
+    "blanket_authorization_only": 7,
+    "complete_layer_audit_recorded": 3,
+    "independent_replay_recorded": 0,
+    "layers": 15
+  },
+  "entries": [
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/formal/00_READ_FIRST/AUDIT_AND_CLOSEOUT_v2.2.md",
+          "sha256": "b6b17252b0f31b30b0e2180819dae9dfec846924d9a7766f7cd4c4bcc56f2327"
+        },
+        {
+          "ref": "p1c2_audit_records/formal/00_READ_FIRST/CLOSEOUT_CERTIFICATION_v2.2.txt",
+          "sha256": "69c5b920c4337f918e597d931b4d6401de474a4490b510dc02cecb025f3e661e"
+        }
+      ],
+      "audit_record_status": "RECORDED_AUDIT_AND_CLOSEOUT",
+      "complete_layer_audit_recorded": true,
+      "coverage_statement": "The formal-foundation closeout records a certified replay and scoped scientific verdict.",
+      "entry_hash": "79bebd80e6aa84ba5628988109a71040ca723bfaede298e63f7918f7711a18cc",
+      "independent_replay_recorded": false,
+      "layer": "L0",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate C0 layer audit decision was located in the available evidence.",
+      "entry_hash": "ff22109bf8092026a8682ff71fb5e9375bc1b7c1eaeb7c9680e3a08131e2fba9",
+      "independent_replay_recorded": false,
+      "layer": "C0_HISTORICAL",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/algebra/Infinity_Grid_Algebra_Final_2026-08-15/02_CORE_AUDITS/ig_rm1_L2_boundary_closure_code_audit_results.json",
+          "sha256": "c7230ad3a0814dc5668d2fc1511d57a5e05f3a1bbed7344772a2b7b5bba41821"
+        },
+        {
+          "ref": "p1c2_audit_records/algebra/Infinity_Grid_Algebra_Final_2026-08-15/02_CORE_AUDITS/ig_rm1_L2_bridge_sufficiency_code_audit_results.json",
+          "sha256": "cb6655cebb21432b7bfea19347349795024a5ba6107f903ff8c6289d1fae2268"
+        },
+        {
+          "ref": "p1c2_audit_records/algebra/Infinity_Grid_Algebra_Final_2026-08-15/02_CORE_AUDITS/ig_rm1_L2_compositor_congruence_code_audit_results.json",
+          "sha256": "976069a35fdaf71b1a6cbc28598760e882d8fd7f0137f216655610fc43cff151"
+        },
+        {
+          "ref": "p1c2_audit_records/algebra/Infinity_Grid_Algebra_Final_2026-08-15/02_CORE_AUDITS/ig_rm1_L2_output_sufficiency_code_audit_results.json",
+          "sha256": "de9bbeefc00d7cdea4a253abf4000f4f358bfdcd933c5e72e6225433914c7645"
+        }
+      ],
+      "audit_record_status": "RECORDED_TECHNICAL_AUDIT_NO_LAYER_AUTHORIZATION",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "Core code-audit results are recorded; they are evidence, not a separate replay-authority decision.",
+      "entry_hash": "b97484a21f303495e2bba78b005983f55b1b801aea60db99845534b7653a2349",
+      "independent_replay_recorded": false,
+      "layer": "L2J3",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/node/NODE_GRADUATION_AUDIT_2026-08-26/results/HUMAN_SUMMARY.txt",
+          "sha256": "cf36a2af4d64ad50bb2da9f15ecaf6f5e818adfb52d41edb0cae2cbf7066f909"
+        },
+        {
+          "ref": "p1c2_audit_records/node/NODE_GRADUATION_AUDIT_2026-08-26/results/NODE_GRADUATION_RESULT.json",
+          "sha256": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+        }
+      ],
+      "audit_record_status": "RECORDED_LAYER_GRADUATION_AUDIT",
+      "complete_layer_audit_recorded": true,
+      "coverage_statement": "The mature-node graduation audit result and human summary are pinned.",
+      "entry_hash": "be349a6e422ed1d074c68791e0eeb194d751d4693a8f161995b0b7928f0ae392",
+      "independent_replay_recorded": false,
+      "layer": "NODE_IN",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/scout_o3/AUDIT_RESULT.json",
+          "sha256": "5b6ed12f58b832ecdb7f42f917cc052c964e053b77a623ac0ca952137a221e4a"
+        },
+        {
+          "ref": "p1c2_audit_records/scout_o3/HUMAN_REPORT.txt",
+          "sha256": "f0d1fd9c98c171d3468a8a16b0b2521c7b72ba41a5f358ececed6c26098899fb"
+        }
+      ],
+      "audit_record_status": "RECORDED_ADVERSARIAL_AUDIT",
+      "complete_layer_audit_recorded": true,
+      "coverage_statement": "The bounded Scout adversarial audit result and report are pinned.",
+      "entry_hash": "caa8ba3ce1123b1e626d2f92715c7f5c9b18c1126830b69925a7175d68183156",
+      "independent_replay_recorded": false,
+      "layer": "SCOUT_HISTORICAL",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/scout_o3/SCOUT3_V1_3_O3_GRADUATION_CLASSIFICATION_AUDIT_2026-08-27/results/O3_GRADUATION_AUDIT_RESULT.json",
+          "sha256": "00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612"
+        },
+        {
+          "ref": "p1c2_audit_records/scout_o3/SCOUT3_V1_3_O3_GRADUATION_CLASSIFICATION_AUDIT_2026-08-27/report/HUMAN_REPORT.txt",
+          "sha256": "8d72457898b3cb7d8c42a7d52779191e1dc7d7647e5791c7ab9566c7f58c315e"
+        }
+      ],
+      "audit_record_status": "RECORDED_O3_GRADUATION_AUDIT_PARTIAL_COMBINED_LAYER",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "O3 has a recorded graduation audit; this does not by itself document every O1/O2 decision.",
+      "entry_hash": "b3938bc1fe3ca7e28c97b6ebfccba0f46b5cdaea27362428108c9c901993ba1f",
+      "independent_replay_recorded": false,
+      "layer": "O1_O3",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/o7/Infinity_Grid_Post_O7_Structural_Audit_v0.2_RECONCILED_2026-08-29/00_READ_FIRST/UPDATED_AUDIT_REPORT.txt",
+          "sha256": "52604a498418ad475079a338fd234df970faf4de6f8287c2a70cd72d35a48b6e"
+        },
+        {
+          "ref": "p1c2_audit_records/o7/Infinity_Grid_Post_O7_Structural_Audit_v0.2_RECONCILED_2026-08-29/01_RESULTS/POST_O7_STRUCTURAL_AUDIT_RECONCILED_RESULT.json",
+          "sha256": "f52190c75af6674d80f653be254ec9b60c5c044061dfbd78f0cc18c6055ab764"
+        }
+      ],
+      "audit_record_status": "RECORDED_POST_O7_AUDIT_PARTIAL_COMBINED_LAYER",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "A reconciled post-O7 structural audit is pinned; separate O4-O6 audit decisions are not all pinned here.",
+      "entry_hash": "18bb2fee92d499fa1c740d136be82a2fea6b06c6a292a71091620d2019eae22f",
+      "independent_replay_recorded": false,
+      "layer": "O4_O7",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate G1 audit decision record was located in the available evidence.",
+      "entry_hash": "e2c8f0cadb35f0f3b6ad5756709c82bfacf230612d503c7d74dfe27310be97eb",
+      "independent_replay_recorded": false,
+      "layer": "G1",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate G2 audit decision record was located in the available evidence.",
+      "entry_hash": "0b1696168caf27ff4c2fbade791ce9b6e0e6e373a4fa0e99bd7b4b0604e25c75",
+      "independent_replay_recorded": false,
+      "layer": "G2",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate G3 audit decision record was located in the available evidence.",
+      "entry_hash": "a389c791491285a8964cdbfb6575255ba524e114c5d9f0d53a9ab94f7cffbbe2",
+      "independent_replay_recorded": false,
+      "layer": "G3",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate G4 audit decision record was located in the available evidence.",
+      "entry_hash": "c358aec37d7c39c6f6a15538c2f5a04257710193f93c057069161da1c5175c75",
+      "independent_replay_recorded": false,
+      "layer": "G4",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "No separate G5 audit decision record was located in the available evidence.",
+      "entry_hash": "f7f388f6ff9a1d07ecb4b4f8837a4154c7a80ab40a1137f7a58230adeba118f0",
+      "independent_replay_recorded": false,
+      "layer": "G5",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [],
+      "audit_record_status": "USER_BLANKET_REPLAY_AUTHORIZATION_ONLY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "A partial review was reported in conversation, but no exact G6 layer audit decision file is pinned.",
+      "entry_hash": "5717fd1f36a8c0e483179806686fbb7fe0f04132690600a5f451dc556aba480e",
+      "independent_replay_recorded": false,
+      "layer": "G6",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/g7_g8/G7_FINAL_CLOSEOUT_REPORT_V1_2026-09-16.txt",
+          "sha256": "0b049939651b0088fe6765dd708697a750cf90a29437efc5768f10088e9bd3d6"
+        }
+      ],
+      "audit_record_status": "RECORDED_SCOPED_CLOSEOUT_NOT_INDEPENDENT_REPLAY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "The scoped documentary closeout is pinned and explicitly says it did not rerun the science.",
+      "entry_hash": "771c17995eaddced8b8cb5b2e62f868d1a0faca87a00f851b91a1a1ea3ab271b",
+      "independent_replay_recorded": false,
+      "layer": "G7",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    },
+    {
+      "audit_evidence": [
+        {
+          "ref": "p1c2_audit_records/g7_g8/IG_G8_INTEGRATION_CLOSEOUT_2026-09-17.txt",
+          "sha256": "4d889b1bf988b43ac8f00e7e31f73701dec68b9f34a343cfa0472fe435f93516"
+        }
+      ],
+      "audit_record_status": "RECORDED_CONDITIONAL_CLOSEOUT_NOT_INDEPENDENT_REPLAY",
+      "complete_layer_audit_recorded": false,
+      "coverage_statement": "The conditional bounded integration closeout is pinned; intrinsic graduation remains unearned.",
+      "entry_hash": "ab77cb7f3c7f56c32fadc9593be40ae06b458362685eaed089f6a686f1c9a74a",
+      "independent_replay_recorded": false,
+      "layer": "G8",
+      "nonclaims": [
+        "Replay authorization is not proof that an independent layer audit exists.",
+        "Pinned scientific sources and closeouts are not silently promoted to independent confirmation."
+      ],
+      "replay_authority": [
+        {
+          "ref": "p1c_historical_sources/EXTERNAL_AUDIT_DECISION_THROUGH_G8_2026-09-22.txt",
+          "sha256": "818e6f2697c04214e791b322f5da654cac2b7aa0704da8bf67f5e812f46b968c"
+        }
+      ],
+      "replay_authority_basis": "USER_BLANKET_REPLAY_AUTHORIZATION"
+    }
+  ],
+  "ledger_hash": "7eb5dd6add1e9c749ee53173aef12ffed8e595151cc22d60b9218c086637c255",
+  "rule": "Replay authority, recorded audit evidence, scoped closeout evidence and independent replay are separate properties and must not be inferred from one another.",
+  "schema_id": "IG/P1C2/LAYER_AUDIT_PROVENANCE_LEDGER/V1",
+  "status": "AUDIT_RECORDS_CLASSIFIED_REPLAY_AUTHORITY_SEPARATED",
+  "version": "1.0"
+}

@@ -1,0 +1,3327 @@
+{
+  "calibration": {
+    "O7_authority": "a3e0bed91b9e68edd4d7c9f508587d6801f9651b0485c6ce40e8ca284ffc2d90",
+    "O7_selected_historical_overlap": 24,
+    "O7_selected_states": 24,
+    "O8_authority": "a8d79ae7af92cac3f4cad9b852298cea6c155d71bdc65f024529b6b3455d9cbd",
+    "O8_generated_scanner_states": 24,
+    "O9_authority": "b86b4d8e1a1beec80952064f9b393f371c8f2287826b6bfbf0b1da0a3a1059fa",
+    "O9_generated_scanner_states": 24,
+    "grammar_O7_O9": [
+      "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07"
+    ],
+    "note": "O7 scanner seed is selected directly from immutable graduated O7 records. O8/O9 scanner panels are exact synthetic fixed-lift instances calibrated against their authority statuses; they are not replacement graduation populations.",
+    "status": "PASS"
+  },
+  "date": "2026-08-30",
+  "earned_laws_honored": [
+    "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"
+  ],
+  "honor_earned_laws": true,
+  "level_summaries": {
+    "10": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 396.5,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 465.0,
+        "service_classes_max": 248,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 12.946010111549757,
+        "total_action_copies_log10_p90": 12.946790074640381,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 3,
+          "4": 2,
+          "5": 7,
+          "6": 2,
+          "7": 3,
+          "9": 3,
+          "10": 1,
+          "11": 1,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 71280,
+        "leaf_count_median": 71280.0,
+        "leaf_count_min": 43200,
+        "min_total_free_by_type": [
+          1819495,
+          80127,
+          64558,
+          19659,
+          43775,
+          10417,
+          832273
+        ],
+        "organizational_classes": 24,
+        "owner_count_hist": {
+          "4": 5,
+          "5": 5,
+          "6": 14
+        },
+        "relation_count_total_max": 1045,
+        "relation_count_total_median": 956.5,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 23
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "EXPANDS",
+        "grammar": "PERSISTS",
+        "lineage": "REORGANIZES",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "PERSISTS",
+        "quotient": "REORGANIZES",
+        "representation": "REFINES",
+        "symmetry": "REORGANIZES",
+        "topology_services": "REORGANIZES"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "level": 10,
+      "lineage": {
+        "bridge_fraction_median": 0.1984126984126984,
+        "cycle_rank_median": 1.5,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 5.5
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 47520,
+          "median_total_free": 3157114,
+          "median_total_relations": 694
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 396.5,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 465.0,
+          "service_classes_max": 248,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 3,
+          "4": 2,
+          "5": 7,
+          "6": 2,
+          "7": 3,
+          "9": 3,
+          "10": 1,
+          "11": 1,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.1984126984126984,
+          "cycle_rank_median": 1.5,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 5.5
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 24,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 5,
+          "5": 5,
+          "6": 14
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 1.0434782608695652,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 4.0
+        },
+        "topology_classes": 23,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 10,
+            "1": 7,
+            "2": 3,
+            "3": 3,
+            "4": 1
+          },
+          "beta_hist": {
+            "0": 10,
+            "1": 2,
+            "2": 3,
+            "3": 2,
+            "4": 2,
+            "5": 2,
+            "6": 1,
+            "8": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 2,
+            "2": 13,
+            "3": 4,
+            "4": 4,
+            "5": 1
+          },
+          "service_signature_classes": 23
+        }
+      },
+      "normalized_signature_sha256": "a8839830ab80320151e6f3e12697c4c7aa59ed5030c485cc58e643ab994ef3f2",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 1.0434782608695652,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 71280.0,
+        "median_total_free": 4735659.0,
+        "median_total_relations": 956.5
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "branching",
+        "symmetry",
+        "lineage",
+        "quotient",
+        "topology_services"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 4.0
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 10,
+          "1": 7,
+          "2": 3,
+          "3": 3,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 10,
+          "1": 2,
+          "2": 3,
+          "3": 2,
+          "4": 2,
+          "5": 2,
+          "6": 1,
+          "8": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 2,
+          "2": 13,
+          "3": 4,
+          "4": 4,
+          "5": 1
+        },
+        "service_signature_classes": 23
+      }
+    },
+    "11": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 319.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 465.0,
+        "service_classes_max": 248,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 14.503089622731512,
+        "total_action_copies_log10_p90": 14.503090003036675,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 2,
+          "4": 4,
+          "5": 5,
+          "6": 5,
+          "7": 1,
+          "8": 1,
+          "9": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 427680,
+        "leaf_count_median": 427680.0,
+        "leaf_count_min": 285120,
+        "min_total_free_by_type": [
+          12004984,
+          528531,
+          426534,
+          130019,
+          289598,
+          69363,
+          5491516
+        ],
+        "organizational_classes": 23,
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "relation_count_total_max": 6270,
+        "relation_count_total_median": 5911.5,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 23
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "CLOSES",
+        "grammar": "PERSISTS",
+        "lineage": "REORGANIZES",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "PERSISTS",
+        "quotient": "REORGANIZES",
+        "representation": "REFINES",
+        "symmetry": "PERSISTS",
+        "topology_services": "REORGANIZES"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "inherited_law_events": [
+        {
+          "disposition": "SUPPRESSED_AS_ALREADY_EARNED",
+          "law_id": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+          "window": [
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "level": 11,
+      "lineage": {
+        "bridge_fraction_median": 0.14583333333333331,
+        "cycle_rank_median": 1.0,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 6.0
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 285120,
+          "median_total_free": 18942626,
+          "median_total_relations": 4178
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 319.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 465.0,
+          "service_classes_max": 248,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 2,
+          "4": 4,
+          "5": 5,
+          "6": 5,
+          "7": 1,
+          "8": 1,
+          "9": 2,
+          "10": 1,
+          "11": 1,
+          "12": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.14583333333333331,
+          "cycle_rank_median": 1.0,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 6.0
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 23,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 1.0,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 4.0
+        },
+        "topology_classes": 23,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 10,
+            "1": 7,
+            "2": 2,
+            "3": 4,
+            "4": 1
+          },
+          "beta_hist": {
+            "0": 9,
+            "1": 5,
+            "2": 1,
+            "3": 3,
+            "4": 2,
+            "6": 2,
+            "7": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 3,
+            "2": 11,
+            "3": 6,
+            "4": 3,
+            "5": 1
+          },
+          "service_signature_classes": 22
+        }
+      },
+      "normalized_signature_sha256": "fff91a0918cb12b618d7d95ed5d9bc69ca4d65b4a644dbc347ddbadf00b4d78a",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 1.0,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 427680.0,
+        "median_total_free": 28413925.0,
+        "median_total_relations": 5911.5
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "diversity",
+        "branching",
+        "lineage",
+        "quotient",
+        "topology_services"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 4.0
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 10,
+          "1": 7,
+          "2": 2,
+          "3": 4,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 9,
+          "1": 5,
+          "2": 1,
+          "3": 3,
+          "4": 2,
+          "6": 2,
+          "7": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 3,
+          "2": 11,
+          "3": 6,
+          "4": 3,
+          "5": 1
+        },
+        "service_signature_classes": 22
+      }
+    },
+    "12": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 319.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 465.0,
+        "service_classes_max": 248,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 15.955411566653783,
+        "total_action_copies_log10_p90": 16.059392090559577,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 2,
+          "4": 3,
+          "5": 7,
+          "6": 3,
+          "7": 3,
+          "9": 1,
+          "10": 3,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 2566080,
+        "leaf_count_median": 2280960.0,
+        "leaf_count_min": 1496880,
+        "min_total_free_by_type": [
+          63030879,
+          2775241,
+          2240535,
+          683356,
+          1522271,
+          365965,
+          28832311
+        ],
+        "organizational_classes": 23,
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "relation_count_total_max": 37633,
+        "relation_count_total_median": 32334.0,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 22
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "PERSISTS",
+        "grammar": "PERSISTS",
+        "lineage": "REORGANIZES",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "PERSISTS",
+        "quotient": "PERSISTS",
+        "representation": "REFINES",
+        "symmetry": "REORGANIZES",
+        "topology_services": "REORGANIZES"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "inherited_law_events": [
+        {
+          "disposition": "SUPPRESSED_AS_ALREADY_EARNED",
+          "law_id": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+          "window": [
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "level": 12,
+      "lineage": {
+        "bridge_fraction_median": 0.13333333333333333,
+        "cycle_rank_median": 1.5,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 5.5
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 1710720,
+          "median_total_free": 113655690,
+          "median_total_relations": 25086
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 319.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 465.0,
+          "service_classes_max": 248,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 2,
+          "4": 3,
+          "5": 7,
+          "6": 3,
+          "7": 3,
+          "9": 1,
+          "10": 3,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.13333333333333333,
+          "cycle_rank_median": 1.5,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 5.5
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 23,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 1.0,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 3.5
+        },
+        "topology_classes": 22,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 10,
+            "1": 7,
+            "2": 2,
+            "3": 4,
+            "4": 1
+          },
+          "beta_hist": {
+            "0": 10,
+            "1": 2,
+            "2": 4,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 1,
+            "8": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 3,
+            "2": 10,
+            "3": 6,
+            "4": 4,
+            "5": 1
+          },
+          "service_signature_classes": 22
+        }
+      },
+      "normalized_signature_sha256": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 1.0,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 2280960.0,
+        "median_total_free": 151543127.0,
+        "median_total_relations": 32334.0
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "branching",
+        "symmetry",
+        "lineage",
+        "topology_services"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 3.5
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 10,
+          "1": 7,
+          "2": 2,
+          "3": 4,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 10,
+          "1": 2,
+          "2": 4,
+          "3": 2,
+          "4": 1,
+          "5": 2,
+          "6": 1,
+          "8": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 3,
+          "2": 10,
+          "3": 6,
+          "4": 4,
+          "5": 1
+        },
+        "service_signature_classes": 22
+      }
+    },
+    "13": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 319.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 465.0,
+        "service_classes_max": 248,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 17.416954935238238,
+        "total_action_copies_log10_p90": 17.513413424853933,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 2,
+          "4": 3,
+          "5": 7,
+          "6": 3,
+          "7": 3,
+          "9": 1,
+          "10": 3,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 13685760,
+        "leaf_count_median": 12260160.0,
+        "leaf_count_min": 7840800,
+        "min_total_free_by_type": [
+          330152180,
+          14536042,
+          11738425,
+          3580892,
+          7977327,
+          1920318,
+          151022596
+        ],
+        "organizational_classes": 23,
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "relation_count_total_max": 194071,
+        "relation_count_total_median": 175727.0,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 22
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "PERSISTS",
+        "grammar": "PERSISTS",
+        "lineage": "PERSISTS",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "PERSISTS",
+        "quotient": "PERSISTS",
+        "representation": "PERSISTS",
+        "symmetry": "PERSISTS",
+        "topology_services": "PERSISTS"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "level": 13,
+      "lineage": {
+        "bridge_fraction_median": 0.13333333333333333,
+        "cycle_rank_median": 1.5,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 5.5
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 9123840,
+          "median_total_free": 606172482,
+          "median_total_relations": 129378
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 319.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 465.0,
+          "service_classes_max": 248,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 2,
+          "4": 3,
+          "5": 7,
+          "6": 3,
+          "7": 3,
+          "9": 1,
+          "10": 3,
+          "13": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.13333333333333333,
+          "cycle_rank_median": 1.5,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 5.5
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 23,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 4,
+          "5": 7,
+          "6": 13
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 1.0,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 3.5
+        },
+        "topology_classes": 22,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 10,
+            "1": 7,
+            "2": 2,
+            "3": 4,
+            "4": 1
+          },
+          "beta_hist": {
+            "0": 10,
+            "1": 2,
+            "2": 4,
+            "3": 2,
+            "4": 1,
+            "5": 2,
+            "6": 1,
+            "8": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 3,
+            "2": 10,
+            "3": 6,
+            "4": 4,
+            "5": 1
+          },
+          "service_signature_classes": 22
+        }
+      },
+      "normalized_signature_sha256": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 1.0,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 12260160.0,
+        "median_total_free": 814540501.0,
+        "median_total_relations": 175727.0
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "branching"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 3.5
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 10,
+          "1": 7,
+          "2": 2,
+          "3": 4,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 10,
+          "1": 2,
+          "2": 4,
+          "3": 2,
+          "4": 1,
+          "5": 2,
+          "6": 1,
+          "8": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 3,
+          "2": 10,
+          "3": 6,
+          "4": 4,
+          "5": 1
+        },
+        "service_signature_classes": 22
+      }
+    },
+    "7": {
+      "branching": {
+        "action_orbits_max": 328,
+        "action_orbits_median": 93.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 93.0,
+        "service_classes_max": 279,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 8.307771014705043,
+        "total_action_copies_log10_p90": 8.705715153890893,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "candidates": 205,
+        "matched_backbone_states": 0,
+        "selected": 24,
+        "source": "IMMUTABLE_O7_AUTHORITY"
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "1": 3,
+          "2": 2,
+          "3": 4,
+          "4": 4,
+          "5": 6,
+          "6": 5
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 720,
+        "leaf_count_median": 360.0,
+        "leaf_count_min": 150,
+        "min_total_free_by_type": [
+          6309,
+          277,
+          225,
+          69,
+          152,
+          38,
+          2890
+        ],
+        "organizational_classes": 23,
+        "owner_count_hist": {
+          "2": 6,
+          "3": 7,
+          "4": 7,
+          "5": 2,
+          "6": 2
+        },
+        "relation_count_total_max": 6,
+        "relation_count_total_median": 4.0,
+        "resource_skins": 24,
+        "same_skin_groups": 0,
+        "same_skin_topology_collision_groups": 0,
+        "topology_classes": 20
+      },
+      "genealogy": {
+        "branching": "SCOUT_NEW",
+        "diversity": "SCOUT_NEW",
+        "grammar": "SCOUT_NEW",
+        "lineage": "SCOUT_NEW",
+        "obstruction_relief": "SCOUT_NEW",
+        "overlap_gluing": "SCOUT_NEW",
+        "quotient": "SCOUT_NEW",
+        "representation": "SCOUT_NEW",
+        "symmetry": "SCOUT_NEW",
+        "topology_services": "SCOUT_NEW"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "level": 7,
+      "lineage": {
+        "bridge_fraction_median": 0.1,
+        "cycle_rank_median": 1.5,
+        "factor_fiber_max": 6,
+        "factor_fiber_median": 3.5
+      },
+      "matched_backbone": {
+        "signature_sha256": null,
+        "status": "HISTORICAL_O7_ANCHOR_NOT_SYNTHETIC_BACKBONE"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 328,
+          "action_orbits_median": 93.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 93.0,
+          "service_classes_max": 279,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "1": 3,
+          "2": 2,
+          "3": 4,
+          "4": 4,
+          "5": 6,
+          "6": 5
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.1,
+          "cycle_rank_median": 1.5,
+          "factor_fiber_max": 6,
+          "factor_fiber_median": 3.5
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 23,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.010869565217391304,
+          "shared_fiber_pairs": 3,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.010869565217391304
+        },
+        "owner_count_hist": {
+          "2": 6,
+          "3": 7,
+          "4": 7,
+          "5": 2,
+          "6": 2
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 0.9583333333333334,
+          "same_skin_topology_hidden_present": false
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 2.0
+        },
+        "topology_classes": 20,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 12,
+            "1": 8,
+            "2": 3,
+            "3": 1
+          },
+          "beta_hist": {
+            "0": 8,
+            "1": 4,
+            "2": 7,
+            "3": 3,
+            "4": 1,
+            "5": 1
+          },
+          "diameter_hist": {
+            "1": 9,
+            "2": 11,
+            "3": 2,
+            "4": 2
+          },
+          "service_signature_classes": 15
+        }
+      },
+      "normalized_signature_sha256": "e19019a26469b2ec68804384e5774fb04d3633e523caf52f19c68f72eee7d462",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.010869565217391304,
+        "shared_fiber_pairs": 3,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.010869565217391304
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 0.9583333333333334,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": false
+      },
+      "raw_growth": {
+        "median_leaf_count": 360.0,
+        "median_total_free": 23924.0,
+        "median_total_relations": 4.0
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "diversity",
+        "branching",
+        "symmetry",
+        "overlap_gluing",
+        "lineage",
+        "quotient",
+        "topology_services",
+        "obstruction_relief"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 2.0
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 12,
+          "1": 8,
+          "2": 3,
+          "3": 1
+        },
+        "beta_hist": {
+          "0": 8,
+          "1": 4,
+          "2": 7,
+          "3": 3,
+          "4": 1,
+          "5": 1
+        },
+        "diameter_hist": {
+          "1": 9,
+          "2": 11,
+          "3": 2,
+          "4": 2
+        },
+        "service_signature_classes": 15
+      }
+    },
+    "8": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 310.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 310.0,
+        "service_classes_max": 248,
+        "service_classes_median": 62.0,
+        "total_action_copies_log10_median": 9.909909818553984,
+        "total_action_copies_log10_p90": 10.069871060470183,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 2,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 3,
+          "8": 1,
+          "10": 4,
+          "14": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 2610,
+        "leaf_count_median": 2160.0,
+        "leaf_count_min": 1440,
+        "min_total_free_by_type": [
+          60649,
+          2666,
+          2151,
+          656,
+          1458,
+          351,
+          27743
+        ],
+        "organizational_classes": 22,
+        "owner_count_hist": {
+          "4": 5,
+          "5": 8,
+          "6": 11
+        },
+        "relation_count_total_max": 43,
+        "relation_count_total_median": 25.0,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 21
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "CLOSES",
+        "grammar": "PERSISTS",
+        "lineage": "REORGANIZES",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "REORGANIZES",
+        "quotient": "REORGANIZES",
+        "representation": "REFINES",
+        "symmetry": "REORGANIZES",
+        "topology_services": "REORGANIZES"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "level": 8,
+      "lineage": {
+        "bridge_fraction_median": 0.05,
+        "cycle_rank_median": 2.0,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 6.0
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 1440,
+          "median_total_free": 95682,
+          "median_total_relations": 18
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 310.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 310.0,
+          "service_classes_max": 248,
+          "service_classes_median": 62.0,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 2,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 3,
+          "8": 1,
+          "10": 4,
+          "14": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.05,
+          "cycle_rank_median": 2.0,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 6.0
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 22,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 5,
+          "5": 8,
+          "6": 11
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 0.9565217391304348,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 3.0
+        },
+        "topology_classes": 21,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 11,
+            "1": 6,
+            "2": 3,
+            "3": 4
+          },
+          "beta_hist": {
+            "0": 8,
+            "1": 3,
+            "2": 3,
+            "3": 4,
+            "5": 2,
+            "6": 2,
+            "9": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 5,
+            "2": 11,
+            "3": 3,
+            "4": 5
+          },
+          "service_signature_classes": 21
+        }
+      },
+      "normalized_signature_sha256": "8728de928e606240f9a01e435844488e9f8c4ef7c7c5297da2299582c76d11fd",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 0.9565217391304348,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 2160.0,
+        "median_total_free": 143520.0,
+        "median_total_relations": 25.0
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "diversity",
+        "branching",
+        "symmetry",
+        "overlap_gluing",
+        "lineage",
+        "quotient",
+        "topology_services"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 3.0
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 11,
+          "1": 6,
+          "2": 3,
+          "3": 4
+        },
+        "beta_hist": {
+          "0": 8,
+          "1": 3,
+          "2": 3,
+          "3": 4,
+          "5": 2,
+          "6": 2,
+          "9": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 5,
+          "2": 11,
+          "3": 3,
+          "4": 5
+        },
+        "service_signature_classes": 21
+      }
+    },
+    "9": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 310.0,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 310.0,
+        "service_classes_max": 248,
+        "service_classes_median": 77.5,
+        "total_action_copies_log10_median": 11.372038007653526,
+        "total_action_copies_log10_p90": 11.487158658444388,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "build_meta": {
+        "build_failures": 0,
+        "candidates": 193,
+        "matched_backbone_states": 7,
+        "selected": 24,
+        "twin_constructed": true
+      },
+      "diversity": {
+        "construction_states": 24,
+        "edge_count_hist": {
+          "3": 2,
+          "4": 5,
+          "5": 6,
+          "6": 4,
+          "7": 2,
+          "8": 1,
+          "9": 1,
+          "10": 1,
+          "12": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "leaf_count_max": 13320,
+        "leaf_count_median": 11880.0,
+        "leaf_count_min": 8640,
+        "min_total_free_by_type": [
+          363901,
+          16022,
+          12911,
+          3932,
+          8754,
+          2083,
+          166455
+        ],
+        "organizational_classes": 21,
+        "owner_count_hist": {
+          "4": 5,
+          "5": 8,
+          "6": 11
+        },
+        "relation_count_total_max": 198,
+        "relation_count_total_median": 155.5,
+        "resource_skins": 23,
+        "same_skin_groups": 1,
+        "same_skin_topology_collision_groups": 1,
+        "topology_classes": 20
+      },
+      "genealogy": {
+        "branching": "REORGANIZES",
+        "diversity": "CLOSES",
+        "grammar": "PERSISTS",
+        "lineage": "REORGANIZES",
+        "obstruction_relief": "PERSISTS",
+        "overlap_gluing": "PERSISTS",
+        "quotient": "REORGANIZES",
+        "representation": "REFINES",
+        "symmetry": "PERSISTS",
+        "topology_services": "REORGANIZES"
+      },
+      "grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+      "level": 9,
+      "lineage": {
+        "bridge_fraction_median": 0.22619047619047616,
+        "cycle_rank_median": 1.0,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 5.0
+      },
+      "matched_backbone": {
+        "inherited_earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+        "note": "Signature excludes exact skin hashes, level tags, Counter magnitudes and other pure size growth. The same frozen top-level motifs are rebuilt at every synthetic depth.",
+        "raw_growth": {
+          "median_leaf_count": 8640,
+          "median_total_free": 574066,
+          "median_total_relations": 106
+        },
+        "rows": [
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 8,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:C4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "b160090383b748ceeb8583884b1cd99231e12750f3ddb69313dbad6236ad7f09",
+            "top_edges": 4,
+            "topology_canon_sha256": "e440dc9827042384ac652fdcbfe8324ef950b593d56fd7145f2fbc90d4de39a3",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 36,
+            "articulations": 0,
+            "automorphism_size": 10,
+            "beta": 1,
+            "bridges": 0,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 310,
+            "motif_id": "BACKBONE:C5",
+            "owner_orbits": 1,
+            "owner_pair_support": 10,
+            "owners": 5,
+            "radius": 2,
+            "service_classes": 62,
+            "service_signature_sha256": "908fdd75554750284ada5ce47a38b7f4b8198c86263c81e928d2ec0f7e6c9d5b",
+            "top_edges": 5,
+            "topology_canon_sha256": "14912701c2f9c5817838998487e6c35902b235e493384dcc5270da0cc8fbb7c8",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 18,
+            "articulations": 0,
+            "automorphism_size": 24,
+            "beta": 3,
+            "bridges": 0,
+            "degree": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "diameter": 1,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:K4",
+            "owner_orbits": 1,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 31,
+            "service_signature_sha256": "147f04934271cfd2f624a7c98becc6d8fffacbb60ef6937ce82b0bbe0c5c8c4f",
+            "top_edges": 6,
+            "topology_canon_sha256": "0b0178c9bafe09e7b43d959219843bfb0466e36a4af9fd6fe444e991093802e0",
+            "triangles": 4,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 98,
+            "articulations": 2,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "diameter": 3,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 2,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:P4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 2,
+            "service_classes": 93,
+            "service_signature_sha256": "7103a15c53d2f32ca1d6fcac63f139c4c000cd6cfa774d60c6b7ded4731e30fb",
+            "top_edges": 3,
+            "topology_canon_sha256": "8984a96db70c0416f2ee74489bee99b2f6bdae69339b14d7d79332cfeccf9976",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 49,
+            "articulations": 1,
+            "automorphism_size": 6,
+            "beta": 0,
+            "bridges": 3,
+            "degree": [
+              3,
+              1,
+              1,
+              1
+            ],
+            "diameter": 2,
+            "endpoint_support": [
+              4,
+              4,
+              4,
+              4,
+              4,
+              4,
+              4
+            ],
+            "factor_fiber_size": 1,
+            "legal_action_labels": 186,
+            "motif_id": "BACKBONE:S4",
+            "owner_orbits": 2,
+            "owner_pair_support": 6,
+            "owners": 4,
+            "radius": 1,
+            "service_classes": 62,
+            "service_signature_sha256": "b5ce4b512547fafd02cf996154ae2b2b796e12ddccc1029bfb781280cecb62a4",
+            "top_edges": 3,
+            "topology_canon_sha256": "d0988d4f015367617e8be854367a797b5e2d7350afb2f4acd4b5148447204bc2",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 253,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 3,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_A",
+            "owner_orbits": 4,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 217,
+            "service_signature_sha256": "31827d8acbf2594f447c0b8a070b7d2a57d8cc767875fac1b6aa038f180e57fd",
+            "top_edges": 5,
+            "topology_canon_sha256": "d9984b7c4a314cd4b3aa93a02fdc8fc0438a4daf13ed5829a081603a80a8d691",
+            "triangles": 0,
+            "type_pair_support": 31
+          },
+          {
+            "action_orbits": 328,
+            "articulations": 3,
+            "automorphism_size": 2,
+            "beta": 0,
+            "bridges": 5,
+            "degree": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "diameter": 4,
+            "endpoint_support": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "factor_fiber_size": 4,
+            "legal_action_labels": 465,
+            "motif_id": "BACKBONE:TWIN_B",
+            "owner_orbits": 3,
+            "owner_pair_support": 15,
+            "owners": 6,
+            "radius": 2,
+            "service_classes": 248,
+            "service_signature_sha256": "3af98879746a8ac3f2fae598cfad8f80f3a866c61a59fdabfb0199b88ab7c0e8",
+            "top_edges": 5,
+            "topology_canon_sha256": "34769b87b763f83f0d7db3707552f8128635309e2048fed07b4882236d60a023",
+            "triangles": 0,
+            "type_pair_support": 31
+          }
+        ],
+        "signature_sha256": "b864d357309aa2d3780827e0408085091d24fe5075d74ddb1ffed3feca258098",
+        "status": "PASS"
+      },
+      "normalized_signature": {
+        "branching": {
+          "action_orbits_max": 465,
+          "action_orbits_median": 310.0,
+          "legal_action_labels_max": 465,
+          "legal_action_labels_median": 310.0,
+          "service_classes_max": 248,
+          "service_classes_median": 77.5,
+          "type_pair_support_max": 31,
+          "type_pair_support_min": 31
+        },
+        "edge_count_hist": {
+          "3": 2,
+          "4": 5,
+          "5": 6,
+          "6": 4,
+          "7": 2,
+          "8": 1,
+          "9": 1,
+          "10": 1,
+          "12": 1,
+          "15": 1
+        },
+        "endpoint_support_max": 7,
+        "endpoint_support_min": 7,
+        "grammar": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "lineage": {
+          "bridge_fraction_median": 0.22619047619047616,
+          "cycle_rank_median": 1.0,
+          "factor_fiber_max": 15,
+          "factor_fiber_median": 5.0
+        },
+        "obstruction_relief": {
+          "all_bridge_types_supported_everywhere": true,
+          "all_owner_pairs_have_some_action": true,
+          "zero_action_states": 0
+        },
+        "organizational_classes": 21,
+        "overlap_gluing": {
+          "intersection_realized_fraction": 0.0,
+          "shared_fiber_pairs": 1,
+          "strict_inclusions": 0,
+          "union_realized_fraction": 0.0
+        },
+        "owner_count_hist": {
+          "4": 5,
+          "5": 8,
+          "6": 11
+        },
+        "quotient": {
+          "organizational_to_skin_class_ratio": 0.9130434782608695,
+          "same_skin_topology_hidden_present": true
+        },
+        "symmetry": {
+          "automorphism_size_max": 2,
+          "automorphism_size_median": 1.0,
+          "owner_orbits_median": 3.0
+        },
+        "topology_classes": 20,
+        "topology_services": {
+          "access_bottleneck_service_present": true,
+          "articulation_hist": {
+            "0": 10,
+            "1": 5,
+            "2": 4,
+            "3": 4,
+            "4": 1
+          },
+          "beta_hist": {
+            "0": 11,
+            "1": 3,
+            "2": 3,
+            "3": 2,
+            "4": 2,
+            "6": 1,
+            "7": 1,
+            "10": 1
+          },
+          "diameter_hist": {
+            "1": 4,
+            "2": 8,
+            "3": 6,
+            "4": 5,
+            "5": 1
+          },
+          "service_signature_classes": 20
+        }
+      },
+      "normalized_signature_sha256": "ca939a198b24b5b342d99fc03e9e0f0f7f401c927f362d94463b04532a34ef0d",
+      "obstruction_relief": {
+        "all_bridge_types_supported_everywhere": true,
+        "all_owner_pairs_have_some_action": true,
+        "zero_action_states": 0
+      },
+      "overlap_gluing": {
+        "intersection_realized_fraction": 0.0,
+        "shared_fiber_pairs": 1,
+        "strict_inclusions": 0,
+        "union_realized_fraction": 0.0
+      },
+      "quotient_observer": {
+        "organizational_to_skin_class_ratio": 0.9130434782608695,
+        "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+        "same_skin_topology_hidden_present": true
+      },
+      "raw_growth": {
+        "median_leaf_count": 11880.0,
+        "median_total_free": 789280.0,
+        "median_total_relations": 155.5
+      },
+      "states": 24,
+      "structural_shock_changed_families": [
+        "diversity",
+        "branching",
+        "lineage",
+        "quotient",
+        "topology_services"
+      ],
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1.0,
+        "owner_orbits_median": 3.0
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 10,
+          "1": 5,
+          "2": 4,
+          "3": 4,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 11,
+          "1": 3,
+          "2": 3,
+          "3": 2,
+          "4": 2,
+          "6": 1,
+          "7": 1,
+          "10": 1
+        },
+        "diameter_hist": {
+          "1": 4,
+          "2": 8,
+          "3": 6,
+          "4": 5,
+          "5": 1
+        },
+        "service_signature_classes": 20
+      }
+    }
+  },
+  "levels_executed": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "motif_library_sha256": "a30f7558b9466d1b694645b6bf92ef264541e8fa96194e6549dee7becf9c9f7e",
+  "next": "FREEZE_TARGETED_GROUP_RAISE_FORMALIZATION; do not continue blind O-level generation until the candidate is tested.",
+  "nonclaims": [
+    "O9 graduated",
+    "historical O10+ existence",
+    "infinite O tower",
+    "physical geometry/dimension/time/propagation",
+    "type fixed point from scanner similarity alone",
+    "raised algebraic O-group before exact meta-composition/substitution is derived and audited",
+    "broad exploratory histogram movement as a structural shock without exact post-change persistence",
+    "resource magnitude growth as organizational service novelty"
+  ],
+  "phase8_seed_sha256": "b28dc2c306f389a5191a9f512e6cbeeb03251e8b1234df187524f331ad3b0c9b",
+  "scanner_spec_sha256": "599b3adae6b557b83425f94d0a0d5b2f2df8c425df1542f5975e97efdedf8612",
+  "schema": "IG_O_REGIME_ADAPTIVE_SCANNER_RESULT_V1",
+  "science_sha256": "b3468f899ce13fa0c397cfd69e1c98828815e7ef7661cd05ea689a5315e129f9",
+  "scientific_interpretation": "Several independent established organizational families changed together and the post-change organization persisted one further level. This is a preregistered structural-shock raise candidate requiring exact targeted formalization.",
+  "status": "PASS",
+  "stop": {
+    "classification": "O_REGIME_RAISE_CANDIDATE",
+    "confirmed_at": 13,
+    "families": [
+      "symmetry",
+      "lineage",
+      "topology_services"
+    ],
+    "first_level": 12,
+    "reason": "at least three independent established scanner lane families changed together and the exact post-change lane signatures persisted one further level"
+  }
+}

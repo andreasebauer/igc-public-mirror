@@ -1,0 +1,73 @@
+{
+  "computation_edges": [
+    {
+      "meaning": "target cannot be deterministically reproduced without source node",
+      "transitive_for_minimum_roots": true,
+      "type": "REQUIRES"
+    },
+    {
+      "meaning": "artifact/result was produced by recipe/run/stage",
+      "transitive_for_minimum_roots": true,
+      "type": "PRODUCED_BY"
+    },
+    {
+      "meaning": "logical dependency materializes to concrete artifact/dataset",
+      "transitive_for_minimum_roots": true,
+      "type": "MATERIALIZES"
+    },
+    {
+      "meaning": "deterministic transformation",
+      "transitive_for_minimum_roots": true,
+      "type": "DERIVED_FROM"
+    },
+    {
+      "meaning": "performance/resume cache of stage",
+      "transitive_for_minimum_roots": false,
+      "type": "CHECKPOINT_OF"
+    },
+    {
+      "meaning": "new version replaces operational use but does not erase predecessor",
+      "transitive_for_minimum_roots": false,
+      "type": "SUPERSEDES"
+    },
+    {
+      "meaning": "run independently reproduces historical/certified result",
+      "transitive_for_minimum_roots": true,
+      "type": "REPLAYS"
+    }
+  ],
+  "evidence_edges": [
+    {
+      "meaning": "evidence node supports claim/review statement; must be explicit",
+      "type": "SUPPORTS"
+    },
+    {
+      "meaning": "evidence contradicts a claim/hypothesis",
+      "type": "FALSIFIES"
+    },
+    {
+      "meaning": "review constrains scope/status of result",
+      "type": "QUALIFIES"
+    },
+    {
+      "meaning": "claim depends on another earned/scoped claim",
+      "type": "REQUIRES_CLAIM"
+    },
+    {
+      "meaning": "stored witness distinguishes states/classes",
+      "type": "SEPARATES"
+    },
+    {
+      "meaning": "frozen protocol/review permits a transition such as formal escalation",
+      "type": "AUTHORIZES"
+    }
+  ],
+  "forbidden_implicit_edges": [
+    "PRODUCED_BY implies SUPPORTS",
+    "REQUIRES implies claim dependency",
+    "historical co-location implies dependency",
+    "filename similarity implies dependency"
+  ],
+  "schema_id": "IG_GRAPH_EDGE_REGISTRY_V0_1",
+  "version": "0.1"
+}

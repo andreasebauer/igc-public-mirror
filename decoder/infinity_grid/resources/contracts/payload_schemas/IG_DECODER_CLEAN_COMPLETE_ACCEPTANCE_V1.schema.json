@@ -1,0 +1,70 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_DECODER_CLEAN_COMPLETE_ACCEPTANCE_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decoder_version": {
+      "type": "string"
+    },
+    "doctor": {
+      "type": "string"
+    },
+    "next_scout_depth": {
+      "type": "string"
+    },
+    "o12_o13_raise": {
+      "type": "string"
+    },
+    "o7_plan": {
+      "type": "string"
+    },
+    "o8_plan": {
+      "type": "string"
+    },
+    "o9_bp0_plan": {
+      "type": "string"
+    },
+    "pytest": {
+      "type": "string"
+    },
+    "resume_after": {
+      "type": "string"
+    },
+    "scanner_import": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_DECODER_CLEAN_COMPLETE_ACCEPTANCE_V1",
+      "type": "string"
+    },
+    "science_change": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "wheel_built": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decoder_version",
+    "doctor",
+    "next_scout_depth",
+    "o12_o13_raise",
+    "o7_plan",
+    "o8_plan",
+    "o9_bp0_plan",
+    "pytest",
+    "resume_after",
+    "scanner_import",
+    "schema",
+    "science_change",
+    "status",
+    "wheel_built"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_DECODER_CLEAN_COMPLETE_ACCEPTANCE_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,25 @@
+{
+  "catalog_expected_claims": 0,
+  "catalog_order": [
+    "run complete",
+    "release capsules generated and verified",
+    "catalog rebuilt from immutable manifests",
+    "catalog accounting verified",
+    "parent certificate committed"
+  ],
+  "current_parent_pointer": "atomic pointer to certificate SHA only; not scientific authority by itself",
+  "environment_reproduction": {
+    "clean_install_at_chain_closeout": true,
+    "clean_install_at_chain_start": true,
+    "clean_install_at_source_change": true,
+    "per_level_same_environment_byte_replay": true
+  },
+  "history_copy_policy": "Do not nest previous full bundles into every level. Reference immutable store objects by SHA and include only required forward-parent material.",
+  "per_level_outputs": {
+    "compact_run_release": "mandatory",
+    "forward_parent_capsule": "mandatory; includes selected relation, baseline, classification, parent certificate, plan/question/protocol/evidence pins and required small verification evidence",
+    "full_standalone_run_release": "mandatory at a scientific trigger, chain limit, chain closeout, source change or publication checkpoint; optional for routine intermediate levels"
+  },
+  "schema_id": "IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1",
+  "spec_sha256": "10dadf889d557caaf266d87c52bd6d2f40fd2e82c393d6f11c6862da795fe3f0"
+}

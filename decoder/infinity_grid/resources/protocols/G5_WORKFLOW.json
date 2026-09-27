@@ -1,0 +1,82 @@
+{
+  "acceptance_gates": [],
+  "allowed_protocol_labels": [
+    "G5_WORKFLOW_RUN"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "EXACT_BOUNDED",
+        "PASS",
+        "SCOPED_AUDIT_AUTHORITY",
+        "G5_WORKFLOW_RUN"
+      ]
+    ],
+    "max_authority": "SCOPED_AUDIT_AUTHORITY"
+  },
+  "forbidden_claims": [
+    "G5 graduated automatically",
+    "G5 composition law earned automatically",
+    "G4 changed without explicit authority",
+    "geometry emerged"
+  ],
+  "input_contract": {
+    "bounded_preregistered": true
+  },
+  "observer_contract": {
+    "must_be_explicit": true,
+    "observer_freeze_before_generation": false
+  },
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "bounded_preregistered",
+        "observer_frozen"
+      ],
+      "allowed_protocol_labels": [
+        "G5_WORKFLOW_RUN"
+      ],
+      "profile_id": "g5_generic_workflow_single_stage",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "workflow_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "workflow_dataset_sha256"
+          ],
+          "runner": "adapter.v05_workflow",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "WORKFLOW",
+        "phase": "G5",
+        "target": "G5_SCIENCE_WORKFLOW"
+      }
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "G5_WORKFLOW",
+  "purpose": "Run one preregistered G5 structural workflow through the common v0.5 guarded runtime with explicit observer freeze and no automatic promotion.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "execute",
+      "purpose": "generic registered G5 structural workflow"
+    }
+  ],
+  "stopping_rules": {
+    "fail_closed": true,
+    "scientific_mismatch": "STOP"
+  },
+  "version": "0.17"
+}

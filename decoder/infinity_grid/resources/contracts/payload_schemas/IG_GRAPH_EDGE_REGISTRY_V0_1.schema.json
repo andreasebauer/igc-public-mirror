@@ -1,0 +1,73 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_GRAPH_EDGE_REGISTRY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "computation_edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "meaning": {
+            "type": "string"
+          },
+          "transitive_for_minimum_roots": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "meaning",
+          "transitive_for_minimum_roots",
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "meaning": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "meaning",
+          "type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "forbidden_implicit_edges": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_GRAPH_EDGE_REGISTRY_V0_1",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "computation_edges",
+    "evidence_edges",
+    "forbidden_implicit_edges",
+    "schema_id",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_GRAPH_EDGE_REGISTRY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

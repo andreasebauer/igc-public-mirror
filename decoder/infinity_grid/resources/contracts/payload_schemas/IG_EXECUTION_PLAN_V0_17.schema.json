@@ -1,0 +1,519 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_EXECUTION_PLAN_V0_17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descriptor_sha256": {
+      "type": "string"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "protocol_label": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "disposition",
+        "origin",
+        "protocol_label",
+        "scope"
+      ],
+      "type": "object"
+    },
+    "input_datasets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dataset_sha256": {
+            "type": "string"
+          },
+          "logical_role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dataset_sha256",
+          "logical_role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "input_flags": {
+      "additionalProperties": false,
+      "properties": {
+        "bounded_preregistered": {
+          "type": "boolean"
+        },
+        "observer_frozen": {
+          "type": "boolean"
+        },
+        "parent_certified": {
+          "type": "boolean"
+        },
+        "population_complete": {
+          "type": "boolean"
+        },
+        "selection_sealed_before_relation_analysis": {
+          "type": "boolean"
+        },
+        "separate_lineage": {
+          "type": "boolean"
+        },
+        "spectroscope_non_feedback": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "bounded_preregistered",
+        "observer_frozen",
+        "parent_certified",
+        "population_complete",
+        "selection_sealed_before_relation_analysis",
+        "separate_lineage",
+        "spectroscope_non_feedback"
+      ],
+      "type": "object"
+    },
+    "observer": {
+      "additionalProperties": false,
+      "properties": {
+        "comparison_rules": {
+          "additionalProperties": false,
+          "properties": {
+            "absence": {
+              "type": "string"
+            },
+            "absolute_within_panel_counts": {
+              "type": "string"
+            },
+            "cross_level_count_or_fraction_comparison": {
+              "type": "string"
+            },
+            "deep_ancestry": {
+              "type": "string"
+            },
+            "directional_change": {
+              "type": "string"
+            },
+            "existence_persistence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "absence",
+            "absolute_within_panel_counts",
+            "cross_level_count_or_fraction_comparison",
+            "deep_ancestry",
+            "directional_change",
+            "existence_persistence"
+          ],
+          "type": "object"
+        },
+        "observed_families": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "observer_id": {
+          "type": "string"
+        },
+        "observer_sha256": {
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+          "type": "string"
+        },
+        "science_projection": {
+          "additionalProperties": false,
+          "properties": {
+            "baseline": {
+              "type": "string"
+            },
+            "host_paths_timestamps_resource_fields": {
+              "type": "string"
+            },
+            "selected_relation": {
+              "type": "string"
+            },
+            "spectroscope": {
+              "type": "string"
+            },
+            "wide": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "baseline",
+            "host_paths_timestamps_resource_fields",
+            "selected_relation",
+            "spectroscope",
+            "wide"
+          ],
+          "type": "object"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "historical_scope_replay": {
+              "type": "boolean"
+            },
+            "population_complete": {
+              "type": "boolean"
+            },
+            "primitive_sha256": {
+              "type": "string"
+            },
+            "root_count": {
+              "type": "integer"
+            },
+            "root_sha256": {
+              "type": "string"
+            },
+            "source_level": {
+              "type": "integer"
+            },
+            "target_level": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "historical_scope_replay",
+            "population_complete",
+            "primitive_sha256",
+            "root_count",
+            "root_sha256",
+            "source_level",
+            "target_level"
+          ],
+          "type": "object"
+        },
+        "spectroscope_metrics": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "wide_metrics": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "comparison_rules",
+        "observed_families",
+        "observer_id",
+        "observer_sha256",
+        "schema_id",
+        "science_projection",
+        "scope",
+        "spectroscope_metrics",
+        "wide_metrics"
+      ],
+      "type": "object"
+    },
+    "plan_sha256": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "protocol_label": {
+      "type": "string"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "question": {
+      "additionalProperties": false,
+      "properties": {
+        "input_dataset_sha256": {
+          "type": "string"
+        },
+        "observer_sha256": {
+          "type": "string"
+        },
+        "primary_question": {
+          "type": "string"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "protocol_label": {
+          "type": "string"
+        },
+        "question_id": {
+          "type": "string"
+        },
+        "scope_guard": {
+          "type": "string"
+        },
+        "stopping_rules": {
+          "additionalProperties": false,
+          "properties": {
+            "complete_exact_bounded_generation": {
+              "type": "boolean"
+            },
+            "fail_closed": {
+              "type": "boolean"
+            },
+            "no_adaptive_lane_extension": {
+              "type": "boolean"
+            },
+            "no_deep_ancestry_search": {
+              "type": "boolean"
+            },
+            "no_population_census": {
+              "type": "boolean"
+            },
+            "spectroscope_after_seal_only": {
+              "type": "boolean"
+            },
+            "spectroscope_cannot_feedback": {
+              "type": "boolean"
+            },
+            "stop_after_terminal_golden_verification": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "complete_exact_bounded_generation",
+            "fail_closed",
+            "no_adaptive_lane_extension",
+            "no_deep_ancestry_search",
+            "no_population_census",
+            "spectroscope_after_seal_only",
+            "spectroscope_cannot_feedback",
+            "stop_after_terminal_golden_verification"
+          ],
+          "type": "object"
+        },
+        "subject": {
+          "additionalProperties": false,
+          "properties": {
+            "hierarchy": {
+              "type": "string"
+            },
+            "historical_scope_replay": {
+              "type": "boolean"
+            },
+            "level": {
+              "type": "integer"
+            },
+            "live_generation": {
+              "type": "boolean"
+            },
+            "population_complete": {
+              "type": "boolean"
+            },
+            "root_count": {
+              "type": "integer"
+            },
+            "source_level": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "hierarchy",
+            "historical_scope_replay",
+            "level",
+            "live_generation",
+            "population_complete",
+            "root_count",
+            "source_level"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "input_dataset_sha256",
+        "observer_sha256",
+        "primary_question",
+        "protocol_id",
+        "protocol_label",
+        "question_id",
+        "scope_guard",
+        "stopping_rules",
+        "subject"
+      ],
+      "type": "object"
+    },
+    "question_sha256": {
+      "type": "string"
+    },
+    "requested_claims": {
+      "items": {},
+      "type": "array"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_EXECUTION_PLAN_V0_17",
+      "type": "string"
+    },
+    "stages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "depends_on": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "baseline_level": {
+                "type": "integer"
+              },
+              "cannot_feedback": {
+                "type": "boolean"
+              },
+              "claim_boundary_sha256": {
+                "type": "string"
+              },
+              "fixture_dataset_sha256": {
+                "type": "string"
+              },
+              "golden_commitment_sha256": {
+                "type": "string"
+              },
+              "lane_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "observer_sha256": {
+                "type": "string"
+              },
+              "per_lane": {
+                "type": "integer"
+              },
+              "primitive_sha256": {
+                "type": "string"
+              },
+              "projection_version": {
+                "type": "string"
+              },
+              "recognition_only": {
+                "type": "boolean"
+              },
+              "root_count": {
+                "type": "integer"
+              },
+              "root_sha256": {
+                "type": "string"
+              },
+              "selection_rules_sha256": {
+                "type": "string"
+              },
+              "source_level": {
+                "type": "integer"
+              },
+              "target_level": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "fixture_dataset_sha256"
+            ],
+            "type": "object"
+          },
+          "runner": {
+            "type": "string"
+          },
+          "stage_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "depends_on",
+          "params",
+          "runner",
+          "stage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subject": {
+      "additionalProperties": false,
+      "properties": {
+        "hierarchy": {
+          "type": "string"
+        },
+        "historical_scope_replay": {
+          "type": "boolean"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "live_generation": {
+          "type": "boolean"
+        },
+        "population_complete": {
+          "type": "boolean"
+        },
+        "root_count": {
+          "type": "integer"
+        },
+        "source_level": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "hierarchy",
+        "historical_scope_replay",
+        "level",
+        "live_generation",
+        "population_complete",
+        "root_count",
+        "source_level"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "descriptor_sha256",
+    "evidence",
+    "input_datasets",
+    "input_flags",
+    "observer",
+    "plan_sha256",
+    "protocol_id",
+    "protocol_label",
+    "protocol_version",
+    "question",
+    "question_sha256",
+    "requested_claims",
+    "run_id",
+    "schema_id",
+    "stages",
+    "subject"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_EXECUTION_PLAN_V0_17",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

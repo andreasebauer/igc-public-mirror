@@ -1,0 +1,50 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_CLEAN_COMPLETE_FILE_MANIFEST_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decoder_version": {
+      "type": "string"
+    },
+    "file_count": {
+      "type": "integer"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_CLEAN_COMPLETE_FILE_MANIFEST_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "decoder_version",
+    "file_count",
+    "files",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_CLEAN_COMPLETE_FILE_MANIFEST_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,128 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "fixed_relations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "input_rule": {
+      "type": "string"
+    },
+    "outer_conveyor_steps_after_run": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "population_complete": {
+      "type": "boolean"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "protocol_label": {
+      "type": "string"
+    },
+    "question_template": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1",
+      "type": "string"
+    },
+    "science_stage_dag": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "depends_on": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "runner": {
+            "type": "string"
+          },
+          "stage_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "depends_on",
+          "runner",
+          "stage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "stopping_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_one_step_generation": {
+          "type": "boolean"
+        },
+        "no_adaptive_panel_extension": {
+          "type": "boolean"
+        },
+        "no_deep_ancestry_search": {
+          "type": "boolean"
+        },
+        "no_population_census": {
+          "type": "boolean"
+        },
+        "selection_sealed_before_relation_analysis": {
+          "type": "boolean"
+        },
+        "spectroscope_after_seal_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complete_one_step_generation",
+        "no_adaptive_panel_extension",
+        "no_deep_ancestry_search",
+        "no_population_census",
+        "selection_sealed_before_relation_analysis",
+        "spectroscope_after_seal_only"
+      ],
+      "type": "object"
+    },
+    "target_rule": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "fixed_relations",
+    "input_rule",
+    "outer_conveyor_steps_after_run",
+    "population_complete",
+    "protocol_id",
+    "protocol_label",
+    "question_template",
+    "schema_id",
+    "science_stage_dag",
+    "scope",
+    "spec_sha256",
+    "stopping_rules",
+    "target_rule"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

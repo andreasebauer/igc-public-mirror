@@ -1,0 +1,133 @@
+{
+  "$id": "ig://schema/decoder-current-state/v4",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "as_of_utc": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_class": {
+      "const": "CURRENT_CONTEXT"
+    },
+    "canonical_code": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_decoder_version": {
+          "const": "0.26.0"
+        },
+        "det001_determinism_release": {
+          "type": "object"
+        },
+        "gate1_contract_release": {
+          "type": "object"
+        },
+        "gate2_oracle_release": {
+          "type": "object"
+        },
+        "gate3_arc001_release": {
+          "type": "object"
+        },
+        "mig001_compatibility_release": {
+          "type": "object"
+        },
+        "next_semantic_target": {
+          "const": "0.27.0"
+        },
+        "semantic_delta_from_v0_26": {
+          "const": "NONE"
+        }
+      },
+      "required": [
+        "baseline_decoder_version",
+        "gate1_contract_release",
+        "gate2_oracle_release",
+        "mig001_compatibility_release",
+        "gate3_arc001_release",
+        "det001_determinism_release",
+        "semantic_delta_from_v0_26",
+        "next_semantic_target"
+      ],
+      "type": "object"
+    },
+    "gate_status": {
+      "additionalProperties": false,
+      "properties": {
+        "det_001_cross_environment_determinism": {
+          "const": "COMPLETE"
+        },
+        "gate_0_baseline_freeze": {
+          "const": "COMPLETE"
+        },
+        "gate_1_machine_contracts": {
+          "const": "COMPLETE"
+        },
+        "gate_2_v0_26_oracle": {
+          "const": "COMPLETE"
+        },
+        "gate_3_refactor": {
+          "const": "COMPLETE"
+        },
+        "mig_001_compatibility_spec": {
+          "const": "COMPLETE"
+        },
+        "v0_27_semantic_integration": {
+          "const": "READY_FOR_DEL001"
+        }
+      },
+      "required": [
+        "gate_0_baseline_freeze",
+        "gate_1_machine_contracts",
+        "gate_2_v0_26_oracle",
+        "mig_001_compatibility_spec",
+        "gate_3_refactor",
+        "det_001_cross_environment_determinism",
+        "v0_27_semantic_integration"
+      ],
+      "type": "object"
+    },
+    "hard_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "legacy_state_reconciliation": {
+      "type": "object"
+    },
+    "operational_snapshot": {
+      "type": "object"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_DECODER_CURRENT_STATE_V4"
+    },
+    "science_status": {
+      "type": "object"
+    },
+    "state_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state_version": {
+      "const": "4.0.0"
+    }
+  },
+  "required": [
+    "schema_id",
+    "state_version",
+    "authority_class",
+    "as_of_utc",
+    "purpose",
+    "canonical_code",
+    "gate_status",
+    "science_status",
+    "operational_snapshot",
+    "hard_rules",
+    "legacy_state_reconciliation",
+    "state_sha256"
+  ],
+  "type": "object"
+}

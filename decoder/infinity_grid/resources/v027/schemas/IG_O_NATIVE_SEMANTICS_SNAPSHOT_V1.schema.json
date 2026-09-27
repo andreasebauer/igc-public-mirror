@@ -1,0 +1,128 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action_registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "actions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_id": {
+            "type": "string"
+          },
+          "callable": {
+            "type": "string"
+          },
+          "callable_semantic_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "features": {
+            "additionalProperties": false,
+            "properties": {
+              "ancestry_provenance_read": {
+                "type": "boolean"
+              },
+              "copying": {
+                "type": "boolean"
+              },
+              "deletion": {
+                "type": "boolean"
+              },
+              "endpoint_replacement": {
+                "type": "boolean"
+              },
+              "feedback": {
+                "type": "boolean"
+              },
+              "hidden_topology_read": {
+                "type": "boolean"
+              },
+              "multiway": {
+                "type": "boolean"
+              },
+              "orientation_order_read": {
+                "type": "boolean"
+              },
+              "retagging": {
+                "type": "boolean"
+              },
+              "rewiring": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "ancestry_provenance_read",
+              "copying",
+              "deletion",
+              "endpoint_replacement",
+              "feedback",
+              "hidden_topology_read",
+              "multiway",
+              "orientation_order_read",
+              "retagging",
+              "rewiring"
+            ],
+            "type": "object"
+          },
+          "hidden_reads": {
+            "items": {},
+            "type": "array"
+          },
+          "read_set": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "relation_arity": {
+            "type": "integer"
+          },
+          "scientific_role": {
+            "type": "string"
+          },
+          "successor_semantics": {
+            "type": "string"
+          },
+          "writes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "action_id",
+          "callable",
+          "callable_semantic_sha256",
+          "features",
+          "hidden_reads",
+          "read_set",
+          "relation_arity",
+          "scientific_role",
+          "successor_semantics",
+          "writes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_O_NATIVE_SEMANTICS_SNAPSHOT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_registry_sha256",
+    "actions",
+    "schema_id",
+    "science_sha256"
+  ],
+  "type": "object"
+}

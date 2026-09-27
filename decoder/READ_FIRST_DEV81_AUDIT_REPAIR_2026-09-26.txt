@@ -1,0 +1,31 @@
+DEV81 — DEEP AUDIT A01–A03 BOUNDED REPAIR CANDIDATE
+
+Parent: exact dev80 source d53bb39e858a7b262bb7e0375f5e09bcf050e47f5526282e4e71395f497f3b8d.
+Scope: runner stop/decision integrity and reference transaction crash recovery.
+
+Runner operations reconcile all retained audit capsules and external decisions
+with the current index. Missing, changed, unindexed or unresolved stop evidence
+refuses before another action is offered. Decisions are checked against their
+capsule, run, node, result/evidence and state effect. Interrupted stop/decision
+publication remains visible and requires reconciliation; no stop is erased.
+
+New reference transactions use IG_REPLAY_REFERENCE_TRANSACTION_V2, embedding
+the sealed record in the immutable transaction. Recovery can publish the exact
+record after interruption between transaction and payload publication. It checks
+the parent, dependencies, record identity and proposed manifest before writing.
+Existing V1 transactions remain readable. A V1 transaction whose payload was
+never saved cannot reconstruct unknown bytes: recovery gives a specific refusal
+requiring restoration of the exact hash-bound record. No synthetic replacement
+or silent transaction deletion is permitted. Old readers do not support V2;
+keep parent snapshots intact rather than opening new V2 stores with dev80.
+
+Qualification is pending until the external registered completion establishes
+the exact candidate result. Tests retain exact dev80 source and reproduce the
+three original defects, then exercise repairs and existing replay regressions.
+Only version expectations in the selected qualification tests change to dev81.
+This does not repair the other stale-version tests identified by A04.
+
+These are cooperating-process/local-file guarantees, not authentication against
+an actor rewriting all evidence. Entire-history deletion is outside this scope.
+No scientific calculation, historical causal attribution, whole-branch PASS,
+or shared release promotion is claimed. Other deep-audit findings remain open.

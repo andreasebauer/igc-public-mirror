@@ -1,0 +1,266 @@
+INFINITY GRID — SCOUT2-B V1.5 k0→k128 AUDIT
+Date: 2026-08-27
+
+OVERALL VERDICT
+===============
+EXECUTION: PASS
+REPRODUCIBILITY OF V1.5 OUTPUT: PASS
+V1.5 ONE-STEP TRANSITION-REFINED TYPE RESULT: PASS
+MATURE HIGHER-ORDER RELATIONAL NODE: NOT EARNED
+V1.5 C1 AS A PROSPECTIVE GRADUATION IDENTITY: NOT YET SAFE
+
+The V1.5 run is computationally sound and reproducible. It really does find recurrent classes of exact connected-node carriers that share the same V1.3 current-action support and the same action-labelled one-step successor profile under the frozen V1.5 definition.
+
+However, the audit found the next distinction that matters: V1.5 performs only ONE partition-refinement step. Its successors are colored by the coarser V1.3 C0 class, not by V1.5 C1 itself. When the audit asks the next recursive question — do exact members of one C1 class also have the same action-labelled transitions to C1 classes? — some C1 classes split. Therefore C1 is not yet a fixed-point behavioral quotient and cannot yet support a claim of arbitrary future substitutability.
+
+This is not a failure of the algebra. It is exactly the kind of hidden distinction the observer program is supposed to expose.
+
+
+1. INTEGRITY AND EXECUTION
+==========================
+
+The delivered V1.5 result bundle was verified against its top-level SHA-256 manifest:
+- 155 manifest entries checked: PASS
+- bundle SHA-256:
+  28fcc47308e363591b540dfebe43e60b4578da5f62df8d4da006191f93cf6a5d
+- V1.5 science SHA-256:
+  08d5f28a3853d53164d48aa238ed53e822a632f85b19e070928847de3e05e670
+- controller stderr: 0 bytes
+- prelaunch freeze-verification stderr: 0 bytes
+
+The source k0→k128 V1.2 trajectory still present in the runtime was independently checked against the V1.3 parent-trajectory SHA-256 manifest:
+- 130/130 parent files: exact hash match
+- mismatches: 0
+
+The V1.5 observer was independently rerun from the frozen source trajectory at k0, k64 and k128. All three observer hashes reproduced exactly:
+- k0:  25a56de08c54c3c3c0ef509ab18bdc4694866b0eb52facb12395e0fc0598baf4
+- k64: ef68ba80ee03ee45bdbe36dc4a59c16eb723291086dbf2bcec0c8fc96d021961
+- k128:78f4a3f32658a7c9d7bb711334b5080760f4fd4278585b42273e2cd5af726f71
+
+The final V1.5 science hash also reproduced exactly from the checkpoint trajectory.
+
+Conclusion: there is no evidence that the optimized parent trajectory, the retrospective V1.5 observer run, or the delivered result files are numerically corrupted.
+
+
+2. WHAT V1.5 REALLY ESTABLISHES
+===============================
+
+V1.5 defines:
+
+C0 = V1.3 current-action support class.
+
+For each exact carrier x it then enumerates every legal one-relation child, exact-deduplicates those children, labels the action by the anonymous typed port-pair class, and records:
+- R: the set of (action label, C0(child)) outcomes;
+- M: the number of exact child classes in each (action label, C0(child)) outcome.
+
+Then:
+
+C1(x) = hash(C0(x), R(x), M(x)).
+
+This is a genuine strengthening of V1.3. At k128:
+- exact selected carriers: 941
+- V1.5 C1 classes: 275
+- exact→C1 compression: 3.421818×
+- C1 classes with >=2 exact realizations: 39
+- largest C1 class: 257 exact realizations
+
+So many different exact connection networks really do collapse to the same one-step transition-refined type.
+
+The raw recurrence count is 5,815 C1 classes, but that number should not be overinterpreted:
+- median longest contiguous span: 3 k-levels
+- mean longest contiguous span: 5.7422 k-levels
+- span >=48: 52 classes
+- span all k0→k128: 10 classes
+
+Among the 5,815 recurrent classes:
+- 2,624 have >=2 exact realizations at least once;
+- 1,133 have >=2 exact realizations on adjacent k checkpoints.
+
+Thus the substantive retrospective existence claim survives, even though the headline count is dominated by short recurrences.
+
+
+3. CRITICAL SCIENTIFIC FINDING: C1 IS NOT A FIXED POINT
+=======================================================
+
+The V1.3 audit taught us that “same capabilities now” did not guarantee “same tomorrow.” V1.5 addressed that by comparing one-step successors, but it colors those successors with C0.
+
+The natural next audit is therefore:
+
+C2 = current C1 + action-labelled successor profiles where successors are colored by C1.
+
+If a C1 class is already a stable transition congruence, all exact realizations inside it must remain together under this second refinement.
+
+They do not.
+
+Three direct k128 counterexamples were constructed from the frozen algebra without changing any generation rule.
+
+Counterexample A
+----------------
+V1.5 C1:
+afbe0c7ce7bf9ea5136b809fd4cc1213b722bb2019e73bc3cfd731a1428e1ec9
+
+Exact realizations in the C1 class: 2
+Parents:
+- 003ba5af79c46492c353c8616d5f91ab3bec8f9e40a245494e5422e6518b9ee6
+- d264645d98650567d99dc2210b3f68cf1b24e532ff83ed4724802d57b7c78f8b
+
+They have identical V1.5 C1 by construction.
+But under the C2 probe:
+- parent A reaches 6 action-labelled C1 successor outcomes;
+- parent B reaches 10;
+- parent B has 4 successor outcomes absent from A.
+
+So the two exact networks are indistinguishable to V1.5 C1, yet distinguishable one refinement later.
+
+Counterexample B — largest k128 C1 class
+----------------------------------------
+V1.5 C1:
+81f70cff92bb12a89e80fcb286d32e7da5cb8d218992d4d0731d70de56e89d33
+
+Exact realizations in class: 257
+A targeted member pair again splits under C2:
+- one member reaches 6 C1 successor outcomes;
+- another reaches 10;
+- 4 outcomes differ.
+
+This is especially important because the split is not confined to a tiny edge case; it occurs inside the largest compressed C1 class at k128.
+
+Counterexample C
+----------------
+V1.5 C1:
+73a1d4b07126aaf68e6ae29ad8f75940bd3b54b1c4a736165715a4fd0ccf9948
+
+Exact realizations in class: 108
+A targeted member pair splits:
+- 5 versus 8 C1 successor outcomes;
+- 3 outcomes occur only for one member.
+
+A small-class sweep over 18 multi-realization C1 classes with modest branching found another explicit split while many others remained intact. The point is not that every C1 class fails. The point is that C1 equality is not sufficient in general.
+
+Scientific consequence:
+V1.5 has earned ONE-STEP transition-refined relational types.
+It has NOT earned a fixed-point future-behavior quotient, arbitrary-depth bisimulation, or exact higher-order node substitution.
+
+
+4. THE FROZEN 48-k GRADUATION GATE IS DOING USEFUL WORK
+=======================================================
+
+The audit applied only criteria A–F of the already-frozen prospective 48-k gate retrospectively as a diagnostic. This is NOT graduation evidence.
+
+48-k windows:
+- k49–k96:  22 classes present throughout; 0 pass A–F
+- k57–k104: 20 throughout; 0 pass A–F
+- k65–k112: 23 throughout; 0 pass A–F
+- k73–k120: 18 throughout; 1 passes A–F
+- k81–k128: 15 throughout; 0 pass A–F
+
+The one strong class in the window ending k120 no longer passes the same conditions at the terminal k128 window.
+
+This matters. It shows that even after V1.5 refinement there is still candidate turnover. The stronger 48-k durability rule was justified, and the terminal data do not currently contain a class that would pass even the A–F subset of that prospective gate.
+
+Several classes do persist through the full k81–k128 window with direct parent persistence and multiple exact realizations, but they fail lineage richness and multi-lane robustness. Persistence alone is therefore not being mistaken for maturation.
+
+
+5. SPEC / IMPLEMENTATION AUDIT ISSUES
+=====================================
+
+5.1 HIGH — source-integrity fail-closed contract is incomplete
+-------------------------------------------------------------
+Frozen Section 2 says the implementation MUST verify:
+- V1.2 science SHA;
+- V1.3 science SHA;
+- V1.3 freeze SHA;
+- complete k0→k128 panels/required files;
+and fail closed on mismatch.
+
+The V1.5 source_integrity() implementation verifies V1.2 and V1.3 science hashes and checks that required files exist, but it does NOT verify the V1.3 freeze SHA and does NOT hash the parent selected-carrier panels.
+
+This is a real guardrail defect because the V1.2 final science hash does not itself commit to every selected-carrier file; it is a summary hash.
+
+For this actual run, the audit independently verified the existing V1.3 parent-trajectory manifest against the source data and found 130/130 exact matches, and the V1.3 freeze SHA is correct. Therefore this issue does not invalidate the current result. It must be repaired before the prospective continuation.
+
+5.2 MEDIUM — retrospective status logic is weaker than frozen Section 14
+-----------------------------------------------------------------------
+Section 14 says immediate retrospective success requires, among other things, C1 classes with >=2 exact realizations and recurrence across k.
+
+retrospective_summary() currently calls any C1 class recurring for two consecutive k-levels a recurrent entity and sets RETROSPECTIVE_TRANSITION_REFINED_ENTITY_FOUND_V1_5 if at least one such recurrence exists, even if it is always a singleton.
+
+The current science conclusion survives this bug because the actual data contain 2,624 recurrent classes with multiple realizations at least once and 1,133 with multiple realizations on adjacent k-levels. But the evaluator should be corrected to match the frozen wording exactly.
+
+5.3 MEDIUM — transitive runtime dependency was outside the V1.5 freeze manifest
+-----------------------------------------------------------------------------
+The original frozen launch package omitted:
+scout2_relational_longitudinal_v1_1.py
+
+The official runtime added the exact dependency from the verified V1.2 source, with recorded SHA-256:
+e46fcf445cc32cf844f28f5511bb7a9170369e3f1a710bfd23787751b8e5ef19
+
+The failed launch produced no science output, and independent replay reproduces the official observer hashes, so there is no evidence of scientific drift. Future freeze bundles should include and hash all transitive scientific dependencies directly.
+
+5.4 LOW — synthetic tests are too narrow
+----------------------------------------
+The frozen synthetic test checks:
+- reachability divergence splits classes;
+- multiplicity divergence splits classes;
+- canonical ordering.
+
+It does not test:
+- source-integrity fail-closed behavior;
+- the Section-14 recurrence/multi-realization contract;
+- action-label collision handling under exact quotient;
+- iterative refinement / fixed-point convergence.
+
+These should be added to the next observer.
+
+
+6. WHAT THE AUDIT DOES NOT FIND
+===============================
+
+The audit does NOT find:
+- corruption of the k0→k128 algebra trajectory;
+- a mismatch caused by the optimization;
+- a numerical instability;
+- evidence that one-step behavioral compression is an artifact;
+- evidence for geometry, axis, distance, dimension, physical time, propagation or actualization.
+
+The issue is narrower: our current quotient is not yet recursively closed under its own transition structure.
+
+
+7. RECOMMENDED NEXT STEP
+========================
+
+Do NOT launch k129+ using V1.5 C1 as the graduation identity yet.
+Do NOT regenerate k0→k128.
+
+Freeze the next observer as genuine fixed-point partition refinement:
+
+1. Start with C0 = the V1.3 current-action support partition.
+2. Define C(n+1) from:
+   - C(n)(current carrier), and
+   - the frozen action-labelled exact-child reachability/multiplicity profile into C(n) classes.
+3. Repeat mechanically until no class splits:
+   C(n+1) = C(n) as a partition.
+4. The stabilized color C* is the first legitimate candidate for a recursive relation-add behavioral state.
+5. Recompute C* retrospectively on the already-existing k0→k128 data only.
+6. Audit C* for exact implementation, compression, recurrence and whether hidden variables remain.
+7. Only then freeze and launch genuinely unseen k129+ continuation toward actual mechanical saturation / the existing capacity ceiling.
+
+This procedure does not guess another state variable. It asks the algebra itself which distinctions survive future relation addition, and keeps splitting only where future behavior demands it.
+
+If the partition stabilizes compactly and persists prospectively, that would be much stronger evidence for a genuine higher-order relational node.
+
+
+PLAIN-LANGUAGE SUMMARY
+======================
+
+V1.5 was a real improvement, and the run is good.
+
+It found many different connection networks that look the same now and also have the same kinds of immediate next moves. That is real compression.
+
+But the audit looked one move further. For some networks that V1.5 calls the same thing, their next states do not themselves have the same future possibilities. So we have not yet found the final definition of the higher-order object.
+
+The nice part is that we do not have to invent what is missing. We can repeat the same sorting rule automatically: whenever two supposedly identical objects behave differently later, split them. Keep doing that until nothing splits anymore.
+
+If that process eventually stops with a small reusable set of classes, the algebra itself will have told us what information a genuine connected higher-order node must carry.
+
+That is the next clean experiment.

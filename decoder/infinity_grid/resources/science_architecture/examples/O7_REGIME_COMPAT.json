@@ -1,0 +1,83 @@
+{
+  "allowed_lift_target_policy": "No automatic tower. A new EntityClass requires a separate LiftCandidate + LiftCertificate establishing retained organization/relations and its scoped action/substitution semantics.",
+  "closure_assumptions": [
+    "Use only earned/scoped law transport while theorem premise and primitive-semantic gates pass.",
+    "Exact reopen is separate and fail-closed when required.",
+    "Synthetic higher-depth instances are not historical graduations."
+  ],
+  "depth_coordinate": {
+    "name": "historical_O_number",
+    "origin": 7,
+    "semantic": "Development coordinate inside one organizational Regime. O8/O9/O10... do not automatically define new EntityClasses."
+  },
+  "development_law": {
+    "action_language_ref": "frozen GRRL resource-visible action language",
+    "constructor_ref": "v0.27 FixedGrammarTransporter / generic recursive lift compatibility mapping",
+    "law_id": "O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1_COMPAT",
+    "multiplicity_mode": "COUNTER",
+    "relation_valued": true,
+    "version": "1"
+  },
+  "exposed_capabilities": [
+    "EXACT_ENTITY_IDENTITY",
+    "BOUNDARY_INTERFACE",
+    "RELATION_GRAPH",
+    "TYPED_RELATIONS",
+    "TRANSITION_SYSTEM",
+    "ACTION_ENABLEDNESS",
+    "ACTION_MULTIPLICITY",
+    "BLOCK_STRUCTURE",
+    "ANCESTRY",
+    "FACTORIZATION",
+    "INTRINSIC_DISTANCE",
+    "NEIGHBORHOOD_SHELLS",
+    "CANONICAL_AUTOMORPHISMS",
+    "RESOURCE_COUNTERS",
+    "OBSERVER_QUOTIENT"
+  ],
+  "historical_depth_alias_rule": "Preserve O7/O8/O9/... only as provenance/development coordinates.",
+  "ignition": {
+    "coordinate": "historical O7",
+    "evidence_refs": [
+      {
+        "id": "O7_GRADUATION_SOURCE_AUTHORITY",
+        "role": "ignition/reference authority",
+        "scope": "O7 source scope",
+        "version": "historical-frozen"
+      }
+    ],
+    "status": "EARNED_IN_HISTORICAL_SOURCE_SCOPE"
+  },
+  "input_entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "law_authority_refs": [
+    {
+      "id": "O_REGIME_EARNED_LAW_REGISTRY_V1",
+      "role": "law authority",
+      "scope": "frozen earned O-regime laws",
+      "version": "1"
+    },
+    {
+      "id": "THEOREM_PREMISE_REGISTRY_V1",
+      "role": "premise authority",
+      "scope": "v0.27 theorem freezewalls",
+      "version": "1.0.0"
+    }
+  ],
+  "observer_ref": "O_REGIME_ADAPTIVE_SCANNER_SPEC_v1 frozen observer families / compatibility mapping",
+  "primitive_semantics_sentinel_ref": "v0.27 NativeSemanticsSentinel -> future per-Regime PrimitiveSemanticsSentinel",
+  "regime_boundary_sentinel_ref": "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0",
+  "regime_id": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT",
+  "reopen_conditions": [
+    "primitive action implementation changes",
+    "new read/guard/state field",
+    "relation arity changes",
+    "SET/MULTISET/COUNTER semantics change",
+    "orientation/order becomes operational",
+    "deletion/rewiring/retagging/copying/feedback appears",
+    "observer or theorem premise set changes"
+  ],
+  "schema_id": "IG_REGIME_V1",
+  "schema_version": "1.0.0",
+  "status": "COMPATIBILITY_EXAMPLE_NO_NEW_SCIENCE",
+  "version": "1.0.0"
+}

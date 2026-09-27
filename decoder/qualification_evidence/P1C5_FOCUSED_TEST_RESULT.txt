@@ -1,0 +1,4 @@
+57 passed in 0.60s
+
+Command:
+python -m pytest -q tests/test_p1c5_cost_budget_ledger.py tests/test_p1c4_execution_classes.py tests/test_p1c3_known_replay_qualifications.py tests/test_p1c2_audit_provenance_ledger.py tests/test_replay_obligation_compiler_p1a2.py tests/test_replay_obligation_compiler_p1b.py tests/test_replay_obligation_compiler_p1b2.py tests/test_replay_obligation_compiler_p1c.py tests/test_p1d_fresh_replay_certificate.py

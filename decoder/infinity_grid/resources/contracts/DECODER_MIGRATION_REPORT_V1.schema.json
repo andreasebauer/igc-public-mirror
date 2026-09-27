@@ -1,0 +1,26 @@
+{
+  "$id": "ig://schema/decoder-migration-report/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline": {"type": "object"},
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "malformed": {"minimum": 0, "type": "integer"},
+        "migration_required": {"minimum": 0, "type": "integer"},
+        "non_runtime_schema_documents": {"minimum": 0, "type": "integer"},
+        "pass": {"minimum": 0, "type": "integer"},
+        "total": {"minimum": 0, "type": "integer"},
+        "unsupported": {"minimum": 0, "type": "integer"}
+      },
+      "required": ["total", "pass", "migration_required", "unsupported", "malformed", "non_runtime_schema_documents"],
+      "type": "object"
+    },
+    "rows": {"items": {"type": "object"}, "type": "array"},
+    "schema_id": {"const": "IG_DECODER_MIGRATION_REPORT_V1"},
+    "status": {"enum": ["PASS_WITH_EXPLICIT_DECISIONS", "FAIL"]}
+  },
+  "required": ["schema_id", "status", "baseline", "counts", "rows"],
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+DEV82 — COMPLETION PUBLICATION AND RESULT-BYTE REPAIR
+
+Parent: exact dev81 source 15b5bcf3bcf9a0dc51fc6b5ba293e264568fc5be4166ff4e48c70ddf60155f81.
+Scope: deep-audit A05 and A06. Qualification is pending until the exact external
+registered completion and integration smoke evidence establish the result.
+
+New completions declare CHECKPOINT_BEFORE_COMPLETION_V1. Finished evidence can
+exist locally while publication is pending. It is not a verified/reusable
+completion until a terminal checkpoint binds its exact completion hash. The
+project claim is published only after that checkpoint succeeds. Resume verifies
+the retained finished evidence and completes checkpoint/publication without
+dispatching the job again. A rejected or inconsistent checkpoint stays visible.
+Terminal snapshots carry the completion binding needed for cold restoration;
+paused snapshots remain unpublished. Historical completions retain their
+original producer rules and are not retroactively upgraded by this repair.
+Readers enforcing the new publication protocol must use dev82 or a successor.
+
+Result verification hashes, parses, checks and extracts outcomes from the same
+captured bytes. Before sealing completion, artifact identities must also match
+the completion evidence inventory. This closes the demonstrated re-read race;
+it does not attribute the cause of any historical partition incident.
+
+The new publication proof is a native checkpoint/content binding, not a Drive
+save receipt or external authority. Existing explicit save obligations remain.
+Cooperating local processes and preserved evidence remain the trust model.
+This does not certify the whole branch, rerun science, or promote a shared
+release. Other audit findings and full qualification remain outstanding.

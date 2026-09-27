@@ -1,0 +1,87 @@
+{
+  "allowed_dependencies": {
+    "cli_ui": [
+      "contracts",
+      "planning",
+      "execution",
+      "evidence_storage",
+      "replay_legacy",
+      "theorem_safety"
+    ],
+    "contracts": [],
+    "core_algebra": [],
+    "development": [
+      "contracts",
+      "core_algebra",
+      "entity_regime",
+      "theorem_safety"
+    ],
+    "entity_regime": [
+      "contracts",
+      "core_algebra"
+    ],
+    "evidence_storage": [
+      "contracts"
+    ],
+    "execution": [
+      "contracts"
+    ],
+    "planning": [
+      "contracts",
+      "entity_regime",
+      "tests",
+      "scientific_audit",
+      "theorem_safety"
+    ],
+    "replay_legacy": [
+      "contracts",
+      "core_algebra",
+      "execution",
+      "evidence_storage",
+      "theorem_safety"
+    ],
+    "scientific_audit": [
+      "contracts",
+      "entity_regime",
+      "tests",
+      "theorem_safety"
+    ],
+    "tests": [
+      "contracts",
+      "entity_regime"
+    ],
+    "theorem_safety": [
+      "contracts",
+      "core_algebra",
+      "entity_regime"
+    ]
+  },
+  "contract_id": "IG_DECODER_ARCHITECTURE_CONTRACT_V2_SPEC",
+  "coverage_rule": "Every production Python module in v0.27 must have exactly one target layer and one migration disposition before refactor begins.",
+  "cross_cutting_rules": [
+    "No production module may be unassigned.",
+    "core_algebra cannot import filesystem, clocks, process execution, storage, tests, planning or UI.",
+    "Tests are read-only and do not import execution/storage backends.",
+    "Execution backend is scientific-question agnostic.",
+    "AI/interpretation is outside certified internal layers and cannot certify science.",
+    "Legacy replay may depend inward but no new core/generic scientific layer may depend on replay_legacy."
+  ],
+  "layers": [
+    "core_algebra",
+    "contracts",
+    "entity_regime",
+    "development",
+    "tests",
+    "scientific_audit",
+    "theorem_safety",
+    "planning",
+    "execution",
+    "evidence_storage",
+    "replay_legacy",
+    "cli_ui"
+  ],
+  "production_module_count_expected": 71,
+  "schema_id": "IG_ARCHITECTURE_CONTRACT_V2",
+  "schema_version": "2.0.0",
+  "status": "SPEC_ONLY_NOT_ENFORCED_IN_V027"
+}

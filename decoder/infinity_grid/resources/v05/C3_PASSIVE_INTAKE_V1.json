@@ -1,0 +1,21 @@
+{
+  "allowed_request_fields": [
+    "schema_id",
+    "request_id",
+    "registered_job_id",
+    "requested_operation_id",
+    "parent_source_sha256",
+    "input_artifacts",
+    "human_note"
+  ],
+  "artifact_fields": [
+    "logical_name",
+    "sha256"
+  ],
+  "controller_ingestion_required": true,
+  "final_origin_exclusivity": false,
+  "ingestion_executes_job": false,
+  "request_schema": "IG_DECODER_PASSIVE_REQUEST_V1",
+  "schema_id": "IG_DECODER_C3_PASSIVE_INTAKE_POLICY_V1",
+  "submission_effect": "PASSIVE_RECORD_ONLY"
+}

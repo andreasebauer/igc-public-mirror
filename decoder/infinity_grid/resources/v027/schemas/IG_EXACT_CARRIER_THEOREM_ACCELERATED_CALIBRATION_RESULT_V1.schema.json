@@ -1,0 +1,218 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "O7": {
+      "additionalProperties": false,
+      "properties": {
+        "H_struct_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "R7_skin": {
+          "type": "string"
+        },
+        "action_successor_pairs": {
+          "type": "integer"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "factorisation_authority": {
+          "type": "string"
+        },
+        "fast_kernel_reference_check": {
+          "type": "null"
+        },
+        "lane": {
+          "type": "string"
+        },
+        "profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "state_digest": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "total_action_copies": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "H_struct_sha256",
+        "R7_skin",
+        "action_successor_pairs",
+        "classification",
+        "factorisation_authority",
+        "fast_kernel_reference_check",
+        "lane",
+        "profile_sha256",
+        "science_sha256",
+        "state_digest",
+        "status",
+        "total_action_copies"
+      ],
+      "type": "object"
+    },
+    "O8": {
+      "additionalProperties": false,
+      "properties": {
+        "broad_census": {
+          "type": "integer"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "transition_closure_basis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "broad_census",
+        "classification",
+        "science_sha256",
+        "status",
+        "transition_closure_basis"
+      ],
+      "type": "object"
+    },
+    "O9": {
+      "additionalProperties": false,
+      "properties": {
+        "broad_census": {
+          "type": "integer"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "new_operational_read_found": {
+          "type": "boolean"
+        },
+        "normalized_grammar_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "broad_census",
+        "classification",
+        "new_operational_read_found",
+        "normalized_grammar_sha256",
+        "outcome",
+        "science_sha256",
+        "status"
+      ],
+      "type": "object"
+    },
+    "authority_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "elapsed_seconds": {
+      "type": "number"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase8_seed_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "action_profile": {
+          "type": "string"
+        },
+        "construction_sampler": {
+          "type": "string"
+        },
+        "default": {
+          "type": "string"
+        },
+        "fixed_grammar_level": {
+          "type": "string"
+        },
+        "full_panel_exact_census": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "string"
+        },
+        "reopen_event": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action_profile",
+        "construction_sampler",
+        "default",
+        "fixed_grammar_level",
+        "full_panel_exact_census",
+        "progress",
+        "reopen_event"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "IG_EXACT_CARRIER_THEOREM_ACCELERATED_CALIBRATION_RESULT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "O7",
+    "O8",
+    "O9",
+    "authority_science_sha256",
+    "classification",
+    "elapsed_seconds",
+    "nonclaims",
+    "phase8_seed_sha256",
+    "runtime_policy",
+    "schema",
+    "science_sha256",
+    "spec_sha256",
+    "status"
+  ],
+  "type": "object"
+}

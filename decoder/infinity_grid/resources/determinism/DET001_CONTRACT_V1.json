@@ -1,0 +1,59 @@
+{
+  "acceptance": {
+    "all_variants_exit_zero": true,
+    "frozen_oracle_sha256": "2f470fd65c008c0180b76d792b5c890789ac1863210a25b495ff04f34491be1c",
+    "no_scientific_or_algebra_semantic_delta": true,
+    "unique_semantic_payload_sha256_count": 1,
+    "unique_semantic_sha256_count": 1
+  },
+  "additional_controls": {
+    "fork_start_method_if_available": true,
+    "frozen_gate2_oracle_reverification": true,
+    "normal_vs_optimized_rejection_behavior": true,
+    "source_vs_clean_wheel_identity": true
+  },
+  "contract_sha256": "7ce224e1e425fe78fe79f8cdc4f3e4fe206451053eddfff56fe31d8f980d9cd6",
+  "contract_version": "1.0.0",
+  "purpose": "Certify semantic identity across runtime-environment variations before v0.27 semantic integration.",
+  "required_dimensions": {
+    "locale": [
+      "C",
+      "C.utf8"
+    ],
+    "multiprocessing_primary_start_method": "spawn",
+    "process_count": [
+      1,
+      2,
+      4
+    ],
+    "python_optimization": [
+      "normal",
+      "-O"
+    ],
+    "pythonhashseed": [
+      "0",
+      "1",
+      "42"
+    ],
+    "working_directory_classes": [
+      "plain_unrelated",
+      "unicode_space_unrelated"
+    ]
+  },
+  "schema_id": "IG_DET001_CONTRACT_V1",
+  "scope_note": "DET-001 certifies the declared environment dimensions on the available Linux/Python runtime. It does not claim byte-identical execution on an untested OS, CPU architecture, or Python major/minor version; later Mac/Hetzner controls remain portability checks.",
+  "semantic_delta_from_v0_26": "NONE",
+  "semantic_probe": {
+    "operational_metadata_excluded_from_semantic_digest": true,
+    "operations": [
+      "canonical_json",
+      "boundary_canonicalization",
+      "bridge_and_composition",
+      "closed_invariants",
+      "synthetic_l2_j3_and_composite",
+      "artifact_content_identity",
+      "fail_closed_exception_signatures"
+    ],
+    "probe_id": "IG_DET001_SEMANTIC_PROBE_V1"
+  }
+}

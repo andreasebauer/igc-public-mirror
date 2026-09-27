@@ -1,0 +1,169 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_JUMPSTART_PROFILE_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_utc": {
+      "type": "string"
+    },
+    "launch": {
+      "additionalProperties": false,
+      "properties": {
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "detachable": {
+          "type": "boolean"
+        },
+        "env": {
+          "additionalProperties": false,
+          "properties": {
+            "OSCOUT_RUN_ROOT": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "resume_semantics": {
+          "type": "string"
+        },
+        "timeout_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "argv",
+        "resume_semantics"
+      ],
+      "type": "object"
+    },
+    "materialization": {
+      "additionalProperties": false,
+      "properties": {
+        "dependency_source": {
+          "type": "string"
+        },
+        "expected_material_root_count": {
+          "type": "integer"
+        },
+        "expected_tree_sha256": {
+          "type": "string"
+        },
+        "manifest_relative_path": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "mutable_globs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_material_root_count",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "profile_sha256": {
+      "type": "string"
+    },
+    "profile_version": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_JUMPSTART_PROFILE_V0_1",
+      "type": "string"
+    },
+    "smoke": {
+      "additionalProperties": false,
+      "properties": {
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "additionalProperties": false,
+          "properties": {
+            "OSCOUT_RUN_ROOT": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "required_files": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timeout_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "argv",
+        "required_files",
+        "timeout_seconds"
+      ],
+      "type": "object"
+    },
+    "status_probe": {
+      "additionalProperties": false,
+      "properties": {
+        "json_files": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "text_files": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "json_files"
+      ],
+      "type": "object"
+    },
+    "target_alias": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "created_utc",
+    "launch",
+    "materialization",
+    "profile_id",
+    "profile_sha256",
+    "profile_version",
+    "schema_id",
+    "smoke",
+    "status_probe",
+    "target_alias",
+    "target_node_id"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_JUMPSTART_PROFILE_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

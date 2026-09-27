@@ -1,0 +1,58 @@
+{
+  "schema": "IG_GRRL_THEOREM_SPEC_V1",
+  "theorem_id": "GRRL",
+  "name": "Ownership-Preserving Generic Recursive Relational Lift Theorem",
+  "status": "FROZEN_CONDITIONAL_THEOREM_SPEC",
+  "purpose": "Replace repeated brute-force O-level closure censuses by a generic conditional theorem plus cheap premise verification and optional regression sentinels.",
+  "carrier": {
+    "parent": "finite exact carrier H_n with multiplicity-aware quotient q_n and admitted labelled Counter transition c_n",
+    "lift": "finite nontrivial connected component of distinct H_n owner occurrences joined by pairwise typed outer relations",
+    "quotient": "q_(n+1)(X) = anonymous finite bag of owner q_n states after all retained reservations through scope n+1"
+  },
+  "hypotheses": {
+    "H1": "Parent O_n is certified in the same frozen multiplicity-aware resource observer and c_n factors through q_n.",
+    "H2": "Parent occurrences are finite and anonymous up to hierarchical isomorphism; equality of q_n transports occurrence multiplicity.",
+    "H3": "Lift states are finite nontrivial connected components of distinct O_n owners with pairwise typed outer incidences.",
+    "H4": "Every new outer relation joins two distinct owners and consumes exactly one compatible typed endpoint on each side.",
+    "H5": "Retained site state is exact sitewise (p,f), with every reservation reflected in f.",
+    "H6": "Inherited rank-lift acts inside one owner, preserves ownership, and factors through q_n.",
+    "H7": "Inherited relation-add acts at its declared parent scope and factors through q_n.",
+    "H8": "Outer relation-add legality reads only distinct ownership, typed p/f, frozen Bridge, scope labels, and multiplicity.",
+    "H9": "Admitted writes change only q-visible ownership/resource data; no admitted action reads hidden topology, T, ancestry, provenance, or topology-derived roles.",
+    "H10": "Relations are monotone and pairwise: no deletion, rewiring, retagging, endpoint replacement, copying, multiway junction, or feedback.",
+    "H11": "Alternatives use frozen Counter semantics and labels contain no hidden exact representative identity.",
+    "H12": "Hierarchical relabelling is equivariant; canonicalisation is representative-independent.",
+    "H13": "Ordinary one-cross same-level composition merges inputs into one connected O_(n+1); O_(n+2) starts only when complete O_(n+1) owners remain distinct under a retained outer relation."
+  },
+  "conclusions": [
+    "C1 q_(n+1) is well-defined under hierarchical isomorphism.",
+    "C2 inherited actions transport through q_(n+1) with Counter multiplicity preserved.",
+    "C3 outer relation-add guard and successor are q_(n+1)-visible and Counter-multiplicity preserving.",
+    "C4 there exists c'_(n+1) with B_f(A_(n+1) x q_(n+1)) o c_(n+1) = c'_(n+1) o q_(n+1).",
+    "C5 on a transition-closed frozen carrier, equal q_(n+1) states have identical finite labelled Counter future trees.",
+    "C6 pairwise reservation accounting, grade, parity/Euler/resource laws lift.",
+    "C7 ordinary one-cross same-level composition remains at level n+1.",
+    "C8 a new level begins only when complete H_(n+1) owners remain distinct under a retained outer relation.",
+    "C9 erasing owner grouping is not sound in general.",
+    "C10 the recurrence is stratified self-similarity, not a type fixed point."
+  ],
+  "nonclaims": [
+    "existence of a generated carrier at every level",
+    "persistence of H1-H13 at every level",
+    "global minimality or observer-independent minimality",
+    "infinite O-tower",
+    "O7 graduation",
+    "automatic O8",
+    "geometry, dimension, physical time, propagation, actualisation, or cosmology"
+  ],
+  "reopen_conditions": [
+    "hidden-field read",
+    "deletion or rewiring",
+    "retagging or endpoint replacement",
+    "copying or multiway relation",
+    "feedback",
+    "Counter/Set semantic change",
+    "non-equivariant hierarchical relabelling",
+    "change of observer/action language"
+  ]
+}

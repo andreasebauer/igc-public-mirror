@@ -1,0 +1,56 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "boundary_sha256": {
+      "type": "string"
+    },
+    "child_rule": {
+      "type": "string"
+    },
+    "evidence_label": {
+      "type": "string"
+    },
+    "forbidden": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "licensed": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "population_complete": {
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_sha256",
+    "child_rule",
+    "evidence_label",
+    "forbidden",
+    "licensed",
+    "population_complete",
+    "schema_id",
+    "scope"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

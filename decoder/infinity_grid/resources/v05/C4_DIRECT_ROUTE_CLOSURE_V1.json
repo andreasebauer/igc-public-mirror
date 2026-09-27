@@ -1,0 +1,21 @@
+{
+  "chain_freeze_requires_controller_root": true,
+  "external_cli_default_policy": "DENY",
+  "final_origin_exclusivity": false,
+  "g6_science_effect": "NONE",
+  "legacy_launcher_direct_invocation": "REJECTED",
+  "mirror_ack_requires_controller_root": true,
+  "normal_external_request_surfaces": [
+    "passive_request.submit"
+  ],
+  "protected_publication_requires_controller_root": true,
+  "registration_install_requires_controller_root": true,
+  "schema_id": "IG_DECODER_C4_DIRECT_ROUTE_CLOSURE_POLICY_V1",
+  "temporary_c5_exceptions": [
+    "bootstrap_registered_service_controller_event_ingress",
+    "non_authoritative_test_controller_scope",
+    "non_authoritative_test_worker_scope"
+  ],
+  "worker_entry_requires_worker_context": true,
+  "worker_transport": "CONTROLLER_DESCENDED_FORK_CONTEXT"
+}
