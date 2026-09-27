@@ -1,4 +1,4 @@
-const CACHE='ig-reverse-microscope-pages-v0.4.2';
+const CACHE='ig-reverse-microscope-pages-v0.4.3';
 const CORE=["./", "./index.html", "./manifest.webmanifest", "./all-data.js", "./focus-ui.css", "./focus-ui.js", "./payload/part-00.b64", "./payload/part-01.b64", "./payload/part-02.b64", "./payload/part-03.b64", "./payload/part-04.b64", "./payload/part-05.b64", "./payload/part-06.b64", "./payload/part-07.b64", "./payload/part-08.b64", "./payload/part-09.b64", "./payload/part-10.b64", "./payload/part-11.b64", "./payload/part-12.b64", "./payload/part-13.b64", "./payload/part-14.b64", "./payload/part-15.b64", "./payload/part-16.b64", "./payload/part-17.b64", "./payload/part-18.b64", "./payload/part-19.b64"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
