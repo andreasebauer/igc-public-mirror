@@ -8,7 +8,7 @@
 | Center | Source-rendered picture of objects and recorded relations | Tap an object or relation to open its source inspector. |
 | Right | Observers, match count, individual questions, Ask bundle, Clear answers | Checked questions combine by logical AND within the current level. |
 
-The inspector is a dismissible overlay. Its exact row, source address, and evidence remain available. The All Data library remains available to the underlying application but is not part of the primary three-pane surface.
+The inspector is a dismissible overlay. Its exact row, source address, and evidence remain available. The underlying bundle retains the All Data library, while the three-pane surface keeps its launcher out of view.
 
 ## Question contract
 
