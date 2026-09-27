@@ -1,7 +1,7 @@
 {
   "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "c03fdf0e43d0440ef4ac25ab6e43a64da73be44049070e1797c818ccf5821d8d",
-  "package_sha256": "90ee401abed4976553994c8272623f78538f29ef1ea5bff2712647104bfdd935",
+  "source_sha256": "27372093c74897c1170e58b10eb6fc493005b765a3cd7fd5e1285e9ee398d205",
+  "package_sha256": "1855d9cb6cdf14d64cab5ddf83b7e4feace430e22c802cd36f878dd9e5c49906",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -721,7 +721,7 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "2669fb8341a5139df33cfd3c4f4f0c055fae415b85d0a6bc6cb01aefbbb88000"
+      "c7b4ecf8b6c54f28861c5d1fd86ed65797cffeec3bfa2cdc6413662c08ad2867"
     ],
     [
       "infinity_grid/project_migration.py",
@@ -3953,7 +3953,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "49c2957e6acdb0eae5666b4cf336ed9ea41d9c891aa5dc3d298b9e0f4d99869e"
+      "bb9ca40612ed53863e4fa893d20238b1f8163f3dc6aaa5789c0c1958578a5c2f"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4313,7 +4313,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "42cbddaa3e9d644834e112f3fb7ee81701f5baaded380518eef8a9c7059b6baa"
+      "46f9e68a67a0eb3ae9eb952cf8926e7e20d6013b1665144082c7ca62a0a15004"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -4508,6 +4508,10 @@
       "5b08282c6c81268f6c46cb674e8e86eb83e20771632498b2a056cf710dbb2156"
     ],
     [
+      "tests/fixtures/preservation_rebind/TERMINAL_JSON_EQUIVALENCE_CORE_CHANGES.json",
+      "2fac30f422a7a9d8e7b3d58e59da20da368be9573e6f0f60672b1bbcc0f21778"
+    ],
+    [
       "tests/fixtures/preservation_rebind/UNCHANGED_CORE_SHA256.json",
       "478e28cc93fe2f3f6d6c8bec0ab11a71a62b6fa20be5ed3e4468d763750facb2"
     ],
@@ -4557,7 +4561,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "f98b602c438db8371e793454112f1545702c596c60ffdd8b0213e1a62f4ce083"
+      "f319792343668d181567240215665f87314abd13a9b653d76deedad3cd0c20a5"
     ],
     [
       "tests/test_compact_label_reuse.py",
@@ -4934,6 +4938,10 @@
     [
       "tests/test_structural_encoding_e2.py",
       "4d9e2a90b46a7426b8d2c35ff9f38d43ae378c9c989c173257845c2b88bf4803"
+    ],
+    [
+      "tests/test_terminal_json_equivalence.py",
+      "6c16ab83a89123bc716a73847cdf39a3b45eb4def3bcd51085aa7bbc3de021f4"
     ],
     [
       "tests/test_two_sorted_relation_library.py",

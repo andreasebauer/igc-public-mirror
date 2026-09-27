@@ -1,17 +1,19 @@
-TWO-SORTED RELATION LIBRARY ADAPTER — DRAFT, NOT ACTIVATED
+TERMINAL JSON EQUIVALENCE REPAIR — DRAFT, NOT ACTIVATED
 
-Current source SHA-256: c03fdf0e43d0440ef4ac25ab6e43a64da73be44049070e1797c818ccf5821d8d (1,264 files).
+Current source SHA-256: 27372093c74897c1170e58b10eb6fc493005b765a3cd7fd5e1285e9ee398d205 (1,266 files).
 
-Adds a separate whole-relation igraph/BLISS adapter with shared port and destination slots, fixed row/value colors, and exact graph plus row witness replay. Small tuple/set composition preserves all lawful rows and destination concatenation. Existing owner-graph adapter remains separate.
+Nested tuples serialize as JSON lists. Python equality at the terminal checkpoint boundary rejected an otherwise byte-equivalent completed result. Publication retries had the same comparison. Both boundaries now compare Decoder canonical JSON bytes. This accepts tuple/list equivalents without rewriting saved records or hashes, and rejects bool/int, int/float, value and list-order changes. Existing checkpoint binding and artifact checks remain mandatory.
 
-Focused registered Decoder validation: 22 PASS, 0 FAIL, COMPLETED/VERIFIED.
-Includes 14 new adapter tests, four existing owner-adapter tests and four qualification-contract tests. Archived 45 relational vectors use the new isomorphism/composition adapters; 203 composition calls agree exactly with the pinned reference and 124 library isomorphism calls run. Three archived cospan families also pass. Source pins identify unchanged historical code. This is bounded implementation evidence, not proof of generic recursive completeness or primitive exactness.
+Native registered focused validation: 79 PASS, 0 FAIL, COMPLETED/VERIFIED.
+Six modules cover new JSON-equivalence regressions, publication, separate sealed evidence, replay consistency, prospective core pins and qualification registration. Synthetic boundary fixtures do not grant execution authority. No historical science workload was rerun.
 
-Operational refusal limits: 8 slots per sort, 4096 rows, 50000 gadget vertices, 1000000 composition pairs. These are resource guards, not exhaustive qualification of every input inside them. No new canonical row naming or production routing.
+Completion SHA-256: d76896d30516b1300240099befbce6af4350b936c49b96f6cbc5a8863b2b5024.
+Result SHA-256: c7099bdec07e299d1a0b876198356f69f741d86c0242d758b16e369fbe734ec0.
 
-Completion: d54fab51b04253a1460b0a003ab22bef0a5a3acf591c896bcf9a1830a2896fc3.
-The inherited SQLite separate-evidence change previously passed 106 focused tests on source 1df73932d15491c1f5f96d007af97f5478fe2f011d4bbbbf5e052258bb493c53. This turn did not repeat that suite. Its historical sidecar cause remains unidentified. A later tuple/list completion-publication mismatch remains a separate open obligation.
+Inherited changes:
+- Separate SQLite working stores and sealed completion evidence; historical sidecar creator remains unidentified.
+- Bounded two-sorted igraph/BLISS relation adapter, previously validated by 22 focused tests on source c03fdf0e43d0440ef4ac25ab6e43a64da73be44049070e1797c818ccf5821d8d. That result is not silently transferred to this source.
 
-Full-suite qualification remains deferred to the release candidate. No activation, merge, canonical science promotion or independent-review claim.
+Full qualification stays deferred to the release candidate. No merge, activation, canonical science promotion or independent-review claim. Full contextual sufficiency and recursive quotient validity remain NOT_ESTABLISHED. Next science obligation: intended primitive exactness and candidate-ID interpretation.
 
-Use decoder/ as source root; decoder-import/verify_source.py checks byte integrity. The revision-5 qualification receipt applies only to revision 5. Source and synthetic test vectors belong here; scientific datasets and execution checkpoints stay on Drive.
+Use decoder/ as source root. decoder-import/verify_source.py checks exact source bytes. Revision-5 qualification applies only to revision 5. Code and synthetic tests are in GitHub; datasets, native records and checkpoints remain on Drive.

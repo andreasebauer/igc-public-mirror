@@ -13,7 +13,7 @@ import tempfile
 import time
 import zipfile
 
-from .canon import canonical_sha256, write_json_atomic
+from .canon import canonical_bytes, canonical_sha256, write_json_atomic
 from . import submission as sub
 
 _ACTIVE = ContextVar('decoder_preservation', default=None)
@@ -442,7 +442,11 @@ def ensure_terminal_completion(workspace, done):
     files=_zip_files(_bytes(workspace,row['state']))
     name='runtime/intake/prepared_completions/'+done['request_id']+'.json'
     if name not in files:name='runtime/intake/completed/'+done['request_id']+'.json'
-    if (json.loads(files.get(name,b'null'))!=done
+    # Compare the existing canonical JSON representation, not Python container
+    # identity: persisted arrays are lists even when the producer used tuples.
+    # Byte equality also keeps bool/int and int/float distinctions that Python
+    # equality would erase. No saved bytes or completion hashes are rewritten.
+    if (canonical_bytes(json.loads(files.get(name,b'null')))!=canonical_bytes(done)
             or row.get('terminal_completions',{}).get(done['request_id'])!=done['completion_sha256']):
         raise sub.SubmissionError('TERMINAL_COMPLETION_CHECKPOINT_MISMATCH')
     _verify_terminal_state_evidence(files)

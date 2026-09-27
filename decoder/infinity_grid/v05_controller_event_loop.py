@@ -9,7 +9,7 @@ child lifecycle; substantive work begins only inside the child event loop.
 import hashlib, json, os, shutil, sys, time
 from pathlib import Path
 from typing import Any
-from .canon import canonical_sha256, write_json_atomic
+from .canon import canonical_bytes, canonical_sha256, write_json_atomic
 from .v05_execution_authority import source_tree_digest
 from .v05_engineering_worker import engineering_source_tree_digest
 from .v05_origin_guard import _supervisor_controller_event_scope, require_controller_execution_origin
@@ -802,7 +802,7 @@ def _publish_checkpointed_completion(admission, done, claim):
     root=admission['workspace']
     preservation=ensure_terminal_completion(root,done)
     completion=root/'runtime/intake/completed'/(done['request_id']+'.json')
-    if completion.exists() and _json_object(completion)!=done:
+    if completion.exists() and canonical_bytes(_json_object(completion))!=canonical_bytes(done):
         raise ControllerLoopError('COMPLETION_PUBLICATION_COLLISION')
     if not completion.exists():write_json_atomic(completion,done)
     if done.get('publication_protocol')==COMPLETION_PROTOCOL:

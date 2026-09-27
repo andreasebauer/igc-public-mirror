@@ -1,0 +1,16 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Prospective JSON-equivalence repair; historical pins and evidence retained. Native validation required.",
+  "changes": {
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "2669fb8341a5139df33cfd3c4f4f0c055fae415b85d0a6bc6cb01aefbbb88000",
+      "reviewed_sha256": "c7b4ecf8b6c54f28861c5d1fd86ed65797cffeec3bfa2cdc6413662c08ad2867",
+      "reason": "Compare canonical JSON bytes at terminal checkpoint boundary; accept tuple/list equivalents while refusing scalar type/value and evidence changes."
+    },
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "49c2957e6acdb0eae5666b4cf336ed9ea41d9c891aa5dc3d298b9e0f4d99869e",
+      "reviewed_sha256": "bb9ca40612ed53863e4fa893d20238b1f8163f3dc6aaa5789c0c1958578a5c2f",
+      "reason": "Use the same canonical JSON comparison for existing-publication collision checks; retain immutable saved bytes."
+    }
+  }
+}
