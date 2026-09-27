@@ -1180,17 +1180,18 @@ class StageScienceRuntime:
 
     @staticmethod
     def _finalize_idle_partition_database(path: Path) -> None:
-        """Let SQLite retire an idle WAL after the reducer's connection closes.
+        """Finalize an idle task database as one rollback-journal image.
 
-        Valid sidecars can remain even though the reducer has committed and
-        closed; the holder in the observed refusal is not yet established.
-        A normal SQLite connection lifecycle
-        checkpoints them; an active holder still leaves the completion gate to
-        refuse the result.  Never remove journals as ordinary files.
+        SQLite owns checkpointing and journal retirement. A competing handle
+        makes the mode transition fail; never unlink a WAL as a repair.
+        Called only before completion sealing, never on admitted old evidence.
         """
         with closing(sqlite3.connect(path, timeout=5)) as finalizer:
             if finalizer.execute("PRAGMA quick_check").fetchone()[0] != "ok":
-                raise StageRuntimeError("partition database failed final integrity check")
+                raise StageRuntimeError("task database failed final integrity check")
+            mode = finalizer.execute("PRAGMA journal_mode=DELETE").fetchone()[0]
+            if mode.lower() != "delete":
+                raise StageRuntimeError("task database could not leave WAL mode")
 
     def _status(self, phase_root: Path, **fields: Any) -> None:
         base = {
@@ -1709,6 +1710,7 @@ class StageScienceRuntime:
         gate = require_controller_only_callable(evaluator, role="scientific generation evaluator")
         phase_root = self._phase_root(phase_id)
         db_path = phase_root / "state_store.sqlite3"
+        generation_complete = False
         conn = sqlite3.connect(db_path)
         conn.execute("PRAGMA journal_mode=WAL")
         conn.execute("PRAGMA synchronous=FULL")
@@ -1925,9 +1927,12 @@ class StageScienceRuntime:
             self._status(phase_root, status="COMPLETE", task_count=task_count, completed=task_count, pending=0,
                          distinct_states=distinct, generated_occurrences=occurrence_count,
                          evidence_bytes=evidence, reducer_rss_bytes=rss)
+            generation_complete = True
             return StreamingGenerationStoreResult(summary=summary, execution_metadata=exec_meta)
         finally:
             conn.close()
+            if generation_complete:
+                self._finalize_idle_partition_database(db_path)
 
     def iter_generated_states(self, *, phase_id: str):
         """Yield deterministic generated exact-state records from an engine-owned generation phase."""
@@ -1936,7 +1941,7 @@ class StageScienceRuntime:
         db = phase_root / "state_store.sqlite3"
         if not db.is_file():
             raise StageRuntimeError(f"missing generation state store for phase {phase_id}")
-        conn = sqlite3.connect(db)
+        conn = sqlite3.connect(db.resolve().as_uri()+"?mode=ro", uri=True)
         try:
             for token, digest, b, state_json, rep_oid, count in conn.execute(
                 "SELECT state_token,index_digest,canonical_bytes,state_json,representative_occurrence_id,occurrence_count FROM states ORDER BY canonical_bytes,state_token"

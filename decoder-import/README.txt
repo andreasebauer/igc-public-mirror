@@ -1,30 +1,24 @@
-DECODER REVISION 5 SOURCE IMPORT — 27 September 2026
+DECODER SQLITE SEAL CANDIDATE — NOT ACTIVATED
+Source identity: f1c4f7a41081b500ef448abc805523d28e9a6971967cdf1a120371843b8fb9c5
 
-The decoder/ directory contains the exact dev84 revision 5 candidate.
-Source SHA-256: 03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d
-Original archive SHA-256: 33179d68af57e336561ec6537d4bec78fc1f716c07de0dc6c34ace8c2043709d
-Original archive: https://drive.google.com/file/d/1EYfDGZfLlSAGPmFJES8go3LDBRIJTql3/view
+This branch contains a candidate repair based on dev84 revision 5. The source
+manifest verifies its 1,253 files. Run python decoder-import/verify_source.py.
+The historical REVISION5_QUALIFICATION_RECEIPT.json applies only to revision 5;
+it does NOT qualify this changed candidate. Full qualification remains pending.
 
-Run python decoder-import/verify_source.py from the repository root.
-Use an explicit Git commit and verify all 1,253 source files before use.
-Work from decoder/, not the root legacy IGC package. Use Linux CPython 3.12
-and decoder/qualification/PROFILE.json for the recorded environment.
+Focused native recorded change: 15/15 lifecycle checks passed. Changes switch
+completed generation stores out of WAL before sealing, make generation readers
+read-only, and strengthen the existing idle partition finalizer to the same
+single-file journal mode. Competing readers cause refusal; no journal is deleted
+by application code. Original failed evidence is not repaired in place.
+SQLite reference: https://www.sqlite.org/wal.html
 
-Recorded native engineering qualification: 1082/1082 PASS (1059 functional,
-13 workspace, 5 representative, 5 timing). The receipt records completion
-identities. These are existing results, not a new run in GitHub CI.
-Status: QUALIFIED_FOR_ENGINEERING_USE_NOT_ACTIVATED.
-No release/runtime pointer is promoted by this source import.
-Historical claim dispositions remain pending; engineering qualification does
-not establish primitive completeness or a canonical L0–G8 scientific release.
+The actual member-comparison replay completed with VERIFIED evidence. Its data,
+witnesses and checkpoints remain in Drive; they are not published here.
+The exact cause of the old sidecar reappearance remains unresolved. This is a
+verified preventive lifecycle change for the replay, not an exhaustive root-
+cause claim or full engineering qualification. No runtime activation.
 
-Read decoder/DECODER_06_CAPTURE_GUIDE.txt, DECODER_06_CHANGES_GUIDE.txt and
-DECODER_V07_CONTRIBUTOR_WORKFLOW.txt before execution or modification.
-Science and qualification must use the registered native controller.
-Preserve failures; never transfer receipts to a changed source identity.
-
-The source archive is complete; the science recovery workspace is not included.
-Inputs, captures, closed checkpoints and receipts retain their external recovery
-locations. Keep Drive backups and prove native cold restore before cutover.
-shared-data/ remains a prototype, not an operational or exhaustive data store.
-Earlier import records are preserved under history/ and in Git history.
+Use decoder/ as source root; root pyproject belongs to legacy IGC. Follow native
+capture/change guides. Preserve independent recovery archives. GitHub contains
+source and synthetic regression tests; scientific run data remain on Drive.

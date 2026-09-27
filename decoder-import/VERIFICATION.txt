@@ -1,12 +1,7 @@
-REVISION 5 VERIFICATION
-All 1,253 files are copied byte-exact from the preserved revision 5 candidate.
-1,249 files match the revision 2 import; exactly four paths change:
-infinity_grid/v05_stage_runtime.py
-qualification/PROFILE.json
-tests/test_decoder06_results_preservation.py
-tests/test_repair7r_sqlite_lifecycle.py
-
-Read-only manifest verification passes. The source identity matches the native
-qualification receipt. No scientific execution was performed for this import.
-Microscope files and Pages workflow match the reconciled main baseline.
-The obsolete force/prune mirror workflow remains removed.
+Candidate: f1c4f7a41081b500ef448abc805523d28e9a6971967cdf1a120371843b8fb9c5
+Native change revision: 64e8815f944caa2514b1fddf6bd5a7be2b886835294e1430f7d32641558edb49
+Focused validation: 15/15 PASS.
+Completion: 2e90e68ff461d1738a62f72a3e4a20ac0d0b011e75eeaf33213cad0268cf125e
+Only runtime lifecycle module and existing lifecycle test module differ from
+revision 5. No test selectors removed; full qualification not rerun.
+Prior revision 5 and revision 2 remain in Git history. No activation.
