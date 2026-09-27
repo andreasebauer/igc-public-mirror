@@ -149,5 +149,11 @@ def test_recovery_retains_reviewed_core_byte_boundaries():
     for name,row in publication['changes'].items():
         assert row['previous_reviewed_sha256']==expected[name] and row['reason']
         expected[name]=row['reviewed_sha256']
+    snapshot=json.loads((F/'SNAPSHOT_EVIDENCE_FILTER_CORE_CHANGES.json').read_text())
+    assert snapshot['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(snapshot['changes'])=={'infinity_grid/v05_controller_event_loop.py'}
+    for name,row in snapshot['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
     root=Path(__file__).resolve().parents[1]
     for name,digest in expected.items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest
