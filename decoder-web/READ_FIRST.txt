@@ -1,132 +1,68 @@
-DECODER WEB INTERFACE — WORK IN PROGRESS HANDOFF
-27 September 2026
+DECODER WEB — BLOCK 2 STEP 1 CLOSEOUT — 2026-09-27
 
-START HERE
-Block 1 is complete. Block 2 step 1 is IN PROGRESS, not completed or qualified.
-The user requested a handoff during implementation. Resume by finishing and
-verifying the API adapter; do not advance it to production on syntax checks.
+STATUS: API LAYER CHECKED; BACKGROUND DISPATCH NOT IMPLEMENTED.
+9/9 checks passed through registered native VALIDATION after environment recovery.
+Completion: 4bf50205412555a58220e311d02717b3dc13fcb59eb11774f90225b9c5ac23cb
+All 20 checkpoint obligations confirmed by actual Drive readbacks; zero pending.
 
-PROJECT AND AUTHORITY
+WHAT IS IMPLEMENTED
+Authenticated FastAPI routes for engine information, server-owned task/input/job
+catalogues, typed capture/run/pause submission, request status, bounded native
+status/preservation observations and read-only native result-record projection.
+Strict bodies, size/host limits, shell-free argument arrays, source pin checks,
+retained stdout/stderr/refusals, and integrity/binding checks for result records.
+
+BOUNDARIES
+The default SubmissionGateway returns 503 BACKGROUND_WORKER_NOT_CONFIGURED.
+No mutation is dispatched by an HTTP request. Background worker is Block 2 step 2;
+durable queue/idempotency/restart reconciliation is Block 2 step 3.
+Drafts/forms, event streams, artifact download and Drive automation are later blocks.
+Engine readiness stays false: production runtime profile has not been qualified here.
+Results report recorded outcome separately from evidence_verification=NOT_RUN,
+preservation=UNKNOWN and reusable=false. Record hashes alone are not native
+terminal-checkpoint/evidence verification. That integration belongs to Block 4.
+No production deployment, science run, engine activation or microscope change.
+
+SOURCE AND ENGINE
 Repository: https://github.com/andreasebauer/igc-public-mirror
-Working branch: decoder/web-interface
-Engine baseline commit: 792fc17f557c1414c882fa424b77f9a7f3bee458
-Engine path: decoder/ (not the root legacy IGC package).
-Version: 0.8.0.dev84+lib revision 5.
-Full engine source hash: 03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d
-State: QUALIFIED_FOR_ENGINEERING_USE_NOT_ACTIVATED.
-No engine activation, scientific run, UI deployment or microscope change.
-Source and interface code belong in GitHub. Data and recovery stay in Drive.
-Keep the qualified engine environment separate from web dependencies.
-Every science/test execution must use the supported registered Decoder route.
-Do not call scientific handlers directly, alter receipts or bypass save gates.
+Interface branch: decoder/web-interface
+Production engine pin: 792fc17f557c1414c882fa424b77f9a7f3bee458
+Engine source hash: 03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d
+The pinned decoder/ tree still verifies all 1,253 files unchanged.
 
-USER INTENT
-Build a simple single-user web interface, ultimately on Hetzner and usable
-from iPhone. User wants block/step progress and quick concrete implementation.
-Microscope stays as-is until the master data block arrives. No decoder data
-are to be moved into GitHub. Save compact TXT/ZIP handoffs to Drive per step.
+VALIDATION METHOD
+An earlier SCRIPT test attempt was refused because web infrastructure contains
+subprocess.Popen. The existing VALIDATION route is the supported engineering
+route and explicitly permits infrastructure tests. No guard was modified.
+An isolated source copy added ig_web/ and tests/test_web_adapter_b2s1.py plus
+historical native fixture records. Its distinct source identity was captured,
+saved, project-bound and run by the native controller. Production source stayed
+unchanged. HTTP checks use synthetic responses; one check projects an actual
+historical native completion. These tests do not establish end-to-end execution.
 
-SIX BLOCK PLAN — THREE STEPS EACH
-1 Interface contract:
-  1 Pin revision and inventory native operations — DONE.
-  2 Specify Jobs, Prepare, Run, Results screens — DONE.
-  3 Map actions/requests and acceptance gates — DONE.
-2 Native engine connection:
-  1 Small web API for capture, execution, status, results — IN PROGRESS.
-  2 Separate background processes preserving native environment — NOT STARTED.
-  3 Durable tracking, reconciliation and duplicate protection — NOT STARTED.
-3 Interface:
-  1 iPhone-friendly job list/details.
-  2 Preparation forms for registered tasks, inputs, resources.
-  3 Status/logs, pause/resume and refusal explanations.
-4 Preservation/results:
-  1 Separate outcome, evidence and save status.
-  2 Native checkpoint/export and downloads.
-  3 Real Drive upload/readback confirmation.
-5 Hetzner:
-  1 Pinned runtime, workspace, background service.
-  2 HTTPS and single-user login.
-  3 iPhone access and browser-independent execution.
-6 Qualification/handoff:
-  1 Small registered end-to-end job.
-  2 Duplicate, pause/resume, restart and failure preservation checks.
-  3 GitHub commit plus compact TXT/ZIP handoff to Drive.
+RECOVERY
+The environment reset after the first 9/9 run before its receipt was uploaded.
+That old receipt is not claimed recovered. Exact saved source/capture were restored
+with native restore-capture, given a new project binding, saved, and rerun unchanged.
+The completion above belongs to the recovered run. Full evidence and the fixture
+remain external in the native recovery archive; do not add data to GitHub.
 
-FILES
-ig_web/models.py: strict input/configuration models and identifiers.
-ig_web/native.py: pinned full-source verification, typed CLI command plans,
-  path containment, controlled environment, bounded read-only status process.
-ig_web/api.py: FastAPI transport, bearer authentication, body limits, host
-  checks, catalogues, status/preservation routes, capture/run/pause submission
-  boundary and authenticated OpenAPI route.
-spec/: completed Block 1 specifications and engine pin.
-requirements.lock.txt: exact installed web dependency snapshot, NOT qualification.
-verification/: source integrity and AST-only syntax inspection records.
-config.example.json and catalog.example.json: examples, contain no real data.
+RUNNING THE API
+Use a separate web environment and requirements.lock.txt. Add pytest==8.3.5 and
+cryptography==46.0.4 only for the recorded engineering check environment.
+Set IG_WEB_CONFIG to a server-owned config JSON and IG_WEB_TOKEN externally.
+uvicorn ig_web.api:app_from_environment --factory --host 127.0.0.1
+Never embed the token in code, a handoff or browser assets. No live catalogue is
+shipped: examples contain no available science stock.
 
-WHAT EXISTS / DOES NOT EXIST
-Mutation routes use SubmissionGateway; default gateway refuses with 503
-BACKGROUND_WORKER_NOT_CONFIGURED. No mutation dispatch occurs in this build.
-The interface lists server-owned frozen task specifications; /api/v1/captures
-is a lower-level route. Draft service/forms are not implemented yet.
-Results endpoint explicitly returns 503 until native fixture-backed read
-verification is implemented. Do not describe the results API as complete.
-No UI, persisted queue, automatic backup, worker, login screen or deployment.
-No tests have been run against this adapter. No native runtime boot was tried.
-No active server or detached science process was started by this interface work.
+NEXT — BLOCK 2 STEP 2
+Implement a separate native worker using the configured interpreter and captured
+workspace/source/environment. Keep web dependencies out of science runtime.
+Record intended invocation before spawn; do not blindly replay after a crash.
+Pause and observation need an independent lane. No automatic science deadline.
+Recheck source/specification/workspace binding at dispatch, retain both streams
+and exit status, and parse native capture identity before adding a web job.
+Connect only through a durable gateway; do not use FastAPI background tasks as
+persistent job tracking. Step 3 completes duplicate/restart reconciliation checks.
 
-VERIFICATION ACTUALLY PERFORMED
-Complete checkout restored from pinned GitHub commit. Repository-native
-decoder-import/verify_source.py passed over 1,253 files with the pinned source
-hash. This is a read-only byte check, not scientific/engineering qualification.
-Four Python source files parsed by ast.parse. No application import, FastAPI
-route construction, HTTP request tests or subprocess integration tests yet.
-Web-only venv dependencies installed, leaving engine source unchanged.
-Existing receipt's 1082 passes do not qualify this new adapter.
-
-IMMEDIATE NEXT WORK
-1 Read spec/ACTION_CONTRACT.txt and SCREEN_SPEC.txt, then review actual code.
-2 Check app construction and OpenAPI signatures (especially local dependency
-  functions and Annotated types) through an appropriately registered test.
-3 Add registered synthetic adapter checks for auth, payload validation, body
-  limits, native response preservation, path containment and missing worker.
-  Synthetic checks must not count as real native execution evidence.
-4 Finish result schema/binding investigation using restored native fixtures.
-  Retain distinct process/evidence/scientific/preservation statuses.
-5 Integrate worker and durable queue in the next two steps; enforce atomic
-  idempotency, per-native-job duplicate rejection and restart reconciliation.
-  Pause must have an independent control lane while run is active.
-6 Before enabling execution, verify native runtime profile as well as source;
-  /engine currently reports runtime NOT_RUN and execution_ready=false.
-
-REVIEW POINTS / KNOWN LIMITS
-The current adapter verifies full source for each command; measure cost later.
-Native status is bounded to 20 seconds/2 MiB; science must not use these limits.
-Large native preservation responses currently refuse rather than truncate.
-File path validation assumes private server-owned catalogues/workspace roots;
-review concurrent file replacement and symlink races before deployment.
-Queued capture must bind/recheck the specification hash, not only its pathname.
-Command plans retain this hash; a future worker must actually enforce it.
-Status does not yet project/reconcile stale RUNNING records into UI state.
-Missing catalogues must stay unavailable, never appear as empty success.
-Bearer auth is temporary server API access; phone login/HTTPS is Block 5.
-Never embed the bearer token in browser code or a public file. No credentials
-are in this bundle. Host configuration must be explicit before deployment.
-No Hetzner access or unattended Drive credentials were supplied in this chat.
-
-IMPORTANT SCIENTIFIC LIMIT
-The pinned qualification receipt explicitly excludes an O4-O7/G1-G8 executor
-and a canonical L0-G8 release. Expose only available registered tasks.
-Master data and recovery workspaces are not included in the source checkout.
-
-RECONSTRUCT IN A NEW CHAT
-Clone repo and check out the exact interface commit in HANDOFF_STATUS.json.
-Use a fresh web-only Python 3.12 venv and the saved dependency lock; do not
-install web libraries into the native captured Decoder environment.
-Read decoder-import/README.txt and the capture/contributor guides before
-execution. Run the read-only source verifier from the repository root.
-Configure absolute server-owned paths and an externally supplied token.
-The app factory is ig_web.api:app_from_environment, with IG_WEB_CONFIG and
-IG_WEB_TOKEN in the service environment. Bind localhost during development.
-Treat the first boot as unverified; do not enable remote execution merely
-because an HTTP endpoint responds. Acceptance gates A01-A16 remain open.
+Acceptance A01-A16 remain end-to-end gates; this bounded check does not close them.

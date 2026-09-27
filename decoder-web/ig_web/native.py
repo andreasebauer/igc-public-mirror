@@ -31,12 +31,17 @@ class AdapterError(Exception):
 
 
 def read_json(path: Path, limit: int = MAX_BYTES):
-    with path.open("rb") as f:
-        raw = f.read(limit + 1)
+    try:
+        with path.open("rb") as f:
+            raw = f.read(limit + 1)
+    except OSError as exc:
+        raise AdapterError("RECORD_UNAVAILABLE") from exc
     if len(raw) > limit:
         raise AdapterError("RECORD_TOO_LARGE")
     try:
-        return json.loads(raw)
+        def invalid_constant(value):
+            raise ValueError("Non-finite JSON number")
+        return json.loads(raw, parse_constant=invalid_constant)
     except (UnicodeError, ValueError) as exc:
         raise AdapterError("INVALID_JSON_RECORD") from exc
 

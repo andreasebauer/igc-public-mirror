@@ -15,6 +15,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from .models import AcceptedRequest, CaptureBody, Catalog, EmptyBody, Identifier, PauseBody, Settings
 from .native import AdapterError, Command, NativeAdapter, PIN_COMMIT, PIN_SOURCE, PIN_VERSION, canonical_hash, read_json
+from .results import results_observation
 
 IdempotencyKey = Annotated[str, Header(alias="Idempotency-Key", min_length=8, max_length=128,
                                      pattern=r"^[A-Za-z0-9_.:-]+$")]
@@ -79,7 +80,7 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
     submissions = gateway or UnavailableGateway()
     bearer = HTTPBearer(auto_error=False)
 
-    def authenticated(credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer)]):
+    def authenticated(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)):
         supplied = credentials.credentials if credentials and credentials.scheme.lower() == "bearer" else ""
         if not hmac.compare_digest(supplied.encode(), token.encode()):
             raise HTTPException(status_code=401, detail="AUTHENTICATION_REQUIRED", headers={"WWW-Authenticate": "Bearer"})
@@ -195,9 +196,7 @@ def create_app(settings: Settings, token: str, gateway: SubmissionGateway | None
 
     @app.get("/api/v1/jobs/{job_id}/results")
     def results(job_id: Identifier):
-        job_by_id(job_id)
-        # Fail closed until result record binding is verified with native fixtures.
-        raise AdapterError("RESULT_READER_AWAITING_NATIVE_FIXTURE_VERIFICATION")
+        return results_observation(settings, job_by_id(job_id))
 
     return app
 

@@ -1,0 +1,5 @@
+These checks run via registered VALIDATION in an isolated source copy.
+Copy ig_web/ to the copy root; copy run_checks.py to tests/test_web_adapter_b2s1.py.
+Historical fixture tests/web_native_fixture is in the saved native source/archive,
+not GitHub. Capture exact source and environment, adopt project, save/readback, run.
+Do not run this script directly as a scientific SCRIPT capture.
