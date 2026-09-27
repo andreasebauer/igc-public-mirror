@@ -1,0 +1,24 @@
+DECODER STATIC PREVIEW — MICROSCOPE HOSTING APPROACH
+User explicitly deferred Hetzner installation on 27 September 2026.
+
+Publish decoder-preview/ to the existing Pages site's /decoder/ subdirectory.
+The root site is assembled from the existing microscope/ unchanged. One existing
+Pages workflow produces both paths, avoiding competing root deployments.
+
+Jobs, Prepare, Run and Results are interactive inspection views. Sample job names,
+IDs, activity and result/save states are explicitly illustrative. Preparation only
+reviews sample configuration. Live execution, pause, export and Drive controls are
+disabled. No token, private job catalogue or server URL is collected in the preview.
+The implemented authenticated backend remains on decoder/web-interface for later.
+
+Relative asset paths, a scoped web-app manifest and a Decoder-prefixed cache allow
+Home Screen installation and offline shell use. The Decoder worker only handles
+GET requests within its own scope and only removes its own old caches. It never
+caches API responses. The existing microscope service-worker source is unchanged.
+Its broader origin cache cleanup can evict the preview cache when that worker
+updates; revisiting the preview online reinstalls its cache. Device behavior must
+be checked, not inferred from syntax/projection tests.
+
+This preview is public. Single-user backend authentication is a deferred production
+gate, not something static hosting supplies. No server deployment or science result
+is claimed. Original plan numbering is retained with the explicit user amendment.

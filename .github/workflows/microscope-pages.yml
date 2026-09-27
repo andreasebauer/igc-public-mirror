@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'microscope/**'
+      - 'decoder-preview/**'
       - '.github/workflows/microscope-pages.yml'
   workflow_dispatch:
 permissions:
@@ -23,10 +24,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Upload microscope site
+      - name: Assemble microscope and Decoder preview
+        run: |
+          mkdir -p _pages/decoder
+          cp -a microscope/. _pages/
+          cp -a decoder-preview/. _pages/decoder/
+      - name: Upload combined site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: microscope
+          path: _pages
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

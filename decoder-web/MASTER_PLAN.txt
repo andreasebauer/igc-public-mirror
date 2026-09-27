@@ -42,3 +42,13 @@ Results is B4S1. Historical evidence bundles remain unchanged.
 Current preparation scope: Block 5 Step 1. Host installation remains pending.
 Next: install and verify Block 5 Step 1 on the host, then Block 5 Step 2.
 Visual/device and native end-to-end gates remain open.
+
+USER AMENDMENT — 27 September 2026
+Hetzner installation is deferred by the user. Follow the microscope approach:
+GitHub Pages static/PWA preview first, using the existing public mirror. Publish
+Decoder under /decoder/ alongside the existing microscope root. Static preview
+uses labelled sample data; it cannot run Python Decoder or perform Drive saves.
+B5S1 host packet remains prepared, with host installation deferred rather than
+blocking interface delivery. B5S2/B5S3 now have a static HTTPS/phone-preview track;
+production authentication, server execution and disconnect/restart proof remain
+separate deferred gates. Do not ask for Hetzner access until the user resumes it.
