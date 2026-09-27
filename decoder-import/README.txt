@@ -1,5 +1,5 @@
-DECODER SQLITE SEAL CANDIDATE — NOT ACTIVATED
-Source identity: f1c4f7a41081b500ef448abc805523d28e9a6971967cdf1a120371843b8fb9c5
+DECODER SQLITE SEAL AND ATTEMPT RECOVERY CANDIDATE — NOT ACTIVATED
+Source identity: d4130b53a7820ff0cd3a8d777d6841a0024f113984351cebf11083b58ce439a5
 
 This branch contains a candidate repair based on dev84 revision 5. The source
 manifest verifies its 1,253 files. Run python decoder-import/verify_source.py.
@@ -22,3 +22,11 @@ cause claim or full engineering qualification. No runtime activation.
 Use decoder/ as source root; root pyproject belongs to legacy IGC. Follow native
 capture/change guides. Preserve independent recovery archives. GitHub contains
 source and synthetic regression tests; scientific run data remain on Drive.
+
+Recovery follow-up: restored snapshots can retain a prior RUNNING attempt.
+After acquiring exclusive workspace and work locks, the controller retains
+that full record and its digest, then marks it INTERRUPTED. Binding mismatches
+refuse before any write. Same-PID records across namespaces are not liveness.
+Combined native focused qualification: 36 PASS. Exact BEFORE_EXECUTION
+checkpoint restoration and replay: 36 PASS. Full functional qualification
+is running; expected 1063 tests across 116 selectors. No activation.
