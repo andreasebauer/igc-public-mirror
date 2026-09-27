@@ -1,7 +1,7 @@
 {
   "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "ec16307f531d0c752d80adf280d88b579cceb80627c32fe42fcba5819bee55a8",
-  "package_sha256": "767074a4903f30d663a034e94fa15627f3b3d3f67c9f7ad6dc8ea0becd9504fb",
+  "source_sha256": "2f49080079e1d48d7ad805ff0c4e7f89308ab737edcebe9b9bb7b52e30d9452f",
+  "package_sha256": "3376d062aebc37c234f287d70fc6c8269726d7eeed82f3d13684dd4e1a063387",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -193,7 +193,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "586881d8bb4da88e24fd812a621a93b0a2b054216939a0c2cda8011a2ba120c9"
+      "d51a7641ed9475551c6992fd34c5bad5f657d05abd49f4b877fbd9d7b2fa9bdf"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -850,6 +850,10 @@
     [
       "infinity_grid/research_frontier.py",
       "cd52f68b28916056dcb5348e7f7ed26cee9496847d97ec532f7f401f674fce72"
+    ],
+    [
+      "infinity_grid/resources.py",
+      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
     ],
     [
       "infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
@@ -3600,10 +3604,6 @@
       "547498ded6c19b914447f2f005c3e0719e7eea2004cc4b3a0c997772eb62fc3e"
     ],
     [
-      "infinity_grid/resources.py",
-      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
-    ],
-    [
       "infinity_grid/result_contracts.py",
       "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1"
     ],
@@ -4504,6 +4504,10 @@
       "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18"
     ],
     [
+      "tests/fixtures/preservation_rebind/SNAPSHOT_EVIDENCE_FILTER_CORE_CHANGES.json",
+      "90a8a715bc4f7a00a4ca41acecb778fc07b4487f10065d7267076da90308466c"
+    ],
+    [
       "tests/fixtures/preservation_rebind/SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json",
       "5b08282c6c81268f6c46cb674e8e86eb83e20771632498b2a056cf710dbb2156"
     ],
@@ -4561,7 +4565,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "f319792343668d181567240215665f87314abd13a9b653d76deedad3cd0c20a5"
+      "8011490c953b839d3fca085da7c523d3d04fdb1082540af00fb8395b5138e994"
     ],
     [
       "tests/test_compact_label_reuse.py",
