@@ -958,10 +958,14 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
 def _snapshot_files(root: Path):
     for p in sorted(root.rglob('*')):
         rel = p.relative_to(root)
-        if any(x in _SKIP_SOURCE for x in rel.parts) or rel.as_posix().startswith('runtime/execution_leases/'):
-            continue
-        if rel.as_posix().startswith(('durability/outbox/','durability/base_objects/')): continue
-        if p.name == '.runner.lock' or p.suffix in {'.pyc','.pyo'}: continue
+        # Runtime evidence inventories include every ordinary file. Source/cache
+        # exclusions must not discard bytes already bound by a completion.
+        evidence = rel.parts[:2] in (('runtime', 'runs'), ('runtime', 'sealed'))
+        if not evidence:
+            if any(x in _SKIP_SOURCE for x in rel.parts) or rel.as_posix().startswith('runtime/execution_leases/'):
+                continue
+            if rel.as_posix().startswith(('durability/outbox/','durability/base_objects/')): continue
+            if p.name == '.runner.lock' or p.suffix in {'.pyc','.pyo'}: continue
         if p.is_symlink(): raise ControllerLoopError('WORKSPACE_SNAPSHOT_SYMLINK')
         if p.is_file(): yield p,rel.as_posix()
 
