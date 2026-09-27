@@ -169,7 +169,7 @@ def test_completion_gate_is_before_native_completion_seal():
     import inspect
     src=inspect.getsource(loop._run_workspace_job)
     # Dev82 seals through the byte-binding helper after database quiescence.
-    assert src.index('require_quiescent_task_databases(out)')<src.index("'evidence':_verified_artifact_evidence(out,verification)")
+    assert src.index('require_quiescent_task_databases(out)')<src.index("'evidence':_verified_artifact_evidence(sealed,verification)")
 
 
 def test_plain_snapshot_bytes_are_unchanged(tmp_path):

@@ -1,22 +1,27 @@
-SQLITE SEAL AND ATTEMPT RECOVERY CANDIDATE — NOT ACTIVATED
+SQLITE WORKING STORES AND SEPARATE COMPLETION EVIDENCE — DRAFT, NOT ACTIVATED
 
-This draft contains the SQLite completion-sealing repair and lock-bound reconciliation of stale RUNNING attempt records after checkpoint restoration. Original attempt records and digests are retained; mismatched bindings refuse before writes. Historical exact-byte pins remain unchanged, with an explicit prospective successor for the controller change.
+Current source SHA-256: 1df73932d15491c1f5f96d007af97f5478fe2f011d4bbbbf5e052258bb493c53 (1,257 files).
 
-Current source SHA-256: a599a49c3882efc5a04f11d23edc100825ec650fedb19f3f36a64f11289cb92f (1,254 files, verified against GitHub).
+SQLite is retained, with no SQL table migration. New completions bind a separate
+closed snapshot under runtime/sealed. Engine task databases use SQLite backup;
+contracts are checked against the actual snapshot before publication. Working
+files may subsequently change without changing sealed evidence. Any change,
+addition or removal in the sealed tree remains an evidence mismatch. Historical
+completions retain their original exact working-tree checks.
 
-Validation and attribution:
-- Original SQLite-only candidate: full functional run finished 1,060 PASS / 1 FAIL. The stale-attempt failure remains recorded; this is not a full pass.
-- Attempt-repair predecessor d4130b53a7820ff0cd3a8d777d6841a0024f113984351cebf11083b58ce439a5: 36 focused PASS and 36 PASS after exact pre-execution checkpoint restoration.
-- First combined full capture omitted a required parent fixture and pin successor: 330 PASS / 11 failed checks, paused and preserved. No qualification credit claimed.
-- Current corrected source: full rerun deliberately paused after 527 PASS / 0 FAIL, on the user's instruction to avoid repeating expensive algebra checks for this administrative repair.
-- Current corrected source: remaining targeted regression completed 145 PASS / 0 FAIL across 17 modules covering locking, recovery, provenance, SQLite lifecycle, completion and validation publication.
+Focused native registered validation: 106 PASS, 0 FAIL, COMPLETED/VERIFIED.
+The earlier captured run had 39 PASS and 1 FAIL because the new test module was
+missing from qualification/PROFILE.json. That failure remains preserved on Drive.
+The successor registers the module and records prospective core-pin successors;
+no historical pin or prior result has been rewritten.
 
-The successful registered scientific member replay belongs to the earlier SQLite candidate; no scientific equivalence claim is transferred merely from these counts. Data, failures and recovery objects remain on Drive.
+This repairs the working/evidence boundary. The process that recreated historical
+WAL/SHM sidecars remains unidentified; no root-cause resolution is claimed.
+The prior candidate's full suite remains deliberately paused at 527 PASS/0 FAIL.
+Those results and its 145-test targeted pass do not qualify this changed source.
+Full qualification is deferred to the final release candidate by user instruction.
+No activation, release promotion, independent-review claim or scientific promotion.
 
-Full-suite qualification of this exact revised source is deferred to the final release candidate. Targeted repair regression is complete. No activation, release promotion, or claim of independent review.
-
-Use decoder/ as source root. Run python decoder-import/verify_source.py for
-source-byte verification. REVISION5_QUALIFICATION_RECEIPT.json applies only
-to revision 5, not this candidate. Root pyproject belongs to legacy IGC.
-Follow native capture/change guides. Preserve independent recovery archives.
-Source and synthetic tests live in GitHub; scientific data remain on Drive.
+Use decoder/ as source root. Run python decoder-import/verify_source.py for byte
+integrity. REVISION5_QUALIFICATION_RECEIPT.json applies only to revision 5.
+GitHub contains source and synthetic tests; run data and checkpoints remain on Drive.

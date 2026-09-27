@@ -137,5 +137,11 @@ def test_recovery_retains_reviewed_core_byte_boundaries():
     for name,row in recovery['changes'].items():
         assert row['previous_reviewed_sha256']==expected[name] and row['reason']
         expected[name]=row['reviewed_sha256']
+    sealed=json.loads((F/'SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json').read_text())
+    assert sealed['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(sealed['changes'])=={'infinity_grid/v05_controller_event_loop.py','infinity_grid/preservation.py'}
+    for name,row in sealed['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
     root=Path(__file__).resolve().parents[1]
     for name,digest in expected.items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest

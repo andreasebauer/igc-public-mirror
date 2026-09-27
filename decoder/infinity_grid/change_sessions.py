@@ -108,8 +108,11 @@ def _completion(workspace, *, require_pass=True):
             or done.get('result_sha256') != canonical_sha256(done.get('result'))):
         raise Error('CHANGE_COMPLETION_BINDING')
     # There is one registered job per capture and exactly one matching evidence tree.
-    roots = [p for p in (root/'runtime/runs').glob('*') if p.is_dir()
+    base = root/('runtime/sealed' if done.get('evidence_protocol') else 'runtime/runs')
+    roots = [p for p in base.glob('*') if p.is_dir()
              and loop._evidence_rows(p) == done.get('evidence')]
+    if done.get('evidence_protocol') and loop.verified_completion(admission) != done:
+        raise Error('CHANGE_COMPLETION_EVIDENCE')
     if len(roots) != 1 or not done.get('evidence'):
         raise Error('CHANGE_COMPLETION_EVIDENCE')
     from .preservation import terminal_completion_proof

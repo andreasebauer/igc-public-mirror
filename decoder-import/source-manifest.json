@@ -1,7 +1,7 @@
 {
   "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "a599a49c3882efc5a04f11d23edc100825ec650fedb19f3f36a64f11289cb92f",
-  "package_sha256": "11baecf1d3ff1e5a24085cb14ff3cdf40ae15d60345fa4dfd91755f8adef870a",
+  "source_sha256": "1df73932d15491c1f5f96d007af97f5478fe2f011d4bbbbf5e052258bb493c53",
+  "package_sha256": "1faf2f200355dc92c4ca5ec66ae3c5f05edc9bbdd254e6ea1cc8caf06ef9ccd1",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -273,7 +273,7 @@
     ],
     [
       "infinity_grid/change_sessions.py",
-      "694bc743b2986e6a7a828121566d1fcac5b7114a5e8bcf989347a24142e188fe"
+      "a694cabc1d083e2d7895f0365fd48ac6f7ffb46f5e6210e83239f14473df1123"
     ],
     [
       "infinity_grid/change_validation.py",
@@ -302,6 +302,10 @@
     [
       "infinity_grid/compatibility.py",
       "ee2b9443aafa8fd59b98e8f613c93a2b8216a1538885cea3b81732a4e090df25"
+    ],
+    [
+      "infinity_grid/completion_evidence.py",
+      "cf81c815752b43e7dfc3502fa4e15caa251f1ed94c5db9d975001af9fd912047"
     ],
     [
       "infinity_grid/continuation.py",
@@ -717,7 +721,7 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "287d8fef8ae923c68822bbb381ed249960352233c5e9283fd4c0fd649832fbd0"
+      "2669fb8341a5139df33cfd3c4f4f0c055fae415b85d0a6bc6cb01aefbbb88000"
     ],
     [
       "infinity_grid/project_migration.py",
@@ -842,10 +846,6 @@
     [
       "infinity_grid/research_frontier.py",
       "cd52f68b28916056dcb5348e7f7ed26cee9496847d97ec532f7f401f674fce72"
-    ],
-    [
-      "infinity_grid/resources.py",
-      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
     ],
     [
       "infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
@@ -3596,6 +3596,10 @@
       "547498ded6c19b914447f2f005c3e0719e7eea2004cc4b3a0c997772eb62fc3e"
     ],
     [
+      "infinity_grid/resources.py",
+      "6500f0ea74cd98fef79ab1a2029aa0fcd202875ac91847a976ac609062b263b9"
+    ],
+    [
       "infinity_grid/result_contracts.py",
       "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1"
     ],
@@ -3945,7 +3949,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "a4fd3e1e6d7bd33268fe3d04cf57f812053e8aae33b87f476aeac7d518e576ae"
+      "49c2957e6acdb0eae5666b4cf336ed9ea41d9c891aa5dc3d298b9e0f4d99869e"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4305,7 +4309,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "b025a7369719833f5b056ee243c6864f00b42d10dd067631a0cc98b5b784a35c"
+      "03c23500b85c3bd307249d252724c09e91c29c9031c4bd68d08b3e78ec7435f4"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -4496,6 +4500,10 @@
       "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18"
     ],
     [
+      "tests/fixtures/preservation_rebind/SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json",
+      "5b08282c6c81268f6c46cb674e8e86eb83e20771632498b2a056cf710dbb2156"
+    ],
+    [
       "tests/fixtures/preservation_rebind/UNCHANGED_CORE_SHA256.json",
       "478e28cc93fe2f3f6d6c8bec0ab11a71a62b6fa20be5ed3e4468d763750facb2"
     ],
@@ -4525,7 +4533,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "a21f3a903ad5d8b8c4b001c71b98972198dec382afc20b2d9f9e7a181b1da162"
+      "f98b602c438db8371e793454112f1545702c596c60ffdd8b0213e1a62f4ce083"
     ],
     [
       "tests/test_compact_label_reuse.py",
@@ -4869,7 +4877,7 @@
     ],
     [
       "tests/test_repair7r_sqlite_lifecycle.py",
-      "f1ef622895628d68903449e5bb41d7deb30cedf7c08e8a5db5b7a680c5beab3c"
+      "944e242a8d0ede48002f26e42b7fcf4c156ee1aeff4582aa6b789f05011b45ea"
     ],
     [
       "tests/test_replay_checkpoint_consistency.py",
@@ -4894,6 +4902,10 @@
     [
       "tests/test_replay_obligation_compiler_p1c.py",
       "3444495ac240bedf7907786720372aaaf0abebcb8e7c613409869568db320d02"
+    ],
+    [
+      "tests/test_separate_completion_evidence.py",
+      "cb53948d08d8a00f44dfad729e2db5998ea7e848a6880c63203bd104bdce8bf6"
     ],
     [
       "tests/test_structural_encoding_e2.py",

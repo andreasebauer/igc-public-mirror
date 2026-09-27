@@ -779,6 +779,8 @@ def verified_completion(admission, *, allow_pending_checkpoint=False):
         completion=root/'runtime/intake/prepared_completions'/(req['request_id']+'.json')
     if completion.exists():
         done = _json_object(completion)
+        from .completion_evidence import evidence_root
+        out = evidence_root(root, out, done)
         if (done.get('schema_id') != 'IG_DECODER_WORKSPACE_COMPLETION_V1'
             or done.get('registration_sha256') != job['registration_sha256']
             or done.get('source_sha256') != admission['source_sha256']
@@ -921,15 +923,16 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
                 from .preservation import require_quiescent_task_databases
                 require_quiescent_task_databases(out)
                 from .result_contracts import contract_for, verify
-                verification=verify(contract_for(root),result,out)
-                write_json_atomic(out/'RESULT_VERIFICATION.json',verification)
+                from .completion_evidence import prepare_evidence, PROTOCOL
+                sealed, verification = prepare_evidence(admission, out, result)
                 done = {'schema_id':'IG_DECODER_WORKSPACE_COMPLETION_V1',
                         'status':'RESULT_REJECTED' if verification['status']=='REJECTED' else 'COMPLETED' if job['execution']['kind']=='STAGE' or result.get('status')=='PASS' else 'VALIDATION_FAILED',
                         'execution_status':'FINISHED','evidence_status':verification['status'],
                         'scientific_outcome':verification['scientific_outcome'],
                         'request_id':rid,'request_sha256':record['request_sha256'],
                         'registration_sha256':job['registration_sha256'],'source_sha256':admission['source_sha256'],
-                        'result':result,'result_sha256':canonical_sha256(result),'evidence':_verified_artifact_evidence(out,verification),
+                        'result':result,'result_sha256':canonical_sha256(result),'evidence':_verified_artifact_evidence(sealed,verification),
+                        'evidence_protocol':PROTOCOL,'evidence_root':sealed.relative_to(root).as_posix(),
                         'policy':'REGISTERED_ATTEMPT_V1','mirror_status':'NOT_CONFIRMED',
                         'publication_protocol':'CHECKPOINT_BEFORE_COMPLETION_V1'}
                 done['completion_sha256'] = canonical_sha256(done)
