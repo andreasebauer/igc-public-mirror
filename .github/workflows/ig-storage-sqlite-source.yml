@@ -1,0 +1,46 @@
+name: IG storage SQLite source provisioning
+on:
+  push:
+    branches: [ig-storage-step2-sqlite3513-20260928]
+    paths: [.github/workflows/ig-storage-sqlite-source.yml]
+permissions:
+  contents: read
+jobs:
+  fetch-verified-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fetch official source and verify published SHA3-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p payload
+          curl --fail --location --retry 2 --max-time 90 https://sqlite.org/2026/sqlite-amalgamation-3510300.zip -o payload/sqlite-amalgamation-3510300.zip
+          curl --fail --location --retry 2 --max-time 60 https://sqlite.org/releaselog/3_51_3.html -o payload/sqlite-3.51.3-release.html
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, zipfile
+          p = pathlib.Path('payload')
+          expected = '32d5424f97e0a7fc5ed2f6335afbb58be4e0298bd7117a34e39d345ff13d859e'
+          sid = '2026-03-13 10:38:09 737ae4a34738ffa0c3ff7f9bb18df914dd1cad163f28fd6b6e114a344fe6d618'
+          with zipfile.ZipFile(p/'sqlite-amalgamation-3510300.zip') as z:
+              names = z.namelist()
+              assert len(names) == len(set(names))
+              c = z.read('sqlite-amalgamation-3510300/sqlite3.c')
+              assert hashlib.sha3_256(c).hexdigest() == expected, 'Official amalgamation checksum mismatch'
+              assert sid.encode() in c, 'Source ID mismatch'
+          release = (p/'sqlite-3.51.3-release.html').read_text()
+          assert expected in release and sid in release
+          out = {'scope':'DEPENDENCY_SOURCE_PROVISIONING_ONLY','science_execution':'NONE','source_url':'https://sqlite.org/2026/sqlite-amalgamation-3510300.zip','sqlite_source_id':sid,'sqlite3_c_sha3_256':expected,'github_run_id':os.environ['GITHUB_RUN_ID'],'github_commit':os.environ['GITHUB_SHA'],'files':[]}
+          for f in sorted(p.iterdir()):
+              b = f.read_bytes()
+              out['files'].append({'name':f.name,'size_bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+          (p/'PROVISIONING.json').write_text(json.dumps(out,indent=2)+'\n')
+          print(json.dumps(out,indent=2))
+          PY
+      - name: Preserve verified source for local build
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ig-sqlite-3510300-verified-source
+          path: payload/
+          if-no-files-found: error
+          retention-days: 30
