@@ -438,15 +438,15 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_DEV142_DURABLE_PROGRESS_PROBE",
+  "status": "UNQUALIFIED_DEV143_CLEANUP_REPAIR",
   "blocking_conditions": [
-    "Dev141 evidence is historical and source-bound; no inherited qualification.",
-    "Two-distinct-progress live preservation and live corruption remain open.",
-    "Current-candidate fixtures, full install lock, full RC and independent-host recovery remain OPEN."
+    "Native registered tests not yet executed for dev143.",
+    "V55 remains a failed lifecycle gate; no inherited qualification.",
+    "Full RC, fixtures and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev142+lib",
-    "parent_archive_sha256": "b91f916aefd5d2583ed86a068a1a7fbe222588f3f0e22dc03e3d5af378f949e2",
+    "revision": "0.8.0.dev143+lib",
+    "parent_archive_sha256": "ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

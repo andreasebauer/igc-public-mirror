@@ -1,0 +1,20 @@
+{
+  "scope": "Standalone helper regressions, not native controller qualification",
+  "cases": [
+    "early",
+    "active",
+    "already_exited",
+    "missing_ack",
+    "malformed_ack"
+  ],
+  "source_identity": {
+    "version": "0.8.0.dev143+lib",
+    "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
+    "package_sha256": "d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9",
+    "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
+    "archive_size_bytes": 22690256,
+    "qualification": "UNQUALIFIED"
+  },
+  "stop_on_first_failure": true,
+  "native_tests_executed": 0
+}

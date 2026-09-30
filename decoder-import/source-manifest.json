@@ -1,10 +1,10 @@
 {
-  "version": "0.8.0.dev142+lib",
-  "source_sha256": "078433404ab554b2ecb081aca35ad8439b7a17b465db53cfc795df1a9825a4fa",
-  "package_sha256": "fa48e8e8be3734e2a73429b1b9f843f7d6dd36f2dc52af557aad7fff32cf10e9",
-  "archive_sha256": "ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9",
+  "version": "0.8.0.dev143+lib",
+  "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
+  "package_sha256": "d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9",
+  "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
+  "archive_size_bytes": 22690256,
   "qualification": "UNQUALIFIED",
-  "archive_size_bytes": 22686289,
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -204,7 +204,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "f3498168197675334feacd45e80bfbbafa56f351eb21342de827da013795a12f"
+      "c31be1e72b6099e323f5dda849c1c2a7862ffc478124969afdb595b56ecbab24"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -212,7 +212,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "c74a58a582cc848e44f02fea69d40eade849b355fbf0f12a82ba553e0245c1ed"
+      "7118524158e1c68454edbb8f83f85e3f4917ed71e099edaf316bfac16ff1c33c"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -4280,7 +4280,7 @@
     ],
     [
       "infinity_grid/v05_validation_runtime.py",
-      "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd"
+      "40ea3248ae740209ceff2964acd5f23003e67b592cb319a4ea29684b5226279a"
     ],
     [
       "infinity_grid/v05_verifier.py",
@@ -4293,6 +4293,10 @@
     [
       "infinity_grid/v05_workflow.py",
       "35f1cabffe5e580ec80f9d621ff96685bba468af2b9f36a4ac79aeb66e3dd949"
+    ],
+    [
+      "infinity_grid/validation_cancellation.py",
+      "e91cd4951fb83e7c296dc2f091a9b032a2936dfdc92dc21d923664956100670d"
     ],
     [
       "infinity_grid/validation_node_runner.py",
@@ -4508,7 +4512,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "ac96aea4da9660b60d6bd0f601ac5552024e1734ab9bee475019f39769d5ce93"
+      "a188e79919a7378036695ece39e1101f48a095809913bf1128f75db14bf15262"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -6041,6 +6045,10 @@
     [
       "tests/test_v05_stage_runtime_resume_kernel_view.py",
       "58e8eb7d07d6815bc7ec96f9141bde878b8183ff65c83f73e228ca0a899a6523"
+    ],
+    [
+      "tests/test_validation_cancellation.py",
+      "d79ae448f285711d5f753fed74d4bafc987d3f573a916e5d35691736efb93546"
     ],
     [
       "tests/test_validation_phase_binding.py",

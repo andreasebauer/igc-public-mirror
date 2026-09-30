@@ -1,0 +1,13 @@
+{
+  "scope": "Standalone helper regressions, not native controller qualification",
+  "results": [
+    {
+      "case": "early",
+      "returncode": 1,
+      "elapsed_seconds": 0.12983659500605427,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/ig_decoder_dev138_20260930/decoder/tests/test_validation_cancellation.py\", line 11, in <module>\n    from infinity_grid.validation_cancellation import WorkerCancellation, ValidationCancelled, cancel_workers\nModuleNotFoundError: No module named 'infinity_grid'\n"
+    }
+  ],
+  "all_pass": false
+}

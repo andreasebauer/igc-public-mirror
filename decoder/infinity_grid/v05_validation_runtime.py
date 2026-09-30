@@ -13,6 +13,9 @@ from typing import Any, Iterable
 from .canon import canonical_sha256
 from .v05_execution_authority import ExecutionAuthorityError
 from .v05_origin_guard import require_controller_execution_origin
+from .validation_cancellation import WorkerCancellation, cancel_workers
+
+_WORKER_CANCELLATION = None
 
 REGISTERED_VALIDATION_GROUPS={
     "engineering_layer":[
@@ -112,9 +115,13 @@ def _publish_node_output(final_path:Path,raw:bytes)->dict[str,Any]:
 def _run_node_process(command:list[str],*,cwd:Path,env:dict[str,str],final_path:Path
                      )->tuple[subprocess.CompletedProcess[bytes],bytes]:
     """Capture through an anonymous pipe, then publish exactly once."""
-    proc=subprocess.Popen(command,cwd=cwd,env=env,stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT)
-    raw,_=proc.communicate()
+    if _WORKER_CANCELLATION is not None:
+        proc,raw=_WORKER_CANCELLATION.communicate(
+            command,cwd=cwd,env=env,reap_descendants=_wait_for_validation_descendants)
+    else:
+        proc=subprocess.Popen(command,cwd=cwd,env=env,stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT)
+        raw,_=proc.communicate()
     _publish_node_output(final_path,raw)
     return subprocess.CompletedProcess(command,proc.returncode,raw,None),raw
 
@@ -211,9 +218,14 @@ def _verify_node_evidence_set(log_root:Path,results:list[dict[str,Any]],*,
 
 
 def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_path:Path|None=None)->None:
+    global _WORKER_CANCELLATION
     rc=2; payload={}; owner_pid=os.getpid()
     try:
+        _WORKER_CANCELLATION=WorkerCancellation()
+        _WORKER_CANCELLATION.__enter__()
         _enable_validation_subreaper()
+        signal.pthread_sigmask(signal.SIG_UNBLOCK,{signal.SIGTERM})
+        _WORKER_CANCELLATION.check()
         tmp=Path(tempfile.mkdtemp(prefix='ig-decoder-validation-'))
         if uid is not None and gid is not None and hasattr(os,'setuid'):
             os.chown(tmp,int(uid),int(gid)); os.setgroups([]); os.setgid(int(gid)); os.setuid(int(uid))
@@ -264,6 +276,11 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
     except BaseException as exc:
         payload={'return_code':2,'nodes':nodes,'status':'FAIL','error':type(exc).__name__+':'+str(exc),'tail':''}
         rc=0
+    try:
+        _wait_for_validation_descendants()
+        payload['cleanup_quiescent']=True
+    except BaseException as cleanup_exc:
+        payload.update(cleanup_quiescent=False,cleanup_error=str(cleanup_exc),status='FAIL',return_code=2)
     if log_path is not None:
         # Full text is on disk; keep the result pipe below PIPE_BUF so the legacy
         # wait-then-read reducer cannot wait for a child blocked on a large log.
@@ -311,15 +328,34 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
     node_root=log_root/'node_process_logs'
     prior_node_evidence=_evidence_baseline(node_root,'*.log') if node_root.is_dir() else {}
     parts=_partition(pending_nodes,workers)
-    children=[]; started=time.monotonic()
-    for idx,part in enumerate(parts):
-        log_path=log_root / f"worker-{idx}-{time.time_ns()}.log"
-        rfd,wfd=os.pipe(); pid=os.fork()
-        if pid==0:
-            os.close(rfd); _child(candidate,part,uid,gid,wfd,log_path)
-        os.close(wfd); children.append((idx,pid,rfd,part,log_path))
+    children=[]; started=time.monotonic(); pending={}
+    try:
+        for idx,part in enumerate(parts):
+            log_path=log_root / f"worker-{idx}-{time.time_ns()}.log"
+            rfd,wfd=os.pipe()
+            pid=None;prior_mask=None
+            try:
+                prior_mask=signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGTERM})
+                pid=os.fork()
+            except BaseException:
+                os.close(rfd);os.close(wfd)
+                raise
+            finally:
+                # In the child, keep cancellation blocked until its handler
+                # and subreaper are ready. Parent restores its original mask.
+                if pid!=0 and prior_mask is not None:
+                    signal.pthread_sigmask(signal.SIG_SETMASK,prior_mask)
+            if pid==0:
+                os.close(rfd)
+                for _,oldfd,_,_ in pending.values():os.close(oldfd)
+                _child(candidate,part,uid,gid,wfd,log_path)
+                os._exit(3)
+            os.close(wfd); children.append((idx,pid,rfd,part,log_path))
+            pending[pid]=(idx,rfd,part,log_path)
+    except BaseException:
+        cancel_workers(pending)
+        raise
     results=[]; deadline=None if wall_seconds_max is None else started+float(wall_seconds_max)
-    pending={pid:(idx,rfd,part,log_path) for idx,pid,rfd,part,log_path in children}
     try:
         while pending:
             progressed=False
@@ -335,6 +371,8 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
                 os.close(rfd)
                 try: obj=json.loads(raw.decode('utf-8').strip())
                 except Exception: obj={'return_code':2,'nodes':part,'status':'FAIL','error':'MALFORMED_VALIDATION_CHILD_RESULT','tail':raw.decode('utf-8','replace')[-2000:]}
+                if obj.get('cleanup_quiescent') is not True:
+                    raise ValidationRuntimeError('VALIDATION_CLEANUP_ACK_MISSING:'+str(pid))
                 try: _verify_worker_log(log_path,obj)
                 except (OSError,ValidationRuntimeError) as exc:
                     reason=type(exc).__name__+':'+str(exc)
@@ -342,14 +380,9 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
                 obj['log_path']=log_path.name
                 obj['nodes']=part; obj['worker_index']=idx; obj['pid']=pid; results.append(obj)
             if pending and deadline is not None and time.monotonic()>=deadline:
-                for pid,(idx,rfd,part,log_path) in pending.items():
-                    try: os.kill(pid,signal.SIGKILL)
-                    except OSError: pass
-                for pid,(idx,rfd,part,log_path) in list(pending.items()):
-                    try: os.waitpid(pid,0)
-                    except OSError: pass
-                    try: os.close(rfd)
-                    except OSError: pass
+                timed_out=list(pending.items())
+                cancel_workers(pending)
+                for pid,(idx,rfd,part,log_path) in timed_out:
                     results.append({'worker_index':idx,'pid':pid,'nodes':part,'return_code':124,'status':'FAIL','error':'VALIDATION_TIMEOUT','tail':''})
                 pending.clear(); break
             if pending:
@@ -357,13 +390,7 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
                 poll();safe_point('VALIDATION_PROGRESS')
             if pending and not progressed: time.sleep(0.02)
     finally:
-        for pid,(idx,rfd,part,log_path) in list(pending.items()):
-            try:os.kill(pid,signal.SIGKILL)
-            except OSError:pass
-            try:os.waitpid(pid,0)
-            except OSError:pass
-            try:os.close(rfd)
-            except OSError:pass
+        if pending:cancel_workers(pending)
     _verify_worker_evidence_set(log_root,results,prior=prior_worker_evidence)
     _verify_node_evidence_set(log_root,results,prior=prior_node_evidence)
     from .validation_reports import verify_finalization

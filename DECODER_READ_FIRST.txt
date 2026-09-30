@@ -1,8 +1,6 @@
-DECODER DEV142 / V51 — UNQUALIFIED — 2026-09-30
-
-Additional explicit-only durable-progress long probe; native execution pending.
-Production logic unchanged. Dev141 evidence remains historical, not inherited.
-Run python -B decoder-admin/decoder.py verify-source before admission.
-Read decoder-admin/evidence/V51_REPORT.txt and V51_PROTOCOL.txt.
-Do not rerun completed V50. No science replay; all 23 RC rows OPEN.
-Runtime/data locators: decoder-admin/CATALOG.json.
+DEV143 V59 CLEANUP REPAIR — UNQUALIFIED — 2026-10-01
+Native registered tests and fresh reliability gate pending.
+No inherited dev142 qualification. V55 remains failed lifecycle cleanup.
+All 23 RC rows OPEN. No science replay.
+Verify source: python3 -B decoder-admin/decoder.py verify-source
+Read decoder-admin/evidence/V59_REPORT.txt.

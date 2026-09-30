@@ -362,15 +362,15 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev142+lib",
-    "source_sha256": "078433404ab554b2ecb081aca35ad8439b7a17b465db53cfc795df1a9825a4fa",
-    "package_sha256": "fa48e8e8be3734e2a73429b1b9f843f7d6dd36f2dc52af557aad7fff32cf10e9",
-    "archive_sha256": "ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9",
+    "version": "0.8.0.dev143+lib",
+    "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
+    "package_sha256": "d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9",
+    "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
+    "archive_size_bytes": 22690256,
     "qualification": "UNQUALIFIED",
-    "archive_size_bytes": 22686289,
-    "drive_id": "1tTTMUWehScRK8rFYlKHMXWwcQwkwJmFX",
-    "status": "V52_ONE_NATIVE_DURABLE_PROGRESS_PASS_FULL_QUALIFICATION_OPEN",
-    "tests_executed": 2
+    "tests_executed": 0,
+    "status": "UNQUALIFIED",
+    "reason": "Native cancellation integration requires new-source testing"
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -561,13 +561,12 @@
     "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
   },
   "latest_source_repair": {
-    "gate": "V27",
-    "scope": "V25 groups A/B implemented, unqualified",
-    "report": "decoder-admin/evidence/V27_REPORT.txt",
-    "protocol": "decoder-admin/evidence/V27_ACK_AND_WAVE_PROTOCOL.txt",
-    "tests_executed": 0,
-    "native_acknowledgments_executed": 0,
-    "next": "V25 group C forensic/core review"
+    "gate": "V59",
+    "version": "0.8.0.dev143+lib",
+    "scope": "validation cancellation/cleanup",
+    "native_tests_executed": 0,
+    "full_RC": "OPEN",
+    "standalone_check_attempt": "STOPPED_BEFORE_TEST: launcher import path missing; 0 cleanup assertions executed"
   },
   "latest_targeted_gate": {
     "candidate": "0.8.0.dev140+lib",

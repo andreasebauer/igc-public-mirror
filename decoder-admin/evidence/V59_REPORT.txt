@@ -1,0 +1,35 @@
+V59 DEV143 CANDIDATE CHECKPOINT — UNQUALIFIED
+2026-10-01 Asia/Bangkok
+
+Built 0.8.0.dev143+lib with worker-owned cancellation, explicit cleanup
+acknowledgments, native runtime integration, and five regression selectors.
+Exactly six source files changed from dev142. All 1525 files verified against
+the source manifest. No prior captured workspace was modified.
+
+Source SHA256: 2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2
+Package SHA256: d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9
+Source ZIP SHA256: 385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9
+Source ZIP size: 22690256 bytes
+Drive source ID: 18BRSPzCJlYz5-VsLH-xE2nXcKMLe8ce6
+
+Standalone check attempt stopped on its first case before test execution:
+ModuleNotFoundError: No module named 'infinity_grid'. The selected runtime
+wrapper explicitly unsets PYTHONPATH; the launcher had relied on that variable.
+CHECK_PREREGISTRATION.json and CHECK_RESULTS.json preserve the exact attempt.
+This is a launcher failure, not a passing or failing cleanup assertion.
+No retry was performed. Remaining four cases were not attempted.
+Native qualification tests executed: 0. All 23 RC rows remain OPEN.
+V55 remains FAILED_LIFECYCLE_CLEANUP. No science replay; not data-block ready.
+
+NEXT
+1. Preregister a corrected launcher that explicitly inserts the candidate
+   source path inside Python. Preserve the failed attempt unchanged.
+2. Execute the five isolated helper checks, stopping on first failure.
+3. Run fresh native controller integration/reliability checks on dev143;
+   require observed descendant quiescence, no late writes, durable evidence,
+   and missing-only/exact restoration. Do not reuse or repair V55's workspace.
+4. Complete current-source fixtures, full RC and independent-host recovery
+   before source/runtime freeze and data-block admission.
+
+Known limits: helper checks do not qualify native controller behavior;
+escaped process groups and cleanup timeouts must refuse unconfirmed cleanup.
