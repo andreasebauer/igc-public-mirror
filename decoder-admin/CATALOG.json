@@ -61,8 +61,6 @@
   "unresolved_fixtures": [
     "saved_representative_qualification",
     "saved_stage_four",
-    "saved_stage_one",
-    "saved_stage_one_prerun",
     "saved_stage_outcome"
   ],
   "scope": "dev145 unqualified source/runtime locators; five candidate fixtures pending; prior candidate results historical.",
@@ -243,7 +241,62 @@
       }
     }
   },
-  "candidate_fixtures": {},
+  "candidate_fixtures": {
+    "saved_stage_one_prerun": {
+      "sha256": "172b421d869e42367822a5f42b027015662b97cdd7a3b56604087d40dfaf8dc8",
+      "size_bytes": 45028445,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V65_3c8a2560380de362a3fae8014e6a9a23278e2a78a3d0386d2f5334cea37c219f.bin",
+          "sha256": "3c8a2560380de362a3fae8014e6a9a23278e2a78a3d0386d2f5334cea37c219f",
+          "size_bytes": 25000000,
+          "drive_id": "1eo0WwhtaWHv1NRlnKArjY7OVYKh4_Z0e"
+        },
+        {
+          "filename": "V65_df276a051e270198068ed255f3ae9d5b981e37516f3826d9c90812d05fbe5487.bin",
+          "sha256": "df276a051e270198068ed255f3ae9d5b981e37516f3826d9c90812d05fbe5487",
+          "size_bytes": 20028445,
+          "drive_id": "1F92m1Qt79_J39Wq0C2RQekCLrI37Q83R"
+        }
+      ],
+      "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+      "state": "GENUINE_PRERUN",
+      "completion_sha256": null,
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_stage_one": {
+      "sha256": "1482e73cb9f9d9fbe6a16313c9753cfc3797cd94e3a28e7885205a6664faa7b0",
+      "size_bytes": 67528339,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V65_abedb75a2de73fc65e4658a595397abafdf28c6dd239f4154849ce2af94b20cf.bin",
+          "sha256": "abedb75a2de73fc65e4658a595397abafdf28c6dd239f4154849ce2af94b20cf",
+          "size_bytes": 25000000,
+          "drive_id": "1v3qsa8kLN76pq3yToLuJolWEMYvIVjB6"
+        },
+        {
+          "filename": "V65_b980d3565ee33e6c18a3e2fafa1d55aa6fd5864ea40a5471cb1b27ff1b09bb98.bin",
+          "sha256": "b980d3565ee33e6c18a3e2fafa1d55aa6fd5864ea40a5471cb1b27ff1b09bb98",
+          "size_bytes": 25000000,
+          "drive_id": "1j4ZNxFyX-29hN41VycGjPFfyQnAKhlj8"
+        },
+        {
+          "filename": "V65_21549cea8a601dffac961071cb41e125d21991b33ccc25b2fd3351b4dc055575.bin",
+          "sha256": "21549cea8a601dffac961071cb41e125d21991b33ccc25b2fd3351b4dc055575",
+          "size_bytes": 17528339,
+          "drive_id": "1nHwYbS-H5oHujaCjqdJ1XTM8X_GeW2U7"
+        }
+      ],
+      "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "df0df2514011e09e0e19734a62d2456d7822ae3b3f47b7608afde61e96a635ba",
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    }
+  },
   "historical_sources": {
     "dev140": {
       "version": "0.8.0.dev140+lib",

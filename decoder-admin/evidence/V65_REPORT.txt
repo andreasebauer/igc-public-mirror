@@ -1,0 +1,52 @@
+V65 DEV145 STAGE-ONE FIXTURES — PASS — 2026-10-01
+
+Recovered after environment reset: V64 bundle and dev145 archive hashes matched.
+Public Git tree 21143fbde596c8407140716f364fd742c95d3a40 matched; 1526 source
+files verified. Runtime reconstructed: 4721 exact files/modes plus seven exact
+host files. No V64 tests rerun.
+
+One fresh registered stage-one job completed: PASS, 48 task results, seven
+classes, one worker. These are fixture counts, not 48 test-suite passes.
+Ten capture prerequisites saved and read back before dispatch. Genuine complete
+pre-run export saved and reconstructed from Drive parts, restored with zero
+attempts/prepared/published completions. Complete post-publication export saved,
+read back, and restored to identical published completion and terminal proof.
+Zero workloads dispatched on either restore. All 60 checkpoint role obligations
+acknowledged, zero pending at closeout. Source unchanged.
+
+Two of five current-dev145 fixture roles are earned. Next: stage-four (four
+workers, same 48 values modulo seven), expected-outcome refusal, representative
+qualification. Then full RC; all 23 acceptance rows remain OPEN. No science replay.
+Do not rerun V65. Read FIXTURE_CATALOG.json for ordered Drive parts and hashes.
+Worktree /tmp/ig_decoder_dev145_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; PYTHONOPTIMIZE=0, -B.
+After reset clone published branch, verify tree/source, import runtime objects
+from decoder-admin/CATALOG.json and restore using decoder-admin/decoder.py.
+Frozen producer capture and both restored fixtures are retained locally.
+
+Administrative transport scripting hit a missing JavaScript btoa helper after
+three successful saves. Retained those saved readbacks and resumed only missing
+objects using plain JSON persistence; no native execution failed or was retried.
+
+{
+  "gate": "V65_DEV145_STAGE_ONE_FIXTURES",
+  "status": "PASS",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "native_jobs_executed": 1,
+  "task_count": 48,
+  "class_count": 7,
+  "workers": 1,
+  "fixture_roles_earned": [
+    "saved_stage_one_prerun",
+    "saved_stage_one"
+  ],
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "df0df2514011e09e0e19734a62d2456d7822ae3b3f47b7608afde61e96a635ba",
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_stage_four",
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ]
+}

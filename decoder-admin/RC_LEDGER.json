@@ -401,27 +401,26 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V22_REPRESENTATIVE",
-    "status": "COMPLETED_VERIFIED",
-    "cases_passed": 4,
-    "cases_failed": 0,
-    "completion_sha256": "27488b60587fbec441ef2b3e8e0fdb1d1f81fb92ed40c9268f44acda299c1560",
-    "native_attempts": 1,
-    "saved_fixture_roles": [
+    "gate": "V65_DEV145_STAGE_ONE_FIXTURES",
+    "status": "PASS",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "native_jobs_executed": 1,
+    "task_count": 48,
+    "class_count": 7,
+    "workers": 1,
+    "fixture_roles_earned": [
       "saved_stage_one_prerun",
-      "saved_stage_one",
+      "saved_stage_one"
+    ],
+    "pending_checkpoint_roles": 0,
+    "workload_executions_on_restore": 0,
+    "completion_sha256": "df0df2514011e09e0e19734a62d2456d7822ae3b3f47b7608afde61e96a635ba",
+    "full_rc": "OPEN",
+    "remaining_fixtures": [
       "saved_stage_four",
       "saved_stage_outcome",
       "saved_representative_qualification"
-    ],
-    "remaining_fixture_roles": [],
-    "workload_executions_on_restore": 0,
-    "pending_preservation_objects": 0,
-    "configured_interval_seconds": 30,
-    "configured_max_pending_commits": 16,
-    "V21_retained_unchanged": true,
-    "all_23_rc_acceptance_rows": "OPEN",
-    "next_gate": "Review selectors and bind seven inputs for native current-source collection/qualification."
+    ]
   },
   "fixture_gate_history": [
     {
@@ -511,6 +510,29 @@
       ],
       "all_23_rc_acceptance_rows": "OPEN",
       "next_protocol_proposal": "Fresh capture with standard30-second interval; retain16-commit, byte and age limits; preserve V21 unchanged."
+    },
+    {
+      "gate": "V22_REPRESENTATIVE",
+      "status": "COMPLETED_VERIFIED",
+      "cases_passed": 4,
+      "cases_failed": 0,
+      "completion_sha256": "27488b60587fbec441ef2b3e8e0fdb1d1f81fb92ed40c9268f44acda299c1560",
+      "native_attempts": 1,
+      "saved_fixture_roles": [
+        "saved_stage_one_prerun",
+        "saved_stage_one",
+        "saved_stage_four",
+        "saved_stage_outcome",
+        "saved_representative_qualification"
+      ],
+      "remaining_fixture_roles": [],
+      "workload_executions_on_restore": 0,
+      "pending_preservation_objects": 0,
+      "configured_interval_seconds": 30,
+      "configured_max_pending_commits": 16,
+      "V21_retained_unchanged": true,
+      "all_23_rc_acceptance_rows": "OPEN",
+      "next_gate": "Review selectors and bind seven inputs for native current-source collection/qualification."
     }
   ],
   "latest_preparation_gate": {
