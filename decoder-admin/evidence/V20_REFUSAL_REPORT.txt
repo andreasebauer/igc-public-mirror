@@ -1,0 +1,46 @@
+V20 DEV137 EXPECTED-REFUSAL FIXTURE — 2026-09-30
+
+FIXTURE ACCEPTANCE: EXPECTED_REFUSAL_VERIFIED.
+Native attempt remains PAUSED. Exact retained reason:
+ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME
+One registered attempt, zero prepared completions, zero published completions.
+The unchanged handler returns PASS; registration permits only EXPECTED_OTHER.
+Controller rejected the unregistered outcome as required. No native successful
+completion, scientific success or full-suite PASS is claimed.
+Capture: 3e4e716230f5eb9d3c76226cb0cb78617053348cfbd076331c0193f5082cab0a
+Source: e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070
+V4 runtime:4721 file bytes/modes and7host files verified before/after execution.
+No V17/V18/V19 or historical suite rerun, source edit, forced error or retry.
+
+SAVED_STAGE_OUTCOME
+Complete paused native archive:44,511,802 bytes, two ordered transport parts.
+SHA256 6ca9ff49f3196682bab52891e752be6e9043308a806815e14bf030576fc1bdac
+Actual Drive readbacks verified; reconstructed archive restored without work.
+Restored attempt exactly matches retained original bytes. Normal validation
+and completion lookup with pending allowed find no completion. Both completed
+and prepared-completion directories contain zero records.
+All42 checkpoint preservation obligations confirmed; zero pending. The fixture
+is accepted as an expected refusal; no native status was changed or relabelled.
+A later new qualification job may consume it for the declared-outcome regression.
+The producer was not retried and must not be retried as part of this gate.
+
+ONE REPOSITORY
+https://github.com/andreasebauer/igc-public-mirror/tree/decoder/consolidated-dev137-20260930
+DECODER_READ_FIRST.txt and decoder-admin/CATALOG.json are authoritative entrypoints.
+The compact evidence ZIP contains exact scripts, exception/attempt proofs and
+object locators. Complete fixture archive and checkpoint/runtime objects remain
+external. FIXTURE_CATALOG.json pins every transport part by Drive ID,size,hash.
+Concatenate in listed order; check each part and whole archive; native
+restore_workspace verifies and restores without launching the job.
+External OS/kernel/shell/bootstrap and seven host libraries remain dependencies.
+
+NEXT
+Four of five fixture roles are earned: saved_stage_one_prerun, saved_stage_one,
+saved_stage_four, saved_stage_outcome. Only saved_representative_qualification
+remains. Use existing representative_qualification:handler and stage_id
+ENG:REPRESENTATIVE_QUALIFICATION in a new registered capture/preregistration.
+Then bind all seven profile fixture roles (including two historical inputs)
+and prepare exact current-source qualification; skip/error/unexecuted is not PASS.
+All23 RC acceptance rows/full RC remain OPEN. No scientific release or shared
+pointer promotion. Full source suite, install lock and independent-host closure
+remain open. Native PAUSED expected-refusal state is intentionally retained.

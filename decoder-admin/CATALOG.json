@@ -57,10 +57,9 @@
     }
   ],
   "unresolved_fixtures": [
-    "saved_stage_outcome",
     "saved_representative_qualification"
   ],
-  "scope": "Pinned locator set for source/runtime, two historical qualification inputs and three current-candidate fixture roles (V18/V19). NOT full historical science/replay recovery closure.",
+  "scope": "Pinned locator set for source/runtime, two historical qualification inputs and four current-candidate fixture roles (V18-V20). NOT full historical science/replay recovery closure.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
   "candidate_fixtures": {
@@ -143,6 +142,30 @@
       "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
       "state": "PUBLISHED_COMPLETION",
       "completion_sha256": "0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8",
+      "restored_from_drive_readbacks": true
+    },
+    "saved_stage_outcome": {
+      "sha256": "6ca9ff49f3196682bab52891e752be6e9043308a806815e14bf030576fc1bdac",
+      "size_bytes": 44511802,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "saved_stage_outcome.part01",
+          "sha256": "85ffe14e1cc43722e0a28944e252b41442ae73a099954ee6f35addefc423552d",
+          "size_bytes": 25165824,
+          "drive_id": "1nyN7OL55l6FYfgyr3Cdd-rYUHs75LUcV"
+        },
+        {
+          "filename": "saved_stage_outcome.part02",
+          "sha256": "10e67296bb2934b1ef47e1322e64dcbfb056b3e402fe7e0688cf292c1c9b3dcb",
+          "size_bytes": 19345978,
+          "drive_id": "1VZEJoUD_7C73PTQF8nIFThlhbupfJ2Xw"
+        }
+      ],
+      "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+      "state": "PAUSED_EXPECTED_REFUSAL",
+      "expected_refusal": "UNREGISTERED_SCIENTIFIC_OUTCOME",
+      "completion_sha256": null,
       "restored_from_drive_readbacks": true
     }
   }

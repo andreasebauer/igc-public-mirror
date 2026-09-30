@@ -395,24 +395,25 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V19_STAGE_FOUR",
-    "status": "COMPLETED_VERIFIED",
-    "task_count": 48,
-    "class_count": 7,
-    "observed_workers": 4,
-    "exact_relation_matches_v18": true,
-    "completion_sha256": "0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8",
+    "gate": "V20_DECLARED_OUTCOME_REFUSAL",
+    "fixture_acceptance": "EXPECTED_REFUSAL_VERIFIED",
+    "native_status": "PAUSED",
+    "reason": "ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME",
+    "completion_sha256": null,
+    "published_completions": 0,
+    "prepared_completions": 0,
     "saved_fixture_roles": [
       "saved_stage_one_prerun",
       "saved_stage_one",
-      "saved_stage_four"
+      "saved_stage_four",
+      "saved_stage_outcome"
     ],
     "remaining_fixture_roles": [
-      "saved_stage_outcome",
       "saved_representative_qualification"
     ],
     "native_attempts": 1,
     "workload_executions_on_restore": 0,
+    "restored_attempt_bytes_identical": true,
     "pending_preservation_objects": 0,
     "all_23_rc_acceptance_rows": "OPEN"
   },
@@ -430,6 +431,28 @@
       ],
       "remaining_fixture_roles": [
         "saved_stage_four",
+        "saved_stage_outcome",
+        "saved_representative_qualification"
+      ],
+      "native_attempts": 1,
+      "workload_executions_on_restore": 0,
+      "pending_preservation_objects": 0,
+      "all_23_rc_acceptance_rows": "OPEN"
+    },
+    {
+      "gate": "V19_STAGE_FOUR",
+      "status": "COMPLETED_VERIFIED",
+      "task_count": 48,
+      "class_count": 7,
+      "observed_workers": 4,
+      "exact_relation_matches_v18": true,
+      "completion_sha256": "0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8",
+      "saved_fixture_roles": [
+        "saved_stage_one_prerun",
+        "saved_stage_one",
+        "saved_stage_four"
+      ],
+      "remaining_fixture_roles": [
         "saved_stage_outcome",
         "saved_representative_qualification"
       ],

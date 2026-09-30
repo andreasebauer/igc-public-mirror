@@ -47,7 +47,9 @@ Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
 this is not a standalone OS image or independent-platform qualification.
 
 WHAT IS STILL MISSING
-Two candidate-specific fixture artifacts remain unresolved in CATALOG.json.
+One candidate-specific fixture artifact remains unresolved in CATALOG.json:
+saved_representative_qualification. V20 saved_stage_outcome is a preserved,
+restore-verified expected refusal: native PAUSED, no completion.
 V18 saved_stage_one_prerun, saved_stage_one and V19 saved_stage_four are earned,
 saved and restored. Exact one/four-worker task-to-class representative bytes match.
 The candidate_fixtures field pins ordered transport parts and whole archive
