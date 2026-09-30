@@ -370,7 +370,7 @@
     "archive_size_bytes": 22686289,
     "drive_id": "1tTTMUWehScRK8rFYlKHMXWwcQwkwJmFX",
     "status": "V52_ONE_NATIVE_DURABLE_PROGRESS_PASS_FULL_QUALIFICATION_OPEN",
-    "tests_executed": 1
+    "tests_executed": 2
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -793,5 +793,15 @@
       "forensic snapshot and reconstruction",
       "saved capture and active operator admission"
     ]
+  },
+  "latest_live_fault_gate": {
+    "gate": "V54",
+    "status": "NOT_EARNED_ADMISSION_REFUSED",
+    "corruption_injected": false,
+    "native_probe_passed": 1,
+    "healthy_post_checkpoint_checks": 12,
+    "pending_roles": 0,
+    "exact_saved_restore_verified": true,
+    "full_RC": "OPEN"
   }
 }

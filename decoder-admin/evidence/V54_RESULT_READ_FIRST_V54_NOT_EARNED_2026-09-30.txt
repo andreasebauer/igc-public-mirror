@@ -1,0 +1,28 @@
+V54 LIVE FAULT GATE: NOT_EARNED — NO CORRUPTION INJECTED
+
+Capture ca99b2933311f4b53b9b5ba137637f16646dcd1d0a7d9ac4527407e64da61de6
+Dev142 unchanged. One native 150-second probe PASS; no workload retry.
+Completion ea513ddc782fbd43537d7faac3280957fb8c4a62b46e4e6e5581721239fe4d8a
+Native export 57f860f83a25adbce4d11d0f8fa3b91249d3b5b36e26a509d5787f09dfb0fc0a
+Actual Drive-returned export and objects restored exact completion, zero dispatch.
+
+Fault admission failed before mutation: initial native outbox lock WORKSPACE_BUSY;
+permitted same administrative retry then refused because pending_objects was nonempty.
+No INJECTION_INTENT or INJECTION_DONE exists. No bytes deliberately changed. Fault
+admission stopped; ordinary saves drained; zero pending roles at closeout.
+Do not call this a successful corruption test or infer native corruption cleanup.
+
+Observed baseline: 12 healthy metadata checks over 3.103703378998034 seconds after
+completed checkpoint b93991beab6d61f76ff26c2ecac4143e8114b7ea3b6328fa43ca4360813ba6b1.
+Default budgets/reserve verified; zero payload reads in those metadata checks.
+Python observation only, not OS/disk IO measurement or performance claim.
+Normal lifecycle observation: quiescent, no registered child at controller return,
+no late runtime changes. Polling can miss short-lived children; no fault-cleanup credit.
+
+Cause to address: target registration/save latency permits a new checkpoint to
+arrive between zero-pending precheck and locked injection. Keep native locks and
+limits. Review an explicit bounded pre-mutation save/drain/revalidation sequence
+and preregister a NEW case before another workload; do not retry this completed one.
+All 23 RC rows remain OPEN. No science replay. V52 bounded live-save PASS unchanged.
+ALL_READBACKS.json contains complete unique saved object references. CATALOG.json
+is the administrative working subset after draining; use ALL_READBACKS for restore.
