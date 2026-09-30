@@ -1,0 +1,24 @@
+V47 DEV141 NATIVE DRAIN INTEGRATION — 2026-09-30
+
+PASS: two preregistered native engineering probes, all setup/call/teardown phases passed. Two execution attempts; one intervening expected drain refusal created no additional attempt. No workload retry or source modification.
+
+First wave finalized test_first_pass, paused with VALIDATION_SAVE_BOUNDARY:1, and left test_later_sentinel unexecuted with no completion. All physical checkpoint objects were saved and downloaded. An exact partial acknowledgment left one checkpoint_source logical role pending despite pending_bytes=0. Native continuation refused with VALIDATION_SAVE_DRAIN_REQUIRED before a new attempt. All 11 existing attempt/run evidence files remained byte-identical.
+
+After acknowledging the held role from genuine remote readback, continuation dispatched only test_later_sentinel. All 11 prior evidence files remained byte-identical. Both probes reduced to PASS and native completion was verified. Nine capture-save roles plus 56 checkpoint roles acknowledged; zero pending. Nineteen unique physical objects saved and read back. Terminal export restored from fresh downloaded bytes with exact completion and terminal proof; zero tests dispatched on restore.
+
+Fresh pinned V4 runtime: 4,721 runtime files plus seven host files verified before and after each invocation. Captured source matches saved archive exactly in file set, bytes and modes: 1,523 files, no symlinks or bytecode.
+
+Candidate: 0.8.0.dev141+lib
+Source: 01a8911181ca5ee67556bd35f32cb5453428d9cbbf50bcf505b070a968d9e57e
+Package: f04340bfe3cda1f230c8ef7dcb96f0e2c1099ccbfe0ed467cd688e37da9baf82
+Job: RC.SAVE.DRAIN.V47.DEV141
+Capture: aeaa272f7a1ab035186c704aa560eca507d45845cab4919c85a8532769576087
+Completion: 95171515d7fbda996dba9962d41039c99a788ee485b680681c6dc113d4985eea
+Terminal export SHA256: de0f7cea268623abcc329e3fba4d4632a9a3685519ba3207235eea2756a440c8
+Terminal export Drive ID: 1vlILZipeo0RUcPvxbLP7wP4Q0mML2AcJ
+
+Dev141 now has two bounded native probe passes, not full qualification. Dev140's 150 focused passes remain separate historical evidence. All 23 RC rows remain OPEN; not data-block ready. V24 evidence remains untouched.
+
+NEXT: separate preregistered expected FAIL then SKIP native captures, each followed by the sentinel with wave size one. Preserve the true failed/skipped outcome; genuinely save evidence; an explicitly requested continuation must refuse prior non-PASS before dispatching the sentinel. An attempt record may be created before planner refusal: require no new selector phases, not zero attempt records. Do not relabel either outcome as PASS.
+
+Afterward: LONG live-save proof under unchanged default cadence and backlog limits, with at least two ordinary checkpoint acknowledgments before selector end; measured latency/reserve/read counts and separately preregistered live-corruption refusal. Current-candidate fixtures, full qualification, RC reconciliation and dependency/independent-host recovery remain open before scientific replay.
