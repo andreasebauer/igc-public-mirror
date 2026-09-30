@@ -1,0 +1,64 @@
+V28 SIX-CORE SOURCE REVIEW — STATIC, NOT QUALIFICATION
+
+Recovered exact baseline files from public commit
+676d25259f7c4c93b7dc2cdd144fad0714e4200c (dev87). All SIX SHA-256 values
+match the historical terminal pin chain. Compared to local dev139 commit
+beaecb30caa224fd6826dc2d21ffbea821c81dda. Six exact diffs: 633 lines total.
+CORE_DIFF_INVENTORY.json binds both sides and each diff. Historical pins untouched.
+
+1 portable_registry.py (24 diff lines): replaces duplicate immutable object
+publication with immutable_publication.publish_bytes. Shared helper preserves
+byte-conflict refusal and link-based publication; adds ancestor/directory fsync
+and retry durability barriers. It assumes cooperating POSIX processes, not hostile
+concurrent filesystem writers. Required gate: publication conflict, racing writer,
+directory-fsync interruption and retry. No durability PASS follows from source.
+2 submission.py (38): same publication helper; require_saved with environment
+checking now invokes sqlite_attestation.admit_capture_runtime. Exactly one bound
+SQLite artifact and actual loaded runtime verification are prerequisites for
+execution. Nonexecuting reuse remains separate. V26 fixture repair follows this
+admission requirement. Required gate: missing/wrong binding, valid fresh binding.
+3 controller (54): completion refusal now attaches evidence_diagnostics using
+the same observed inventory. It retains metadata/evidence/hash checks; it may
+collect the completion hash diagnostic after an evidence mismatch where old
+short-circuit code would stop. This is not a new completion acceptance path.
+V27 adds mandatory logical drain for opt-in validation waves before dispatch.
+Required gate: tampered completion diagnostics and native pause/drain/resume.
+4 preservation (227): adds diagnostics to existing checkpoint refusal; V27
+separates hash-bound metadata inventory from payload verification, verifies full
+status once per distinct object, strengthens raw V2 logical binding, recognizes
+multipart physical durability without satisfying unrelated roles, and exposes
+bounded confirm-batch. Heartbeat metadata cadence is 250 ms, while full byte
+verification occurs at status/checkpoints: corruption detection timing changes.
+Dependencies preservation_batch and save_transport were inspected in V27;
+required gates include corruption, role confusion, partial publication/retry,
+measured distinct reads, complete status, and a long selector with live save loop.
+5 validation runtime (123): startup -B, child/parent exact phase finalization
+binding, phase packet hashes in evidence; V27 limits selected pending work,
+refuses prior non-PASS/collection errors, writes finalized save-boundary evidence,
+and raises intentional PAUSED before whole-group completion. Required gates:
+no-bytecode exact file set, altered finalization, two-wave missing-only resume,
+failed-wave stop, native long-selector progress/save integration. No speed claim.
+6 result contracts (167): V2 science contracts require explicit content paths,
+content checks/hash binding and registered substantive outcomes; strict science
+JSON rejects duplicate/nonfinite values; verification labels declared-content
+scope and grants no science authority. Existing V1 SCIENCE is intentionally
+refused; this is a compatibility change, not transparent legacy qualification.
+V27 adds opt-in nonnegative validation_wave_selectors, default zero. Required
+gates: content-free science refusal, malformed JSON, outcome and policy negatives.
+
+DISPOSITION
+All six diff surfaces and their intended rationale are accounted for statically.
+No successor pin is appended yet: native forensic evidence and final diagnostic
+source disposition are pending. Do not equate exact baseline recovery or this
+review with tests passing, an independent audit, or RC closure. Recompute final
+hashes after any subsequent edit before drafting the successor amendment.
+
+NEWLY RECOVERED HISTORICAL CONTEXT
+Drive DEV135_A12_REJECTED_DIAGNOSTIC_2026-09-29.txt
+id 1a-OMwdYWbYMgTvkYaWDZikE6EMs1pFx3 records 3 PASS/1 FAIL and the same
+64-versus-96 CONTROL observation before V24. Only CONTROL reached; HELD_WRITE
+and PROJECT were not observed in that failed selector. Completion recorded as
+af02ad97a2759194290d9d50111b2d6c5312b719974652a90f176b1a5f910638.
+This report was read; its completion has not been newly restored in V28.
+Drive DEV87_CORE_PIN_VALIDATED_2026-09-28.txt id
+1caFj_ofZhd2_hL8MPoGoT5aq7seeMxHZ supplied the verified baseline commit locator.

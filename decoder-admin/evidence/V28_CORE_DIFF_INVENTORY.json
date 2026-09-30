@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "676d25259f7c4c93b7dc2cdd144fad0714e4200c",
+  "candidate_commit": "beaecb30caa224fd6826dc2d21ffbea821c81dda",
+  "files": [
+    {
+      "path": "infinity_grid/v05_controller_event_loop.py",
+      "expected_sha256": "f6913f6b87a8c8919ead77796f3b12f96dfa83b2caa1ffd604b3a0204d297f52",
+      "baseline_verified": true,
+      "current_sha256": "20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e",
+      "diff_lines": 54,
+      "diff_sha256": "d5c3ead87abc2af5d75241b2889a426872a6053ca3a14057c0e66ed580737985"
+    },
+    {
+      "path": "infinity_grid/portable_registry.py",
+      "expected_sha256": "d90c70f1158d5bfe84e34593cd7a8805741d95e52d9d5845b9badccf98195756",
+      "baseline_verified": true,
+      "current_sha256": "9287cb351de2e6598098d522b6b37437db32c2d10b454910aeeee1c70c37cacf",
+      "diff_lines": 24,
+      "diff_sha256": "e1a5f0089837e6395e212685d8219c85bd19e2a88dfd541264efd32e82cfaa03"
+    },
+    {
+      "path": "infinity_grid/submission.py",
+      "expected_sha256": "db1239b516f064a7582e9545d1f839baa30eb9e5f19afeca9a562a0975c712f0",
+      "baseline_verified": true,
+      "current_sha256": "360b0449e45fa5f68d238a4248552116b3e791a02351733cb5f2d4f4d3844a3e",
+      "diff_lines": 38,
+      "diff_sha256": "eb6160ba1193c4920a6ac29f33511086ea6b85d064a88c2b23da5f1eed0113f8"
+    },
+    {
+      "path": "infinity_grid/preservation.py",
+      "expected_sha256": "c7b4ecf8b6c54f28861c5d1fd86ed65797cffeec3bfa2cdc6413662c08ad2867",
+      "baseline_verified": true,
+      "current_sha256": "de9026e5d4f2cd77264e968a21c1b4c4f8a82bb7129803ea8c0e699a52ff9c62",
+      "diff_lines": 227,
+      "diff_sha256": "f08003bb17eb255e97c847a2fffcd87b0bfa8ebddb9d3bc8bea6b369f2300909"
+    },
+    {
+      "path": "infinity_grid/v05_validation_runtime.py",
+      "expected_sha256": "fcbe7edd4f11fa5d447d8276bb8f12260f13280cc44c3d2077d9b0e200202b14",
+      "baseline_verified": true,
+      "current_sha256": "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd",
+      "diff_lines": 123,
+      "diff_sha256": "853d917094a755fb1541aa41cdcc3c170c7bf83c89c295cd0c9b8c68344bec80"
+    },
+    {
+      "path": "infinity_grid/result_contracts.py",
+      "expected_sha256": "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1",
+      "baseline_verified": true,
+      "current_sha256": "5fd253d4d0d476b633b266e0af84c7b5bfe0fcab40704069efade03b12449dd2",
+      "diff_lines": 167,
+      "diff_sha256": "5b1ffa7d6b0e008b3d83d299cfb5018a66e415e104e932d04e6b5a6da79b5146"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+V28 INCIDENT FORENSIC PROTOCOL — FROZEN BEFORE NEW DATABASE READS
+Candidate: local beaecb30caa224fd6826dc2d21ffbea821c81dda, public
+0b84e157bfa7e34bec03604466c617b18f242b0d (identical tree).
+Incident archive SHA-256:
+744eb4e91231b40f1d058eee5fcd30a6c8daca3c7a5caa0df4b5526a0afff969
+Full 22-member byte inventory accompanies this protocol. Inventory only has run.
+No SQLite connection, native test or fixture producer was executed in V28.
+
+QUESTION
+Does opening an exact retained CONTROL main/WAL/SHM combination expose different
+logical task IDs from the retained main-only file? Extend the same comparison
+to HELD_WRITE and PROJECT. This measures saved-file behavior, not writer cause.
+Known prior evidence: dev135 rejected diagnostic observed CONTROL 64 vs claimed
+96; V24 repeats that failed expectation. Preserve both failures and all summaries.
+
+EXACT EXECUTION PLAN
+Use a fresh reconstructed pinned V4 (Python 3.13.5, SQLite 3.51.3), verify full
+runtime and host identities, capture the explicit SQLite binding, save and freshly
+read back all prerequisites through the native submission path before execution.
+Register a bounded VALIDATION job containing only these three exact selectors:
+tests/test_database_sidecar_comparison.py::test_control_database_file_combinations
+tests/test_database_sidecar_comparison.py::test_held_write_database_file_combinations
+tests/test_database_sidecar_comparison.py::test_project_database_file_combinations
+Use one worker, validation_wave_selectors=1, no automatic deadline, existing
+backlog ceilings; drain genuine saved/readback role obligations between waves.
+Freeze registration/capture IDs and resource budget before dispatch. Those IDs
+are NOT issued by this protocol document. Do not run ambient standalone pytest.
+
+Each selector uses five independent fresh disposable directories:
+1 MAIN_IMMUTABLE: original main bytes, SQLite mode=ro&immutable=1.
+2 MAIN_NATIVE: original main bytes, native _stable_file SQLite backup.
+3 MAIN_WAL_NATIVE: original main plus original WAL, native backup.
+4 EXACT_PAIR_NATIVE: original main/WAL/SHM, native backup.
+5 EXACT_PAIR_DIRECT: original main/WAL/SHM, SQLite mode=ro direct read.
+No database is opened in the original archive or extracted baseline location.
+No manual WAL deletion, finalization, checkpoint PRAGMA, writer or repair step.
+Native/read-only SQLite may create or change disposable sidecars: preserve exact
+before/after inventories. Never describe copying bytes as database execution.
+
+FROZEN COMPARISONS / STOPPING
+Require fixture archive hash, exact copied-file hashes, quick_check=ok, unique
+IDs, IDs within CONTROL/HELD_WRITE v000..v095 or PROJECT {1,2}, and equality of
+MAIN_IMMUTABLE versus MAIN_NATIVE. Preserve each observed ID list/count/hash,
+backup digest and before/after byte inventory. Native full-pair versus direct
+full-pair and WAL-only versus full-pair are diagnostic equality fields, with no
+preselected count or equality result. Compare each count to claimed 96 (task)
+or 2 (project) explicitly in the follow-up report. A result of 64 is not healthy
+96-task recovery, even if a diagnostic selector passes its measurement checks.
+Stop after the first failed selector or infrastructure refusal. Save the failed
+attempt and any logs/copies; no rerun, altered expectation or continued selector.
+At a successful intentional wave boundary, save/readback/drain then resume only
+missing selectors. Exactly one attempt at each selector in this gate.
+
+INTERPRETATION
+Headers/frame counts in the existing script are raw structural observations;
+WAL checksums are NOT validated. Do not infer valid replay frames from physical
+frame counts or nonzero commit markers. This gate cannot establish the original
+writer, chronology, upstream bug, causal data loss, or historical P9 root cause.
+Clean synthetic/live-WAL positive tests retain their 96-row requirements. The
+retained incident lifecycle assertion stays unchanged pending these observations.
+A later diagnostic amendment must retain claimed vs observed discrepancy fields,
+archive identity and rejected completions. Full RC stays OPEN.
+
+EVIDENCE REQUIRED
+Capture/registration and source/runtime IDs, exact finalization and worker logs,
+three A12_DATABASE_SIDECAR_COMPARISON records if reached, native checkpoint and
+completion or PAUSED/rejection records, genuine Drive readbacks and role receipts,
+zero-dispatch restoration proof, before/after original source/runtime inventories.
+Behavioral qualification of V27 waves/batch remains separately required. If the
+new scheduling itself blocks this gate, preserve that refusal; do not bypass it.

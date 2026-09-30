@@ -1,0 +1,116 @@
+{
+  "archive_sha256": "744eb4e91231b40f1d058eee5fcd30a6c8daca3c7a5caa0df4b5526a0afff969",
+  "sqlite_opened": false,
+  "members": [
+    {
+      "member": "CAPTURE.json",
+      "size_bytes": 10765,
+      "sha256": "052a205729368a64b7f06b7c3a3fd6198f42a4292c7fc29d6a3c324a555a83c0"
+    },
+    {
+      "member": "runtime/attempts/job-cf713716e6c40abcf43aec31db2e4a7f/000001.json",
+      "size_bytes": 879,
+      "sha256": "824692d272a77f0a9c7f75bd652a0a3e75f958cd24c935d21598545e7e29be9f"
+    },
+    {
+      "member": "runtime/refusals/e3ee247a63ad32e826e511584f17ae6c3fc0f24134fc982017da88cdc78eb3eb.json",
+      "size_bytes": 1469,
+      "sha256": "2a3375bddf4909b642d9f538c231b741a7bd55aa14c5af9200151b8cb8c3c9b0"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/OVERLAP_RESULT.json",
+      "size_bytes": 3984,
+      "sha256": "a7a431ca45a6cd4397cdb568823fa5ad5162d012b2b2740d45cd4a5f8765bdc5"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/PREFLIGHT.json",
+      "size_bytes": 551,
+      "sha256": "b33423ec9e4848a6ff204cda7b130f782b809b5bc2c0935fbf6ce6de3b2005ca"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/RUNTIME_STATUS.json",
+      "size_bytes": 547,
+      "sha256": "6778a84120f1cf6deb4169bbf1310d8754129bd1f58af8e9110a1f5c81905214"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/SUMMARY.json",
+      "size_bytes": 3513,
+      "sha256": "c973700dc3294ac28cb9ee118c9aa2b52ae6038867778a24c178254affe7c738"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/partition.sqlite3",
+      "size_bytes": 126976,
+      "sha256": "b71cc8a11f1b8a01d85ce82b05831708dd273be54d58f8481214652a090f8fee"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/partition.sqlite3-shm",
+      "size_bytes": 32768,
+      "sha256": "998b5381e4491e073360a9bbe3bf5a638b5073ce59d7fb8e1694784c34344c87"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/partition.sqlite3-wal",
+      "size_bytes": 177192,
+      "sha256": "178d103d734fa9418b5dcaf01bb670f8e9ab7034bf662027c36c90dfb5459a75"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/telemetry/RUNTIME_STATUS.json",
+      "size_bytes": 2074,
+      "sha256": "d8d6498bce40644de5a86eef604ca12ec27561c523f890fb6f8d4dead208d4ef"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/telemetry/RUNTIME_TIMINGS.json",
+      "size_bytes": 483,
+      "sha256": "bd59ef693d137067dc73cbfd19b42538ba1bb24e776b83b58eefbdf7c5872022"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/RUNTIME_STATUS.json",
+      "size_bytes": 547,
+      "sha256": "9624eae8bed861feb70e1e5dc8da1abe969b7d36af12c5154b14d36e5e35eedc"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/SUMMARY.json",
+      "size_bytes": 3513,
+      "sha256": "8a325f8850ad0bbac646dde7396ccb8b6f77459a587d69c1b38af1c04beff995"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/partition.sqlite3",
+      "size_bytes": 126976,
+      "sha256": "8c6c4ef499ec8dfad1656d887416e6b5a3465fe0bb7d23e96d4b98efb6c83e20"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/partition.sqlite3-shm",
+      "size_bytes": 32768,
+      "sha256": "9c4d67fe1755243ad85949a970bbf52b592ed5fd83c202add0402e74b8ee1a77"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/partition.sqlite3-wal",
+      "size_bytes": 238992,
+      "sha256": "dda71486c998912d49e67d2ff768945480838e5adc123fe802fdc953f3ded14b"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/telemetry/RUNTIME_STATUS.json",
+      "size_bytes": 2074,
+      "sha256": "fdd5932108d12894555d20a0e122f0e811a00958f083478918ee26196fb44529"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/telemetry/RUNTIME_TIMINGS.json",
+      "size_bytes": 486,
+      "sha256": "45c451056046249143ce0cdf655f0daf044fa44b5deb98f829419291a23aa665"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/project_writer.sqlite3",
+      "size_bytes": 8192,
+      "sha256": "6fdb7e121534c268532142d817fb8d85f18d9affe4730ff1a75f79bf7d50d58f"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/project_writer.sqlite3-shm",
+      "size_bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/project_writer.sqlite3-wal",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
