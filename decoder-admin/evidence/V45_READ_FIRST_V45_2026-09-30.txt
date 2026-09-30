@@ -1,0 +1,73 @@
+V45 NATIVE INTEGRATION PROBE PREPARATION — NOT DISPATCHED
+2026-09-30. No source candidate changed. No tests run. Dev140 focused count 150;
+all 23 RC items OPEN. Staged probe text is not saved execution authority.
+
+ADMISSION FINDING
+Native VALIDATION selectors must be within tests/ in captured engine source
+(v05_controller_event_loop.py, v05_validation_runtime.py). project/ cannot
+supply validation tests. Do not patch captured source or bypass this restriction.
+Install the staged module in a new versioned candidate, update authoritative
+source/package/archive identities and save that candidate before execution.
+Intentionally failing/skipped probes must be excluded from generic passing-suite
+collection: proposed path tests/integration_probes/native_save_wave_probe.py
+(no test_ filename); explicitly freeze node selectors. Audit all discovery rules
+before integration, including qualification PROFILE and whole-tree collection.
+Do not transfer dev140's 150 passes as full qualification of a successor.
+
+PROBE MODULE
+probe_source.py.txt contains two tiny PASS selectors, one intentional FAIL,
+one intentional SKIP and a fixed 150-second long selector. All effects are
+stdout/log evidence and sleeping; no direct source/outbox/database modification.
+Long duration is a bounded workload, not an automatic controller kill deadline.
+AST checked only; none of these functions has executed.
+
+CAPTURES / ASSERTIONS TO FREEZE
+DRAIN: [test_first_pass,test_later_sentinel], validation_wave_selectors=1.
+After first boundary require PAUSED, first node fully finalized, no sentinel,
+no completion. Save/read back all physical objects. Acknowledge an exact subset
+leaving one repeated-hash logical obligation pending, with pending_bytes==0.
+Call native run once: expect VALIDATION_SAVE_DRAIN_REQUIRED. Compare prior
+attempt/node/phase hashes; no new attempt or dispatch. Invocation refusal
+records are expected and must be retained. Then acknowledge held role and
+continue only sentinel; require exact original first-node evidence unchanged.
+Save/readback/restore terminal completion without execution.
+
+FAIL and SKIP: separate captures [expected_failure OR expected_skip,sentinel],
+wave size 1. Require true non-PASS first outcome, sentinel absent. Preserve all
+native evidence and saves. One explicitly registered continuation attempt must
+refuse prior non-PASS before any selector executes. Unlike DRAIN, this may
+create an attempt record: _planned_wave checks run after controller admission
+and attempt creation. Do NOT assert zero attempts; assert zero new node phases,
+no sentinel and unchanged original outcome. Preserve the refused attempt too.
+Do not rewrite the expected negative native result into PASS. An administrative
+acceptance report may say the refusal was observed while retaining native FAIL.
+
+LONG: separate capture [test_long_bounded_selector], no wave override needed.
+Native defaults unchanged: interval 30s, max pending commits 8, pending bytes
+536870912, commit bytes 201326592, pending age 3600s. Active operator loop must
+be ready before dispatch: poll native status, save pending unique objects,
+fetch/hash readbacks, acknowledge exact bounded roles while controller is live.
+Use existing genuine capture-object receipts; never guessed IDs/local originals.
+Record status timestamps, pending counts/bytes/age, policy reserves, upload and
+readback latency, batch read counts, acknowledgment times and controller liveness.
+At least two ordinary progress checkpoints must be genuinely saved/acknowledged
+before selector completion. Runtime elapsed alone does not prove this. Use
+native locks; retry only the identical administrative batch on WORKSPACE_BUSY.
+Unexpected failures or backlog pauses stop progression; do not stretch cadence,
+raise limits or rerun completed work. Full pre/post runtime/source verification.
+
+REMAINING INSTRUMENTATION BEFORE LONG DISPATCH
+The staged long selector deliberately contains no corruption injection. Need a
+separate preregistered native instrumentation design to corrupt an isolated
+engineering outbox object and observe refusal at a full status/checkpoint
+boundary, without tampering with historical captures or science. V40 already
+proved synthetic post-ack status corruption refusal, but not live integration.
+Also establish how to measure physical read counts without changing production
+semantics. Do not claim either live assertion from the staged code alone.
+
+NEXT
+Integrate probes as a reviewed new candidate (no production behavior changes
+expected), resolve discovery/qualification registration, freeze concrete capture
+specs and native verification scripts. Execute DRAIN first only after genuine
+source/runtime/protocol saves. Failure/skip and LONG remain separate captures.
+V24's 408 unresolved obligations remain untouched; no science replay started.
