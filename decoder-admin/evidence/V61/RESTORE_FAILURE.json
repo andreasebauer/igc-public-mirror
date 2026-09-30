@@ -1,0 +1,125 @@
+{
+  "gate": "V61",
+  "status": "FAILED_EXACT_PAUSED_RESTORATION",
+  "export_readback": {
+    "drive_id": "1RiJHiVrZZMU_He9X2TF3-cGQ6KJY9yHC",
+    "readback": "/workspace/scratch/a2e5e2576f17/attachments/bdfc5e4c-2b9c-46b5-8cd2-f46fa2352bbc/V61_PAUSED_CHECKPOINT.zip",
+    "sha256": "1b402981ff0dbec5b4ccc693dcf20accf12faac462bc0068e998ca52323f4f26",
+    "size_bytes": 5748,
+    "raw_readback_verified": true
+  },
+  "restore_invocations": 1,
+  "exception": "AssertionError at admin.py line 37: runtime inventory mismatch",
+  "expected_runtime_files": 18,
+  "restored_runtime_files": 17,
+  "differences": [
+    {
+      "path": "intake/pending/job-1e48aff27affee07b942fe31a27c8462.json",
+      "expected": {
+        "sha256": "6073745fa3f8ac65001b03a7b5554bc17fb4e4efe195c383a91fdbab54cc34c8",
+        "size": 1172,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "6073745fa3f8ac65001b03a7b5554bc17fb4e4efe195c383a91fdbab54cc34c8",
+        "size": 1172,
+        "mode": 420
+      }
+    },
+    {
+      "path": "internal/claims/job-1e48aff27affee07b942fe31a27c8462.json",
+      "expected": {
+        "sha256": "91665548130d1e49e8674726c4f6bc64ecdc9c3c7df088e53aa06d30569dcdef",
+        "size": 571,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "91665548130d1e49e8674726c4f6bc64ecdc9c3c7df088e53aa06d30569dcdef",
+        "size": 571,
+        "mode": 420
+      }
+    },
+    {
+      "path": "internal/ingested/intent-cc3b56bbcee3f79b196e973062afaee8.json",
+      "expected": {
+        "sha256": "73b4b0b41fbb2ab39afd5e51b66f5a1c4352aadfbe2d9fb79fe566cb9a6b933b",
+        "size": 1795,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "73b4b0b41fbb2ab39afd5e51b66f5a1c4352aadfbe2d9fb79fe566cb9a6b933b",
+        "size": 1795,
+        "mode": 420
+      }
+    },
+    {
+      "path": "refusals/d5d6443b2ef636805541656c57f0ff6e4031b16f0544c6862e23b9cf495a86c9.json",
+      "expected": {
+        "sha256": "f79ae752d0df7d07f2a83dc595301a26865377d38fa36ccd547c92920c04da15",
+        "size": 1329,
+        "mode": 420
+      },
+      "actual": null
+    },
+    {
+      "path": "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json",
+      "expected": {
+        "sha256": "e50409ae65e643e4eb631384946632ed83d6fb6dce07db36ad92adffd052ba45",
+        "size": 312,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "e50409ae65e643e4eb631384946632ed83d6fb6dce07db36ad92adffd052ba45",
+        "size": 312,
+        "mode": 420
+      }
+    },
+    {
+      "path": "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json",
+      "expected": {
+        "sha256": "9fc7e5dc1762e1feeee2ec94deeb67b9623b5ccff00a03608455c920524c72e7",
+        "size": 403,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "9fc7e5dc1762e1feeee2ec94deeb67b9623b5ccff00a03608455c920524c72e7",
+        "size": 403,
+        "mode": 420
+      }
+    },
+    {
+      "path": "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/probe_progress/long_durable_progress.log",
+      "expected": {
+        "sha256": "97d5b330c87d6638c91f2f6a81e1e59ac4c20fa0730a36faa28c2814dceb9370",
+        "size": 661,
+        "mode": 384
+      },
+      "actual": {
+        "sha256": "97d5b330c87d6638c91f2f6a81e1e59ac4c20fa0730a36faa28c2814dceb9370",
+        "size": 661,
+        "mode": 420
+      }
+    },
+    {
+      "path": "status/CONTROLLER_STATUS.json",
+      "expected": {
+        "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+        "size": 756,
+        "mode": 292
+      },
+      "actual": {
+        "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+        "size": 756,
+        "mode": 420
+      }
+    }
+  ],
+  "paused_attempt_equal": true,
+  "completion_artifacts_absent": true,
+  "tests_dispatched_during_recovery": 0,
+  "original_runtime_unchanged": true,
+  "lifecycle_observation": "PASS within recorded polling limits",
+  "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
+  "all_23_rc_rows": "OPEN",
+  "next": "Separately version repair for file-mode preservation and refusal/checkpoint ordering; preserve this attempt and qualify using a fresh capture."
+}

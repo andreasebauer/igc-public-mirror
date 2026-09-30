@@ -1,0 +1,193 @@
+{
+  "interrupt_sent": true,
+  "controller_returncode": -2,
+  "survivors_at_controller_return": [],
+  "late_runtime_changes": false,
+  "quiescent": true,
+  "lifecycle_pass": true,
+  "first_runtime_inventory": {
+    "attempts/job-1e48aff27affee07b942fe31a27c8462/000001.json": {
+      "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+      "size": 756,
+      "mode": 420
+    },
+    "intake/artifacts/2616cdd830a06304e2dd53686fdd071704d5b0fcadbc896a72647d87b2e60875.bin": {
+      "sha256": "2616cdd830a06304e2dd53686fdd071704d5b0fcadbc896a72647d87b2e60875",
+      "size": 462,
+      "mode": 420
+    },
+    "intake/artifacts/47855794adb846bb9452b7f9b518d21b3f2c29790cc866711d9acd212779f6bc.bin": {
+      "sha256": "47855794adb846bb9452b7f9b518d21b3f2c29790cc866711d9acd212779f6bc",
+      "size": 4497,
+      "mode": 420
+    },
+    "intake/artifacts/4daf8eca0cfb82c15a6466c48c1d4f0705a84c2b9a5c90d27678ac11ddf5f6b2.bin": {
+      "sha256": "4daf8eca0cfb82c15a6466c48c1d4f0705a84c2b9a5c90d27678ac11ddf5f6b2",
+      "size": 2055,
+      "mode": 420
+    },
+    "intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size": 880319,
+      "mode": 420
+    },
+    "intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin": {
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "size": 3295,
+      "mode": 420
+    },
+    "intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size": 504,
+      "mode": 420
+    },
+    "intake/pending/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "6073745fa3f8ac65001b03a7b5554bc17fb4e4efe195c383a91fdbab54cc34c8",
+      "size": 1172,
+      "mode": 384
+    },
+    "internal/claims/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "91665548130d1e49e8674726c4f6bc64ecdc9c3c7df088e53aa06d30569dcdef",
+      "size": 571,
+      "mode": 384
+    },
+    "internal/ingested/intent-cc3b56bbcee3f79b196e973062afaee8.json": {
+      "sha256": "73b4b0b41fbb2ab39afd5e51b66f5a1c4352aadfbe2d9fb79fe566cb9a6b933b",
+      "size": 1795,
+      "mode": 384
+    },
+    "refusals/d5d6443b2ef636805541656c57f0ff6e4031b16f0544c6862e23b9cf495a86c9.json": {
+      "sha256": "f79ae752d0df7d07f2a83dc595301a26865377d38fa36ccd547c92920c04da15",
+      "size": 1329,
+      "mode": 420
+    },
+    "registrations/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "3d68fd57c055104a3e747778859b269f43e84831ac5c1a38b8ce39187f33aa5a",
+      "size": 3808,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/PREFLIGHT.json": {
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "size": 41,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/REPORT_PLAN.json": {
+      "sha256": "71871de3ce9ec14c08e1a6c0d978d83781e668ffd534fad2add79eb34c7da1ff",
+      "size": 196,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json": {
+      "sha256": "e50409ae65e643e4eb631384946632ed83d6fb6dce07db36ad92adffd052ba45",
+      "size": 312,
+      "mode": 384
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json": {
+      "sha256": "9fc7e5dc1762e1feeee2ec94deeb67b9623b5ccff00a03608455c920524c72e7",
+      "size": 403,
+      "mode": 384
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/probe_progress/long_durable_progress.log": {
+      "sha256": "97d5b330c87d6638c91f2f6a81e1e59ac4c20fa0730a36faa28c2814dceb9370",
+      "size": 661,
+      "mode": 384
+    },
+    "status/CONTROLLER_STATUS.json": {
+      "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+      "size": 756,
+      "mode": 292
+    }
+  },
+  "final_runtime_inventory": {
+    "attempts/job-1e48aff27affee07b942fe31a27c8462/000001.json": {
+      "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+      "size": 756,
+      "mode": 420
+    },
+    "intake/artifacts/2616cdd830a06304e2dd53686fdd071704d5b0fcadbc896a72647d87b2e60875.bin": {
+      "sha256": "2616cdd830a06304e2dd53686fdd071704d5b0fcadbc896a72647d87b2e60875",
+      "size": 462,
+      "mode": 420
+    },
+    "intake/artifacts/47855794adb846bb9452b7f9b518d21b3f2c29790cc866711d9acd212779f6bc.bin": {
+      "sha256": "47855794adb846bb9452b7f9b518d21b3f2c29790cc866711d9acd212779f6bc",
+      "size": 4497,
+      "mode": 420
+    },
+    "intake/artifacts/4daf8eca0cfb82c15a6466c48c1d4f0705a84c2b9a5c90d27678ac11ddf5f6b2.bin": {
+      "sha256": "4daf8eca0cfb82c15a6466c48c1d4f0705a84c2b9a5c90d27678ac11ddf5f6b2",
+      "size": 2055,
+      "mode": 420
+    },
+    "intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size": 880319,
+      "mode": 420
+    },
+    "intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin": {
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "size": 3295,
+      "mode": 420
+    },
+    "intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size": 504,
+      "mode": 420
+    },
+    "intake/pending/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "6073745fa3f8ac65001b03a7b5554bc17fb4e4efe195c383a91fdbab54cc34c8",
+      "size": 1172,
+      "mode": 384
+    },
+    "internal/claims/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "91665548130d1e49e8674726c4f6bc64ecdc9c3c7df088e53aa06d30569dcdef",
+      "size": 571,
+      "mode": 384
+    },
+    "internal/ingested/intent-cc3b56bbcee3f79b196e973062afaee8.json": {
+      "sha256": "73b4b0b41fbb2ab39afd5e51b66f5a1c4352aadfbe2d9fb79fe566cb9a6b933b",
+      "size": 1795,
+      "mode": 384
+    },
+    "refusals/d5d6443b2ef636805541656c57f0ff6e4031b16f0544c6862e23b9cf495a86c9.json": {
+      "sha256": "f79ae752d0df7d07f2a83dc595301a26865377d38fa36ccd547c92920c04da15",
+      "size": 1329,
+      "mode": 420
+    },
+    "registrations/job-1e48aff27affee07b942fe31a27c8462.json": {
+      "sha256": "3d68fd57c055104a3e747778859b269f43e84831ac5c1a38b8ce39187f33aa5a",
+      "size": 3808,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/PREFLIGHT.json": {
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "size": 41,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/REPORT_PLAN.json": {
+      "sha256": "71871de3ce9ec14c08e1a6c0d978d83781e668ffd534fad2add79eb34c7da1ff",
+      "size": 196,
+      "mode": 420
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json": {
+      "sha256": "e50409ae65e643e4eb631384946632ed83d6fb6dce07db36ad92adffd052ba45",
+      "size": 312,
+      "mode": 384
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json": {
+      "sha256": "9fc7e5dc1762e1feeee2ec94deeb67b9623b5ccff00a03608455c920524c72e7",
+      "size": 403,
+      "mode": 384
+    },
+    "runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs/probe_progress/long_durable_progress.log": {
+      "sha256": "97d5b330c87d6638c91f2f6a81e1e59ac4c20fa0730a36faa28c2814dceb9370",
+      "size": 661,
+      "mode": 384
+    },
+    "status/CONTROLLER_STATUS.json": {
+      "sha256": "a186670f6c45ac6574ce249341b9c41a8c4b177b4bdfb03c8c8bbe15c4882a53",
+      "size": 756,
+      "mode": 292
+    }
+  },
+  "scope": "sampled identities; short-lived descendants may be missed"
+}

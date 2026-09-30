@@ -1,0 +1,40 @@
+{
+  "unix": 1790806064.4069746,
+  "owned_popen_pid": 8,
+  "observed_owner": {
+    "pid": 1155703,
+    "ppid": 1155697,
+    "start_ticks": 7010453,
+    "state": "R",
+    "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+  },
+  "live_selectors": [
+    {
+      "pid": 1155760,
+      "ppid": 1155759,
+      "start_ticks": 7010776,
+      "state": "S",
+      "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+    }
+  ],
+  "durable_progress": [
+    {
+      "binding": "7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1",
+      "elapsed_seconds": 3.370000922586769e-05,
+      "event": "START",
+      "schema_id": "IG_NATIVE_LONG_PROBE_PROGRESS_V1",
+      "selector": "tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector",
+      "tick": 0,
+      "unix": 1790806054.3122854
+    },
+    {
+      "binding": "7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1",
+      "elapsed_seconds": 10.000125214006403,
+      "event": "PROGRESS",
+      "schema_id": "IG_NATIVE_LONG_PROBE_PROGRESS_V1",
+      "selector": "tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector",
+      "tick": 1,
+      "unix": 1790806064.312377
+    }
+  ]
+}

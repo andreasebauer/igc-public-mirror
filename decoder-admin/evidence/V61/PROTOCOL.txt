@@ -1,0 +1,31 @@
+V61 DEV143 NATIVE OPERATOR-INTERRUPT CLEANUP GATE — 2026-10-01
+Fresh RC.INTERRUPT.V61.DEV143 capture; one native durable 150-second probe,
+one worker, no engine runtime deadline; default preservation policy unchanged.
+This is a new operator-interrupt scenario, not the V55 corruption test.
+
+Preserve, read back and acknowledge all capture prerequisites before dispatch.
+Launch the registered controller once as the operator's direct Popen child.
+Wait for its bound readiness identity and monitor its observed descendants.
+Require the native probe's durable START plus PROGRESS tick 1, no END, and
+an observed live validation_node_runner selector before interrupt admission.
+Require the Popen child still running. Send SIGINT exactly once using that
+owned process handle; never use mounted /proc PID values for signalling.
+No retries, escalation, process-wide signals, engine monkeypatches, source edits,
+outbox corruption or repairs. An unexpected result stops gate acceptance.
+
+Expected controller exception KeyboardInterrupt, native attempt PAUSED,
+no accepted completion, no surviving observed descendants at controller return,
+no runtime evidence changes over three seconds after return, and unchanged
+source/runtime identity. /proc monitoring is read-only, sampled every 0.1s;
+it cannot prove absence of descendants shorter-lived than the sampling interval.
+Do not treat interrupt delivery itself or controller return as cleanup proof.
+
+Save every native pause-checkpoint role using actual connector readbacks;
+export with zero pending roles. Restore into a new location; verify exact
+runtime file bytes/modes and PAUSED state, no completion, zero dispatch.
+Never resume the interrupted workload in this gate. Preserve partial evidence.
+All 23 RC rows remain OPEN; full live-corruption qualification still pending.
+
+Admission timeout before interrupt: 60 seconds; no signal if requirements fail.
+Observe the bounded workload through natural quiescence on admission failure.
+After interrupt, observe for up to 170 seconds; no hidden cleanup action.

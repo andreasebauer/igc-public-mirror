@@ -1,0 +1,3667 @@
+{
+  "owner": {
+    "pid": 1155703,
+    "ppid": 1155697,
+    "start_ticks": 7010453,
+    "state": "R",
+    "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+  },
+  "known": [
+    {
+      "pid": 1155703,
+      "ppid": 1155697,
+      "start_ticks": 7010453,
+      "state": "R",
+      "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+    },
+    {
+      "pid": 1155760,
+      "ppid": 1155759,
+      "start_ticks": 7010776,
+      "state": "R",
+      "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+    },
+    {
+      "pid": 1155759,
+      "ppid": 1155703,
+      "start_ticks": 7010776,
+      "state": "S",
+      "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+    }
+  ],
+  "samples": [
+    {
+      "unix": 1790806051.4084492,
+      "monotonic": 70105.539198789,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806051.509992,
+      "monotonic": 70105.640741318,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806051.6111715,
+      "monotonic": 70105.741920689,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806051.7123075,
+      "monotonic": 70105.843056624,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806051.8141806,
+      "monotonic": 70105.944929988,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806051.9156368,
+      "monotonic": 70106.046386028,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.0169046,
+      "monotonic": 70106.147653891,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.11816,
+      "monotonic": 70106.248909355,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.2194448,
+      "monotonic": 70106.350193914,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.3206887,
+      "monotonic": 70106.451437911,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.4220376,
+      "monotonic": 70106.552786683,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.5233166,
+      "monotonic": 70106.654065898,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.6246517,
+      "monotonic": 70106.755401071,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.725914,
+      "monotonic": 70106.856663265,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.8271856,
+      "monotonic": 70106.957934823,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806052.9284868,
+      "monotonic": 70107.059236086,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.0298862,
+      "monotonic": 70107.160635505,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.1311967,
+      "monotonic": 70107.261945956,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.2325752,
+      "monotonic": 70107.363324504,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.3338916,
+      "monotonic": 70107.464640909,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.435115,
+      "monotonic": 70107.565864276,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.536318,
+      "monotonic": 70107.667067171,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.6378322,
+      "monotonic": 70107.768581482,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.739448,
+      "monotonic": 70107.870197205,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.841441,
+      "monotonic": 70107.972190357,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806053.9434292,
+      "monotonic": 70108.074178272,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.0448463,
+      "monotonic": 70108.175595603,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.146486,
+      "monotonic": 70108.277235237,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.2479625,
+      "monotonic": 70108.378711451,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.3492875,
+      "monotonic": 70108.480036629,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.4508262,
+      "monotonic": 70108.581575501,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.5523,
+      "monotonic": 70108.683049302,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.6538153,
+      "monotonic": 70108.784564504,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.7553282,
+      "monotonic": 70108.886077614,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.8570006,
+      "monotonic": 70108.987749811,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806054.9586043,
+      "monotonic": 70109.089353576,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.0604606,
+      "monotonic": 70109.191209663,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.1622152,
+      "monotonic": 70109.292964263,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.2639194,
+      "monotonic": 70109.394668615,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.365383,
+      "monotonic": 70109.496132209,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.4669938,
+      "monotonic": 70109.597743279,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.568447,
+      "monotonic": 70109.699196308,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.6699593,
+      "monotonic": 70109.800708666,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.7713656,
+      "monotonic": 70109.902114975,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.872906,
+      "monotonic": 70110.00365523,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806055.9743779,
+      "monotonic": 70110.105127177,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.0759296,
+      "monotonic": 70110.206678724,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.1777604,
+      "monotonic": 70110.308509363,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.2795868,
+      "monotonic": 70110.410336112,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.3810568,
+      "monotonic": 70110.511805996,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.482614,
+      "monotonic": 70110.613363301,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.584061,
+      "monotonic": 70110.714810363,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.6855826,
+      "monotonic": 70110.816331829,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.7870646,
+      "monotonic": 70110.917813742,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.888771,
+      "monotonic": 70111.019520299,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806056.9904408,
+      "monotonic": 70111.121190073,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.0920384,
+      "monotonic": 70111.222787625,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.1935248,
+      "monotonic": 70111.32427404,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.294981,
+      "monotonic": 70111.425730396,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.3964338,
+      "monotonic": 70111.527183084,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.4979827,
+      "monotonic": 70111.628731831,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.5997033,
+      "monotonic": 70111.730452671,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.7014217,
+      "monotonic": 70111.832171112,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.8030796,
+      "monotonic": 70111.933828853,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806057.9045763,
+      "monotonic": 70112.035325472,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.0061908,
+      "monotonic": 70112.136940345,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.1091893,
+      "monotonic": 70112.239938514,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.2107315,
+      "monotonic": 70112.341480653,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.3123817,
+      "monotonic": 70112.443130862,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.4141917,
+      "monotonic": 70112.544940799,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.5157769,
+      "monotonic": 70112.646525857,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.617249,
+      "monotonic": 70112.747998175,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.7188268,
+      "monotonic": 70112.849576022,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.82018,
+      "monotonic": 70112.950929111,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806058.9219735,
+      "monotonic": 70113.05272277,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.0234687,
+      "monotonic": 70113.154218099,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.1249578,
+      "monotonic": 70113.25570691,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.2265081,
+      "monotonic": 70113.357257156,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.3281248,
+      "monotonic": 70113.45887382,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.4297738,
+      "monotonic": 70113.560523023,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.531257,
+      "monotonic": 70113.662005907,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.6326983,
+      "monotonic": 70113.763447581,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.7342315,
+      "monotonic": 70113.86498083,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.8354852,
+      "monotonic": 70113.966234351,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806059.9368825,
+      "monotonic": 70114.067631497,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.0383039,
+      "monotonic": 70114.169052999,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.1398277,
+      "monotonic": 70114.270576996,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.241285,
+      "monotonic": 70114.372034251,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.3427622,
+      "monotonic": 70114.473511481,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.4442642,
+      "monotonic": 70114.57501356,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.546155,
+      "monotonic": 70114.676904209,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.6476827,
+      "monotonic": 70114.778431831,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.7493901,
+      "monotonic": 70114.88013926,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.8512962,
+      "monotonic": 70114.982045655,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806060.9527783,
+      "monotonic": 70115.083527818,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.054362,
+      "monotonic": 70115.185111674,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.1560981,
+      "monotonic": 70115.286847397,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.2577343,
+      "monotonic": 70115.38848389,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.359622,
+      "monotonic": 70115.490371341,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.46112,
+      "monotonic": 70115.591869162,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.5626175,
+      "monotonic": 70115.693366899,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.6640644,
+      "monotonic": 70115.794813881,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.7657342,
+      "monotonic": 70115.896483276,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.8672144,
+      "monotonic": 70115.997963613,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806061.9692132,
+      "monotonic": 70116.099962505,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.0709143,
+      "monotonic": 70116.201663641,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.1724188,
+      "monotonic": 70116.303168199,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.2739487,
+      "monotonic": 70116.404698115,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.3754966,
+      "monotonic": 70116.506246089,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.4769452,
+      "monotonic": 70116.607694432,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.578417,
+      "monotonic": 70116.709166392,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.6797707,
+      "monotonic": 70116.810519863,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.7812276,
+      "monotonic": 70116.911976804,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.8837404,
+      "monotonic": 70117.01448977,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806062.9852223,
+      "monotonic": 70117.115971754,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.0870192,
+      "monotonic": 70117.217768419,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.1884253,
+      "monotonic": 70117.319174268,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.289981,
+      "monotonic": 70117.420730554,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.391469,
+      "monotonic": 70117.522218527,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.4929175,
+      "monotonic": 70117.623666851,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.594371,
+      "monotonic": 70117.725120533,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.6958952,
+      "monotonic": 70117.826644689,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.7973773,
+      "monotonic": 70117.928126327,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806063.898865,
+      "monotonic": 70118.02961419,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.0003188,
+      "monotonic": 70118.131068418,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.101904,
+      "monotonic": 70118.232653196,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.2033396,
+      "monotonic": 70118.334088701,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.3049526,
+      "monotonic": 70118.435701739,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.4066525,
+      "monotonic": 70118.537401835,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155759,
+          "ppid": 1155703,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        },
+        {
+          "pid": 1155760,
+          "ppid": 1155759,
+          "start_ticks": 7010776,
+          "state": "S",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B -m infinity_grid.validation_node_runner --candidate /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/source --log-root /tmp/ig_gate_v61_20261001/store/captures/5ab8ab2f8fcaa705f358fdd977ebec295c2dfbcd349ba2cbd52a2e8d740ade65/runtime/runs/intent-cc3b56bbcee3f79b196e973062afaee8/logs --binding 7efc02d651efa602e901bd0a69e66911fa603735cf20e65600271655168f9fe1 --selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.5082684,
+      "monotonic": 70118.63901764,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.6094422,
+      "monotonic": 70118.740191493,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.7107162,
+      "monotonic": 70118.841465476,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.8120809,
+      "monotonic": 70118.942830135,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806064.913298,
+      "monotonic": 70119.044047008,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.0148354,
+      "monotonic": 70119.14558469,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.1159248,
+      "monotonic": 70119.246674117,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.2175648,
+      "monotonic": 70119.348314197,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.3190646,
+      "monotonic": 70119.449813988,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.4206738,
+      "monotonic": 70119.551423162,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.5222409,
+      "monotonic": 70119.652990023,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.6234653,
+      "monotonic": 70119.754214452,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.724776,
+      "monotonic": 70119.85552516,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.8259573,
+      "monotonic": 70119.956706464,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806065.9271486,
+      "monotonic": 70120.057897714,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.0285766,
+      "monotonic": 70120.159325948,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.1301117,
+      "monotonic": 70120.260861041,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.2315974,
+      "monotonic": 70120.362346631,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.3333359,
+      "monotonic": 70120.464085419,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.4386394,
+      "monotonic": 70120.569388567,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.5432997,
+      "monotonic": 70120.674048905,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.6478608,
+      "monotonic": 70120.778609924,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.7522693,
+      "monotonic": 70120.883018545,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "R",
+          "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/6d6f5c6d37c8/v61_interrupt/controller.py "
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.8568676,
+      "monotonic": 70120.987616908,
+      "processes": [
+        {
+          "pid": 1155703,
+          "ppid": 1155697,
+          "start_ticks": 7010453,
+          "state": "Z",
+          "cmdline": ""
+        }
+      ]
+    },
+    {
+      "unix": 1790806066.9610186,
+      "monotonic": 70121.091767986,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.0645127,
+      "monotonic": 70121.195261939,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.1681767,
+      "monotonic": 70121.298925836,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.2715223,
+      "monotonic": 70121.402271467,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.376575,
+      "monotonic": 70121.507324286,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.4797993,
+      "monotonic": 70121.610548656,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.5837424,
+      "monotonic": 70121.714491516,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.6870587,
+      "monotonic": 70121.817807854,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.7908418,
+      "monotonic": 70121.92159117,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.8941216,
+      "monotonic": 70122.024871105,
+      "processes": []
+    },
+    {
+      "unix": 1790806067.9973538,
+      "monotonic": 70122.128103285,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.100799,
+      "monotonic": 70122.23154814,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.2043102,
+      "monotonic": 70122.335059478,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.3085058,
+      "monotonic": 70122.439255372,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.4122248,
+      "monotonic": 70122.542974125,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.5155656,
+      "monotonic": 70122.64631489,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.6191933,
+      "monotonic": 70122.749942664,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.7229137,
+      "monotonic": 70122.853663171,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.8262422,
+      "monotonic": 70122.956991561,
+      "processes": []
+    },
+    {
+      "unix": 1790806068.9296525,
+      "monotonic": 70123.060401593,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.0332346,
+      "monotonic": 70123.163983954,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.1374562,
+      "monotonic": 70123.268205236,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.240734,
+      "monotonic": 70123.371483611,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.345139,
+      "monotonic": 70123.475888247,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.4483473,
+      "monotonic": 70123.579096553,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.5515156,
+      "monotonic": 70123.68226501,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.6549647,
+      "monotonic": 70123.785714021,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.7587183,
+      "monotonic": 70123.889467407,
+      "processes": []
+    },
+    {
+      "unix": 1790806069.8624222,
+      "monotonic": 70123.993171628,
+      "processes": []
+    }
+  ],
+  "limitations": "Polling can miss short-lived descendants. Registered identities remain tracked after reparenting; no child supervision."
+}

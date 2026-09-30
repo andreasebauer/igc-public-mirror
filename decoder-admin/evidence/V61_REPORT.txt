@@ -1,0 +1,36 @@
+V61 RECOVERY CLOSEOUT — 2026-10-01
+
+Status: FAILED_EXACT_PAUSED_RESTORATION. Decoder dev143 remains UNQUALIFIED.
+All 23 RC rows remain OPEN. No science replay or workload rerun occurred.
+
+Completed: source 1525 files and runtime 4721 plus 7 host files verified.
+All fifteen existing saved object readbacks still match their hashes.
+Paused export newly saved to Drive, fetched raw and verified:
+Drive ID 1RiJHiVrZZMU_He9X2TF3-cGQ6KJY9yHC
+SHA256 1b402981ff0dbec5b4ccc693dcf20accf12faac462bc0068e998ca52323f4f26
+
+Ran the handoff's admin.py restore exactly once. Native restoration returned,
+but the external exact-state assertion failed. 17 of 18 runtime files exist;
+all 17 retain exact content bytes. Seven have changed permissions: six 0600
+and one 0444 became 0644. One refusal JSON is missing. PAUSED attempt is identical;
+no prepared or accepted completion artifact exists. Recovery dispatched zero tests.
+The original runtime inventory remains unchanged. Partial destination retained:
+/tmp/ig_gate_v61_restored_20261001
+Do not rerun admin.py restore or modify this destination to manufacture a PASS.
+
+Source diagnosis:
+submission._archive hardcodes mode 0644 for archive entries; preservation._state_files
+retains only bytes. restore_checkpoint.unpack writes bytes without restoring modes.
+The controller's inner exception handler writes PAUSED and makes its checkpoint;
+the outer run_workspace_job handler subsequently writes the refusal record.
+Thus the saved checkpoint predates that refusal. The final-state save gate did not
+cover all evidence present at controller return. Both defects need source repair.
+
+Prior live cleanup observation remains PASS within 0.1-second polling limitations.
+It is not an absolute process census, independent-host qualification, or V55
+corruption-scenario qualification. V55 FAILED_LIFECYCLE_CLEANUP remains unchanged.
+
+Next: preregister a separately versioned repair covering mode metadata and final
+refusal/checkpoint ordering, with backward compatibility explicit. Qualify fresh
+paused recovery and then the still-pending dev143-successor corruption lifecycle
+case. Preserve V61 failed evidence; do not repair or rerun its frozen workload.

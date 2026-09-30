@@ -820,5 +820,28 @@
     "restore_dispatches": 0,
     "exact_completion_restore": true,
     "full_RC": "OPEN"
+  },
+  "latest_interrupt_recovery_gate": {
+    "gate": "V61",
+    "status": "FAILED_EXACT_PAUSED_RESTORATION",
+    "export_readback": {
+      "drive_id": "1RiJHiVrZZMU_He9X2TF3-cGQ6KJY9yHC",
+      "readback": "/workspace/scratch/a2e5e2576f17/attachments/bdfc5e4c-2b9c-46b5-8cd2-f46fa2352bbc/V61_PAUSED_CHECKPOINT.zip",
+      "sha256": "1b402981ff0dbec5b4ccc693dcf20accf12faac462bc0068e998ca52323f4f26",
+      "size_bytes": 5748,
+      "raw_readback_verified": true
+    },
+    "restore_invocations": 1,
+    "exception": "AssertionError at admin.py line 37: runtime inventory mismatch",
+    "expected_runtime_files": 18,
+    "restored_runtime_files": 17,
+    "paused_attempt_equal": true,
+    "completion_artifacts_absent": true,
+    "tests_dispatched_during_recovery": 0,
+    "original_runtime_unchanged": true,
+    "lifecycle_observation": "PASS within recorded polling limits",
+    "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
+    "all_23_rc_rows": "OPEN",
+    "next": "Separately version repair for file-mode preservation and refusal/checkpoint ordering; preserve this attempt and qualify using a fresh capture."
   }
 }
