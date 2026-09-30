@@ -1,0 +1,33 @@
+{
+  "gate_status": "NOT_EARNED_INSUFFICIENT_DISTINCT_LIVE_PROGRESS_CHECKPOINTS",
+  "probe_passed": true,
+  "required_live_progress_acknowledgments": 2,
+  "observed_live_progress_acknowledgments": 1,
+  "total_checkpoints_closed": 3,
+  "checkpoint_close_latencies_seconds": [
+    29.08146047592163,
+    25.4299795627594,
+    22.029826641082764
+  ],
+  "sampled_max_pending_commits": 1,
+  "sampled_max_pending_bytes": 50446,
+  "sampled_max_pending_age_seconds": 2.1224489212036133,
+  "sampled_min_count_reserve": 7,
+  "sampled_min_byte_reserve_after_commit": 335493874,
+  "remote_new_objects": 7,
+  "remote_save_readback_latencies_seconds": [
+    7.072999954223633,
+    8.436000108718872,
+    8.114000082015991,
+    12.799999952316284,
+    8.780999898910522,
+    9.718999862670898,
+    8.448999881744385
+  ],
+  "administrative_observed_payload_read_bytes_calls": 442,
+  "administrative_observed_payload_bytes_returned": 1473403958,
+  "measurement_scope": "Sampled status and ack-plus-full-status Path.read_bytes returns; not OS syscalls, not actual disk I/O, not controller heartbeat reads",
+  "busy_retries": 0,
+  "workload_retries": 0,
+  "live_corruption_tested": false
+}

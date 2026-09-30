@@ -1,0 +1,71 @@
+V50 LONG LIVE-PRESERVATION GATE — NOT EARNED
+2026-09-30
+
+The native 150-second probe passed, but the preregistered integration requirement
+of two distinct ordinary progress checkpoints acknowledged before selector end
+was NOT met. Exactly one VALIDATION_PROGRESS checkpoint was created/acknowledged
+while the selector was unfinished and the native attempt RUNNING. Do not call
+this a complete live-preservation qualification or silently count BEFORE_EXECUTION.
+
+V50A preflight: strace was denied PTRACE_TRACEME by the environment before the
+native administrative process started. Zero native attempts/workload execution.
+Its original capture/protocol and genuine prerequisite saves are retained.
+Prerequisite roles were subsequently closed administratively, without dispatch.
+
+V50B: separate revised preregistration and capture; unchanged dev141 source,
+150-second selector, fresh verified V4 runtime, one worker, default 30-second
+checkpoint cadence and all default backlog limits. A passive sys.setprofile
+observer in administrative processes counted completed Path.read_bytes returns
+for outbox/downloaded payloads. No decoder function replacement or source edit.
+This measures Python read calls/returned bytes, not syscalls or physical disk I/O.
+
+Before launch, all nine capture roles were saved/read back and acknowledged;
+operator preflight passed. One native attempt; setup/call/teardown PASS, call
+duration 150.000488 seconds, LONG_START/LONG_END and 150 ticks retained. No
+backlog pause, runtime/source mutation, lock retry or workload retry occurred.
+
+Three checkpoints were closed: BEFORE_EXECUTION, VALIDATION_PROGRESS and
+TERMINAL_RESULT. Creation-to-acknowledgment latencies: 29.081, 25.430, 22.030 s.
+Only the first two were acknowledged before selector completion; only one was
+an ordinary progress checkpoint. Nine capture roles plus 42 checkpoint roles
+acknowledged; zero pending. Sixteen unique physical objects with genuine remote
+readbacks; seven new physical objects during the live loop. Fresh terminal export
+restored exact completion and terminal proof with zero dispatched tests.
+
+Sampled status maxima: one pending commit, 50,446 pending bytes. Minimum sampled
+reserve: seven commit slots and 335,493,874 bytes after reserving one maximum
+commit. Samples are not continuous peak measurements; in particular sampled
+age does not represent the full transfer interval. Seven remote save/readback
+latencies ranged 7.073–12.800 seconds. Across sampled status and acknowledgment
+plus full-status operations, the passive observer counted 442 payload read_bytes
+returns totaling 1,473,403,958 bytes. This exposes administrative full-status
+polling cost; it does not measure 20-ms controller heartbeat reads. Native unique
+object counts are retained separately. No live corruption injection was performed.
+
+Static explanation, not instrumented proof: preservation.make_checkpoint returns
+existing status if source/state/project bytes match the prior checkpoint. The
+current long probe emits only start/end markers and no changing durable progress
+between them, so unchanged snapshots can be deduplicated. The original V50B
+acceptance rule remains unmet; no post-hoc criterion relaxation or rerun occurred.
+
+V50B job: RC.SAVE.LONG.V50B.DEV141
+Capture: 17744168b039d4245aaea146fe4166d315cfabd5391f466942be266d98eaef9e
+Completion: 12fc128b1870394ecf6752ba3019db972e3de62db2be1b01ca11ef2e2ab558fa
+Terminal export SHA256: fb2881dc92c223a0ca0760918f94d6b990e9671e2addbd43f96b1c47be25a3df
+Terminal export Drive ID: 1CDOMNclNieCvgE8BfsT7sLiZLBaFJ8bH
+Source: 01a8911181ca5ee67556bd35f32cb5453428d9cbbf50bcf505b070a968d9e57e
+Package: f04340bfe3cda1f230c8ef7dcb96f0e2c1099ccbfe0ed467cd688e37da9baf82
+
+Dev141 observed probe outcomes: 3 PASS, 1 deliberate FAIL, 1 deliberate SKIP.
+The V50 probe PASS is separate from the NOT_EARNED live integration gate.
+Dev140's 150 passes remain historical. Full candidate UNQUALIFIED; all 23 RC rows
+OPEN; not data-block ready. No scientific replay occurred.
+
+NEXT: review deduplication and design a separately versioned/preregistered long
+probe with registered changing progress evidence across two ordinary intervals,
+without altering engine cadence/limits or rewriting this run. Review cheaper
+operator polling separately from payload-verifying full status; do not weaken
+integrity checks. Prepare isolated live-corruption protocol and a justified
+controller-read observer. Preserve V50B completion rather than retrying it.
+Then qualify required live cases, current-candidate fixtures, full source/runtime
+suite and RC closure before canonical L0–G8 replay.

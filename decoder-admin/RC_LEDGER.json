@@ -369,10 +369,10 @@
     "qualification": "UNQUALIFIED",
     "archive_size_bytes": 22685539,
     "drive_id": "1RFys7ZH_knHJjkXWttV74YWtc1uTdLpZ",
-    "status": "V47_DRAIN_AND_V49_NEGATIVE_SAFETY_ACCEPTED_FULL_QUALIFICATION_OPEN",
-    "tests_executed": 4,
+    "status": "V50_LONG_PROBE_PASS_LIVE_GATE_NOT_EARNED_FULL_QUALIFICATION_OPEN",
+    "tests_executed": 5,
     "probe_outcomes": {
-      "PASS": 2,
+      "PASS": 3,
       "EXPECTED_FAIL": 1,
       "EXPECTED_SKIP": 1
     }
@@ -737,6 +737,19 @@
     "additional_pass_credit": 0,
     "saved_pending_roles": 0,
     "skip_saved_restore_verified": true,
+    "full_RC": "OPEN"
+  },
+  "latest_live_preservation_gate": {
+    "gate": "V50B_LONG",
+    "candidate": "0.8.0.dev141+lib",
+    "status": "NOT_EARNED_INSUFFICIENT_DISTINCT_LIVE_PROGRESS_CHECKPOINTS",
+    "probe_passed": true,
+    "observed_live_progress_acknowledgments": 1,
+    "required_live_progress_acknowledgments": 2,
+    "completion_sha256": "12fc128b1870394ecf6752ba3019db972e3de62db2be1b01ca11ef2e2ab558fa",
+    "saved_pending_roles": 0,
+    "exact_saved_restore_verified": true,
+    "live_corruption_tested": false,
     "full_RC": "OPEN"
   }
 }
