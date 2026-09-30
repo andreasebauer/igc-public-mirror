@@ -37,9 +37,20 @@ def _workspace(tmp_path, *, workers=1, name='work'):
     return root, sub.capture_record(root)['job']
 
 
+def _completed_evidence(root):
+    from infinity_grid import submission as sub
+    from infinity_grid.completion_evidence import evidence_root
+    job_id = sub.capture_record(root)['job']['job_id']
+    admission = loop.validate_workspace_job(root, job_id, check_loaded=False)
+    done = loop.verified_completion(admission)
+    assert done is not None
+    working = root/'runtime/runs'/Path(done['evidence_root']).name
+    return evidence_root(root, working, done)
+
+
 def _exact_relation(root):
-    db = next((root/'runtime/runs').rglob('partition.sqlite3'))
-    with sqlite3.connect(db) as conn:
+    db = next(_completed_evidence(root).rglob('partition.sqlite3'))
+    with sqlite3.connect(db.as_uri()+'?mode=ro&immutable=1', uri=True) as conn:
         rows = list(conn.execute('SELECT t.task_id,c.representative_signature_bytes FROM task_results t JOIN classes c ON t.class_token=c.class_token ORDER BY t.task_id'))
     return rows
 
@@ -111,7 +122,7 @@ def test_one_and_four_workers_give_identical_exact_relation(tmp_path):
     assert _exact_relation(one) == _exact_relation(four)
     assert a['result']['partition']['class_count'] == b['result']['partition']['class_count'] == 7
     # Inspect the actual shared-runtime execution record, not a requested-worker claim.
-    metas = [json.loads(p.read_text())['execution'] for p in (four/'runtime/runs').rglob('SUMMARY.json')]
+    metas = [json.loads(p.read_text())['execution'] for p in _completed_evidence(four).rglob('SUMMARY.json')]
     assert metas and any(m.get('workers') == 4 for m in metas)
 
 
@@ -173,7 +184,7 @@ def test_wrong_archive_checksum_is_rejected(tmp_path):
 def test_completed_output_mutation_is_not_reused(tmp_path):
     root,job = _workspace(tmp_path)
     loop.run_workspace_job(root,job['job_id'])
-    output = next((root/'runtime/runs').rglob('*.json'))
+    output = next(_completed_evidence(root).rglob('*.json'))
     output.write_text('{}\n')
     with pytest.raises(loop.ControllerLoopError,match='COMPLETION_EVIDENCE_MISMATCH'):
         loop.run_workspace_job(root,job['job_id'])
@@ -190,3 +201,17 @@ def test_explicit_runner_start_method_overrides_auto(monkeypatch):
     monkeypatch.setenv('IG_DECODER_START_METHOD','spawn')
     assert _choose_start_method(ExecutionPolicy(start_method='AUTO')) == 'spawn'
     assert _choose_start_method(ExecutionPolicy(start_method='fork')) == 'fork'
+
+
+def test_working_output_mutation_preserves_sealed_completion(tmp_path):
+    root,job = _workspace(tmp_path)
+    before = loop.run_workspace_job(root,job['job_id'])
+    evidence = _completed_evidence(root)
+    hashes = {p.relative_to(evidence).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in evidence.rglob('*') if p.is_file()}
+    output = next((root/'runtime/runs').rglob('*.json'))
+    output.write_text('{}\n')
+    after = loop.run_workspace_job(root,job['job_id'])
+    assert after['reused'] and after['completion_sha256'] == before['completion_sha256']
+    assert hashes == {p.relative_to(evidence).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                      for p in evidence.rglob('*') if p.is_file()}

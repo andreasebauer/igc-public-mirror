@@ -57,6 +57,10 @@ class ReplayPlanner:
         return recipes[0] if recipes else None
 
     def plan(self, target_node_id: str, *, force_rebuild: bool = False) -> dict[str, Any]:
+        with self.graph.live_read() as graph:
+            return ReplayPlanner(graph)._plan_live(target_node_id, force_rebuild=force_rebuild)
+
+    def _plan_live(self, target_node_id: str, *, force_rebuild: bool = False) -> dict[str, Any]:
         self.graph.get_node(target_node_id)
         steps: list[dict[str, Any]] = []
         unresolved: list[dict[str, Any]] = []
@@ -458,6 +462,11 @@ class GraphReplayEngine:
 
 
 def minimum_preservation_set(graph: GraphStore, targets: list[str]) -> dict[str, Any]:
+    with graph.live_read() as view:
+        return _minimum_preservation_set_live(view, targets)
+
+
+def _minimum_preservation_set_live(graph: GraphStore, targets: list[str]) -> dict[str, Any]:
     required: set[str] = set()
     expensive: set[str] = set()
     cache: set[str] = set()
@@ -531,6 +540,11 @@ def minimum_preservation_set(graph: GraphStore, targets: list[str]) -> dict[str,
 
 
 def computation_closure(graph: GraphStore, targets: list[str]) -> dict[str, Any]:
+    with graph.live_read() as view:
+        return _computation_closure_live(view, targets)
+
+
+def _computation_closure_live(graph: GraphStore, targets: list[str]) -> dict[str, Any]:
     nodes: set[str] = set(); edges: set[str] = set(); unresolved = []
     def walk(nid: str):
         if nid in nodes: return
@@ -548,13 +562,18 @@ def computation_closure(graph: GraphStore, targets: list[str]) -> dict[str, Any]
 
 
 def evidence_closure(graph: GraphStore, target_reference: str) -> dict[str, Any]:
+    with graph.live_read() as view:
+        return _evidence_closure_live(view, target_reference)
+
+
+def _evidence_closure_live(graph: GraphStore, target_reference: str) -> dict[str, Any]:
     target = graph.resolve(target_reference)["node_id"]
     nodes={target}; edges=set(); queue=[target]
     # Evidence may point into a claim or review, so traverse both directions for explicit evidence edges only.
     while queue:
         n=queue.pop(0)
-        for e in graph.list_edges():
-            if e["edge_type"] not in {"SUPPORTS","FALSIFIES","QUALIFIES","REQUIRES_CLAIM","SEPARATES","AUTHORIZES"}: continue
+        evidence_types={"SUPPORTS","FALSIFIES","QUALIFIES","REQUIRES_CLAIM","SEPARATES","AUTHORIZES"}
+        for e in graph.outgoing(n,evidence_types)+graph.incoming(n,evidence_types):
             if e["source_node_id"]==n:
                 edges.add(e["edge_id"])
                 if e["target_node_id"] not in nodes: nodes.add(e["target_node_id"]); queue.append(e["target_node_id"])

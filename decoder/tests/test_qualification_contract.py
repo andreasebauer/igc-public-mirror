@@ -30,10 +30,13 @@ def test_qualification_groups_cover_each_active_test_file_once():
 def test_required_dependencies_and_fixture_roles_are_explicit():
     config = tomllib.loads((ROOT / 'pyproject.toml').read_text())
     extras = config['project']['optional-dependencies']
-    assert 'networkx==3.4.2' in extras['verification']
-    assert {'pytest==8.3.5', 'networkx==3.4.2', 'setuptools==84.0.0', 'pip==26.2.1'} <= set(extras['qualification'])
+    assert 'networkx==3.6.1' in extras['verification']
+    assert {'pytest==9.0.2', 'networkx==3.6.1', 'setuptools==84.0.0', 'pip==26.2.1'} <= set(extras['qualification'])
     profile = json.loads((ROOT / 'qualification/PROFILE.json').read_text())
     assert {r['logical_name'] for r in profile['required_fixtures']} == {
         'step2_parent_snapshot', 'saved_stage_one', 'saved_stage_one_prerun', 'saved_stage_four',
-        'saved_stage_outcome', 'saved_representative_qualification'}
+        'saved_stage_outcome', 'saved_representative_qualification', 'failed_evidence'}
     assert profile['required_fixtures'][0]['sha256'] == '713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8'
+
+    failed = next(r for r in profile['required_fixtures'] if r['logical_name'] == 'failed_evidence')
+    assert failed['sha256'] == '5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41'

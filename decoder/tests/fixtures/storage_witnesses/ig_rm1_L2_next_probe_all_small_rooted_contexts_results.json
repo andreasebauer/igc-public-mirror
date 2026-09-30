@@ -1,0 +1,656 @@
+{
+  "ABC_handles": [
+    3943,
+    3963,
+    3973
+  ],
+  "all_exact": true,
+  "cases": 11,
+  "execution_note": "Completed in small chunks: classes 0-2, 3-5, then one class per process for 6-10; class 10 isolated after timeout.",
+  "external_handle": 3943,
+  "max_scores_macro": [
+    2
+  ],
+  "max_scores_raw": [
+    2
+  ],
+  "rooted_graph_classes": 11,
+  "rooted_graphs": [
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  ],
+  "rows": [
+    {
+      "class_index": 0,
+      "core_degree": 3,
+      "core_ports": [
+        0,
+        1,
+        2
+      ],
+      "edge_count": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 7.045272588729858,
+      "sha_macro": "f49782cf306eb149740acf425872f3d1a918bc7de5cfbe4f7b2120b0144766c3",
+      "sha_raw": "f49782cf306eb149740acf425872f3d1a918bc7de5cfbe4f7b2120b0144766c3"
+    },
+    {
+      "class_index": 1,
+      "core_degree": 3,
+      "core_ports": [
+        0,
+        1,
+        2
+      ],
+      "edge_count": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.9458019733428955,
+      "sha_macro": "1d6545b88a6bd7bec35cdf7d646c279c9614047202a842f3cc365ae800184099",
+      "sha_raw": "1d6545b88a6bd7bec35cdf7d646c279c9614047202a842f3cc365ae800184099"
+    },
+    {
+      "class_index": 2,
+      "core_degree": 3,
+      "core_ports": [
+        0,
+        1,
+        2
+      ],
+      "edge_count": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.845622539520264,
+      "sha_macro": "35a8a2591252658b952e4d46d0a4c1c89a0a9b394ddca4d2d56c5db9b2b08f96",
+      "sha_raw": "35a8a2591252658b952e4d46d0a4c1c89a0a9b394ddca4d2d56c5db9b2b08f96"
+    },
+    {
+      "class_index": 3,
+      "core_degree": 3,
+      "core_ports": [
+        0,
+        1,
+        2
+      ],
+      "edge_count": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.480045318603516,
+      "sha_macro": "e2c1aef313c6d082cd4e2e46c4a2d2cb8bbf89c7fc752bc5e65f886b4e3e8306",
+      "sha_raw": "e2c1aef313c6d082cd4e2e46c4a2d2cb8bbf89c7fc752bc5e65f886b4e3e8306"
+    },
+    {
+      "class_index": 4,
+      "core_degree": 2,
+      "core_ports": [
+        0,
+        1
+      ],
+      "edge_count": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.7910473346710205,
+      "sha_macro": "27c7d63fb27e1c74f6379627b7d9cf7cac07b2c3844fb70734af3ae6a8c671ee",
+      "sha_raw": "27c7d63fb27e1c74f6379627b7d9cf7cac07b2c3844fb70734af3ae6a8c671ee"
+    },
+    {
+      "class_index": 5,
+      "core_degree": 2,
+      "core_ports": [
+        0,
+        1
+      ],
+      "edge_count": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.631626844406128,
+      "sha_macro": "ecf4e0db4a66ac514df97f9085a6cb4c079a8a3c27899ceae8179ae3bb70973f",
+      "sha_raw": "ecf4e0db4a66ac514df97f9085a6cb4c079a8a3c27899ceae8179ae3bb70973f"
+    },
+    {
+      "class_index": 6,
+      "core_degree": 2,
+      "core_ports": [
+        0,
+        1
+      ],
+      "edge_count": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 7.042497158050537,
+      "sha_macro": "af9a241a5f747edbd8dc706acb9cf2a272ccc5ab76d856772e9cb8e3df2f2368",
+      "sha_raw": "af9a241a5f747edbd8dc706acb9cf2a272ccc5ab76d856772e9cb8e3df2f2368"
+    },
+    {
+      "class_index": 7,
+      "core_degree": 2,
+      "core_ports": [
+        0,
+        1
+      ],
+      "edge_count": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.739129543304443,
+      "sha_macro": "5df10331f2abfb9173804a7895edb96086768603fee163750c87d8ab278a8dec",
+      "sha_raw": "5df10331f2abfb9173804a7895edb96086768603fee163750c87d8ab278a8dec"
+    },
+    {
+      "class_index": 8,
+      "core_degree": 1,
+      "core_ports": [
+        0
+      ],
+      "edge_count": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.930326461791992,
+      "sha_macro": "3e21be3483b32ffda1c05bd8e28db9ad2480a1e10a86405c768285d769910d76",
+      "sha_raw": "3e21be3483b32ffda1c05bd8e28db9ad2480a1e10a86405c768285d769910d76"
+    },
+    {
+      "class_index": 9,
+      "core_degree": 1,
+      "core_ports": [
+        0
+      ],
+      "edge_count": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 6.527000904083252,
+      "sha_macro": "e6c3812ccd1621a98f51ad5fea7f03b98943cd8672d332fc2f7c56deaa1a0efa",
+      "sha_raw": "e6c3812ccd1621a98f51ad5fea7f03b98943cd8672d332fc2f7c56deaa1a0efa"
+    },
+    {
+      "class_index": 10,
+      "core_degree": 1,
+      "core_ports": [
+        0
+      ],
+      "edge_count": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "exact": true,
+      "macro_max": 2,
+      "macro_only": 0,
+      "macro_parent_paths": 262144,
+      "macro_records": 262144,
+      "raw_max": 2,
+      "raw_only": 0,
+      "raw_parent_paths": 262144,
+      "raw_records": 262144,
+      "runtime_s": 7.870011568069458,
+      "sha_macro": "0a692d8a346570f964d6e8762dbffdcd636766698fffac7137632d5bad1a876d",
+      "sha_raw": "0a692d8a346570f964d6e8762dbffdcd636766698fffac7137632d5bad1a876d"
+    }
+  ],
+  "scope_note": "Primary criterion is separate direct selected-set materialization from microscopic ABC paths and TABC. Graph classes are exhaustive for connected simple graphs on distinguished core node plus 3 external nodes, modulo permutation of external labels.",
+  "test": "All smallest rooted connected graph contexts on one ABC core + three external J3 objects, direct raw/macro materialization",
+  "total_macro_parent_paths": 2883584,
+  "total_macro_records": 2883584,
+  "total_raw_parent_paths": 2883584,
+  "total_raw_records": 2883584
+}

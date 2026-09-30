@@ -151,6 +151,10 @@ class JumpstartPlanner:
             raise first
 
     def plan(self, target_ref: str) -> dict[str, Any]:
+        with self.graph.live_read() as graph:
+            return self._plan_live(target_ref, graph)
+
+    def _plan_live(self, target_ref: str, graph) -> dict[str, Any]:
         target = self._resolve_target(target_ref)
         profile = self.profiles.resolve_for_target(target["node_id"])
         replay_contract = None
@@ -169,28 +173,28 @@ class JumpstartPlanner:
             if nid in visiting:
                 unresolved.append({"node_id": nid, "reason": "DEPENDENCY_CYCLE"}); return
             visiting.add(nid)
-            try: node = self.graph.get_node(nid)
+            try: node = graph.get_node(nid)
             except Exception as e:
                 unresolved.append({"node_id": nid, "reason": "NODE_UNRESOLVED", "error": str(e)}); visiting.remove(nid); return
             nodes.add(nid)
-            for e in self.graph.outgoing(nid, JUMPSTART_DEPENDENCY_EDGE_TYPES):
+            for e in graph.outgoing(nid, JUMPSTART_DEPENDENCY_EDGE_TYPES):
                 if not e.get("mandatory", True):
                     continue
                 edges.append(e); walk(e["target_node_id"])
             visiting.remove(nid)
 
         walk(target["node_id"])
-        children = {n: _mandatory_children(self.graph, n) for n in nodes}
+        children = {n: _mandatory_children(graph, n) for n in nodes}
         leaves = sorted(n for n in nodes if n != target["node_id"] and not children[n])
         material_roots = []
         for nid in leaves:
-            node = self.graph.get_node(nid)
+            node = graph.get_node(nid)
             refs = node.get("content_refs", [])
             if not refs:
                 unresolved.append({"node_id": nid, "reason": "LEAF_HAS_NO_MATERIAL_CONTENT"}); continue
             if len(refs) != 1 or refs[0].get("kind") not in {"ARTIFACT", "DATASET"}:
                 unresolved.append({"node_id": nid, "reason": "UNSUPPORTED_ROOT_CONTENT_REFS", "refs": refs}); continue
-            if not self.graph.node_available(nid):
+            if not graph.node_available(nid):
                 unresolved.append({"node_id": nid, "reason": "MISSING_MATERIAL_ROOT"}); continue
             material_roots.append({
                 "node_id": nid, "semantic_role": node.get("semantic_role"),
@@ -202,9 +206,9 @@ class JumpstartPlanner:
         cache = []
         for nid in sorted(nodes):
             if nid == target["node_id"]: continue
-            node = self.graph.get_node(nid)
+            node = graph.get_node(nid)
             if node.get("retention_class") in {"CACHE_EXPENSIVE", "CACHE", "EPHEMERAL"}:
-                cache.append({"node_id": nid, "retention_class": node["retention_class"], "available": self.graph.node_available(nid)})
+                cache.append({"node_id": nid, "retention_class": node["retention_class"], "available": graph.node_available(nid)})
         core = {
             "schema_id": "IG_JUMPSTART_PLAN_V0_1", "target_ref": target_ref,
             "target_node_id": target["node_id"], "profile_sha256": profile["profile_sha256"],

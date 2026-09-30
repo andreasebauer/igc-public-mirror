@@ -1,0 +1,11 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Prospective review of interrupted-attempt reconciliation, authorized by the user to repair and qualify. This records reviewed bytes, not qualification or independent review. Historical pin files remain unchanged.",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "c00b409b0927dd13490209fe389e409de3a55ded43ee50b0c43a1296125a7dde",
+      "reviewed_sha256": "a4fd3e1e6d7bd33268fe3d04cf57f812053e8aae33b87f476aeac7d518e576ae",
+      "reason": "Only after acquiring both existing exclusive locks, close stale RUNNING records as INTERRUPTED; retain the complete original record and canonical digest. Validate all bindings before writes. Focused native and exact checkpoint-replay checks passed; full qualification remains required."
+    }
+  }
+}

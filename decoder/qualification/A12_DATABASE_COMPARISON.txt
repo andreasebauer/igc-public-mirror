@@ -1,0 +1,16 @@
+DEV136: three new registered forensic comparisons, five independent file sets each.
+No change to production engine functions and no repair claim. Preserve rejected
+DEV135 96-row expectation unchanged. This gate asks which views differ; completion
+means the comparison ran and integrity/input/domain checks passed, not that each
+view contains the full expected production result. Never promote a 64-row view.
+Use only separate disposable copies: main-only immutable, main-only native backup,
+main+WAL native backup, exact main+WAL+SHM native backup and exact-set direct read.
+Freeze the archive hash and routes. Observe counts/IDs/before-after hashes, compare
+row sets; require main-only native and immutable agreement. No journal removal,
+original SQLite opens, paused-attempt retry, full-suite rerun or historical claims.
+Raw WAL/SHM headers are unvalidated fields, not a custom recovery implementation.
+Reference field layouts: https://www.sqlite.org/fileformat.html and
+https://www.sqlite.org/walformat.html (29 September 2026). WAL-index table uses
+native byte order; raw offsets 16,96,128 are reported explicitly because table and
+nBackfill prose in the latter page disagree about one offset. No semantic or
+checksum-validity conclusion is derived from those raw fields alone.

@@ -1,0 +1,58 @@
+STORAGE STEP 2 — ADDITIVE ENGINEERING CANDIDATE R2
+Version: 0.8.0.dev90+lib. Parent dev89 is retained unchanged.
+This is NOT an activated release or a canonical master block.
+
+IMPLEMENTATION
+storage_schema.py: exact frozen schema SHA, Draft 2020-12 via jsonschema and
+referencing, no remote schema retrieval, strict bounded UTF-8 ingestion.
+schema.validate explicitly dispatches the exact storage schema; altered copies
+with the same schema ID fail closed. Old contracts keep their old validator.
+
+sqlite_attestation.py: actual Python/native SQLite identity and library hashes;
+exact runtime binding at native require_saved admission. Only the reviewed
+3.51.3 upstream source ID passes this initial WAL-fix source policy. A different
+verified upstream build/backport needs a separately reviewed policy revision.
+A declared ENGINEERING_VALIDATION_ONLY binding can run VALIDATION on another
+build to test rejection, but never SCRIPT/STAGE. No production bypass flag.
+Changing source or runtime requires a new capture. Old completion reuse is
+non-executing and does not invent a new qualification of the producer.
+
+storage_catalog.py: closed DELETE-mode read indexes over supplied exact records;
+indexed native graph adjacency and typed incidence lookups in both directions;
+release/query/index-bound keyset pagination; explicit row/byte/VM work bounds;
+no migration, sidecars, global GraphStore scan, or payload download on queries.
+Build at a new location, integrity-check, seal, then rename under writer lock.
+Convenience aliases have an owned compare-and-swap, not scientific authority.
+
+Catalogue.open_read_index and build_read_index are additive entry points. The
+legacy live Catalogue.query/rebuild and GraphStore.outgoing/incoming are NOT
+silently redirected: their mutation/global-scan behaviour is still a migration
+obligation. New readers must use the explicit closed-index path. The INDEX.json
+binding is an engineering build record, not a replacement for the frozen
+IndexDescriptor, PublicationSeal or scientific acceptance policy.
+
+BOUNDARIES
+Source records are pre-frozen and streamed in unique logical-key order, limited
+to 64 KiB per record by this initial engineering profile. Each complete row is
+retained verbatim. This is not a large-payload decoder or a full collection-page
+walker. Index opening verifies the full SQLite file once; each small query then
+uses the index, not a full-file rehash. Protection assumes cooperative immutable
+snapshot ownership; this is not a hostile-process sandbox.
+
+Cross-record scientific/closure checks, accepted release admission, canonical
+collector binding, optional-extension reporting, complete relational traversal,
+legacy live-read migration, fixed runtime provisioning, production qualification
+and bounded-memory checkpoint/restore remain separate obligations.
+
+TARGETED TEST PLAN
+Use only the captured native VALIDATION job tests/test_storage_step2.py.
+No standalone pytest, no science replay, no claim promotion. Synthetic fixtures
+include the 22 Step-1 shapes and 5000 native-format graph edges. Size/work limits
+are the test envelope, not universal future-safe limits.
+
+R1 was refused before test execution: standalone project binding missing, then
+its nonstandard version string failed native canonical-version admission.
+Both refusals and the partial initialization are retained. R2 uses the existing
+native version grammar without changing the guard. It initializes a genuinely
+separate synthetic engineering project, not a restored or activated science
+project. No old scientific project history is replaced or merged.

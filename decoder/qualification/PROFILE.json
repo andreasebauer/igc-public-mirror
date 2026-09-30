@@ -3,114 +3,205 @@
   "identity_source": "infinity_grid/_version.py",
   "support": {
     "os": "Linux",
-    "python_tested": "CPython 3.12",
-    "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified"
+    "python_tested": "No full qualification for this candidate; historical CPython 3.12 profile retained separately",
+    "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified",
+    "python_target": "CPython 3.13.5; new V4 qualification runtime pending"
   },
   "environment": [
     {
-      "distribution": "pytest",
-      "version": "8.3.5",
+      "distribution": "attrs",
+      "version": "26.1.0",
+      "metadata_sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
       "imports": [
-        "pytest"
-      ]
+        "attrs"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "cffi",
+      "version": "2.0.0",
+      "metadata_sha256": "b98ce7e3417af089bc12d5c73412d9b3b1683ccf8ec73c986c35ac8c9be1ba39",
+      "imports": [
+        "cffi"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
     },
     {
       "distribution": "cryptography",
       "version": "46.0.4",
+      "metadata_sha256": "23772263d659f0d86ba11a8de47e7e437df320dc4c531054aec18097f35cfc62",
       "imports": [
         "cryptography"
-      ]
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
     },
     {
       "distribution": "igraph",
       "version": "1.0.0",
+      "metadata_sha256": "588ea6dd9bb407db8f37e974f646de12e204ac87f2d81e0e1f41a8bb49487685",
       "imports": [
         "igraph"
-      ]
-    },
-    {
-      "distribution": "sympy",
-      "version": "1.14.0",
-      "imports": [
-        "sympy"
-      ]
-    },
-    {
-      "distribution": "networkx",
-      "version": "3.4.2",
-      "imports": [
-        "networkx"
-      ]
-    },
-    {
-      "distribution": "mpmath",
-      "version": "1.3.0",
-      "imports": [
-        "mpmath"
-      ]
-    },
-    {
-      "distribution": "cffi",
-      "version": "2.1.1",
-      "imports": [
-        "cffi"
-      ]
-    },
-    {
-      "distribution": "pycparser",
-      "version": "3.0",
-      "imports": [
-        "pycparser"
-      ]
-    },
-    {
-      "distribution": "texttable",
-      "version": "1.7.0",
-      "imports": [
-        "texttable"
-      ]
-    },
-    {
-      "distribution": "pluggy",
-      "version": "1.6.0",
-      "imports": [
-        "pluggy"
-      ]
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
     },
     {
       "distribution": "iniconfig",
       "version": "2.3.0",
+      "metadata_sha256": "40d773f84e4e112f495bbf4f1be9cbd2d456c0aeb6ef5311f75d1bf322f2165b",
       "imports": [
         "iniconfig"
-      ]
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "jsonschema",
+      "version": "4.26.0",
+      "metadata_sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2",
+      "imports": [
+        "jsonschema"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "metadata_sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d",
+      "imports": [
+        "jsonschema_specifications"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "mpmath",
+      "version": "1.3.0",
+      "metadata_sha256": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406",
+      "imports": [
+        "mpmath"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "networkx",
+      "version": "3.6.1",
+      "metadata_sha256": "aca5d94a97d1f70f301d033addb635f6e66be8973a00aba4127637eed2ef316a",
+      "imports": [
+        "networkx"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
     },
     {
       "distribution": "packaging",
-      "version": "26.3",
+      "version": "25.0",
+      "metadata_sha256": "5b611a609c38fefc3d616bf45d20aec98fb7d53f245daca9e2c30fc85c7ac282",
       "imports": [
         "packaging"
-      ]
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "pluggy",
+      "version": "1.6.0",
+      "metadata_sha256": "7438c35ee25a095eb7416f84b461c2d74425c5e734ad54c3912453c65244e01c",
+      "imports": [
+        "pluggy"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "pycparser",
+      "version": "3.0",
+      "metadata_sha256": "f547a60b0ab54cc2f242213d1f87960ad80df7dd5dfeb98d17a444d48bfb6b93",
+      "imports": [
+        "pycparser"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "Pygments",
+      "version": "2.20.0",
+      "metadata_sha256": "e0528f51b30427fae94723662ba622f8d8db2a4d8d3f1365698d67a52450a845",
+      "imports": [
+        "pygments"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "pytest",
+      "version": "9.0.2",
+      "metadata_sha256": "14131718cc1f40cfecb5eac338037029a519b6392876100afec1e949f023d1ed",
+      "imports": [
+        "pytest"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "referencing",
+      "version": "0.37.0",
+      "metadata_sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a",
+      "imports": [
+        "referencing"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "rpds-py",
+      "version": "2026.5.1",
+      "metadata_sha256": "1bc561b7215de8649cb5ecde1885d9d448b27f5341245844c33b4a0e38313be5",
+      "imports": [
+        "rpds"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "sympy",
+      "version": "1.14.0",
+      "metadata_sha256": "b756c2fbfd5be05ac5bdb0ebca61f55618f30f633ed92d88a5687429313a7595",
+      "imports": [
+        "sympy"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "texttable",
+      "version": "1.7.0",
+      "metadata_sha256": "4242fbffb65362c5917c349ea25c7ba600bb055b0078ce5355911e3438464f65",
+      "imports": [
+        "texttable"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
+    },
+    {
+      "distribution": "typing_extensions",
+      "version": "4.16.0",
+      "metadata_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "imports": [
+        "typing_extensions"
+      ],
+      "provenance": "Version selected from verified V3 metadata; future V4 bytes not yet bound"
     },
     {
       "distribution": "setuptools",
       "version": "84.0.0",
       "imports": [
         "setuptools"
-      ]
+      ],
+      "provenance": "Retained historical target version; Python 3.13 wheel acquisition and compatibility pending"
     },
     {
       "distribution": "wheel",
       "version": "0.48.0",
       "imports": [
         "wheel"
-      ]
+      ],
+      "provenance": "Retained historical target version; Python 3.13 wheel acquisition and compatibility pending"
     },
     {
       "distribution": "pip",
       "version": "26.2.1",
       "imports": [
         "pip"
-      ]
+      ],
+      "provenance": "Retained historical target version; Python 3.13 wheel acquisition and compatibility pending"
     }
   ],
   "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
@@ -131,6 +222,7 @@
         "tests/test_change_preservation_rebind.py",
         "tests/test_compact_label_reuse.py",
         "tests/test_completion_publication.py",
+        "tests/test_database_sidecar_comparison.py",
         "tests/test_decoder061_combined_contract.py",
         "tests/test_decoder06_capture.py",
         "tests/test_decoder06_changes.py",
@@ -146,6 +238,7 @@
         "tests/test_decoder07_semantic_inputs.py",
         "tests/test_e3_g6_controller_generation_evaluators.py",
         "tests/test_engine_kernel_e1.py",
+        "tests/test_evidence_diagnostics.py",
         "tests/test_exact_relation_profile_bridge_fastpath_a24r.py",
         "tests/test_exact_tree_relation_kernel_v03087.py",
         "tests/test_execution_start_method_portability.py",
@@ -176,6 +269,7 @@
         "tests/test_g6_stage_executors_v03082.py",
         "tests/test_h1_h13_semantic_classification_spot_check.py",
         "tests/test_legacy_capture_receipts.py",
+        "tests/test_live_graph_read.py",
         "tests/test_no_deadline_conveyor_run_operation.py",
         "tests/test_o7_c1_broader_lanes.py",
         "tests/test_o7_c1_graph_comparison.py",
@@ -213,6 +307,7 @@
         "tests/test_p9_o1_o3.py",
         "tests/test_qualification_contract.py",
         "tests/test_r02_replay_self_qualification.py",
+        "tests/test_rc_audit_repairs.py",
         "tests/test_repair7r_reuse_evidence.py",
         "tests/test_repair7r_sqlite_lifecycle.py",
         "tests/test_replay_checkpoint_consistency.py",
@@ -221,7 +316,48 @@
         "tests/test_replay_obligation_compiler_p1b.py",
         "tests/test_replay_obligation_compiler_p1b2.py",
         "tests/test_replay_obligation_compiler_p1c.py",
+        "tests/test_science_contract_strength.py",
+        "tests/test_separate_completion_evidence.py",
+        "tests/test_sidecar_lifecycle.py",
+        "tests/test_snapshot_evidence_filters.py",
+        "tests/test_storage_admission_bindings.py",
+        "tests/test_storage_audit.py",
+        "tests/test_storage_auxiliary_closure.py",
+        "tests/test_storage_candidate.py",
+        "tests/test_storage_candidate_metadata.py",
+        "tests/test_storage_capture_metadata.py",
+        "tests/test_storage_catalog_migration.py",
+        "tests/test_storage_claims.py",
+        "tests/test_storage_closure.py",
+        "tests/test_storage_collection_recovery.py",
+        "tests/test_storage_collections.py",
+        "tests/test_storage_comparison.py",
+        "tests/test_storage_contract_registry.py",
+        "tests/test_storage_dataset_snapshot.py",
+        "tests/test_storage_dependencies.py",
+        "tests/test_storage_evidence.py",
+        "tests/test_storage_fixed_runtime.py",
+        "tests/test_storage_frontier_history.py",
+        "tests/test_storage_frontier_snapshot.py",
+        "tests/test_storage_full_recovery_join.py",
+        "tests/test_storage_history_assembly.py",
+        "tests/test_storage_index_descriptor.py",
+        "tests/test_storage_legacy.py",
+        "tests/test_storage_links.py",
+        "tests/test_storage_manifest_sources.py",
+        "tests/test_storage_native_collection.py",
+        "tests/test_storage_negative.py",
+        "tests/test_storage_oracle_witnesses.py",
+        "tests/test_storage_p9_result_closure.py",
+        "tests/test_storage_recipe.py",
+        "tests/test_storage_recovery_join.py",
+        "tests/test_storage_result_closure.py",
+        "tests/test_storage_runner_snapshot.py",
+        "tests/test_storage_snapshot_results.py",
+        "tests/test_storage_step2.py",
         "tests/test_structural_encoding_e2.py",
+        "tests/test_terminal_json_equivalence.py",
+        "tests/test_two_sorted_relation_library.py",
         "tests/test_v05_c5_origin_exclusivity.py",
         "tests/test_v05_c6_namespace_identity.py",
         "tests/test_v05_c6_persistent_recovery.py",
@@ -238,6 +374,7 @@
         "tests/test_v05_s8_optimization_acceptance.py",
         "tests/test_v05_stage_runtime_exact_byte_handoff.py",
         "tests/test_v05_stage_runtime_resume_kernel_view.py",
+        "tests/test_validation_phase_binding.py",
         "tests/test_validation_recorder_finalization.py",
         "tests/test_validation_worker_log_publication.py"
       ]
@@ -288,7 +425,40 @@
     {
       "logical_name": "saved_stage_one_prerun",
       "rule": "Export the genuine saved stage-one capture before its first execution. No completion, prepared record, attempts or edited history. This independent archive is required for interruption injection."
+    },
+    {
+      "logical_name": "failed_evidence",
+      "sha256": "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41",
+      "bytes": 10905102,
+      "drive_id": "1yOZW8AoovNaHOE3jbaLGxhqSZlT-M6Ts",
+      "rule": "Private immutable historical IN11 failed evidence; bind as a registered functional validation input. Do not publish archive or skip the regression."
     }
   ],
-  "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited."
+  "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
+  "status": "UNQUALIFIED_CANDIDATE_RUNTIME_AND_FIXTURES_PENDING",
+  "blocking_conditions": [
+    "This dev137 candidate is unqualified; seal its full source and complete V4 runtime before fixture creation or native collection.",
+    "Review newly assigned functional selectors for execution class, fixture roles and isolation; assignment is provisional.",
+    "Resolve absent build tools and reconcile metadata Requires-Dist constraints; metadata inventory alone is not dependency compatibility.",
+    "Bind all seven fixture roles; no current-candidate fixture completion claimed.",
+    "Native collection inventory and new campaign preregistration with saved/read-back prerequisites required before execution.",
+    "A12 temporary-workspace policy and A22 host dependency limitations remain in force."
+  ],
+  "source_reference": {
+    "revision": "0.8.0.dev137+lib",
+    "parent_archive_sha256": "a91db5235d4e00330e6a493629e0dbee2d808c75a13aed1599bcc53b8937a9ac",
+    "scope": "candidate requirements, not a qualification receipt"
+  },
+  "runtime_requirements": {
+    "base": "CPY3135_SQLITE3513_RECOVERED_V3_20260930",
+    "target": "V4_NOT_YET_BUILT_OR_QUALIFIED",
+    "required_additions": [
+      "setuptools==84.0.0",
+      "wheel==0.48.0",
+      "pip==26.2.1"
+    ],
+    "complete_native_dependency_closure": "PENDING_A22_V12_FINDINGS",
+    "hash_locked_install_manifest": "PENDING",
+    "uv_lock_status": "Historical uv.lock not reconciled; not authorized for candidate installation"
+  }
 }

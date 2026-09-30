@@ -1,0 +1,470 @@
+INFINITY GRID — PERSISTENT SCIENTIFIC STORAGE CONTRACT V1
+Step 1 / 28 September 2026 / Andreas Erich Bauer
+Contract identifier: IG_STORAGE_CONTRACT_V1
+Contract version: 1.0.0
+Status: FROZEN SPECIFICATION FOR IMPLEMENTATION.
+Not an implemented engine change, qualified migration, scientific release, or master block.
+
+0. PURPOSE, AUTHORIZATION AND PRECEDENCE
+
+This specification executes Step A of DEV89_STORAGE_AUDIT_2026-09-28.txt:
+freeze IDs, occurrences, typed relations, coverage, authority boundaries,
+schema evolution and immutable release manifests. The user's authorization was
+"Ok. Lets execute this. Step 1". Later steps remain separate.
+
+The normative storage requirements below are new design decisions implementing
+that approved audit. They are not descriptions of features already in dev89.
+Observations about dev89 are in DEV89_COMPATIBILITY_MAP.txt and the original
+line-numbered source excerpts, with original member hashes. The handoff and
+audit are preserved under evidence/. Old theory and concept documents are not
+inputs or premises of this storage contract.
+
+Scientific semantics are controlled by the exact existing carrier, observer,
+action basis, canonicalization and equality contract for each record. This
+storage specification cannot override those semantics. Where source scope is
+unresolved, retain the original bytes and mark the binding unresolved rather
+than infer an answer. Do not equate the observer-foundation O1/O2/O3 labels with
+mature-carrier layer labels merely because the words match.
+
+MUST and MUST NOT are acceptance requirements. MAY identifies an optional
+implementation choice. JSON Schema checks structure; the numbered invariants
+and cross-record checks also apply. Schema conformity alone proves neither
+correct science nor successful storage recovery.
+
+1. AUTHORITY BOUNDARIES [C01]
+
+There are four separate responsibilities:
+(a) Local mutable SQLite/WAL: task progress, leases, attempts and pending saves.
+(b) Immutable release data: exact records, payloads, scope, evidence and decisions.
+(c) Closed read-only indexes: rebuildable projections of a named release.
+(d) Locators and transport receipts: where verified content can be retrieved.
+
+A live workspace, successful process exit, valid index, upload response, pretty
+report or passing storage fixture MUST NOT independently authorize a scientific
+claim, graduation, audit gate, or canonical release. Existing external audit
+authorization and gate semantics remain in control.
+
+One master block is one logical versioned release assembled from bounded
+physical records and partitions. Reading its accepted scientific records MUST
+NOT require restoring the job that generated them. It MUST be possible to
+rebuild browsing indexes from retained canonical data and schema/profile bytes.
+
+2. IDENTITIES AND REFERENCES [C02–C06]
+
+C02. Preserve existing native scientific IDs and their exact scope.
+Existing IGRD/... record_id values and record_sha256 seals remain unchanged.
+Native object_identity, state_token, occurrence_id and any existing relation/
+incidence IDs remain byte-for-byte unchanged within their declared source scope.
+Do not strip state-token suffixes, reinterpret task IDs as global object IDs,
+renumber historical rows, or introduce another competing scientific ID scheme.
+
+A NativeRef is:
+  native_id: original nonempty string
+  scope_ref: ContentRef to the frozen native scope
+  profile_ref: ContentRef to the immutable IdentityProfile explaining that ID
+
+This tuple disambiguates a reference; it is not a new global scientific ID.
+Scope MUST describe the native meaning, not an arbitrary file path or upload.
+A local row index is not a global scientific ID. Records without native IDs MAY
+be addressed by (immutable collection root, stable record key), but MUST NOT
+be advertised as newly identified scientific objects. A production binding
+profile is required before exposing such records through a NativeRef.
+
+C03. ContentRef is exact raw-byte identity:
+  sha256: 64 lower-case hexadecimal characters
+  size_bytes: canonical nonnegative decimal string
+SHA-256 here is the transport/integrity key. At storage deduplication, a digest
+collision or inconsistent length/bytes MUST fail closed and preserve evidence.
+Scientific equality remains the equality specified for the exact carrier; a
+matching digest alone MUST NOT decide it.
+
+C04. Existing semantic record seals and raw-file digests are distinct.
+ReferenceRecordRef retains record_id and record_sha256 plus a ContentRef.
+The legacy record_sha256 is checked using its original exclusion and canonical
+encoding rules. ContentRef checks the file as physically stored. Reformatting
+a JSON file can change the raw-file digest without changing its legacy seal.
+Never substitute one of these digests for the other.
+
+C05. ReleaseRoot and PublicationSeal are immutable content-addressed records.
+Their own ContentRefs are computed from their stored canonical bytes and are
+not included inside themselves. A release label is only a human alias.
+A science job MUST pin the exact ReleaseRoot and accepted PublicationSeal,
+plus its required acceptance policy. It MUST NOT follow an unpinned "latest".
+
+C06. Repacking, relocating or changing a lossless compression codec may change
+payload descriptors or release digests. It MUST NOT redefine a scientific ID or
+equality class. Changing canonicalization or observer equivalence requires an
+explicit scientific migration/certificate, not a storage optimization flag.
+
+3. SERIALIZATION AND EXACT VALUES [C07]
+
+New control/manifest records use the existing IG_CANONICAL_JSON_V1 byte language:
+UTF-8, string dictionary keys sorted as by the pinned native canonicalizer,
+compact separators, ensure_ascii=False, allow_nan=False, no BOM, no trailing
+newline in the canonical record itself. There is no Unicode normalization.
+Reject malformed UTF-8, lone surrogates, duplicate object keys and non-finite
+values at ingestion. Do not silently repair them. The contract is not a claim
+of compatibility with RFC 8785 or any differently named canonicalizer.
+
+New envelope fields use canonical decimal strings for scientific counts,
+multiplicities, offsets, lengths and unbounded integers:
+  nonnegative: 0 or [1-9][0-9]*
+  signed: 0 or -?[1-9][0-9]*
+No + sign, leading zero, -0, exponent notation or surrounding whitespace.
+Machine-bounded administrative fields such as page depth may use JSON integers
+only with explicit schema bounds. Required exact values MUST NOT pass through
+floating-point or lossy database affinity conversions.
+
+An ExactRational uses a signed numerator and positive denominator; reduce by
+gcd and encode zero as 0/1. Do not change legacy scientific payloads merely to
+apply this new envelope convention. Preserve their original byte language and
+declare the original codec/profile. Any portable exact representation is a
+separate verified view until explicitly accepted.
+
+Opaque scientific payloads need explicit byte order, dimensions, numeric type,
+canonicalization/version and decoding specification when those are relevant.
+A Python pickle, class import name, or undocumented binary blob alone is not a
+sufficient future-readable decoding contract.
+
+4. OBJECTS, OCCURRENCES AND OBSERVER VIEWS [C08–C11]
+
+C08. Object records bind native identity, carrier schema, canonicalization,
+equality contract, exact canonical payload descriptor and evidence.
+Object records do not themselves promote epistemic status. Existing
+IG_REPLAY_REFERENCE_RECORD_V1 records retain that authority vocabulary.
+
+C09. A distinct occurrence is stored separately from the reusable object.
+Two uses of one subtree retain two occurrence records with their context,
+position/incidence maps and formation references. They may share payload bytes.
+A repeated occurrence MUST NOT disappear in a join on object or content digest.
+Each occurrence record represents one occurrence; grouped bag multiplicity,
+where licensed, is represented separately and explicitly.
+
+Position and parent_occurrence_ref are context-specific references. Parent
+links describe a particular occurrence-tree view, not all scientific relations.
+A storage implementation MAY omit an expanded recursive view and reconstruct
+it lazily from bounded records. It MUST NOT pretend a truncated view is complete.
+
+C10. Construction provenance is evidence, not an extra behavioral boundary
+variable. Retain it in occurrence/evidence records, but do not feed hidden
+history back into boundary equality, bridge acceptance or output construction.
+Persistent port handles and map records preserve the declared interface action;
+they do not make anonymous port labels physical.
+
+C11. Preserve the declared equality and cardinality semantics independently:
+SET, MULTISET, ORDERED, or OCCURRENCE_LOG where applicable.
+For whole boundary relations, the existing global interface quotient controls.
+Independently sorting/canonicalizing each row is not an authorized substitute.
+Do not flatten nested bags, erase block membership, discard repeated sites,
+convert branch-sensitive successors to traces, discard joint alternatives, or
+turn a multiset into a set because a storage library deduplicates rows.
+
+A storage occurrence count does not automatically become action multiplicity
+under an observer. A set-valued action semantics remains set-valued; a licensed
+multiset observer keeps multiplicity. A weaker observer projection is a separate
+labelled derived view with its scope/certificate; it never replaces the exact
+object silently. Preserve complete tied-max sets and any required unselected
+relations. Storage does not authorize premature selection.
+
+5. TYPED RELATIONS AND INCIDENCES [C12–C15]
+
+C12. A relation has a native relation reference, immutable RelationType, scope,
+incidence collection, declared incidence count, operator/decorations and witnesses.
+An incidence identifies its relation, exact endpoint object or occurrence,
+slot, role, direction, multiplicity and port/gluing map where required.
+Repeated endpoints and parallel relations are permitted by the container; whether
+they are legal scientifically is decided by the frozen relation-type definition.
+
+C13. The RelationType pins allowed arity, cardinality, multiplicity policy,
+role registry, cycle policy and the exact graph/projection to which that policy
+applies. Undefined semantics are not guessed. UNSPECIFIED_BLOCKED is a representable
+declaration, but blocks acceptance of a relation depending on it.
+Scientific relation types require their existing scientific authority binding.
+
+Higher-arity storage is supported as incidence data. That does NOT authorize
+higher-arity algebraic operations in a presently pairwise scientific scope.
+No joint relation may be replaced by pairwise projections without a separately
+accepted equivalence. Incidence count is not multiplied into pairwise edge count.
+
+C14. A tree is a view of a declared relation family, not the universal data model.
+Shared substructures, multiple derivations and permitted cycles must be representable.
+Acyclicity is required only in its specified domain/projection; forbidden cycles
+are rejected. Never infer that all scientific relations are acyclic because the
+construction-dependency graph is acyclic, or the reverse.
+Every traversal needs visited-state rules, depth/edge/byte limits and a cursor
+that reports truncation. No silently partial "complete lineage" response.
+
+C15. Preserve required maps and decorations: endpoint/port roles, direction,
+ordering, multiplicity, operator identity, boundary/gluing maps, destination
+frames, block memberships and witnesses. NOT_APPLICABLE is a reasoned assertion,
+not a synonym for UNKNOWN. Required UNKNOWN data blocks accepted publication.
+Scientific-structure relations and SUPPORTS/FALSIFIES/provenance links have
+distinct relation domains; explicit links between them are allowed.
+
+6. CONTENT, PAYLOADS AND PAGED COLLECTIONS [C16–C20]
+
+C16. Content is immutable, stored once when bytes match, with many-to-many
+semantic bindings. The first producer or logical-role metadata attached to a
+blob does not erase later producers, uses, evidence roles or meanings.
+
+C17. A Payload descriptor binds exact decoded bytes and a decoding profile.
+WHOLE uses one stored-content reference and one codec reference; blocks is null.
+BLOCKS uses a CollectionRef of Block records; both whole fields are null.
+Each block has an ordinal, decoded offset, decoded size/hash, stored size/hash,
+and codec definition. Its decode MUST not depend on the previous compressed block.
+Shared codec dictionaries are explicit required dependencies.
+
+Block ordinals are contiguous from zero. Decoded offsets cover the original
+stream exactly with no gap or overlap. Concatenating blocks in ordinal order
+must reproduce decoded_content's exact size and SHA-256. Duplicate block bytes
+at different ordinals are valid if the original stream repeats them.
+Metadata checks do not substitute for decoded-byte verification.
+
+C18. Storage blocks and upload parts are different objects.
+Existing save_transport V1 multipart manifests and reconstructed-byte checking
+remain unchanged. A Locator can point to a raw object or to a bound multipart
+transport manifest. Transport part boundaries do not assert random-access
+scientific boundaries. Do not relax existing transport limits to claim growth.
+
+C19. A CollectionRef binds an immutable page-tree root, record schema, key rule,
+physical row count and cardinality semantics. A CollectionPage has a declared
+depth, ordered entries, key bounds and record count. Leaves refer to immutable
+shards; internal entries refer to lower-depth pages. Empty collections have a
+leaf root with no entries, null bounds and count "0".
+
+Every page's record count equals the sum of its entries. Parent entry counts
+and bounds match the referenced page/shard. Key ranges are ordered and disjoint
+under the pinned total-order rule. A record's stable key is unique in that
+collection; duplicates that are meaningful scientifically have distinct
+occurrence/incidence keys, or an explicit multiplicity under its declared schema.
+This key rule must specify compound-key encoding, byte ordering and boundary
+conventions. It is not an implicit locale collation.
+
+A byte/row count in a manifest is a consistency claim that validators must check,
+not automatically a true census. Shards need a pinned format/codec and bounds.
+Storage codecs can change through verified repacking without redefining IDs.
+
+C20. Page size, maximum record bytes, shard bytes, decode expansion, RAM,
+temporary disk, traversal limits and task/output limits belong in an explicit
+resource profile pinned through the recipe/environment binding and qualified
+for the intended workload. This specification does
+not assert an arbitrary universal "safe" block size or infinite scale.
+Preflight must refuse a record exceeding the profile before a large allocation.
+Large maps, payloads and lists go behind references/pages rather than defeating
+the bounds through one enormous JSON record.
+
+The current release binding can initially use the existing payload store,
+closed SQLite indexes and JSON manifests. Parquet, DuckDB, graph servers and a
+new storage provider are not prerequisites. Decoders for authoritative formats
+and schemas MUST remain retrievable without the original engine environment.
+
+7. COVERAGE, EVIDENCE AND LAYER ACCOUNTING [C21–C24]
+
+C21. Coverage is stated for a frozen domain definition, counting unit, layer,
+lane, source/method and exact scope. Record the distinction between:
+EXHAUSTIVE_DECLARED_DOMAIN, BOUNDED_PANEL, SAMPLED and NOT_EVALUATED.
+A fully completed bounded panel remains bounded. No current science counts or
+claim-ledger totals are invented by this specification.
+
+Keep file count, physical record count, distinct object count, occurrence count,
+joint-relation count, incidence count, witness count, raw attempts and distinct
+tested-case count separately. Existing FILE_SET row_count retains its native
+meaning (file count). Never rename it silently into scientific object_count.
+
+C22. Distinct tested cases = passed_count + failed_count.
+raw_attempt_count is at least distinct_tested_count and includes retries.
+If expected_count is known, then:
+expected_count = distinct_tested_count + skipped_count + not_run_count.
+Unknown expected or not-run counts are null, not zero. Comparison counts use the
+declared case identity and equality contract, not raw output rows.
+REPRODUCED/NEGATIVE_REPRODUCED requires zero mismatches in the reported comparison
+scope; it does not prove a universal assertion outside that scope.
+
+C23. Preserve existing evidence mode and authority vocabulary:
+FRESH_RECOMPUTE, VERIFIED_RESTORED_BLOCK, SOURCE_INTEGRITY_ONLY,
+HISTORICAL_RESULT_ONLY, with existing science_execution NONE or EXECUTED and
+the native epistemic/authority fields in referenced IGRD records.
+A historical report stays historical unless an explicitly bound replay supports
+the new record. Rehydrating bytes is not a fresh scientific recomputation.
+A valid checksum is not a proof of the scientific claim inside the file.
+
+C24. A Layer entry has the existing S/R/C/F evidence lanes, separate audit and
+gate references, and coverage state. Audit/gate records remain external decisions.
+A layer can be COMPLETE_DECLARED_SCOPE only for its explicit scope and policy;
+it may still be inadequate for the intended master release. Required missing,
+open or unexplained obligations block acceptance unless the pinned policy
+explicitly excludes them from the promised scope and records that limitation.
+A future G-layer or unearned relation schema must not be certified by container
+support. The final master release binds accepted layer evidence without
+recertifying old science by copying it.
+
+8. RELEASE ROOT, DEPENDENCY CLOSURE AND PUBLICATION [C25–C29]
+
+C25. ReleaseRoot binds this contract freeze, code/source, environment, recipe,
+schema/type registry, layers, required canonical collections and acceptance policy.
+It also names a bounded required-content inventory and optionally a predecessor.
+The predecessor is lineage, not a requirement to replay every old workspace.
+The selected release's actual read/recovery closure must be explicit and finite.
+
+C26. Avoid self-referential hashes.
+Data, schema/profile bytes and already-produced science/audit records are sealed
+first. Candidate ReleaseRoot is then fixed. A verification report may refer to
+that root. PublicationSeal, produced last, binds root, full-closure verification
+report and actual authorized decision records. Neither the root nor any of its
+data descendants includes the later seal's digest as a required dependency.
+A verification report referring to the root belongs outside the root's pre-seal
+closure. Do not solve a circular hash by inserting a dummy hash or excluding
+undocumented fields.
+
+The required-content inventory lists required payload/profile/source/evidence/
+reconstruction objects. Its own pages, the ReleaseRoot and direct structural
+manifest references are discovered and verified structurally; the inventory
+does not list itself. A closure walker follows schema-declared dependency fields,
+including codec dictionaries and nested manifests, and cross-checks the inventory.
+No required reference may be omitted just because the legacy IGRD dependency
+field tracks a narrower class of record-to-record edges.
+
+Collection NativeRefs are resolved against the release's pinned bindings.
+They represent scientific edges without recursively hashing cyclic endpoint
+content into itself. Thus scientific cycles need not create a cyclic storage
+hash graph. A profile must prevent ambiguous/dangling native references.
+
+C27. Native publication order:
+freeze job/source/environment/inputs/output contract and stopping rule;
+stage native outputs; validate shape, references, exact bytes and scope;
+save required objects and verify actual remote readback, reusing only existing
+valid receipts that bind the same exact bytes under the acceptance policy;
+fix/stage candidate root; verify the full required closure and write its report;
+obtain the necessary actual audit/gate decisions; publish PublicationSeal last.
+Science readers see no accepted release until the root-plus-seal verifies.
+
+The seal's existence is not cryptographic authorization. Decision records must
+come from the existing accepted authority channel and bind the scope/policy.
+Do not auto-create authorizing decisions to make a storage fixture pass.
+
+If interrupted before the final seal, preserve an incomplete candidate. Never
+publish a false "complete" alias. If concurrent publishers share a base, retain
+separate immutable candidates/seals and report alias conflict; no silent merge
+or last-writer-wins scientific promotion. A convenience alias can be updated
+only through explicit owned/conditional publication. Readers pin immutable IDs,
+so later alias changes cannot alter their run inputs.
+
+C28. A published release is immutable. Corrections, revocations, superseding
+decisions and migrations are new records/releases. Preserve old bytes and their
+then-declared scope. Revoked evidence is not silently erased; new selections
+must consult the chosen acceptance/revocation policy.
+
+C29. For acceptance, verification means FULL_REQUIRED_CLOSURE under the policy.
+Routine browsing may verify only accessed objects; report that as subset
+verification and distinguish RAW_BYTES, DECODED_BYTES, SCHEMA, REFERENCES,
+SCIENTIFIC_COMPARISON and ACCEPTANCE_DECISION checks. Do not advertise a newly
+completed full-release audit after reading one neighbourhood.
+
+9. READ ACCESS AND INDEX CONTRACT [C30–C33]
+
+C30. A read operation binds release root, acceptance seal, query, page/traversal
+limits and verification scope. Proposed operations are:
+open_release; get_object; iterate_relations; neighbours; lineage; coverage;
+verify_scope. These are interface requirements, not implemented dev89 API names.
+Metadata access must not eagerly fetch payloads or restore execution workspaces.
+Reader errors must distinguish "not present in this release", "missing content",
+"unsupported schema", "stale index", "budget exceeded" and "incomplete coverage".
+
+C31. A read index is a closed snapshot, opened without mutation, migration,
+sidecar creation or write transactions. IndexDescriptor pins release root,
+input collections, index schema, builder and validation report. Readers reject
+a stale/wrong-release index. They may rebuild a new one through an explicit
+writer path; no automatic in-place rebuild in a query.
+
+Rebuild to a separate temporary destination, validate and seal, then switch
+under ownership. Do not delete the only working index before the replacement
+is valid. Physical index checksums may differ across accepted rebuilds; logical
+query equivalence is checked against canonical records under the same release.
+
+C32. Indexed adjacency is required in both directions with relation type and
+stable pagination key. A small neighbourhood must not trigger an unconditional
+global edge-file scan. Cursors bind release root, query/filter/type scope, sort
+rule and continuation position. A cursor from a different release or changed
+query must be rejected. Traversal results report limits and truncation.
+
+C33. Relative/logical references are authoritative; absolute local paths,
+Drive filenames and expiring URLs are not. Decoder, Microscope and other readers
+use the same record meanings. An index is not a second editable copy of science.
+
+10. LOCATION, RETENTION, SECURITY AND COMPATIBILITY [C34–C38]
+
+C34. Keep Google Drive as the current durable destination. A Locator maps
+ContentRef to exact provider file ID and, when needed, bound multipart manifest
+and receipt. Provider-specific location is outside scientific identity.
+Credentials and signed/expiring URLs MUST NOT be embedded in canonical records,
+schemas, public code, provenance bundles or frozen contracts.
+A remote upload response alone is not byte readback.
+
+C35. Separate pinned accepted releases, pending outputs, required failed attempts
+and disposable caches. Deletion requires a dry-run reachability report from
+all retained roots/seals/checkpoints and required failures, an explicit grace
+interval and verified preservation/replacement. No deletion is authorized by
+this Step 1. Hashes cannot restore a deleted sole copy; an independently
+restorable backup is a separate operational obligation.
+
+C36. Reject path traversal, unsafe symlinks, duplicate archive members, malformed
+lengths, resource bombs and unsupported codecs before publication/materialization.
+Scientific data and schema descriptors are data, not instructions to execute
+imports, scripts, pickle loaders or untrusted network requests. Decoding tools
+must be registered under the native execution/security policy when execution
+is needed. Schema $ref resolution uses only pinned local schema resources.
+
+C37. Schema and version evolution is explicit.
+The schemas/ directory defines version 1.0.0 with additionalProperties=false.
+Unknown schema IDs or unknown required extensions fail closed.
+Optional extensions are carried intact, identified by pinned definition/payload,
+and cannot affect interpretation, equality, completeness or acceptance.
+Readers may skip an unsupported optional extension but must report doing so.
+A semantic change requires a new schema/profile ID and explicit migration.
+Even documentation errata create a new immutable package/version when changing
+a frozen byte. Do not overwrite this freeze to hide an amendment.
+
+Migration records must bind source/target release, transformation, mapping of
+native IDs/scopes, exact cardinality rules, preserved evidence, source and target
+byte manifests, comparison results and limitations. No implicit conversion from
+SET to MULTISET, from exact carrier to quotient, or from historical to replayed.
+A later standard codec is acceptable after round-trip qualification; the data
+model does not depend on a specific future storage vendor.
+
+C38. Backward compatibility is additive.
+Do not add unknown fields to dev89's strict IG_REPLAY_REFERENCE_RECORD_V1,
+IG_REPLAY_REFERENCE_DATASET_MANIFEST_V1, FILE_SET or transport V1 formats.
+These new storage envelopes are sidecars/projections, referencing existing
+records and exact payloads. Later native code must explicitly register/read
+the new schema; until then it must reject them rather than ignore constraints.
+The current dev89 validator has a limited keyword contract. A complete JSON
+Schema document containing $ref must not be passed to it as though it resolved
+all references. Step 2 must deliberately bind a supported validator/read path.
+
+11. FREEZE EXIT AND LATER IMPLEMENTATION GATES
+
+This step is complete as a specification when:
+the core contract, structural schema, data dictionary, compatibility mapping,
+synthetic examples and future acceptance checks are saved;
+artifact-only checks establish parse/schema/example consistency and hashes;
+a versioned freeze manifest pins normative files, and the delivery package is
+saved with actual Drive readback verified.
+No scientific acceptance or engine release qualification follows from this.
+
+Later implementation must show, through registered native jobs:
+preserved native IDs, exact payloads, cardinality and observer semantics;
+read-only indexed bounded queries and atomic index replacement;
+fixed-build/runtime attestation as required by the audit;
+bounded checkpoint/save/restore within an explicit resource envelope;
+native legacy round trips, large/deep/wide/n-ary/permitted-cycle fixtures;
+fault-injected missing/corrupt/reordered parts, interrupted publication,
+stale-index rejection and fresh-environment restoration.
+Step-1 artifact checks are not replacements for these jobs.
+
+Implementation choices deliberately left to measurements: page/shard sizes,
+spill/cache budgets, concurrent reader counts, checkpoint cadence, compression
+levels and first bulk-table codec. They do not change the frozen identity or
+authority rules. Before the master block is generated, every active native
+profile and required reader/publisher path must be explicitly qualified.
+
+END OF NORMATIVE CONTRACT

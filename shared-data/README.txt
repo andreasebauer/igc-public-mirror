@@ -1,3 +1,8 @@
+SUPERSEDED STORAGE PROPOSAL — NOT ACTIVE
+Current decision: keep data on Google Drive. R2 was not adopted.
+For Decoder use ../DECODER_READ_FIRST.txt and ../decoder-admin/CATALOG.json.
+The following proposal is retained as history, not current instructions.
+
 SHARED INFINITY GRID DATA STORE — PROTOTYPE, NOT YET PROVISIONED
 26 September 2026
 

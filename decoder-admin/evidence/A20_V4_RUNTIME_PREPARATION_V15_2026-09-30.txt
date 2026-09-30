@@ -1,0 +1,76 @@
+A20 V4 RUNTIME PREPARATION V15 — 2026-09-30
+
+RESULT: V4 bytes assembled and statically checked; NOT EXECUTED OR QUALIFIED.
+Full RC and all 23 RC acceptance rows remain OPEN. Dev137 source unchanged.
+
+Completed
+Recovered the exact historical wheel archive referenced by READ_FIRST_DEV89:
+Drive 1dv3z3rmilKUAZgLZR78MuYBy3d08emxK, 22149371 bytes, SHA256
+abcd1d685eb4476b95f3b2412152bc3e6d28ffe7fc6570221ca9007e85c9d8cf.
+Extracted only pip 26.2.1, setuptools 84.0.0 and wheel 0.48.0. All are py3-none-any;
+their declared Requires-Python permits Python 3.13.5. Verified the top-level wheel
+RECORD file set and each recorded size/hash before overlay. This is declared
+compatibility and byte integrity, not proof of functional compatibility.
+
+Assembled a new runtime from the two exact V3 part ZIPs plus these three wheels,
+without modifying the V3 parts. V4 contains 4721 files and 22 top-level Python
+distributions. The three wheel bytes and their hash lock are included here.
+The manifest binds every runtime file and seven external host libraries. The
+four host libraries identified in V12 are now explicitly hashed; all seven
+current host files matched their pins. This still does not prove complete
+dynamic native-library closure or independent-host portability.
+
+The assembly uses pure wheel extraction; no console entry-point scripts were
+generated. Future commands must use the intended interpreter's module interface
+where applicable. Python startup/.pth processing and actual imports/builds have
+not been exercised. The runtime is an unqualified candidate, not a pip-certified
+installation or a qualified replacement for V3.
+
+Checked active base Requires-Dist constraints for all 22 distributions under
+explicit CPython 3.13.5 / Linux x86-64 markers, with no package optional extras
+selected. All evaluated constraints were satisfied. Optional package test/doc
+extras and unobserved dynamic imports are outside that check. The overlay lock
+is not a complete source/build/install lock; uv.lock remains unreconciled.
+
+Fixture progress
+Fetched both immutable historical fixture archives anew and verified exact bytes:
+step2_parent_snapshot — 14778768 bytes, SHA256
+713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8
+failed_evidence — 10905102 bytes, SHA256
+5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41
+This proves archive-byte availability, not native admission or current-candidate
+fixture completion. The private failed-evidence archive is NOT included in this
+bundle or published. Five candidate-specific fixture roles remain unbound.
+
+Administrative failure retained
+The first assembly helper chose a vendored dist-info/RECORD inside setuptools
+and stopped at RECORD_FILESET. It did not execute the candidate runtime. The
+initial script and partial runtime directory were retained. The corrected helper
+selects only the top-level wheel RECORD/METADATA, checks the same strict hashes,
+and assembled into a different new directory runtime_corrected. No integrity
+requirement was relaxed. This was an administrative retry, not a test rerun.
+One invalid Drive search filter returned HTTP 400 during discovery; the wheel
+archive was then located from the saved dev89 handoff. No missing-file conclusion
+was drawn from that failed search.
+
+Next
+Freeze an explicit, bounded native runtime-qualification protocol and its exact
+source/runtime inputs. Save/read back prerequisites before any execution. Check
+the V4 launcher/import/build-tool behavior and runtime binding through registered
+work, with explicit optimization-off and A12 temporary-workspace rules. Complete
+native dependency/lock reconciliation before claiming installation readiness.
+Then create the five dev137-specific fixture captures, saving the genuine prerun
+export before first execution. Do not regenerate historical fixtures or rerun
+completed campaigns merely to resume. All status advancement requires new exact
+completion evidence; V3's historical qualification is not transferred to V4.
+
+Reconstruction
+The small bundle contains the three wheel overlays, complete V4 file manifest,
+exact administrative scripts, fixture readback proof, dependency-check output,
+base runtime part catalog and updated RC ledger. The two V3 part ZIPs remain
+external; this is not a standalone runtime archive. prepare_v4.py records the
+completed assembly using the V13 input layout and acquired wheel archive. For a
+fresh reconstruction, resolve saved IDs and adapt input paths explicitly rather
+than assuming the old attachment paths survive. Do not run merely to resume.
+
+Runtime/test/science executions in this step: ZERO. Shared pointer not promoted.

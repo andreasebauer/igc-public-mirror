@@ -1,0 +1,69 @@
+{
+  "schema_id": "DECODER_RECOVERY_CATALOG_V1",
+  "source": {
+    "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+    "package_sha256": "373b3bdf47abfbfd795878d8fd299ec6ac13ab7047f774f7aa8ac0239b48f224",
+    "version": "0.8.0.dev137+lib",
+    "archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+    "qualification": "UNQUALIFIED"
+  },
+  "objects": [
+    {
+      "name": "runtime_base_1",
+      "filename": "RUNTIME_V3_FILES_PART_01.zip",
+      "sha256": "4e82603bfbec0fe95d192da9148913b29389b14f2a924557baa79ee05dca06ef",
+      "size_bytes": 25773303,
+      "drive_id": "1WLvomH8cIio7AGrVxypiwOMkNEc2y6r_",
+      "role": "runtime_base",
+      "required_for": "runtime_restore"
+    },
+    {
+      "name": "runtime_base_2",
+      "filename": "RUNTIME_V3_FILES_PART_02.zip",
+      "sha256": "5eff52e819cbf9330b8fbf5990ecaa9348d665056565d2009fe215a6f35c2166",
+      "size_bytes": 24357949,
+      "drive_id": "1XUdvP_h0gmHtcqOlKwAdpkfD5JFzxEtg",
+      "role": "runtime_base",
+      "required_for": "runtime_restore"
+    },
+    {
+      "name": "runtime_overlay",
+      "filename": "A20_V4_RUNTIME_PREPARATION_V15_2026-09-30.zip",
+      "sha256": "455864c1d320220fae1a704f55d1697d9413825de95d56935981d60c406138ac",
+      "size_bytes": 2815624,
+      "drive_id": "1Q_phnr3oV73l8tyVizevVRAGWh3jcOvf",
+      "role": "runtime_overlay",
+      "required_for": "runtime_restore"
+    },
+    {
+      "name": "step2_parent_snapshot",
+      "filename": "713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8.bin",
+      "sha256": "713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8",
+      "size_bytes": 14778768,
+      "drive_id": "1wMPapx4NjbldwpZi10NlE8SdOgf6pjG9",
+      "role": "historical_fixture",
+      "required_for": "full_qualification",
+      "visibility": "Drive-held"
+    },
+    {
+      "name": "failed_evidence",
+      "filename": "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41.bin",
+      "sha256": "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41",
+      "size_bytes": 10905102,
+      "drive_id": "1yOZW8AoovNaHOE3jbaLGxhqSZlT-M6Ts",
+      "role": "historical_fixture",
+      "required_for": "full_qualification",
+      "visibility": "private"
+    }
+  ],
+  "unresolved_fixtures": [
+    "saved_stage_one",
+    "saved_stage_four",
+    "saved_stage_outcome",
+    "saved_representative_qualification",
+    "saved_stage_one_prerun"
+  ],
+  "scope": "Complete locator set for assembling current source/runtime and two pinned historical qualification inputs. NOT full historical science/replay recovery closure.",
+  "science_replay_closure": "NOT_INVENTORIED_HERE",
+  "full_rc": "OPEN"
+}

@@ -1,0 +1,64 @@
+A20 DEV137 CANDIDATE RECONCILIATION V14 — 2026-09-30
+
+Prepared source candidate 0.8.0.dev137+lib. NOT QUALIFIED, NOT PROMOTED.
+Full RC and all 23 RC acceptance rows remain OPEN.
+
+Changes
+The active qualification profile now lists every current top-level test file
+exactly once: 162 functional, one workspace, one representative, one timing.
+The 42 newly listed functional selectors retain a pending execution-class and
+fixture review. Native pytest collection has not run; these are file counts.
+
+The candidate selects CPython 3.13.5 and the 19 verified V3 distribution versions
+as the starting target, plus setuptools 84.0.0, wheel 0.48.0 and pip 26.2.1.
+These three build-tool versions are retained historical targets, not evidence
+of acquired or compatible Python 3.13 wheels. The future augmented runtime has
+the provisional name V4 and is NOT built, bound or qualified.
+
+pyproject.toml now selects pytest 9.0.2 and NetworkX 3.6.1, matching the chosen
+target. Qualification extras now also include jsonschema and referencing for
+storage tests. The existing contract test's exact pytest/NetworkX expectations
+were updated with those pins; exhaustive coverage, mandatory dependency and
+fixture-role checks were retained. No production algorithms were changed.
+
+Historical profile, instructions, packaging, contract test and build metadata
+are copied under qualification/history/dev136/. Active build metadata identifies
+the exact dev136 parent archive and states unqualified status explicitly.
+The original Python 3.12 requirements file and uv.lock remain historical; the
+new READ_FIRST explicitly forbids treating them as the candidate's install lock.
+The py313 TARGETS file is clearly marked NOT INSTALLABLE: it has no wheel hashes.
+
+Verification performed
+Administrative static verification confirmed exact-once coverage of 165 files,
+valid TOML/JSON and syntax of edited Python files, and agreement between all
+exact qualification/verification/storage extra pins and the target environment.
+Changed-file hashes, a full textual diff, deterministic construction script and
+the complete candidate source ZIP are included. This is not executed functional
+verification. Tests, native jobs and scientific workloads executed: ZERO.
+The original dev136 tree, V3 runtime and shared source pointer are unchanged.
+
+Next gate
+Acquire/pin the three build-tool wheels and resolve all Python dependency markers
+and native-library closure for the explicit V4 target. The A22 V12 gaps remain.
+Create a hash-locked install plan and reconcile uv.lock before installation;
+do not silently resolve to different versions or reuse V3 qualification for V4.
+Review the 42 new selectors, then seal the final candidate/runtime and obtain the
+seven fixture roles. Five candidate-specific artifacts require verified native
+capture provenance, including a genuine pre-execution stage-one export. Two
+historical fixture inputs retain their immutable pins and require readback.
+Save/read back the complete preregistration and prerequisites before collection
+or execution. Run only missing work under the declared A12 temporary-workspace
+policy; do not rerun historical diagnostics by default.
+
+The candidate is reviewable now but cannot be called qualification-ready.
+No new Claude audit was fetched or adjudicated in this step.
+
+Source ZIP: DEV137_UNQUALIFIED_SOURCE.zip
+SHA256: 808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605
+Bytes: 22423267
+Parent dev136 archive SHA256:
+a91db5235d4e00330e6a493629e0dbee2d808c75a13aed1599bcc53b8937a9ac
+
+Resume from this full source archive; do not regenerate it merely to resume.
+build_candidate.py records the transformation from the restored V13 dev136
+source/profile inputs. It refuses to overwrite an existing candidate directory.

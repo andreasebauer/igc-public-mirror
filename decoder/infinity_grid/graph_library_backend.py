@@ -31,6 +31,8 @@ def _edge(u,v,a,b):
     return (u,v,a,b) if u<v else (v,u,b,a)
 
 def automorphisms(n, colors, edges, legacy, backend=None):
+    # Normalize supported colors once for both production and retained backends.
+    if supported(n,colors,edges):colors=tuple(tuple(c) for c in colors)
     choice=select_backend(n,colors,edges,backend);_COUNTS[choice]+=1
     if choice=='legacy':return legacy(n,colors,edges)
     import igraph

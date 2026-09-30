@@ -224,7 +224,7 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
         plan=json.loads((log_path.parent/'REPORT_PLAN.json').read_text())
         node_root=log_path.parent/'node_process_logs';node_root.mkdir(parents=True,exist_ok=True)
         env=dict(os.environ);env['PYTHONPATH']=str(candidate)
-        code=0;node_logs=[]
+        code=0;node_logs=[];phase_receipts=[]
         # Never execute pytest inside the long-lived worker.  Each selector gets
         # a fresh exec boundary, so test forks cannot inherit the worker's
         # evidence stream or Python finalization frame.
@@ -238,6 +238,13 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
                 cwd=candidate,env=env,final_path=final)
             node_logs.append(raw)
             if proc.returncode!=0:code=proc.returncode
+            else:
+                from .validation_reports import verify_finalization
+                receipt=json.loads((log_path.parent/'finalization_refs'/(canonical_sha256([node])+'.json')).read_text())
+                if receipt.get('selectors') != [node]:
+                    raise ValidationRuntimeError('VALIDATION_FINAL_SELECTOR')
+                verify_finalization(log_path.parent,plan['binding'],receipt)
+                phase_receipts.append(receipt)
         _wait_for_validation_descendants()
         active_path=log_path.with_suffix('.active')
         with active_path.open('xb') as stream:
@@ -245,9 +252,14 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
             stream.flush();os.fsync(stream.fileno())
         if os.getpid()!=owner_pid:os._exit(0)
         log_record=_publish_worker_log(active_path,log_path)
+        phase_path=log_path.with_suffix('.phases.json')
+        from .canon import write_json_atomic
+        write_json_atomic(phase_path,{'binding':plan['binding'],'receipts':phase_receipts})
+        phase_raw=phase_path.read_bytes()
         text=log_path.read_bytes().decode('utf-8',errors='replace')
         benchmarks=_benchmark_payloads(text)
         payload={'return_code':code,'nodes':nodes,'status':'PASS' if code==0 else 'FAIL',**log_record,'tail':_compact(text),'benchmarks':benchmarks}
+        payload.update(phase_manifest_sha256=hashlib.sha256(phase_raw).hexdigest(),phase_manifest_size_bytes=len(phase_raw))
         rc=0
     except BaseException as exc:
         payload={'return_code':2,'nodes':nodes,'status':'FAIL','error':type(exc).__name__+':'+str(exc),'tail':''}
@@ -336,6 +348,18 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
             except OSError:pass
     _verify_worker_evidence_set(log_root,results,prior=prior_worker_evidence)
     _verify_node_evidence_set(log_root,results,prior=prior_node_evidence)
+    from .validation_reports import verify_finalization
+    for result in results:
+        if result.get('return_code') != 0: continue
+        phase_path=(log_root/result['log_path']).with_suffix('.phases.json')
+        raw=phase_path.read_bytes()
+        if (hashlib.sha256(raw).hexdigest()!=result.get('phase_manifest_sha256') or
+                len(raw)!=result.get('phase_manifest_size_bytes')):
+            raise ValidationRuntimeError('VALIDATION_PARENT_PHASE_MANIFEST')
+        packet=json.loads(raw)
+        if packet.get('binding')!=binding or [r['selectors'] for r in packet['receipts']]!=[[n] for n in result['nodes']]:
+            raise ValidationRuntimeError('VALIDATION_PARENT_PHASE_SELECTORS')
+        for receipt in packet['receipts']: verify_finalization(log_root,binding,receipt)
     node_rows,group_status,collection_errors=reduce_reports(log_root,binding,nodes,results)
     result_core={'schema_id':'IG_DECODER_VALIDATION_GROUP_RESULT_V1','group':group,'nodes':node_rows,'status':group_status}
     if collection_errors:result_core['collection_errors']=collection_errors
@@ -344,7 +368,7 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
     return {'group':group,'status':result_core['status'],'result_sha256':result_sha,'result':result_core,
             'execution_metadata':{'workers_requested':int(workers),'workers_used':len(parts),'partitions':[r.get('nodes',[]) for r in ordered],
                                   'wall_seconds':time.monotonic()-started,'child_pids':[r.get('pid') for r in ordered],
-                                  'worker_logs':[{'worker_index':r.get('worker_index'),'nodes':r.get('nodes',[]),'status':r.get('status'),'return_code':r.get('return_code'),'log_path':r.get('log_path'),'log_sha256':r.get('log_sha256'),'log_size_bytes':r.get('log_size_bytes'),'error':r.get('error'),'benchmarks':r.get('benchmarks',[])} for r in ordered]},
+                                  'worker_logs':[{'worker_index':r.get('worker_index'),'nodes':r.get('nodes',[]),'status':r.get('status'),'return_code':r.get('return_code'),'log_path':r.get('log_path'),'log_sha256':r.get('log_sha256'),'log_size_bytes':r.get('log_size_bytes'),'phase_manifest_sha256':r.get('phase_manifest_sha256'),'phase_manifest_size_bytes':r.get('phase_manifest_size_bytes'),'error':r.get('error'),'benchmarks':r.get('benchmarks',[])} for r in ordered]},
             'failure_tails':[r.get('tail','') for r in results if r.get('status')!='PASS']}
 
 def run_registered_validation_groups(candidate_root:str|Path,groups:Iterable[str],*,workers:int=4,worker_uid:int|None=None,worker_gid:int|None=None,wall_seconds_max:float|None=900)->dict[str,Any]:

@@ -1,0 +1,85 @@
+{
+  "all_four_pass": true,
+  "equality_semantics": "Fixed interface bijection applied consistently to the whole object/relation. No record-by-record value sorting and no construction provenance treated as physical content.",
+  "test": "Corrected isomorphism-level re-verification suite",
+  "tests": [
+    {
+      "actual_score2_records": 512,
+      "external_score2_events": 8,
+      "full_mask_domain_checks": 16777216,
+      "full_mask_domain_mismatches": 0,
+      "isomorphism_semantics": "A fixed port bijection maps old abstract interface ports to deliberately scrambled serialization positions. The selected attachment port is mapped by the same bijection; no record-by-record value sorting is allowed.",
+      "metamorphic_bridge_checks": 61440,
+      "metamorphic_bridge_mismatches": 0,
+      "result": "PASS",
+      "serialization_permutations": 3,
+      "test": "Bridge Sufficiency under anonymous-port isomorphism"
+    },
+    {
+      "PM_out_mismatches": 0,
+      "T_out_mismatches": 0,
+      "actual_score2_records": 192,
+      "chunks": 5,
+      "dynamic_admissible_compositions": 74880,
+      "dynamic_composition_checks": 77760,
+      "external_events": 27,
+      "field_mismatches": {},
+      "result": "PASS",
+      "symbolic_cases": 5880,
+      "symbolic_field_mismatches": {},
+      "test": "Output Sufficiency under anonymous-port/destination isomorphism"
+    },
+    {
+      "PM_out_mismatches": 0,
+      "T_out_mismatches": 0,
+      "behavioral_records": 192888,
+      "collision_classes": 38070,
+      "collision_paths": 76140,
+      "deep_all_external_iso_checks": 863136,
+      "deep_classes": 64,
+      "field_mismatches": {},
+      "first_failure": null,
+      "fixed_core_T_permutation_new_to_old": [
+        2,
+        0,
+        1
+      ],
+      "fixed_core_port_permutation_new_to_old": [
+        3,
+        0,
+        4,
+        1,
+        2
+      ],
+      "full_collision_iso_checks": 761400,
+      "microscopic_paths": 230958,
+      "note": "Each microscopic path is independently reconstructed. One side is deliberately reserialized by a fixed nontrivial core-port and T permutation; bridge attachment indices are mapped through the same bijection and outputs are compared as anonymous-token maps.",
+      "result": "PASS",
+      "test": "Output Sufficiency collision/multiplicity sweep under fixed interface isomorphism"
+    },
+    {
+      "exact_iso": true,
+      "macro_T_permutation_new_to_old": [
+        2,
+        0,
+        1
+      ],
+      "macro_canonical_records": 4251528,
+      "macro_max": 1,
+      "macro_only": 0,
+      "macro_parents": 10628820,
+      "macro_port_permutation_new_to_old": [
+        3,
+        0,
+        4,
+        1,
+        2
+      ],
+      "raw_max": 1,
+      "raw_only": 0,
+      "raw_parents": 15943230,
+      "raw_records": 4251528,
+      "test": "interacting score obstruction under fixed interface isomorphism"
+    }
+  ]
+}

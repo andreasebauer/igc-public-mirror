@@ -1,4 +1,25 @@
-DECODER SOURCE QUALIFICATION PROFILE — DEV83
+DEV137 PYTHON 3.13 QUALIFICATION CANDIDATE — NOT QUALIFIED
+
+PROFILE.json targets CPython 3.13.5 with a new V4 runtime. V4 does not yet exist.
+The profile covers all 165 current test files; newly added functional selectors
+remain subject to fixture/execution-class review. Native collection has not run.
+Build tools setuptools 84.0.0, wheel 0.48.0 and pip 26.2.1 must be acquired,
+hash-bound and checked for compatibility. V3 alone is insufficient.
+Historical requirements-linux-py312.txt and uv.lock are not the candidate lock.
+Do not install this candidate using those historical locks. A complete new
+hash-locked dependency set, including transitive/native requirements, is pending.
+No tests or fixtures may be launched based on this file alone. Freeze the new
+runtime, source and actual fixture inputs in a saved/read-back preregistration.
+Preserve all seven fixture roles; create prerun exports before first execution.
+No historical result, runtime qualification or completion qualifies dev137.
+A12 temporary-workspace restrictions and A22 dependency limitations still apply.
+
+The original dev136 profile, packaging, contract test, instructions and build
+metadata are preserved under qualification/history/dev136/ for provenance.
+The following earlier operational rules remain relevant, but their Python 3.12,
+wheelhouse and lock references are historical, NOT current installation guidance:
+
+DECODER SOURCE QUALIFICATION PROFILE
 
 This profile is a requirement, not a PASS receipt. Exact current identity is
 read from infinity_grid/_version.py. Historical manifests and completion
@@ -28,7 +49,9 @@ Drive downloads before native controller run. Functional first; workspace and
 representative next; timing alone, one worker, last. Store actual collected
 node inventories and phase outcomes. Skip/error/missing is not PASS.
 
-External fixture roles are enumerated in PROFILE.json. The historical Step2
+External fixture roles are enumerated in PROFILE.json. The functional group
+requires the private failed_evidence input for the snapshot regression; keep
+its original bytes on Drive and bind it in the native capture. The historical Step2
 parent must match its original hash. The other fixtures must be generated
 by registered native jobs on the exact candidate, saved and exported before
 dependent groups. The workspace fixtures exercise 48 values modulo 7, with

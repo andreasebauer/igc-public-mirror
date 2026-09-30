@@ -1,5 +1,7 @@
 """Persist actual pytest node reports as phases finish; reduce data deterministically."""
 from pathlib import Path
+import hashlib
+import os
 import sys
 from .canon import canonical_sha256, write_json_atomic
 from . import submission as sub
@@ -57,6 +59,67 @@ class Recorder:
             write_json_atomic(path,row)
             if sub._read(path) != row:
                 raise RuntimeError('VALIDATION_REPORT_FINAL_READBACK')
+
+    def publish_finalization(self):
+        """Bind this child's exact observed phase records before successful exit.
+
+        The parent checks these bytes as well as the mutable recovery reports.
+        A snapshot never supplies phases that were not observed by this recorder.
+        """
+        self.finalize()
+        collection = sub._read(self.root/'collections'/(canonical_sha256(self.selectors)+'.json'))
+        if (collection.get('binding') != self.binding or
+                collection.get('selectors') != self.selectors or
+                sorted(collection['nodes']) != sorted(self.observed)):
+            raise RuntimeError('VALIDATION_FINAL_COLLECTION_MISMATCH')
+        packet = {'schema_id':'IG_VALIDATION_PHASE_FINAL_V1', 'binding':self.binding,
+                  'selectors':self.selectors, 'collection':collection,
+                  'reports':[self.observed[n] for n in sorted(self.observed)]}
+        raw = sub._json_bytes(packet)
+        digest = hashlib.sha256(raw).hexdigest()
+        target = self.root/'finalizations'/(digest+'.json')
+        target.parent.mkdir(parents=True,exist_ok=True)
+        with target.open('xb') as handle:
+            handle.write(raw); handle.flush(); os.fsync(handle.fileno())
+        from .canon import _fsync_dir
+        _fsync_dir(target.parent)
+        if target.read_bytes() != raw:
+            raise RuntimeError('VALIDATION_FINAL_PACKET_READBACK')
+        receipt = {'sha256':digest,'size_bytes':len(raw),'selectors':self.selectors}
+        write_json_atomic(self.root/'finalization_refs'/(canonical_sha256(self.selectors)+'.json'),receipt)
+        return receipt
+
+
+def verify_finalization(root, binding, receipt):
+    """Require child-bound final phase bytes and reject changed recovery reports."""
+    root=Path(root)
+    digest=receipt.get('sha256','')
+    if len(digest)!=64 or any(c not in '0123456789abcdef' for c in digest):
+        raise RuntimeError('VALIDATION_FINAL_IDENTITY')
+    path=root/'finalizations'/(digest+'.json')
+    if path.is_symlink() or not path.is_file():
+        raise RuntimeError('VALIDATION_FINAL_MISSING')
+    raw=path.read_bytes()
+    if len(raw)!=receipt.get('size_bytes') or hashlib.sha256(raw).hexdigest()!=digest:
+        raise RuntimeError('VALIDATION_FINAL_BYTES')
+    packet=sub._read(path)
+    if (packet.get('schema_id')!='IG_VALIDATION_PHASE_FINAL_V1' or
+            packet.get('binding')!=binding or packet.get('selectors')!=receipt.get('selectors')):
+        raise RuntimeError('VALIDATION_FINAL_BINDING')
+    collection=packet['collection']; reports=packet['reports']
+    names=[r['node'] for r in reports]
+    if (len(names)!=len(set(names)) or sorted(names)!=sorted(collection['nodes']) or
+            collection.get('binding')!=binding or collection.get('selectors')!=packet['selectors']):
+        raise RuntimeError('VALIDATION_FINAL_COLLECTION_MISMATCH')
+    if sub._read(root/'collections'/(canonical_sha256(packet['selectors'])+'.json'))!=collection:
+        raise RuntimeError('VALIDATION_FINAL_COLLECTION_CHANGED')
+    for row in reports:
+        if row.get('binding')!=binding or not selected(row['node'],packet['selectors']):
+            raise RuntimeError('VALIDATION_FINAL_NODE_BINDING')
+        live=root/'nodes'/(canonical_sha256(row['node'])+'.json')
+        if not live.is_file() or sub._read(live)!=row:
+            raise RuntimeError('VALIDATION_FINAL_REPORT_CHANGED:'+row['node'])
+    return reports
 
 
 def report_rows(root,binding):

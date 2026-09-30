@@ -1,0 +1,50 @@
+DECLARED CONTENT CLOSURE V1 — ENGINEERING PROFILE
+
+Input is the ContentRef of canonical JSON containing exactly:
+schema_id: IG_STORAGE_DECLARED_CLOSURE_REQUEST_V1
+purpose: SCIENCE or SCHEMA_FIXTURE
+roots: nonempty array of ContentRefs
+interpretations: array of {content_ref, format}, unique by digest
+required_content: array of ContentRefs, unique by digest
+
+The request is a frozen control input outside the content closure, avoiding
+self-referential inventory hashes. Each non-structural discovered dependency
+must appear in required_content, and no unreachable extras are accepted.
+Collection pages are verified structural objects outside that inventory;
+collection profiles and shards are required content. A ref used in both roles
+remains required. Root data records themselves are required content.
+
+Formats: STORAGE_RECORD_V1 (pinned contract schema); OPAQUE_LEAF_V1 (explicit
+no-dependency declaration); JSON_DEPENDENCIES_V1 (canonical JSON with exactly
+schema_id=IG_STORAGE_EXTERNAL_DEPENDENCIES_V1 and dependencies=[ContentRefs]);
+COLLECTION_KEY_PROFILE_V1 (the existing supported canonical JSONL key profile).
+NATIVE_REFERENCE_RECORD_V1 is recognized but refuses with adapter-required:
+verifying a legacy seal alone does not discover legacy dependency meaning.
+Unknown/missing formats refuse. Known payload/type/identity-profile targets
+require matching storage record types; an opaque declaration cannot downgrade
+them. Other opaque declarations are assumptions of this engineering request,
+not proof that arbitrary scientific formats are truly dependency-free.
+
+Each fetch checks length/hash before interpretation, even with a custom provider.
+A work queue bounds depth, edges, unique content identities and fetched bytes;
+collection traversal uses its existing independent bounded profile. Native
+identity tuples are qualified by object/occurrence/relation/incidence kind,
+native ID, exact scope and exact profile. References resolve against discovered
+records. Ambiguity/dangling references refuse. Scientific cycle policy is a
+separate gate; allowed storage of cyclic native references does not certify
+scientific legality. Shared byte nodes are processed once per interpretation,
+while individual dependency-role edges remain in the report.
+
+Result: STRUCTURAL_PASS / DECLARED_REQUIRED_CONTENT_CLOSURE / NOT_GRANTED.
+Decoded commitments remain pending decoding checks. Optional extensions skipped
+are reported; required extensions and UNKNOWN optional fields refuse. Release
+predecessor lineage is reported without traversing old release workspaces.
+No PublicationSeal, authority decision, release-acceptance policy, ReleaseRoot
+binding, or production format-registry admission is granted. This request does
+not replace the frozen ReleaseRoot.required_content_inventory CollectionRef.
+Production binding between those objects is still required in a later gate.
+
+Maximum/default engineering limits: 4 MiB content object, 64 MiB fetched bytes,
+8192 identities, 32768 dependency edges, 100000 records, depth 32. Request JSON
+is bounded to 1 MiB. Smaller positive integer limits are accepted. These are
+admission ceilings, not a measured maximum-scale performance guarantee.

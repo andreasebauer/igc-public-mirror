@@ -9,7 +9,7 @@ child lifecycle; substantive work begins only inside the child event loop.
 import hashlib, json, os, shutil, sys, time
 from pathlib import Path
 from typing import Any
-from .canon import canonical_sha256, write_json_atomic
+from .canon import canonical_bytes, canonical_sha256, write_json_atomic
 from .v05_execution_authority import source_tree_digest
 from .v05_engineering_worker import engineering_source_tree_digest
 from .v05_origin_guard import _supervisor_controller_event_scope, require_controller_execution_origin
@@ -108,6 +108,32 @@ def _start_controller_attempt(runtime:Path,request_id:str,request:dict[str,Any],
     binding=dict(running,workspace=str(runtime.resolve()),attempt_path=str(attempt_path.resolve()),
                  attempt_sha256=canonical_sha256(running))
     return attempt_path,binding
+
+def _reconcile_workspace_attempts(attempts:Path, request_id:str, job_id:str,
+                                  source_sha256:str, registration_sha256:str)->None:
+    """Close interrupted records only while the caller owns workspace/work locks.
+
+    PID values are deliberately not liveness evidence across restored namespaces.
+    Retain the entire original record and its digest in the recovery transition.
+    Validate every pending transition before writing any of them.
+    """
+    pending=[]
+    for path in sorted(attempts.glob('*.json')):
+        record=json.loads(path.read_text(encoding='utf-8'))
+        if record.get('status')!='RUNNING': continue
+        expected={'request_id':request_id,'job_id':job_id,
+                  'source_sha256':source_sha256,'registration_sha256':registration_sha256,
+                  'attempt_id':request_id+':'+path.stem}
+        if any(record.get(k)!=v for k,v in expected.items()):
+            raise ControllerLoopError('INTERRUPTED_ATTEMPT_BINDING_MISMATCH')
+        pending.append((path,record))
+    for path,record in pending:
+        recovered=dict(record,status='INTERRUPTED',finished_unix=time.time(),
+                       reason='New registered attempt acquired exclusive workspace and work locks',
+                       recovery={'prior_record':record,'prior_record_sha256':canonical_sha256(record),
+                                 'basis':'EXCLUSIVE_WORKSPACE_AND_WORK_CLAIM'})
+        write_json_atomic(path,recovered)
+
 
 def _finish_controller_attempt(attempt_path:Path,status:str,reason:str|None=None)->None:
     record=json.loads(attempt_path.read_text(encoding='utf-8'))
@@ -753,14 +779,34 @@ def verified_completion(admission, *, allow_pending_checkpoint=False):
         completion=root/'runtime/intake/prepared_completions'/(req['request_id']+'.json')
     if completion.exists():
         done = _json_object(completion)
-        if (done.get('schema_id') != 'IG_DECODER_WORKSPACE_COMPLETION_V1'
-            or done.get('registration_sha256') != job['registration_sha256']
-            or done.get('source_sha256') != admission['source_sha256']
-            or done.get('request_sha256') != identity['request_sha256']
-            or done.get('result_sha256') != canonical_sha256(done.get('result'))
-            or done.get('evidence') != _evidence_rows(out)
-            or done.get('completion_sha256') != canonical_sha256({k:v for k,v in done.items() if k != 'completion_sha256'})):
-            raise ControllerLoopError('COMPLETION_EVIDENCE_MISMATCH')
+        from .completion_evidence import evidence_root
+        out = evidence_root(root, out, done)
+        # Keep the original metadata-first refusal order. Inventory once only;
+        # the diagnostic describes the same read that made the decision.
+        checks = {
+            'schema_id': done.get('schema_id') == 'IG_DECODER_WORKSPACE_COMPLETION_V1',
+            'registration_sha256': done.get('registration_sha256') == job['registration_sha256'],
+            'source_sha256': done.get('source_sha256') == admission['source_sha256'],
+            'request_sha256': done.get('request_sha256') == identity['request_sha256'],
+            'result_sha256': done.get('result_sha256') == canonical_sha256(done.get('result')),
+        }
+        observed = None
+        if all(checks.values()):
+            observed = _evidence_rows(out)
+            checks['evidence'] = done.get('evidence') == observed
+            checks['completion_sha256'] = done.get('completion_sha256') == canonical_sha256(
+                {k:v for k,v in done.items() if k != 'completion_sha256'})
+        if not all(checks.values()):
+            from .evidence_diagnostics import attach
+            raise attach(ControllerLoopError('COMPLETION_EVIDENCE_MISMATCH'),
+                phase='VERIFIED_COMPLETION', done=done,
+                completion_path=completion.relative_to(root).as_posix(),
+                observed_roots={} if observed is None else {out.relative_to(root).as_posix(): observed},
+                failed_checks=[k for k,v in checks.items() if not v],
+                admitted_binding={'source_sha256': admission['source_sha256'],
+                    'registration_sha256': job['registration_sha256'],
+                    'request_sha256': identity['request_sha256']},
+                observation='NOT_READ_METADATA_REFUSAL' if observed is None else 'LIVE_SEQUENTIAL_INVENTORY')
         if not allow_pending_checkpoint:
             from .preservation import terminal_completion_proof
             if not terminal_completion_proof(root,done):
@@ -774,7 +820,7 @@ def _publish_checkpointed_completion(admission, done, claim):
     root=admission['workspace']
     preservation=ensure_terminal_completion(root,done)
     completion=root/'runtime/intake/completed'/(done['request_id']+'.json')
-    if completion.exists() and _json_object(completion)!=done:
+    if completion.exists() and canonical_bytes(_json_object(completion))!=canonical_bytes(done):
         raise ControllerLoopError('COMPLETION_PUBLICATION_COLLISION')
     if not completion.exists():write_json_atomic(completion,done)
     if done.get('publication_protocol')==COMPLETION_PROTOCOL:
@@ -860,6 +906,8 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
             gate = preflight_job(admission)
             write_json_atomic(runtime/'registrations'/f'{rid}.json',job)
             attempts = runtime/'attempts'/rid; attempts.mkdir(parents=True,exist_ok=True)
+            _reconcile_workspace_attempts(attempts,rid,job_id,admission['source_sha256'],
+                                          job['registration_sha256'])
             attempt_no = len(list(attempts.glob('*.json'))) + 1
             attempt_path = attempts/f'{attempt_no:06d}.json'
             running = {'status':'RUNNING','request_id':rid,'job_id':job_id,'pid':os.getpid(),
@@ -893,15 +941,16 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
                 from .preservation import require_quiescent_task_databases
                 require_quiescent_task_databases(out)
                 from .result_contracts import contract_for, verify
-                verification=verify(contract_for(root),result,out)
-                write_json_atomic(out/'RESULT_VERIFICATION.json',verification)
+                from .completion_evidence import prepare_evidence, PROTOCOL
+                sealed, verification = prepare_evidence(admission, out, result)
                 done = {'schema_id':'IG_DECODER_WORKSPACE_COMPLETION_V1',
                         'status':'RESULT_REJECTED' if verification['status']=='REJECTED' else 'COMPLETED' if job['execution']['kind']=='STAGE' or result.get('status')=='PASS' else 'VALIDATION_FAILED',
                         'execution_status':'FINISHED','evidence_status':verification['status'],
                         'scientific_outcome':verification['scientific_outcome'],
                         'request_id':rid,'request_sha256':record['request_sha256'],
                         'registration_sha256':job['registration_sha256'],'source_sha256':admission['source_sha256'],
-                        'result':result,'result_sha256':canonical_sha256(result),'evidence':_verified_artifact_evidence(out,verification),
+                        'result':result,'result_sha256':canonical_sha256(result),'evidence':_verified_artifact_evidence(sealed,verification),
+                        'evidence_protocol':PROTOCOL,'evidence_root':sealed.relative_to(root).as_posix(),
                         'policy':'REGISTERED_ATTEMPT_V1','mirror_status':'NOT_CONFIRMED',
                         'publication_protocol':'CHECKPOINT_BEFORE_COMPLETION_V1'}
                 done['completion_sha256'] = canonical_sha256(done)
@@ -927,10 +976,14 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
 def _snapshot_files(root: Path):
     for p in sorted(root.rglob('*')):
         rel = p.relative_to(root)
-        if any(x in _SKIP_SOURCE for x in rel.parts) or rel.as_posix().startswith('runtime/execution_leases/'):
-            continue
-        if rel.as_posix().startswith(('durability/outbox/','durability/base_objects/')): continue
-        if p.name == '.runner.lock' or p.suffix in {'.pyc','.pyo'}: continue
+        # Runtime evidence inventories include every ordinary file. Source/cache
+        # exclusions must not discard bytes already bound by a completion.
+        evidence = rel.parts[:2] in (('runtime', 'runs'), ('runtime', 'sealed'))
+        if not evidence:
+            if any(x in _SKIP_SOURCE for x in rel.parts) or rel.as_posix().startswith('runtime/execution_leases/'):
+                continue
+            if rel.as_posix().startswith(('durability/outbox/','durability/base_objects/')): continue
+            if p.name == '.runner.lock' or p.suffix in {'.pyc','.pyo'}: continue
         if p.is_symlink(): raise ControllerLoopError('WORKSPACE_SNAPSHOT_SYMLINK')
         if p.is_file(): yield p,rel.as_posix()
 

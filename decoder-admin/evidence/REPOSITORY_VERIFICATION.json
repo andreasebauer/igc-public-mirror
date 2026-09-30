@@ -1,0 +1,27 @@
+{
+  "scope": "ADMINISTRATIVE_RECOVERY_TOOL_CHECKS_ONLY",
+  "source_files_verified": 1510,
+  "dependency_objects_verified": 5,
+  "restored_runtime": {
+    "status": "BYTES_AND_MODES_VERIFIED",
+    "runtime_files": 4721,
+    "host_files": 7,
+    "qualification": "NOT_GRANTED",
+    "runtime_executed": false
+  },
+  "negative_checks": [
+    {
+      "check": "reject_wrong_object",
+      "exit_code": 1,
+      "expected_rejection": true
+    },
+    {
+      "check": "reject_missing_execute_permission",
+      "exit_code": 1,
+      "expected_rejection": true
+    }
+  ],
+  "decoder_tests_executed": 0,
+  "native_workloads_executed": 0,
+  "full_rc": "OPEN"
+}

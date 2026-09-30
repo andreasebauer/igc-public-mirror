@@ -1,0 +1,70 @@
+DECODER — ONE REPOSITORY ENTRY POINT
+2026-09-30, consolidation branch; pin the exact Git commit.
+
+START
+  python decoder-admin/decoder.py status
+  python decoder-admin/decoder.py verify-source
+  python decoder-admin/decoder.py needs
+
+CURRENT TRUTH
+decoder/ is exact dev137 source, UNQUALIFIED. It contains the reconciled 165-file
+qualification profile. It is not a new release or active runtime promotion.
+V4 is assembled, not qualified. V16 failed before Python because its interpreter
+had no execute permission. All 23 RC acceptance rows/full RC remain OPEN.
+No source import, hash verification or repository CI run is a Decoder test PASS.
+
+AUTHORITATIVE LOCATIONS
+decoder/                     Source, tests, package resources, qualification plan.
+decoder-import/              Exact source manifest and source verifier.
+decoder-admin/CATALOG.json   Required runtime and historical fixture objects:
+                             immutable SHA256, byte counts and Drive locators.
+decoder-admin/RUNTIME_*      Runtime byte manifest and explicit permission policy.
+decoder-admin/RC_LEDGER.json  Current RC status, including unresolved failures.
+decoder-admin/evidence/      Recent failure/preparation records, not PASS receipts.
+.decoder-cache/              Ignored local immutable objects; private data stays here.
+/tmp/<new-directory>/        Reconstructed runtime and native live workspaces.
+
+RECOVER WITHOUT SEARCHING OLD CHATS
+Fetch the exact files listed by 'needs' through authenticated Drive access.
+Import each returned file:
+  python decoder-admin/decoder.py import-object NAME /absolute/download/path
+Names: runtime_base_1, runtime_base_2, runtime_overlay,
+       step2_parent_snapshot, failed_evidence.
+The command verifies size/hash before copying into the ignored local cache.
+The private failed_evidence bytes must never be committed or published.
+Catalog IDs are locators, not authentication credentials; access is still required.
+
+Reconstruct the runtime from the three pinned inputs into a NEW destination:
+  python decoder-admin/decoder.py restore-runtime /tmp/decoder-runtime-NEW
+  python decoder-admin/decoder.py verify-runtime /tmp/decoder-runtime-NEW
+The helper validates bytes, safe archive paths and every regular-file mode,
+including executable interpreters. It also checks seven external host libraries.
+It never launches that runtime, installs packages, dispatches a job or retries a
+failed qualification. A failed reconstruction directory is retained for review.
+Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
+this is not a standalone OS image or independent-platform qualification.
+
+WHAT IS STILL MISSING
+Five candidate-specific fixture artifacts are named explicitly in CATALOG.json.
+They do not yet have earned current-candidate completions. Complete wheel/native
+dependency resolution and install lock remain open. uv.lock and py312 requirements
+inside decoder/ are historical and must not be used as current install locks.
+Future registered execution needs saved/read-back prerequisites and a new
+mode-aware qualification protocol. Preserve V16; do not silently retry it.
+The complete historical L0-G8 science/replay data closure is NOT inventoried by
+this engineering catalog. Do not call it complete scientific recovery readiness.
+
+RULES
+Use native captured Decoder jobs for qualification/science. Never transplant old
+PASS records to changed source/runtime identities. New candidate fixtures need
+genuine pre-execution exports. Preserve failures and stop at unexplained mismatch.
+Check live runtime bytes/modes immediately before dispatch under /tmp.
+Do not install the repository root: its pyproject.toml is the older IGC package.
+Microscope, preview and legacy IGC remain separate existing repository components.
+Older imports remain in Git history; their receipts are historical only.
+
+STORAGE DECISION
+GitHub holds Decoder source and recovery metadata. Drive holds runtime archives,
+private fixtures, checkpoints and scientific data. R2 is not active. This is one
+logical repository and manifest, with external large/private objects, rather than
+duplicating all data into public Git. No historical data was deleted or migrated.

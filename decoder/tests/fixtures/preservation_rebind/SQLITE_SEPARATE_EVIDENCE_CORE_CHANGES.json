@@ -1,0 +1,16 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Prospective separate-completion-evidence repair; prior records unchanged. Qualification is established by external native results only.",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "a4fd3e1e6d7bd33268fe3d04cf57f812053e8aae33b87f476aeac7d518e576ae",
+      "reviewed_sha256": "49c2957e6acdb0eae5666b4cf336ed9ea41d9c891aa5dc3d298b9e0f4d99869e",
+      "reason": "Bind new completions to a separate closed evidence snapshot; preserve exact legacy verification. Working databases stay mutable, sealed files remain checked byte for byte."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "287d8fef8ae923c68822bbb381ed249960352233c5e9283fd4c0fd649832fbd0",
+      "reviewed_sha256": "2669fb8341a5139df33cfd3c4f4f0c055fae415b85d0a6bc6cb01aefbbb88000",
+      "reason": "Bind new completions to a separate closed evidence snapshot; preserve exact legacy verification. Working databases stay mutable, sealed files remain checked byte for byte."
+    }
+  }
+}

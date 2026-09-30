@@ -1,0 +1,382 @@
+{
+  "schema_id": "IG_RC_FINDING_LEDGER_REVIEW_V1",
+  "date": "2026-09-29",
+  "source_revision": "0.8.0.dev133+lib",
+  "qualified_source_sha256": "c86231a361df9701902c55be3436bb48640264c037f8c015d16975efc1c1e037",
+  "latest_qualification": "566 bounded engineering PASS / 0 FAIL; full RC OPEN",
+  "status_semantics": "RC acceptance and repair state are independent; historical reports are not fresh current-source qualification.",
+  "rows": [
+    {
+      "id": "A01",
+      "finding": "A rolled-back runner index can hide a retained scientific mismatch",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "REPAIRED_HISTORICAL_REPORTED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical bounded repair reported in dev81; retained stop-inventory logic and tests present.",
+      "evidence": "replay_dag_runner.py; tests/test_audit_stop_recovery.py; DEV81 repair report",
+      "remaining": "Carry original stop/rollback regressions into exact RC gate; no fresh dev124 execution of that suite."
+    },
+    {
+      "id": "A02",
+      "finding": "Retry authorization is not revalidated after it has been applied",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "REPAIRED_HISTORICAL_REPORTED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical bounded repair reported in dev81; exact decision inventory/bindings checked.",
+      "evidence": "replay_dag_runner.py:_verify_history; tests/test_audit_stop_recovery.py; DEV81 report",
+      "remaining": "RC regression including missing, orphan, corrupt and interrupted decisions."
+    },
+    {
+      "id": "A03",
+      "finding": "Reference-store recovery misses the transaction-before-record crash window",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "REPAIRED_HISTORICAL_REPORTED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical bounded repair reported in dev81; V2 embeds record; V1 missing bytes refuse explicitly.",
+      "evidence": "replay_reference_data.py:_recover; tests/test_audit_stop_recovery.py; DEV81 report",
+      "remaining": "RC fault/regression coverage at durable boundaries; do not claim V1 reconstructs absent data."
+    },
+    {
+      "id": "A04",
+      "finding": "Nine current tests contain impossible current-version assertions",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "CORRECTED_SOURCE_RC_PENDING",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Cited nine dev76 assertions corrected in current source; historical pins separated.",
+      "evidence": "Nine files named in original A04; test_decoder06_capture.py; STATIC_EVIDENCE.json",
+      "remaining": "Full current selector collection/execution, including fixtures; not a fresh dev124 full-suite pass."
+    },
+    {
+      "id": "A05",
+      "finding": "Completion is published before terminal preservation succeeds",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "REPAIRED_HISTORICAL_REPORTED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical bounded repair reported in dev82; checkpoint-before-completion retained.",
+      "evidence": "v05_controller_event_loop.py; tests/test_completion_publication.py; DEV82 report",
+      "remaining": "Include terminal publication/proof fault cases in final RC gate."
+    },
+    {
+      "id": "A06",
+      "finding": "Result verification hashes one read and evaluates another",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "REPAIRED_HISTORICAL_REPORTED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical bounded repair reported in dev82; current verify hashes and parses one raw read.",
+      "evidence": "result_contracts.py:verify; controller evidence binding; tests/test_completion_publication.py",
+      "remaining": "RC race and malformed-artifact regressions; strict-parser requirements still need explicit assessment.",
+      "dev133_bounded_followup": "Strict JSON for science artifacts decoded for checks/outcome; rejects duplicate keys, nonfinite constants and float overflow. Other parsers and full A06 acceptance remain open."
+    },
+    {
+      "id": "A07",
+      "finding": "Reference-store verification verifies metadata, not the referenced scientific object",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial: explicit P9 materialized recovery closure qualified, generic metadata verifier remains distinct.",
+      "evidence": "storage_full_recovery_join.py; storage_collection_recovery.py; dev123 closeout",
+      "remaining": "Mandatory downstream admission integration for supported science paths and explicit unsupported scopes."
+    },
+    {
+      "id": "A08",
+      "finding": "A SCIENCE contract can be satisfied by artifact existence alone",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "BOUNDED_REPAIRED_DEV133_RC_PENDING",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "New V2 SCIENCE contracts require explicitly named artifact content constrained by expected hash or non-process value/shape assertions. Direct verification and stored contracts recheck policy. V2 report grants no science authority. Legacy receipts immutable; new V1 SCIENCE admission refuses.",
+      "evidence": "dev133 completion 4c6b849bdef0a1ea974511539c1193c42b5b10505d6920a8b8fc7bdf2018fd84; 16 new A08 cases plus 41 contract/preservation/publication regressions and 509 inherited cases.",
+      "remaining": "Complete historical SCIENCE impact inventory and migration dispositions; exact full RC regression and independent review remain open.",
+      "current_review": "Dev131 source confirms path-only artifact + registered outcome can satisfy SCIENCE. Value checks are independently mandatory. Six FF22 specs inspected: zero existence-only contracts; two path-only artifacts in one spec alongside content assertions. Full historical corpus remains uninspected."
+    },
+    {
+      "id": "A09",
+      "finding": "The architecture preflight falsely rejects platform.system()",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "BOUNDED_REPAIR_QUALIFIED_DEV125",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Bounded repair qualified in dev125 on exact named source; current RC acceptance remains OPEN.",
+      "evidence": "tests/test_rc_audit_repairs.py; DEV125 bounded audit repairs closeout; completion d3a453022b472b9a8f3ec01f6b515da6c923e57a15860e7566b234a4faf9641f",
+      "remaining": "Carry relevant checks into the final exact Decoder candidate gate; qualification here is 440 storage cases plus 12 targeted repair cases."
+    },
+    {
+      "id": "A10",
+      "finding": "Object publication does not fsync the destination directory",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "BOUNDED_REPAIR_QUALIFIED_DEV125",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Bounded repair qualified in dev125 on exact named source; current RC acceptance remains OPEN.",
+      "evidence": "tests/test_rc_audit_repairs.py; DEV125 bounded audit repairs closeout; completion d3a453022b472b9a8f3ec01f6b515da6c923e57a15860e7566b234a4faf9641f",
+      "remaining": "Carry relevant checks into the final exact Decoder candidate gate; qualification here is 440 storage cases plus 12 targeted repair cases. Physical power-loss and broader filesystem/scale/fault qualification not established by injected fsync failures."
+    },
+    {
+      "id": "A11",
+      "finding": "There is no complete exact-source release/qualification matrix",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial: dev88/dev89 matrices reported; dev124 storage source/runtime/selectors explicit; no current full RC matrix.",
+      "evidence": "DEV88 closeout; DEV89 read-first; dev124 CAPTURE_SPEC.json",
+      "remaining": "Final current source/controller/environment/input/selector/completion/restore/promotion matrix.",
+      "current_review": "Dev131 has 509 bounded engineering passes, not full RC. A23 separately records observed shared pointer and historical promotion basis."
+    },
+    {
+      "id": "A12",
+      "finding": "Historical evidence reversions remain unexplained, and diagnostics miss a relevant interaction",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "BOUNDED_UNINSTRUMENTED_TEMP_WORKSPACE_QUALIFIED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "V10 original production-overlap handler, without lifecycle instrumentation, completed with verified evidence at a captured temporary workspace under unchanged dev136 engine and pinned runtime V3. Two 96-task arms and five checks passed; bounded workaround qualified, historical cause/writer not identified.",
+      "evidence": "RC.A12.TEMP_WORKSPACE.UNINSTRUMENTED.V10.DEV136 capture a33201b644dcf72d80e821fdddd651451edec87375a72a88fab4c4d4aa8ab308 completion f18b9ae4e1b7f7227ff64ee95a3910cacf65b48ab1a1ce66e02e143a128a8676",
+      "remaining": "Keep A12 OPEN: explicitly separate bounded operating workaround from historical causality/general repair. Review acceptance independently. Next useful separate RC gate is A22 fresh remote-only bootstrap with controlled local-cache boundary; do not rerun historical jobs."
+    },
+    {
+      "id": "A13",
+      "finding": "Bookkeeping and archive replication are too expensive for small jobs",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "NONE_OR_UNRESOLVED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Open: current submission and registry retain whole-tree in-memory operations.",
+      "evidence": "submission.py:_tree,_archive; portable_registry.py project snapshots",
+      "remaining": "Bounded-memory capture/checkpoint/restore design and measured administrative budgets."
+    },
+    {
+      "id": "A14",
+      "finding": "Library adoption is useful but does not yet cover the production pipeline",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial bounded library adoption; production responsibility map not established by this review.",
+      "evidence": "graph_library_backend.py; graph_metrics_library.py; original A14",
+      "remaining": "Map generation/canonicalization/groups/composition/persistence backends, domains and qualifications."
+    },
+    {
+      "id": "A15",
+      "finding": "The graph wrapper accepts inconsistent color representations",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "BOUNDED_REPAIR_QUALIFIED_DEV125",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Bounded repair qualified in dev125 on exact named source; current RC acceptance remains OPEN.",
+      "evidence": "tests/test_rc_audit_repairs.py; DEV125 bounded audit repairs closeout; completion d3a453022b472b9a8f3ec01f6b515da6c923e57a15860e7566b234a4faf9641f",
+      "remaining": "Carry relevant checks into the final exact Decoder candidate gate; qualification here is 440 storage cases plus 12 targeted repair cases."
+    },
+    {
+      "id": "A16",
+      "finding": "Custom canonicalization needs a stronger invariance qualification",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "NONE_OR_UNRESOLVED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Open qualification scope; path tie-break and bounded refinement remain in current source.",
+      "evidence": "o7_edge_canonicalization.py:_full",
+      "remaining": "Bounded exhaustive relabeling qualification or domain proof; do not claim universal naming."
+    },
+    {
+      "id": "A17",
+      "finding": "Multiple progress ledgers describe different work without one current view",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial: P9 133-record coverage now verified; global scientific obligation view not reconciled here.",
+      "evidence": "dev120/dev123 recovery reports; original A17; historical V38 reference",
+      "remaining": "Link project results and P9 frontier with exact namespaces/evidence modes; no summed progress percentage."
+    },
+    {
+      "id": "A18",
+      "finding": "Important scientific obligations remain bounded or unreplayed",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "NONE_OR_UNRESOLVED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Scientific-scope obligations remain separate; this review does not re-audit all later science.",
+      "evidence": "Original A18; current historical report references",
+      "remaining": "Current primary-evidence dispositions and bounded nonclaims; not all science is a software-release gate."
+    },
+    {
+      "id": "A19",
+      "finding": "Shell-profile semantics still need historical adjudication",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "NONE_OR_UNRESOLVED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Historical padding conversion identified; final adjudication not verified in this review.",
+      "evidence": "graph_metrics_library.py; o7_historical_structural_comparison.py; original A19",
+      "remaining": "Retain mismatch, convention schema and reviewed disposition; distinguish semantic and raw equality."
+    },
+    {
+      "id": "A20",
+      "finding": "Installation, qualification dependencies and platform support are underspecified",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL_DEV137_CANDIDATE_RECONCILED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial: extras and Linux classifier now exist; fixed runtime kit attested.",
+      "evidence": "pyproject.toml; qualification/PROFILE.json; SQLITE_RUNTIME_V2_BINDING.json",
+      "remaining": "Review and capture a new candidate with reconciled profile, packaging and contract pins; bind complete Python 3.13 environment and fixture artifacts; preregister and save prerequisites before native collection/execution.",
+      "current_review": "V16 launch blocked before Python/native capture: interpreter mode 0644, shell exit 126. All 4721 bytes match V15 manifest; modes were not bound. Zero native attempts/checks. Mode-aware reconstruction required before new preregistered launch."
+    },
+    {
+      "id": "A21",
+      "finding": "The accumulated architecture increases the chance of inconsistent repairs",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "NONE_OR_UNRESOLVED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Open maintenance obligation; added storage modules do not establish whole-code consolidation.",
+      "evidence": "Original A21; current orchestration and publication paths",
+      "remaining": "Bounded service consolidation under regression gates; no unbounded rewrite."
+    },
+    {
+      "id": "A22",
+      "finding": "Restore success is not yet a complete independent remote-recovery qualification",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "PARTIAL_FRESH_REMOTE_INPUT_RECOVERY_VERIFIED",
+      "owner": "Decoder RC engineering / audit ledger",
+      "historical_ledger": "RC_FINDING_LEDGER_DEV125.txt",
+      "status": "OPEN",
+      "disposition": "Partial: dev124 returned archive members and original completion restore verified; original external dependencies/runtime reused.",
+      "evidence": "dev124 DELIVERY_BYTE_VERIFICATION.json and DRIVE_RESTORE_CHECK.json; A22 V11 FRESH_RECOVERY_PROOF.json, FRESH_DOWNLOADS.json, RESTORE_PROOF_UNMODIFIED_HELPER.json",
+      "remaining": "Independent approved base environment, complete scoped bootstrap/native dependency closure, enforced cache boundary, explicit unoptimized verifier environment, then preregistered preservation-only qualification.",
+      "current_review": "V11 freshly fetched V10 capsule, both runtime parts and all four external native dependencies, reconstructed exact runtime on the existing host and verified original completion without execution. Controlled input selection, not an enforced clean host/cache boundary. A22 remains OPEN. V12 static scan identifies four unbound SONAMEs in the whole runtime; independent provisioning unavailable through exposed tools. Assert-based verifiers additionally require explicit optimization-off binding."
+    },
+    {
+      "id": "A23",
+      "finding": "Shared-active engine identity and its qualification basis need an explicit current ledger record",
+      "rc_acceptance_status": "OPEN",
+      "repair_state": "DOCUMENTARY_IDENTITY_RESOLVED_RC_PENDING",
+      "owner": "Decoder release/promotion gate",
+      "pointer_observation_status": "OBSERVED_AND_BYTE_MATCHED_2026-09-29",
+      "disposition": "Shared Drive CURRENT_DEVELOPMENT.json selects 0.8.0.dev36+lib. Live source 1206bc294687efdc5a6e63864aef3e033973bf1bcd28ab5bbdeb977d5665d190; engineering source d3f907242a04ba8cfb47e70246670f9a7c8f964cddc85ab56a45b7221e777edc. The pointer is the recorded authorized historical selection; this audit neither supersedes it nor grants full-current-RC acceptance.",
+      "evidence": "evidence/CURRENT_DEVELOPMENT_OBSERVED.json; evidence/POINTER_INSPECTION.json; preserved DEV36_SHARED_PROMOTION_CLOSEOUT ZIP. Pointer raw SHA ae54a7730dc9084c27e8eb5ff76feb0137167b04534fb79fbad09fccf07c7579.",
+      "remaining": "Historical basis: dev33 658/658 baseline plus dev36 87/87 delta, registered validation, 21 C5 requirements, C6 generation 2, restart. No full dev36 rerun claimed. Final RC promotion requires its exact-source qualification and separate explicit promotion decision; no automatic pointer movement is authorized by a bounded PASS. This observation does not inventory every running process or fork."
+    }
+  ],
+  "latest_diagnostic": {
+    "job": "RC.A12.INCIDENT_REPLAY.DEV133.V2",
+    "completion_sha256": "a9047b946b1cd1da72e319a3bd52fece758dcb0b055cc5ffa323d4e61dbea7b9",
+    "checks_passed": 6,
+    "scope": "No addition to the unchanged dev133 566-test qualification; no full RC claim"
+  },
+  "latest_engineering_gate": {
+    "job": "RC.A12.MISMATCH_DIAGNOSTICS.DEV134",
+    "source_sha256": "33ef41930b19568b6ebd177ca314fa03bb53a0e7b4881c180fabb2940e793ea3",
+    "completion_sha256": "b7f916c966337f4c27087adc55d2e6dee3b28e885da0fd8dfa020d2698ec20fa",
+    "cases": 50,
+    "scope": "41 existing targeted regressions plus nine new checks; not a full suite or RC qualification"
+  },
+  "latest_environment_qualification": {
+    "job": "RC.A12.TEMP_WORKSPACE.UNINSTRUMENTED.V10.DEV136",
+    "capture": "a33201b644dcf72d80e821fdddd651451edec87375a72a88fab4c4d4aa8ab308",
+    "source_sha256": "e292c0b436b5b9e11d6d372fd3995adeb6b03ac742ee329a93f27f600f3763f0",
+    "completion": "f18b9ae4e1b7f7227ff64ee95a3910cacf65b48ab1a1ce66e02e143a128a8676",
+    "scope": "Uninstrumented two-arm 96-task A12 overlap at one temporary workspace; five named checks. Not full RC or root-cause resolution."
+  },
+  "latest_recovery_verification": {
+    "schema_id": "IG_A22_FRESH_INPUT_RECOVERY_V11",
+    "status": "PASS_BOUNDED_SAME_HOST_RECOVERY",
+    "recovery_root": "/tmp/ig_a22_v11_remote_20260930",
+    "fresh_drive_objects": 7,
+    "fresh_input_bytes": 142693751,
+    "all_hashes_and_sizes_verified": true,
+    "runtime_files_verified": 3882,
+    "host_files_verified": 3,
+    "completion": "f18b9ae4e1b7f7227ff64ee95a3910cacf65b48ab1a1ce66e02e143a128a8676",
+    "native_workload_executions": 0,
+    "tests_or_science_executed": 0,
+    "capsule_payloads_unchanged_after_restore": 74,
+    "source_and_pointer_promoted": false,
+    "cache_boundary": "Operator-controlled input paths; prior caches not consumed by specified recovery commands, not OS-enforced filesystem denial; connector/server caching uncontrolled.",
+    "bootstrap_boundary": "Existing host Python stdlib, shell, OS/kernel and three pinned host libraries retained. No independently bootstrapped machine.",
+    "helper_scope_note": "Unmodified helper reports fresh_remote_dependency_retrieval=false because it verifies local supplied dependencies only. FRESH_DOWNLOADS.json and this orchestration proof independently record fresh retrieval of all seven recovery inputs.",
+    "host_platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "bootstrap_executables_observed": [
+      {
+        "path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+        "size_bytes": 30894944,
+        "sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7"
+      },
+      {
+        "path": "/usr/bin/dash",
+        "size_bytes": 129784,
+        "sha256": "86d31f6fb799e91fa21bad341484564510ca287703a16e9e46c53338776f4f42"
+      }
+    ],
+    "rc_acceptance": "23 OPEN; full RC OPEN",
+    "restored_location_qualified_for_execution": false
+  },
+  "latest_recovery_readiness": {
+    "status": "BLOCKED_DEPENDENCY_CLOSURE_AND_INDEPENDENT_PROVISIONING",
+    "date": "2026-09-30",
+    "elf_files_inspected": 89,
+    "unmatched_sonames": [
+      "libdl.so.2",
+      "libgcc_s.so.1",
+      "libpthread.so.0",
+      "libstdc++.so.6"
+    ],
+    "tests_executed": 0,
+    "all_23_rc_acceptance_rows": "OPEN"
+  },
+  "latest_qualification_preparation": {
+    "date": "2026-09-30",
+    "draft": "PROFILE_PY313_V13_DRAFT.json",
+    "source": "0.8.0.dev136+lib",
+    "static_test_files": 165,
+    "tests_executed": 0,
+    "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
+  },
+  "latest_candidate": {
+    "version": "0.8.0.dev137+lib",
+    "archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+    "status": "UNQUALIFIED_NOT_PROMOTED",
+    "tests_executed": 0
+  },
+  "latest_runtime_preparation": {
+    "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
+    "status": "ASSEMBLED_NOT_EXECUTED_NOT_QUALIFIED",
+    "tests_executed": 0
+  },
+  "latest_runtime_launch": {
+    "status": "BLOCKED_BEFORE_CAPTURE",
+    "shell_exit": 126,
+    "native_attempts": 0,
+    "checks_executed": 0,
+    "retry_performed": false
+  }
+}

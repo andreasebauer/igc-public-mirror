@@ -47,7 +47,7 @@ def refusal_details(exc, operation, workspace=None, job_id=None):
             # A refusal must never imply that unsaved or missing bytes survived.
             ids = []
     actual_args = getattr(exc, 'required_arguments', None) or args
-    return {'schema_id': 'IG_DECODER_REFUSAL_V1', 'status': 'REFUSED',
+    result = {'schema_id': 'IG_DECODER_REFUSAL_V1', 'status': 'REFUSED',
             'reason_code': code, 'operation_attempted': operation,
             'preserved_artifact_ids': ids,
             'unmet_checks': getattr(exc, 'checks', [str(exc)]),
@@ -57,6 +57,10 @@ def refusal_details(exc, operation, workspace=None, job_id=None):
             'retry_condition': 'Apply the listed correction and complete the save gate; completed jobs are verified and reused.',
             'missing_decisions': [k for k, v in actual_args.items() if v is None]}
 
+    diagnostic = getattr(exc, 'evidence_diagnostic', None)
+    if diagnostic is not None:
+        result['evidence_diagnostic'] = diagnostic
+    return result
 
 def retain_refusal(workspace, job_id, exc, operation='run'):
     """Keep refusal separately from scientific evidence; never overwrite an attempt."""

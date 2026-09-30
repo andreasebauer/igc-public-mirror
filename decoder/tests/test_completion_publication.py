@@ -24,7 +24,7 @@ def old_contracts():
 
 
 def artifact_contract(expected='ORIGINAL'):
-    return rc.normalize({'schema_id':rc.SCHEMA,'claim':'SCIENCE',
+    return rc.normalize({'schema_id':rc.SCIENCE_SCHEMA,'claim':'SCIENCE','scientific_content':['answer.json'],
         'required_artifacts':[{'path':'answer.json','json_checks':[{'pointer':'/outcome','equals':expected}]}],
         'outcome':{'artifact':'answer.json','pointer':'/outcome'},'result_checks':[],
         'prerequisites':[],'preservation':{}},{'kind':'SCRIPT'},{'outcomes':['ORIGINAL','CHANGED']})
@@ -64,13 +64,13 @@ def test_hash_json_checks_and_outcome_use_one_byte_snapshot(tmp_path,monkeypatch
 
 def test_outcome_only_artifact_is_also_read_once(tmp_path,monkeypatch):
     path=tmp_path/'answer.json';path.write_text('{"outcome":"ORIGINAL"}')
-    c=artifact_contract();c['required_artifacts'][0].pop('json_checks')
+    c=artifact_contract();c['required_artifacts'][0].pop('json_checks');c['required_artifacts'][0]['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
     calls=mutate_after_read(monkeypatch,path)
     result=rc.verify(c,{},tmp_path)
     assert result['scientific_outcome']=='ORIGINAL' and len(calls)==1
 
 
-@pytest.mark.parametrize('raw',[b'not json',b'\xff'])
+@pytest.mark.parametrize('raw',[b'not json',b'\xff'],ids=['malformed','invalid_utf8'])
 def test_invalid_artifact_bytes_cannot_supply_outcome(tmp_path,raw):
     (tmp_path/'answer.json').write_bytes(raw)
     result=rc.verify(artifact_contract(),{},tmp_path)

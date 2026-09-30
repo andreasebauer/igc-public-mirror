@@ -510,11 +510,30 @@ class GraphStore:
             out.append(edge)
         return out
 
-    def outgoing(self, node_id: str, edge_types: Iterable[str] | None = None) -> list[dict[str, Any]]:
+    def live_read(self, **budgets):
+        """Fresh bounded adjacency for one planning operation; no stored alias."""
+        from .live_graph_read import LiveGraphRead
+        return LiveGraphRead(self, **budgets)
+
+    def outgoing(self, node_id: str, edge_types: Iterable[str] | None = None, *, snapshot=None) -> list[dict[str, Any]]:
+        # Explicit frozen browsing mode; the legacy live mode remains distinct.
+        # A snapshot is pinned by its caller, never silently rebuilt by a query.
+        if snapshot is not None:
+            from .catalog_read import CatalogueReader
+            if not isinstance(snapshot, CatalogueReader):
+                raise GraphValidationError("INVALID_CATALOGUE_SNAPSHOT")
+            return snapshot.graph_list(node_id, direction="OUT", edge_types=edge_types)
         kinds = set(edge_types) if edge_types is not None else None
         return [e for e in self.list_edges() if e["source_node_id"] == node_id and (kinds is None or e["edge_type"] in kinds)]
 
-    def incoming(self, node_id: str, edge_types: Iterable[str] | None = None) -> list[dict[str, Any]]:
+    def incoming(self, node_id: str, edge_types: Iterable[str] | None = None, *, snapshot=None) -> list[dict[str, Any]]:
+        # Explicit frozen browsing mode; the legacy live mode remains distinct.
+        # A snapshot is pinned by its caller, never silently rebuilt by a query.
+        if snapshot is not None:
+            from .catalog_read import CatalogueReader
+            if not isinstance(snapshot, CatalogueReader):
+                raise GraphValidationError("INVALID_CATALOGUE_SNAPSHOT")
+            return snapshot.graph_list(node_id, direction="IN", edge_types=edge_types)
         kinds = set(edge_types) if edge_types is not None else None
         return [e for e in self.list_edges() if e["target_node_id"] == node_id and (kinds is None or e["edge_type"] in kinds)]
 

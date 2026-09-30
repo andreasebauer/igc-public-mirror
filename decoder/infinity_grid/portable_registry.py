@@ -43,19 +43,8 @@ def read(path):
 
 def put(root, raw):
     sha = sub._sha(raw); path = root/'objects'/sha
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists():
-        if path.read_bytes() != raw: refuse('PROJECT_OBJECT_MISMATCH', root)
-    else:
-        # Atomic immutable creation; readers never see partial content.
-        fd, temporary = tempfile.mkstemp(dir=path.parent)
-        try:
-            with os.fdopen(fd, 'wb') as f:
-                f.write(raw); f.flush(); os.fsync(f.fileno())
-            try: os.link(temporary, path)
-            except FileExistsError:
-                if path.read_bytes() != raw: refuse('PROJECT_OBJECT_MISMATCH', root)
-        finally: Path(temporary).unlink(missing_ok=True)
+    from .immutable_publication import publish_bytes
+    publish_bytes(path,raw,lambda:refuse('PROJECT_OBJECT_MISMATCH', root))
     return sha
 
 

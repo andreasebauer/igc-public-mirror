@@ -1,0 +1,55 @@
+DECODER SOURCE QUALIFICATION PROFILE
+
+This profile is a requirement, not a PASS receipt. Exact current identity is
+read from infinity_grid/_version.py. Historical manifests and completion
+records retain the original producer version. Qualification results must be
+bound externally to the complete captured source and environment.
+
+Supported execution: Linux, Python >=3.11, fork and fcntl locks. This campaign
+qualifies CPython 3.12 only. Use a local POSIX filesystem with atomic rename,
+hard links and fsync. Network filesystems and other OSes are unqualified.
+Unsupported OS execution refuses before importing Linux-only modules.
+
+Core dependencies: cryptography, igraph and SymPy. NetworkX is a verification
+extra for installed independent G5 verifiers and historical replay algorithms;
+it is not a replacement for the common igraph backend. The qualification extra
+adds pytest, build and installation tools. uv.lock includes all declared extras.
+The exact Linux/Python 3.12 qualification environment, including transitive
+versions and wheel hashes, is requirements-linux-py312.txt. Install from the
+saved QUALIFICATION_WHEELS.zip with pip --no-index --find-links WHEEL_DIRECTORY
+--require-hashes -r qualification/requirements-linux-py312.txt into a separate
+venv. A wheel alone lacks the test and historical-fixture source kit.
+
+Run only native captured jobs. PROFILE.json exhaustively partitions every
+active tests/test_*.py file exactly once. Freeze each group as VALIDATION nodes
+in a capture specification with the profile environment, source, inputs and
+NO_AUTOMATIC_RUNTIME_DEADLINE_V1. Confirm all pending saves using actual raw
+Drive downloads before native controller run. Functional first; workspace and
+representative next; timing alone, one worker, last. Store actual collected
+node inventories and phase outcomes. Skip/error/missing is not PASS.
+
+External fixture roles are enumerated in PROFILE.json. The functional group
+requires the private failed_evidence input for the snapshot regression; keep
+its original bytes on Drive and bind it in the native capture. The historical Step2
+parent must match its original hash. The other fixtures must be generated
+by registered native jobs on the exact candidate, saved and exported before
+dependent groups. The workspace fixtures exercise 48 values modulo 7, with
+one and four workers and a declared-outcome refusal fixture. Representative
+fixtures use infinity_grid.representative_qualification:handler with stage_id
+ENG:REPRESENTATIVE_QUALIFICATION. Never forge a positive completion or save.
+
+After source changes, recapture and qualify the new identity. Do not transplant
+old fixture producer versions, hashes, node totals or PASS records. A read-only
+historical completion check does not execute its producer environment; actual
+execution still requires the captured interpreter and distribution versions.
+
+Release matrix fields: tested source/package/archive, canonical version,
+controller source/version, environment, exact selector and collected-node
+sets, per-node outcome, completion and checkpoint, restore evidence,
+preservation state, and promotion scope. Historical results are separate rows.
+A full current pass and a shared promotion remain separate decisions.
+
+The interruption fixture saved_stage_one_prerun is a native export taken after
+capture saves are confirmed and before stage-one execution. It is distinct
+from the completed stage-one export. Do not erase completion, prepared state,
+terminal proof or project history to manufacture a fresh-run fixture.

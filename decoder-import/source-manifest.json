@@ -1,8 +1,4 @@
 {
-  "schema_id": "IG_DECODER_GITHUB_SOURCE_MANIFEST_V1",
-  "source_sha256": "03f734300ad3812237c8168321f5af99fe35cdbcd1d1b19840d71c68398bd07d",
-  "package_sha256": "334429d912aa0b2824995cf29a97ba6b6e521316a6bc9fc4fcbb91c7f75e0783",
-  "source_archive_sha256": "33179d68af57e336561ec6537d4bec78fc1f716c07de0dc6c34ace8c2043709d",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -133,6 +129,22 @@
       "ee62501c1486505ff62282f1ab36b604fee247e12abbf1aced0889d2caac10cd"
     ],
     [
+      "STORAGE_STEP2_R3_READ_FIRST.txt",
+      "ad4aa23d7bd1b635aa25c50a94f2deca66b71f88b5215d6f1254306d13a18929"
+    ],
+    [
+      "STORAGE_STEP2_R4_READ_FIRST.txt",
+      "080ac3e8a02261bf3b6cabe3f785df80b15f86ebbe408a968053583a75960fc7"
+    ],
+    [
+      "STORAGE_STEP2_READ_FIRST.txt",
+      "6079474d35b92abd5f9a0d0150fba094e2073a8a59b7145553920af65ae6ff8a"
+    ],
+    [
+      "STORAGE_STEP2_RUNTIME_R3_READ_FIRST.txt",
+      "bf14ae76327b659689a4b9a18ad3174a600c946a5edbc1ca8d2c950ea0fb26a2"
+    ],
+    [
       "TEST_INPUTS_READ_FIRST.txt",
       "be46c2d50af2664d2c2ce96d7d3e777bb8805203776bac0ebda134497260fe4c"
     ],
@@ -186,7 +198,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "c6fba74f945083b7cd09557019c4537a7c3bf4b417a742c98b9cd69e95d63255"
+      "7c3f3dacd4a847252dc2a968cfbc9befa98aad654faa89e066bd4bfcf2ed86de"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -194,7 +206,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "a54aa9c86395ad5d2f1b82f6aa2375dcbf214446751e812e696280bf6bfe835b"
+      "fed27aa25ae206af865267f4bc972335fb8e3df77f20dfde9465651b370094b7"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -202,7 +214,7 @@
     ],
     [
       "infinity_grid/adapters/base_l2.py",
-      "62b29f8e8cd47685685b4c037e2b8c73b4ad471e7038e29cf5a9f47dcbd3fb85"
+      "a445813892e97d23fd9299c17924312d09c9e7e6075d3f4c93ec7275f01a0668"
     ],
     [
       "infinity_grid/adapters/g1_public.py",
@@ -262,7 +274,11 @@
     ],
     [
       "infinity_grid/catalog.py",
-      "c324f686ccaf87ea41c511a4dc7b55c5cf2cbfc7bc70bf72361d934c6015354a"
+      "c931657e929325278b068307b6f39779c642b11e6e900fb31fc9735be846f580"
+    ],
+    [
+      "infinity_grid/catalog_read.py",
+      "b1f9700e88b628412568244a7a075239d10bf4d6e52e481c7b3e6963d97f7ac6"
     ],
     [
       "infinity_grid/certified_base.py",
@@ -274,7 +290,7 @@
     ],
     [
       "infinity_grid/change_sessions.py",
-      "694bc743b2986e6a7a828121566d1fcac5b7114a5e8bcf989347a24142e188fe"
+      "a694cabc1d083e2d7895f0365fd48ac6f7ffb46f5e6210e83239f14473df1123"
     ],
     [
       "infinity_grid/change_validation.py",
@@ -303,6 +319,10 @@
     [
       "infinity_grid/compatibility.py",
       "ee2b9443aafa8fd59b98e8f613c93a2b8216a1538885cea3b81732a4e090df25"
+    ],
+    [
+      "infinity_grid/completion_evidence.py",
+      "cf81c815752b43e7dfc3502fa4e15caa251f1ed94c5db9d975001af9fd912047"
     ],
     [
       "infinity_grid/continuation.py",
@@ -379,6 +399,10 @@
     [
       "infinity_grid/errors.py",
       "189f67c6042bfbc9429f1782b584464d6c44dfc494d51b4003d5e80c8f0d4fc8"
+    ],
+    [
+      "infinity_grid/evidence_diagnostics.py",
+      "8c67a7367559559fb5df1b91417bc77fdab3f1d31cf82686f7210658df265492"
     ],
     [
       "infinity_grid/exact_carrier_acceleration.py",
@@ -586,7 +610,7 @@
     ],
     [
       "infinity_grid/graph_library_backend.py",
-      "bb2ae8cf3bfa3b2693b231004e3fb8612dffa7901baf0de56c3c2d195120e415"
+      "03bb91efbea1250baae89c8393b6323128897fefa963833554b157a2dbdcbb9b"
     ],
     [
       "infinity_grid/graph_metrics_library.py",
@@ -594,19 +618,23 @@
     ],
     [
       "infinity_grid/graph_replay.py",
-      "f7434419d85c62ef4ca41e4ce3d10430ad17537389c3ec544eb4ccb2302829d0"
+      "8acb2adda08c077c75705c9b862118d202ba205ae038009da5fb83624e86ba40"
     ],
     [
       "infinity_grid/graph_store.py",
-      "69bd7ca4a614ed902788b3c8c85da296581777f82eb018522bd778a238fbd07a"
+      "770792a8ae8038dcd1e9342fcf796b5336bdd1c6288bfc845141c90c45dee1a4"
     ],
     [
       "infinity_grid/hashing.py",
       "745e6a2c7209dd8dce612c9606b5ca24b5fe769ad89accb2f79fa9286f11a77e"
     ],
     [
+      "infinity_grid/immutable_publication.py",
+      "dcaec8005a73c211ebe24e1b2e4177ff43252328d39b3bd4eb52e3de2a6ebe55"
+    ],
+    [
       "infinity_grid/invocation.py",
-      "9e69a2d8f743219df4681cc445aedf42e024bfa0fcab23c0ce2ee38ca34b7011"
+      "91d687cbb7a0aab1dba08f7a4c952ac2a4c7d2150c8bf0cb45869cc1c4763cbc"
     ],
     [
       "infinity_grid/invocation_fixture.py",
@@ -614,7 +642,11 @@
     ],
     [
       "infinity_grid/jumpstart.py",
-      "93d3982b451437572ee4ccb0663ef9dc52a5de871b1690e16a2d0d3608212089"
+      "b391d91a68e774cdb5d86f52204c130ad0981fe6d25b2b15cfbedc3785b1dce6"
+    ],
+    [
+      "infinity_grid/l2_tables.py",
+      "6c22babbde716d829917a0e793470af42a5d06d600b28576d8fd46e3d61c6826"
     ],
     [
       "infinity_grid/lifecycle.py",
@@ -623,6 +655,10 @@
     [
       "infinity_grid/lift_auditor.py",
       "ddf08fb7dcce7b6fba7950a772e15b7ad0b5738e414c0a4688f95f95ebb5420d"
+    ],
+    [
+      "infinity_grid/live_graph_read.py",
+      "c23c5078d98dc5d2d8f89f7e86d86756efe069372cd56c320db0589b62ffe248"
     ],
     [
       "infinity_grid/materialized_discovery.py",
@@ -710,7 +746,7 @@
     ],
     [
       "infinity_grid/portable_registry.py",
-      "d90c70f1158d5bfe84e34593cd7a8805741d95e52d9d5845b9badccf98195756"
+      "9287cb351de2e6598098d522b6b37437db32c2d10b454910aeeee1c70c37cacf"
     ],
     [
       "infinity_grid/pregeometry.py",
@@ -718,7 +754,7 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "287d8fef8ae923c68822bbb381ed249960352233c5e9283fd4c0fd649832fbd0"
+      "3df4c2037bfb876f37709ec072fd9ace000b12ec7ec729fe495393b59ad13200"
     ],
     [
       "infinity_grid/project_migration.py",
@@ -759,6 +795,10 @@
     [
       "infinity_grid/regime_streaming.py",
       "f9b35ae6cb0c1950e4175d607d3faca8e1c6ff876e027ec1fbac19884ed7f108"
+    ],
+    [
+      "infinity_grid/relation_library_backend.py",
+      "2a2358e3716d5ea4de6f322766709e06347078dc1839718581f42dcd0ec6ec40"
     ],
     [
       "infinity_grid/releases.py",
@@ -2849,6 +2889,30 @@
       "eafd65d0df65b3f7abded8c4ed709f890c3514dcf82f0f79833c8712f6e5cefc"
     ],
     [
+      "infinity_grid/resources/storage/COLLECTION_JSONL_PROFILE_V1.txt",
+      "ad5ccd7169845f3493be5735233ce1544b5328ca198e4c942872633d97db85bd"
+    ],
+    [
+      "infinity_grid/resources/storage/DECLARED_CLOSURE_V1.txt",
+      "d2ac47a1282874a5d2f6c304edef19e6493b20e02b760679f74a3c26dd8b42ad"
+    ],
+    [
+      "infinity_grid/resources/storage/FROZEN_CONTRACT_V1.txt",
+      "ee3cbf814e6deaa62294388ede5a8e0fa562be2c0da94d3883d4e354102d83f1"
+    ],
+    [
+      "infinity_grid/resources/storage/IG_STORAGE_CONTRACT_V1.schema.json",
+      "04a4584a18eec033126405136177c81b45bb02afa9621f6e1060d69f3a30794c"
+    ],
+    [
+      "infinity_grid/resources/storage/LEGACY_BINDING_V1.txt",
+      "6dd37f6d7872fbd4506871b00ca1fb09114a93ce6d75972f04a2e5d800095a8d"
+    ],
+    [
+      "infinity_grid/resources/storage/NATIVE_REFERENCE_COLLECTION_V1.txt",
+      "1e5116f8f8b23564bb530c3c2ca0d6d4c02a9febb6ff41a3fe55e2e014203f0d"
+    ],
+    [
       "infinity_grid/resources/uplift/G2_R0_STRUCTURAL_RECON_SPEC_V1.json",
       "3f6a8c215e8e46f8819eaf48ff2bdfe77481c31c55a989572e772be55b1763fd"
     ],
@@ -3598,7 +3662,7 @@
     ],
     [
       "infinity_grid/result_contracts.py",
-      "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1"
+      "93b1295b3af78a1f4d7aa030acdcf6259021f1ecb03cc6ad34cc1dd8d9e1c62d"
     ],
     [
       "infinity_grid/run_operations.py",
@@ -3622,7 +3686,7 @@
     ],
     [
       "infinity_grid/schema.py",
-      "ef519a8294f8dd9702a6c05b4ccea5e3c0cb8d024afa7de437e40ed056aaf0c3"
+      "9871373cda5734cfbea728a31f3d5893d51dd2a32801e10c4dbae91eb1568a2e"
     ],
     [
       "infinity_grid/science_adapter_contract.py",
@@ -3661,6 +3725,110 @@
       "80fd77fd01889943e932a32ceab937409e47f8af5b91c979521eb1a6951fb505"
     ],
     [
+      "infinity_grid/sqlite_attestation.py",
+      "f5c133d016812aab4d39f1eff389eac4954e694cf6a0f3b81b1d5bd8ad734198"
+    ],
+    [
+      "infinity_grid/storage_admission_bindings.py",
+      "c9a9645b292cd1b708b016ba9ed3a8ee4926ff51f7d6edb38cd1c38987818c0f"
+    ],
+    [
+      "infinity_grid/storage_candidate.py",
+      "42e9f0127db54b15374df35abf48f3bb38a33784bc65a0883886c583dc5b5610"
+    ],
+    [
+      "infinity_grid/storage_capture_metadata.py",
+      "e7db9a91053a5e45eafe0f943d4dc2fdbf913b9d2de835d72843a6eebba8b9dc"
+    ],
+    [
+      "infinity_grid/storage_catalog.py",
+      "c18e9f74d7227b7adf35adeaa7f21f25dfcaf5366d0a30d7d85ea798f33e29f5"
+    ],
+    [
+      "infinity_grid/storage_closure.py",
+      "2e9285e9a0e874151f9991ee89d2637f6fceea1303f851db059c51a1374374f2"
+    ],
+    [
+      "infinity_grid/storage_collection_recovery.py",
+      "3193577404c4809e7586c46b55838d04206f6c1c9977aac964052ef93352cb93"
+    ],
+    [
+      "infinity_grid/storage_collections.py",
+      "54ebf821e6ff0ec01073527891478362b8acedd385aa279df88a735061a1d9a4"
+    ],
+    [
+      "infinity_grid/storage_contract_registry.py",
+      "cf72abf9a92f96895050b321452cd1f2010c6986e0dea0d5732c48aa72bfe064"
+    ],
+    [
+      "infinity_grid/storage_dataset_snapshot.py",
+      "be81bb3fad24e02a504092d3fcddddfc3703197a5f17ebee6e722f4f6faac652"
+    ],
+    [
+      "infinity_grid/storage_dependencies.py",
+      "bed33ec719dcb83de575c73da154f4de938c71f314a95bc1002aa27788e3a07b"
+    ],
+    [
+      "infinity_grid/storage_frontier_history.py",
+      "5499f4ca25e043becf9f94f94fa68d9c344edf463d24e3a422c634d797c74e60"
+    ],
+    [
+      "infinity_grid/storage_frontier_snapshot.py",
+      "114115f9d09ac26f5651ace177cbc91fb8715b3458ac522457bde912a96b3fc2"
+    ],
+    [
+      "infinity_grid/storage_full_recovery_join.py",
+      "61b224890ca3196c15664f27748e0d07fcecf19b4d36b1b240e9bb2381cf0a18"
+    ],
+    [
+      "infinity_grid/storage_history_assembly.py",
+      "47677194e9cc1624dca44c6a1841621fc7112d8bf2697933308e066e2c46c91f"
+    ],
+    [
+      "infinity_grid/storage_history_pins.json",
+      "5603d8b4307ac4002a92fbb8b07a36f2405594ba52a03d96e2914e3aca8026d8"
+    ],
+    [
+      "infinity_grid/storage_index_descriptor.py",
+      "dee17d255281721ce3ea7fb456d57a90a2bda8951ed0534466a37a311e7d09ee"
+    ],
+    [
+      "infinity_grid/storage_legacy.py",
+      "52157e294216f21b47b3a92c980416ab4d0ebd764310f41324ad0b2be4d41e83"
+    ],
+    [
+      "infinity_grid/storage_manifest_sources.py",
+      "d0de05ff27be4fe5dbed4529869ec8f5c5d7899ff9a3eadfbf37fe450e83e0e3"
+    ],
+    [
+      "infinity_grid/storage_native_records.py",
+      "98786a01aef807cfa610fc10a76d8239b8dc5ee2998cee6636da73b3709c726d"
+    ],
+    [
+      "infinity_grid/storage_oracle_witnesses.py",
+      "811ef196952a728299165ea4ae65b679970f728f78c839debd47f517b14df616"
+    ],
+    [
+      "infinity_grid/storage_recovery_join.py",
+      "00af537f72864ec3d0d4d83f9a762ac0ff4ee44fcaaa1be42e156715b33451f9"
+    ],
+    [
+      "infinity_grid/storage_result_closure.py",
+      "5ca5314d2263d130fffb301c0110301063c149d70d76134bd3b0a0b3c96ee3c2"
+    ],
+    [
+      "infinity_grid/storage_runner_snapshot.py",
+      "82c6bd4b6a11cee8ad886048d83420de630e565e82d53d3ce5470b5d6d544494"
+    ],
+    [
+      "infinity_grid/storage_schema.py",
+      "7a6aa5a703210f681fa3a20569969393c0cea1c4f6ddc93427b903d0976dd791"
+    ],
+    [
+      "infinity_grid/storage_snapshot_results.py",
+      "9e27531b9dfa08e523130a04fc42f138b12e392367ef56d045feb9063d08ac97"
+    ],
+    [
       "infinity_grid/store.py",
       "781dcc0bc9fe86406a63af653da51c1a7d73a94dd6de43a40a8f65868db84f18"
     ],
@@ -3670,7 +3838,7 @@
     ],
     [
       "infinity_grid/submission.py",
-      "db1239b516f064a7582e9545d1f839baa30eb9e5f19afeca9a562a0975c712f0"
+      "360b0449e45fa5f68d238a4248552116b3e791a02351733cb5f2d4f4d3844a3e"
     ],
     [
       "infinity_grid/theorem_registry.py",
@@ -3946,7 +4114,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "c00b409b0927dd13490209fe389e409de3a55ded43ee50b0c43a1296125a7dde"
+      "135b804d0e2c04868ababec7dbdc4c921cbd9243dfb7b29ceb939454212cacda"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4078,7 +4246,7 @@
     ],
     [
       "infinity_grid/v05_stage_architecture.py",
-      "a10b41c8ead5b9a043d80949bd170b8bca276ce74a758babd287dbb649d2bea5"
+      "daf2b51096275c6ec706e6d73bc728fd6aec7d5f16f087ab64565704b15c9709"
     ],
     [
       "infinity_grid/v05_stage_registry.py",
@@ -4086,7 +4254,7 @@
     ],
     [
       "infinity_grid/v05_stage_runtime.py",
-      "236b1bb507dc3d56c2ae4d81f8eb6fbc7ecce1bc7d34fa9979c7058c096527a5"
+      "c7562f9949e1520046f58a44f74575c3bd39653bc3df7be94f9660ee50f70d51"
     ],
     [
       "infinity_grid/v05_tasks.py",
@@ -4094,7 +4262,7 @@
     ],
     [
       "infinity_grid/v05_validation_runtime.py",
-      "fcbe7edd4f11fa5d447d8276bb8f12260f13280cc44c3d2077d9b0e200202b14"
+      "3de59ab44b2a8a77936fd23868dc1f0fc8cbd68abcb803fbb6efeef5d825090f"
     ],
     [
       "infinity_grid/v05_verifier.py",
@@ -4110,11 +4278,11 @@
     ],
     [
       "infinity_grid/validation_node_runner.py",
-      "f2b4a3cde91205fc81f759db76507641b60942981feb5fb8b807f90db2c47e63"
+      "35730f0098fd799d9b9b56782ff7b038c6d4e51810d12e9058eeb04f7dcd56c1"
     ],
     [
       "infinity_grid/validation_reports.py",
-      "eeeece7415c962ada1b4e27b8a596a011dac109e42b9c19ff1a6c0090add1a2b"
+      "9c31a11ccf9c2b1fdaf427a5235e1ac6117fdeecd06a1f2d65c3313e9f05452b"
     ],
     [
       "infinity_grid/verification.py",
@@ -4302,19 +4470,59 @@
     ],
     [
       "pyproject.toml",
-      "9cc89d2ed3f87025470fb6e3cf40e59b98bf26f1d44c5a5761e3d910394dfa21"
+      "2da18165e41d2f25e73447fec668391879d6d3fb1a487c02736ec9143b0be534"
+    ],
+    [
+      "qualification/A08_CONTRACT_V2.txt",
+      "4b8a0536e6d8ab55b6221c3ca38d32389c2d1eabb6494199001bf0db8cffdf1c"
+    ],
+    [
+      "qualification/A12_DATABASE_COMPARISON.txt",
+      "71c8832478d0eeeae80a25fface2bcea15c92cb4710bbedabc823519aea3fcfb"
+    ],
+    [
+      "qualification/A12_DIAGNOSTICS.txt",
+      "e1bacad4ea037245cb66910b531b48d24aa6f035c8c7f9cebfeeca896d81a6fc"
+    ],
+    [
+      "qualification/A12_SIDECAR_TRACE.txt",
+      "06315a1c35396ee5f79d621ff3813adc8751347576cb2c738db02626f5052378"
     ],
     [
       "qualification/PROFILE.json",
-      "b025a7369719833f5b056ee243c6864f00b42d10dd067631a0cc98b5b784a35c"
+      "ae392656f48a0f74e8d2bf9e05ef4a3428c6adb41e74babc9bdcce91928d8555"
     ],
     [
       "qualification/READ_FIRST.txt",
-      "257b7ed9f3c1b741c88c4e6696673585b2dc6b43155e63d1bb182bd9019d454c"
+      "0c306de5f6b7d552c64ef884e9301841bb1b57b52d2e6a2a90fd8eceed677411"
+    ],
+    [
+      "qualification/history/dev136/PROFILE.json",
+      "3a25efd5fd585f8216a827b22f2a6aa3802a9f3b1f182174945d6a28b70f6fe2"
+    ],
+    [
+      "qualification/history/dev136/READ_FIRST.txt",
+      "ae5ef7ccca65aa3359da11315915785bcd28c08386f7cc95b7612e786b9d597b"
+    ],
+    [
+      "qualification/history/dev136/_build_meta.json",
+      "40c327d5e8a3bdd9c22cea2a36b473b429428e4a31e14dda85a0423e7e9ce7f5"
+    ],
+    [
+      "qualification/history/dev136/pyproject.toml",
+      "1203156168b2d46a6ea21895e9631dd78c511648d3af15ee19ba074096d68745"
+    ],
+    [
+      "qualification/history/dev136/test_qualification_contract.py",
+      "f84ea44220ab91cf53455f0ce8f7db48f98c83f12de02931f198bc97def11809"
     ],
     [
       "qualification/requirements-linux-py312.txt",
       "4b393512b57f87ce20f560dfa1d2a66ffa2396e8f33520fb395dbd6c2fb39b91"
+    ],
+    [
+      "qualification/requirements-linux-py313-TARGETS-NOT-INSTALLABLE.txt",
+      "535f20bab3767b797c720fc30228ddbe4c277b696687dc4f7c749e94d7af883d"
     ],
     [
       "qualification_evidence/H1_H13_SEMANTIC_SPOT_CHECK_TEST_RESULT.txt",
@@ -4429,12 +4637,40 @@
       "9ccbf90c162262a9bb6f85ed6832fe779023982d7cfd7de22a7859d9a72f8d64"
     ],
     [
+      "resources/storage/NATIVE_INDEX_DESCRIPTOR_V1.txt",
+      "d2c09915944b105598517592cb76e3e76098f9713185f3a9d2771ef27d3d0b62"
+    ],
+    [
       "tests/fixtures/G6_S7_CONTEXT_NORMALIZATION_V1.json",
       "18405921d7cc4435d89ea2b61877f1cf86ef3042e34b6c3dc79954c2b3e76346"
     ],
     [
       "tests/fixtures/G6_S8_PREREGISTRATION_V3.json",
       "013acea8e310d4a3605fe45b69f3b4f583013cbe951828178b7004cb027acdde"
+    ],
+    [
+      "tests/fixtures/a12_diagnostics/manifest.json",
+      "881120edf0f2fdc858fc868723787f35c837684b3515fe746d6f73035cc91a0b"
+    ],
+    [
+      "tests/fixtures/a12_diagnostics/partition_state.zip",
+      "37755f75b642b65c93748158a8337657a3628f43f3867f58dc85fb318dd6fd30"
+    ],
+    [
+      "tests/fixtures/a12_sidecars/incident.zip",
+      "744eb4e91231b40f1d058eee5fcd30a6c8daca3c7a5caa0df4b5526a0afff969"
+    ],
+    [
+      "tests/fixtures/a12_sidecars/manifest.json",
+      "a866bfb9a41de2bdec3ec91c2eab42810e21b9adcf53bb1043d9ad413fbdbc96"
+    ],
+    [
+      "tests/fixtures/capture_metadata/saved_environment.json",
+      "6a10af9e075abce9d573ecb3ff249024594262a032cf058a7bbcafd32d2169fa"
+    ],
+    [
+      "tests/fixtures/capture_metadata/saved_runtime_binding.json",
+      "dc083e8e7297af485e9f9582d4bcc4c0d4ecbc079c4c56622c6b29c0639ba1ec"
     ],
     [
       "tests/fixtures/dev79_index_reproduction/P9_CAPTURED_STATE_OBJECT_V1.zip",
@@ -4477,6 +4713,10 @@
       "3be7a8df61bafd3f426659b168488a3a0ec0be5513edc66300a2475a369066bc"
     ],
     [
+      "tests/fixtures/preservation_rebind/ATTEMPT_RECOVERY_REVIEWED_CORE_CHANGES.json",
+      "8681733964409cfb59acc9463ffff3c354866f3048b9e7d7483943098b11b2c1"
+    ],
+    [
       "tests/fixtures/preservation_rebind/CAPTURE.json",
       "eb8e90197114b032aa07d5a16e8ae6544a82e801c6291a7e9320a6f7e40a2118"
     ],
@@ -4493,12 +4733,608 @@
       "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18"
     ],
     [
+      "tests/fixtures/preservation_rebind/SNAPSHOT_EVIDENCE_FILTER_CORE_CHANGES.json",
+      "90a8a715bc4f7a00a4ca41acecb778fc07b4487f10065d7267076da90308466c"
+    ],
+    [
+      "tests/fixtures/preservation_rebind/SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json",
+      "5b08282c6c81268f6c46cb674e8e86eb83e20771632498b2a056cf710dbb2156"
+    ],
+    [
+      "tests/fixtures/preservation_rebind/TERMINAL_JSON_EQUIVALENCE_CORE_CHANGES.json",
+      "2fac30f422a7a9d8e7b3d58e59da20da368be9573e6f0f60672b1bbcc0f21778"
+    ],
+    [
       "tests/fixtures/preservation_rebind/UNCHANGED_CORE_SHA256.json",
       "478e28cc93fe2f3f6d6c8bec0ab11a71a62b6fa20be5ed3e4468d763750facb2"
     ],
     [
       "tests/fixtures/repair7r_completed_state.zip",
       "a63ba44ddd0bd485262414694e10a77fd996209d1c5c9923ba6bee28482c49c5"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/EXAMPLE_INDEX.json",
+      "f43edd18afae04c649e44b962af703498eee278e75c43b0be17bba222cb5b7fb"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/READ_EXAMPLES.txt",
+      "622cbfbf782de00df0bdb003c9129d6a0f0d8482be711957879f47b65d6f5e58"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/08275f4693106ea71e737b943a9fa57f04b04621b19150f45f63367942541830.blob",
+      "08275f4693106ea71e737b943a9fa57f04b04621b19150f45f63367942541830"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/0b707d3240c67016f5a3fb50b36495325c87a6591fedc8634d3623951b75a907.blob",
+      "0b707d3240c67016f5a3fb50b36495325c87a6591fedc8634d3623951b75a907"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/0b98317e588681b08d5fd38fe385fa044774278e08cb0d1e138c4b66a582d3bc.blob",
+      "0b98317e588681b08d5fd38fe385fa044774278e08cb0d1e138c4b66a582d3bc"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/0bf572ebc5df012fbb0884cddb424389b96fe1f7a46122212e554ae2708cc4f4.blob",
+      "0bf572ebc5df012fbb0884cddb424389b96fe1f7a46122212e554ae2708cc4f4"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/0d4bc9c7ff4ef5ea9c2027e734806ccaf7598ab7ffc8a116c98cd0a08948857e.blob",
+      "0d4bc9c7ff4ef5ea9c2027e734806ccaf7598ab7ffc8a116c98cd0a08948857e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/119be8b67bba41b5863bdf5c3059d68f54eb8bb8e26e138443fe356cefd75948.blob",
+      "119be8b67bba41b5863bdf5c3059d68f54eb8bb8e26e138443fe356cefd75948"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/1776ef098999e1037e6e7c2f7be0da21707a46ccf82c79cbdf505938945d7309.blob",
+      "1776ef098999e1037e6e7c2f7be0da21707a46ccf82c79cbdf505938945d7309"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/1bf4fcfc38f283d70c4c776905b71b367da288449c35e2ad8c79014fd12e3ab1.blob",
+      "1bf4fcfc38f283d70c4c776905b71b367da288449c35e2ad8c79014fd12e3ab1"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/1d90d0a8e9e324696a8f49ccf8cf104cbd109411312a189c7383638d1bd64726.blob",
+      "1d90d0a8e9e324696a8f49ccf8cf104cbd109411312a189c7383638d1bd64726"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/1dd045ec9a94df318c8910a2e920b0f5e5b2f1d6db64558c7ff9c5336ab417ac.blob",
+      "1dd045ec9a94df318c8910a2e920b0f5e5b2f1d6db64558c7ff9c5336ab417ac"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/22680272c03299306d38301e7f67ff65887a8e32d0170a2a991931b0ca3ca34a.blob",
+      "22680272c03299306d38301e7f67ff65887a8e32d0170a2a991931b0ca3ca34a"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/22d066e97523017d6cd4f91276476096f97c8353da5f47b5fcd46892b86d7960.blob",
+      "22d066e97523017d6cd4f91276476096f97c8353da5f47b5fcd46892b86d7960"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/261ceb82f514f72eedc58ab62a1f4780ff682ba309a374e41f3005fe11a2f60e.blob",
+      "261ceb82f514f72eedc58ab62a1f4780ff682ba309a374e41f3005fe11a2f60e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/282d92212fe4ee2a5fc73d2dc21d77bfc3b5004f94043aeb69b76d4379d5eac4.blob",
+      "282d92212fe4ee2a5fc73d2dc21d77bfc3b5004f94043aeb69b76d4379d5eac4"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/2c0b595b13ca3c0f65d0aaf3f01b05b7deec4fd78d46d34f4bd7305ff50505a3.blob",
+      "2c0b595b13ca3c0f65d0aaf3f01b05b7deec4fd78d46d34f4bd7305ff50505a3"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/358fed7c4f714398785234f3c2629c1dcba1a2bfe8add20b8cb16bbee8148b90.blob",
+      "358fed7c4f714398785234f3c2629c1dcba1a2bfe8add20b8cb16bbee8148b90"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/3595dbd9edbcd15724cadd285bebed46fae090be6d758bedd54b25811e4a6f5d.blob",
+      "3595dbd9edbcd15724cadd285bebed46fae090be6d758bedd54b25811e4a6f5d"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/384a08085ea90a30dc151b00b148616f85ab5979557fb91d0076558a1113504e.blob",
+      "384a08085ea90a30dc151b00b148616f85ab5979557fb91d0076558a1113504e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/413803624db1ea9948a2b554d05d5b78f45a135551e878f42ca29b60f0221311.blob",
+      "413803624db1ea9948a2b554d05d5b78f45a135551e878f42ca29b60f0221311"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/55f1975e4fe612b0b0e75074591207ad09810c7f95529b2617a08508b03527a4.blob",
+      "55f1975e4fe612b0b0e75074591207ad09810c7f95529b2617a08508b03527a4"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/580cb2153af7f8adb3540e883c3b6b9bfeb9c0f87344b2b33516b2cfe172dd97.blob",
+      "580cb2153af7f8adb3540e883c3b6b9bfeb9c0f87344b2b33516b2cfe172dd97"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/5a227c7e1c5a6f2b2c3a488a4cdcb5c601dcacdf1eb647cbe2a11b6f5c4db82a.blob",
+      "5a227c7e1c5a6f2b2c3a488a4cdcb5c601dcacdf1eb647cbe2a11b6f5c4db82a"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/60519a383b431cc3c66fb8ddc2ab15539f54fd34f825a75c8179e2c5782e2558.blob",
+      "60519a383b431cc3c66fb8ddc2ab15539f54fd34f825a75c8179e2c5782e2558"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/63836f68bbb07b70a8fe64133f1549b77721de603ef40a90799be208c0921a0d.blob",
+      "63836f68bbb07b70a8fe64133f1549b77721de603ef40a90799be208c0921a0d"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/69d186ddae30734c7f8e7be9787033c087370954292c52d2cd5b1f379e277e75.blob",
+      "69d186ddae30734c7f8e7be9787033c087370954292c52d2cd5b1f379e277e75"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/76db434b701dd3bdd6880347162456df18cc6af9af881242d7c4fd476ceac90f.blob",
+      "76db434b701dd3bdd6880347162456df18cc6af9af881242d7c4fd476ceac90f"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/78e42618c434b228e9578f4c323c1cfb93d2bf69d45af54e509e0fce829355be.blob",
+      "78e42618c434b228e9578f4c323c1cfb93d2bf69d45af54e509e0fce829355be"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/7b6d708ac98e3548e205abe5c002cff51a87a149c6b1aefde58ab0fa102297c6.blob",
+      "7b6d708ac98e3548e205abe5c002cff51a87a149c6b1aefde58ab0fa102297c6"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/7f12d1ae71678d07a2350f1d723cdca7079c7199d62f341d9121f4936d287953.blob",
+      "7f12d1ae71678d07a2350f1d723cdca7079c7199d62f341d9121f4936d287953"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/83ab39f2cbdf2b996ce57363b01490750433fe2d47b4415f8c260a6b9d9ecca7.blob",
+      "83ab39f2cbdf2b996ce57363b01490750433fe2d47b4415f8c260a6b9d9ecca7"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/84f8fb6fc17eb13d169de96eefce33c1064203135597c2e7f575b4aded39dcf8.blob",
+      "84f8fb6fc17eb13d169de96eefce33c1064203135597c2e7f575b4aded39dcf8"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/89b082745e3d942c14c3f8fca369e90fe83eebb494da908c284d2225139b5274.blob",
+      "89b082745e3d942c14c3f8fca369e90fe83eebb494da908c284d2225139b5274"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/8dd1e7409f6fbf8fdcaeffd6b5b9e77a47f9a464e95bbc76606322f7483759dc.blob",
+      "8dd1e7409f6fbf8fdcaeffd6b5b9e77a47f9a464e95bbc76606322f7483759dc"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/8ff88e264a45c3d60c3a0e4bab84cf30216aee3fb20a2dd350d069ce8114ad10.blob",
+      "8ff88e264a45c3d60c3a0e4bab84cf30216aee3fb20a2dd350d069ce8114ad10"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/93599858038a8f9efa85bb31dd43623394d6f56aa5b69fd2eb0536a6530ddc16.blob",
+      "93599858038a8f9efa85bb31dd43623394d6f56aa5b69fd2eb0536a6530ddc16"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/965bd2e26c7a6e414c979647d3de67d8fdb4162a74c72da7b9a51fdbc257cd69.blob",
+      "965bd2e26c7a6e414c979647d3de67d8fdb4162a74c72da7b9a51fdbc257cd69"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/98aabf418d770f00047653192c7dd59207e6aba7096f517dccfc4cbd02a33b29.blob",
+      "98aabf418d770f00047653192c7dd59207e6aba7096f517dccfc4cbd02a33b29"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/99698ce77205f32d43afb0b4b105432b0a280762fc6754cb5b8e216d411c445e.blob",
+      "99698ce77205f32d43afb0b4b105432b0a280762fc6754cb5b8e216d411c445e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/998c421b2c4f1d909806b446f13a3b52700cc992e53c30b57272f1757c09c6a2.blob",
+      "998c421b2c4f1d909806b446f13a3b52700cc992e53c30b57272f1757c09c6a2"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/9cdb1d1deb5627fff0189256e973730219f757d1acd54d78ac9b907001349e32.blob",
+      "9cdb1d1deb5627fff0189256e973730219f757d1acd54d78ac9b907001349e32"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/a1085257e150554a7fd12e64dea49ee9311975e247b9937dfdaf26ae652efe64.blob",
+      "a1085257e150554a7fd12e64dea49ee9311975e247b9937dfdaf26ae652efe64"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/a9f83849b69a30a7c0da64233f4a7ef2a19f5ad6d266aaef79653f70c3cae9a5.blob",
+      "a9f83849b69a30a7c0da64233f4a7ef2a19f5ad6d266aaef79653f70c3cae9a5"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/ae14ab4f825cb48ee5f9b6743462abf3fc005062c8a2be31704afc887190b040.blob",
+      "ae14ab4f825cb48ee5f9b6743462abf3fc005062c8a2be31704afc887190b040"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/b01eb1f9e04a1b09565de432241b5bcf393e60f2a9250d456ad2c58927a8af87.blob",
+      "b01eb1f9e04a1b09565de432241b5bcf393e60f2a9250d456ad2c58927a8af87"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/b4ef7f76c1821e6ae797ab4bfe40b44ef752991bb549ffe15d20a3ec0e27fa35.blob",
+      "b4ef7f76c1821e6ae797ab4bfe40b44ef752991bb549ffe15d20a3ec0e27fa35"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/b54703f30870f997711aa51acfbce92d56244d7673df8112a30b2c05c9de43e5.blob",
+      "b54703f30870f997711aa51acfbce92d56244d7673df8112a30b2c05c9de43e5"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/b8a586b4dab1b23cb85c5dde503bbf6f3811d28679f582398e3108c6bceb4f46.blob",
+      "b8a586b4dab1b23cb85c5dde503bbf6f3811d28679f582398e3108c6bceb4f46"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/bc6bfbab79727728e2130232110e1eae40e8019f7eb1f29cc521993b45c0eb09.blob",
+      "bc6bfbab79727728e2130232110e1eae40e8019f7eb1f29cc521993b45c0eb09"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/bcc10cf7bb35ba7426610e52703b33dbe54b765d8066c82a4daa9eea717b3618.blob",
+      "bcc10cf7bb35ba7426610e52703b33dbe54b765d8066c82a4daa9eea717b3618"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/c8c459c2364bc8c09d4616020fac8776e5dc3bbc1d0f13106268da06bdb79376.blob",
+      "c8c459c2364bc8c09d4616020fac8776e5dc3bbc1d0f13106268da06bdb79376"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/d2bb4000d782f5562cf68fb42f17e68417ecabc7ee9ff7d1f6d7358176414ba3.blob",
+      "d2bb4000d782f5562cf68fb42f17e68417ecabc7ee9ff7d1f6d7358176414ba3"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/d81eb2f4bad40c1b23d50948a85787d3a34b0482bd261090f956f67035a9b326.blob",
+      "d81eb2f4bad40c1b23d50948a85787d3a34b0482bd261090f956f67035a9b326"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/ecbc4462866f10bd03e4d6e1f10d59244da41e1ab2749537218276b4c7db9634.blob",
+      "ecbc4462866f10bd03e4d6e1f10d59244da41e1ab2749537218276b4c7db9634"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/f32f851b150c319d204fe201269a76a3b621694332044bbcdf73c1a9cdd8c70e.blob",
+      "f32f851b150c319d204fe201269a76a3b621694332044bbcdf73c1a9cdd8c70e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/f3991c84ae63011ea2174f9b212e34f416080ecaff39267f5d1f84809b3fd094.blob",
+      "f3991c84ae63011ea2174f9b212e34f416080ecaff39267f5d1f84809b3fd094"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/fa701249bb3ad5cea2306d90bdbff340110b0c979f4baf54a49effcc7244677c.blob",
+      "fa701249bb3ad5cea2306d90bdbff340110b0c979f4baf54a49effcc7244677c"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/fb49bb6a1b6321df87343d101ecb25c2fed04aed3c0b1d7b8625c252180bddfe.blob",
+      "fb49bb6a1b6321df87343d101ecb25c2fed04aed3c0b1d7b8625c252180bddfe"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/fec7860bca9241b0e05bea16c06f5c95398a7f13d84141f3bf3c8f94583a805c.blob",
+      "fec7860bca9241b0e05bea16c06f5c95398a7f13d84141f3bf3c8f94583a805c"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/content/ff51726347b95a9adacc1177c014d33a5c65a45308fb7e759ce81c4ec50aac3c.blob",
+      "ff51726347b95a9adacc1177c014d33a5c65a45308fb7e759ce81c4ec50aac3c"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Block_0.json",
+      "98aabf418d770f00047653192c7dd59207e6aba7096f517dccfc4cbd02a33b29"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Block_1.json",
+      "fec7860bca9241b0e05bea16c06f5c95398a7f13d84141f3bf3c8f94583a805c"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/CollectionPage.json",
+      "384a08085ea90a30dc151b00b148616f85ab5979557fb91d0076558a1113504e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Coverage.json",
+      "0d4bc9c7ff4ef5ea9c2027e734806ccaf7598ab7ffc8a116c98cd0a08948857e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/IdentityProfile.json",
+      "119be8b67bba41b5863bdf5c3059d68f54eb8bb8e26e138443fe356cefd75948"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Incidence_0.json",
+      "78e42618c434b228e9578f4c323c1cfb93d2bf69d45af54e509e0fce829355be"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Incidence_1.json",
+      "358fed7c4f714398785234f3c2629c1dcba1a2bfe8add20b8cb16bbee8148b90"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Incidence_2.json",
+      "1bf4fcfc38f283d70c4c776905b71b367da288449c35e2ad8c79014fd12e3ab1"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/IndexDescriptor.json",
+      "89b082745e3d942c14c3f8fca369e90fe83eebb494da908c284d2225139b5274"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Layer.json",
+      "a1085257e150554a7fd12e64dea49ee9311975e247b9937dfdaf26ae652efe64"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Locator.json",
+      "261ceb82f514f72eedc58ab62a1f4780ff682ba309a374e41f3005fe11a2f60e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Object_P.json",
+      "413803624db1ea9948a2b554d05d5b78f45a135551e878f42ca29b60f0221311"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Object_S.json",
+      "0b98317e588681b08d5fd38fe385fa044774278e08cb0d1e138c4b66a582d3bc"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Occurrence_left.json",
+      "d2bb4000d782f5562cf68fb42f17e68417ecabc7ee9ff7d1f6d7358176414ba3"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Occurrence_right.json",
+      "282d92212fe4ee2a5fc73d2dc21d77bfc3b5004f94043aeb69b76d4379d5eac4"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Payload_Blocks.json",
+      "8dd1e7409f6fbf8fdcaeffd6b5b9e77a47f9a464e95bbc76606322f7483759dc"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Payload_Whole.json",
+      "0b707d3240c67016f5a3fb50b36495325c87a6591fedc8634d3623951b75a907"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/PublicationSeal.json",
+      "55f1975e4fe612b0b0e75074591207ad09810c7f95529b2617a08508b03527a4"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/Relation.json",
+      "f32f851b150c319d204fe201269a76a3b621694332044bbcdf73c1a9cdd8c70e"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/RelationType.json",
+      "63836f68bbb07b70a8fe64133f1549b77721de603ef40a90799be208c0921a0d"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/ReleaseRoot.json",
+      "76db434b701dd3bdd6880347162456df18cc6af9af881242d7c4fd476ceac90f"
+    ],
+    [
+      "tests/fixtures/storage_contract_v1/positive/RequiredContent.json",
+      "0bf572ebc5df012fbb0884cddb424389b96fe1f7a46122212e554ae2708cc4f4"
+    ],
+    [
+      "tests/fixtures/storage_fixed_runtime/child_probe.py",
+      "7217e6a0b8a4ff0086d95970450cb62a478ac0fa3546c8a6e4980f680856e726"
+    ],
+    [
+      "tests/fixtures/storage_observations/HISTORICAL_SOURCE_RECOVERY.json",
+      "5cc53d65c5a90cf0488af5547ab77e71c90e020c38135b3e7bdba3e2bb7c0812"
+    ],
+    [
+      "tests/fixtures/storage_observations/OBSERVATION_RECONSTRUCTION_INVENTORY_2026-09-29.json",
+      "71f75a9e02369c8a0ebcf3f1268acbd47c00af4d0498221d0ec57ba699d01a15"
+    ],
+    [
+      "tests/fixtures/storage_observations/ORIGINAL_replay_node_in_audit.py",
+      "cc8be94113f20e36b2befd8788fc1acb265d4b93d6505f1a30c0829af30647aa"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b.json",
+      "034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3.json",
+      "05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/06fc6e9fc84b8732aa4aa1de67f7b7d2b03d428148d37a23ff428ce24524315e.json",
+      "06fc6e9fc84b8732aa4aa1de67f7b7d2b03d428148d37a23ff428ce24524315e"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae.json",
+      "08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/0a7f7c279e1b21eec80b55e1fa8085cbe0a722df4709cdb00d1bb02f99534fbf.json",
+      "0a7f7c279e1b21eec80b55e1fa8085cbe0a722df4709cdb00d1bb02f99534fbf"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558.json",
+      "0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987.json",
+      "11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/11e434ee3235d74fc8319a2159f2448ee71fbb261b9fd18ff19329a56ad00e59.json",
+      "11e434ee3235d74fc8319a2159f2448ee71fbb261b9fd18ff19329a56ad00e59"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3.json",
+      "1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8.json",
+      "14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/14aa8a17571e62c87b9ec4117edec31b48a2ce941e86d53c1a8d422b9294b60d.json",
+      "14aa8a17571e62c87b9ec4117edec31b48a2ce941e86d53c1a8d422b9294b60d"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5.json",
+      "2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b.json",
+      "2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/28a39dec2267b7b7d92ed5c41fa0fd7d6c9205037c2cc711543473d976c7e437.json",
+      "28a39dec2267b7b7d92ed5c41fa0fd7d6c9205037c2cc711543473d976c7e437"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da.json",
+      "2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/2e2a08963a298bf050ed1b59516e360a2eaf7f7f168f345b5f142d20444946b5.json",
+      "2e2a08963a298bf050ed1b59516e360a2eaf7f7f168f345b5f142d20444946b5"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124.json",
+      "3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/3e26a52f66bb2e84e76abef4456ba19e5c85d6ef152dd33f79e2e0753f271702.json",
+      "3e26a52f66bb2e84e76abef4456ba19e5c85d6ef152dd33f79e2e0753f271702"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/596ac05832f9473fa07f200d728b6fefd3172762b7c960cad3d6b6e32ff9ec6f.json",
+      "596ac05832f9473fa07f200d728b6fefd3172762b7c960cad3d6b6e32ff9ec6f"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/5f4c085d526e1ca59099166408ded0facf550553f1a7ebd02dc530d28dd1e3fc.json",
+      "5f4c085d526e1ca59099166408ded0facf550553f1a7ebd02dc530d28dd1e3fc"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/6241a1be0e57a7b9f0a15e0c5d4b444d24a08991c88edb3c398c9a7bb12afd61.json",
+      "6241a1be0e57a7b9f0a15e0c5d4b444d24a08991c88edb3c398c9a7bb12afd61"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08.json",
+      "6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98.json",
+      "65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2.json",
+      "66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752.json",
+      "66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7.json",
+      "6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e.json",
+      "759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300.json",
+      "86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497.json",
+      "8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d.json",
+      "8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b.json",
+      "8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b.json",
+      "92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e.json",
+      "96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4.json",
+      "9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/9fd16992e1c82fc417b02a9b064ca5fb4272b091d5d9fa02a63196bda87a4ee2.json",
+      "9fd16992e1c82fc417b02a9b064ca5fb4272b091d5d9fa02a63196bda87a4ee2"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/a58864e9f27806043ecdeff26dc367c027c2a2d6d4ea6302267cfe45309ed3d8.json",
+      "a58864e9f27806043ecdeff26dc367c027c2a2d6d4ea6302267cfe45309ed3d8"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb.json",
+      "a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901.json",
+      "b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe.json",
+      "b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a.json",
+      "b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/c2fae855e65687ed5d7962b13fdbc105ec558b58e36448e5fa141de534e4c0a1.json",
+      "c2fae855e65687ed5d7962b13fdbc105ec558b58e36448e5fa141de534e4c0a1"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/c56d80f1ae7b2e643a6aff333543fd4a710af70c39524e28b39ccd35059f879d.json",
+      "c56d80f1ae7b2e643a6aff333543fd4a710af70c39524e28b39ccd35059f879d"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2.json",
+      "c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/d15eaa70b1c3e432af93607ff0bdca571ff2984365dd69e0948ebd3ae3f12733.json",
+      "d15eaa70b1c3e432af93607ff0bdca571ff2984365dd69e0948ebd3ae3f12733"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/d75ac1e4c3f28a60e6593e05c923c74ce367ea5fd36861289f3585ba675fe097.json",
+      "d75ac1e4c3f28a60e6593e05c923c74ce367ea5fd36861289f3585ba675fe097"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0.json",
+      "d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/dbd3d62b14a4d21ca340756fb04ee274d2d9cbb038566ce329e3541350867740.json",
+      "dbd3d62b14a4d21ca340756fb04ee274d2d9cbb038566ce329e3541350867740"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462.json",
+      "f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462"
+    ],
+    [
+      "tests/fixtures/storage_observations/payloads/f98f9503064fce2a85fa0f83596be4b46202a4c61d3140ace026af79e71c27dd.json",
+      "f98f9503064fce2a85fa0f83596be4b46202a4c61d3140ace026af79e71c27dd"
+    ],
+    [
+      "tests/fixtures/storage_witnesses/PROVENANCE.json",
+      "348a2afacfdacf71731cf230f3cde291c66e147deee0806324f57042cde5e425"
+    ],
+    [
+      "tests/fixtures/storage_witnesses/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "6d20f06dbea45c86913be6c009d8f647c6e3900cf34ec3ebc411b6b8ba6f7811"
+    ],
+    [
+      "tests/fixtures/storage_witnesses/ig_rm1_L2_isomorphism_reverification_all4_results.json",
+      "5a344c997d610d00acffb277fa2e7b46ca4250fa5c0b4e86e02223ee63457804"
+    ],
+    [
+      "tests/fixtures/storage_witnesses/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "c06e1ec388b9f4e09ddf9ccce37353f1a17d79ef997272b30c797d0e1f05e3c0"
+    ],
+    [
+      "tests/fixtures/storage_witnesses/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "adb4ebb5eaf2d709b76b7b6a3b9a916b6544a3dce0ddc0d28e69e6e3553e7259"
+    ],
+    [
+      "tests/reference_two_sorted/SOURCE_PINS.json",
+      "879149c39de3ac5ef855440da55fbdd2182322ec085f83e078987c033363e8d5"
+    ],
+    [
+      "tests/reference_two_sorted/ig_treematch_cospan.py",
+      "cc3d2b251a6075bfae0f6433d631ee2ab02f400c76474b4ee17f97a94fb3a88f"
+    ],
+    [
+      "tests/reference_two_sorted/ig_two_sorted_tree_wiring.py",
+      "d55dd08408d0dac3979be19e927709c69e168c50874f034cad48f8aff8473079"
+    ],
+    [
+      "tests/reference_two_sorted/test_cospan_embedding.py",
+      "d534a26973e4a20f07db3cbe08def5e66d35b233c123b393294992d33de9298d"
+    ],
+    [
+      "tests/reference_two_sorted/test_t_naturality_and_embedding.py",
+      "f34a5d5f2afc39f42e854f7d4f3540ebcb10d2a4ecbc88b4171116ee2a02f617"
     ],
     [
       "tests/step6_runtime_cases.py",
@@ -4522,7 +5358,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "72ba2a7daba5ab70eb6aa3d18f00a69db4f530e0bfa07eb8c21c9e93542339d9"
+      "8011490c953b839d3fca085da7c523d3d04fdb1082540af00fb8395b5138e994"
     ],
     [
       "tests/test_compact_label_reuse.py",
@@ -4530,7 +5366,11 @@
     ],
     [
       "tests/test_completion_publication.py",
-      "7e24dd7d6947125b2e77af315f4e35c92eb4ed82d4b2011e7e1dcd29a3279d35"
+      "e81e02480b858d55bfa55f717d5b8f8c944e249070dd721a26ad8d4cd249e597"
+    ],
+    [
+      "tests/test_database_sidecar_comparison.py",
+      "6b6e4eb6c5c6367ff6a628afffee47d63e68060db92a564f97d0b38b38b648a0"
     ],
     [
       "tests/test_decoder061_combined_contract.py",
@@ -4546,7 +5386,7 @@
     ],
     [
       "tests/test_decoder06_invocation.py",
-      "7f11780faf1fe1b3f50c838500cfd35935c9c3adf304c972970e7dcecb3622fb"
+      "dd6fe1b52bc9f27e10ebfc428cf7711b4d5ae236282ecbe9248e23d65b0ea895"
     ],
     [
       "tests/test_decoder06_portable_registry.py",
@@ -4558,7 +5398,7 @@
     ],
     [
       "tests/test_decoder06_results_preservation.py",
-      "3def5a9e06e57ff77518fb0a05b844b950742112609065c741bcadc2ed680a8e"
+      "a6a8d990554fcdafe77239d5572150cb6867340c61c3a90110605d796d33d0ff"
     ],
     [
       "tests/test_decoder06_shared_authority.py",
@@ -4591,6 +5431,10 @@
     [
       "tests/test_engine_kernel_e1.py",
       "14a51f1b1bee8e16c3d55ef39f3633636fc42d2d968d0a8f3568b62aceacc150"
+    ],
+    [
+      "tests/test_evidence_diagnostics.py",
+      "bb4a1d424d2edc553bb48317c73acb3c6d3b585a1345c47293c4fa43ab95163a"
     ],
     [
       "tests/test_exact_relation_profile_bridge_fastpath_a24r.py",
@@ -4711,6 +5555,10 @@
     [
       "tests/test_legacy_capture_receipts.py",
       "2d646f760be334ef84e42581f7df4ae6fa51d954e8a1c75f5e86bba7ad92028a"
+    ],
+    [
+      "tests/test_live_graph_read.py",
+      "56df5779ba2ac8a58c134558ca3a3f09d5273eb33c278ba6d7e2218ba7a11187"
     ],
     [
       "tests/test_no_deadline_conveyor_run_operation.py",
@@ -4854,11 +5702,15 @@
     ],
     [
       "tests/test_qualification_contract.py",
-      "693f3834e440031abf5839cf4c61ee09cd3dc602c0903f0a00b171860b2ecea3"
+      "dd71d1fa0bec8ab848dc7d19d9aebb2c7e08824e1f44eebdeaad21f893135197"
     ],
     [
       "tests/test_r02_replay_self_qualification.py",
       "961bc0af0a471e42456064a7d6251c28c408ef4dfc8e1f08d412141257b2ff78"
+    ],
+    [
+      "tests/test_rc_audit_repairs.py",
+      "8973c7ae8335f0599e3d12f70215dd28550652377f006f1a820c109fb4eab46e"
     ],
     [
       "tests/test_repair7r_reuse_evidence.py",
@@ -4866,7 +5718,7 @@
     ],
     [
       "tests/test_repair7r_sqlite_lifecycle.py",
-      "f61b853ef893233cededeaef6a666fc2d1ac66c4de643f04cf958914f77ec353"
+      "944e242a8d0ede48002f26e42b7fcf4c156ee1aeff4582aa6b789f05011b45ea"
     ],
     [
       "tests/test_replay_checkpoint_consistency.py",
@@ -4893,8 +5745,172 @@
       "3444495ac240bedf7907786720372aaaf0abebcb8e7c613409869568db320d02"
     ],
     [
+      "tests/test_science_contract_strength.py",
+      "b03d366c78de251b5e840db5c39bd18c1511d31c750a4fa139252a0d43f6af69"
+    ],
+    [
+      "tests/test_separate_completion_evidence.py",
+      "cb53948d08d8a00f44dfad729e2db5998ea7e848a6880c63203bd104bdce8bf6"
+    ],
+    [
+      "tests/test_sidecar_lifecycle.py",
+      "fab4c0ff0999f81ba54663687cdae18d20b68c943e643245c36c14856e2da8e6"
+    ],
+    [
+      "tests/test_snapshot_evidence_filters.py",
+      "3564ed1933149b1454b0adc0447d79544c48d7d5adef03b1314397af11de8d40"
+    ],
+    [
+      "tests/test_storage_admission_bindings.py",
+      "0ddc9ce396c850fc69f32460f70e4152821d747e4e53fb79bdbabf1e7d6a8d7c"
+    ],
+    [
+      "tests/test_storage_audit.py",
+      "16e276d812f70deee9daef74d05b4dad8a9e71ac7aabeca0b7e1c062ef79864b"
+    ],
+    [
+      "tests/test_storage_auxiliary_closure.py",
+      "93512004c97ac3ee3283717f6ed9c60554d8dc301231f798a70eb8d3c78e5582"
+    ],
+    [
+      "tests/test_storage_candidate.py",
+      "c8d4aa4c62334f6ea3503007fd3d5517095b5754798fdd6297b748dbb24e1778"
+    ],
+    [
+      "tests/test_storage_candidate_metadata.py",
+      "e63e2fcb9379290045f722f7c2421f7ff73b021e1cb2741171289b23bc0ab08b"
+    ],
+    [
+      "tests/test_storage_capture_metadata.py",
+      "6cdea4b57afad72dc3b128a54667a677c9816e1a8296824e1d2f9bd2d1f16025"
+    ],
+    [
+      "tests/test_storage_catalog_migration.py",
+      "e60b1814e654ffd3026832905b6f4446a5241bb8406258c130e74589fd11f0c2"
+    ],
+    [
+      "tests/test_storage_claims.py",
+      "c668de0fdfdd11e30191594b377ea4bdb9f2c8cc03228943364386b6c32e0cf3"
+    ],
+    [
+      "tests/test_storage_closure.py",
+      "742181396907758fc3ab9a0b06dd7880fcf313a35848e3dc38a114728f85f1f6"
+    ],
+    [
+      "tests/test_storage_collection_recovery.py",
+      "b38c516c79c7a76180ff76a4b5ecd9f70954fe90109ece8087cf6bcf40742128"
+    ],
+    [
+      "tests/test_storage_collections.py",
+      "6e069a493074abef2cc90817439b74e43c16e67682cdbb0edf954f60eb592e0e"
+    ],
+    [
+      "tests/test_storage_comparison.py",
+      "177906131302227203c5cc6d23abaeb680b0e8e4c66cb5a759c5e0050cdd1d01"
+    ],
+    [
+      "tests/test_storage_contract_registry.py",
+      "239ddb462bce5c646af8385bf77be76e064e6565fb0845cb50606756ed040d60"
+    ],
+    [
+      "tests/test_storage_dataset_snapshot.py",
+      "b0766eb74b3699c8de12a28e6975731b2e140f31f574d243e2e4df411579af21"
+    ],
+    [
+      "tests/test_storage_dependencies.py",
+      "4b535ad72493cd2442b6b8fbebb25a35525650531c12768050eb0e8c01f42d8b"
+    ],
+    [
+      "tests/test_storage_evidence.py",
+      "912dbf412d696279f04e8874a423a18fd399246a221f37c6c8268df68498f149"
+    ],
+    [
+      "tests/test_storage_fixed_runtime.py",
+      "c8d41f8f6034589212271ab5f722184d73ba5c0aa445c673a10fb7c1cbb08de4"
+    ],
+    [
+      "tests/test_storage_frontier_history.py",
+      "738e36243f60aea67486fcad9f3cbbbf35c1ae70e26dbfc87a0f270a3bf8cef2"
+    ],
+    [
+      "tests/test_storage_frontier_snapshot.py",
+      "aeda15e00d8d8eb7a4eb3f937681e5a94563a3ba8450e9d940e974a1dc02c0b4"
+    ],
+    [
+      "tests/test_storage_full_recovery_join.py",
+      "4e3f6b73f9ddafdb07d82532eaaaf32933a87b31a0f5945e9603e491051331eb"
+    ],
+    [
+      "tests/test_storage_history_assembly.py",
+      "af914a15bdf1e14c02eb0030d12336f067be9871d1a97510d4ad0258eced7541"
+    ],
+    [
+      "tests/test_storage_index_descriptor.py",
+      "8752f40e887de79a2e64177890e11d34bd2becf4101bba6dc377528cc637bbc3"
+    ],
+    [
+      "tests/test_storage_legacy.py",
+      "fa3a56e0d073da1ce8b1e2c97fe34929e301a0c8a47422560d667bb3ea10da3a"
+    ],
+    [
+      "tests/test_storage_links.py",
+      "68fd7a9cdfe18ce0889f6273383aa5e61f1356dcd68dc6726583b8c9d3e1dcdf"
+    ],
+    [
+      "tests/test_storage_manifest_sources.py",
+      "5b939edc67e2d21a6565b688cae10cb289f9fa545f2f3a5acfd7a1d8e4db4e29"
+    ],
+    [
+      "tests/test_storage_native_collection.py",
+      "d558aa65822a0b3b4a0824c81a06a04d99535271ac3c1d992f97cf3aed05d892"
+    ],
+    [
+      "tests/test_storage_negative.py",
+      "ba83c56159d14753bc252cf4a9ef7fdd43028f63a9ca541eb2cd69d2784f885e"
+    ],
+    [
+      "tests/test_storage_oracle_witnesses.py",
+      "7947583d2607f52e816a7fc28e4e280c864128166d8196df34b3a9efbd3cb209"
+    ],
+    [
+      "tests/test_storage_p9_result_closure.py",
+      "dea4dc1b4fb82d81860eabdd057ea340fcc22e7692137d226815621d5cd47c8f"
+    ],
+    [
+      "tests/test_storage_recipe.py",
+      "888ec930fd7b3070ca8c9c220388f15144ad7adfe8b0d5571a15fbf4ef224593"
+    ],
+    [
+      "tests/test_storage_recovery_join.py",
+      "286926cde35d7ce1aeca0c330698a157dad9e024624089ee69fddb89fd14d0bf"
+    ],
+    [
+      "tests/test_storage_result_closure.py",
+      "299f4dcb97870af9cfe3daf29123ea601b9e3bc06ed40ca74db18bf8b6a94d28"
+    ],
+    [
+      "tests/test_storage_runner_snapshot.py",
+      "fb3cf08dcb943c986edd856bf3539476c6c763a45447824de3cb0f51010106f4"
+    ],
+    [
+      "tests/test_storage_snapshot_results.py",
+      "b353da0de0bd2bedc1ef4e2b2bd200a8093cc77b1fba91e4fd197b25c4eb99f0"
+    ],
+    [
+      "tests/test_storage_step2.py",
+      "80f69f559155128df7f2eae91ec6f5f0a69acb1be6616b72a27267734342f07e"
+    ],
+    [
       "tests/test_structural_encoding_e2.py",
       "4d9e2a90b46a7426b8d2c35ff9f38d43ae378c9c989c173257845c2b88bf4803"
+    ],
+    [
+      "tests/test_terminal_json_equivalence.py",
+      "6c16ab83a89123bc716a73847cdf39a3b45eb4def3bcd51085aa7bbc3de021f4"
+    ],
+    [
+      "tests/test_two_sorted_relation_library.py",
+      "c2665c61194e6f29b10ca33f16f23ed7bd28a1141eeaeb9718e05d8aa9b5a844"
     ],
     [
       "tests/test_v05_c5_origin_exclusivity.py",
@@ -4954,7 +5970,7 @@
     ],
     [
       "tests/test_v05_registered_workspace.py",
-      "a562f7d65608ad5ae8c5ff924c36fcdbe4eb597321d49635a4c5d5b9f80521bd"
+      "11280d8957a5e5c8d124d5a0e7a8b31e2bad77d46980c1ab5c993d2346fc79a1"
     ],
     [
       "tests/test_v05_s8_optimization_acceptance.py",
@@ -4971,6 +5987,10 @@
     [
       "tests/test_v05_stage_runtime_resume_kernel_view.py",
       "58e8eb7d07d6815bc7ec96f9141bde878b8183ff65c83f73e228ca0a899a6523"
+    ],
+    [
+      "tests/test_validation_phase_binding.py",
+      "8f2698425cc553a78300259deb22e2d721a689e0f398b0c0bff90d83d237f3cf"
     ],
     [
       "tests/test_validation_recorder_finalization.py",
@@ -5001,6 +6021,10 @@
       "792ed8f5d62967def45a09e4654ceca7d6ec4a36e7635c2e89b49d64cda785b8"
     ],
     [
+      "tools/provision_sqlite_3510300.py",
+      "f97ea35193071ad7dca9250894d94446b9ade04bfe8e47c0889e74723c6c606a"
+    ],
+    [
       "tools/run_p1d_authorized_prefix.py",
       "3510f4f90d38dc196382d2e5280e24cd79a48e6896a5731cc669f445fc3e23f9"
     ],
@@ -5016,5 +6040,10 @@
       "uv.lock",
       "acd5db61beffb30f4e2f75e1e391d6c720c395b902e2f9701a04c0ce161d1c8b"
     ]
-  ]
+  ],
+  "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+  "package_sha256": "373b3bdf47abfbfd795878d8fd299ec6ac13ab7047f774f7aa8ac0239b48f224",
+  "version": "0.8.0.dev137+lib",
+  "archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+  "qualification": "UNQUALIFIED"
 }

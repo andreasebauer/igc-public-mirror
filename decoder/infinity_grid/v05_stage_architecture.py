@@ -86,6 +86,27 @@ def audit_module_source(module_path: str | Path) -> dict[str, Any]:
         elif isinstance(node, ast.ImportFrom):
             for alias in node.names:
                 aliases[alias.asname or alias.name] = f"{node.module}.{alias.name}"
+    # Narrow exception for an unshadowed imported environment query. Unknown
+    # system calls retain the conservative leaf refusal. This is not a sandbox.
+    shadowed = {n.id for n in ast.walk(tree) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store)}
+    shadowed.update(n.arg for n in ast.walk(tree) if isinstance(n, ast.arg))
+    shadowed.update(n.name for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)))
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Attribute) and isinstance(node.ctx, (ast.Store, ast.Del)):
+            root = node.value
+            while isinstance(root, ast.Attribute):
+                root = root.value
+            if isinstance(root, ast.Name):
+                shadowed.add(root.id)
+        elif isinstance(node, ast.ExceptHandler) and node.name:
+            shadowed.add(node.name)
+    origins = {}
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            for alias in node.names:
+                key = alias.asname or (alias.name.split('.')[0] if isinstance(node, ast.Import) else alias.name)
+                value = (alias.name if alias.asname else alias.name.split('.')[0]) if isinstance(node, ast.Import) else f'{node.module}.{alias.name}'
+                origins.setdefault(key, set()).add(value)
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
             for alias in node.names:
@@ -101,7 +122,8 @@ def audit_module_source(module_path: str | Path) -> dict[str, Any]:
             head, dot, tail = name.partition(".")
             name = aliases.get(head, head) + (dot + tail if dot else "")
             leaf = name.rsplit(".", 1)[-1]
-            if leaf in _FORBIDDEN_CALL_NAMES or name in _FORBIDDEN_EXACT_CALLS or name.startswith("os.exec"):
+            safe_query = name == 'platform.system' and head in aliases and head not in shadowed and len(origins.get(head, ())) == 1
+            if not safe_query and (leaf in _FORBIDDEN_CALL_NAMES or name in _FORBIDDEN_EXACT_CALLS or name.startswith("os.exec")):
                 violations.append({"line": node.lineno, "kind": "FORBIDDEN_EXECUTION_CALL", "detail": name})
     return {
         "schema_id": ARCHITECTURE_GATE_SCHEMA,

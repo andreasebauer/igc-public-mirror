@@ -1,25 +1,30 @@
-# Infinity Grid source archive
+# Infinity Grid source repository
+
+**Decoder starts at [DECODER_READ_FIRST.txt](DECODER_READ_FIRST.txt).**
+
+The consolidation branch contains exact dev137 source, runtime reconstruction,
+mode checks, one dependency catalog and the current RC ledger. **Unqualified;
+full RC OPEN.** No release or runtime pointer is promoted.
+
+Run `python decoder-admin/decoder.py status` and
+`python decoder-admin/decoder.py verify-source` from this directory.
 
 | Area | Purpose |
 | --- | --- |
-| [`decoder/`](decoder/) | Exact dev84 revision 5 candidate; engineering-qualified, not activated |
-| [`decoder-import/`](decoder-import/README.txt) | Source hashes, verifier, provenance and qualification receipt |
-| [`microscope/`](microscope/) | Independently maintained public viewer |
-| [`shared-data/`](shared-data/README.txt) | Storage prototype; no complete recovery migration |
-| `igc/` and root `pyproject.toml` | Legacy IGC orchestrator, separate from Decoder |
+| `decoder/` | Exact dev137 source and tests |
+| `decoder-admin/` | Single recovery entry point, dependency catalog, status |
+| `decoder-import/` | Source integrity and historical import provenance |
+| `microscope/`, `decoder-preview/` | Existing independently maintained interfaces |
+| `shared-data/` | Historical storage prototype; Drive remains the data store |
+| Root `pyproject.toml`, `igc/` | Legacy package; not the Decoder installation root |
 
-For Decoder, first run `python decoder-import/verify_source.py`, then follow
-[the import guide](decoder-import/README.txt). Installing the repository root
-installs the legacy package. Pin an exact commit for recovery.
-
-CI checks source integrity only. Scientific runs and qualification use the
-Decoder native controller. Preserve independent backups; this checkout does
-not contain the full scientific recovery closure.
+Large runtime archives and private/scientific evidence remain on Drive and are
+located by immutable hashes. Five candidate fixtures and complete historical
+science recovery closure remain open. CI verifies repository integrity only.
 
 ---
 
-Decoder source import: see [decoder-import/README.txt](decoder-import/README.txt).
-Shared data storage: see [shared-data/README.txt](shared-data/README.txt).
+## Legacy IGC documentation (historical)
 
 # Infinity Grid — Python Orchestrator & Analysis (IGC)
 

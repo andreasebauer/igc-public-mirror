@@ -12,8 +12,9 @@ classifiers = ["Operating System :: POSIX :: Linux", "Programming Language :: Py
 dependencies = ["cryptography>=46.0.4", "igraph==1.0.0", "sympy==1.14.0"]
 
 [project.optional-dependencies]
-verification = ["networkx==3.4.2"]
-qualification = ["cryptography==46.0.4", "networkx==3.4.2", "pytest==8.3.5", "setuptools==84.0.0", "wheel==0.48.0", "pip==26.2.1"]
+storage = ["jsonschema==4.26.0", "referencing==0.37.0"]
+verification = ["networkx==3.6.1"]
+qualification = ["jsonschema==4.26.0", "referencing==0.37.0", "cryptography==46.0.4", "networkx==3.6.1", "pytest==9.0.2", "setuptools==84.0.0", "wheel==0.48.0", "pip==26.2.1"]
 
 [project.scripts]
 ig = "infinity_grid.controller:main"

@@ -15,9 +15,15 @@ from infinity_grid.canon import canonical_sha256, write_json_atomic
 
 
 def contract(**kw):
-    row={'schema_id':rc.SCHEMA,'claim':'SCIENCE','required_artifacts':[],
+    row={'schema_id':rc.SCIENCE_SCHEMA,'claim':'SCIENCE','required_artifacts':[{'path':'result.json','json_checks':[{'pointer':'/rows','count':0}]}], 'scientific_content':['result.json'],
          'result_checks':[{'pointer':'/outcome','equals':'NO_EFFECT'}], 'prerequisites':[],'preservation':{}}
-    row.update(kw);return row
+    row.update(kw)
+    row['scientific_content']=[r['path'] for r in row['required_artifacts']]
+    return row
+
+
+def checked(**kw):
+    return rc.normalize(contract(**kw),{'kind':'SCRIPT'},{'outcomes':['NO_EFFECT']})
 
 
 def test_negative_scientific_result_can_be_verified(tmp_path):
@@ -36,7 +42,7 @@ def test_descriptive_contract_does_not_certify_science(tmp_path):
 
 def test_script_scientific_outcome_is_read_from_declared_artifact(tmp_path):
     write_json_atomic(tmp_path/'answer.json',{'outcome':'NO_EFFECT'})
-    c=contract(required_artifacts=[{'path':'answer.json'}],result_checks=[{'pointer':'/status','equals':'PASS'}],
+    c=contract(required_artifacts=[{'path':'answer.json','json_checks':[{'pointer':'/outcome','equals':'NO_EFFECT'}]}],result_checks=[{'pointer':'/status','equals':'PASS'}],
                outcome={'artifact':'answer.json','pointer':'/outcome'})
     c=rc.normalize(c,{'kind':'SCRIPT'},{'outcomes':['NO_EFFECT','EFFECT']})
     r=rc.verify(c,{'status':'PASS','outcome':'PROCESS_COMPLETED'},tmp_path)
@@ -44,14 +50,14 @@ def test_script_scientific_outcome_is_read_from_declared_artifact(tmp_path):
 
 
 def test_missing_output_is_rejected(tmp_path):
-    r=rc.verify(contract(required_artifacts=[{'path':'missing.json'}]),{'outcome':'NO_EFFECT'},tmp_path)
+    r=rc.verify(checked(required_artifacts=[{'path':'missing.json','sha256':'0'*64}]),{'outcome':'NO_EFFECT'},tmp_path)
     assert r['status']=='REJECTED'
     assert r['failures'][0]['reason']=='ARTIFACT_MISSING_OR_UNSAFE'
 
 
 def test_wrong_hash_count_and_typed_value_are_rejected(tmp_path):
     write_json_atomic(tmp_path/'result.json',{'rows':[1]})
-    c=contract(required_artifacts=[{'path':'result.json','sha256':'0'*64,'json_checks':[{'pointer':'/rows','count':0}]}])
+    c=checked(required_artifacts=[{'path':'result.json','sha256':'0'*64,'json_checks':[{'pointer':'/rows','count':0}]}])
     r=rc.verify(c,{'outcome':'NO_EFFECT'},tmp_path)
     assert len(r['failures'])==2 and r['status']=='REJECTED'
     assert rc.evaluate_checks({'x':True},[{'pointer':'/x','equals':1}])
@@ -59,20 +65,21 @@ def test_wrong_hash_count_and_typed_value_are_rejected(tmp_path):
 
 def test_bad_contract_paths_schema_and_limits_refuse():
     for c in [contract(schema_id='UNKNOWN'),contract(required_artifacts=[{'path':'../outside'}]),
-              contract(result_checks=[]),contract(preservation={'max_commit_bytes':20,'max_pending_bytes':10})]:
+              contract(required_artifacts=[],result_checks=[]),contract(preservation={'max_commit_bytes':20,'max_pending_bytes':10})]:
         with pytest.raises(sub.SubmissionError):rc.normalize(c,{'kind':'SCRIPT'},{})
 
 
 def test_output_symlink_is_rejected(tmp_path):
     outside=tmp_path/'outside.json';outside.write_text('{}')
     out=tmp_path/'run';out.mkdir();(out/'result.json').symlink_to(outside)
-    assert rc.verify(contract(required_artifacts=[{'path':'result.json'}]),{'outcome':'NO_EFFECT'},out)['status']=='REJECTED'
+    assert rc.verify(checked(required_artifacts=[{'path':'result.json','sha256':'0'*64}]),{'outcome':'NO_EFFECT'},out)['status']=='REJECTED'
 
 
 def test_missing_prerequisite_refuses_before_execution(tmp_path):
     from tests.test_decoder06_capture import _spec
     from infinity_grid import portable_registry as project
     spec=_spec(tmp_path,project=False);spec['output_contract']=contract(prerequisites=[{'capsule_sha256':'0'*64,'completion_sha256':'1'*64}])
+    spec['question']['outcomes']=['NO_EFFECT']
     store=tmp_path/'store';project.initialize(store,'PREREQUISITE_REFUSAL_FIXTURE',spec['engine_source'])
     capture=sub.capture(store,spec)
     with pytest.raises(sub.SubmissionError,match='PREREQUISITE_EVIDENCE_UNRESOLVED'):

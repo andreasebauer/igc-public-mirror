@@ -1,0 +1,39 @@
+STORAGE STEP 2 R3 — dev91 LEGACY CATALOGUE READ MIGRATION CANDIDATE
+28 September 2026. Parent dev90 R2 remains unchanged.
+
+Scope: native engineering validation, not scientific production or acceptance.
+The runtime is still unapproved for the WAL-fix production gate. Official-source
+download attempts failed. No system library is replaced and no admission relaxed.
+
+Catalogue.query now uses only explicitly built, closed snapshots. It never opens
+or migrates the old live ig_catalog.sqlite. Missing snapshots raise a clear error.
+Catalogue.rebuild creates a separate DELETE-mode database, retains exact legacy
+input bytes and relative paths, checks stable source inventory, integrity and
+counts, seals the snapshot, and switches a browsing alias under writer ownership.
+The live DB/WAL and the prior snapshot are never unlinked by this operation.
+Duplicate table identities fail rather than disappear through INSERT OR REPLACE.
+
+Query lists are bounded by rows, value bytes, SQL length and SQLite VM steps;
+exceeding a bound refuses the query, not a silently partial list. Graph pages
+carry explicit truncation and pinned-snapshot/query-bound keyset cursors.
+GraphStore.outgoing/incoming accept an explicit snapshot= reader. That mode
+uses indexed SQL joins over retained exact graph bytes, without global filescans.
+Their unsupplied-snapshot LIVE mode is not migrated. Live mutation workflows
+must not be silently bound to an out-of-date frozen snapshot. Planner/jumpstart
+orchestration and accepted canonical-release readers remain further work.
+
+The legacy snapshot is an engineering projection, not a ReleaseRoot,
+IndexDescriptor or PublicationSeal. Metadata is actually read from captured
+legacy input files, not synthetic release-root hashes. Tests nevertheless use
+synthetic native-format fixtures, not the user's scientific stock.
+
+Profile: <=64 KiB input record, <=100,000 input records; <=4096 rows and <=16 MiB
+SQL values per query. These bounds are guards, not tested scale guarantees.
+Tests cover up to 1200 native-format legacy edges and small record inventories.
+Building uses a bounded filename/stamp inventory and sorting; index opening
+hashes the whole closed database once. It is not larger-than-RAM storage.
+
+Native target: tests/test_storage_catalog_migration.py plus the existing 47
+Step2 engineering checks as affected compatibility tests on the CHANGED source.
+No standalone pytest. Save capture dependencies before running. Retain failures,
+source/runtime pins and original results. No general 1131-case rerun.

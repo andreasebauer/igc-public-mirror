@@ -7,18 +7,74 @@ from .canon import canonical_sha256
 from . import submission as sub
 
 SCHEMA = 'IG_DECODER_RESULT_CONTRACT_V1'
+SCIENCE_SCHEMA = 'IG_DECODER_RESULT_CONTRACT_V2'
+SCIENCE_POLICY = 'EXPLICIT_ARTIFACT_CONTENT_V1'
+_PROCESS_OUTCOMES = {'PASS', 'FAIL', 'PROCESS_COMPLETED', 'PROCESS_FAILED', 'COMPLETED', 'SUCCESS'}
+
+
+def _content_check(check):
+    # This is a syntactic admission floor, not an assessment of scientific truth.
+    pointer_text = check['pointer']
+    if not pointer_text or pointer_text.split('/')[1] in {'status', 'return_code', 'exit_code'}:
+        return False
+    if pointer_text == '/outcome':
+        values = check.get('one_of', [check.get('equals')])
+        return ('count' not in check and all(isinstance(v, str) and v not in _PROCESS_OUTCOMES for v in values))
+    return True
+
+
+def _science_policy(contract, question):
+    if contract['schema_id'] != SCIENCE_SCHEMA:
+        raise sub.SubmissionError('SCIENCE_V2_EXPLICIT_CONTENT_REQUIRED')
+    paths = contract.get('scientific_content')
+    if (type(paths) is not list or not paths or any(type(p) is not str for p in paths)
+            or len(set(paths)) != len(paths)):
+        raise sub.SubmissionError('SCIENTIFIC_CONTENT_PATHS')
+    rows = {row['path']: row for row in contract['required_artifacts']}
+    for path in paths:
+        row = rows.get(path)
+        if row is None or not ('sha256' in row or any(_content_check(c) for c in row.get('json_checks', []))):
+            raise sub.SubmissionError('SCIENTIFIC_CONTENT_CHECK_REQUIRED', path)
+    outcomes = question.get('outcomes')
+    if (type(outcomes) is not list or not outcomes or any(type(v) is not str or not v for v in outcomes)
+            or not any(v not in _PROCESS_OUTCOMES for v in outcomes)
+            or len(set(outcomes)) != len(outcomes)):
+        raise sub.SubmissionError('SCIENTIFIC_OUTCOMES_REQUIRED')
+
+
+def _strict_json(raw):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result: raise ValueError('duplicate JSON key')
+            result[key] = value
+        return result
+    def nonfinite(value): raise ValueError('nonfinite JSON value')
+    value = json.loads(raw.decode('utf-8'), object_pairs_hook=pairs, parse_constant=nonfinite)
+    # Also rejects overflow such as 1e999, which parse_constant does not see.
+    json.dumps(value, allow_nan=False)
+    return value
+
+
+def _validate_science(contract):
+    raw = {k: v for k, v in contract.items() if k != 'declared_outcomes'}
+    normalize(raw, {'kind': 'SCRIPT'}, {'outcomes': contract.get('declared_outcomes')})
+
 
 
 def normalize(contract, execution, question):
-    if 'schema_id' in contract and contract['schema_id'] != SCHEMA:
+    if 'schema_id' in contract and contract['schema_id'] not in {SCHEMA, SCIENCE_SCHEMA}:
         raise sub.SubmissionError('RESULT_CONTRACT_SCHEMA')
-    if contract.get('schema_id') != SCHEMA:
+    if contract.get('schema_id') not in {SCHEMA, SCIENCE_SCHEMA}:
         kind = execution['kind']
         engineering = execution.get('handler_ref') == 'infinity_grid.change_validation:validate_revision'
         return {'schema_id': SCHEMA, 'claim': 'VALIDATION' if kind == 'VALIDATION' or engineering else 'EXECUTION_ONLY',
                 'required_artifacts': [], 'result_checks': [{'pointer': '/status' if kind == 'VALIDATION' else '/outcome', 'equals': 'PASS'}] if kind == 'VALIDATION' or engineering else [],
                 'prerequisites': [], 'preservation': {}, 'legacy_description': contract}
     allowed = {'schema_id', 'claim', 'required_artifacts', 'result_checks', 'prerequisites', 'preservation'}
+    if contract.get('schema_id') == SCIENCE_SCHEMA:
+        allowed = allowed | {'scientific_content'}
+        if contract.get('claim') != 'SCIENCE': raise sub.SubmissionError('SCIENCE_V2_CLAIM_REQUIRED')
     if set(contract) not in (allowed, allowed|{'outcome'}) or contract['claim'] not in {'SCIENCE', 'VALIDATION', 'EXECUTION_ONLY'}:
         raise sub.SubmissionError('RESULT_CONTRACT_FIELDS')
     if any(type(contract[k]) is not list for k in ('required_artifacts', 'result_checks', 'prerequisites')):
@@ -37,11 +93,12 @@ def normalize(contract, execution, question):
         rule=contract['outcome']
         if not isinstance(rule,dict) or set(rule)!={'artifact','pointer'} or rule['artifact'] not in paths:
             raise sub.SubmissionError('SCIENTIFIC_OUTCOME_ARTIFACT_REQUIRED')
-        _checks([{'pointer':rule['pointer'],'one_of':question['outcomes']}])
+        _checks([{'pointer':rule['pointer'],'one_of':question.get('outcomes', [])}])
     _checks(contract['result_checks'])
     for row in contract['prerequisites']:
         if set(row) != {'capsule_sha256', 'completion_sha256'} or not all(_digest(v) for v in row.values()):
             raise sub.SubmissionError('PREREQUISITE_FIELDS')
+    if contract['claim'] == 'SCIENCE': _science_policy(contract, question)
     policy(contract)
     canonical_sha256(contract)
     return dict(contract,declared_outcomes=list(question.get('outcomes',[])))
@@ -100,7 +157,12 @@ def evaluate_checks(obj, checks):
 
 def contract_for(workspace):
     rec = sub.capture_record(workspace)
-    return rec.get('result_contract') or normalize(rec['output_contract'], rec['job']['execution'], rec['job']['question'])
+    contract = rec.get('result_contract') or normalize(rec['output_contract'], rec['job']['execution'], rec['job']['question'])
+    if contract.get('claim') == 'SCIENCE':
+        _validate_science(contract)
+        if contract['declared_outcomes'] != rec['job']['question']['outcomes']:
+            raise sub.SubmissionError('SCIENTIFIC_OUTCOME_BINDING')
+    return contract
 
 
 def prerequisites(admission):
@@ -119,6 +181,11 @@ def prerequisites(admission):
 
 
 def verify(contract, result, output):
+    science = contract.get('claim') == 'SCIENCE'
+    if science:
+        try: _validate_science(contract)
+        except (sub.SubmissionError, KeyError, TypeError, ValueError) as exc:
+            return _science_report(contract, 'REJECTED', None, [], [{'reason': 'SCIENTIFIC_CONTRACT_POLICY', 'detail': str(exc)}])
     output = Path(output).resolve(); failures = evaluate_checks(result, contract['result_checks']); artifacts = []
     decoded = {}
     for row in contract['required_artifacts']:
@@ -131,7 +198,7 @@ def verify(contract, result, output):
         if 'sha256' in row and sha != row['sha256']: failures.append({'path': row['path'], 'reason': 'ARTIFACT_HASH'})
         if row.get('json_checks') or contract.get('outcome', {}).get('artifact') == row['path']:
             try:
-                decoded[row['path']] = json.loads(raw.decode('utf-8'))
+                decoded[row['path']] = _strict_json(raw) if science else json.loads(raw.decode('utf-8'))
                 failures.extend(dict(x, path=row['path']) for x in evaluate_checks(decoded[row['path']], row.get('json_checks', [])))
             except Exception: failures.append({'path': row['path'], 'reason': 'ARTIFACT_JSON'})
     outcome=None
@@ -141,10 +208,23 @@ def verify(contract, result, output):
                 rule=contract['outcome']
                 outcome=pointer(decoded[rule['artifact']],rule['pointer'])
             else:outcome=result.get('outcome')
-            if not isinstance(outcome,str) or (contract.get('declared_outcomes') and outcome not in contract['declared_outcomes']):raise ValueError('unregistered')
+            if not isinstance(outcome,str) or outcome in _PROCESS_OUTCOMES or outcome not in contract['declared_outcomes']:raise ValueError('unregistered')
         except Exception:failures.append({'reason':'SCIENTIFIC_OUTCOME_UNRESOLVED_OR_UNREGISTERED'})
     declared = bool(contract['required_artifacts'] or contract['result_checks'])
+    if science:
+        return _science_report(contract, 'REJECTED' if failures else 'VERIFIED', outcome if not failures else None, artifacts, failures)
     return {'schema_id': 'IG_DECODER_RESULT_VERIFICATION_V1', 'contract_sha256': canonical_sha256(contract),
             'claim': contract['claim'], 'status': 'REJECTED' if failures else 'VERIFIED' if declared else 'NOT_DECLARED',
             'scientific_outcome': outcome if contract['claim'] == 'SCIENCE' and not failures else None,
             'artifacts': artifacts, 'failures': failures}
+
+
+def _science_report(contract, status, outcome, artifacts, failures):
+    content = contract.get('scientific_content', [])
+    return {'schema_id': 'IG_DECODER_RESULT_VERIFICATION_V2',
+            'contract_sha256': canonical_sha256(contract), 'claim': 'SCIENCE',
+            'status': status, 'scientific_outcome': outcome, 'artifacts': artifacts,
+            'failures': failures, 'content_policy': SCIENCE_POLICY,
+            'conformance_scope': 'DECLARED_CONTENT_ONLY', 'science_qualification_authority': 'NONE',
+            'artifact_roles': [{'path': r['path'], 'role': 'SCIENTIFIC_CONTENT' if r['path'] in content else 'SUPPORTING'}
+                               for r in contract.get('required_artifacts', []) if isinstance(r, dict) and 'path' in r]}

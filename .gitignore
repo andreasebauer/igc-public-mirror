@@ -23,3 +23,6 @@ artifacts/
 *.csv
 *.png
 *.mp4
+# Decoder local data, never commit private inputs or runtime trees
+/.decoder-cache/
+/.decoder-work/

@@ -38,6 +38,17 @@ def validate(schema: dict, obj: Any, path: str = "$", *, raise_on_error: bool = 
     min/maxLength, pattern, minimum/maximum, allOf/anyOf/oneOf/not. Unknown
     schema annotations are ignored; data is never silently repaired.
     """
+    if schema.get("$id") == "urn:ig:storage:contract:1.0.0":
+        from .storage_schema import _compiled, canonical_bytes, validate_record_bytes
+        try:
+            if schema != _compiled().schema:
+                raise ValueError("PINNED_STORAGE_SCHEMA_MISMATCH")
+            validate_record_bytes(canonical_bytes(obj))
+            return []
+        except Exception as exc:
+            if raise_on_error:
+                raise ValidationError(str(exc)) from exc
+            return [str(exc)]
     errors: list[str] = []
 
     def branch_errors(s: dict, v: Any, p: str) -> list[str]:

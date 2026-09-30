@@ -1,0 +1,41 @@
+V4 V16 — BLOCKED BEFORE PYTHON / NATIVE CAPTURE, 2026-09-30
+
+The bounded five-check qualification protocol, handler and V4 manifest were
+saved to Drive and returned bytes verified before launch. The first attempt to
+start the capture-administration script through python-fixed-host exited 126:
+exec: .../base/bin/python3.13: Permission denied.
+
+The interpreter currently has mode 0644, without execute bits. The wrapper is
+executable. Python did not start; the native store was not created. Native
+captures: 0. Native attempts: 0. Qualification checks executed: 0. No historical
+tests or scientific workloads ran. The refusal was retained; no chmod, loader
+workaround, alternative interpreter or retry was used after the failure.
+
+Read-only follow-up checked all 4721 V4 runtime file hashes/sizes and file set.
+They match the V15 byte manifest. The manifest does not bind permission modes.
+The V15 assembly script explicitly requested mode 0755 for the interpreter,
+engineering interpreter and launcher, but the saved byte-only verification did
+not record their observed modes. The time/cause of the current permission state
+is therefore NOT ESTABLISHED. Do not attribute it to synchronization or a platform
+actor without evidence. Matching bytes alone did not establish launch readiness.
+
+The planned checks (Python/optimization, build-tool imports/versions, SQLite
+memory transaction, igraph small graph and SymPy polynomial) remain unexecuted.
+This is not a failing scientific test, not a native preflight refusal, and not
+a runtime qualification result. No native checkpoint/completion exists for V16.
+V4 remains assembled-but-unqualified. Dev137 and shared pointer unchanged.
+All 23 RC acceptance rows and full RC remain OPEN.
+
+Next action
+Prepare a new, explicitly versioned mode-aware reconstruction/launch protocol.
+Bind both bytes and required executable modes, relocate live runtime plus workspace
+under a new /tmp root, and verify permissions immediately before the registered
+launch. Preserve this failed V16 launch and original runtime tree. Treat the
+file-mode restoration as a declared packaging correction, not evidence of a
+resolved historical reversion cause. Save/read back the revised prerequisites
+before a new attempt. Do not retry V16 or silently report it as successful.
+
+Bundle contains original protocol and handler, capture preparation script, raw
+shell failure log, hash/mode evidence, preregistration readback proof and updated
+ledger. Runtime/source bytes remain external in the V14/V15 saved bundles and
+two V3 runtime parts. The private historical fixture archive is not included.

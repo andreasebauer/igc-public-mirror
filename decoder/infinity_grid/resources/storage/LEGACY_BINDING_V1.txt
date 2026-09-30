@@ -1,0 +1,110 @@
+LEGACY DEPENDENCY BINDING V1 — DECLARED CLOSURE EXTENSION
+
+Closure request V2 adds legacy_bindings=[{content_ref,binding_ref}], unique by
+raw record digest. V1 behavior remains unchanged: a legacy format without a
+binding refuses. Each binding is exact canonical JSON with schema_id
+IG_STORAGE_LEGACY_DEPENDENCY_BINDING_V1, record_ref (original ID, original
+semantic seal and exact raw-file ContentRef), record_links (same triple shape),
+digest_bindings [{path,content_ref}], and symbol_bindings [{path,value,content_ref}].
+The binding itself is required inventory content. The legacy file is read in
+its original byte language, checked by the original verify_reference_record,
+and never reformatted or resealed. Duplicate JSON keys still refuse ingestion.
+
+Supported legacy types: CANONICAL_OBJECT, MECHANISM, DEPENDENCY_LINK,
+GRADUATION and EARNED_ALGEBRA.
+Provenance source hashes always require matching raw-content bindings.
+CANONICAL_OBJECT binds canonical_bytes_sha256 to exact bytes, and preserves
+carrier_schema and formation_provenance strings while explicitly binding their
+external definitions. object_identity remains its original native value.
+MECHANISM binds all implementation_hashes plus BOTH input and output record IDs.
+Original dependencies tracks only input IDs; it is not edited to broaden it.
+DEPENDENCY_LINK binds both from_record_id and to_record_id for all five relation
+labels, including when required=false. That flag describes the original link,
+not permission to omit an endpoint when preserving the link record itself.
+AUTHORIZES is retained as a relation label and grants no authority.
+GRADUATION binds evidence_record_ids; EARNED_ALGEBRA binds supporting_record_ids.
+These lists must agree with dependencies under the original sealed schema.
+Decision, strength, authorizes labels, scopes, statements and nonclaims remain
+inline original metadata. The adapter does not resolve arbitrary strings as
+external references or infer scientific sufficiency from a support list.
+A GRADUATED decision or EXACT strength never grants new acceptance. A required
+support record whose type is still unsupported causes closure refusal.
+Every linked record requires its original ID, semantic seal and raw-file ref,
+with recursive verification and ambiguity/mismatch refusal. Shared bytes keep
+their separate field roles. Paths are exact JSON-pointer locations, not local
+filesystem paths. Absolute original labels are not used to locate files.
+
+Epistemic status, science_execution, provenance and authority_effect are neither
+upgraded nor rewritten. Binding a named schema/formation definition is explicit
+interpretation under the request, not proof of scientific equivalence. Scope
+and explanatory strings remain original metadata. Other legacy record types
+refuse rather than guessing the meaning of their result identities, certificates,
+parameters, witnesses, authorization or checkpoint dependencies.
+
+The legacy adapter runs only under the bounded declared-closure reader and does
+not certify ReleaseRoot, IndexDescriptor, publication policy or external audit.
+The result remains STRUCTURAL_PASS with scientific_acceptance NOT_GRANTED.
+
+V2 EVIDENCE EXTENSION (DEV102)
+Binding schema IG_STORAGE_LEGACY_DEPENDENCY_BINDING_V2 adds semantic_bindings,
+an exact list of {path,profile,content_ref}. SRCF_EVIDENCE requires one entry at
+/payload/result_identity with profile IG_CANONICAL_JSON_V1. Its raw ContentRef
+pins original observation file bytes, while the original decoder canonicalizer
+checks the parsed observation against result_identity. The declared closure
+reader executes these semantic_checks; calling legacy_dependencies alone only
+extracts obligations. The observation must also have an explicit content
+interpretation and be in required inventory. It is never reconstructed or
+fabricated from the evidence digest. Missing original bytes cause refusal.
+Only equality mode CANONICAL_JSON, compression EXACT and null certificate are
+supported. Other modes/certificates/compression refuse. Observer labels remain
+metadata; evidence outcome and execution mode do not grant acceptance. V1 stays
+valid for the five previous types. V2 permits an empty semantic list for them;
+unknown or extra semantic fields refuse. Existing total-read/byte limits apply
+also to semantic verification reads. Strict JSON rejects duplicate keys.
+
+COMPARISON EXTENSION (DEV103)
+Both historical_record_ids and replay_record_ids are required original-record
+links. Original payload preserves their roles even if the same ID is on both
+sides; binding needs one unique triple for each distinct ID. Equality must be
+CANONICAL_JSON / EXACT / null certificate. qualification_ids must be empty:
+nonempty IDs require the actual qualification catalogue and reciprocal binding,
+which this adapter does not yet implement. Both V1 and V2 bindings are accepted;
+V2 semantic_bindings must be empty for the comparison itself. Linked evidence
+uses its own V2 observation binding. Original outcomes are preserved, including
+MISMATCH and EQUIVALENCE_NOT_CERTIFIED. Structural recovery does not recompute
+the comparison, validate side suitability, certify equality or grant authority.
+
+AUDIT_AUTHORIZATION EXTENSION (DEV104)
+Each /payload/evidence_hashes/i/sha256 requires an exact raw ContentRef binding,
+in addition to all provenance source hashes. Original external-audit provenance
+and EXTERNAL_DECISION_RECORDED are verified under the old schema and retained.
+CONTINUE and CERTIFY_AND_ADVANCE remain recorded decisions, not commands to
+advance the current run. Scope, obligations, authorization ID and limitations
+remain inline metadata. The reader does not authenticate the author or establish
+current applicability/acceptance. A shared evidence/provenance file retains both
+field roles. Labels in ref fields are not opened as local paths or network URLs.
+
+NEGATIVE_RESULT EXTENSION (DEV105)
+Supported witnesses: an empty list, nonempty inline strings, exact objects
+{source,anchors} with a nonempty list of nonempty strings, or {source,field,value}
+with nonempty field/value strings. All other shapes refuse. Each source must
+match a ref in original provenance source_hashes; its exact symbol binding at
+/payload/witnesses/i/source must preserve the label and match that pinned raw
+SHA-256. Source file bytes and binding enter required inventory. Inline strings
+are preserved metadata; no arbitrary string is guessed to be an external ref.
+This verifies recovery of the declared witness material, not that anchors occur,
+field/value assertions are true, or a negative claim follows. Tested scope,
+negative_statement and does_not_establish remain unchanged. No unbounded claim,
+current authority or scientific acceptance follows from STRUCTURAL_PASS.
+
+GENERATION_RECIPE EXTENSION (DEV106)
+All input_record_ids bind original records, and implementation_sha256 binds
+exact implementation file bytes. implementation_ref is preserved as a label;
+it is never imported, executed or followed as a path. Expected output types
+and determinism_contract remain declarations, not generated outputs or proof.
+Supported parameters have exactly one of these key sets: empty; assertion_id
+and anchors; assertion_id, anchors and execution_class; assertion_ids and
+execution_class. Scalar values must be nonempty strings and list values must
+contain only nonempty strings. These are inline metadata shapes from existing
+replay producers. Any other keys or nested values refuse pending an explicit
+parameter dependency profile. Recovery does not grant execution or acceptance.

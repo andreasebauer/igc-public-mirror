@@ -131,5 +131,29 @@ def test_recovery_retains_reviewed_core_byte_boundaries():
     for name,row in successor['changes'].items():
         assert row['previous_reviewed_sha256']==expected[name] and row['reason']
         expected[name]=row['reviewed_sha256']
+    recovery=json.loads((F/'ATTEMPT_RECOVERY_REVIEWED_CORE_CHANGES.json').read_text())
+    assert recovery['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(recovery['changes'])=={'infinity_grid/v05_controller_event_loop.py'}
+    for name,row in recovery['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
+    sealed=json.loads((F/'SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json').read_text())
+    assert sealed['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(sealed['changes'])=={'infinity_grid/v05_controller_event_loop.py','infinity_grid/preservation.py'}
+    for name,row in sealed['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
+    publication=json.loads((F/'TERMINAL_JSON_EQUIVALENCE_CORE_CHANGES.json').read_text())
+    assert publication['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(publication['changes'])=={'infinity_grid/preservation.py','infinity_grid/v05_controller_event_loop.py'}
+    for name,row in publication['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
+    snapshot=json.loads((F/'SNAPSHOT_EVIDENCE_FILTER_CORE_CHANGES.json').read_text())
+    assert snapshot['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'
+    assert set(snapshot['changes'])=={'infinity_grid/v05_controller_event_loop.py'}
+    for name,row in snapshot['changes'].items():
+        assert row['previous_reviewed_sha256']==expected[name] and row['reason']
+        expected[name]=row['reviewed_sha256']
     root=Path(__file__).resolve().parents[1]
     for name,digest in expected.items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest

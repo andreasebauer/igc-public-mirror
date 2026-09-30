@@ -32,7 +32,7 @@ def main(argv=None)->int:
     recorder=Recorder(log_root,args.binding,[args.selector])
     code=int(pytest.main(['-q','-s','-p','no:cacheprovider',args.selector],plugins=[recorder]))
     _wait_for_validation_descendants()
-    recorder.finalize()
+    recorder.publish_finalization()
     return code
 
 

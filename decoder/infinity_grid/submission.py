@@ -83,23 +83,9 @@ def _archive(files):
 def _put_object(store, raw, suffix, role):
     digest = _sha(raw)
     path = store / 'objects' / (digest + suffix)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists():
-        if path.read_bytes() != raw:
-            raise SubmissionError('CONTENT_STORE_MISMATCH', digest)
-    else:
-        # Independent captures may submit identical bytes concurrently.
-        fd, temporary = tempfile.mkstemp(prefix='.object-', dir=path.parent)
-        try:
-            with os.fdopen(fd, 'wb') as f:
-                f.write(raw); f.flush(); os.fsync(f.fileno())
-            try:
-                os.link(temporary, path)
-            except FileExistsError:
-                if path.read_bytes() != raw:
-                    raise SubmissionError('CONTENT_STORE_MISMATCH', digest)
-        finally:
-            Path(temporary).unlink(missing_ok=True)
+    from .immutable_publication import publish_bytes
+    def mismatch():raise SubmissionError('CONTENT_STORE_MISMATCH', digest)
+    publish_bytes(path,raw,mismatch)
     return {'role': role, 'sha256': digest, 'size_bytes': len(raw), 'object_name': path.name}
 
 
@@ -495,6 +481,8 @@ def require_saved(workspace, job_id, *, check_environment=True):
             'Use pending-saves WORKSPACE, upload/download the listed objects, then confirm-save each hash before run.')
     if check_environment:
         require_environment(rec)
+        from .sqlite_attestation import admit_capture_runtime
+        admit_capture_runtime(root, rec)
     return rec
 
 
