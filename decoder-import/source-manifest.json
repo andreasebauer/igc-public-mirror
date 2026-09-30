@@ -1,8 +1,8 @@
 {
-  "source_sha256": "db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d",
-  "package_sha256": "45a66ae3bf4ba23dff7d9c3a22a458535103d95a4929566190fd19c436a569be",
-  "version": "0.8.0.dev139+lib",
-  "archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
+  "version": "0.8.0.dev140+lib",
+  "source_sha256": "c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd",
+  "package_sha256": "5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18",
+  "archive_sha256": "e8aeed7559ea96a87021acc89a44b0a878354a087cba06ae0844a3034d79152b",
   "qualification": "UNQUALIFIED",
   "files": [
     [
@@ -203,7 +203,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "59be4cf99f68de7f621be5d212454be61b76532b2637c2ee1b786812f7f24f68"
+      "ef1e5cb8ac5851419dceba8d198867c20fcea5c97580e6e21524d9ac5d5e7b42"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -211,7 +211,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "915db673127e0a9a85b986392804e0f89fd5e0b6f171a076a8266225be7b81d2"
+      "f3e2eede840a26ac52d8ad3fdefe6ec43e8b73c873edb4848aa557cb61232b07"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -4507,11 +4507,11 @@
     ],
     [
       "qualification/PROFILE.json",
-      "28f0b436cd3ea43dbc51366a82822444492bf5a97f5a95eec81c0c3dd1858269"
+      "9837af86a07c5f088131504bc5eb679f094684f8fbeb6242d3792e62e9d6013e"
     ],
     [
       "qualification/READ_FIRST.txt",
-      "e527f189354edc1ea01259ef7043c72e516bb3d2cd1956a192dccc56f8e92467"
+      "458ff779dfa4d261130af7d5bb554009ac2dfe99826a09f4f6bc32438f727b0c"
     ],
     [
       "qualification/history/dev136/PROFILE.json",
@@ -4690,6 +4690,10 @@
       "37755f75b642b65c93748158a8337657a3628f43f3867f58dc85fb318dd6fd30"
     ],
     [
+      "tests/fixtures/a12_sidecars/V31_OBSERVATION.json",
+      "e02b106badc9e49a7714cf0dfdf5be64d5cd14abbac9fa4c0d3d5ecd192f31ee"
+    ],
+    [
       "tests/fixtures/a12_sidecars/incident.zip",
       "744eb4e91231b40f1d058eee5fcd30a6c8daca3c7a5caa0df4b5526a0afff969"
     ],
@@ -4752,6 +4756,10 @@
     [
       "tests/fixtures/preservation_rebind/CAPTURE.json",
       "eb8e90197114b032aa07d5a16e8ae6544a82e801c6291a7e9320a6f7e40a2118"
+    ],
+    [
+      "tests/fixtures/preservation_rebind/DEV140_REVIEWED_CORE_CHANGES.json",
+      "671d7ff76643eb707af289504e9079983f0a5a69e1964a708d624bdbcb21724b"
     ],
     [
       "tests/fixtures/preservation_rebind/DEV83_REVIEWED_CORE_CHANGES.json",
@@ -5391,7 +5399,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "8011490c953b839d3fca085da7c523d3d04fdb1082540af00fb8395b5138e994"
+      "10667014fd3bc60f27610a9e4d12a4147d82681cd01d88f8d11751e5ec098691"
     ],
     [
       "tests/test_compact_label_reuse.py",
@@ -5795,7 +5803,7 @@
     ],
     [
       "tests/test_sidecar_lifecycle.py",
-      "fab4c0ff0999f81ba54663687cdae18d20b68c943e643245c36c14856e2da8e6"
+      "c3baddfc875b5fc6dc8b173d7cfb8db55704fd58998bd3eb0723f3573f23b1f7"
     ],
     [
       "tests/test_snapshot_evidence_filters.py",

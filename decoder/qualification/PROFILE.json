@@ -5,7 +5,7 @@
     "os": "Linux",
     "python_tested": "No full qualification for this candidate; historical CPython 3.12 profile retained separately",
     "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified",
-    "python_target": "CPython 3.13.5 pinned V4; historical bounded V17 result, no dev138 qualification"
+    "python_target": "CPython 3.13.5 pinned V4; dev140 unqualified"
   },
   "environment": [
     {
@@ -438,18 +438,17 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_V26_V27_SOURCE_REPAIRS",
+  "status": "UNQUALIFIED_DEV140_REVIEWED_DIAGNOSTICS",
   "blocking_conditions": [
-    "dev139 V26/V27 repairs are unqualified; no tests executed for either changed source.",
-    "V25 group C forensic preregistration and justified core diff review required.",
-    "Real wave resume and long-selector live transport must be qualified; static changes do not establish it.",
-    "Freeze source/runtime and genuine saved/read-back prerequisites before native qualification.",
-    "Five dev137 fixtures historical only; successor rebinding/regeneration pending.",
+    "Dev140 incident lifecycle and reviewed core-chain need native targeted checks.",
+    "V31 three-selector dev139 forensic completion is preserved historical evidence, not dev140 qualification.",
+    "V26/V27 negative cases and long-selector live transport qualification remain pending.",
+    "Five dev137 fixtures remain historical; successor rebinding/regeneration pending.",
     "Full install lock, full RC and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev139+lib",
-    "parent_archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
+    "revision": "0.8.0.dev140+lib",
+    "parent_archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

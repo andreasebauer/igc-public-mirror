@@ -1,0 +1,39 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Static review amendment after exact dev87 baseline recovery. No blanket test, scientific or RC qualification. Historical pins immutable.",
+  "review_baseline_commit": "676d25259f7c4c93b7dc2cdd144fad0714e4200c",
+  "review_record": "decoder-admin/evidence/V28_CORE_REVIEW.txt",
+  "bounded_evidence_completion": "5ee15d13dd32210dc8c6d9e59ff937502614297e02ce99d12660671656b46a51",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "f6913f6b87a8c8919ead77796f3b12f96dfa83b2caa1ffd604b3a0204d297f52",
+      "reviewed_sha256": "20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e",
+      "reason": "Same-inventory completion refusal diagnostics and opt-in logical-save drain before dispatch. V28 review; V30/V31 positive three-wave continuation evidence, not full qualification."
+    },
+    "infinity_grid/portable_registry.py": {
+      "previous_reviewed_sha256": "d90c70f1158d5bfe84e34593cd7a8805741d95e52d9d5845b9badccf98195756",
+      "reviewed_sha256": "9287cb351de2e6598098d522b6b37437db32c2d10b454910aeeee1c70c37cacf",
+      "reason": "Shared immutable byte publication with directory fsync/retry barriers; conflict refusal retained. V28 static diff review; negative durability qualification pending."
+    },
+    "infinity_grid/submission.py": {
+      "previous_reviewed_sha256": "db1239b516f064a7582e9545d1f839baa30eb9e5f19afeca9a562a0975c712f0",
+      "reviewed_sha256": "360b0449e45fa5f68d238a4248552116b3e791a02351733cb5f2d4f4d3844a3e",
+      "reason": "Shared immutable publication and exact captured SQLite runtime admission before execution; legacy nonexecuting reuse separate. V28 review; native negative gates pending."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "c7b4ecf8b6c54f28861c5d1fd86ed65797cffeec3bfa2cdc6413662c08ad2867",
+      "reviewed_sha256": "de9026e5d4f2cd77264e968a21c1b4c4f8a82bb7129803ea8c0e699a52ff9c62",
+      "reason": "Evidence refusal diagnostics, distinct-object full verification, bounded batch role acknowledgments, multipart physical recognition and 250ms metadata heartbeat. V28 review and V30/V31 positive batch evidence; negative and long-selector gates pending."
+    },
+    "infinity_grid/v05_validation_runtime.py": {
+      "previous_reviewed_sha256": "fcbe7edd4f11fa5d447d8276bb8f12260f13280cc44c3d2077d9b0e200202b14",
+      "reviewed_sha256": "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd",
+      "reason": "Startup -B, child/parent exact finalization binding, opt-in missing-only save waves and prior-nonPASS refusal. V28 review; V31 three single-selector waves preserved prior evidence. Broader gates pending."
+    },
+    "infinity_grid/result_contracts.py": {
+      "previous_reviewed_sha256": "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1",
+      "reviewed_sha256": "5fd253d4d0d476b633b266e0af84c7b5bfe0fcab40704069efade03b12449dd2",
+      "reason": "Explicit V2 science content/outcomes with strict JSON, no science authority; intentional refusal of V1 SCIENCE; opt-in nonnegative wave limit. V28 review; negative gates pending."
+    }
+  }
+}

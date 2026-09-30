@@ -1,0 +1,53 @@
+V32 / DEV140 — REVIEWED INCIDENT DIAGNOSTIC AND CORE PINS
+
+New candidate 0.8.0.dev140+lib. No native tests executed in this source step.
+V31 dev139 forensic completion remains historical evidence and is not inherited
+as dev140 qualification. All 23 RC items/full RC remain OPEN.
+
+CHANGES
+1 Incident lifecycle regression now compares the exact full-pair row IDs/counts
+observed in saved/restored V31, with archive and completion provenance. It emits
+claimed_rows, matches_claim and healthy_recovery_qualified=false. CONTROL retains
+claimed 96 / observed 64. HELD_WRITE retains 96 and PROJECT 2. The unchanged
+post-finalizer count equality remains an unearned successor check, not a V31
+observation (V31 did not invoke that finalizer). No historical assertion or failed
+completion was rewritten; this is a separately versioned successor diagnostic.
+2 All other lifecycle function ASTs are unchanged, including clean live-WAL
+and finalized 96-row controls. Original incident ZIP unchanged.
+3 Appended DEV140_REVIEWED_CORE_CHANGES.json for six terminal mismatches after
+V28 recovered exact dev87 baselines and reviewed all six diffs. Historical chain
+records are unchanged. All eight resulting terminal hashes match current files.
+Review pins record static review boundaries, not behavioral/science authority.
+All six production module bytes remain identical to dev139 in this step.
+4 Updated version/build/profile/read-first and source manifest. No threshold,
+production guard, save ceiling, runtime file or prior completion was changed.
+
+VERIFICATION
+534 Python files AST parsed; 801 JSON files parsed, excluding the two intentional
+malformed compatibility fixtures; all 168 profile files exist. Historical pin
+bytes, incident archive and healthy-control function ASTs compared to parent.
+The repository's unchanged verify-source command reports BYTE_EXACT_SOURCE_PASS
+for 1,522 files and correct separate engineering/package schema identities.
+Source archive freshly downloaded from Drive and SHA-256 matched.
+This is source integrity/static verification only, not a native test PASS.
+
+NEXT REGISTERED GATE
+Freeze dev140 capture with fresh V4, all 22 environment versions and genuine
+saved/read-back SQLite binding, source and protocol prerequisites. One worker,
+opt-in validation_wave_selectors=1, no automatic deadline, default save ceilings.
+Exact ordered selectors:
+tests/test_change_preservation_rebind.py::test_recovery_retains_reviewed_core_byte_boundaries
+tests/test_sidecar_lifecycle.py::test_closed_wal_backup_read_lifecycle
+tests/test_sidecar_lifecycle.py::test_closed_delete_backup_read_control
+tests/test_sidecar_lifecycle.py::test_task_finalizer_then_backup_read
+tests/test_sidecar_lifecycle.py::test_retained_incident_copies_before_after_native_reads
+Exactly one execution per selector; first refusal/failure stops. Preserve all
+phases/evidence/checkpoints, do not retune assertions or run a failed selector
+again in this capture. Save/readback/acknowledge between successful waves, resume
+only missing nodes, and verify original source/runtime exact file sets afterward.
+Last selector tests native finalization of the retained pair and must report its
+known discrepancy; its PASS cannot count as healthy incident recovery.
+Afterward execute remaining V26/V27 targeted gates, including negative binding,
+isolated bootstrap, no-bytecode, batch corruption/role/retry, and a long selector
+with live save transport. V31 alone does not qualify those behaviors.
+Full source fixture rebinding, functional/workspace/representative/timing remain.

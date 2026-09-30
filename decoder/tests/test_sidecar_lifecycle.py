@@ -79,6 +79,9 @@ def test_retained_incident_copies_before_after_native_reads(tmp_path):
     base=Path(__file__).parent/'fixtures/a12_sidecars';raw=(base/'incident.zip').read_bytes()
     assert hashlib.sha256(raw).hexdigest()==json.loads((base/'manifest.json').read_text())['incident.zip']
     with zipfile.ZipFile(base/'incident.zip') as z:files={n:z.read(n) for n in z.namelist()}
+    baseline=json.loads((base/'V31_OBSERVATION.json').read_text())
+    assert baseline['archive_sha256']==hashlib.sha256(raw).hexdigest()
+    assert baseline['historical_cause_established'] is False
     cases=[]
     for label,tail,table in [('CONTROL','/CONTROL/partition.sqlite3','task_results'),('HELD_WRITE','/HELD_WRITE/partition.sqlite3','task_results'),('PROJECT','/project_writer.sqlite3','probe')]:
         name=next(n for n in files if n.endswith(tail));db=tmp_path/label/'state.sqlite3';db.parent.mkdir();events=[]
@@ -86,10 +89,23 @@ def test_retained_incident_copies_before_after_native_reads(tmp_path):
             if name+suffix in files:Path(str(db)+suffix).write_bytes(files[name+suffix])
         observe(events,'EXACT_RETAINED_COPY',db)
         copied=pr._stable_file(db);observe(events,'AFTER_NATIVE_BACKUP_READ',db)
-        count=inspect_copy(copied,tmp_path/(label+'_copy.sqlite3'),table);assert count==(2 if label=='PROJECT' else 96)
+        # Incident-specific evidence, not a healthy 96-task recovery threshold.
+        expected=baseline['cases'][label]
+        count=inspect_copy(copied,tmp_path/(label+'_copy.sqlite3'),table)
+        assert count==expected['observed_rows']
+        column='id' if label=='PROJECT' else 'task_id'
+        with closing(sqlite3.connect((tmp_path/(label+'_copy.sqlite3')).as_uri()+'?mode=ro&immutable=1',uri=True)) as c:
+            ids=[row[0] for row in c.execute('SELECT '+column+' FROM '+table+' ORDER BY '+column)]
+        assert ids==expected['observed_ids']
+        assert expected['claimed_rows']==(2 if label=='PROJECT' else 96)
+        assert (count==expected['claimed_rows'])==expected['matches_claim']
         StageScienceRuntime._finalize_idle_partition_database(db);observe(events,'AFTER_NATIVE_FINALIZER',db)
         copied=pr._stable_file(db);observe(events,'AFTER_POST_FINALIZER_BACKUP',db)
         assert inspect_copy(copied,tmp_path/(label+'_final.sqlite3'),table)==count
-        cases.append({'label':label,'events':events,'rows':count})
+        cases.append({'label':label,'events':events,'rows':count,
+            'claimed_rows':expected['claimed_rows'],'matches_claim':expected['matches_claim'],
+            'observed_ids':ids,'baseline_completion':baseline['completion_sha256'],
+            'healthy_recovery_qualified':False})
     assert hashlib.sha256((base/'incident.zip').read_bytes()).hexdigest()==hashlib.sha256(raw).hexdigest()
-    emit('RETAINED_INCIDENT_COPIES',[],{'copies':cases})
+    emit('RETAINED_INCIDENT_COPIES',[],{'copies':cases,'scope':baseline['scope'],
+        'known_control_discrepancy_preserved':True,'repair_qualified':False})
