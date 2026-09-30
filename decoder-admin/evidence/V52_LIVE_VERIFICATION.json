@@ -1,0 +1,74 @@
+{
+  "status": "PASS_BOUNDED_LIVE_PROGRESS_GATE",
+  "native_probe_passed": true,
+  "duration_seconds": 150.00075128200115,
+  "live_progress_acknowledgments": 3,
+  "all_progress_checkpoints": [
+    {
+      "checkpoint_sha256": "f84a5b2f705e8ea78a7dd8615469f6b795c5bac6e6138b792b1df67828084e5c",
+      "state_sha256": "3cca55a618d257246f7c9fe52b347c720b830bb13b2cbdb86b70127145b9b321",
+      "progress_prefix_sha256": "548d64edf3bae815c647b089d11cf5ae69d647feb2394def38e748cf778c6381",
+      "prefix_bytes": 1322,
+      "last_tick": 3,
+      "created_unix": 1790771316.2384243,
+      "acknowledged_unix": 1790771343.5472946,
+      "ack_before_end": true,
+      "exact_growing_prefix": true
+    },
+    {
+      "checkpoint_sha256": "432217ff9629a0ef325b6c4f05af7146e0a6b1524e1ba58f177769862463fee4",
+      "state_sha256": "0f0109eb596c9cd9bacf5f2cf0148d5c0d4f214665235bed001b7bfecc1ad90b",
+      "progress_prefix_sha256": "e88ba87500d91b49612c83f033a8895a169c42edc7c4feddf1d0679f03e85f60",
+      "prefix_bytes": 2312,
+      "last_tick": 6,
+      "created_unix": 1790771348.2447412,
+      "acknowledged_unix": 1790771372.186371,
+      "ack_before_end": true,
+      "exact_growing_prefix": true
+    },
+    {
+      "checkpoint_sha256": "b7ca72516ba0601dcf61b403f0c884ef88f24851e4c1ee80b36a56c940280b0d",
+      "state_sha256": "7406423f7e145f07505dbdcacaec1b1aa9d2fd9ba075be69877b2e5ec606a029",
+      "progress_prefix_sha256": "f58708bcb380139fa5665dbacd00e6eef8cb0230662b169f044fcb862baea0ea",
+      "prefix_bytes": 3299,
+      "last_tick": 9,
+      "created_unix": 1790771380.3236163,
+      "acknowledged_unix": 1790771405.018333,
+      "ack_before_end": true,
+      "exact_growing_prefix": true
+    },
+    {
+      "checkpoint_sha256": "e6193ed1e95a177c5c57cd4f174b89468ce24f30cb304927b840bfe0854135be",
+      "state_sha256": "0d5a2e45c5f7772b37f994c735b8d57be179858bb610afc5c499167b115f72ec",
+      "progress_prefix_sha256": "6a4e92b185f0997df93b310c257a823a50f209821947b459b450620ff71e8aae",
+      "prefix_bytes": 4293,
+      "last_tick": 12,
+      "created_unix": 1790771412.277162,
+      "acknowledged_unix": 1790771439.2893422,
+      "ack_before_end": false,
+      "exact_growing_prefix": true
+    }
+  ],
+  "final_progress_records": 17,
+  "final_progress_sha256": "0dcefeb6bcdd8ce29ac10b7938f51c3a374db8e4f0e253546030ee470b377b2c",
+  "sampled_max_pending_commits": 1,
+  "sampled_max_pending_bytes": 55017,
+  "sampled_min_count_reserve": 7,
+  "sampled_min_byte_reserve_after_commit": 335489303,
+  "checkpoint_close_latencies_seconds": [
+    33.173736810684204,
+    27.308870315551758,
+    23.941629886627197,
+    24.694716691970825,
+    27.01218008995056,
+    32.43084263801575
+  ],
+  "administrative_payload_read_bytes_calls": 334,
+  "administrative_payload_bytes_returned": 921909046,
+  "physical_objects_saved": 23,
+  "checkpoint_roles_acknowledged": 90,
+  "busy_retries": 2,
+  "workload_retries": 0,
+  "live_corruption_tested": false,
+  "controller_heartbeat_reads_measured": false
+}

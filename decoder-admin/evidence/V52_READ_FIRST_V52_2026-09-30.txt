@@ -1,0 +1,59 @@
+V52 DEV142 DURABLE-PROGRESS LIVE PRESERVATION — BOUNDED PASS
+2026-09-30
+
+One preregistered native selector passed setup/call/teardown. Actual call duration
+150.000751 seconds. Fresh pinned V4 runtime; exact dev142 source. No source or
+runtime mutation, automatic deadline, backlog pause, limit change or workload retry.
+
+Three distinct ordinary VALIDATION_PROGRESS checkpoints were genuinely uploaded,
+downloaded, hash-verified and fully acknowledged while the native attempt was
+RUNNING and selector unfinished. Acknowledgment wall times also precede the final
+END event. Their downloaded state archives contain valid, correctly bound JSON-
+lines prefixes through ticks 3, 6 and 9: 1,322 / 2,312 / 3,299 bytes. Each prefix
+strictly extends the previous bytes and matches the final log prefix; state hashes
+differ. Thus the requirement of at least two live growing checkpoints is met.
+
+A fourth ordinary progress snapshot through tick 12 was acknowledged after
+selector completion and is explicitly NOT counted as a live acknowledgment.
+Final log contains START, ticks 1..15 and END (17 records), with native binding and
+selector identity throughout. Full final log SHA256:
+0dcefeb6bcdd8ce29ac10b7938f51c3a374db8e4f0e253546030ee470b377b2c
+
+Native limits/cadence unchanged: 30-second interval, eight pending commits,
+536870912 pending bytes, 201326592 maximum commit bytes, 3600-second oldest age.
+Operator idle polling was five seconds. Sampled maximum pending commits one,
+pending bytes 55,017; minimum sampled reserve seven commit slots and 335,489,303
+bytes after reserving one maximum commit. These are sampled, not continuous peaks.
+Live progress creation-to-ack latencies: 27.309 / 23.942 / 24.695 seconds. Two
+WORKSPACE_BUSY events retried the same administrative action; no workload retry.
+Successful sampled status and ack-plus-full-status processes observed 334 Python
+payload read_bytes returns / 921,909,046 bytes. These are returned bytes, not disk
+I/O or syscall counts and not controller heartbeat measurements. No performance
+comparison or general transport-capacity guarantee is claimed.
+
+Preservation: ten capture-save roles and 90 checkpoint roles closed, 23 unique
+physical objects genuinely saved/read back. Zero pending. Fresh downloaded terminal
+export restored exact original completion and terminal proof, zero dispatch; the
+restored progress log hash also matches. Source raw file set/bytes/modes match
+saved archive: 1,523 files, no symlinks/bytecode. Runtime pre/post: 4,721 files plus
+seven host files. Actual operator-script hashes were bound into the capture.
+
+Version: 0.8.0.dev142+lib
+Source: 078433404ab554b2ecb081aca35ad8439b7a17b465db53cfc795df1a9825a4fa
+Package: fa48e8e8be3734e2a73429b1b9f843f7d6dd36f2dc52af557aad7fff32cf10e9
+Job: RC.SAVE.LONG.V52.DEV142
+Capture: fbf9fecd2ab4cae201b1128a0fe89e95f2a20d722897abb0fec6376168f97172
+Completion: db75abc592946aad5c298684d54672c7a5d13fb71870855ee1c6d9c4439fec56
+Terminal export SHA256: 57ac1ca7eeb93b4c699bfa740dc78a14678217ac2420cbf9c7e9c7c395f8721b
+Terminal export Drive ID: 1_LfrrMbq0XQ9vs0vVN3WhgWZo3hxwZcG
+
+Dev142 has one bounded native probe PASS; full candidate remains UNQUALIFIED,
+all 23 RC rows OPEN. Prior source results remain historical, including V50's
+NOT_EARNED assessment. This does not qualify the whole V27 integration group.
+No canonical scientific replay was dispatched.
+
+NEXT: separately preregister isolated live-outbox corruption and controller
+heartbeat-read observation, retaining native locks and stopping rules. Do not
+mutate V52 saved evidence or infer corruption coverage from fixture tests.
+After required integration cases: current-candidate fixtures, full qualification,
+RC reconciliation and independent-host/dependency recovery before data-block replay.
