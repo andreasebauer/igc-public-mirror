@@ -70,7 +70,7 @@ def main():
   x=sub.add_parser(name);x.add_argument('destination',type=Path)
  a=ap.parse_args()
  if a.command=='verify-source':subprocess.run([sys.executable,str(ROOT/'decoder-import/verify_source.py')],check=True)
- elif a.command=='status':print(json.dumps({'source':CAT['source'],'full_rc':'OPEN','runtime':'UNQUALIFIED; V16 launch failed before Python','missing_candidate_fixtures':CAT['unresolved_fixtures'],'science_replay_closure':CAT['science_replay_closure']},indent=2))
+ elif a.command=='status':print(json.dumps({'source':CAT['source'],'full_rc':'OPEN','runtime':'V17 bounded runtime 5 PASS / 0 FAIL; full source qualification pending; V16 failure retained','missing_candidate_fixtures':CAT['unresolved_fixtures'],'science_replay_closure':CAT['science_replay_closure']},indent=2))
  elif a.command=='needs':print(json.dumps(CAT['objects'],indent=2))
  elif a.command=='import-object':
   r=item(a.name);check(a.file,r);CACHE.mkdir(exist_ok=True);target=CACHE/r['sha256']

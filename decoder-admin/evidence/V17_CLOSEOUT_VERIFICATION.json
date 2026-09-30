@@ -1,0 +1,17 @@
+{
+  "status": "PASS_PRESERVATION_ONLY",
+  "original_attempt_status": "COMPLETED",
+  "restored_attempt_status": "COMPLETION_PENDING_CHECKPOINT",
+  "native_completion": "05f87ae69542ecc45b04f814f5cded0062d5191785d23f2dfc813585693a2c2b",
+  "evidence_status": "VERIFIED",
+  "tests_or_science_executed_on_restore": 0,
+  "pending_preservation_objects": 0,
+  "checkpoint_attempt_matches_exact_bytes": true,
+  "original_completion_verified": true,
+  "restored": {
+    "status": "RESTORED_NOT_RUNNING",
+    "workspace": "/workspace/scratch/58e40661c1b8/runtime_v4_gate_v17/restore_check",
+    "source_sha256": "d097cdf1021b22836ef8653b5b66c07804aed0ccaa6cbcddca0d66bc2eb94c64",
+    "checkpoint_sha256": "63d4cb91ce8766d5332e2aaa683e6abd2e76c056dd911d75dc9d5d966bd2418d"
+  }
+}

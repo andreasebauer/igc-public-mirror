@@ -1,0 +1,16 @@
+{
+  "original_attempt_status": "COMPLETED",
+  "restored_attempt_status": "COMPLETION_PENDING_CHECKPOINT",
+  "restored_attempt_matches_exact_checkpoint_bytes": true,
+  "differences": {
+    "finished_unix": {
+      "original": 1790741426.942411,
+      "restored": 1790741425.127777
+    },
+    "status": {
+      "original": "COMPLETED",
+      "restored": "COMPLETION_PENDING_CHECKPOINT"
+    }
+  },
+  "interpretation": "Checkpoint-before-completion publication ordering; completion proof is verified separately. No attempt record modified or normalized."
+}

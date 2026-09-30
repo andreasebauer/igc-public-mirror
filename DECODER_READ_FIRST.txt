@@ -9,8 +9,10 @@ START
 CURRENT TRUTH
 decoder/ is exact dev137 source, UNQUALIFIED. It contains the reconciled 165-file
 qualification profile. It is not a new release or active runtime promotion.
-V4 is assembled, not qualified. V16 failed before Python because its interpreter
-had no execute permission. All 23 RC acceptance rows/full RC remain OPEN.
+V17 bounded runtime qualification: 5 PASS / 0 FAIL; native completion and restore
+verified. Full dev137 source qualification remains pending. V16 failed before
+Python because its interpreter had no execute permission; its evidence is retained.
+All 23 RC acceptance rows/full RC remain OPEN.
 No source import, hash verification or repository CI run is a Decoder test PASS.
 
 AUTHORITATIVE LOCATIONS
@@ -20,7 +22,7 @@ decoder-admin/CATALOG.json   Required runtime and historical fixture objects:
                              immutable SHA256, byte counts and Drive locators.
 decoder-admin/RUNTIME_*      Runtime byte manifest and explicit permission policy.
 decoder-admin/RC_LEDGER.json  Current RC status, including unresolved failures.
-decoder-admin/evidence/      Recent failure/preparation records, not PASS receipts.
+decoder-admin/evidence/      Bounded qualification, failure and preparation evidence.
 .decoder-cache/              Ignored local immutable objects; private data stays here.
 /tmp/<new-directory>/        Reconstructed runtime and native live workspaces.
 
@@ -49,8 +51,8 @@ Five candidate-specific fixture artifacts are named explicitly in CATALOG.json.
 They do not yet have earned current-candidate completions. Complete wheel/native
 dependency resolution and install lock remain open. uv.lock and py312 requirements
 inside decoder/ are historical and must not be used as current install locks.
-Future registered execution needs saved/read-back prerequisites and a new
-mode-aware qualification protocol. Preserve V16; do not silently retry it.
+Future registered execution needs saved/read-back prerequisites and explicit
+mode-aware protocols. V17 qualified five runtime checks only. Preserve V16.
 The complete historical L0-G8 science/replay data closure is NOT inventoried by
 this engineering catalog. Do not call it complete scientific recovery readiness.
 

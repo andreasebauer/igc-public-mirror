@@ -1,0 +1,54 @@
+DECODER V17 BOUNDED RUNTIME QUALIFICATION — 2026-09-30
+
+COMPLETED / VERIFIED: 5 PASS / 0 FAIL.
+Checks: unoptimized CPython 3.13.5; build-tool imports and versions;
+SQLite in-memory transaction/savepoint; small igraph graph; SymPy polynomial.
+Source: exact dev137. Runtime V4: 4721 byte/mode-verified files and seven
+pinned external host libraries, checked before and after the native job.
+
+Completion: 05f87ae69542ecc45b04f814f5cded0062d5191785d23f2dfc813585693a2c2b
+Capture: de14f47123ac5c397d4e1d51496cf83be4cd9406fc909c2028f7a1de1d08e9dc
+Result: 0c523d83c28036c851cfe6782fb6d973dac56b5a484fd5b2bc97f0d9499b4803
+Checkpoint export SHA256: 6d7e03fccee79a9df69e7c2a7d64d6a1b91cc238442849160c28d09d0e81011b
+
+PRESERVATION
+All 30 checkpoint roles confirmed from actual Drive readbacks; zero pending.
+Restored from the saved readback objects; same completion verified; zero tests
+or scientific work executed during restore. Restored attempt bytes exactly
+match the terminal checkpoint. Its COMPLETION_PENDING_CHECKPOINT status is
+from checkpoint-before-completion ordering; the published completion is
+COMPLETED. No attempt record was edited or normalized.
+
+SCOPE
+This is bounded runtime qualification, not full source qualification, an actual
+wheel build, a scientific release, or shared pointer promotion. All 23 RC
+acceptance rows and full RC remain OPEN. V16 exit-126 failure is retained.
+Historical test suites were not rerun. External host dependencies remain.
+
+ONE REPOSITORY
+https://github.com/andreasebauer/igc-public-mirror/tree/decoder/consolidated-dev137-20260930
+Entry: DECODER_READ_FIRST.txt; decoder-admin/CATALOG.json; RC_LEDGER.json.
+Initial publication commit: 34fe9cb530b2c3df3e62c059994d3f7e86151c74
+Initial exact tree: a84dfc43bb3e0da2bd55257e391f5b4329d74b4d
+A separate publication receipt records the subsequent V17 metadata commit.
+
+RESTORE WITHOUT RERUN
+V17_NATIVE_CHECKPOINT.zip is a native SLIM export, not standalone.
+OBJECT_CATALOG.json pins each external Drive object by hash and size.
+Fetch required objects and name them <sha256>.bin in an objects directory.
+Use preserved dev137 infinity_grid.preservation.restore_checkpoint with the
+export SHA above and objects directory. Verify existing completion using
+validate_workspace_job(check_loaded=False), verified_completion with
+allow_pending_checkpoint=True, and terminal_completion_proof. See close_native.py
+for the completed verification procedure; do not replay its live save mutations
+or run run_native.py again. Runtime reconstruction inputs remain in the repository
+catalog; OS/kernel/shell/bootstrap and seven host libraries are external.
+
+NEXT OPEN GATE
+Earn and preserve five current-candidate fixtures: saved_stage_one,
+saved_stage_four, saved_stage_outcome, saved_representative_qualification,
+saved_stage_one_prerun. Map each producer and dependency from the captured
+qualification profile; retain genuine pre-execution exports. Then register
+current-source qualification with exact inputs. Install-lock/native-wheel
+resolution and independent-platform recovery remain open. No historical PASS
+may be substituted for current-candidate evidence.

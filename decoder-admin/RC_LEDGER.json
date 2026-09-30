@@ -378,5 +378,20 @@
     "native_attempts": 0,
     "checks_executed": 0,
     "retry_performed": false
+  },
+  "last_updated": "2026-09-30",
+  "latest_runtime_qualification": {
+    "status": "COMPLETED_VERIFIED_BOUNDED",
+    "checks_passed": 5,
+    "checks_failed": 0,
+    "completion_sha256": "05f87ae69542ecc45b04f814f5cded0062d5191785d23f2dfc813585693a2c2b",
+    "source": "0.8.0.dev137+lib",
+    "runtime": "V4",
+    "pending_preservation_objects": 0,
+    "restored_completion_verified": true,
+    "workload_executions_on_restore": 0,
+    "full_rc": "OPEN",
+    "actual_wheel_build": false,
+    "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   }
 }
