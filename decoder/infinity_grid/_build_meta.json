@@ -3,17 +3,16 @@
   "version_source": "infinity_grid._version.__version__",
   "version_api": "infinity_grid.build_meta",
   "target_release": "0.8lib",
-  "engineering_attempt": "DEV140_V32_INCIDENT_DIAGNOSTIC_AND_REVIEWED_PINS",
-  "parent_release": "0.8.0.dev139+lib",
-  "parent_source_archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
-  "historical_metadata": "Git parent 4a362a6:decoder/infinity_grid/_build_meta.json",
+  "engineering_attempt": "DEV141_V46_NATIVE_SAVE_INTEGRATION_PROBES",
+  "parent_release": "0.8.0.dev140+lib",
+  "parent_source_archive_sha256": "e8aeed7559ea96a87021acc89a44b0a878354a087cba06ae0844a3034d79152b",
+  "historical_metadata": "Git parent 696318f:decoder/infinity_grid/_build_meta.json",
   "status": "UNQUALIFIED_CANDIDATE",
   "science_authority_effect": "NONE",
   "shared_pointer_advanced": false,
   "pending": [
-    "V26/V27 targeted native negative and long-selector gates",
-    "Dev140 incident lifecycle and core-chain native checks",
-    "Successor fixture binding and full RC"
+    "Native pending-role/failure/skip and long-selector integration",
+    "Current-candidate fixtures and full RC"
   ],
-  "scope": "Incident diagnostic expectations grounded in saved V31; six reviewed core pins appended; native successor qualification pending"
+  "scope": "Explicit-only engineering probe module; no production execution logic changed"
 }

@@ -1,0 +1,11 @@
+V46 / dev141 SOURCE INTEGRATION — 2026-09-30
+
+Integrated the V45 preregistered probes at tests/integration_probes/native_save_wave_probe.py. Changed only that new module, version, build metadata, and qualification profile metadata. Production logic unchanged. Default filename discovery does not match the probe; explicit profile groups and group order are unchanged. No collection or native tests executed.
+
+Byte-exact repository source verification PASS. Source archive saved to Drive and freshly downloaded; SHA-256 and size match. SOURCE_READBACK.json records exact identities and locator.
+
+Dev141: UNQUALIFIED, 0 native tests executed. Dev140's 150 focused passes remain historical, source-bound evidence. All 23 RC acceptance rows remain OPEN. Not data-block ready; no science replay authorized by this evidence.
+
+NEXT: Fresh pinned V4 runtime and preregistered native DRAIN capture with test_first_pass then test_later_sentinel, one selector per wave. Preserve first-wave evidence and absence of terminal completion/sentinel. Genuinely save physical objects but withhold one repeated-hash logical role, proving pending_bytes=0 is not sufficient. Require VALIDATION_SAVE_DRAIN_REQUIRED before a new attempt and unchanged prior evidence; acknowledge the held role from genuine readback, then resume only the missing selector. Stop on any unexplained deviation.
+
+Subsequent work: separate expected FAIL and SKIP refusal captures; LONG live-save proof with default cadence/limits and at least two acknowledgments before selector end; separately design live-corruption instrumentation. Then current-candidate fixtures, full exact-source qualification, RC reconciliation and runtime/dependency recovery closure before data-block replay. V27 protocol and V45 preparation remain authoritative.

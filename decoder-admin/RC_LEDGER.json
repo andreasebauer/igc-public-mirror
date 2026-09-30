@@ -362,15 +362,15 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev140+lib",
-    "source_sha256": "c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd",
-    "package_sha256": "5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18",
-    "archive_sha256": "e8aeed7559ea96a87021acc89a44b0a878354a087cba06ae0844a3034d79152b",
+    "version": "0.8.0.dev141+lib",
+    "source_sha256": "01a8911181ca5ee67556bd35f32cb5453428d9cbbf50bcf505b070a968d9e57e",
+    "package_sha256": "f04340bfe3cda1f230c8ef7dcb96f0e2c1099ccbfe0ed467cd688e37da9baf82",
+    "archive_sha256": "b91f916aefd5d2583ed86a068a1a7fbe222588f3f0e22dc03e3d5af378f949e2",
     "qualification": "UNQUALIFIED",
-    "archive_size_bytes": 22684827,
-    "drive_id": "1YmRVUQ4QoMtQh_dEKzha1E1NRy6T0MQ1",
-    "status": "BOUNDED_V33_THROUGH_V43_150_PASS_FULL_QUALIFICATION_OPEN",
-    "tests_executed": 150
+    "archive_size_bytes": 22685539,
+    "drive_id": "1RFys7ZH_knHJjkXWttV74YWtc1uTdLpZ",
+    "status": "SOURCE_VERIFIED_NATIVE_INTEGRATION_PROBES_UNQUALIFIED",
+    "tests_executed": 0
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -678,5 +678,18 @@
     "saved_pending_roles": 0,
     "exact_saved_restore_verified": true,
     "full_RC": "OPEN"
+  },
+  "historical_candidates": {
+    "dev140": {
+      "version": "0.8.0.dev140+lib",
+      "source_sha256": "c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd",
+      "package_sha256": "5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18",
+      "archive_sha256": "e8aeed7559ea96a87021acc89a44b0a878354a087cba06ae0844a3034d79152b",
+      "qualification": "UNQUALIFIED",
+      "archive_size_bytes": 22684827,
+      "drive_id": "1YmRVUQ4QoMtQh_dEKzha1E1NRy6T0MQ1",
+      "status": "BOUNDED_V33_THROUGH_V43_150_PASS_FULL_QUALIFICATION_OPEN",
+      "tests_executed": 150
+    }
   }
 }

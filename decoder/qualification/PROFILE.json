@@ -5,7 +5,7 @@
     "os": "Linux",
     "python_tested": "No full qualification for this candidate; historical CPython 3.12 profile retained separately",
     "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified",
-    "python_target": "CPython 3.13.5 pinned V4; dev140 unqualified"
+    "python_target": "CPython 3.13.5 pinned V4; dev141 unqualified"
   },
   "environment": [
     {
@@ -438,17 +438,16 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_DEV140_REVIEWED_DIAGNOSTICS",
+  "status": "UNQUALIFIED_DEV141_NATIVE_INTEGRATION_PROBES",
   "blocking_conditions": [
-    "Dev140 incident lifecycle and reviewed core-chain need native targeted checks.",
-    "V31 three-selector dev139 forensic completion is preserved historical evidence, not dev140 qualification.",
-    "V26/V27 negative cases and long-selector live transport qualification remain pending.",
-    "Five dev137 fixtures remain historical; successor rebinding/regeneration pending.",
+    "Dev140 150 focused passes are historical, not dev141 qualification.",
+    "Native save-drain/non-PASS/long-selector integration pending.",
+    "Five dev137 fixtures require successor binding/regeneration.",
     "Full install lock, full RC and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev140+lib",
-    "parent_archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
+    "revision": "0.8.0.dev141+lib",
+    "parent_archive_sha256": "e8aeed7559ea96a87021acc89a44b0a878354a087cba06ae0844a3034d79152b",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

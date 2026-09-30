@@ -1,22 +1,10 @@
-DECODER — DEV140 / V32 RECOVERY ENTRY POINT — 2026-09-30
-UNQUALIFIED successor; source repairs A/B retained, group C review recorded.
+DECODER DEV141 / V46 — UNQUALIFIED — 2026-09-30
 
-START
- python -B decoder-admin/decoder.py verify-source
- python -B decoder-admin/decoder.py status
- python -B decoder-admin/decoder.py needs
-
-V31 earned a saved/restored three-selector forensic comparison on dev139.
-CONTROL main-only 96 rows; with retained WAL 64. HELD_WRITE 96 and PROJECT 2
-across all five combinations. Historical cause remains unproven. V32 encodes
-this as incident-specific diagnostic evidence, keeps healthy 96-row controls,
-and appends six statically reviewed core hashes to the historical pin chain.
-No native dev140 qualification is claimed. Next: saved targeted native gates.
-
-Runtime/data locators and hashes: decoder-admin/CATALOG.json and evidence/.
-Restore fresh V4 to a NEW /tmp path with decoder-admin/decoder.py restore-runtime.
-Verify full runtime file set, modes, bytes and seven external host dependencies.
-V24 remains immutable/PAUSED: 1,363 PASS, 4 FAIL, 1 interrupted, 408 obligations OPEN.
-Five dev137 fixture records remain historical, not current-source completion.
-All 23 RC items/full RC OPEN. No scientific replay or shared promotion granted.
-Historical records and failures remain in Git and Drive. Code public, data Drive.
+New explicit-only native integration probes; no production logic changes.
+Dev140 150 focused passes remain historical, not inherited qualification.
+Run python -B decoder-admin/decoder.py verify-source before any native job.
+Read decoder-admin/evidence/V45_READ_FIRST_V45_2026-09-30.txt for protocol.
+Next: genuine saved DRAIN capture; then separate FAIL/SKIP and LONG captures.
+Long live-corruption instrumentation remains unprepared. No science replay.
+Runtime/data: decoder-admin/CATALOG.json. All 23 RC items OPEN.
+V24 408 obligations untouched; five dev137 fixtures remain historical.
