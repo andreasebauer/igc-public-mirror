@@ -1,0 +1,12 @@
+V49 NEGATIVE-WAVE ACCEPTANCE CORRECTION — 2026-09-30
+Preregistered before the V49 administrative invocation and SKIP capture.
+
+V48 original protocol, stopped assessment, capture and RESULT_REJECTED completion remain immutable. No retrospective V48 PASS claim. This addendum corrects the added no-completion assumption, not the captured source or failed outcome.
+
+Invariant: a finalized failure/skip must never be converted to PASS and no later selector may execute implicitly. Two distinct routes exist: (1) an already published rejected completion may be verified and reused, retaining its exact original outcome; (2) unfinished non-PASS evidence reaching wave planning must refuse VALIDATION_PRIOR_NONPASS_REQUIRES_REVIEW. Requiring route (2)'s exact error on route (1) is incorrect. Route (2) currently has fixture coverage only; this addendum does not claim new native coverage of it.
+
+A: On the exact saved V48 FAIL capture, invoke native run once as an administrative reuse check after confirming all saves. Require reused=true, RESULT_REJECTED, identical original completion fields/hash and original failed node outcome, sentinel absent, unchanged full attempt/run/sealed/completion evidence inventory and bytes, no new attempt or phase. Verify source/runtime before and after. A native reuse record may be added outside those inventories. Any discrepancy stops progression; do not retry workload.
+
+B: Fresh saved native SKIP capture on unchanged dev141, selectors test_expected_skip then test_later_sentinel, wave size one, default cadence/limits. Require call skipped, setup/teardown passed, exactly one node report, sentinel absent and no accepted PASS completion. Preserve the actual native first-invocation result: RESULT_REJECTED terminal or pause is acceptable only with true SKIP evidence. Fully acknowledge genuine remote readbacks. If rejected terminal, apply A's exact administrative-reuse checks with skipped outcome; if unfinished, require prior-nonPASS refusal and no new selector phases, permitting a new failed attempt record. Stop on any other behavior.
+
+Save terminal evidence and restore exact rejected completion from genuine downloaded bytes without dispatch. Acceptance of these safety checks earns no positive probe PASS credit. Full RC remains OPEN, long-selector live preservation and separately designed corruption checks remain pending.

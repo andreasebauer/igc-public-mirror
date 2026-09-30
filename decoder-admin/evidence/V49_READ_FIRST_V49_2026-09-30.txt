@@ -1,0 +1,31 @@
+V49 DEV141 NEGATIVE-WAVE SAFETY ACCEPTANCE — 2026-09-30
+
+Accepted two distinct native safety routes under the saved V49 protocol. No engine/source changes. No failed/skipped outcome relabelled as PASS; no new positive probe PASS credit.
+
+FAIL administrative reuse: invoked the exact preserved V48 capture once after verifying zero pending saves. Native return reused=true, status RESULT_REJECTED and every original completion field/hash identical. All 24 original attempt/run/sealed/completion files unchanged, no new attempt or selector phase, sentinel unexecuted. Source/runtime pre/post checks passed. V48's original stop assessment remains immutable; this is new V49 evidence under a corrected expectation.
+
+SKIP new native capture: test_expected_skip retained setup/teardown passed, call skipped. Controller paused with VALIDATION_SAVE_BOUNDARY:1; no completion, sentinel absent. This is the preregistered unfinished non-PASS route. The helper's initial generic STOP_REVIEW_REQUIRED marker was retained; ROUTE_REVIEW.json resolves it against the already saved protocol allowing a pause. No acceptance criterion was added after execution.
+
+After all first-wave roles were genuinely saved/acknowledged, one explicit continuation invoked the native planner and raised VALIDATION_PRIOR_NONPASS_REQUIRES_REVIEW. All 11 prior attempt/run files remained unchanged. No new selector phases; exactly one additional paused attempt record, two total; no completion and no sentinel execution. The failed continuation attempt and all checkpoint objects were preserved.
+
+SKIP preservation: nine capture saves plus 56 checkpoint roles, zero pending. Nineteen unique physical objects with genuine remote readbacks; previously verified bytes reused only for identical hashes. Fresh downloaded paused checkpoint restored the exact attempt/run inventory and original skipped outcome, no completion, zero dispatch. Captured source file set/bytes/modes exact: 1,523 files, no symlinks or bytecode. Pinned runtime before/after each invocation: 4,721 files plus seven host files.
+
+FAIL original job: RC.SAVE.FAIL.V48.DEV141
+FAIL capture: d04bd0aa1cb9d8d3845d6665ca8de6531c0d171793393fc98a389e5520ff20f7
+FAIL original rejected completion: 858f1041effbad3fbde2052c3f5db18aceb8838b9101183186c2d60caaa71eeb
+FAIL original saved evidence: DECODER_V48_NEGATIVE_WAVE_STOP_2026-09-30.zip
+FAIL bundle Drive ID: 1hrL8hA0EkwOVDuq8ZEOJDjyPL_8q9IjF
+FAIL bundle SHA256: b12b90b8c265fbfa871325e0bb5d75f5a4e11bf95e95efe1660d3bab7abddb28
+
+SKIP job: RC.SAVE.SKIP.V49.DEV141
+SKIP capture: 6edfbce499edeb56e5863b483744bbe44a55a6111d85cb3002f3899c9317b48a
+SKIP completion: NONE; paused engineering refusal is the expected outcome.
+SKIP export SHA256: d0e3c59f2929dd3775dfa9bf0cdd008c1895b46ff32b37b904a13ff8c713e562
+SKIP export Drive ID: 1fRwMK2cWJiYRoYeEZXJrkofZ5x22yZtI
+V49 preregistration Drive ID: 1PEhmMcrjRx66xUEGyLGUDy9h-7wIstrI
+
+Source: 01a8911181ca5ee67556bd35f32cb5453428d9cbbf50bcf505b070a968d9e57e
+Package: f04340bfe3cda1f230c8ef7dcb96f0e2c1099ccbfe0ed467cd688e37da9baf82
+Dev141 native probe outcomes now: 2 PASS, 1 deliberate FAIL, 1 deliberate SKIP. Both negative safety behaviors accepted in V49; these are not four passing tests. Dev140's 150 focused passes remain historical. All 23 RC rows OPEN; dev141 UNQUALIFIED and not data-block ready.
+
+NEXT: preregister and prepare LONG live-save integration before launching its 150-second selector. Prove an active operator loop at unchanged default 30-second cadence and backlog limits; at least two ordinary progress checkpoints acknowledged before selector end. Measure exact save/readback/ack timing, count/byte/age reserve, physical read counts and liveness. Keep native locks; WORKSPACE_BUSY retries only the same administrative batch. Separately design live-corruption instrumentation; do not infer that proof from fixture tests. Stop and preserve evidence if transport cannot keep pace. Current-candidate fixtures, full qualification, RC reconciliation and independent-host/dependency closure remain before canonical science replay.

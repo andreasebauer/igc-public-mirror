@@ -1,0 +1,392 @@
+[
+  {
+    "role": "engine_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "input:sqlite_runtime_binding",
+    "sha256": "fe2a99b5dc7ba27bbb38c62a50c99aed94304b7a4de8546f46827ba0483fd9d7",
+    "size_bytes": 3295,
+    "drive_id": "1cUsVzEQKk8PIWrN5KfgwZKTEpAg6dxP_"
+  },
+  {
+    "role": "input:host_runtime_manifest",
+    "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+    "size_bytes": 880319,
+    "drive_id": "1ukI8JBOrMOHGf6WhlZg9ePFWbFdy4EQb"
+  },
+  {
+    "role": "input:runtime_mode_policy",
+    "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+    "size_bytes": 504,
+    "drive_id": "17MkUjckyncg2yCFlyN8aTRs-RwjUxXPy"
+  },
+  {
+    "role": "input:forensic_protocol",
+    "sha256": "9c0e85240c4bc387074d040a21a17065371c41594475eb8e364694635f331b87",
+    "size_bytes": 2373,
+    "drive_id": "1rFhIATl311TIFaDCKMzCidXpjOSZ8cPX"
+  },
+  {
+    "role": "input:submission_contract",
+    "sha256": "81ffb658ec616b494454389a087a8eb6c657b7d9922dd9ef181c42335ba274ee",
+    "size_bytes": 4429,
+    "drive_id": "1ZxU0R-_9VMdwrhG2A7H_VMM9XJHBmsPa"
+  },
+  {
+    "role": "capture_record",
+    "sha256": "9432023424142abbc262af71c62d660d32d948d575409a13a93aac5454affba4",
+    "size_bytes": 10931,
+    "drive_id": "1e4iGWiHk1Nh-Z0ZN9baX-J8OY0QNP6tt"
+  },
+  {
+    "role": "project_baseline",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "project_binding",
+    "sha256": "9867a06fc3535522c1c884d7784ff5b38d4ade11f9877ad9e83bc521e6f51b44",
+    "size_bytes": 8618,
+    "drive_id": "18lw2Wxqr5YvV-hq_O6kIuwZ9ynX2h2Rj"
+  },
+  {
+    "role": "engine_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "input:sqlite_runtime_binding",
+    "sha256": "fe2a99b5dc7ba27bbb38c62a50c99aed94304b7a4de8546f46827ba0483fd9d7",
+    "size_bytes": 3295,
+    "drive_id": "1cUsVzEQKk8PIWrN5KfgwZKTEpAg6dxP_"
+  },
+  {
+    "role": "input:host_runtime_manifest",
+    "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+    "size_bytes": 880319,
+    "drive_id": "1ukI8JBOrMOHGf6WhlZg9ePFWbFdy4EQb"
+  },
+  {
+    "role": "input:runtime_mode_policy",
+    "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+    "size_bytes": 504,
+    "drive_id": "17MkUjckyncg2yCFlyN8aTRs-RwjUxXPy"
+  },
+  {
+    "role": "input:forensic_protocol",
+    "sha256": "9c0e85240c4bc387074d040a21a17065371c41594475eb8e364694635f331b87",
+    "size_bytes": 2373,
+    "drive_id": "1rFhIATl311TIFaDCKMzCidXpjOSZ8cPX"
+  },
+  {
+    "role": "input:submission_contract",
+    "sha256": "81ffb658ec616b494454389a087a8eb6c657b7d9922dd9ef181c42335ba274ee",
+    "size_bytes": 4429,
+    "drive_id": "1ZxU0R-_9VMdwrhG2A7H_VMM9XJHBmsPa"
+  },
+  {
+    "role": "capture_record",
+    "sha256": "9432023424142abbc262af71c62d660d32d948d575409a13a93aac5454affba4",
+    "size_bytes": 10931,
+    "drive_id": "1e4iGWiHk1Nh-Z0ZN9baX-J8OY0QNP6tt"
+  },
+  {
+    "role": "project_baseline",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "project_binding",
+    "sha256": "9867a06fc3535522c1c884d7784ff5b38d4ade11f9877ad9e83bc521e6f51b44",
+    "size_bytes": 8618,
+    "drive_id": "18lw2Wxqr5YvV-hq_O6kIuwZ9ynX2h2Rj"
+  },
+  {
+    "role": "checkpoint_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "checkpoint_project_base",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "checkpoint_project_delta",
+    "sha256": "91be996ce5d916eb076329bc621c4207d5e699ea222c15b249e150c54759c2a4",
+    "size_bytes": 3087,
+    "drive_id": "17SOdt-NbVsHAsIIt5fk0XkV5tcGMCATL"
+  },
+  {
+    "role": "checkpoint_state",
+    "sha256": "8fdc838dfe8069193ff5e97c217560516b72ce2f94c870b2e8331a528f5eef52",
+    "size_bytes": 27330,
+    "drive_id": "1ANOFDO5Cdc560O6bj8sXHJC-2V1rBmRo"
+  },
+  {
+    "role": "checkpoint_manifest",
+    "sha256": "1937b1660cfd8499875f3478dc67be5b95de9a9070ee19464b140a1b261f02d0",
+    "size_bytes": 6834,
+    "drive_id": "1mg8Akh2Qug0IqioFxNLnhCWe1X2hHFnM"
+  },
+  {
+    "role": "engine_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "input:sqlite_runtime_binding",
+    "sha256": "fe2a99b5dc7ba27bbb38c62a50c99aed94304b7a4de8546f46827ba0483fd9d7",
+    "size_bytes": 3295,
+    "drive_id": "1cUsVzEQKk8PIWrN5KfgwZKTEpAg6dxP_"
+  },
+  {
+    "role": "input:host_runtime_manifest",
+    "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+    "size_bytes": 880319,
+    "drive_id": "1ukI8JBOrMOHGf6WhlZg9ePFWbFdy4EQb"
+  },
+  {
+    "role": "input:runtime_mode_policy",
+    "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+    "size_bytes": 504,
+    "drive_id": "17MkUjckyncg2yCFlyN8aTRs-RwjUxXPy"
+  },
+  {
+    "role": "input:forensic_protocol",
+    "sha256": "9c0e85240c4bc387074d040a21a17065371c41594475eb8e364694635f331b87",
+    "size_bytes": 2373,
+    "drive_id": "1rFhIATl311TIFaDCKMzCidXpjOSZ8cPX"
+  },
+  {
+    "role": "input:submission_contract",
+    "sha256": "81ffb658ec616b494454389a087a8eb6c657b7d9922dd9ef181c42335ba274ee",
+    "size_bytes": 4429,
+    "drive_id": "1ZxU0R-_9VMdwrhG2A7H_VMM9XJHBmsPa"
+  },
+  {
+    "role": "capture_record",
+    "sha256": "9432023424142abbc262af71c62d660d32d948d575409a13a93aac5454affba4",
+    "size_bytes": 10931,
+    "drive_id": "1e4iGWiHk1Nh-Z0ZN9baX-J8OY0QNP6tt"
+  },
+  {
+    "role": "project_baseline",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "project_binding",
+    "sha256": "9867a06fc3535522c1c884d7784ff5b38d4ade11f9877ad9e83bc521e6f51b44",
+    "size_bytes": 8618,
+    "drive_id": "18lw2Wxqr5YvV-hq_O6kIuwZ9ynX2h2Rj"
+  },
+  {
+    "role": "checkpoint_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "checkpoint_project_base",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "checkpoint_project_delta",
+    "sha256": "91be996ce5d916eb076329bc621c4207d5e699ea222c15b249e150c54759c2a4",
+    "size_bytes": 3087,
+    "drive_id": "17SOdt-NbVsHAsIIt5fk0XkV5tcGMCATL"
+  },
+  {
+    "role": "checkpoint_state",
+    "sha256": "3b74420ef9d9f196890da7c3d87ac108cb8c7cf9db553063fb91d74709b236dc",
+    "size_bytes": 22486,
+    "drive_id": "1YFjsWrZj-VbRfqUof0TTcaJ9yWJ7lKJd"
+  },
+  {
+    "role": "checkpoint_manifest",
+    "sha256": "5d21d0215a1af830e405dceeccf9de71cca6b076731653f15b4090241828cc14",
+    "size_bytes": 6766,
+    "drive_id": "1ZYVTD3waE2OlEPhDrO5nxWsWEamNDufT"
+  },
+  {
+    "role": "engine_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "input:sqlite_runtime_binding",
+    "sha256": "fe2a99b5dc7ba27bbb38c62a50c99aed94304b7a4de8546f46827ba0483fd9d7",
+    "size_bytes": 3295,
+    "drive_id": "1cUsVzEQKk8PIWrN5KfgwZKTEpAg6dxP_"
+  },
+  {
+    "role": "input:host_runtime_manifest",
+    "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+    "size_bytes": 880319,
+    "drive_id": "1ukI8JBOrMOHGf6WhlZg9ePFWbFdy4EQb"
+  },
+  {
+    "role": "input:runtime_mode_policy",
+    "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+    "size_bytes": 504,
+    "drive_id": "17MkUjckyncg2yCFlyN8aTRs-RwjUxXPy"
+  },
+  {
+    "role": "input:forensic_protocol",
+    "sha256": "9c0e85240c4bc387074d040a21a17065371c41594475eb8e364694635f331b87",
+    "size_bytes": 2373,
+    "drive_id": "1rFhIATl311TIFaDCKMzCidXpjOSZ8cPX"
+  },
+  {
+    "role": "input:submission_contract",
+    "sha256": "81ffb658ec616b494454389a087a8eb6c657b7d9922dd9ef181c42335ba274ee",
+    "size_bytes": 4429,
+    "drive_id": "1ZxU0R-_9VMdwrhG2A7H_VMM9XJHBmsPa"
+  },
+  {
+    "role": "capture_record",
+    "sha256": "9432023424142abbc262af71c62d660d32d948d575409a13a93aac5454affba4",
+    "size_bytes": 10931,
+    "drive_id": "1e4iGWiHk1Nh-Z0ZN9baX-J8OY0QNP6tt"
+  },
+  {
+    "role": "project_baseline",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "project_binding",
+    "sha256": "9867a06fc3535522c1c884d7784ff5b38d4ade11f9877ad9e83bc521e6f51b44",
+    "size_bytes": 8618,
+    "drive_id": "18lw2Wxqr5YvV-hq_O6kIuwZ9ynX2h2Rj"
+  },
+  {
+    "role": "checkpoint_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "checkpoint_project_base",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "checkpoint_project_delta",
+    "sha256": "c56cf9eb0390f07b166484217ace14ff12170185ca53ccf151b2f70f0f1fa7c6",
+    "size_bytes": 9327,
+    "drive_id": "1YUVuA0Kn8v5O8evUggMuAdym5UxMKKFZ"
+  },
+  {
+    "role": "checkpoint_state",
+    "sha256": "818e29e745db76fff839577f125db91c817a9882436b325d872fa40de10fe917",
+    "size_bytes": 29081,
+    "drive_id": "1E6iMMwNHCuWSW4kGXTZefhmJvMGK9nvd"
+  },
+  {
+    "role": "checkpoint_manifest",
+    "sha256": "39cf892ccff12e940956c01d9098ce242827d94e47a967eb07554fa28e2e2020",
+    "size_bytes": 6841,
+    "drive_id": "1Uyky4dKDpNG8MMpY28aFPerASSffg87R"
+  },
+  {
+    "role": "engine_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "input:sqlite_runtime_binding",
+    "sha256": "fe2a99b5dc7ba27bbb38c62a50c99aed94304b7a4de8546f46827ba0483fd9d7",
+    "size_bytes": 3295,
+    "drive_id": "1cUsVzEQKk8PIWrN5KfgwZKTEpAg6dxP_"
+  },
+  {
+    "role": "input:host_runtime_manifest",
+    "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+    "size_bytes": 880319,
+    "drive_id": "1ukI8JBOrMOHGf6WhlZg9ePFWbFdy4EQb"
+  },
+  {
+    "role": "input:runtime_mode_policy",
+    "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+    "size_bytes": 504,
+    "drive_id": "17MkUjckyncg2yCFlyN8aTRs-RwjUxXPy"
+  },
+  {
+    "role": "input:forensic_protocol",
+    "sha256": "9c0e85240c4bc387074d040a21a17065371c41594475eb8e364694635f331b87",
+    "size_bytes": 2373,
+    "drive_id": "1rFhIATl311TIFaDCKMzCidXpjOSZ8cPX"
+  },
+  {
+    "role": "input:submission_contract",
+    "sha256": "81ffb658ec616b494454389a087a8eb6c657b7d9922dd9ef181c42335ba274ee",
+    "size_bytes": 4429,
+    "drive_id": "1ZxU0R-_9VMdwrhG2A7H_VMM9XJHBmsPa"
+  },
+  {
+    "role": "capture_record",
+    "sha256": "9432023424142abbc262af71c62d660d32d948d575409a13a93aac5454affba4",
+    "size_bytes": 10931,
+    "drive_id": "1e4iGWiHk1Nh-Z0ZN9baX-J8OY0QNP6tt"
+  },
+  {
+    "role": "project_baseline",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "project_binding",
+    "sha256": "9867a06fc3535522c1c884d7784ff5b38d4ade11f9877ad9e83bc521e6f51b44",
+    "size_bytes": 8618,
+    "drive_id": "18lw2Wxqr5YvV-hq_O6kIuwZ9ynX2h2Rj"
+  },
+  {
+    "role": "checkpoint_source",
+    "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+    "size_bytes": 22685539,
+    "drive_id": "1J5bGWsOtmMSRLYMfcBWUdVoxy2IgDPB2"
+  },
+  {
+    "role": "checkpoint_project_base",
+    "sha256": "fae6a96c3a584356c888aabf1ce59a6a9d7bc498d46ef5b3ee7f62977f492f3f",
+    "size_bytes": 22369757,
+    "drive_id": "1DcSv8kLNJWCZYOz7strSHMJg50RAVAHU"
+  },
+  {
+    "role": "checkpoint_project_delta",
+    "sha256": "c56cf9eb0390f07b166484217ace14ff12170185ca53ccf151b2f70f0f1fa7c6",
+    "size_bytes": 9327,
+    "drive_id": "1YUVuA0Kn8v5O8evUggMuAdym5UxMKKFZ"
+  },
+  {
+    "role": "checkpoint_state",
+    "sha256": "0093c75ed66ce51f15a05a4a80e1f2152f29c2af2e0526f0e84d4a925d1b0fcf",
+    "size_bytes": 28957,
+    "drive_id": "1xcB1khq77wXzsI81qN7STnjn_vparNeQ"
+  },
+  {
+    "role": "checkpoint_manifest",
+    "sha256": "cd9382d8170714b86db266309e0fcf8a82b54b143fd7b8e7cfefa91e2b7c734c",
+    "size_bytes": 6828,
+    "drive_id": "1FlAFeJhtQzis5Ja0Wcm58TGk3NkNO75j"
+  }
+]
