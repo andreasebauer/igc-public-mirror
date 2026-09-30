@@ -1,0 +1,49 @@
+{
+  "gate": "V64",
+  "status": "PASS_BOUNDED_NATIVE_PROFILE_AND_RECOVERY",
+  "candidate": {
+    "version": "0.8.0.dev145+lib",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
+    "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+    "archive_size_bytes": 22692795,
+    "qualification": "UNQUALIFIED"
+  },
+  "native_passes": 18,
+  "native_failures": 0,
+  "native_skips": 0,
+  "standalone_passes": 4,
+  "distinct_count_note": "Four standalone qualification cases overlap the 18 native cases; do not sum to 22.",
+  "active_test_files": 170,
+  "registered_test_files": 170,
+  "engine_implementation_changed": false,
+  "test_bodies_changed": false,
+  "capture_id": "73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27",
+  "completion_sha256": "c3cb7e75f6f3b90318311450e98d1759f8ddb96fbb5d6ec4c8937af26e88432e",
+  "checkpoint_roles_acknowledged": 60,
+  "unique_saved_objects": 19,
+  "pending_roles": 0,
+  "exact_recovery": {
+    "restore": {
+      "status": "RESTORED_NOT_RUNNING",
+      "workspace": "/tmp/ig_gate_v64_restored_20261001",
+      "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+      "checkpoint_sha256": "d619ffe3e790d2eacd137da912d46f107f72421af6cca24c33ef3fdd186ce7bc",
+      "state_file_modes_restored": true,
+      "mode_scope": "CHECKPOINT_STATE_AND_INPUT_FILES"
+    },
+    "completion_sha256": "c3cb7e75f6f3b90318311450e98d1759f8ddb96fbb5d6ec4c8937af26e88432e",
+    "exact_completion_equal": true,
+    "terminal_completion_proof": true,
+    "tests_dispatched": 0
+  },
+  "export": {
+    "drive_id": "1vewEt4UygKoTh2NY3i7c-HJr6wzbVszc",
+    "readback": "/workspace/scratch/a2e5e2576f17/attachments/758a54a8-6944-4743-9560-66751cc0414d/V64_TERMINAL_CHECKPOINT.zip",
+    "sha256": "c8068de4a96fdf63e362255adc7cb58c9e0276ee367cd468ee5c4448c33b8094",
+    "raw_readback_verified": true
+  },
+  "full_RC": "OPEN",
+  "candidate_fixtures_remaining": 5,
+  "data_block_ready": false
+}

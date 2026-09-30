@@ -362,16 +362,16 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev144+lib",
-    "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
-    "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
-    "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
-    "archive_size_bytes": 22692774,
+    "version": "0.8.0.dev145+lib",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
+    "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+    "archive_size_bytes": 22692795,
     "qualification": "UNQUALIFIED",
-    "tests_executed": 75,
-    "status": "UNQUALIFIED_BOUNDED_V62_V63_PASS",
-    "reason": "Current-source fixtures, full RC, finding dispositions and independent-host recovery remain OPEN",
-    "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
+    "tests_executed": 18,
+    "status": "UNQUALIFIED_BOUNDED_V64_PASS",
+    "drive_id": "1CZaRf1jOG1LczM903d0pc8uKBVu2IXVW",
+    "reason": "Exact-candidate fixtures/full RC/findings/independent-host recovery pending"
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -707,6 +707,18 @@
         "EXPECTED_FAIL": 1,
         "EXPECTED_SKIP": 1
       }
+    },
+    "dev144": {
+      "version": "0.8.0.dev144+lib",
+      "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+      "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+      "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+      "archive_size_bytes": 22692774,
+      "qualification": "UNQUALIFIED",
+      "tests_executed": 75,
+      "status": "UNQUALIFIED_BOUNDED_V62_V63_PASS",
+      "reason": "Current-source fixtures, full RC, finding dispositions and independent-host recovery remain OPEN",
+      "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
     }
   },
   "latest_native_drain_gate": {
@@ -930,5 +942,54 @@
     "prior_V55_failure": "UNCHANGED",
     "prior_V61_failure": "UNCHANGED",
     "next": "Current-source fixture completion/rebinding and full RC matrix; remaining finding dispositions and independent-host recovery."
+  },
+  "latest_profile_recovery_gate": {
+    "gate": "V64",
+    "status": "PASS_BOUNDED_NATIVE_PROFILE_AND_RECOVERY",
+    "candidate": {
+      "version": "0.8.0.dev145+lib",
+      "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+      "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
+      "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+      "archive_size_bytes": 22692795,
+      "qualification": "UNQUALIFIED"
+    },
+    "native_passes": 18,
+    "native_failures": 0,
+    "native_skips": 0,
+    "standalone_passes": 4,
+    "distinct_count_note": "Four standalone qualification cases overlap the 18 native cases; do not sum to 22.",
+    "active_test_files": 170,
+    "registered_test_files": 170,
+    "engine_implementation_changed": false,
+    "test_bodies_changed": false,
+    "capture_id": "73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27",
+    "completion_sha256": "c3cb7e75f6f3b90318311450e98d1759f8ddb96fbb5d6ec4c8937af26e88432e",
+    "checkpoint_roles_acknowledged": 60,
+    "unique_saved_objects": 19,
+    "pending_roles": 0,
+    "exact_recovery": {
+      "restore": {
+        "status": "RESTORED_NOT_RUNNING",
+        "workspace": "/tmp/ig_gate_v64_restored_20261001",
+        "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+        "checkpoint_sha256": "d619ffe3e790d2eacd137da912d46f107f72421af6cca24c33ef3fdd186ce7bc",
+        "state_file_modes_restored": true,
+        "mode_scope": "CHECKPOINT_STATE_AND_INPUT_FILES"
+      },
+      "completion_sha256": "c3cb7e75f6f3b90318311450e98d1759f8ddb96fbb5d6ec4c8937af26e88432e",
+      "exact_completion_equal": true,
+      "terminal_completion_proof": true,
+      "tests_dispatched": 0
+    },
+    "export": {
+      "drive_id": "1vewEt4UygKoTh2NY3i7c-HJr6wzbVszc",
+      "readback": "/workspace/scratch/a2e5e2576f17/attachments/758a54a8-6944-4743-9560-66751cc0414d/V64_TERMINAL_CHECKPOINT.zip",
+      "sha256": "c8068de4a96fdf63e362255adc7cb58c9e0276ee367cd468ee5c4448c33b8094",
+      "raw_readback_verified": true
+    },
+    "full_RC": "OPEN",
+    "candidate_fixtures_remaining": 5,
+    "data_block_ready": false
   }
 }

@@ -5,7 +5,7 @@
     "os": "Linux",
     "python_tested": "No full qualification for this candidate; historical CPython 3.12 profile retained separately",
     "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified",
-    "python_target": "CPython 3.13.5 pinned V4; dev141 unqualified"
+    "python_target": "CPython 3.13.5 pinned reviewed runtime; exact per-capture binding required"
   },
   "environment": [
     {
@@ -306,6 +306,7 @@
         "tests/test_p7_node_in.py",
         "tests/test_p8_scout_historical.py",
         "tests/test_p9_o1_o3.py",
+        "tests/test_paused_checkpoint_recovery.py",
         "tests/test_preservation_batch.py",
         "tests/test_qualification_contract.py",
         "tests/test_r02_replay_self_qualification.py",
@@ -376,6 +377,7 @@
         "tests/test_v05_s8_optimization_acceptance.py",
         "tests/test_v05_stage_runtime_exact_byte_handoff.py",
         "tests/test_v05_stage_runtime_resume_kernel_view.py",
+        "tests/test_validation_cancellation.py",
         "tests/test_validation_phase_binding.py",
         "tests/test_validation_recorder_finalization.py",
         "tests/test_validation_save_waves.py",
@@ -438,15 +440,15 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_DEV144_CLEANUP_REPAIR",
+  "status": "UNQUALIFIED_DEV145_PROFILE_COVERAGE",
   "blocking_conditions": [
-    "Native registered tests not yet executed for dev144.",
-    "V55 remains a failed lifecycle gate; no inherited qualification.",
-    "Full RC, fixtures and independent-host recovery remain OPEN."
+    "Current-source native qualification and fixtures remain OPEN.",
+    "V62/V63 dev144 bounded results remain separately identified.",
+    "Full RC and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev144+lib",
-    "parent_archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
+    "revision": "0.8.0.dev145+lib",
+    "parent_archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

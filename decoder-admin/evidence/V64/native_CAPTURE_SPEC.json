@@ -1,0 +1,230 @@
+{
+  "schema_id": "IG_DECODER_CAPTURE_SPEC_V1",
+  "job_id": "RC.PROFILE_RECOVERY.V64.DEV145",
+  "engine_source": "/tmp/ig_decoder_dev145_20261001/decoder",
+  "project_source": null,
+  "question": {
+    "stage_id": "RC:DEV145:CLEANUP",
+    "description": "V64 native profile and recovery regression gate",
+    "outcomes": [
+      "PASS",
+      "FAIL"
+    ],
+    "stopping_rule": "V64 DEV145 CURRENT-SOURCE PROFILE AND RECOVERY\nOne fresh capture; native suites qualification_contract, validation_cancellation, paused_checkpoint_recovery; 18 expected cases. One worker, default preservation, no engine deadline. Genuine saved prerequisites required before launch; active administrative save/readback/ack loop. Preserve original source/runtime. No source edits, hidden supervisor, or retry after unexplained failure. Require all collected nodes PASS and exact saved terminal completion recovery with zero dispatch. Native results are bounded engineering qualification, not full RC. Prior V62/V63 source identities remain historical.\n"
+  },
+  "execution": {
+    "kind": "VALIDATION",
+    "nodes": [
+      "tests/test_qualification_contract.py",
+      "tests/test_validation_cancellation.py",
+      "tests/test_paused_checkpoint_recovery.py"
+    ]
+  },
+  "resources": {
+    "workers": 1,
+    "start_method": "fork",
+    "memory_budget_bytes": 1073741824,
+    "workspace_budget_bytes": 2147483648,
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1"
+  },
+  "inputs": [],
+  "environment": {
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "attrs",
+        "version": "26.1.0",
+        "imports": [
+          "attrs"
+        ]
+      },
+      {
+        "distribution": "cffi",
+        "version": "2.0.0",
+        "imports": [
+          "cffi"
+        ]
+      },
+      {
+        "distribution": "cryptography",
+        "version": "46.0.4",
+        "imports": [
+          "cryptography"
+        ]
+      },
+      {
+        "distribution": "igraph",
+        "version": "1.0.0",
+        "imports": [
+          "igraph"
+        ]
+      },
+      {
+        "distribution": "iniconfig",
+        "version": "2.3.0",
+        "imports": [
+          "iniconfig"
+        ]
+      },
+      {
+        "distribution": "jsonschema",
+        "version": "4.26.0",
+        "imports": [
+          "jsonschema"
+        ]
+      },
+      {
+        "distribution": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "imports": [
+          "jsonschema_specifications"
+        ]
+      },
+      {
+        "distribution": "mpmath",
+        "version": "1.3.0",
+        "imports": [
+          "mpmath"
+        ]
+      },
+      {
+        "distribution": "networkx",
+        "version": "3.6.1",
+        "imports": [
+          "networkx"
+        ]
+      },
+      {
+        "distribution": "packaging",
+        "version": "25.0",
+        "imports": [
+          "packaging"
+        ]
+      },
+      {
+        "distribution": "pluggy",
+        "version": "1.6.0",
+        "imports": [
+          "pluggy"
+        ]
+      },
+      {
+        "distribution": "pycparser",
+        "version": "3.0",
+        "imports": [
+          "pycparser"
+        ]
+      },
+      {
+        "distribution": "Pygments",
+        "version": "2.20.0",
+        "imports": [
+          "pygments"
+        ]
+      },
+      {
+        "distribution": "pytest",
+        "version": "9.0.2",
+        "imports": [
+          "pytest"
+        ]
+      },
+      {
+        "distribution": "referencing",
+        "version": "0.37.0",
+        "imports": [
+          "referencing"
+        ]
+      },
+      {
+        "distribution": "rpds-py",
+        "version": "2026.5.1",
+        "imports": [
+          "rpds"
+        ]
+      },
+      {
+        "distribution": "sympy",
+        "version": "1.14.0",
+        "imports": [
+          "sympy"
+        ]
+      },
+      {
+        "distribution": "texttable",
+        "version": "1.7.0",
+        "imports": [
+          "texttable"
+        ]
+      },
+      {
+        "distribution": "typing_extensions",
+        "version": "4.16.0",
+        "imports": [
+          "typing_extensions"
+        ]
+      },
+      {
+        "distribution": "setuptools",
+        "version": "84.0.0",
+        "imports": [
+          "setuptools"
+        ]
+      },
+      {
+        "distribution": "wheel",
+        "version": "0.48.0",
+        "imports": [
+          "wheel"
+        ]
+      },
+      {
+        "distribution": "pip",
+        "version": "26.2.1",
+        "imports": [
+          "pip"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "logical_name": "sqlite_runtime_binding",
+        "path": "/workspace/scratch/a2e5e2576f17/v64_native/SQLITE_BINDING.json",
+        "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5"
+      },
+      {
+        "logical_name": "host_runtime_manifest",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_MANIFEST.json",
+        "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58"
+      },
+      {
+        "logical_name": "runtime_mode_policy",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_POLICY.json",
+        "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68"
+      },
+      {
+        "logical_name": "gate_protocol",
+        "path": "/workspace/scratch/a2e5e2576f17/v64_native/NATIVE_PROTOCOL.txt",
+        "sha256": "40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0"
+      },
+      {
+        "logical_name": "operator_script",
+        "path": "/workspace/scratch/a2e5e2576f17/v64_native/native_ops.py",
+        "sha256": "c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a"
+      }
+    ]
+  },
+  "output_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "VALIDATION",
+    "required_artifacts": [],
+    "result_checks": [
+      {
+        "pointer": "/status",
+        "equals": "PASS"
+      }
+    ],
+    "prerequisites": [],
+    "preservation": {}
+  }
+}

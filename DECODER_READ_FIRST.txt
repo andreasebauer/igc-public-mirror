@@ -1,5 +1,5 @@
-DEV144 V62 + V63 BOUNDED PASS; OVERALL UNQUALIFIED
-75 focused PASS; V62 native interrupt/exact paused recovery; V63 live-corruption refusal/cleanup/exact forensic recovery.
-All 23 RC rows OPEN. Next: current-source fixtures and full RC matrix. No science replay.
-Read decoder-admin/evidence/V63_REPORT.txt and RC_LEDGER.json.
+DEV145 V64 BOUNDED NATIVE PASS — OVERALL UNQUALIFIED
+170 active files registered; 18 native cases PASS, exact saved completion recovery, zero restoration dispatch.
+Five current-source fixtures next; all 23 RC rows OPEN. No science replay.
+Read decoder-admin/evidence/V64_REPORT.txt, RC_LEDGER.json and CATALOG.json.
 Verify source: python3 -B decoder-admin/decoder.py verify-source

@@ -1,0 +1,112 @@
+{
+  "status": "SAVE_REQUIRED",
+  "capture_status": "CAPTURED",
+  "workspace": "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27",
+  "capture_id": "73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27",
+  "job_id": "RC.PROFILE_RECOVERY.V64.DEV145",
+  "decoder_version": "0.8.0.dev145+lib",
+  "pending_objects": [
+    {
+      "object_name": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip",
+      "role": "engine_source",
+      "sha256": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189",
+      "size_bytes": 22692795,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip",
+      "obligation_id": "0b245d723b729b8163668f545d40b8ad8d00c425ef7b3b924ba25a3f0ae6abdb",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip"
+    },
+    {
+      "object_name": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin",
+      "role": "input:sqlite_runtime_binding",
+      "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5",
+      "size_bytes": 3294,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin",
+      "obligation_id": "9095d2b714946221831a58bd7cbb5a5f2c00b415cb9a6a93c8b52fa8bb666f44",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin"
+    },
+    {
+      "object_name": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin",
+      "role": "input:host_runtime_manifest",
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size_bytes": 880319,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin",
+      "obligation_id": "9856912ae77869409e6d240cfcc627e651c37819aa1b5f62800b77c63fb42821",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin"
+    },
+    {
+      "object_name": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin",
+      "role": "input:runtime_mode_policy",
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size_bytes": 504,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin",
+      "obligation_id": "31cab0e9e3621fd7fad4fbb53b905a2b3fb7aa90961bf617ac9d91faa1b6e06b",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin"
+    },
+    {
+      "object_name": "40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0.bin",
+      "role": "input:gate_protocol",
+      "sha256": "40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0",
+      "size_bytes": 650,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0.bin",
+      "obligation_id": "8980295ab222a5a3586dc7acc035d41c2ba8ffd9ee6caa52e8291564406c08ae",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0.bin"
+    },
+    {
+      "object_name": "c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a.bin",
+      "role": "input:operator_script",
+      "sha256": "c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a",
+      "size_bytes": 5874,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a.bin",
+      "obligation_id": "82a0189858556a35f69c087225f5ef95b796c48ad55ec5656b295a9d7fc920aa",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a.bin"
+    },
+    {
+      "object_name": "822c511ab6fa747d2d1cb3985ba74f27f84ec887ac186b7c9c083abf4a04b055.bin",
+      "role": "input:submission_contract",
+      "sha256": "822c511ab6fa747d2d1cb3985ba74f27f84ec887ac186b7c9c083abf4a04b055",
+      "size_bytes": 4486,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "822c511ab6fa747d2d1cb3985ba74f27f84ec887ac186b7c9c083abf4a04b055.bin",
+      "obligation_id": "b718edd35d849934a8169eac134d0f2aec938506b43269a2b347c5ade6650c69",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/822c511ab6fa747d2d1cb3985ba74f27f84ec887ac186b7c9c083abf4a04b055.bin"
+    },
+    {
+      "role": "capture_record",
+      "sha256": "4f8e031e87c5c5188b131625ee4dcfe5fa701ae7817e11df5e7e0de1e92f369c",
+      "size_bytes": 9597,
+      "object_name": "4f8e031e87c5c5188b131625ee4dcfe5fa701ae7817e11df5e7e0de1e92f369c.json",
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "4f8e031e87c5c5188b131625ee4dcfe5fa701ae7817e11df5e7e0de1e92f369c.json",
+      "obligation_id": "5d7c4996ac8245d9615f925f391eb8f798129666a4a65ebf0745bc224747d118",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/4f8e031e87c5c5188b131625ee4dcfe5fa701ae7817e11df5e7e0de1e92f369c.json"
+    },
+    {
+      "object_name": "a64ff244ad90310e08d75bc71e92e3c8266582e9b586d7882fd9f8b578549200.zip",
+      "role": "project_baseline",
+      "sha256": "a64ff244ad90310e08d75bc71e92e3c8266582e9b586d7882fd9f8b578549200",
+      "size_bytes": 22377118,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "a64ff244ad90310e08d75bc71e92e3c8266582e9b586d7882fd9f8b578549200.zip",
+      "obligation_id": "9e01a9fe71b009d631cd4a5d1235a8cbd2f37f22e51289b2937977a2b4428a72",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/a64ff244ad90310e08d75bc71e92e3c8266582e9b586d7882fd9f8b578549200.zip"
+    },
+    {
+      "role": "project_binding",
+      "sha256": "ba08f4f9f26daf160132ec850ae0ca09da91e3dbe09dcc956952b5f2ab7d6215",
+      "size_bytes": 6969,
+      "object_name": "ba08f4f9f26daf160132ec850ae0ca09da91e3dbe09dcc956952b5f2ab7d6215.json",
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "ba08f4f9f26daf160132ec850ae0ca09da91e3dbe09dcc956952b5f2ab7d6215.json",
+      "obligation_id": "2ec6935e61835f9982c2b597f77cdcf7afad8fe4e311017ccd28874182aff202",
+      "local_object_path": "/tmp/ig_gate_v64_20261001/store/objects/ba08f4f9f26daf160132ec850ae0ca09da91e3dbe09dcc956952b5f2ab7d6215.json"
+    }
+  ],
+  "next_action": "Upload pending objects through the Drive connector; download raw bytes and use confirm-save.",
+  "acknowledgment_scope": "Explicit connector/operator attestation plus local byte verification; not remote identity authentication."
+}

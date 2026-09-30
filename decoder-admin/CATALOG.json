@@ -1,13 +1,13 @@
 {
   "schema_id": "DECODER_RECOVERY_CATALOG_V1",
   "source": {
-    "version": "0.8.0.dev144+lib",
-    "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
-    "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
-    "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
-    "archive_size_bytes": 22692774,
+    "version": "0.8.0.dev145+lib",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
+    "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+    "archive_size_bytes": 22692795,
     "qualification": "UNQUALIFIED",
-    "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
+    "drive_id": "1CZaRf1jOG1LczM903d0pc8uKBVu2IXVW"
   },
   "objects": [
     {
@@ -65,7 +65,7 @@
     "saved_stage_one_prerun",
     "saved_stage_outcome"
   ],
-  "scope": "dev142 UNQUALIFIED source/runtime locators. Prior candidate gates and fixtures remain historical; current-candidate qualification pending.",
+  "scope": "dev145 unqualified source/runtime locators; five candidate fixtures pending; prior candidate results historical.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
   "fixture_attempt_history": [
@@ -262,6 +262,15 @@
       "qualification": "UNQUALIFIED",
       "archive_size_bytes": 22685539,
       "drive_id": "1RFys7ZH_knHJjkXWttV74YWtc1uTdLpZ"
+    },
+    "dev144": {
+      "version": "0.8.0.dev144+lib",
+      "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+      "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+      "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+      "archive_size_bytes": 22692774,
+      "qualification": "UNQUALIFIED",
+      "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
     }
   }
 }

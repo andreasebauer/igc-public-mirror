@@ -1,0 +1,16 @@
+{
+  "scope": "Standalone pytest coverage of native runtime components; NOT native controller qualification",
+  "source": {
+    "status": "BYTE_EXACT_SOURCE_PASS",
+    "files": 1526,
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d"
+  },
+  "runtime": "/tmp/ig_runtime_v55_fresh_20260930",
+  "files": [
+    "tests/test_qualification_contract.py"
+  ],
+  "stop_on_first_failure": true,
+  "launcher_fix": "Insert candidate into sys.path after wrapper starts; set PYTHONPATH inside Python for test child interpreters",
+  "native_completions": 0
+}

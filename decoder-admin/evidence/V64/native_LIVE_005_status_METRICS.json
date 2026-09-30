@@ -1,0 +1,80 @@
+{
+  "started": 1790809093.9130213,
+  "finished": 1790809093.9701178,
+  "mode": "status",
+  "tag": "LIVE_005",
+  "pending_roles": 0,
+  "pending_bytes": 0,
+  "pending_commits": 0,
+  "oldest_age": 0,
+  "count_reserve": 8,
+  "byte_reserve_after_commit": 335544320,
+  "age_reserve": 3600,
+  "native_physical_objects_verified": 15,
+  "attempt_statuses": [
+    "RUNNING"
+  ],
+  "selector_finished": true,
+  "payload_read_bytes_calls": {
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.bin": {
+      "calls": 1,
+      "bytes": 22692795
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin": {
+      "calls": 1,
+      "bytes": 3294
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "calls": 1,
+      "bytes": 880319
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "calls": 1,
+      "bytes": 504
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/40cbe140b054e3afe257350ea0bcdc3c0b554823374eb7117bf8bbd37cbfefe0.bin": {
+      "calls": 1,
+      "bytes": 650
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/c83d4b417dbead61870be307b4f037164f57df7e342d6ee1b9fe7e1ffe49402a.bin": {
+      "calls": 1,
+      "bytes": 5874
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/822c511ab6fa747d2d1cb3985ba74f27f84ec887ac186b7c9c083abf4a04b055.bin": {
+      "calls": 1,
+      "bytes": 4486
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/4f8e031e87c5c5188b131625ee4dcfe5fa701ae7817e11df5e7e0de1e92f369c.bin": {
+      "calls": 1,
+      "bytes": 9597
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/a64ff244ad90310e08d75bc71e92e3c8266582e9b586d7882fd9f8b578549200.bin": {
+      "calls": 1,
+      "bytes": 22377118
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/ba08f4f9f26daf160132ec850ae0ca09da91e3dbe09dcc956952b5f2ab7d6215.bin": {
+      "calls": 1,
+      "bytes": 6969
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/36a8c26975c921dfbab50280a5795340be2895dbe81aa718d811837b52bd07c7.bin": {
+      "calls": 1,
+      "bytes": 2274
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/cab57c1251b78ef1f6a62a49afd7a973ce985cdd2d491366c4278cd600b9cc7e.bin": {
+      "calls": 1,
+      "bytes": 20268
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/a2d40d27050c09c9725e2be2b6ae0583124e30fe271314798b3b01be1541be5d.bin": {
+      "calls": 1,
+      "bytes": 10366
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/e1f379d82e1f4025b71fcbdecba87106deb168404b5635ecfd46563802c7dc7e.bin": {
+      "calls": 1,
+      "bytes": 34634
+    },
+    "/tmp/ig_gate_v64_20261001/store/captures/73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27/durability/outbox/objects/5757527876926c564219145282bace199eac7cb565b4f23e07f1dfcdc5c651ad.bin": {
+      "calls": 1,
+      "bytes": 13824
+    }
+  }
+}

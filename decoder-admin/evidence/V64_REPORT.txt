@@ -1,0 +1,51 @@
+V64 DEV145 PROFILE COVERAGE — BOUNDED NATIVE PASS — 2026-10-01
+
+Preflight found a real qualification defect in dev144: 170 active test files but
+only 168 profile entries. The new cancellation and paused-recovery files were
+omitted. Fixed in a separately versioned dev145 candidate. Exactly three files
+changed: version, build metadata and PROFILE. Engine implementation and all test
+bodies unchanged. Prior dev144 captures/source and V62/V63 evidence remain intact.
+All 170 active test files are now registered exactly once; this is coverage of
+file selectors, not evidence that all 170 files have executed successfully.
+
+Standalone qualification contract: 4 PASS / 0 FAIL.
+Fresh saved native job: 18 PASS / 0 FAIL / 0 SKIP, one worker, 72.053 seconds.
+Suites: qualification contract (4), cancellation (5), paused checkpoint recovery (9).
+The four standalone cases overlap the native 18; they are not 22 distinct cases.
+Ten capture prerequisites saved/read back before execution. Live save/ack loop
+operated through the run with default preservation and no engine deadline.
+Zero pending checkpoint roles, bytes or checkpoints at closeout. Native published
+completion and terminal proof verified. Saved export fetched and hash-verified;
+isolated restoration recovered the identical completion and terminal proof with
+ZERO tests dispatched. As designed, the terminal checkpoint may hold the prepared
+completion before publication; this is not a claim of identical post-publication
+workspace state. Source and reviewed runtime verified before/after.
+
+Reclaimed 3.9 GiB of disposable successful V62 standalone pytest fixture copies;
+retained reports, test logs, scripts and every native capture/failed restoration.
+
+LIMITS / NEXT
+Dev145 remains UNQUALIFIED overall; all 23 RC acceptance rows OPEN.
+Five exact-candidate fixture roles remain: stage-one pre-run, stage-one completed,
+stage-four, expected-outcome refusal and representative qualification. Generate
+these on dev145 next; retain genuine pre-run export before stage-one execution.
+Then full functional/workspace/representative/timing RC, remaining finding
+dispositions, dependency lock and independent-host recovery. No science replay.
+V62/V63 are separately identified dev144 bounded results, not full dev145 RC.
+Do not rerun V64 or rewrite its completed source/capture.
+
+Source identity:
+{
+  "version": "0.8.0.dev145+lib",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
+  "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+  "archive_size_bytes": 22692795,
+  "qualification": "UNQUALIFIED"
+}
+Capture: 73ea7702f7b9cec8e76a3e2f646ea0b4c514eb662ff8d9e618fcb28eaff97a27
+Completion: c3cb7e75f6f3b90318311450e98d1759f8ddb96fbb5d6ec4c8937af26e88432e
+Export SHA256: c8068de4a96fdf63e362255adc7cb58c9e0276ee367cd468ee5c4448c33b8094
+Export Drive ID: 1vewEt4UygKoTh2NY3i7c-HJr6wzbVszc
+Source Drive ID: 1CZaRf1jOG1LczM903d0pc8uKBVu2IXVW
+Checkpoint roles acknowledged: 60

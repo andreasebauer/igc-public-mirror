@@ -1,0 +1,6 @@
+V64 DEV145 PROFILE COVERAGE — 2026-10-01
+Parent dev144 has 170 active test files but only 168 registered profile selectors.
+Register test_paused_checkpoint_recovery.py and test_validation_cancellation.py in functional group, each exactly once. No engine implementation or test-body changes. Separate version/build/profile identity. Preserve dev144 and V62/V63 evidence.
+Run four standalone qualification-contract cases with stop-on-first-failure. Then one fresh saved native validation job with three suites: qualification contract (4), cancellation (5), paused checkpoint recovery (9). Eighteen expected nodes; actual collection/result counts authoritative. Default preservation policy and one worker, no engine deadline. Observe and drain genuine save/readback checkpoints during longer execution.
+Require current-source/runtime verification before/after, terminal saved checkpoint proof, exact saved completion recovery with zero dispatch. No full RC or inherited native qualification claim. Stop at first unexplained failure.
+Then proceed to exact-candidate fixture production; do not produce expensive fixtures on a known incomplete profile. All 23 RC rows remain OPEN.
