@@ -545,5 +545,14 @@
     "native_completion": false,
     "retry_started": false,
     "full_rc": "OPEN"
+  },
+  "latest_failure_triage": {
+    "gate": "V25",
+    "status": "READ_ONLY_TRIAGE_COMPLETE_REPAIRS_PENDING",
+    "source_changed": false,
+    "tests_executed": false,
+    "stale_core_pins": 6,
+    "report": "decoder-admin/evidence/V25_REPORT.txt",
+    "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
   }
 }

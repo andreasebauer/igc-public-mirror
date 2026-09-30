@@ -1,0 +1,219 @@
+{
+  "archive_sha256": "744eb4e91231b40f1d058eee5fcd30a6c8daca3c7a5caa0df4b5526a0afff969",
+  "records": [
+    {
+      "archive_member": "CAPTURE.json",
+      "sha256": "052a205729368a64b7f06b7c3a3fd6198f42a4292c7fc29d6a3c324a555a83c0",
+      "record": {
+        "decoder_version": "0.8.0.dev134+lib",
+        "capture_id": "4c4e712666816d00910b2f6382c0d9c536ef28f2c00a88eba8db739c5e4a3caa",
+        "source_sha256": "ff38bac48322fc1e016b228d83e1b35855d61db03613a259959fe3b1665bb20d",
+        "question": {
+          "description": "Matched 96-task controls for real production committed-boundary checkpoints with and without held project WAL transaction. No historical causal claim.",
+          "outcomes": [
+            "PASS"
+          ],
+          "stage_id": "RC:A12",
+          "stopping_rule": "Exactly five named checks, two arms of 96 tasks and at least one interior checkpoint in each. Stop and preserve any failure; no tuning during attempt."
+        }
+      }
+    },
+    {
+      "archive_member": "runtime/attempts/job-cf713716e6c40abcf43aec31db2e4a7f/000001.json",
+      "sha256": "824692d272a77f0a9c7f75bd652a0a3e75f958cd24c935d21598545e7e29be9f",
+      "record": {
+        "attempt_id": "job-cf713716e6c40abcf43aec31db2e4a7f:000001",
+        "finished_unix": 1790686792.6319828,
+        "job_id": "RC.A12.PRODUCTION_OVERLAP.DEV134",
+        "mirror_status": "NOT_CONFIRMED",
+        "operation": "STAGE",
+        "output_root": "/workspace/scratch/58e40661c1b8/production_overlap/store/captures/4c4e712666816d00910b2f6382c0d9c536ef28f2c00a88eba8db739c5e4a3caa/runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d",
+        "pid": 6,
+        "reason": "SubmissionError:TASK_DATABASE_NOT_QUIESCENT:chain/decoder_stage_runtime/RC__A12/phases/CONTROL/partition.sqlite3",
+        "registration_sha256": "cf713716e6c40abcf43aec31db2e4a7fb7a40fbe4915cb11cfb42146c5a2fc0c",
+        "request_id": "job-cf713716e6c40abcf43aec31db2e4a7f",
+        "source_sha256": "ff38bac48322fc1e016b228d83e1b35855d61db03613a259959fe3b1665bb20d",
+        "started_unix": 1790686756.4906797,
+        "status": "PAUSED",
+        "workers_requested": 2
+      }
+    },
+    {
+      "archive_member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/OVERLAP_RESULT.json",
+      "sha256": "a7a431ca45a6cd4397cdb568823fa5ad5162d012b2b2740d45cd4a5f8765bdc5",
+      "record": {
+        "checks": [
+          "CONTROL_INTERIOR_CHECKPOINT",
+          "HELD_WRITE_INTERIOR_CHECKPOINT",
+          "COMMITTED_ONLY_SNAPSHOTS",
+          "MATCHED_PARTITION_BINDINGS",
+          "WRITER_COMMIT_AND_CLOSE"
+        ],
+        "historical_fault_reproduced": false,
+        "observations": [
+          {
+            "arm": "CONTROL",
+            "checkpoints": [
+              {
+                "checkpoint_sha256": "3aadd0774fdc252511548edebf349a820c19db41db5119ae984e55ca7084578a",
+                "committed_task_count": 32,
+                "created_unix_ns": 1790686763022044672,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "aea34e9efcd3b1671f122a5e4f2727e8e4f1088e78854b370cc183be4d4ce961"
+              },
+              {
+                "checkpoint_sha256": "bcfe637d70c7979930d713ef006181389a6dbb3120f6451a4ed9420a4c1e0961",
+                "committed_task_count": 64,
+                "created_unix_ns": 1790686766224776192,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "8f8d6e8ac65ca9b7355c87ec4d0b3028cbd6be4614c1a7980e5b7fe7ebfd8c49"
+              },
+              {
+                "checkpoint_sha256": "c4415d1a68275f735e36cbfa28844ecdf6dd4dd057b035ed7296ed0a451c0519",
+                "committed_task_count": 96,
+                "created_unix_ns": 1790686769679830272,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "a5e9bc89ed21dfb0fdec7720c0ca7bf8f93407c034f3a8ffd0e407fd662e351f"
+              }
+            ],
+            "class_count": 4,
+            "events": {
+              "stage_begin_ns": 1790686758786185709,
+              "stage_end_ns": 1790686770714662970
+            },
+            "task_count": 96
+          },
+          {
+            "arm": "HELD_WRITE",
+            "checkpoints": [
+              {
+                "checkpoint_sha256": "41f6c9307bdc70513a0cbfd8875803de4c9239ecf84ca5da43f7e19e5645cf7b",
+                "committed_task_count": 0,
+                "created_unix_ns": 1790686773031435520,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "e89381d9f3e99522185526b10b995a0edf257a99cebf4d417c0eb0cffe2fd54e"
+              },
+              {
+                "checkpoint_sha256": "42c3eb3963dbd535fb17c4e2f58413c2a3993b7b949ead41e9ffac1af6f865b6",
+                "committed_task_count": 96,
+                "created_unix_ns": 1790686786817234432,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "068d83f8381de15cab78d22e8cb9b2445f400bcecc725d928090ba4493e84d76"
+              },
+              {
+                "checkpoint_sha256": "6e844f06b55e9035af3457e3d0e66c27e1b21a643f2bb0c04c91298be6b7b7bc",
+                "committed_task_count": 96,
+                "created_unix_ns": 1790686790826366464,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "a736e345fc677773cd137b1a8bd16685e590e9bed2564a88a7d3854a340b40ef"
+              },
+              {
+                "checkpoint_sha256": "b64b2ce197485f0f148b443abd3bbbd8eaac0d3010f756426156f1904601453f",
+                "committed_task_count": 64,
+                "created_unix_ns": 1790686782354453248,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "b692fd58fce0baa29203ff1d5e74604d3587e8c6912bd4a930d6054900a88d6e"
+              },
+              {
+                "checkpoint_sha256": "c36ec2e6598c48a816a4d47ec98118a295a2dcbff5009b4302ee892825a48e24",
+                "committed_task_count": 32,
+                "created_unix_ns": 1790686778207625728,
+                "project_database_rows": [
+                  1
+                ],
+                "state_sha256": "f400aedb6bec3ed0c0521a738008d1c9b301a22bd49ec1e2ee32c8c27cc753a7"
+              }
+            ],
+            "class_count": 4,
+            "events": {
+              "stage_begin_ns": 1790686770718549221,
+              "stage_end_ns": 1790686792436545896,
+              "transaction_commit_ns": 1790686792436574269,
+              "transaction_open_ns": 1790686770718548330
+            },
+            "task_count": 96
+          }
+        ],
+        "partition_bindings_sha256": "5cd8b429fa1cfc4151196193c099fe0d2ced747984369e1cac29cf44a7389f5d",
+        "root_cause_established": false,
+        "scope": "NATIVE_STAGE_COMMITTED_BOUNDARY_SCHEDULING_WITH_HELD_PROJECT_WRITE",
+        "status": "PASS"
+      }
+    },
+    {
+      "archive_member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/CONTROL/SUMMARY.json",
+      "sha256": "c973700dc3294ac28cb9ee118c9aa2b52ae6038867778a24c178254affe7c738",
+      "record": {
+        "science": {
+          "chain_id": "RC.A12.PRODUCTION_OVERLAP.DEV134",
+          "class_count": 4,
+          "deterministic_collision_class_ordering": "EXACT_CANONICAL_BYTES_ASCENDING_V1",
+          "different_digest_implies_different_canonical_encoding": true,
+          "first_multi_class": {
+            "class_token": "14c6f2efe8b94f870f478c029540ada554dc6801f87f7c5897846c244d942ccd:0",
+            "representative_task_id": "v000",
+            "size": 24
+          },
+          "hash_equality_never_decides_scientific_equality": true,
+          "max_class_size": 24,
+          "multi_class_count": 4,
+          "partition_binding_hash_schema": "IG_DECODER_V05_PARTITION_BINDINGS_STREAM_V1",
+          "partition_bindings_sha256": "5cd8b429fa1cfc4151196193c099fe0d2ced747984369e1cac29cf44a7389f5d",
+          "phase_id": "CONTROL",
+          "question_sha256": "cddd7d287570a88148f70aea9b873eacd3f9dfb129221362a74f5259724d1785",
+          "schema_id": "IG_DECODER_V05_STRUCTURAL_PARTITION_SUMMARY_V2",
+          "stage_id": "RC:A12",
+          "structural_equality_used_for_equal_digest": true,
+          "summary_sha256": "2ff8a52c98f7cb147c132ccdea8405ad5f144279fa4cf6e16be347055b5aeeed",
+          "task_count": 96
+        },
+        "execution_completed_task_count": 96
+      }
+    },
+    {
+      "archive_member": "runtime/runs/intent-6af6e38c4835fa967ab1d9aed9aa439d/chain/decoder_stage_runtime/RC__A12/phases/HELD_WRITE/SUMMARY.json",
+      "sha256": "8a325f8850ad0bbac646dde7396ccb8b6f77459a587d69c1b38af1c04beff995",
+      "record": {
+        "science": {
+          "chain_id": "RC.A12.PRODUCTION_OVERLAP.DEV134",
+          "class_count": 4,
+          "deterministic_collision_class_ordering": "EXACT_CANONICAL_BYTES_ASCENDING_V1",
+          "different_digest_implies_different_canonical_encoding": true,
+          "first_multi_class": {
+            "class_token": "14c6f2efe8b94f870f478c029540ada554dc6801f87f7c5897846c244d942ccd:0",
+            "representative_task_id": "v000",
+            "size": 24
+          },
+          "hash_equality_never_decides_scientific_equality": true,
+          "max_class_size": 24,
+          "multi_class_count": 4,
+          "partition_binding_hash_schema": "IG_DECODER_V05_PARTITION_BINDINGS_STREAM_V1",
+          "partition_bindings_sha256": "5cd8b429fa1cfc4151196193c099fe0d2ced747984369e1cac29cf44a7389f5d",
+          "phase_id": "HELD_WRITE",
+          "question_sha256": "cddd7d287570a88148f70aea9b873eacd3f9dfb129221362a74f5259724d1785",
+          "schema_id": "IG_DECODER_V05_STRUCTURAL_PARTITION_SUMMARY_V2",
+          "stage_id": "RC:A12",
+          "structural_equality_used_for_equal_digest": true,
+          "summary_sha256": "53720a6ec236c3fb9381890207abd44f8c85ef68982f4923a09fe7291edabed7",
+          "task_count": 96
+        },
+        "execution_completed_task_count": 96
+      }
+    }
+  ],
+  "scope": "Existing JSON evidence only; no database opened and no producer/test executed. Database64 observation comes from V24 failure."
+}

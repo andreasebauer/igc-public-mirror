@@ -1,0 +1,26 @@
+{
+  "probe_path": "infinity_grid/v05_optimization_acceptance.py",
+  "probe_sha256": "249101c6a10bb78153662e1c0fe0485dda8ba8f3feb877ae58ba6bd3d170585f",
+  "static_argv": [
+    "sys.executable",
+    "-I",
+    "-S",
+    "-c",
+    "_PROBE",
+    "source",
+    "fixture"
+  ],
+  "bytecode_disabled_by_argv": false,
+  "env_bytecode_flag_ignored_by_isolation": true,
+  "caller_observed_node": {
+    "node": "tests/test_v05_s8_optimization_acceptance.py::test_real_probe_runs_on_registered_s7_fixture_once",
+    "status": "PASS"
+  },
+  "conclusion": "A demonstrated code path capable of generating the observed cache files; exact writer attribution is inferred, not traced. Add -B before -I; retain isolation.",
+  "c6_bootstrap_layout": {
+    "source": "infinity_grid/v05_c6_recovery_entrypoint.py",
+    "configured_relative_site": "lib/python3.13/site-packages",
+    "actual_pinned_packages": "lib/python3.13/dist-packages",
+    "child_bootstrap_also_affected": true
+  }
+}

@@ -70,7 +70,10 @@ See V24_REPORT.txt, V24_GATE_SUMMARY.json and V24_VERIFIED_OBJECT_CATALOG.json.
 All54 checkpoint objects are saved and byte-verified; independent native paused
 restore verified without execution.408 logical outbox acknowledgments remain
 pending. These are not a qualified result or closed native preservation ledger.
-Next triage four failures, bytecode isolation and long-gate preservation handling.
+V25 triage saved in decoder-admin/evidence/V25_REPORT.txt. Six core pins are
+stale; S8 probe lacks -B, isolated bootstraps omit dist-packages, and project
+fixture omits its SQLite binding. Incident64/96 conflict remains unresolved.
+Next create a separate candidate for bounded repairs; do not resume V24 as-is.
 Do not resume or rerun this capture implicitly. Full source qualification and
 all23 RC acceptance rows remain OPEN. Keep the changed runtime intact as evidence.
 Complete dependency/install-lock resolution remains open. uv.lock and py312

@@ -1,0 +1,106 @@
+V25 — V24 FAILURE TRIAGE AND REPAIR PLAN — 2026-09-30
+Parent repository eeec97e692f6ea143ad9f6cb664a92b0ddbacffa.
+Read-only review of exact dev137 source and retained V24 evidence.
+No test, fixture producer, database query, scientific workload or retry executed.
+No original source, incident fixture, runtime or native receipt was modified.
+V24 remains PAUSED/UNQUALIFIED; all23 RC rows/full RC OPEN.
+
+FINDINGS
+1 CORE PIN CHAIN: SIX stale pins, not only the first assertion failure.
+  v05_controller_event_loop.py, portable_registry.py, submission.py,
+  preservation.py, v05_validation_runtime.py, result_contracts.py.
+  Historical amendment chain is internally linked, but its terminal hashes do
+  not describe dev137. CORE_PIN_AUDIT.json records every expected/actual hash.
+  This is a demonstrated stale review ledger, not evidence that all changed code
+  is correct. Preserve historical pins. Review diffs against each pinned source;
+  append a successor amendment only after explaining every intended change.
+
+2 PROJECT STAGE FIXTURE: _workspace in test_decoder06_project_stage.py builds a
+  capture with empty environment.artifacts. The runtime admission now requires
+  exactly one sqlite_runtime_binding. Its subprocess therefore correctly refuses
+  before executing the project handler. Fix the fixture's declared environment
+  using the enclosing saved capture's verified binding; preserve actual runtime
+  verification and negative missing/wrong-binding cases. Never relax admission.
+  Distinguish test-only local save stubs from genuine external save evidence; no
+  local fixture receipt may be promoted as a remote-save or scientific claim.
+
+3 C6 ISOLATED BOOTSTRAP: supervisor entrypoint and child bootstrap derive only
+  lib/python3.13/site-packages plus historical /opt paths. V4's pinned packages
+  live under lib/python3.13/dist-packages. -I -S correctly excludes ambient paths;
+  the manually constructed allowlist then omits cryptography's actual location.
+  Fix both bootstraps with explicitly bound runtime package roots, validating
+  their relation to the interpreter/runtime manifest. Retain -B -I -S and all
+  identity/attestation checks. Do not add arbitrary PYTHONPATH or broad site
+  discovery. Recheck native-library environment and SQLite admission next;
+  resolving this first import does not prove the complete isolated child works.
+
+4 BYTECODE LEAK: v05_optimization_acceptance._probe launches sys.executable with
+  -I -S but no -B. It supplies a clean environment and its probe imports the
+  captured g6_s8_evaluators/kernel modules. The corresponding real-probe test
+  has a saved V24 PASS report. This is a concrete write-capable path matching
+  the added source caches; exact writer attribution is inferred, not traced.
+  Add -B at process startup, retaining -I -S. An environment-only flag is not
+  sufficient under -I. Apply startup bytecode policy consistently to owned
+  subprocess boundaries; do not delete caches after tests to fake integrity.
+  Qualify on a fresh reconstructed runtime and verify exact file sets afterward.
+  The contaminated V24 runtime and its51+10 cache files remain evidence.
+
+5 SIDECAR INCIDENT: immutable incident.zip identifies dev134 capture
+  4c4e712666816d00910b2f6382c0d9c536ef28f2c00a88eba8db739c5e4a3caa.
+  It contains a PAUSED attempt with TASK_DATABASE_NOT_QUIESCENT for CONTROL.
+  Its summaries claim96 tasks; OVERLAP_RESULT records CONTROL checkpoints at
+  32,64,96. V24 observed64 rows from the copied retained incident database.
+  Thus this archive is not an earned healthy96-row positive fixture. The V24
+  failure exposes a conflict already belonging to retained incident provenance;
+  this review does not establish which writer/version or WAL state caused it.
+  Preserve the archive and96-row claims. Split positive backup invariants from
+  incident diagnostics: clean synthetic/live-WAL positives still require96;
+  incident checks should retain and report discrepancies against claimed state,
+  not silently redefine64 as successful96-task recovery. Before changing those
+  assertions, preregister an exact byte/sidecar forensic comparison on copies.
+  Reuse V24's observed failure; no forensic execution occurred in V25.
+
+6 PRESERVATION / LONG GATES:120-second cadence still hit16 pending checkpoints
+  before functional completion. Increasing intervals again is not a solution.
+  status() hashes each checkpoint's repeated role objects; confirm() calls
+  status before and after each acknowledgment. Existing17 manifests imply about
+  6.93GB per full status,13.86GB per confirmation,5.656TB for408 acknowledgments.
+  This is a static call-graph/manifest estimate, not measured I/O or attribution
+  for the entire V24 duration. Multipart physical receipts also do not receive
+  the raw-receipt backlog exemption; their291MB are counted again.
+  Repair native acknowledgment as a bounded batch: verify each physical object
+  once per immutable batch, validate every obligation identity, create native
+  role-bound receipts, retain fail-closed invalid/missing/ambiguous handling and
+  atomically publish or resumably retain partial results. No external receipt
+  fabrication and no monkeypatching the preserved V24 implementation.
+  Extend physical durability recognition to valid multipart receipts without
+  falsely setting raw_readback_verified. Keep logical obligations independent.
+  Qualification needs preregistered bounded selector groups or a native graceful
+  save boundary between selectors, with actual readback/acknowledgment between
+  groups. Account for a single long selector too; merely splitting162 files
+  does not bound one selector. Retain no automatic deadline, bounded backlog
+  and missing-only continuation semantics; never rerun passed nodes implicitly.
+
+REPAIR ORDER / ACCEPTANCE
+A. Implement small source/runtime-boundary repairs in a NEW candidate: bytecode
+   startup flag, both isolated bootstraps, and project fixture binding. Document
+   exact changed files; do not mutate the dev137 capture or its runtime.
+B. Design and implement bounded native acknowledgment and selector/save scheduling
+   with explicit negative cases. Keep all408 V24 acknowledgments OPEN until
+   legitimate native reconciliation; physical objects already saved/restored.
+C. For incident provenance, specify a separate forensic engineering gate before
+   adjusting diagnostic assertions. Review six pinned core diffs and append
+   justified successor pins only after the candidate's source is settled.
+D. Freeze a new source manifest/profile; qualify targeted changed behavior via
+   saved native jobs on a fresh runtime. Include missing/wrong bindings, isolated
+   child dependency checks, exact no-bytecode file sets, multipart corruption,
+   role mismatch, interrupted batch recovery and missing-only selector resume.
+E. Only then prepare full qualification. Source-bound dev137 fixtures/completions
+   do not automatically qualify changed source; explicitly rebind or regenerate
+   affected inputs through native saved jobs. Historical failure artifacts stay
+   immutable. Workspace, representative, timing and full RC remain open.
+
+NEXT CONCRETE STEP
+Create the isolated successor candidate and implement A, with a source diff and
+saved targeted-gate protocol. Do not start a long suite or resume V24 as-is.
+This report is a repair specification, not a repair completion or test PASS.
