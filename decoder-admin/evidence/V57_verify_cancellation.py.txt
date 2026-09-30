@@ -1,0 +1,82 @@
+"""Standalone draft-primitive checks, not native decoder qualification."""
+import ctypes
+import json
+import os
+from pathlib import Path
+import signal
+import subprocess
+import sys
+import tempfile
+import threading
+import time
+
+from validation_cancellation import WorkerCancellation, ValidationCancelled
+
+
+def reap():
+    end = time.monotonic() + 5
+    while True:
+        try:
+            pid, _ = os.waitpid(-1, os.WNOHANG)
+        except ChildProcessError:
+            return
+        if not pid:
+            if time.monotonic() > end:
+                raise RuntimeError('DESCENDANTS_REMAIN')
+            time.sleep(.01)
+
+
+def case(name):
+    libc = ctypes.CDLL(None, use_errno=True)
+    if libc.prctl(36, 1, 0, 0, 0) != 0:
+        raise RuntimeError('SUBREAPER_UNAVAILABLE')
+    with tempfile.TemporaryDirectory(prefix='ig_v57_owned_') as tmp:
+        with WorkerCancellation() as scope:
+            if name == 'before_launch':
+                scope.requested = True
+            if name in ('active_selector', 'forked_descendant'):
+                # The timer signals this dedicated synthetic supervisor only.
+                timer = threading.Timer(.25, lambda: os.kill(os.getpid(), signal.SIGTERM))
+                timer.start()
+            code = "print('normal output')"
+            if name == 'active_selector':
+                code = 'import time;time.sleep(30)'
+            if name == 'forked_descendant':
+                code = 'import os,time;os.fork();time.sleep(30)'
+            try:
+                result, raw = scope.communicate(
+                    [sys.executable, '-B', '-c', code], cwd=tmp,
+                    env=dict(os.environ), reap_descendants=reap)
+            except ValidationCancelled:
+                assert name != 'normal'
+                outcome = 'CANCELLED_AND_REAPED'
+            else:
+                assert name == 'normal' and result.returncode == 0
+                assert raw == b'normal output\n'
+                outcome = 'NORMAL_OUTPUT_UNCHANGED'
+            if name in ('active_selector', 'forked_descendant'):
+                timer.join()
+            try:
+                os.waitpid(-1, os.WNOHANG)
+            except ChildProcessError:
+                pass
+            else:
+                raise AssertionError('CHILD_STILL_REGISTERED')
+        return {'case': name, 'outcome': outcome, 'pass': True}
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        print(json.dumps(case(sys.argv[1])))
+    else:
+        results = []
+        for name in ['normal', 'before_launch', 'active_selector', 'forked_descendant']:
+            r = subprocess.run([sys.executable, '-B', __file__, name],
+                               capture_output=True, text=True, timeout=15)
+            if r.returncode:
+                raise RuntimeError(name + ':' + r.stderr)
+            results.append(json.loads(r.stdout))
+        out = {'scope': 'standalone draft primitive; no native job dispatched',
+               'cases': results}
+        Path(__file__).with_name('VERIFICATION.json').write_text(json.dumps(out, indent=2)+'\n')
+        print(json.dumps(out))

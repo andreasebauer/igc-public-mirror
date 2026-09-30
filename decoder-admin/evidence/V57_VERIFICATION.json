@@ -1,0 +1,25 @@
+{
+  "scope": "standalone draft primitive; no native job dispatched",
+  "cases": [
+    {
+      "case": "normal",
+      "outcome": "NORMAL_OUTPUT_UNCHANGED",
+      "pass": true
+    },
+    {
+      "case": "before_launch",
+      "outcome": "CANCELLED_AND_REAPED",
+      "pass": true
+    },
+    {
+      "case": "active_selector",
+      "outcome": "CANCELLED_AND_REAPED",
+      "pass": true
+    },
+    {
+      "case": "forked_descendant",
+      "outcome": "CANCELLED_AND_REAPED",
+      "pass": true
+    }
+  ]
+}

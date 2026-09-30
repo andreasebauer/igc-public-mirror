@@ -1,0 +1,36 @@
+V57 WORKER CANCELLATION COMPONENT — IMPLEMENTED DRAFT, NOT NATIVE QUALIFICATION
+
+Four standalone checks passed using isolated synthetic supervisors:
+normal output unchanged; cancellation before launch; active selector cancellation;
+selector plus forked child cancellation. Each finished with no child left to reap.
+Exact scripts and VERIFICATION.json included. No native decoder job dispatched.
+
+The draft installs a worker-owned SIGTERM handler that records a request instead
+of raising asynchronously during subprocess construction. The worker launches its
+selector in a new session, checks cancellation while collecting anonymous-pipe
+output, stops the owned process group on cancellation, and waits for the selector
+and adopted descendants. Cleanup failure retains the triggering exception as its
+cause. It does not publish partial selector output as a normal result.
+
+Scope limitations: process-group shutdown does not cover descendants deliberately
+leaving that group. Such descendants must cause non-quiescence, not a PASS.
+This primitive assumes a dedicated worker with subreaper ownership; it must not be
+installed in the general controller or a process with unrelated children.
+Mounted /proc PIDs are never used for signalling.
+
+REMAINING DEV143 INTEGRATION
+- Establish worker cancellation readiness before dispatch. Block/handshake around
+  fork so an early request cannot arrive before its handler is installed.
+- Controller sends cancellation and waits for a verifiable cleanup acknowledgment;
+  worker termination alone is not an acknowledgment.
+- Put partial-launch failures, timeout handling and ordinary controller errors
+  through the same ownership cleanup path; close all pipe descriptors.
+- Preserve original errors and separately record unconfirmed cleanup. Do not turn
+  cleanup failure into an accepted completion or silently resume the workload.
+- Exercise cancellation during launch, worker failure, timeout, prior selector
+  exit, unrelated-process safety, and normal PASS/FAIL/SKIP/save-boundary behavior.
+- Only then build a new source identity and fresh native reliability capture.
+
+Current production candidate remains dev142 unchanged. No dev143 source identity
+or qualification is claimed. V55's recorded failure and damaged workspace remain
+unchanged. All 23 RC rows OPEN. No science replay.
