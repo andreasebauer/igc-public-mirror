@@ -1,0 +1,54 @@
+V51 / DEV142 DURABLE-PROGRESS PROBE PREPARATION — 2026-09-30
+
+New unqualified candidate prepared and saved. No native dispatch or test replay.
+
+V50 saved-object audit: all three genuine downloaded checkpoint manifests and
+their state archives were hash-verified. Source and project identity stayed equal.
+BEFORE_EXECUTION held 29 state files; ordinary progress held 32 including one
+unfinished node report with setup only, and no node-process log. Terminal state
+held 50 files, final phases and published logs. See V50_SAVED_CHECKPOINT_AUDIT.json.
+
+Source review resolves an important design issue: validation stdout is captured
+through subprocess.communicate and published only at EOF, deliberately preserving
+immutable logs. More print calls would not create live checkpointed progress.
+The checkpoint writer also deduplicates unchanged source/state/project bytes.
+The saved audit demonstrates the sparse live evidence, not every internal
+safe-point invocation; deduplication remains a source-based explanation for the
+absence of further distinct checkpoints. V50 acceptance remains NOT_EARNED.
+
+Dev142 adds test_long_durable_progress_selector to the existing explicit-only
+probe module. It obtains the native Recorder for its own selector and writes
+only logs/probe_progress/long_durable_progress.log, exclusively created. START,
+15 ten-second PROGRESS events, then END are flushed/fsynced and bound to selector
+and native report binding. The append-log path is included by native snapshots
+and uses their existing stable-prefix behavior. Native reports, finalizations,
+receipts, outbox, production code and original probe functions are unchanged.
+
+Only four source files changed: probe module, version, build metadata and profile
+metadata. All 535 Python files parse; exact source inventory 1,523 files; no
+bytecode/symlinks. Existing profile groups/order and earlier probe function ASTs
+are unchanged. The module remains outside default test filename discovery.
+Byte-exact repository verification and source ZIP remote-readback hash checks pass.
+These are static checks, not native qualification of the added probe.
+
+Version: 0.8.0.dev142+lib
+Source: 078433404ab554b2ecb081aca35ad8439b7a17b465db53cfc795df1a9825a4fa
+Package: fa48e8e8be3734e2a73429b1b9f843f7d6dd36f2dc52af557aad7fff32cf10e9
+Source ZIP SHA256: ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9
+Source ZIP Drive ID: 1tTTMUWehScRK8rFYlKHMXWwcQwkwJmFX
+Source ZIP size: 22,686,289 bytes
+
+Dev142: 0 native tests executed; UNQUALIFIED; all 23 RC rows OPEN. Dev141 outcomes
+3 PASS/1 deliberate FAIL/1 deliberate SKIP and its V50 not-earned integration
+remain historical. No inherited qualification or canonical data replay.
+
+NEXT: create and genuinely save a fresh native capture for the new selector on
+fresh pinned V4, following PROTOCOL.txt. Require two distinct ordinary progress
+checkpoints acknowledged while node unfinished/controller running. Verify their
+downloaded state archives contain growing, correctly bound complete JSON-lines
+prefixes with increasing tick values, then final phases and exact saved restore.
+Keep 30-second engine cadence and all backlog limits. Operator idle polling may
+be five seconds to reduce redundant full payload verification, retaining full
+status integrity and latency/reserve/read metrics. Do not reuse or rerun V50.
+Controller heartbeat-read observation and live corruption remain separate open
+gates, followed by current-source fixtures, full qualification and RC closure.

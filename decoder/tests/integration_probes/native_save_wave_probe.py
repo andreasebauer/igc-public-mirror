@@ -36,3 +36,45 @@ def test_long_bounded_selector():
         tick += 1
     print(json.dumps({'probe':'LONG_END','ticks':tick,
                       'elapsed_seconds':time.monotonic()-start}), flush=True)
+
+
+def test_long_durable_progress_selector(request):
+    """Explicit native probe with its own changing checkpointed log.
+
+    The native runner captures stdout until child exit. Use only a dedicated
+    probe artifact; never write native phase reports, finalizations or receipts.
+    """
+    import os
+    from infinity_grid.validation_reports import Recorder
+
+    recorders = [p for p in request.config.pluginmanager.get_plugins()
+                 if isinstance(p, Recorder)]
+    assert len(recorders) == 1, 'NATIVE_RECORDER_REQUIRED'
+    recorder = recorders[0]
+    assert recorder.selectors == [request.node.nodeid]
+    root = recorder.root.resolve(strict=True)
+    folder = root / 'probe_progress'
+    folder.mkdir(exist_ok=True)
+    assert not folder.is_symlink() and folder.resolve().parent == root
+    path = folder / 'long_durable_progress.log'
+    start = time.monotonic()
+    with path.open('x', encoding='utf-8') as stream:
+        def emit(event, tick):
+            row = {'schema_id':'IG_NATIVE_LONG_PROBE_PROGRESS_V1',
+                   'binding':recorder.binding, 'selector':request.node.nodeid,
+                   'event':event, 'tick':tick, 'unix':time.time(),
+                   'elapsed_seconds':time.monotonic()-start}
+            stream.write(json.dumps(row, sort_keys=True) + '\n')
+            stream.flush()
+            os.fsync(stream.fileno())
+
+        emit('START', 0)
+        for tick in range(1, 16):
+            target = start + 10 * tick
+            while time.monotonic() < target:
+                time.sleep(min(1.0, max(0.0, target-time.monotonic())))
+            emit('PROGRESS', tick)
+        emit('END', 15)
+    rows = [json.loads(line) for line in path.read_text().splitlines()]
+    assert [r['tick'] for r in rows if r['event']=='PROGRESS'] == list(range(1,16))
+    assert rows[-1]['event']=='END' and rows[-1]['elapsed_seconds'] >= 150

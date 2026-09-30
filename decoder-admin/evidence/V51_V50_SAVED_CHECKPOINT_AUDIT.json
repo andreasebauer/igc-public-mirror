@@ -1,0 +1,156 @@
+[
+  {
+    "reason": "BEFORE_EXECUTION",
+    "manifest_sha256": "796b090f1b570c466a89fe6248b8a46decabf2beb989a4db3b3b92af2eea6fcf",
+    "state_sha256": "d417b0bb0de2b13baba512b861fc76facf7ace254c5056ba502c45e596f477f0",
+    "project": {
+      "base": {
+        "sha256": "7a6b79ae490a5da70eea0312b14698d518e90ee823cb5ba3b8efb5f615844ff0",
+        "size_bytes": 22369756
+      },
+      "delta": {
+        "sha256": "74d1e8582656ed0e711fca9e15bb1ee93dec65cca418f318812916a131d7e267",
+        "size_bytes": 3251
+      },
+      "full_sha256": "a2f13d589646f8441f75066fc8cd6fdf10c7530636ffe0b20f62d5e9f92884f1",
+      "schema_id": "IG_PROJECT_DELTA_V1"
+    },
+    "source": {
+      "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+      "size_bytes": 22685539
+    },
+    "state_files": 29,
+    "node_process_logs": [],
+    "reports": {}
+  },
+  {
+    "reason": "VALIDATION_PROGRESS",
+    "manifest_sha256": "d44544f50316bb7b47ffe345d6e2fb4e71b4b2911eff03ab84d9e31d1f3d3689",
+    "state_sha256": "62233c7d611d34f1e06beb41d9299fa45d6051d341b744a5a7736ce31a8a3d26",
+    "project": {
+      "base": {
+        "sha256": "7a6b79ae490a5da70eea0312b14698d518e90ee823cb5ba3b8efb5f615844ff0",
+        "size_bytes": 22369756
+      },
+      "delta": {
+        "sha256": "74d1e8582656ed0e711fca9e15bb1ee93dec65cca418f318812916a131d7e267",
+        "size_bytes": 3251
+      },
+      "full_sha256": "a2f13d589646f8441f75066fc8cd6fdf10c7530636ffe0b20f62d5e9f92884f1",
+      "schema_id": "IG_PROJECT_DELTA_V1"
+    },
+    "source": {
+      "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+      "size_bytes": 22685539
+    },
+    "state_files": 32,
+    "node_process_logs": [],
+    "reports": {
+      "runtime/runs/intent-e8078212abf206858e3bd26e0a7d20fb/logs/nodes/8b7a4a605efd2a0f55c0b3fc90bd827e397474f24ff8c5cee42c8564add6d5fd.json": {
+        "binding": "8a9878a961855f951326ae4889d276b1a14a5ca03b0948065475a886fe4b2c14",
+        "finished": false,
+        "node": "tests/integration_probes/native_save_wave_probe.py::test_long_bounded_selector",
+        "phases": {
+          "setup": {
+            "detail": "",
+            "duration_seconds": 8.910400356398895e-05,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "reason": "TERMINAL_RESULT",
+    "manifest_sha256": "51c69b86f039646893f81f4bef438be9e942aaa1223840ab75956cd6b877e9aa",
+    "state_sha256": "d113083b49ad3d277dc688ac968b7310efbeea9eac016113df6a0b522f0d9aa2",
+    "project": {
+      "base": {
+        "sha256": "7a6b79ae490a5da70eea0312b14698d518e90ee823cb5ba3b8efb5f615844ff0",
+        "size_bytes": 22369756
+      },
+      "delta": {
+        "sha256": "74d1e8582656ed0e711fca9e15bb1ee93dec65cca418f318812916a131d7e267",
+        "size_bytes": 3251
+      },
+      "full_sha256": "a2f13d589646f8441f75066fc8cd6fdf10c7530636ffe0b20f62d5e9f92884f1",
+      "schema_id": "IG_PROJECT_DELTA_V1"
+    },
+    "source": {
+      "sha256": "0926b7fd59d4368862f7a2d2b14efc921427148cdd89e190705f4e4bdd5ca845",
+      "size_bytes": 22685539
+    },
+    "state_files": 50,
+    "node_process_logs": [
+      "runtime/runs/intent-e8078212abf206858e3bd26e0a7d20fb/logs/node_process_logs/000000-8b7a4a605efd2a0f55c0b3fc90bd827e397474f24ff8c5cee42c8564add6d5fd.log",
+      "runtime/sealed/intent-e8078212abf206858e3bd26e0a7d20fb/logs/node_process_logs/000000-8b7a4a605efd2a0f55c0b3fc90bd827e397474f24ff8c5cee42c8564add6d5fd.log"
+    ],
+    "reports": {
+      "runtime/runs/intent-e8078212abf206858e3bd26e0a7d20fb/logs/nodes/8b7a4a605efd2a0f55c0b3fc90bd827e397474f24ff8c5cee42c8564add6d5fd.json": {
+        "binding": "8a9878a961855f951326ae4889d276b1a14a5ca03b0948065475a886fe4b2c14",
+        "finished": true,
+        "node": "tests/integration_probes/native_save_wave_probe.py::test_long_bounded_selector",
+        "phases": {
+          "call": {
+            "detail": "",
+            "duration_seconds": 150.00048767599947,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          },
+          "setup": {
+            "detail": "",
+            "duration_seconds": 8.910400356398895e-05,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          },
+          "teardown": {
+            "detail": "",
+            "duration_seconds": 0.00015302099927794188,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          }
+        }
+      },
+      "runtime/sealed/intent-e8078212abf206858e3bd26e0a7d20fb/logs/nodes/8b7a4a605efd2a0f55c0b3fc90bd827e397474f24ff8c5cee42c8564add6d5fd.json": {
+        "binding": "8a9878a961855f951326ae4889d276b1a14a5ca03b0948065475a886fe4b2c14",
+        "finished": true,
+        "node": "tests/integration_probes/native_save_wave_probe.py::test_long_bounded_selector",
+        "phases": {
+          "call": {
+            "detail": "",
+            "duration_seconds": 150.00048767599947,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          },
+          "setup": {
+            "detail": "",
+            "duration_seconds": 8.910400356398895e-05,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          },
+          "teardown": {
+            "detail": "",
+            "duration_seconds": 0.00015302099927794188,
+            "outcome": "passed",
+            "stderr": "",
+            "stdout": "",
+            "xfail": null
+          }
+        }
+      }
+    }
+  }
+]

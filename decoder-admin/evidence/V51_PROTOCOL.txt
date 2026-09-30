@@ -1,0 +1,39 @@
+V51 DEV142 DURABLE-PROGRESS LONG GATE — PREPARED, NOT CAPTURED
+
+Fresh pinned V4 runtime and separately saved native dev142 VALIDATION capture.
+Selector tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector
+One worker, wave size one, unchanged default 30-second checkpoint interval and
+all backlog limits. Fixed 150-second workload; no automatic runtime deadline.
+
+The probe must obtain exactly one native Recorder plugin for its own selector.
+It reads only its log root/binding and creates one exclusive append-only artifact:
+logs/probe_progress/long_durable_progress.log. START, 15 numbered PROGRESS events
+at scheduled 10-second intervals and END are flushed/fsynced. Each event carries
+binding, selector, monotonic elapsed time and wall timestamp. Native reports,
+finalizations, receipts, outbox, source and databases must not be altered by the
+probe. Stdout remains under existing immutable publication rules.
+
+Before dispatch: save/read back all capture objects, verify source/runtime,
+preregister actual operator scripts and pass native administrative preflight.
+Use native full status and exact confirm_batch with genuine remote returns.
+Reuse prior downloaded bytes only when exact hashes match. Poll at five seconds
+when idle; this is operator polling, not an engine checkpoint cadence change.
+Retain read/latency/reserve metrics and scope them accurately. WORKSPACE_BUSY
+permits the same administrative batch retry only. No workload retry.
+
+Require at least two distinct VALIDATION_PROGRESS checkpoint manifests closed
+before selector completion, with controller RUNNING and node unfinished in the
+acknowledgment observation. Inspect their genuinely downloaded state archives:
+both must contain this probe's correctly bound log; each must be a valid complete
+JSON-lines prefix; later prefix must extend earlier bytes with higher tick values.
+Require different state hashes; do not count BEFORE_EXECUTION or terminal state.
+Require final START + ticks 1..15 + END, finalization and all native phases PASS.
+Checkpoint append-log support accepts a stable prefix during concurrent append;
+any incomplete event/prefix, mismatch, skip, backlog pause or missing live save
+stops acceptance. Preserve evidence without changing rules or rerunning workload.
+
+Close all final roles, export/download, restore exact completion and progress
+evidence with zero dispatch. Source/runtime pre/post exact. Preserve V50 job and
+its not-earned assessment. This protocol is preparation, not native proof.
+Controller heartbeat read behavior and live corruption remain separate gates.
+No science replay or full RC claim follows from a positive long probe.
