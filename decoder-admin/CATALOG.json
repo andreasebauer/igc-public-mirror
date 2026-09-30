@@ -57,11 +57,10 @@
     }
   ],
   "unresolved_fixtures": [
-    "saved_stage_four",
     "saved_stage_outcome",
     "saved_representative_qualification"
   ],
-  "scope": "Pinned locator set for current source/runtime, two historical qualification inputs and two V18 candidate fixture roles. NOT full historical science/replay recovery closure.",
+  "scope": "Pinned locator set for source/runtime, two historical qualification inputs and three current-candidate fixture roles (V18/V19). NOT full historical science/replay recovery closure.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
   "candidate_fixtures": {
@@ -115,6 +114,35 @@
       "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
       "state": "PUBLISHED_COMPLETION",
       "completion_sha256": "4443a877c2f66bdba27b163bd32ebfa3fa019f1e3a6e1f5cefd146c4b7b0d969",
+      "restored_from_drive_readbacks": true
+    },
+    "saved_stage_four": {
+      "sha256": "f6c3c567fb07e36edabaa9646fef7e03956a752c6c676615e003df7c1d6ba7e0",
+      "size_bytes": 66950574,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "saved_stage_four.part01",
+          "sha256": "8b3fa0cbce7b24b02ba820f6e4b383ac49b6358724639189809e37d1ef42bb95",
+          "size_bytes": 25165824,
+          "drive_id": "1vNsLCWW3gjHw--alRYhhG8LQWer3sz5j"
+        },
+        {
+          "filename": "saved_stage_four.part02",
+          "sha256": "e093237729dd269d0d6e84117186b7d9bf39e2eb1d40091b79ef8ecc87fb077f",
+          "size_bytes": 25165824,
+          "drive_id": "1_uXVpPCv89KER9lvb83VJcZyQFKv_svl"
+        },
+        {
+          "filename": "saved_stage_four.part03",
+          "sha256": "d135c9a9a3357a1c517746b6dbf1b38cde9de8cadc004ec00062eb68e66fd8e9",
+          "size_bytes": 16618926,
+          "drive_id": "147iV8mX3lwhLKakgBTngLnybC8CMlwbC"
+        }
+      ],
+      "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8",
       "restored_from_drive_readbacks": true
     }
   }

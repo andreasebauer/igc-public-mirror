@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "exact_task_representative_relation_equal": true,
+  "rows_compared": 48,
+  "classes": 7,
+  "one_worker_completion": "4443a877c2f66bdba27b163bd32ebfa3fa019f1e3a6e1f5cefd146c4b7b0d969",
+  "four_worker_completion": "0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8",
+  "observed_four_worker_execution": [
+    {
+      "backend": "LOCAL_PROCESS_POOL",
+      "completed_stream_shards": 16,
+      "completed_task_count": 48,
+      "completion_order_not_science": true,
+      "controller_representative_bytes_backfilled": 0,
+      "controller_representative_durable_hits": 0,
+      "controller_representative_fallback_evaluations": 0,
+      "cpu_budget_detected": 4,
+      "deterministic_collision_class_remaps": 0,
+      "durable_scope_sha256": "a5cff835b9cc9e13450500c205afeab07e01e43edc2a72d0dab45aea19b4d4b5",
+      "durable_store": "SQLITE_COMPACT_ENGINE_OWNED",
+      "evidence_bytes": 186862,
+      "evidence_bytes_peak": 186862,
+      "lease_id": "7bddd6b8cd864b76b93f2370a3443b53",
+      "lease_workers": 4,
+      "max_inflight_shards": 8,
+      "max_observed_inflight_shards": 8,
+      "max_stream_shard_tasks": 3,
+      "phase_timing_seconds": {
+        "admission": 0.12493474400071136,
+        "controller_classification": 0.0017953929982468253,
+        "controller_commit": 0.0022234970010686084,
+        "controller_structural_fallback": 0.0,
+        "engine_execution_including_stream_reduce": 0.37839943600010884,
+        "finalize_verify": 0.0710519390004265,
+        "runtime_call_total_to_summary": 0.5908938859993214
+      },
+      "reducer_rss_bytes_final": 466944,
+      "reducer_rss_bytes_peak": 466944,
+      "representative_signature_storage": "SQLITE_CLASSES_BLOB_V1",
+      "scheduler": "COST_WEIGHTED_SHARDS",
+      "scientific_task_units": 48,
+      "start_method": "fork",
+      "stream_shard_count": 16,
+      "stream_shard_task_limit": 24,
+      "streaming_results": true,
+      "structural_signature_encoder_id": "IG_STRUCTURAL_CANONICAL_BYTES_FAST_V1",
+      "task_count": 48,
+      "wall_seconds": 0.37839943600010884,
+      "worker_count_not_science": true,
+      "worker_metric_categories": {
+        "engine_signature_encoder_id": "IG_STRUCTURAL_CANONICAL_BYTES_FAST_V1"
+      },
+      "worker_metric_totals": {
+        "engine_controller_classification_wall_seconds": 0.0017953929982468253,
+        "engine_controller_structural_fallback_wall_seconds": 0.0,
+        "engine_evaluator_cpu_seconds": 0.005080537000000107,
+        "engine_evaluator_wall_seconds": 0.005085184002382448,
+        "engine_signature_encode_wall_seconds": 0.002437879997160053,
+        "value": 1128.0
+      },
+      "workers": 4,
+      "workspace_accounting_mode": "CLOSED_LAYOUT_INCREMENTAL_FILE_SIZES_V1"
+    }
+  ],
+  "old_fixture_workload_executions": 0
+}

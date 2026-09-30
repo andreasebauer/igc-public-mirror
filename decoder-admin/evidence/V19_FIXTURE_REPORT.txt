@@ -1,0 +1,42 @@
+V19 DEV137 FOUR-WORKER FIXTURE — 2026-09-30
+
+DONE: one registered native run COMPLETED / VERIFIED, outcome PASS.
+48 tasks, 7 exact classes; observed LOCAL_PROCESS_POOL workers=4.
+Exact task_id/representative_signature_bytes relation matches all48 rows of
+saved V18 one-worker result. V18 was not rerun. These are fixture counts,
+not 48 test-suite passes. Historical suites and V17 were not rerun.
+Completion: 0cff108d3ff4a4c2bbfda7b16b3bbbdba93c55799ec29c60cb84d3ff4280a2e8
+Result: 435c6809eb7528f12f38e7c15f2b2260c2cc49dfb41bf0052e1e07bcd161943d
+Capture: 13f3e9a32c2ec01687e3e063c5d9ce9e6f0b075510133285f6f64fc5cdf08ae8
+Source: e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070
+Pre/post execution checks verified 4721 V4 runtime files/modes and 7 host files.
+
+SAVED_STAGE_FOUR
+Complete post-publication native archive: 66,950,574 bytes.
+SHA256 f6c3c567fb07e36edabaa9646fef7e03956a752c6c676615e003df7c1d6ba7e0
+Saved as three ordered parts; FIXTURE_CATALOG.json contains exact Drive IDs,
+part hashes/sizes and whole archive identity. Actual Drive readbacks matched.
+Restored assembled readback archive; normal verified_completion and terminal
+proof verified the published completion. No workload ran during restoration.
+All42 native preservation obligations confirmed; zero pending. No retries.
+Terminal checkpoint is separately retained; consumer fixture contains the
+published completion. No historical or attempt records were edited.
+
+ONE REPOSITORY
+https://github.com/andreasebauer/igc-public-mirror/tree/decoder/consolidated-dev137-20260930
+DECODER_READ_FIRST.txt and decoder-admin/CATALOG.json are the entry points.
+The compact evidence ZIP contains scripts, sealed evidence and locators, not
+all external source/runtime/checkpoint/fixture payloads. Concatenate fixture
+parts in listed order, verify every part and whole archive, then use native
+restore_workspace with expected hash. Restore does not require job execution.
+Runtime/bootstrap/OS/kernel/shell and seven host libraries remain external.
+
+NEXT
+Three of five current-candidate fixture roles are earned: saved_stage_one,
+saved_stage_one_prerun, saved_stage_four. Remaining: saved_stage_outcome and
+saved_representative_qualification. Next prepare the declared-outcome refusal
+fixture through a new captured native job with an explicit expected-refusal
+protocol. Do not rerun the V18 or V19 producers.
+All23 RC acceptance rows/full RC OPEN; full source qualification, install lock
+and independent-platform recovery remain open. No source or shared pointer
+promotion, scientific release or performance qualification is claimed.

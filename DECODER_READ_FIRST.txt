@@ -47,8 +47,9 @@ Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
 this is not a standalone OS image or independent-platform qualification.
 
 WHAT IS STILL MISSING
-Three candidate-specific fixture artifacts remain unresolved in CATALOG.json.
-V18 saved_stage_one_prerun and saved_stage_one are earned, saved and restored.
+Two candidate-specific fixture artifacts remain unresolved in CATALOG.json.
+V18 saved_stage_one_prerun, saved_stage_one and V19 saved_stage_four are earned,
+saved and restored. Exact one/four-worker task-to-class representative bytes match.
 The candidate_fixtures field pins ordered transport parts and whole archive
 hashes. Concatenate parts in order, verify part and archive bytes/hashes, then
 use native restore_workspace; restoration does not authorize a workload rerun. Complete wheel/native
