@@ -1,0 +1,99 @@
+V55 LIVE CORRUPTION / HEARTBEAT OBSERVATION — PREPARATION ONLY
+2026-09-30. No capture admitted, no selector dispatched, no corruption injected.
+
+Use a fresh separately named native dev142 engineering capture, fresh verified V4,
+and test_long_durable_progress_selector (150-second workload). This is a new
+fault-injection case, not replay of V52. Bind this protocol and actual observer,
+injector and operator script hashes as capture artifacts before dispatch. Keep
+all default limits, 30-second checkpoint cadence and native locks unchanged.
+V52 live/store/restored workspaces and all historical evidence are prohibited targets.
+
+CONTROLLER OBSERVER
+Use passive sys.setprofile in the controller owner PID only. Do not replace any
+engine function, alter arguments, suppress exceptions, install child supervision,
+or write telemetry into native runtime/source/outbox. Maintain in-memory records,
+flush to external evidence directory in finally, restore the original profile.
+Publish one exclusive external baseline-ready telemetry record when its required
+healthy observations have actually accumulated; injector must validate this record
+before mutation. No telemetry file belongs to the native checkpoint/evidence tree.
+Record safe_point calls, actual _status_from_inventory verified_count=0 branch,
+_check_backlog supplied count/bytes/age/reserve/limits, _bytes calls and completed
+Path.read_bytes returns for outbox payloads. Distinguish no-op safe points from
+metadata-check intervals and payload-verifying checkpoint boundaries. Observer
+overhead is real; no uninstrumented timing/throughput claim.
+
+HEALTHY BASELINE
+Before injecting, native full status must verify the actual outbox, one active
+RUNNING attempt and unfinished selector; source/runtime exact; no prior errors.
+Observe at least ten metadata-check safe points over at least three seconds
+after a completed checkpoint. Each must call _check_backlog with unchanged limits
+and reserve enabled, and no payload verification/read from that safe point.
+Keep count/byte/age budget checks; zero payload reads is not integrity attestation.
+If baseline is not met, stop fault admission. Do not infer it from V52 admin reads.
+
+CONTROLLED LIVE FAULT
+Preregister one new capture's exact ID, workspace and one checkpoint_state object
+digest. Original object must first be genuinely saved/downloaded/hash-verified.
+Require object inside this capture's outbox, regular file, no symlink, link count
+one. Verify original bytes against saved readback. Hold native outbox lock; check
+active attempt and selector, save original and intended damaged bytes externally,
+then flip exactly the first byte in place, fsync, keep length unchanged. Record
+original/damaged hashes, time, target role/path, liveness and lock scope. Never
+edit commit metadata, native reports, receipts, databases or source. WORKSPACE_BUSY
+permits retry of the same administrative injection only before any byte is changed.
+Do not acknowledge damaged bytes or repair the live outbox during the run.
+
+EXPECTED REFUSALS AND LIFECYCLE
+Next full native preserve status must raise OUTBOX_OBJECT_MISMATCH for that hash.
+Next payload-verifying native checkpoint boundary must refuse the same corruption;
+record actual controller exception and PAUSED attempt, with no accepted completion.
+Record any secondary CHECKPOINT_FAILURE separately, not as a successful save.
+Corruption must not become a PASS. Unexpected failure reasons stop acceptance.
+
+The validation exception cleanup shown in v05_validation_runtime kills/waits its
+immediate worker. Descendant termination is NOT established by that code excerpt.
+Preregister process inventory (PID/start identity/ancestry/command selector) before
+injection and observe remaining registered descendants after controller return.
+Never assume controller return freezes all child evidence. Preserve before/after
+attempt and node inventories. If a descendant remains or native evidence changes
+after pause, record a separate lifecycle failure; do not grant this gate PASS.
+Wait for the fixed workload to quiesce for evidence collection; do not add a hidden
+process killer, retry workload, or rewrite late phases. No unattended run: operator
+must retain an active observation loop and preserve actual events.
+
+PRESERVING THE DELIBERATE DAMAGE
+Native full-status/export may refuse by design. Keep the damaged workspace as
+failed evidence. Save an explicitly labelled forensic snapshot with exact
+file/hash/mode inventory after confirmed quiescence, plus original object readback,
+damaged object and observer/controller records. This is not a native successful
+completion/export. Verify downloaded forensic bytes and reconstruct an isolated
+forensic copy to reproduce status refusal without workload execution. Do not repair
+the original capture, fabricate native save receipts, or claim all roles closed
+if the native outbox cannot acknowledge them. Record pending roles as unresolved.
+
+ACCEPTANCE
+Report heartbeat observation, full-status corruption detection, controller-boundary
+refusal, descendant quiescence and preservation separately. All required assertions
+must pass before accepting the combined gate. A refusal-only result cannot qualify
+lifecycle cleanup or full recovery. Full RC, current-candidate fixtures and all
+23 RC rows remain OPEN. No science replay.
+
+PRELAUNCH WORK STILL REQUIRED
+Bind a fresh capture and exact injection target; adapt native driver to attach the
+observer; implement/save process-lifecycle monitor and forensic packaging/restore
+scripts; prove saved prerequisites and active operator loop. The supplied injector
+and observer are statically parsed only, not qualified. Do not launch on the basis
+of this preparation bundle alone.
+
+V55 PREREGISTERED ADMISSION REVISION
+V54 remains NOT_EARNED, unchanged. New job RC.CORRUPTION.V55.DEV142.
+Register exact target once after healthy baseline and verified original save. After
+registration always return to save/drain loop before injection. At most eight
+administrative admission calls. Exit 75 means native lock busy before any mutation
+artifact exists; exit 76 means full native status found pending roles under lock,
+also before mutation. Only these conditions return to save/drain/revalidation.
+All other refusals stop fault admission. Never rerun workload, change target, alter
+default limits/cadence, or retry after creation of any original/damaged/intent file.
+If selector ends or bounds expire without mutation, close NOT_EARNED and drain.
+No injection during save, no lock held across network upload. All source bytes and
+V54 evidence retained. Post-fault observation and forensic recovery remain required.

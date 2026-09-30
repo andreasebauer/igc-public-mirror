@@ -1,0 +1,44 @@
+{
+  "scope": "mock connector/control flow; no decoder execution or real mutation",
+  "cases": [
+    {
+      "name": "drain_lock_success",
+      "counts": {
+        "launch": 1,
+        "monitor": 1,
+        "target": 1,
+        "registration": 1,
+        "fault": 3,
+        "status": 5
+      },
+      "error": null,
+      "pass": true
+    },
+    {
+      "name": "unexpected_stop",
+      "counts": {
+        "launch": 1,
+        "monitor": 1,
+        "target": 1,
+        "registration": 1,
+        "fault": 1,
+        "status": 3
+      },
+      "error": null,
+      "pass": true
+    },
+    {
+      "name": "bounded_transients",
+      "counts": {
+        "launch": 1,
+        "monitor": 1,
+        "target": 1,
+        "registration": 1,
+        "fault": 8,
+        "status": 11
+      },
+      "error": "PREMUTATION_ADMISSION_BOUND",
+      "pass": true
+    }
+  ]
+}

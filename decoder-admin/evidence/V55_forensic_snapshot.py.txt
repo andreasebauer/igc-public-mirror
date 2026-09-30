@@ -1,0 +1,48 @@
+"""Forensic file copy only. No engine execution, repair, receipts, or native export."""
+import hashlib,json,os,stat,zipfile
+from pathlib import Path
+from lifecycle_monitor import inventory
+
+def snapshot(workspace,output,quiescence):
+    w=Path(workspace).resolve(strict=True);out=Path(output).resolve()
+    if out.is_relative_to(w) or out.exists():raise RuntimeError('NEW_EXTERNAL_OUTPUT_REQUIRED')
+    # Caller supplies observed process identities and two stable inventories; not an inferred pause.
+    if quiescence.get('live_registered_processes') or quiescence.get('stable_seconds',0)<3:raise RuntimeError('QUIESCENCE_REQUIRED')
+    before=inventory(w)
+    if before!=quiescence['inventory_before'] or before!=quiescence['inventory_after']:raise RuntimeError('QUIESCENCE_INVENTORY_MISMATCH')
+    try:
+        with zipfile.ZipFile(out,'x',zipfile.ZIP_DEFLATED) as z:
+            z.writestr('FORENSIC_MANIFEST.json',json.dumps({'kind':'FORENSIC_NOT_NATIVE_EXPORT','workspace':str(w),'files':before,'quiescence':quiescence},sort_keys=True))
+            for name,r in before.items():
+                p=w/name
+                if p.is_symlink() or not p.is_file():raise RuntimeError('FILE_TYPE_CHANGED')
+                data=p.read_bytes()
+                if hashlib.sha256(data).hexdigest()!=r['sha256']:raise RuntimeError('FILE_CHANGED')
+                z.writestr('workspace/'+name,data)
+        if inventory(w)!=before:raise RuntimeError('POST_SNAPSHOT_CHANGED')
+    except BaseException:
+        # Retain partial evidence under explicit failed name, never silently retry.
+        if out.exists():out.rename(str(out)+'.FAILED')
+        raise
+    return {'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'bytes':out.stat().st_size,'files':len(before)}
+
+def reconstruct(archive,destination):
+    dest=Path(destination)
+    if dest.exists():raise RuntimeError('NEW_DESTINATION_REQUIRED')
+    with zipfile.ZipFile(archive) as z:
+        names=z.namelist()
+        if len(names)!=len(set(names)):raise RuntimeError('DUPLICATE_MEMBER')
+        m=json.loads(z.read('FORENSIC_MANIFEST.json'));files=m['files']
+        if m['kind']!='FORENSIC_NOT_NATIVE_EXPORT' or set(names)!={'FORENSIC_MANIFEST.json',*('workspace/'+n for n in files)}:raise RuntimeError('ARCHIVE_MEMBERS')
+        for n,r in files.items():
+            p=Path(n)
+            if p.is_absolute() or '..' in p.parts or str(p)!=n or r['mode']&~0o777:raise RuntimeError('UNSAFE_MEMBER')
+            b=z.read('workspace/'+n)
+            if len(b)!=r['size'] or hashlib.sha256(b).hexdigest()!=r['sha256']:raise RuntimeError('ARCHIVE_HASH')
+        dest.mkdir()
+        for n,r in files.items():
+            p=dest/n;p.parent.mkdir(parents=True,exist_ok=True)
+            with p.open('xb') as f:f.write(z.read('workspace/'+n))
+            p.chmod(r['mode'])
+    if inventory(dest)!=files:raise RuntimeError('RESTORE_MISMATCH')
+    return {'files':len(files),'exact':True,'workload_executions':0}

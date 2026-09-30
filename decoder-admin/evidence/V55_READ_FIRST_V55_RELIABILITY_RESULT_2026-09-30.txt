@@ -1,0 +1,41 @@
+V55 RELIABILITY RESULT — DETECTION PASSED; COMBINED GATE FAILED CLEANUP
+
+Owned local decoder engineering test; no external systems targeted.
+Capture e08ce08f3029ccc9db234f9da8b7e2d34e453f0643e0d5b7c40afa9a74590ee2
+Job RC.CORRUPTION.V55.DEV142; dev142 source unchanged.
+Exactly one registered checkpoint object's first byte changed under native lock.
+Original hash 4af7fb229ec8d028d112e90dc821e6e8f1afd6a660cea2370d857b32f9bbd5a6
+Damaged hash 0d24630303570ac29d1e97e81990f1ac25f7439b65cbed413ede578c0b9a4cc4
+Size remained 39740 bytes. Original had genuine remote save/readback before change.
+
+Observed outcomes:
+- Healthy baseline: 12 post-checkpoint metadata checks across 3.060973943 seconds;
+  unchanged default budgets/reserve; no payload reads in these checks.
+- Full native status refused the exact damaged hash.
+- Controller next payload-checking boundary refused the same hash; attempt PAUSED.
+- No completion file or accepted result. Secondary CHECKPOINT_UNAVAILABLE retained.
+- Selector PID 650056, start ticks 3887136, remained in 3 post-return samples,
+  last seen 0.517118692 seconds after controller return. Cleanup acceptance FAILED.
+- Later registered-process quiescence confirmed; no late runtime writes observed.
+  Polling cannot exclude short-lived unobserved processes; termination cause unknown.
+- No workload retry, no original-workspace repair, no post-change acknowledgment.
+  Native save closure is not claimed because full status refuses damaged bytes.
+
+Preservation:
+Five independent ZIP volumes saved/downloaded and verified; all 1624 files restored
+with exact bytes and modes into /tmp/ig_v55_forensic_restored_20260930. Native status
+reproduced the same refusal, zero workload executions, original workspace untouched.
+FORENSIC_VOLUME_READBACKS.json gives exact Drive IDs, hashes, sizes and order.
+FORENSIC_VOLUMES.json maps every file/hash/mode to its volume. This is a forensic
+copy, not a native successful completion or export. Compact bundle excludes volumes.
+
+Archive anomaly: two earlier full 68456206-byte ZIPs were later observed shorter
+and unreadable, despite matching workspace inventories. Cause remains UNEXPLAINED.
+They are retained locally; do not use them for recovery. Smaller volume method
+passed actual remote-byte reconstruction. ARCHIVE_DISCREPANCY.json records first
+mismatch; original repack record is retained. No scientific result altered.
+
+Next: review native exception cleanup ownership/order so the controller does not
+return while a registered selector remains. Make any repair in a new source revision,
+then preregister a fresh targeted case; never rewrite V55's failure as a pass.
+All 23 RC rows remain OPEN. No science replay; not data-block ready.

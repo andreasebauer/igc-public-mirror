@@ -795,13 +795,17 @@
     ]
   },
   "latest_live_fault_gate": {
-    "gate": "V54",
-    "status": "NOT_EARNED_ADMISSION_REFUSED",
-    "corruption_injected": false,
-    "native_probe_passed": 1,
-    "healthy_post_checkpoint_checks": 12,
-    "pending_roles": 0,
-    "exact_saved_restore_verified": true,
+    "gate": "V55",
+    "status": "FAILED_LIFECYCLE_CLEANUP",
+    "corruption_detected": true,
+    "controller_refused": true,
+    "attempt": "PAUSED",
+    "accepted_completion": false,
+    "surviving_selector_after_return": true,
+    "late_runtime_changes": false,
+    "forensic_remote_restore_exact": true,
+    "restored_files": 1624,
+    "native_save_closure": "NOT_CLAIMED_CORRUPT_OUTBOX",
     "full_RC": "OPEN"
   }
 }

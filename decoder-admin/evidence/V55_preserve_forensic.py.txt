@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,time,sys,hashlib
+from lifecycle_monitor import inventory,process,identity
+from forensic_snapshot import snapshot
+D=Path(__file__).resolve().parent;c=json.loads((D/'CAPTURE_SAVE_STATUS.json').read_text());w=Path(c['workspace'])
+l=json.loads((D/'LIFECYCLE_OBSERVATIONS.json').read_text())
+for old in l['known']:
+ p=process(old['pid'])
+ if p and identity(p)==identity(old):raise RuntimeError('REGISTERED_PROCESS_STILL_EXISTS')
+a=inventory(w);start=time.monotonic();time.sleep(3.1);b=inventory(w)
+for old in l['known']:
+ p=process(old['pid'])
+ if p and identity(p)==identity(old):raise RuntimeError('REGISTERED_PROCESS_REAPPEARED')
+q={'live_registered_processes':[],'stable_seconds':time.monotonic()-start,'inventory_before':a,'inventory_after':b,'scope':'full workspace after observed registered-process quiescence'}
+(D/'FORENSIC_QUIESCENCE.json').write_text(json.dumps(q,indent=2)+'\n')
+r=snapshot(w,D/'V55_FORENSIC_DAMAGED.zip',q)
+(D/'FORENSIC_SNAPSHOT.json').write_text(json.dumps(r,indent=2)+'\n')
+print(json.dumps(r))
