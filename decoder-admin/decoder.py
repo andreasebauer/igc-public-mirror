@@ -69,9 +69,9 @@ def main():
  for name in ['restore-runtime','verify-runtime']:
   x=sub.add_parser(name);x.add_argument('destination',type=Path)
  a=ap.parse_args()
- if a.command=='verify-source':subprocess.run([sys.executable,str(ROOT/'decoder-import/verify_source.py')],check=True)
+ if a.command=='verify-source':subprocess.run([sys.executable,'-B',str(ROOT/'decoder-import/verify_source.py')],check=True)
  elif a.command=='status':print(json.dumps({'source':CAT['source'],'full_rc':'OPEN','runtime':'V17 bounded runtime 5 PASS / 0 FAIL; full source qualification pending; V16 failure retained','saved_candidate_fixtures':list(CAT.get('candidate_fixtures',{})),'missing_candidate_fixtures':CAT['unresolved_fixtures'],'science_replay_closure':CAT['science_replay_closure']},indent=2))
- elif a.command=='needs':print(json.dumps({'objects':CAT['objects'],'candidate_fixtures':CAT.get('candidate_fixtures',{}),'unresolved_fixtures':CAT['unresolved_fixtures']},indent=2))
+ elif a.command=='needs':print(json.dumps({'objects':CAT['objects'],'candidate_fixtures':CAT.get('candidate_fixtures',{}),'historical_candidate_fixtures':CAT.get('historical_candidate_fixtures',{}),'unresolved_fixtures':CAT['unresolved_fixtures']},indent=2))
  elif a.command=='import-object':
   r=item(a.name);check(a.file,r);CACHE.mkdir(exist_ok=True);target=CACHE/r['sha256']
   if target.exists():check(target,r)

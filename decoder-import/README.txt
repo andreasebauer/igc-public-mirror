@@ -1,3 +1,2 @@
-CURRENT SOURCE: dev137, UNQUALIFIED. Start at ../DECODER_READ_FIRST.txt.
-Run python decoder-import/verify_source.py. Exact source import is not qualification.
-Dev84 receipts under history/dev84-revision5 are historical only.
+CURRENT SOURCE: dev138, UNQUALIFIED V26 group A. Start at ../DECODER_READ_FIRST.txt.
+The source manifest is regenerated from the settled step tree; old dev137 manifest remains in history/dev137/.

@@ -53,6 +53,10 @@ def test_real_probe_runs_on_registered_s7_fixture_once():
     import infinity_grid.v05_optimization_acceptance as g
     root=Path(inspect.getfile(g)).resolve().parents[1]
     fixture=root/g.FIXTURE_REL
+    before={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
+    assert not any('__pycache__' in n or n.endswith('.pyc') for n in before)
     got=g._probe(root,fixture)
+    after={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
+    assert after == before
     assert isinstance(got['semantic'],dict)
     assert got['elapsed_seconds'] >= 0

@@ -5,7 +5,7 @@
     "os": "Linux",
     "python_tested": "No full qualification for this candidate; historical CPython 3.12 profile retained separately",
     "filesystem": "local POSIX with flock, atomic same-filesystem rename, fsync and hard links; network filesystems unqualified",
-    "python_target": "CPython 3.13.5 pinned V4; historical bounded V17 result, no dev138 qualification"
+    "python_target": "CPython 3.13.5; new V4 qualification runtime pending"
   },
   "environment": [
     {
@@ -268,7 +268,6 @@
         "tests/test_g6_s8_v3_targeted_probe.py",
         "tests/test_g6_stage_executors_v03082.py",
         "tests/test_h1_h13_semantic_classification_spot_check.py",
-        "tests/test_isolated_runtime.py",
         "tests/test_legacy_capture_receipts.py",
         "tests/test_live_graph_read.py",
         "tests/test_no_deadline_conveyor_run_operation.py",
@@ -436,23 +435,28 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_SOURCE_REPAIRS_NATIVE_VALIDATION_PENDING",
+  "status": "UNQUALIFIED_CANDIDATE_RUNTIME_AND_FIXTURES_PENDING",
   "blocking_conditions": [
-    "dev138 group A repairs have not been executed or qualified.",
-    "V25 group B preservation/scheduling repair and group C forensic/pin review remain open.",
-    "Five dev137 candidate fixtures remain historical; rebind or regenerate for settled successor source.",
-    "Freeze exact final source/runtime and saved/read-back preregistration before native execution.",
-    "Complete install lock and independent-host recovery remain open."
+    "This dev137 candidate is unqualified; seal its full source and complete V4 runtime before fixture creation or native collection.",
+    "Review newly assigned functional selectors for execution class, fixture roles and isolation; assignment is provisional.",
+    "Resolve absent build tools and reconcile metadata Requires-Dist constraints; metadata inventory alone is not dependency compatibility.",
+    "Bind all seven fixture roles; no current-candidate fixture completion claimed.",
+    "Native collection inventory and new campaign preregistration with saved/read-back prerequisites required before execution.",
+    "A12 temporary-workspace policy and A22 host dependency limitations remain in force."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev138+lib",
-    "parent_archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+    "revision": "0.8.0.dev137+lib",
+    "parent_archive_sha256": "a91db5235d4e00330e6a493629e0dbee2d808c75a13aed1599bcc53b8937a9ac",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {
     "base": "CPY3135_SQLITE3513_RECOVERED_V3_20260930",
-    "target": "PINNED_V4_FRESH_RECONSTRUCTION_REQUIRED",
-    "required_additions": [],
+    "target": "V4_NOT_YET_BUILT_OR_QUALIFIED",
+    "required_additions": [
+      "setuptools==84.0.0",
+      "wheel==0.48.0",
+      "pip==26.2.1"
+    ],
     "complete_native_dependency_closure": "PENDING_A22_V12_FINDINGS",
     "hash_locked_install_manifest": "PENDING",
     "uv_lock_status": "Historical uv.lock not reconciled; not authorized for candidate installation"

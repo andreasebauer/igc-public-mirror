@@ -362,10 +362,13 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev137+lib",
-    "archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
-    "status": "UNQUALIFIED_NOT_PROMOTED",
-    "tests_executed": 0
+    "version": "0.8.0.dev138+lib",
+    "status": "UNQUALIFIED_V26_GROUP_A",
+    "tests_executed": 0,
+    "source_sha256": "b4e87fe77bd2e1f41ee6e7e40f5bcfa8c62f3115cdf11cf5462ee56365808f75",
+    "package_sha256": "b0cbd368d6e8c9511bb757cb7fb0b27a37a39321d1c4f33a66ec06014573c2f9",
+    "archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
+    "qualification": "UNQUALIFIED"
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -554,5 +557,13 @@
     "stale_core_pins": 6,
     "report": "decoder-admin/evidence/V25_REPORT.txt",
     "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
+  },
+  "latest_source_repair": {
+    "gate": "V26",
+    "repair_scope": "V25 group A only",
+    "report": "decoder-admin/evidence/V26_REPORT.txt",
+    "protocol": "decoder-admin/evidence/V26_TARGETED_PROTOCOL.txt",
+    "native_execution": false,
+    "next": "V25 group B bounded acknowledgment and scheduling"
   }
 }

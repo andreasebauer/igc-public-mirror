@@ -332,12 +332,8 @@ def test_exact_supervisor_child_roundtrip_in_nested_pid_namespace(tmp_path):
 
     log_path = service / "integration-supervisor.log"
     command = [sys.executable, "-B", "-I", "-S", str(entrypoint)]
-    env = {
-        "PATH": "/usr/bin:/bin",
-        "LANG": "C.UTF-8",
-        "LC_ALL": "C.UTF-8",
-        "PYTHONNOUSERSITE": "1",
-    }
+    from infinity_grid.isolated_runtime import subprocess_environment
+    env = subprocess_environment()
     with log_path.open("wb") as log:
         proc = subprocess.Popen(
             command,

@@ -1,9 +1,4 @@
 {
-  "source_sha256": "b4e87fe77bd2e1f41ee6e7e40f5bcfa8c62f3115cdf11cf5462ee56365808f75",
-  "package_sha256": "b0cbd368d6e8c9511bb757cb7fb0b27a37a39321d1c4f33a66ec06014573c2f9",
-  "version": "0.8.0.dev138+lib",
-  "archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
-  "qualification": "UNQUALIFIED",
   "files": [
     [
       "CERTIFIED_BASE_READ_FIRST.txt",
@@ -203,7 +198,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "66a5c2c95be837a7fc91c1ab1b1e253533bb835caa53ddaec2d04f12a365d4f4"
+      "7c3f3dacd4a847252dc2a968cfbc9befa98aad654faa89e066bd4bfcf2ed86de"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -211,7 +206,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "d106cde3136be3d862000a5f2225363bc18c47103c34400d8a391231a2c8238c"
+      "fed27aa25ae206af865267f4bc972335fb8e3df77f20dfde9465651b370094b7"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -644,10 +639,6 @@
     [
       "infinity_grid/invocation_fixture.py",
       "0deab30891ad2cb24d3dc76dbb388b4cced7ee7517d4f6d9b1424e2d280796d3"
-    ],
-    [
-      "infinity_grid/isolated_runtime.py",
-      "422af49d3104afb97037e5b7f98ace6df7dc1b652c23f50ced8a9940532054f5"
     ],
     [
       "infinity_grid/jumpstart.py",
@@ -2650,10 +2641,6 @@
       "68e290ad70cf77ebcb79dc2c64a08f1e1ee7b07eae5ede01f2335a2ec5abd8b2"
     ],
     [
-      "infinity_grid/resources/runtime/V4_BOOTSTRAP_MANIFEST.json",
-      "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58"
-    ],
-    [
       "infinity_grid/resources/schemas/CLAIM_RECORD_SCHEMA_v0.17.json",
       "15251cd712198cebf025fdd39a10bafb0506fd686e56912a80264d15ea7476b5"
     ],
@@ -4103,15 +4090,15 @@
     ],
     [
       "infinity_grid/v05_c6_recovery.py",
-      "e705f66b6b8c860fcdfd2cdad6ad9885b3bf51a1947591cdb28e929dd87cee40"
+      "8f9495a43e496dcb032451e98c30cff105e70f0571d8367e4b4045440b3ea6f1"
     ],
     [
       "infinity_grid/v05_c6_recovery_child.py",
-      "b9dc282a92de2bf615480ab2ccc5fda6d8b1464dfde933b2d1f05b5c6da92c5e"
+      "ff2283c08335677175c9b3415ca54a1a580055e7d7d187d728b075c1776ec595"
     ],
     [
       "infinity_grid/v05_c6_recovery_entrypoint.py",
-      "e1a0e49aea373208767e8eba087f30bc3a043f6c9a31d9b3a271af7013ac8609"
+      "a910d23f95b8a455417d4ef67eaee3d97d04d09865ffca68fffe02d132f1cd3e"
     ],
     [
       "infinity_grid/v05_cancel_control.py",
@@ -4199,7 +4186,7 @@
     ],
     [
       "infinity_grid/v05_optimization_acceptance.py",
-      "096a912a5fadcaa73ac3ccef20979b71cb1b5d4900904c54de6353a157a9584b"
+      "249101c6a10bb78153662e1c0fe0485dda8ba8f3feb877ae58ba6bd3d170585f"
     ],
     [
       "infinity_grid/v05_origin_guard.py",
@@ -4207,7 +4194,7 @@
     ],
     [
       "infinity_grid/v05_oscout_phase0_verifier.py",
-      "79e25a9e4e7b4d8aa69517f7640438e1da5bfff594a18914757ebd4d12fc6599"
+      "fe550a995553d1dd46a1997496a69d17749534f854eb50979d02c69d1194eb2a"
     ],
     [
       "infinity_grid/v05_p4.py",
@@ -4251,7 +4238,7 @@
     ],
     [
       "infinity_grid/v05_scout_l15_verifier.py",
-      "b56ff2be012103fab8e443a99490e896c01df496218d47329322fd547f3111f8"
+      "13ec70eb0dab0e4264ebe0306121af1e28ca0881c7bcda07716ae5bab14d3d1e"
     ],
     [
       "infinity_grid/v05_semantic_oracles.py",
@@ -4275,7 +4262,7 @@
     ],
     [
       "infinity_grid/v05_validation_runtime.py",
-      "155fe10d9a7c3b836826cbd0df5f0e054861970994e19b4fc46f5a5aa5a5743b"
+      "3de59ab44b2a8a77936fd23868dc1f0fc8cbd68abcb803fbb6efeef5d825090f"
     ],
     [
       "infinity_grid/v05_verifier.py",
@@ -4503,11 +4490,11 @@
     ],
     [
       "qualification/PROFILE.json",
-      "a00470f554abb92718aed520122180cb744d3d42ceb3050cd47874e64fdabf5b"
+      "ae392656f48a0f74e8d2bf9e05ef4a3428c6adb41e74babc9bdcce91928d8555"
     ],
     [
       "qualification/READ_FIRST.txt",
-      "778c5c904d9be20eb4a23795def458197f66151ded0724e45d548fb1133a7f9d"
+      "0c306de5f6b7d552c64ef884e9301841bb1b57b52d2e6a2a90fd8eceed677411"
     ],
     [
       "qualification/history/dev136/PROFILE.json",
@@ -4528,22 +4515,6 @@
     [
       "qualification/history/dev136/test_qualification_contract.py",
       "f84ea44220ab91cf53455f0ce8f7db48f98c83f12de02931f198bc97def11809"
-    ],
-    [
-      "qualification/history/dev137/PROFILE.json",
-      "ae392656f48a0f74e8d2bf9e05ef4a3428c6adb41e74babc9bdcce91928d8555"
-    ],
-    [
-      "qualification/history/dev137/READ_FIRST.txt",
-      "0c306de5f6b7d552c64ef884e9301841bb1b57b52d2e6a2a90fd8eceed677411"
-    ],
-    [
-      "qualification/history/dev137/_build_meta.json",
-      "7c3f3dacd4a847252dc2a968cfbc9befa98aad654faa89e066bd4bfcf2ed86de"
-    ],
-    [
-      "qualification/history/dev137/_version.py",
-      "fed27aa25ae206af865267f4bc972335fb8e3df77f20dfde9465651b370094b7"
     ],
     [
       "qualification/requirements-linux-py312.txt",
@@ -5423,7 +5394,7 @@
     ],
     [
       "tests/test_decoder06_project_stage.py",
-      "b82df65cc59cb1f56f1a32ef36db2451dbab82a63d8c750e1ecaf2571fe59006"
+      "f20b870acbd2b84159ffc2cc5cd39c91df0bedbf08d54b21f4583a4b8180ccca"
     ],
     [
       "tests/test_decoder06_results_preservation.py",
@@ -5580,10 +5551,6 @@
     [
       "tests/test_h1_h13_semantic_classification_spot_check.py",
       "b0d46917eea6636605b978ca3f8af12e8e791ef1f5b7e43fba0e3984972753c8"
-    ],
-    [
-      "tests/test_isolated_runtime.py",
-      "7a0d1067e812f17191dd9a0f9996713aa7c5140aa240fbcfef874a23c26f18e0"
     ],
     [
       "tests/test_legacy_capture_receipts.py",
@@ -5951,7 +5918,7 @@
     ],
     [
       "tests/test_v05_c6_namespace_identity.py",
-      "1678151a7f242bbfe947ac0c9f31a35240ff250789ca9cb834bd1e474026eace"
+      "49152842fdc38c821d913cfc1f2c7d8a43e80d28715530801e3335b554626129"
     ],
     [
       "tests/test_v05_c6_persistent_recovery.py",
@@ -6007,7 +5974,7 @@
     ],
     [
       "tests/test_v05_s8_optimization_acceptance.py",
-      "2a9fa2fb4f1063dac98c47112d5da53b17477cc563184248fb3cc571a39beb7f"
+      "51bb4e06d214fafa78dd81b08b923abe1802768a686a6d8b238aa32d151ded28"
     ],
     [
       "tests/test_v05_stage_runtime_exact_byte_handoff.py",
@@ -6073,5 +6040,10 @@
       "uv.lock",
       "acd5db61beffb30f4e2f75e1e391d6c720c395b902e2f9701a04c0ce161d1c8b"
     ]
-  ]
+  ],
+  "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+  "package_sha256": "373b3bdf47abfbfd795878d8fd299ec6ac13ab7047f774f7aa8ac0239b48f224",
+  "version": "0.8.0.dev137+lib",
+  "archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+  "qualification": "UNQUALIFIED"
 }

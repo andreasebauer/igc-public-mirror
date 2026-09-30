@@ -1,99 +1,34 @@
-DECODER — ONE REPOSITORY ENTRY POINT
-2026-09-30, consolidation branch; pin the exact Git commit.
+DECODER — DEV138 / V26 RECOVERY ENTRY POINT
+2026-09-30. UNQUALIFIED group A source repairs; no native execution this step.
 
 START
-  python decoder-admin/decoder.py status
-  python decoder-admin/decoder.py verify-source
-  python decoder-admin/decoder.py needs
+  python -B decoder-admin/decoder.py status
+  python -B decoder-admin/decoder.py verify-source
+  python -B decoder-admin/decoder.py needs
 
-CURRENT TRUTH
-decoder/ is exact dev137 source, UNQUALIFIED. It contains the reconciled 165-file
-qualification profile. It is not a new release or active runtime promotion.
-V17 bounded runtime qualification: 5 PASS / 0 FAIL; native completion and restore
-verified. Full dev137 source qualification remains pending. V16 failed before
-Python because its interpreter had no execute permission; its evidence is retained.
-All 23 RC acceptance rows/full RC remain OPEN.
-No source import, hash verification or repository CI run is a Decoder test PASS.
+CURRENT SOURCE
+The candidate is 0.8.0.dev138+lib, derived from V25 commit 5a78a98.
+See decoder-admin/evidence/V26_REPORT.txt and V26_TARGETED_PROTOCOL.txt.
+Group A implements startup bytecode suppression, exact V4 bootstrap package and
+loader bindings, and project fixture SQLite binding. All tests remain pending.
+Next is V25 group B native acknowledgment/scheduling, then C review and D native
+qualification. All 23 RC rows OPEN. No science/replay qualification is granted.
+Five dev137 fixture records now live in historical_candidate_fixtures in CATALOG;
+they are preserved but not current-source completions. V24 stays immutable:
+1,363 PASS / 4 FAIL / 1 interrupted observed, incomplete, no completion;
+54 objects retained, 408 native acknowledgments pending, runtime contaminated.
+Use a fresh reconstructed V4 for any future native job. Do not resume V24 as-is.
 
-AUTHORITATIVE LOCATIONS
-decoder/                     Source, tests, package resources, qualification plan.
-decoder-import/              Exact source manifest and source verifier.
-decoder-admin/CATALOG.json   Required runtime and historical fixture objects:
-                             immutable SHA256, byte counts and Drive locators.
-decoder-admin/RUNTIME_*      Runtime byte manifest and explicit permission policy.
-decoder-admin/RC_LEDGER.json  Current RC status, including unresolved failures.
-decoder-admin/evidence/      Bounded qualification, failure and preparation evidence.
-.decoder-cache/              Ignored local immutable objects; private data stays here.
-/tmp/<new-directory>/        Reconstructed runtime and native live workspaces.
-
-RECOVER WITHOUT SEARCHING OLD CHATS
-Fetch the exact files listed by 'needs' through authenticated Drive access.
-Import each returned file:
-  python decoder-admin/decoder.py import-object NAME /absolute/download/path
-Names: runtime_base_1, runtime_base_2, runtime_overlay,
-       step2_parent_snapshot, failed_evidence.
-The command verifies size/hash before copying into the ignored local cache.
-The private failed_evidence bytes must never be committed or published.
-Catalog IDs are locators, not authentication credentials; access is still required.
-
-Reconstruct the runtime from the three pinned inputs into a NEW destination:
-  python decoder-admin/decoder.py restore-runtime /tmp/decoder-runtime-NEW
-  python decoder-admin/decoder.py verify-runtime /tmp/decoder-runtime-NEW
-The helper validates bytes, safe archive paths and every regular-file mode,
-including executable interpreters. It also checks seven external host libraries.
-It never launches that runtime, installs packages, dispatches a job or retries a
-failed qualification. A failed reconstruction directory is retained for review.
-Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
-this is not a standalone OS image or independent-platform qualification.
-
-QUALIFICATION READINESS AND REMAINING WORK
-All five candidate-specific fixture roles are earned and saved in CATALOG.json:
-V18 saved_stage_one_prerun and saved_stage_one; V19 saved_stage_four;
-V20 saved_stage_outcome (expected refusal, native PAUSED, no completion);
-V22 saved_representative_qualification (four cases PASS, native COMPLETED).
-All restore checks reused saved evidence without workload execution. Exact
-one/four-worker task-to-class representative bytes match. V21 remains in audit
-history: PAUSED at the unsaved-checkpoint count limit, not a qualified fixture.
-V22 used standard30-second checkpoints, retaining count/byte/age limits.
-The candidate_fixtures field pins ordered parts and whole archive hashes.
-Concatenate parts in order, verify all sizes/hashes, then native restore_workspace.
-V23 verifies all seven archive bindings and static coverage of165 selectors,
-including42 additions. All22 top-level distribution versions match; active
-base-environment METADATA constraints have no unsatisfied requirement. This is
-static preparation, not native collection, test PASS or an install lock.
-See decoder-admin/evidence/V23_REPORT.txt and V23_INPUT_BINDINGS.json.
-V24 native functional attempt is PAUSED / UNQUALIFIED after the checkpoint
-count limit: observed1363 PASS,4 FAIL,1 interrupted;71 collected nodes without
-reports and22 files uncollected. No completion; no retry.51 runtime and10 captured
-source bytecode files were added, with original file bytes unchanged.
-See V24_REPORT.txt, V24_GATE_SUMMARY.json and V24_VERIFIED_OBJECT_CATALOG.json.
-All54 checkpoint objects are saved and byte-verified; independent native paused
-restore verified without execution.408 logical outbox acknowledgments remain
-pending. These are not a qualified result or closed native preservation ledger.
-V25 triage saved in decoder-admin/evidence/V25_REPORT.txt. Six core pins are
-stale; S8 probe lacks -B, isolated bootstraps omit dist-packages, and project
-fixture omits its SQLite binding. Incident64/96 conflict remains unresolved.
-Next create a separate candidate for bounded repairs; do not resume V24 as-is.
-Do not resume or rerun this capture implicitly. Full source qualification and
-all23 RC acceptance rows remain OPEN. Keep the changed runtime intact as evidence.
-Complete dependency/install-lock resolution remains open. uv.lock and py312
-requirements inside decoder/ are historical, not current installation locks.
-Future native execution requires saved/read-back prerequisites and an explicit
-protocol. Preserve all failures; no implicit retry or PASS inheritance.
-The historical L0-G8 science/replay closure is NOT inventoried by this catalog.
-Existing host dependencies remain external; no independent-platform claim.
-
-RULES
-Use native captured Decoder jobs for qualification/science. Never transplant old
-PASS records to changed source/runtime identities. New candidate fixtures need
-genuine pre-execution exports. Preserve failures and stop at unexplained mismatch.
-Check live runtime bytes/modes immediately before dispatch under /tmp.
-Do not install the repository root: its pyproject.toml is the older IGC package.
-Microscope, preview and legacy IGC remain separate existing repository components.
-Older imports remain in Git history; their receipts are historical only.
-
-STORAGE DECISION
-GitHub holds Decoder source and recovery metadata. Drive holds runtime archives,
-private fixtures, checkpoints and scientific data. R2 is not active. This is one
-logical repository and manifest, with external large/private objects, rather than
-duplicating all data into public Git. No historical data was deleted or migrated.
+RECOVERY
+Source/tests/profile live in decoder/, manifest in decoder-import/.
+Runtime, historical fixtures and private data use pinned Drive locators in
+CATALOG.json and evidence/V24_VERIFIED_OBJECT_CATALOG.json. Import hash-checked
+objects with decoder-admin/decoder.py import-object NAME /absolute/path.
+restore-runtime requires a NEW /tmp destination; verify-runtime checks exact
+bytes/modes/file set and host pins. It does not execute/qualify a runtime.
+No root-package installation or historical uv.lock/py312 lock use.
+Public Git holds code/metadata; private archive bytes remain external.
+Full L0-G8 science/replay closure is NOT inventoried by this engineering catalog.
+Complete install lock, native/OS closure and independent-host recovery OPEN.
+Historical read-first records and original failure artifacts remain in Git history
+and decoder-admin/evidence/. Do not inherit their PASS into this candidate.

@@ -27,7 +27,7 @@ def _run(script: Path, cwd: Path, args=None):
     env = dict(os.environ)
     env["PYTHONHASHSEED"] = "0"
     return subprocess.run(
-        [sys.executable, str(script)] + list(args or []),
+        [sys.executable, "-B", str(script)] + list(args or []),
         cwd=str(cwd), env=env, text=True,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False,
     )

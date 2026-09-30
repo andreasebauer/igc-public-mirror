@@ -1,0 +1,26 @@
+{
+  "gate": "V26",
+  "scope": "STATIC_ONLY_NOT_QUALIFICATION",
+  "python_files_parsed": [
+    "decoder-admin/decoder.py",
+    "decoder/infinity_grid/_version.py",
+    "decoder/infinity_grid/isolated_runtime.py",
+    "decoder/infinity_grid/v05_c6_recovery.py",
+    "decoder/infinity_grid/v05_c6_recovery_child.py",
+    "decoder/infinity_grid/v05_c6_recovery_entrypoint.py",
+    "decoder/infinity_grid/v05_optimization_acceptance.py",
+    "decoder/infinity_grid/v05_oscout_phase0_verifier.py",
+    "decoder/infinity_grid/v05_scout_l15_verifier.py",
+    "decoder/infinity_grid/v05_validation_runtime.py",
+    "decoder/qualification/history/dev137/_version.py",
+    "decoder/tests/test_decoder06_project_stage.py",
+    "decoder/tests/test_isolated_runtime.py",
+    "decoder/tests/test_v05_c6_namespace_identity.py",
+    "decoder/tests/test_v05_s8_optimization_acceptance.py"
+  ],
+  "profile_test_files": 166,
+  "runtime_manifest_byte_exact": true,
+  "tests_executed": 0,
+  "reviewed_core_pins_changed": false,
+  "remaining": "Native validation, V25 groups B/C, full RC"
+}

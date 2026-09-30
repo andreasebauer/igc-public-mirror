@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -42,8 +43,40 @@ def handler(stage, runtime):
 '''
 
 
-def _workspace(tmp_path: Path) -> tuple[Path, dict]:
+def _enclosing_sqlite_artifact(source: Path) -> dict:
+    # Native validation executes this file from <saved workspace>/source.
+    # Never manufacture a fresh observation in place of a captured input.
+    enclosing = source.parent
+    capture = submission.capture_record(enclosing)
+    source_id, package_id = loop._source_ids(source)
+    assert capture["workspace"]["source_sha256"] == source_id
+    assert capture["workspace"]["package_sha256"] == package_id
+    assert submission.save_status(enclosing)["status"] == "SAVED"
+    from infinity_grid.sqlite_attestation import admit_capture_runtime
+    admit_capture_runtime(enclosing, capture)
+    row, = [r for r in capture["environment"]["artifacts"]
+            if r["logical_name"] == "sqlite_runtime_binding"]
+    artifact = enclosing / "runtime/intake/artifacts" / (row["sha256"] + ".bin")
+    return {"logical_name": "sqlite_runtime_binding", "path": str(artifact),
+            "sha256": row["sha256"]}
+
+
+def _workspace(tmp_path: Path, binding_case="valid") -> tuple[Path, dict]:
     source = Path(loop.__file__).resolve().parents[1]
+    binding = _enclosing_sqlite_artifact(source)
+    artifacts = [binding]
+    if binding_case == "missing":
+        artifacts = []
+    elif binding_case == "wrong":
+        invalid = json.loads(Path(binding["path"]).read_bytes())
+        invalid["observation"]["executable_sha256"] = "0" * 64
+        raw = json.dumps(invalid, sort_keys=True).encode()
+        path = tmp_path / "wrong-sqlite-binding.json"
+        path.write_bytes(raw)
+        artifacts = [{"logical_name": "sqlite_runtime_binding", "path": str(path),
+                      "sha256": hashlib.sha256(raw).hexdigest()}]
+    else:
+        assert binding_case == "valid"
     project = tmp_path / "submitted-project"
     project.mkdir()
     (project / "fixture.py").write_text(PROJECT_MODULE, encoding="utf-8")
@@ -58,13 +91,15 @@ def _workspace(tmp_path: Path) -> tuple[Path, dict]:
                       "workspace_budget_bytes": 2 * 1024**3, "wall_seconds_max": 60},
         "inputs": [],
         "environment": {"python": f"{sys.version_info.major}.{sys.version_info.minor}",
-                        "requirements": [], "artifacts": []},
+                        "requirements": [], "artifacts": artifacts},
         "output_contract": {"outcome": "PASS", "scientific_acceptance": "NONE; route fixture only"},
     }
     store = tmp_path / "store"
     portable_registry.initialize(store, "Project STAGE route fixture", source)
     state = submission.capture(store, spec)
     root = Path(state["workspace"])
+    # Local synthetic receipts exercise the test fixture only. They are not
+    # evidence of connector upload, remote durability, or scientific acceptance.
     for item in list(state["pending_objects"]):
         readback = store / "objects" / item["object_name"]
         state = submission.confirm_save(
@@ -75,8 +110,7 @@ def _workspace(tmp_path: Path) -> tuple[Path, dict]:
     return root, job
 
 
-def test_project_stage_executes_from_exact_captured_source(tmp_path):
-    root, job = _workspace(tmp_path)
+def _run_project(root, job, tmp_path):
     code = (
         "import json,sys; "
         "from infinity_grid.v05_controller_event_loop import run_workspace_job; "
@@ -84,8 +118,14 @@ def test_project_stage_executes_from_exact_captured_source(tmp_path):
     )
     env = dict(os.environ, PYTHONPATH=str(root / "source"), PYTHONDONTWRITEBYTECODE="1")
     done = subprocess.run(
-        [sys.executable, "-c", code, str(root), job["job_id"]],
+        [sys.executable, "-B", "-c", code, str(root), job["job_id"]],
         cwd=tmp_path, env=env, capture_output=True, text=True)
+    return done
+
+
+def test_project_stage_executes_from_exact_captured_source(tmp_path):
+    root, job = _workspace(tmp_path)
+    done = _run_project(root, job, tmp_path)
     assert done.returncode == 0, done.stderr
     result = json.loads(done.stdout)
     assert result["status"] == "COMPLETED"
@@ -113,3 +153,15 @@ def test_unbound_or_outside_project_callable_refuses(tmp_path):
         resolve_callable("project.fixture:evaluate", None)
     with pytest.raises(ProjectStageError, match="PROJECT_STAGE_REFERENCE"):
         callable_path(source, "infinity_grid.controller_only_fixture:partition_evaluator")
+
+
+@pytest.mark.parametrize("binding_case,error", [
+    ("missing", "SQLITE_RUNTIME_BINDING_REQUIRED"),
+    ("wrong", "PINNED_RUNTIME_MISMATCH"),
+])
+def test_project_stage_retains_runtime_binding_refusals(tmp_path, binding_case, error):
+    root, job = _workspace(tmp_path, binding_case)
+    done = _run_project(root, job, tmp_path)
+    assert done.returncode != 0
+    assert error in done.stderr
+    assert not list((root / "runtime/intake/completed").glob("*.json"))

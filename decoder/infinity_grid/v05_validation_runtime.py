@@ -232,7 +232,7 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
             stem=f'{position:06d}-{canonical_sha256(node)}'
             final=node_root/(stem+'.log')
             proc,raw=_run_node_process(
-                [sys.executable,'-m','infinity_grid.validation_node_runner',
+                [sys.executable,'-B','-m','infinity_grid.validation_node_runner',
                  '--candidate',str(candidate),'--log-root',str(log_path.parent),
                  '--binding',plan['binding'],'--selector',node],
                 cwd=candidate,env=env,final_path=final)

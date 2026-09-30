@@ -355,12 +355,8 @@ def _persist_staged_fixed_installation(info: Mapping[str, Any], staged: Mapping[
 
 
 def _exec_persisted_supervisor(entrypoint: Path) -> None:
-    env = {
-        "PATH": "/usr/bin:/bin",
-        "LANG": "C.UTF-8",
-        "LC_ALL": "C.UTF-8",
-        "PYTHONNOUSERSITE": "1",
-    }
+    from .isolated_runtime import subprocess_environment
+    env = subprocess_environment()
     os.execve(sys.executable, [sys.executable, "-B", "-I", "-S", str(entrypoint.resolve(strict=True))], env)
 
 def validate_recovery_argv(argv: list[str] | tuple[str, ...]) -> None:
@@ -536,20 +532,18 @@ def _restore_runtime_bindings(info: Mapping[str, Any]) -> None:
 
 
 def _spawn_child(source: Path, runtime: Path, secret: str, child_entrypoint: Path) -> subprocess.Popen[bytes]:
+    from .isolated_runtime import subprocess_environment
+    env = subprocess_environment()
     rfd, wfd = os.pipe()
     try:
         os.write(wfd, (secret + "\n").encode("ascii"))
     finally:
         os.close(wfd)
-    env = {
-        "PATH": "/usr/bin:/bin",
-        "LANG": "C.UTF-8",
-        "LC_ALL": "C.UTF-8",
-        "PYTHONNOUSERSITE": "1",
+    env.update({
         "IG_C6_SECRET_FD": str(rfd),
         "IG_C6_RUNTIME_ROOT": str(runtime),
         "IG_C6_SOURCE_ROOT": str(source),
-    }
+    })
     log = (runtime / "supervisor" / "controller-child.log")
     log.parent.mkdir(parents=True, exist_ok=True)
     fp = log.open("ab", buffering=0)

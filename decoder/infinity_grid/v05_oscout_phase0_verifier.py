@@ -43,7 +43,7 @@ def replay_oscout_phase0(fixture: Path, root: Path) -> dict:
     env = dict(os.environ)
     env['PYTHONHASHSEED'] = '0'
     p = subprocess.run(
-        [sys.executable, str(target / '05_CODE/verify_oscout_phase0.py'), str(target)],
+        [sys.executable, '-B', str(target / '05_CODE/verify_oscout_phase0.py'), str(target)],
         cwd=str(target), env=env, text=True,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False,
     )

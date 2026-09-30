@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import os
 import sys
-import sysconfig
 from pathlib import Path
 
 sys.dont_write_bytecode = True
@@ -37,20 +36,9 @@ def main() -> int:
     # The fixed child path must itself belong to the source it is about to execute.
     if Path(__file__).resolve().parent.parent != source:
         raise RuntimeError("REJECT_EXTERNAL_EXECUTION_ORIGIN:C6_SOURCE_BINDING")
-    fixed_libs = [
-        "/opt/pyvenv-overrides",
-        "/opt/pyvenv-libs",
-        "/opt/pyvenv/lib/python3.13/site-packages",
-    ]
-    # Derive standard-library paths from this isolated interpreter, never from
-    # PYTHONPATH or a user site. Keep -I -S and source/attestation checks intact.
-    _stdlib = Path(sysconfig.get_path("stdlib")).resolve()
-    _platstdlib = Path(sysconfig.get_path("platstdlib")).resolve()
-    _version_dir = f"python{sys.version_info.major}.{sys.version_info.minor}"
-    _venv_site = Path(sys.executable).absolute().parent.parent / "lib" / _version_dir / "site-packages"
-    sys.path[:] = [str(source), str(_stdlib), str(_platstdlib),
-                   str(_stdlib / "lib-dynload"), str(_platstdlib / "lib-dynload"),
-                   str(_venv_site)] + fixed_libs
+    sys.path.insert(0, str(source))
+    from infinity_grid.isolated_runtime import configure_isolated_paths
+    configure_isolated_paths(source)
     from infinity_grid.v05_controller_event_loop import controller_child_main
     return int(controller_child_main(runtime, source, supervisor_pid=os.getppid(), supervisor_secret=secret))
 

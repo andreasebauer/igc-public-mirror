@@ -1,0 +1,33 @@
+V26 — DEV138 GROUP A SOURCE REPAIRS — UNQUALIFIED
+Parent commit 5a78a9888223ddc9b0ffd268724262d74a599176 (V25).
+
+IMPLEMENTED
+- S8 optimization probe adds startup -B, retains -I -S.
+- Native validation selector exec and both native historical scout verifiers
+  add startup -B without changing their remaining command arguments.
+- Supervisor and child bootstrap share isolated_runtime.py. Exact saved V4
+  manifest is embedded and SHA-pinned in source. Interpreter-relative paths,
+  runtime file set/bytes/modes and seven host hashes checked before admitting
+  dist-packages. No /opt fallback, user site or arbitrary PYTHONPATH discovery.
+- Supervisor re-exec and child launch construct a verified native loader path
+  before exec. Child origin/secret/source/lease checks remain in force.
+- Project fixture inherits the enclosing saved capture's verified SQLite binding,
+  checks source identity, and keeps actual runtime admission. Added missing/wrong
+  binding refusal cases. Its nested local save stubs are explicitly test-only.
+- Regression source includes native isolated import/SQLite exercise, runtime
+  corruption refusals and real S8 no-bytecode file-set checks.
+- Version/profile/manifests identify dev138 as UNQUALIFIED. Old dev137 metadata
+  and candidate fixtures are retained as history, not successor qualifications.
+
+VERIFICATION IN THIS STEP
+Static syntax/JSON/profile/source-manifest/diff checks only; see V26_STATIC_REVIEW.
+No candidate runtime imports, tests, workload, native fixture or retry executed.
+No RC row closed, reviewed-core pin amended, or V24 receipt retired.
+The prepared targeted protocol still requires saved native capture and V25 B/C.
+
+NEXT
+Implement V25 group B: bounded native batch acknowledgment and transport-aware
+save scheduling, with negative cases and resumable partial acknowledgments.
+Then incident forensics/core-diff review, freeze final successor, and run group D
+native targeted qualification on fresh V4. Do not resume V24 as-is.
+All 23 RC acceptance rows remain OPEN; V24's 408 acknowledgments remain OPEN.
