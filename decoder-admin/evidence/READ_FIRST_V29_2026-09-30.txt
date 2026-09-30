@@ -1,0 +1,39 @@
+V29 PRE-EXECUTION REFUSAL AND METADATA CORRECTION — 2026-09-30
+
+Native forensic execution did not start. No job registered, no test dispatched,
+no incident SQLite query. V28 stopping rule honored at infrastructure refusal.
+All 23 RC items and 408 V24 logical obligations remain OPEN.
+
+DONE
+Downloaded all three runtime reconstruction inputs freshly from Drive, verified
+catalog SHA-256/size and reconstructed /tmp/ig_runtime_v29_fresh_20260930.
+4,721 runtime files and seven external host files passed byte/mode/file-set checks.
+This is runtime restoration integrity, not runtime execution or qualification.
+
+REFUSAL / CORRECTION
+The repository verify-source command rejected V27 metadata: file rows and source
+identity were correct, but the package hash used the wrong schema prefix.
+This was an assistant packaging error, not evidence of source-byte corruption.
+Wrong V27 package identity:
+b7c6b750d2c44d9ec9d0ada977acee78edd0f1d544e4edda44225d3cb6b629ba
+Correct package identity:
+45a66ae3bf4ba23dff7d9c3a22a458535103d95a4929566190fd19c436a569be
+Correct schema: IG_DECODER_EXECUTABLE_SOURCE_TREE_V1.
+V26 package metadata was independently recalculated and is correct.
+
+Corrected only source-manifest, verification note, catalog and candidate ledger.
+No decoder source, profile, test, runtime or historical evidence bytes changed.
+The unchanged verifier then reported BYTE_EXACT_SOURCE_PASS for all 1,520 files.
+Source identity remains db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d.
+Source ZIP SHA remains f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9.
+Existing Drive source ZIP 1L5QZ7ECXH3xJXfCl9L4HePXltjxq5PS0 is still byte-valid.
+V27 closeout's package identity is superseded by this correction; preserve the
+old closeout unchanged as evidence. Its general static/hash wording overstated
+verification: the native repository source verifier had not been run in V27.
+
+NEXT
+Use corrected metadata and the unchanged dev139 bytes. Verify the fresh runtime
+again before launch; register/capture/save/readback the V28 bounded forensic job.
+This step intentionally ends at the recorded refusal/correction boundary, rather
+than silently continuing the same gate after changing its prerequisites.
+No review-pin amendment, native PASS, scientific result or RC closure is claimed.

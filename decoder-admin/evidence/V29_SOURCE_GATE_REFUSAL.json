@@ -1,0 +1,15 @@
+{
+  "status": "PRE_EXECUTION_SOURCE_IDENTITY_REFUSAL",
+  "error": "Source/package identity mismatch",
+  "candidate": "0.8.0.dev139+lib",
+  "recorded_wrong_package_sha256": "b7c6b750d2c44d9ec9d0ada977acee78edd0f1d544e4edda44225d3cb6b629ba",
+  "correct_package_sha256": "45a66ae3bf4ba23dff7d9c3a22a458535103d95a4929566190fd19c436a569be",
+  "cause": "V27 packaging script used IG_DECODER_ENGINEERING_SOURCE_TREE_V1 for package rows instead of IG_DECODER_EXECUTABLE_SOURCE_TREE_V1",
+  "source_sha256_unchanged": "db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d",
+  "archive_sha256_unchanged": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
+  "source_file_rows_unchanged": true,
+  "native_job_registered": false,
+  "native_tests_executed": 0,
+  "sqlite_incident_queries": 0,
+  "qualification": "NOT_GRANTED"
+}
