@@ -1,0 +1,35 @@
+V34 DEV140 ISOLATED-RUNTIME GATE — 2026-09-30
+11 PASS, 0 FAIL, no skipped/unexecuted tests. Native registered validation,
+one attempt, selector tests/test_isolated_runtime.py. No science dispatched.
+
+The real isolated child passed pinned-package, cryptography and SQLite-binding
+checks. Six synthetic file corruptions, manifest/interpreter refusals and two
+unsafe-launch cases passed. Synthetic fixtures confer no runtime authority.
+Full pinned runtime verification passed before and after execution. Captured
+source raw file set, bytes and modes match the saved archive: 1522 files,
+zero symlinks and zero bytecode files. This does not prove C6 recovery or S8.
+
+Candidate: 0.8.0.dev140+lib; unchanged production source.
+Engineering source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.ISOLATED.RUNTIME.V34.DEV140
+Capture: 73e6a947669c5825df3375d2c80e0ae77af84a64a3a98e6ec32ac6bfeecda36c
+Completion: db66f707ae1088511dfbb390949b63786bc0d20ffbdb6c107131211a8bf1d543
+Terminal export SHA256: cb6c80f8455cdd64db142e533cb67cfb0cfd9659986b47ac7905087fe8dd4614
+Terminal export Drive: 1SZG99S8VwPuxx-dJl5YY1aWfMpAvNQA1
+
+All nine capture saves and 28 checkpoint roles acknowledged against real saved
+objects; zero pending. Fourteen distinct physical objects, catalog attached.
+Fresh Drive-returned terminal export restored exact completion with terminal
+proof and zero tests dispatched. Runtime verifier runtime_executed=false means
+that verifier does not execute workload; this native validation DID execute.
+Native reports retain measured durations; no performance claim is inferred.
+
+V33 five passes plus V34 eleven passes = 16 focused passes on this candidate.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: V26 group 2, tests/test_decoder06_project_stage.py, fresh runtime/native
+capture, actual remote saves, first-failure stop. Then C6 namespace/recovery,
+S8 and validation boundaries. Batch negative/retry/long-selector preservation,
+current-candidate fixture completions and full qualification remain outstanding.
+Nested test-only save stubs must never be promoted as actual external evidence.

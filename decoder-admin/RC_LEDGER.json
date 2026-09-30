@@ -369,8 +369,8 @@
     "qualification": "UNQUALIFIED",
     "archive_size_bytes": 22684827,
     "drive_id": "1YmRVUQ4QoMtQh_dEKzha1E1NRy6T0MQ1",
-    "status": "BOUNDED_V33_5_PASS_FULL_QUALIFICATION_OPEN",
-    "tests_executed": 5
+    "status": "BOUNDED_V33_V34_16_PASS_FULL_QUALIFICATION_OPEN",
+    "tests_executed": 16
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -575,6 +575,16 @@
     "pass": 5,
     "fail": 0,
     "completion_sha256": "2f02c7d340a5db827b41b5f285cb071a90a58dbdd40be729452f1b58a6d6d7ac",
+    "saved_pending_roles": 0,
+    "exact_saved_restore_verified": true,
+    "full_RC": "OPEN"
+  },
+  "latest_runtime_boundary_gate": {
+    "candidate": "0.8.0.dev140+lib",
+    "gate": "V34_ISOLATED_RUNTIME",
+    "passed": 11,
+    "failed": 0,
+    "completion_sha256": "db66f707ae1088511dfbb390949b63786bc0d20ffbdb6c107131211a8bf1d543",
     "saved_pending_roles": 0,
     "exact_saved_restore_verified": true,
     "full_RC": "OPEN"
