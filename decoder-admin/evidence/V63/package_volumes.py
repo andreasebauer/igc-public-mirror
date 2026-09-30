@@ -1,0 +1,20 @@
+from pathlib import Path
+import json,hashlib,zipfile
+from lifecycle_monitor import inventory
+D=Path(__file__).resolve().parent;w=Path(json.loads((D/'CAPTURE_SAVE_STATUS.json').read_text())['workspace']);expected=json.loads((D/'FORENSIC_QUIESCENCE.json').read_text())['inventory_after'];assert inventory(w)==expected
+parts=[];groups=[];group=[];size=0
+for name,r in sorted(expected.items()):
+ if group and size+r['size']>24000000:groups.append(group);group=[];size=0
+ group.append(name);size+=r['size']
+if group:groups.append(group)
+for i,names in enumerate(groups,1):
+ p=D/f'V63_WORKSPACE_VOLUME_{i:02d}.zip'
+ with zipfile.ZipFile(p,'x',zipfile.ZIP_DEFLATED) as z:
+  for name in names:
+   b=(w/name).read_bytes();assert hashlib.sha256(b).hexdigest()==expected[name]['sha256'];z.writestr(name,b)
+ b=p.read_bytes()
+ with zipfile.ZipFile(p) as z:assert z.testzip() is None
+ parts.append({'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'size_bytes':len(b),'members':names})
+assert inventory(w)==expected
+manifest={'kind':'FORENSIC_VOLUMES_NOT_NATIVE_EXPORT','files':expected,'volumes':parts}
+(D/'FORENSIC_VOLUMES.json').write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps([{'path':p['path'],'size_bytes':p['size_bytes']} for p in parts]))

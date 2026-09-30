@@ -1,5 +1,5 @@
-DEV144 V62 INTERRUPT/EXACT RECOVERY BOUNDED PASS; OVERALL UNQUALIFIED
-75 focused PASS; fresh native interrupt and exact saved paused restoration; zero recovery dispatch.
-All 23 RC rows OPEN. Fresh corruption scenario next. No science replay.
-Read decoder-admin/evidence/V62_REPORT.txt and RC_LEDGER.json.
+DEV144 V62 + V63 BOUNDED PASS; OVERALL UNQUALIFIED
+75 focused PASS; V62 native interrupt/exact paused recovery; V63 live-corruption refusal/cleanup/exact forensic recovery.
+All 23 RC rows OPEN. Next: current-source fixtures and full RC matrix. No science replay.
+Read decoder-admin/evidence/V63_REPORT.txt and RC_LEDGER.json.
 Verify source: python3 -B decoder-admin/decoder.py verify-source

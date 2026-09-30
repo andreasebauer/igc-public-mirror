@@ -1,0 +1,114 @@
+"""Prepared one-byte corruption operator. Never run without saved preregistration."""
+from pathlib import Path
+import hashlib
+import json
+import os
+import sys
+import time
+
+
+def main(config_path):
+    if sys.flags.optimize or not sys.flags.dont_write_bytecode:
+        raise RuntimeError('PYTHON_MODE_REQUIRED')
+    c = json.loads(Path(config_path).read_text())
+    assert c['armed'] is True and c['job_id'] == 'RC.CORRUPTION.V63.DEV144'
+    w = Path(c['workspace']).resolve(strict=True)
+    assert str(w).startswith('/tmp/ig_gate_v63_')
+    assert w.name == c['capture_id']
+    evidence = Path(c['external_evidence']).resolve(strict=True)
+    assert not evidence.is_relative_to(w)
+    if any((evidence/n).exists() for n in ['ORIGINAL_OBJECT.bin','INTENDED_DAMAGED_OBJECT.bin','INJECTION_INTENT.json','INJECTION_DONE.json']):
+        raise RuntimeError('PRIOR_INJECTION_ARTIFACT_REFUSE')
+    sys.path.insert(0, str(w / 'source'))
+    from infinity_grid import submission as sub, preservation as pr
+    from infinity_grid.v05_controller_event_loop import _workspace_lock, _source_ids
+    rec = sub.capture_record(w)
+    assert rec['capture_id'] == c['capture_id'] and rec['job']['job_id'] == c['job_id']
+    assert _source_ids(w/'source') == (
+        '2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e',
+        '1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544')
+    baseline_path = Path(c['observer_baseline_ready']).resolve(strict=True)
+    assert not baseline_path.is_relative_to(w)
+    baseline = json.loads(baseline_path.read_text())
+    assert baseline['workspace'] == str(w) and baseline['healthy_metadata_checks'] >= 10
+    assert baseline['span_seconds'] >= 3 and baseline['default_limits_and_reserve_verified'] is True
+    assert baseline['payload_reads_in_metadata_checks'] == 0
+    checkpoint = baseline['after_completed_checkpoint']['sha256']
+    assert checkpoint == c['observed_checkpoint_sha256']
+    from lifecycle_monitor import process, identity
+    ready = json.loads((evidence/'CONTROLLER_READY.json').read_text())
+    owner = process(ready['owner']['pid'])
+    assert owner and identity(owner) == identity(ready['owner'])
+    assert ready['workspace'] == str(w) and ready['capture_id'] == c['capture_id']
+    assert not (evidence/'CONTROLLER_RETURNED.json').exists()
+    samples = (evidence/'PROCESS_SAMPLES.jsonl').read_text().splitlines()
+    observed = json.loads(samples[-1])
+    assert 0 <= time.time()-observed['unix'] <= 2
+    assert any(identity(p)==identity(owner) for p in observed['processes'])
+    assert any('test_long_durable_progress_selector' in p['cmdline'] for p in observed['processes'])
+    sha = c['checkpoint_state_sha256']
+    assert len(sha) == 64 and all(x in '0123456789abcdef' for x in sha)
+    outbox = pr._root(w)
+    target = outbox/'objects'/(sha+'.bin')
+    original_readback = Path(c['original_remote_readback']).resolve(strict=True)
+    assert not original_readback.is_relative_to(w)
+    original = original_readback.read_bytes()
+    assert original and hashlib.sha256(original).hexdigest() == sha
+    assert c['original_drive_id'] and c['remote_readback_verified'] is True
+    # Saved native acknowledgment binds the genuine remote return before fault.
+    with _workspace_lock(outbox):
+        status = pr.status(w)
+        if status['pending_objects']:
+            print('PREMUTATION_DRAIN_REQUIRED');raise SystemExit(76)
+        manifests = [json.loads(p.read_text()) for p in (outbox/'commits').glob('*.json')]
+        assert any(m['state']['sha256'] == sha for m in manifests)
+        observed_commit = json.loads((outbox/'commits'/(checkpoint+'.json')).read_text())
+        assert observed_commit['state']['sha256'] == sha
+        attempts = [json.loads(p.read_text()) for p in (w/'runtime/attempts').rglob('*.json')]
+        assert len(attempts) == 1 and attempts[0]['status'] == 'RUNNING'
+        nodes = [json.loads(p.read_text()) for p in (w/'runtime/runs').rglob('nodes/*.json')]
+        assert len(nodes) == 1 and nodes[0]['finished'] is False
+        assert nodes[0]['node'].endswith('::test_long_durable_progress_selector')
+        assert not target.is_symlink() and target.is_file() and target.stat().st_nlink == 1
+        assert target.read_bytes() == original
+        damaged = bytes([original[0] ^ 1]) + original[1:]
+        damaged_sha = hashlib.sha256(damaged).hexdigest()
+        # Exclusive external artifacts make accidental repeat refuse before mutation.
+        for name, data in [('ORIGINAL_OBJECT.bin', original), ('INTENDED_DAMAGED_OBJECT.bin', damaged)]:
+            with (evidence/name).open('xb') as handle:
+                handle.write(data);handle.flush();os.fsync(handle.fileno())
+        record = {'workspace':str(w), 'capture_id':c['capture_id'], 'job_id':c['job_id'],
+                  'target':str(target), 'role':'checkpoint_state', 'offset':0,
+                  'original_sha256':sha, 'damaged_sha256':damaged_sha,
+                  'size_bytes':len(original), 'started_unix':time.time(),
+                  'attempt_status':'RUNNING', 'selector_finished':False,
+                  'lock':'native outbox exclusive', 'restored':False}
+        (evidence/'INJECTION_INTENT.json').write_text(json.dumps(record,indent=2)+'\n')
+        with target.open('r+b') as handle:
+            handle.seek(0);handle.write(damaged[:1]);handle.flush();os.fsync(handle.fileno())
+        actual = target.read_bytes()
+        assert actual == damaged
+        record['finished_unix'] = time.time()
+        (evidence/'INJECTION_DONE.json').write_text(json.dumps(record,indent=2)+'\n')
+    # Full status is the next administrative operation; no repair or acknowledgment.
+    try:
+        pr.status(w)
+    except sub.SubmissionError as exc:
+        assert exc.code == 'OUTBOX_OBJECT_MISMATCH' and sha in str(exc)
+        (evidence/'FULL_STATUS_REFUSAL.json').write_text(json.dumps({
+            'reason':str(exc), 'unix':time.time(), 'damaged_sha256':damaged_sha,
+            'scope':'native full-status detection, not controller/lifecycle acceptance'},indent=2)+'\n')
+    else:
+        raise RuntimeError('CORRUPTION_NOT_DETECTED')
+
+
+if __name__ == '__main__':
+    try:
+        main(sys.argv[1])
+    except Exception as exc:
+        # Only native lock contention is retryable; every other exception stops.
+        from infinity_grid.v05_controller_event_loop import ControllerLoopError
+        c=json.loads(Path(sys.argv[1]).read_text());e=Path(c['external_evidence'])
+        if isinstance(exc,ControllerLoopError) and str(exc)=='WORKSPACE_BUSY' and not any((e/n).exists() for n in ['ORIGINAL_OBJECT.bin','INTENDED_DAMAGED_OBJECT.bin','INJECTION_INTENT.json','INJECTION_DONE.json']):
+            print('PREMUTATION_LOCK_BUSY');raise SystemExit(75)
+        raise

@@ -1,0 +1,191 @@
+{
+  "quiescent": true,
+  "survivors_at_controller_return": [],
+  "late_runtime_changes": false,
+  "lifecycle_pass": true,
+  "first_runtime_inventory": {
+    "attempts/job-93e08663064d36076f80a22b9aab5bec/000001.json": {
+      "sha256": "e440968b170070539df8c56a2a7220450961f20263633cc3ba136ec65e0022da",
+      "size": 842,
+      "mode": 420
+    },
+    "intake/artifacts/297daf33acfe70b57249e5e01cc8dd054dbe1feb1bac589952e3e45822c90f9a.bin": {
+      "sha256": "297daf33acfe70b57249e5e01cc8dd054dbe1feb1bac589952e3e45822c90f9a",
+      "size": 6731,
+      "mode": 420
+    },
+    "intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size": 880319,
+      "mode": 420
+    },
+    "intake/artifacts/79ea4a713b297daaf5a535a9afdd8ccda307f53b45a8a89ced4e43c12f6ed5f7.bin": {
+      "sha256": "79ea4a713b297daaf5a535a9afdd8ccda307f53b45a8a89ced4e43c12f6ed5f7",
+      "size": 4581,
+      "mode": 420
+    },
+    "intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin": {
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "size": 3295,
+      "mode": 420
+    },
+    "intake/artifacts/d484376acf749f28fd9932f682ab1438561c3a8b34bd030c315cb64095a95492.bin": {
+      "sha256": "d484376acf749f28fd9932f682ab1438561c3a8b34bd030c315cb64095a95492",
+      "size": 1185,
+      "mode": 420
+    },
+    "intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size": 504,
+      "mode": 420
+    },
+    "intake/pending/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "896c6ff3a26c7580e1fae164363da92413ce2e6172b87d77010bb59071989421",
+      "size": 1173,
+      "mode": 384
+    },
+    "internal/claims/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "b93ab06b6994f292645555a0717af1656398ea8b8ecbe6eee7cb6ec4479fcef2",
+      "size": 571,
+      "mode": 384
+    },
+    "internal/ingested/intent-00e8fba3c93e042a51d05b4fa4a870e4.json": {
+      "sha256": "482b9b0bc76c6b579055c89da8f05e6957be329d91cd24fcc02693ec6e0acce1",
+      "size": 1796,
+      "mode": 384
+    },
+    "refusals/bd8e9ac7e4c666e33de1151be0ee1ae0599c691c6943fdc855a1cfbd563f892b.json": {
+      "sha256": "b7ccf4a977db0b472366a426ad89c04e94769b9ad4f3cf7b2f3572a4eea4ff5a",
+      "size": 1422,
+      "mode": 420
+    },
+    "registrations/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "c630df1606f116fe1ae7c3e86d043fcabfa56ed36b50696161b9ae8a1ff97a09",
+      "size": 8563,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/PREFLIGHT.json": {
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "size": 41,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/REPORT_PLAN.json": {
+      "sha256": "05316cdc8b6a3fc44a21904d5cfed5a0115cc0f021cb56afe4d3ce7f71432bf4",
+      "size": 196,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json": {
+      "sha256": "9a46541282d815e225069da7d85628465045d3d46cfe8561806443515b583f53",
+      "size": 312,
+      "mode": 384
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json": {
+      "sha256": "d0acbe951ffb9d613ad721120d380faaf51ff045d7ca58e5bb021ad5efdb7a0b",
+      "size": 403,
+      "mode": 384
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/probe_progress/long_durable_progress.log": {
+      "sha256": "07e910e9092469ab61e17982c5d537ab9ea58dca5f2194cc993df2e424fb7153",
+      "size": 2310,
+      "mode": 384
+    },
+    "status/CONTROLLER_STATUS.json": {
+      "sha256": "e440968b170070539df8c56a2a7220450961f20263633cc3ba136ec65e0022da",
+      "size": 842,
+      "mode": 292
+    }
+  },
+  "final_runtime_inventory": {
+    "attempts/job-93e08663064d36076f80a22b9aab5bec/000001.json": {
+      "sha256": "e440968b170070539df8c56a2a7220450961f20263633cc3ba136ec65e0022da",
+      "size": 842,
+      "mode": 420
+    },
+    "intake/artifacts/297daf33acfe70b57249e5e01cc8dd054dbe1feb1bac589952e3e45822c90f9a.bin": {
+      "sha256": "297daf33acfe70b57249e5e01cc8dd054dbe1feb1bac589952e3e45822c90f9a",
+      "size": 6731,
+      "mode": 420
+    },
+    "intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size": 880319,
+      "mode": 420
+    },
+    "intake/artifacts/79ea4a713b297daaf5a535a9afdd8ccda307f53b45a8a89ced4e43c12f6ed5f7.bin": {
+      "sha256": "79ea4a713b297daaf5a535a9afdd8ccda307f53b45a8a89ced4e43c12f6ed5f7",
+      "size": 4581,
+      "mode": 420
+    },
+    "intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin": {
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "size": 3295,
+      "mode": 420
+    },
+    "intake/artifacts/d484376acf749f28fd9932f682ab1438561c3a8b34bd030c315cb64095a95492.bin": {
+      "sha256": "d484376acf749f28fd9932f682ab1438561c3a8b34bd030c315cb64095a95492",
+      "size": 1185,
+      "mode": 420
+    },
+    "intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size": 504,
+      "mode": 420
+    },
+    "intake/pending/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "896c6ff3a26c7580e1fae164363da92413ce2e6172b87d77010bb59071989421",
+      "size": 1173,
+      "mode": 384
+    },
+    "internal/claims/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "b93ab06b6994f292645555a0717af1656398ea8b8ecbe6eee7cb6ec4479fcef2",
+      "size": 571,
+      "mode": 384
+    },
+    "internal/ingested/intent-00e8fba3c93e042a51d05b4fa4a870e4.json": {
+      "sha256": "482b9b0bc76c6b579055c89da8f05e6957be329d91cd24fcc02693ec6e0acce1",
+      "size": 1796,
+      "mode": 384
+    },
+    "refusals/bd8e9ac7e4c666e33de1151be0ee1ae0599c691c6943fdc855a1cfbd563f892b.json": {
+      "sha256": "b7ccf4a977db0b472366a426ad89c04e94769b9ad4f3cf7b2f3572a4eea4ff5a",
+      "size": 1422,
+      "mode": 420
+    },
+    "registrations/job-93e08663064d36076f80a22b9aab5bec.json": {
+      "sha256": "c630df1606f116fe1ae7c3e86d043fcabfa56ed36b50696161b9ae8a1ff97a09",
+      "size": 8563,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/PREFLIGHT.json": {
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "size": 41,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/REPORT_PLAN.json": {
+      "sha256": "05316cdc8b6a3fc44a21904d5cfed5a0115cc0f021cb56afe4d3ce7f71432bf4",
+      "size": 196,
+      "mode": 420
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json": {
+      "sha256": "9a46541282d815e225069da7d85628465045d3d46cfe8561806443515b583f53",
+      "size": 312,
+      "mode": 384
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json": {
+      "sha256": "d0acbe951ffb9d613ad721120d380faaf51ff045d7ca58e5bb021ad5efdb7a0b",
+      "size": 403,
+      "mode": 384
+    },
+    "runs/intent-00e8fba3c93e042a51d05b4fa4a870e4/logs/probe_progress/long_durable_progress.log": {
+      "sha256": "07e910e9092469ab61e17982c5d537ab9ea58dca5f2194cc993df2e424fb7153",
+      "size": 2310,
+      "mode": 384
+    },
+    "status/CONTROLLER_STATUS.json": {
+      "sha256": "e440968b170070539df8c56a2a7220450961f20263633cc3ba136ec65e0022da",
+      "size": 842,
+      "mode": 292
+    }
+  },
+  "scope": "sampled registered process identities; short-lived descendants can be missed"
+}

@@ -369,8 +369,8 @@
     "archive_size_bytes": 22692774,
     "qualification": "UNQUALIFIED",
     "tests_executed": 75,
-    "status": "UNQUALIFIED_BOUNDED_V62_PASS",
-    "reason": "Fresh corruption scenario, fixtures, full RC and independent-host recovery remain OPEN",
+    "status": "UNQUALIFIED_BOUNDED_V62_V63_PASS",
+    "reason": "Current-source fixtures, full RC, finding dispositions and independent-host recovery remain OPEN",
     "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
   },
   "latest_runtime_preparation": {
@@ -871,5 +871,64 @@
     "full_RC": "OPEN",
     "data_block_ready": false,
     "next": "Fresh dev144 corruption/controller-error lifecycle gate, then current-source fixtures/full RC/independent-host recovery."
+  },
+  "latest_live_fault_gate_v63": {
+    "gate": "V63",
+    "status": "PASS_BOUNDED_LIVE_CORRUPTION_CLEANUP_FORENSIC_RECOVERY",
+    "candidate": "0.8.0.dev144+lib",
+    "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+    "capture_id": "44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+    "baseline": {
+      "workspace": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+      "owner_pid": 2,
+      "healthy_metadata_checks": 13,
+      "span_seconds": 3.2500803640141385,
+      "after_completed_checkpoint": {
+        "sha256": "c1ab343cd0f6c6c451c075e780cae431f89c184322ba95a91954c245b98f2ace",
+        "finished_monotonic": 72209.012373184
+      },
+      "default_limits_and_reserve_verified": true,
+      "payload_reads_in_metadata_checks": 0,
+      "published_unix": 1790808159.3824804
+    },
+    "injection": {
+      "workspace": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+      "capture_id": "44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+      "job_id": "RC.CORRUPTION.V63.DEV144",
+      "target": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706/durability/outbox/objects/ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a.bin",
+      "role": "checkpoint_state",
+      "offset": 0,
+      "original_sha256": "ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a",
+      "damaged_sha256": "c7170fc5157abee5a667f2e1c564e33eba2dfad6f9a2753ad390599892e99e07",
+      "size_bytes": 31374,
+      "started_unix": 1790808209.6814551,
+      "attempt_status": "RUNNING",
+      "selector_finished": false,
+      "lock": "native outbox exclusive",
+      "restored": false,
+      "finished_unix": 1790808209.6815674
+    },
+    "controller_reason": "OUTBOX_OBJECT_MISMATCH:ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a",
+    "attempt": "PAUSED",
+    "accepted_completion": null,
+    "checkpoint_save_status": "CHECKPOINT_UNAVAILABLE_EXPECTED_CORRUPT_OUTBOX",
+    "native_save_closure": "NOT_CLAIMED",
+    "pending_roles": "UNRESOLVED_NATIVE_STATUS_REFUSES",
+    "lifecycle_pass": true,
+    "poll_interval_seconds": 0.25,
+    "late_runtime_changes": false,
+    "forensic_recovery": {
+      "exact_files_and_modes": 1617,
+      "remote_volumes_verified": 5,
+      "native_refusal": "OUTBOX_OBJECT_MISMATCH:ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a",
+      "workload_executions": 0,
+      "original_workspace_repaired": false
+    },
+    "new_completed_test_passes": 0,
+    "full_RC": "OPEN",
+    "data_block_ready": false,
+    "prior_V55_failure": "UNCHANGED",
+    "prior_V61_failure": "UNCHANGED",
+    "next": "Current-source fixture completion/rebinding and full RC matrix; remaining finding dispositions and independent-host recovery."
   }
 }

@@ -1,0 +1,23 @@
+{
+  "owner": {
+    "pid": 1194201,
+    "ppid": 1194190,
+    "start_ticks": 7219649,
+    "state": "R",
+    "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/a2e5e2576f17/v63_corruption/run_native.py "
+  },
+  "workspace": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+  "first_sample": {
+    "unix": 1790808144.1524174,
+    "monotonic": 72198.283167965,
+    "processes": [
+      {
+        "pid": 1194201,
+        "ppid": 1194190,
+        "start_ticks": 7219649,
+        "state": "S",
+        "cmdline": "/tmp/ig_runtime_v55_fresh_20260930/base/bin/python3.13 -B /workspace/scratch/a2e5e2576f17/v63_corruption/run_native.py "
+      }
+    ]
+  }
+}

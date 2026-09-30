@@ -1,0 +1,47 @@
+V63 DEV144 LIVE CORRUPTION RELIABILITY — BOUNDED PASS — 2026-10-01
+
+Fresh native RC.CORRUPTION.V63.DEV144. Source unchanged from V62.
+Ten capture prerequisites genuinely saved/read back before execution.
+Three operator mock cases verified bounded admission retries, stop on unexpected
+error, and one launch/registration. They are not decoder test results.
+
+Healthy baseline: 13 metadata checks over 3.250 seconds following a completed
+checkpoint; default budgets/reserve verified, zero observed payload reads in those
+metadata checks. This is Python-level instrumentation, not physical disk measurement.
+Original checkpoint-state object was genuinely saved/read back before injection.
+Two live checkpoints were acknowledged while the selector remained unfinished.
+One first-byte flip under the native outbox lock; length unchanged, no other target.
+Full native status refused the exact object. The controller later refused the same
+object at its payload-verifying safe-point boundary, paused, and retained no accepted
+completion. Secondary paused checkpoint also refused the corrupt object and recorded
+CHECKPOINT_UNAVAILABLE. We do not claim native save closure or zero pending roles.
+
+Lifecycle: no sampled descendants at controller return; no late runtime changes;
+quiescence and a further stable full-workspace observation verified. Polling interval
+0.25 seconds can miss short-lived descendants; this is not an absolute census.
+No external process killer or new supervisor was added.
+
+Forensic recovery: five separately saved and raw-readback-verified ZIP volumes
+reconstructed all 1617 files with exact bytes and ordinary permission bits. The
+isolated restored copy reproduced the same OUTBOX_OBJECT_MISMATCH, with ZERO
+workload executions. Original damaged object and workspace remain unchanged.
+This is forensic recovery of deliberately damaged evidence, not a successful native
+checkpoint export. V62 separately established healthy exact paused restoration.
+
+Source/runtime verified before and after. Existing reviewed runtime reused;
+independent-host qualification remains open. No science replay and no additional
+completed-test PASS credit. V55 and V61 remain their original failed cases.
+Dev144 remains UNQUALIFIED overall; all 23 RC acceptance rows OPEN.
+
+NEXT
+Current-source fixture completion/rebinding and full functional/workspace/
+representative/timing RC matrix; remaining finding dispositions, dependency lock,
+and independent-host recovery before source/runtime freeze and scientific inputs.
+Do not rerun V63 or repair its damaged original. Use new captures for later gates.
+
+Capture: 44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706
+Source: 2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e
+Expected refusal: OUTBOX_OBJECT_MISMATCH:ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a
+Forensic restored path: /tmp/ig_v63_forensic_restored_20261001
+Repository: /tmp/ig_decoder_dev144_20261001
+Evidence: /workspace/scratch/a2e5e2576f17/v63_corruption

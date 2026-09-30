@@ -1,0 +1,16 @@
+{
+  "workspace": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+  "capture_id": "44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706",
+  "job_id": "RC.CORRUPTION.V63.DEV144",
+  "target": "/tmp/ig_gate_v63_20261001/store/captures/44d6628adeee16d3eaf8b5d16ca22469d959e9ae27f019e1db5e08b5781ad706/durability/outbox/objects/ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a.bin",
+  "role": "checkpoint_state",
+  "offset": 0,
+  "original_sha256": "ce82999b546757240f4518418357c8ef8f7f14f4aa3b840e50f154066399ca7a",
+  "damaged_sha256": "c7170fc5157abee5a667f2e1c564e33eba2dfad6f9a2753ad390599892e99e07",
+  "size_bytes": 31374,
+  "started_unix": 1790808209.6814551,
+  "attempt_status": "RUNNING",
+  "selector_finished": false,
+  "lock": "native outbox exclusive",
+  "restored": false
+}

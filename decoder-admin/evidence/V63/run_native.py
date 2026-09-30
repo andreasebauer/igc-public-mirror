@@ -1,0 +1,51 @@
+"""Single native invocation; requires an already saved, bound V63 capture."""
+from pathlib import Path
+import hashlib,json,os,runpy,sys,time,traceback
+from controller_observer import ControllerObserver
+from lifecycle_monitor import process
+D=Path(__file__).resolve().parent
+
+def write(name,data):
+    with (D/name).open('x') as f:
+        json.dump(data,f,indent=2);f.write('\n');f.flush();os.fsync(f.fileno())
+
+def main():
+    if sys.flags.optimize or not sys.flags.dont_write_bytecode:raise RuntimeError('PYTHON_MODE')
+    c=json.loads((D/'CAPTURE_SAVE_STATUS.json').read_text());w=Path(c['workspace']).resolve(strict=True)
+    if not str(w).startswith('/tmp/ig_gate_v63_') or w.name!=c['capture_id'] or c['job_id']!='RC.CORRUPTION.V63.DEV144':raise RuntimeError('CAPTURE_IDENTITY')
+    R=Path('/tmp/ig_runtime_v55_fresh_20260930')
+    if Path(sys.executable).resolve()!=R/'base/bin/python3.13':raise RuntimeError('RUNTIME_IDENTITY')
+    sys.path.insert(0,str(w/'source'))
+    from infinity_grid import preservation as pr,submission as sub
+    from infinity_grid.v05_controller_event_loop import run_workspace_job,_source_ids
+    ids=('2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e','1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544')
+    if _source_ids(w/'source')!=ids:raise RuntimeError('SOURCE_IDENTITY')
+    if sub.save_status(w)['pending_objects'] or pr.status(w)['pending_objects'] or list((w/'runtime/attempts').rglob('*.json')):raise RuntimeError('FRESH_SAVED_CAPTURE_REQUIRED')
+    verify=runpy.run_path('/tmp/ig_decoder_dev144_20261001/decoder-admin/decoder.py')['verify_runtime']
+    write('PRE_RUNTIME.json',verify(R))
+    owner=process('self')
+    if owner is None:raise RuntimeError('PROC_OWNER_MISSING')
+    write('CONTROLLER_READY.json',{'owner':owner,'workspace':str(w),'capture_id':c['capture_id'],'unix':time.time()})
+    # Polling is pre-dispatch only. No engine deadline or child supervision added.
+    deadline=time.monotonic()+60
+    while not (D/'MONITOR_READY.json').exists():
+        if time.monotonic()>deadline:raise RuntimeError('MONITOR_HANDSHAKE_TIMEOUT_NO_DISPATCH')
+        time.sleep(.1)
+    ready=json.loads((D/'MONITOR_READY.json').read_text())
+    if ready['owner']!=owner or ready['workspace']!=str(w):raise RuntimeError('MONITOR_BINDING')
+    observer=ControllerObserver(pr,w,D/'BASELINE_READY.json')
+    write('RUN_STARTED.json',{'unix':time.time(),'owner':owner})
+    observer.start()
+    try:
+        write('RUN_RESULT.json',run_workspace_job(w,c['job_id']))
+    except BaseException as e:
+        write('RUN_EXCEPTION.json',{'reason':str(e),'traceback':traceback.format_exc()});raise
+    finally:
+        # Return marker precedes source/runtime checks and never implies child quiescence.
+        write('CONTROLLER_RETURNED.json',{'unix':time.time()})
+        observer.stop_and_save(D/'CONTROLLER_OBSERVATIONS.json')
+        write('POST_RUNTIME.json',verify(R))
+        if _source_ids(w/'source')!=ids:raise RuntimeError('POST_SOURCE_IDENTITY')
+        write('RUN_FINISHED.json',{'unix':time.time()})
+
+if __name__=='__main__':main()
