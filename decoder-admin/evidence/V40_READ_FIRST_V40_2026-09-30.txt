@@ -1,0 +1,40 @@
+V40 DEV140 BATCH ACKNOWLEDGMENT GATE — 2026-09-30
+14 PASS, 0 FAIL; all nodes passed setup, call and teardown, no skips.
+One native registered attempt: tests/test_preservation_batch.py.
+Frozen V27 ACK_AND_WAVE protocol group A; unchanged backlog policy.
+
+Synthetic native-API fixtures verified distinct-object deduplication and exact
+role closure, unchanged receipts on replay, seven invalid-request cases,
+interrupted publication retry retaining prior receipts, multipart semantics,
+corrupt multipart refusal, post-ack outbox corruption detection, readback limit
+refusal, and corrupted prepared-journal refusal. Fixture IDs/readbacks are
+TEST ONLY. Actual enclosing capture/checkpoint saves use genuine Drive returns.
+Full pinned runtime pre/post verification passed. Source raw file set, bytes
+and modes match saved archive: 1522 files, no symlinks or bytecode.
+
+Unchanged candidate 0.8.0.dev140+lib.
+Source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.PRESERVATION.BATCH.V40.DEV140
+Capture: a8de0a6ffb90b02f83a82796b246b118b401cbc5bf46dac7f18ce890eb208305
+Completion: b153b2d075e6d28ebabcdea3f0ec5ae175dcfa78ea274bd89a29fe6a7e151b33
+Export SHA256: 0867280d7f006ad5ae95941ab8f8c477fefce8606c091363898542de8e4fb889
+Export Drive ID: 1AS6VlNYMPRKlt9BDbvmzYwDyB-SsGJn-
+
+Nine capture saves and 42 checkpoint roles acknowledged; zero pending.
+Sixteen physical objects catalogued. Fresh Drive-returned terminal export
+restored exact completion with terminal proof and zero dispatched tests.
+Native reports retain timing. Saves completed after execution: this is NOT
+proof of long-selector live transport or at least two ordinary live intervals.
+
+V33-V39 90 + V40 14 = 104 focused passes on dev140.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: V27 group B results-preservation and transport, separately bounded;
+then group C save-wave fixtures and outstanding native integrations, especially
+failed/skipped-wave refusal and single long-selector live saves. Audit existing
+V31/V33 genuine wave evidence for reuse without workload reruns. Long-selector
+requires preregistered instrumentation, an active save loop, at least two ordinary
+checkpoint intervals, reserve/latency measurements and corruption refusal.
+Do not raise limits or stretch cadence. Then current-candidate fixtures, full
+qualification and RC reconciliation remain before canonical L0-G8 replay.
