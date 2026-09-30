@@ -1,0 +1,49 @@
+async ()=>{
+const D="/workspace/scratch/6d6f5c6d37c8/v54_integration";
+const events=[];let catalog=load("v54catalog");if(!Array.isArray(catalog))throw Error("SAVED_CAPTURE_CATALOG_REQUIRED");
+const write=async(name,obj)=>{const r=await tools.exec_command({cmd:"cat > "+D+"/"+name+" <<'V54_JSON_DATA'\n"+JSON.stringify(obj,null,2)+"\nV54_JSON_DATA",max_output_tokens:200});if(r.exit_code!==0)throw Error("WRITE_FAILED");};
+const admin=async(mode,tag)=>{
+ for(let n=0;n<20;n++){const r=await tools.exec_command({cmd:"PYTHONOPTIMIZE=0 /tmp/ig_runtime_v54_fresh_20260930/python-fixed-host -B "+D+"/admin.py "+mode+" "+tag,yield_time_ms:10000,max_output_tokens:14000});
+ if(r.exit_code===75){events.push({kind:"LOCK_RETRY",mode,tag,time:Date.now()/1000});await new Promise(r=>setTimeout(r,500));continue;}
+ if(r.exit_code!==0)throw Error("ADMIN_FAILED:"+r.output);
+ return JSON.parse(r.output);
+ }throw Error("ADMIN_LOCK_NOT_AVAILABLE");
+};
+const savePhysical=async (items)=>{const out=load("v54readbacks")||[],rows=[];for(const x of items){let prior=out.find(y=>y.sha256===x.sha256);if(prior){rows.push({...x,drive_id:prior.drive_id,readback:prior.readback});continue;}const up=await tools.mcp__codex_apps__google_drive_upload_file({file_uri:x.local_object_path,file_name:x.sha256+".bin",parent_folder_id:"1ZKFVoDFWYjcd9kHsLMQsGeUpChtzNMuP"});const u=up.structuredContent;const f=await tools.mcp__codex_apps__google_drive_fetch({url:u.url,download_raw_file:true,include_base64:false});const dl=await tools.download_file({file_id:f.structuredContent.file_uri.file_id.replace("sediment://","")});const q=v=>"'"+v.replaceAll("'","'\\''")+"'";const v=await tools.exec_command({cmd:"python3 - "+q(dl.path)+" "+q(x.sha256)+" "+x.size_bytes+" <<'PY'\nimport sys,hashlib\nfrom pathlib import Path\nb=Path(sys.argv[1]).read_bytes();assert hashlib.sha256(b).hexdigest()==sys.argv[2] and len(b)==int(sys.argv[3])\nPY",max_output_tokens:300});if(v.exit_code!==0)throw Error("READBACK_MISMATCH");const row={...x,drive_id:u.id,readback:dl.path};out.push(row);rows.push(row);store("v54readbacks",out);notify({saved:x.sha256,bytes:x.size_bytes});}return rows;};
+await admin("capture","PREFLIGHT");
+events.push({kind:"PREFLIGHT_READY",time:Date.now()/1000});await write("OPERATOR_EVENTS.json",events);
+const launch=await tools.exec_command({cmd:"PYTHONOPTIMIZE=0 /tmp/ig_runtime_v54_fresh_20260930/python-fixed-host -B "+D+"/run_native.py",yield_time_ms:1000,max_output_tokens:500});
+if(!launch.session_id)throw Error("EARLY_NATIVE_EXIT:"+launch.output);
+store("v54session",launch.session_id);
+let ready=false;
+for(let n=0;n<100;n++){const r=await tools.exec_command({cmd:"test -f "+D+"/CONTROLLER_READY.json",max_output_tokens:100});if(r.exit_code===0){ready=true;break;}await new Promise(r=>setTimeout(r,100));}
+if(!ready)throw Error("CONTROLLER_READY_MISSING");
+const monitor=await tools.exec_command({cmd:"python3 -B "+D+"/observe_lifecycle.py",yield_time_ms:1000,max_output_tokens:500});
+if(!monitor.session_id)throw Error("MONITOR_EARLY_EXIT:"+monitor.output);
+store("v54monitor_session",monitor.session_id);
+
+for(let n=1;n<=90;n++){
+ const tag="POLL_"+String(n).padStart(3,"0");const s=await admin("status",tag);events.push({kind:"STATUS",...s.metrics});
+ if(s.objects.length){
+  for(const x of s.objects){
+   if(catalog.some(y=>y.sha256===x.sha256))continue;
+   const started=Date.now()/1000;const saved=await savePhysical([x]);catalog.push(saved[0]);
+   events.push({kind:"REMOTE_SAVE_READBACK",sha256:x.sha256,bytes:x.size_bytes,started,finished:Date.now()/1000});await write("CATALOG.json",catalog);await write("OPERATOR_EVENTS.json",events);
+  }
+  const a=await admin("ack",tag);events.push({kind:"ACK",...a.metrics});notify({tag,closed:a.metrics.closed_checkpoints.map(x=>x.reason),active:a.metrics.attempt_statuses,selector_finished:a.metrics.selector_finished});
+ }
+ await write("OPERATOR_EVENTS.json",events);
+ const candidate=await tools.exec_command({cmd:"PYTHONOPTIMIZE=0 /tmp/ig_runtime_v54_fresh_20260930/python-fixed-host -B "+D+"/prepare_target.py",max_output_tokens:1000});
+ if(candidate.exit_code===0){
+  const registration=await tools.mcp__codex_apps__google_drive_upload_file({file_uri:D+"/INJECTION_CONFIG.json",parent_folder_id:"1ZKFVoDFWYjcd9kHsLMQsGeUpChtzNMuP"});
+  if(!registration.structuredContent.success)throw Error("TARGET_REGISTRATION_SAVE_FAILED");
+  await write("TARGET_REGISTRATION_SAVE.json",registration.structuredContent);
+  const fault=await tools.exec_command({cmd:"PYTHONOPTIMIZE=0 /tmp/ig_runtime_v54_fresh_20260930/python-fixed-host -B "+D+"/inject_once.py "+D+"/INJECTION_CONFIG.json",yield_time_ms:1000,max_output_tokens:1500});
+  store("v54fault_result",fault);text({fault,phase:"NO_FURTHER_ACKS_OBSERVE_AND_PRESERVE"});return;
+ }
+ if(candidate.exit_code!==76)throw Error("FAULT_ADMISSION_REFUSED:"+candidate.output);
+ const check=await tools.exec_command({cmd:"test -f "+D+"/RUN_FINISHED.json",max_output_tokens:100});
+ if(check.exit_code===0){const end=await admin("status","END");if(!end.objects.length){store("v54catalog",catalog);store("v54events",events);text("LIVE_OPERATOR_DRAIN_COMPLETE");return;}}
+ await new Promise(r=>setTimeout(r,5000));
+}throw Error("OPERATOR_ADMINISTRATIVE_LOOP_BOUND_REACHED");
+}

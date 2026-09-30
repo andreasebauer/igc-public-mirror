@@ -1,0 +1,24 @@
+V54 FRESH CAPTURE SAVED — NO WORKLOAD DISPATCH YET
+Capture ca99b2933311f4b53b9b5ba137637f16646dcd1d0a7d9ac4527407e64da61de6
+Job RC.CORRUPTION.V54.DEV142
+Workspace /tmp/ig_gate_v54_20260930/store/captures/ca99b2933311f4b53b9b5ba137637f16646dcd1d0a7d9ac4527407e64da61de6
+Runtime /tmp/ig_runtime_v54_fresh_20260930
+Working scripts /workspace/scratch/6d6f5c6d37c8/v54_integration
+
+Source 1523 files byte exact; dev142 IDs unchanged. Fresh runtime 4721 files plus
+7 host files matched bytes/modes; qualification not granted by restoration.
+Ten capture roles genuinely saved/read back (three exact existing objects reused),
+then acknowledged natively. Zero pending roles; zero attempts. CATALOG.json contains
+Drive IDs and verified local readbacks. Capture record and project binding saved.
+Eleven operator/script/protocol hashes are bound as capture input. Python AST and
+operator JavaScript parse checks pass. No injected corruption or native PASS claimed.
+
+Next: load CATALOG.json as v54catalog and v54readbacks, invoke exact OPERATOR.js.txt
+via code-mode tools, retain active observation. It starts driver and monitor, saves
+checkpoint objects, registers exact target before injection, then stops acknowledgments.
+If injector returns a running session, wait for it; do not reinvoke. Continue observing
+controller and monitor sessions, retain all failures. No automatic workload retry.
+On admission failure before mutation record NOT_EARNED; do not loosen guards.
+After quiescence build explicit forensic snapshot, remote-verify it, reconstruct and
+reproduce native corruption refusal without dispatch. No repair of damaged workspace.
+All 23 RC rows remain OPEN; no science replay.
