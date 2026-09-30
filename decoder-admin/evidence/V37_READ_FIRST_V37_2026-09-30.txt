@@ -1,0 +1,34 @@
+V37 DEV140 C6 PERSISTENT-RECOVERY GATE — 2026-09-30
+25 PASS, 0 FAIL; all nodes passed setup, call and teardown, no skips.
+One native registered attempt: tests/test_v05_c6_persistent_recovery.py.
+
+Zero-payload recovery, source/origin restrictions and lease binding checks passed.
+Controlled source-install staging, verified rollback for EXDEV/EACCES/EPERM,
+unexpected EIO propagation, and atomic read-only pointer replacement passed.
+Several tests inspect source or use monkeypatched fixtures. This gate is not a
+full end-to-end crash/restart qualification. V36 separately covered a real
+zero-payload supervisor/child roundtrip. No scientific workload was dispatched.
+Full pinned runtime pre/post verification passed. Captured source raw file set,
+bytes and modes match saved archive: 1522 files, no symlinks or bytecode.
+
+Unchanged candidate 0.8.0.dev140+lib.
+Source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.C6.PERSISTENT.V37.DEV140
+Capture: 8b35056de5bd7b59622f6747a95656b25e8e43c48b00c607882a84586a67f814
+Completion: f12a278d9f2a19f8c245c53f42ec8e373047143d17f8ccb9abfc825e773e2fd3
+Export SHA256: 72c19430747392c50c8d27e2c6871ebc3fefec6509cc9ccb174eff0855636e22
+Export Drive ID: 1hXMAqn22tMed9TCmYlLCQXrBCVouf7xn
+
+Nine capture saves and 28 checkpoint roles acknowledged; zero pending.
+Fourteen physical objects catalogued. Fresh Drive-returned terminal export
+restored exact completion with terminal proof and zero dispatched tests.
+Native reports retain timing; no performance conclusion claimed.
+
+V33 5 + V34 11 + V35 5 + V36 12 + V37 25 = 58 focused passes on dev140.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: V26 group 5 tests/test_v05_s8_optimization_acceptance.py, including real
+S7 probe. Then validation boundaries; batch negative/retry/long-selector
+preservation, current-candidate fixtures and full qualification remain.
+Do not rerun completed groups or infer full qualification from focused passes.
