@@ -1,0 +1,47 @@
+V60 / V60B DEV143 REGRESSION AND EXACT RECOVERY — 2026-10-01
+
+RESULT: BOUNDED PASS. Decoder remains UNQUALIFIED for full RC/data blocks.
+49 standalone focused checks PASS in 2.52 seconds, including the five cleanup
+checks and worker-log publication, phase binding, recorder finalization and
+save-wave checks. Corrected launcher inserts sys.path and sets child PYTHONPATH
+inside the verified interpreter after its wrapper clears inherited PYTHONPATH.
+V59's original launcher failure is retained; no candidate source was edited.
+
+V60 native admission was refused before capture/dispatch: the operator omitted
+the required preservation field. V60B is a separately named corrected capture
+with preservation:{} (unchanged default policy). Rejected files/store retained.
+No engine change or workload retry was involved.
+
+NATIVE V60B: 5 PASS, 0 FAIL; one worker; 5.359950730999117 seconds.
+Job RC.CLEANUP.V60B.DEV143
+Capture a2e407ee00a0dcfe7ab75afcd345851572d399c59a995b55d77e42adc076eb6b
+Source 2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2
+Completion b72c340664204f15497aad319c7bb169e2c8836965ab6a0f9adccc32a6664502
+Export 5229c0c8eeee4f1c48611fb39e34d920d6a3d750e73f0c348c0eca600282f747
+Export Drive ID 1UFO7g7w26Sqbs2VTcdtaJPiOqH0YfgkT
+
+All ten capture prerequisites saved/downloaded and byte-verified before dispatch.
+Thirty checkpoint obligations acknowledged using fifteen unique verified saved
+objects; zero pending objects, bytes, or checkpoints. Terminal proof verified.
+Downloaded native export restored into /tmp/ig_gate_v60b_restored_20261001.
+Exact completion equality and terminal proof verified; ZERO tests dispatched
+during restoration. Native run source identity remained exact; reviewed runtime
+4721 files and seven host files verified before/after. Runtime was the existing
+verified V55 runtime, not a fresh independent host. Capture/store were fresh.
+
+SCOPE LIMITS
+The five helper regression selectors ran through the real native controller.
+They do not themselves reproduce the V55 controller-error/live-descendant case.
+No claim of independent post-return process census, fresh live-fault qualification,
+complete missing-only resume qualification, or science replay is made here.
+The 49 standalone cases include the same five selectors: do not call this 54
+distinct tests. All 23 RC rows remain OPEN. V55 remains FAILED_LIFECYCLE_CLEANUP.
+
+NEXT LARGER GATE
+Prepare and preregister a fresh dev143 live-cleanup scenario using the retained
+V55 evidence to define the failure condition. Preserve exact protocol/operator
+hashes, capture prerequisites, unchanged native policy, and pre-event liveness.
+Require cleanup acknowledgment, observed descendant quiescence, no late evidence
+writes, correct controller refusal/pause, saved byte-exact evidence and recovery.
+Do not alter or rerun V55. Stop on an unexplained mismatch. Full current-source
+fixtures, full RC and independent-host recovery remain required before data blocks.

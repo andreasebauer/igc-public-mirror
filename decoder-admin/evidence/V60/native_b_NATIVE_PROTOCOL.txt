@@ -1,0 +1,15 @@
+V60 dev143 bounded native regression gate, 2026-10-01.
+Fresh capture RC.CLEANUP.V60B.DEV143. Five exact cancellation selectors, one
+worker, no automatic deadline, unchanged default preservation policy.
+Save/read back/hash-verify every capture prerequisite before dispatch.
+Run once through run_workspace_job; no direct private scheduler invocation.
+No engine monkeypatches, source edits, workload retries or science replay.
+Require five PASS, exact source/runtime before and after, real saved checkpoint
+roles, terminal completion proof, and exact restored completion without dispatch.
+Stop on any unexpected failure. Historical V55 and V59 remain unchanged.
+This verifies the five regression selectors through the native controller;
+it is NOT a repeat or acceptance of V55's live corruption/lifecycle scenario.
+Full RC and all 23 acceptance rows stay OPEN.
+
+V60B corrects missing preservation:{} in the rejected pre-admission V60
+contract. V60 dispatched zero tests; all original files/store remain intact.

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/tmp/ig_runtime_v55_fresh_20260930/python-fixed-host",
+    "-B",
+    "-c",
+    "import sys,os;sys.path.insert(0,'/tmp/ig_decoder_dev138_20260930/decoder');os.environ['PYTHONPATH']='/tmp/ig_decoder_dev138_20260930/decoder';import pytest;raise SystemExit(pytest.main(sys.argv[1:]))",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=/workspace/scratch/6d6f5c6d37c8/v60_regression/pytest_tmp",
+    "--junitxml=/workspace/scratch/6d6f5c6d37c8/v60_regression/RESULTS.xml",
+    "tests/test_validation_cancellation.py",
+    "tests/test_validation_worker_log_publication.py",
+    "tests/test_validation_phase_binding.py",
+    "tests/test_validation_recorder_finalization.py",
+    "tests/test_validation_save_waves.py"
+  ],
+  "cwd": "/tmp/ig_decoder_dev138_20260930/decoder"
+}

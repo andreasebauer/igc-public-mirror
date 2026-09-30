@@ -1,0 +1,231 @@
+{
+  "schema_id": "IG_DECODER_CAPTURE_SPEC_V1",
+  "job_id": "RC.CLEANUP.V60.DEV143",
+  "engine_source": "/tmp/ig_decoder_dev138_20260930/decoder",
+  "project_source": null,
+  "question": {
+    "stage_id": "RC:DEV143:CLEANUP",
+    "description": "V60 native cleanup regression gate",
+    "outcomes": [
+      "PASS",
+      "FAIL"
+    ],
+    "stopping_rule": "V60 dev143 bounded native regression gate, 2026-10-01.\nFresh capture RC.CLEANUP.V60.DEV143. Five exact cancellation selectors, one\nworker, no automatic deadline, unchanged default preservation policy.\nSave/read back/hash-verify every capture prerequisite before dispatch.\nRun once through run_workspace_job; no direct private scheduler invocation.\nNo engine monkeypatches, source edits, workload retries or science replay.\nRequire five PASS, exact source/runtime before and after, real saved checkpoint\nroles, terminal completion proof, and exact restored completion without dispatch.\nStop on any unexpected failure. Historical V55 and V59 remain unchanged.\nThis verifies the five regression selectors through the native controller;\nit is NOT a repeat or acceptance of V55's live corruption/lifecycle scenario.\nFull RC and all 23 acceptance rows stay OPEN.\n"
+  },
+  "execution": {
+    "kind": "VALIDATION",
+    "nodes": [
+      "tests/test_validation_cancellation.py::test_cancel_before_worker_ready",
+      "tests/test_validation_cancellation.py::test_cancel_active_selector_and_child",
+      "tests/test_validation_cancellation.py::test_cleanup_already_exited_worker",
+      "tests/test_validation_cancellation.py::test_missing_cleanup_ack_refused",
+      "tests/test_validation_cancellation.py::test_malformed_cleanup_ack_refused"
+    ]
+  },
+  "resources": {
+    "workers": 1,
+    "start_method": "fork",
+    "memory_budget_bytes": 1073741824,
+    "workspace_budget_bytes": 2147483648,
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1"
+  },
+  "inputs": [],
+  "environment": {
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "attrs",
+        "version": "26.1.0",
+        "imports": [
+          "attrs"
+        ]
+      },
+      {
+        "distribution": "cffi",
+        "version": "2.0.0",
+        "imports": [
+          "cffi"
+        ]
+      },
+      {
+        "distribution": "cryptography",
+        "version": "46.0.4",
+        "imports": [
+          "cryptography"
+        ]
+      },
+      {
+        "distribution": "igraph",
+        "version": "1.0.0",
+        "imports": [
+          "igraph"
+        ]
+      },
+      {
+        "distribution": "iniconfig",
+        "version": "2.3.0",
+        "imports": [
+          "iniconfig"
+        ]
+      },
+      {
+        "distribution": "jsonschema",
+        "version": "4.26.0",
+        "imports": [
+          "jsonschema"
+        ]
+      },
+      {
+        "distribution": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "imports": [
+          "jsonschema_specifications"
+        ]
+      },
+      {
+        "distribution": "mpmath",
+        "version": "1.3.0",
+        "imports": [
+          "mpmath"
+        ]
+      },
+      {
+        "distribution": "networkx",
+        "version": "3.6.1",
+        "imports": [
+          "networkx"
+        ]
+      },
+      {
+        "distribution": "packaging",
+        "version": "25.0",
+        "imports": [
+          "packaging"
+        ]
+      },
+      {
+        "distribution": "pluggy",
+        "version": "1.6.0",
+        "imports": [
+          "pluggy"
+        ]
+      },
+      {
+        "distribution": "pycparser",
+        "version": "3.0",
+        "imports": [
+          "pycparser"
+        ]
+      },
+      {
+        "distribution": "Pygments",
+        "version": "2.20.0",
+        "imports": [
+          "pygments"
+        ]
+      },
+      {
+        "distribution": "pytest",
+        "version": "9.0.2",
+        "imports": [
+          "pytest"
+        ]
+      },
+      {
+        "distribution": "referencing",
+        "version": "0.37.0",
+        "imports": [
+          "referencing"
+        ]
+      },
+      {
+        "distribution": "rpds-py",
+        "version": "2026.5.1",
+        "imports": [
+          "rpds"
+        ]
+      },
+      {
+        "distribution": "sympy",
+        "version": "1.14.0",
+        "imports": [
+          "sympy"
+        ]
+      },
+      {
+        "distribution": "texttable",
+        "version": "1.7.0",
+        "imports": [
+          "texttable"
+        ]
+      },
+      {
+        "distribution": "typing_extensions",
+        "version": "4.16.0",
+        "imports": [
+          "typing_extensions"
+        ]
+      },
+      {
+        "distribution": "setuptools",
+        "version": "84.0.0",
+        "imports": [
+          "setuptools"
+        ]
+      },
+      {
+        "distribution": "wheel",
+        "version": "0.48.0",
+        "imports": [
+          "wheel"
+        ]
+      },
+      {
+        "distribution": "pip",
+        "version": "26.2.1",
+        "imports": [
+          "pip"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "logical_name": "sqlite_runtime_binding",
+        "path": "/workspace/scratch/6d6f5c6d37c8/v60_regression/SQLITE_BINDING.json",
+        "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5"
+      },
+      {
+        "logical_name": "host_runtime_manifest",
+        "path": "/tmp/ig_decoder_dev138_20260930/decoder-admin/RUNTIME_MANIFEST.json",
+        "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58"
+      },
+      {
+        "logical_name": "runtime_mode_policy",
+        "path": "/tmp/ig_decoder_dev138_20260930/decoder-admin/RUNTIME_POLICY.json",
+        "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68"
+      },
+      {
+        "logical_name": "gate_protocol",
+        "path": "/workspace/scratch/6d6f5c6d37c8/v60_regression/NATIVE_PROTOCOL.txt",
+        "sha256": "0891b72a2a6b3ee4728c9e93718b7861b9e15a376b796d6c1bd019b1387750b4"
+      },
+      {
+        "logical_name": "operator_script",
+        "path": "/workspace/scratch/6d6f5c6d37c8/v60_regression/native_ops.py",
+        "sha256": "0a52efaf9f8819c14e354300bec3e3d8bfba69e559bab3868705b109a274ae0f"
+      }
+    ]
+  },
+  "output_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "VALIDATION",
+    "required_artifacts": [],
+    "result_checks": [
+      {
+        "pointer": "/status",
+        "equals": "PASS"
+      }
+    ],
+    "prerequisites": []
+  }
+}

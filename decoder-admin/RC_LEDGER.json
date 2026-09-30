@@ -368,9 +368,11 @@
     "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
     "archive_size_bytes": 22690256,
     "qualification": "UNQUALIFIED",
-    "tests_executed": 0,
+    "tests_executed": 5,
     "status": "UNQUALIFIED",
-    "reason": "Native cancellation integration requires new-source testing"
+    "reason": "V60B five native regression passes and exact completion restore; fresh live cleanup gate and full RC pending",
+    "standalone_focused_passes": 49,
+    "native_completions": 1
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -564,9 +566,10 @@
     "gate": "V59",
     "version": "0.8.0.dev143+lib",
     "scope": "validation cancellation/cleanup",
-    "native_tests_executed": 0,
+    "native_tests_executed": 5,
     "full_RC": "OPEN",
-    "standalone_check_attempt": "STOPPED_BEFORE_TEST: launcher import path missing; 0 cleanup assertions executed"
+    "standalone_check_attempt": "STOPPED_BEFORE_TEST: launcher import path missing; 0 cleanup assertions executed",
+    "latest_followup": "V60B bounded native PASS; V55 scenario not requalified"
   },
   "latest_targeted_gate": {
     "candidate": "0.8.0.dev140+lib",
@@ -805,6 +808,17 @@
     "forensic_remote_restore_exact": true,
     "restored_files": 1624,
     "native_save_closure": "NOT_CLAIMED_CORRUPT_OUTBOX",
+    "full_RC": "OPEN"
+  },
+  "latest_cleanup_regression": {
+    "gate": "V60B",
+    "capture_id": "a2e407ee00a0dcfe7ab75afcd345851572d399c59a995b55d77e42adc076eb6b",
+    "completion_sha256": "b72c340664204f15497aad319c7bb169e2c8836965ab6a0f9adccc32a6664502",
+    "native_passes": 5,
+    "standalone_passes": 49,
+    "distinct_test_warning": "Five native selectors are included in the 49 standalone cases",
+    "restore_dispatches": 0,
+    "exact_completion_restore": true,
     "full_RC": "OPEN"
   }
 }

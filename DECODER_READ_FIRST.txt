@@ -1,6 +1,6 @@
-DEV143 V59 CLEANUP REPAIR — UNQUALIFIED — 2026-10-01
-Native registered tests and fresh reliability gate pending.
-No inherited dev142 qualification. V55 remains failed lifecycle cleanup.
-All 23 RC rows OPEN. No science replay.
+DEV143 V60B BOUNDED REGRESSION PASS — UNQUALIFIED — 2026-10-01
+49 standalone checks; five native selectors; exact completion restored with zero dispatch.
+Fresh live cleanup scenario, current-source full RC and independent-host recovery pending.
+V55 remains failed lifecycle cleanup. All 23 RC rows OPEN. No science replay.
+Read decoder-admin/evidence/V60_REPORT.txt.
 Verify source: python3 -B decoder-admin/decoder.py verify-source
-Read decoder-admin/evidence/V59_REPORT.txt.
