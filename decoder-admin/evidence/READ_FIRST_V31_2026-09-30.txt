@@ -1,0 +1,63 @@
+V31 REGISTERED INCIDENT COMPARISON COMPLETE — 2026-09-30
+
+3 diagnostic selectors PASS / 0 FAIL. One registered job completed across
+three missing-only waves; CONTROL was not rerun during either continuation.
+Capture ac267559b8c769756f2860c969ed58cecebe4efef55bbaa942387b9c35facc9c
+Job RC.A12.FORENSIC.V30.DEV139
+Completion 5ee15d13dd32210dc8c6d9e59ff937502614297e02ce99d12660671656b46a51
+Source db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d
+Package 45a66ae3bf4ba23dff7d9c3a22a458535103d95a4929566190fd19c436a569be
+
+OBSERVED ROW COUNTS (five independent disposable copies each)
+Combination                  CONTROL  HELD_WRITE  PROJECT
+Main immutable                  96       96         2
+Main native backup              96       96         2
+Main + WAL native backup        64       96         2
+Main + WAL + SHM native          64       96         2
+Main + WAL + SHM direct          64       96         2
+All quick_check results ok; IDs unique/in preregistered allowed sets.
+Native backup and direct reading agree for each full retained combination.
+Original archive was never opened as SQLite. No source assertion was changed.
+
+INTERPRETATION
+CONTROL's retained main-only bytes expose 96 rows; adding its retained WAL
+exposes 64. Including retained SHM does not change that result. HELD_WRITE and
+PROJECT do not exhibit this count discrepancy. Diagnostic PASS means the frozen
+comparison checks completed; it does NOT mean successful 96-task CONTROL recovery
+from the retained full pair. No original-writer attribution, WAL checksum validity,
+upstream defect, causal data-loss or historical P9 root-cause claim is earned.
+
+PRESERVATION AND RESTORE
+All capture obligations saved before execution. Native save boundaries after
+CONTROL and HELD_WRITE acknowledged from genuine Drive readbacks before resume.
+Each wave generated 28 logical checkpoint obligations; all 84 are acknowledged.
+Full native status has zero pending roles. This is a bounded positive batch and
+missing-only continuation observation, not all negative cases or long-gate proof.
+All prior evidence hashes remained unchanged on both continuations. Full V4
+runtime file/mode/host checks and captured source identities match before/after.
+Three selectors executed once each. Native completion VERIFIED with terminal
+checkpoint proof. Fresh Drive-returned SLIM checkpoint plus verified saved objects
+restored the exact same completion and terminal proof with zero tests dispatched.
+SLIM export SHA 236a9f10d4a39d169dbf9ed0bb75e307b7b1b86f1ab9301f6be9cad0266b0db4.
+OBJECT_CATALOG.json lists 24 distinct retained objects across the three waves;
+not every historical object is required for the final SLIM restart closure.
+The export dependency list is authoritative for restoration. Source/runtime
+archives remain external, hash-bound objects; this compact bundle is not standalone.
+
+NEXT
+Use these preserved observations to revise the incident-only diagnostic expectation
+in a successor candidate, retaining claimed 96 versus observed 64 explicitly.
+Keep clean synthetic/live-WAL 96-row positive requirements and historical failures.
+Then finish the justified successor core-pin amendment against the recovered exact
+baselines, freeze the candidate, and run the V26/V27 targeted native gates.
+Full functional/workspace/representative/timing and all 23 RC items remain OPEN.
+V24 is untouched: 408 obligations remain OPEN; no V24 resume or acknowledgment.
+
+RECOVERY
+Restore V31_TERMINAL_CHECKPOINT.zip using native preservation.restore_checkpoint
+with its SHA and the cataloged objects named <sha256>.bin. Use fresh pinned V4
+from decoder-admin's runtime catalog/manifest/policy. Verify existing completion
+with validate_workspace_job(check_loaded=False), verified_completion with
+allow_pending_checkpoint=True, and terminal_completion_proof. Do not rerun any
+one-shot launcher in this bundle. Scripts contain historical local paths: relocate
+only administrative input paths after hash verification, never source identities.
