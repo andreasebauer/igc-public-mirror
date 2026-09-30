@@ -1,0 +1,18 @@
+{
+  "restore": {
+    "status": "RESTORED_NOT_RUNNING",
+    "workspace": "/tmp/ig_forensic_v30_restored_20260930",
+    "source_sha256": "db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d",
+    "checkpoint_sha256": "2666c2e7b1317052580019c1a7d55c3f0023d47bbfe94a227747f5c2f0e85b16"
+  },
+  "attempts": [
+    {
+      "path": "runtime/attempts/job-f9a4e9bd16a89564ead08fac851b99d8/000001.json",
+      "exact": true,
+      "status": "PAUSED"
+    }
+  ],
+  "runtime_run_files_exact": true,
+  "tests_dispatched": 0,
+  "completion_claimed": false
+}

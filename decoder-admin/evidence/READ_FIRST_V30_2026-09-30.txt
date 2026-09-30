@@ -1,0 +1,49 @@
+V30 CONTROL FORENSIC WAVE — SAVED PAUSED — 2026-09-30
+
+One registered diagnostic selector PASS (setup/call/teardown finalized).
+Two selectors remain unexecuted: HELD_WRITE and PROJECT. No whole-job completion.
+Native attempt PAUSED with intentional VALIDATION_SAVE_BOUNDARY:2.
+Capture ac267559b8c769756f2860c969ed58cecebe4efef55bbaa942387b9c35facc9c
+Job RC.A12.FORENSIC.V30.DEV139. Exact dev139 source, corrected V29 metadata.
+
+OBSERVED CONTROL ROW COUNTS
+MAIN_IMMUTABLE 96
+MAIN_NATIVE 96
+MAIN_WAL_NATIVE 64
+EXACT_PAIR_NATIVE (main/WAL/SHM) 64
+EXACT_PAIR_DIRECT (main/WAL/SHM) 64
+All IDs unique/in allowed set; all SQLite quick_check results ok.
+Original archive was not opened as SQLite; separate disposable copies used.
+Raw before/after inventories and exact IDs retained in CONTROL_OBSERVATION.json.
+The retained WAL-containing combination exposes fewer rows than the main-only
+copy. This narrows the discrepancy; it does not prove original writer causation,
+WAL validity, upstream defect or historical scientific data loss. Physical frame
+headers are diagnostic only; WAL checksums were not validated.
+The diagnostic PASS does not mean healthy 96-task recovery from the full pair.
+
+PRESERVATION / INTEGRITY
+Nine pre-execution capture obligations saved, fresh Drive readbacks verified,
+and native role receipts acknowledged before dispatch. Fresh V4 runtime: all
+4,721 files/modes and seven host identities verified before and after execution.
+Captured source/package IDs equal before/after; no bytecode additions observed.
+The administrative verifier emits runtime_executed=false because it does not
+execute the runtime itself; the native diagnostic DID execute in this step.
+V27 batch acknowledgment processed 28 checkpoint roles over 14 distinct physical
+objects with genuine supplied readbacks. Full native status: zero pending roles.
+This is one positive batch/save-boundary observation, not full V27 qualification.
+SLIM export SHA c5b7bf36e3d2b56dd87516cc76bc2686d67a86418fc8d4ba42c98fcd7df60467.
+Fresh Drive-returned export and object bytes restored PAUSED attempt and all run
+evidence exactly; zero tests dispatched on restoration. No completion invented.
+V24 remains unchanged with 408 open obligations. All 23 RC items remain OPEN.
+
+RESUME
+Use original saved live capture, or restore the SLIM checkpoint with the 14
+Drive objects in OBJECT_CATALOG.json named <sha256>.bin. Verify source/runtime
+again. Resume only missing HELD_WRITE then PROJECT under the V28 protocol, saving
+and acknowledging each intentional wave boundary. Do not rerun CONTROL or the
+one-shot prepare_capture.py/run_first_wave.py. A new bounded continuation launcher
+must verify existing PASS/finalization and zero pending saves before dispatch.
+Stop at first failure/refusal. No pin or incident assertion changed in V30.
+Runtime reconstruction remains decoder-admin catalog/manifest/policy; local
+runtime is /tmp/ig_runtime_v29_fresh_20260930. Restore verifier script in bundle
+contains this step's local paths; substitute verified new paths after relocation.
