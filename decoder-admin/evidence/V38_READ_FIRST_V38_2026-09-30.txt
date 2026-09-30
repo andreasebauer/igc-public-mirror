@@ -1,0 +1,35 @@
+V38 DEV140 S8 ACCEPTANCE GATE — 2026-09-30
+6 PASS, 0 FAIL; all nodes passed setup, call and teardown, no skips.
+One native registered attempt: tests/test_v05_s8_optimization_acceptance.py.
+
+Real S7-fixture probe executed once, returned semantic data and a nonnegative
+elapsed time, with unchanged source file set and no bytecode caches. Five other
+checks cover gate wiring, fixture identity, equal-source non-applicability,
+synthetic deterministic pass logic and synthetic benchmark-regression refusal.
+This proves no actual speedup, paired performance qualification, or scientific
+S8 result. The real-probe assertion is limited to execution, output shape and
+source-file preservation; it does not assert a historical semantic digest.
+Full pinned runtime pre/post verification passed. Captured source raw file set,
+bytes and modes match saved archive: 1522 files, no symlinks or bytecode.
+
+Unchanged candidate 0.8.0.dev140+lib.
+Source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.S8.ACCEPTANCE.V38.DEV140
+Capture: aa8d783fb70caa87180113d6829e47f2652002a0812668842ed5abbcfcdc1c3f
+Completion: 9425f8498de267b31ce0f75eb804db8a4d08996940fc170d65ea291d92d3e8ad
+Export SHA256: e688ce971a03f3cc98d004321647b18b3d3584445f6caad7642a4e1929f58c60
+Export Drive ID: 1WyQdFUiOLsdWPFAZSEUq2byqnr0x2pfV
+
+Nine capture saves and 28 checkpoint roles acknowledged; zero pending.
+Fourteen physical objects catalogued. Fresh Drive-returned terminal export
+restored exact completion with terminal proof and zero dispatched tests.
+Native reports retain timing; no performance conclusion claimed.
+
+V33 5 + V34 11 + V35 5 + V36 12 + V37 25 + V38 6 = 64 focused passes.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: V26 group 6, tests/test_validation_phase_binding.py and
+ tests/test_science_contract_strength.py; review costs/dependencies before capture.
+Then batch negative/retry/long-selector preservation, current-candidate fixture
+completions and full qualification remain. No completed-group reruns.
