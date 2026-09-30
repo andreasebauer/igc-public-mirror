@@ -1,0 +1,74 @@
+V24 DEV137 FUNCTIONAL ATTEMPT — PAUSED / UNQUALIFIED — 2026-09-30
+Parent Git commit6ea23139e46784f5af3e52db3736ffd4dff67fc9.
+Capture937c7d7265fd4d530ef52fa50257702d848a5d75fdee5118dd634ef9bb57f79b.
+Job RC.FUNCTIONAL.V24.DEV137. One native attempt; no retry or resume.
+
+OUTCOME
+Observed native node reports:1363 PASS,4 FAIL,1 INTERRUPTED.
+140/162 file selectors collected;1439 expanded nodes known.71 collected nodes
+have no report, plus22 entirely uncollected files. These are incomplete native
+observations, NOT a qualified functional result or a full-suite PASS count.
+No published completion. All23 RC acceptance rows/full RC remain OPEN.
+Attempt ran1915.58 seconds (about31.9 minutes), then paused at checkpoint count
+limit16; native failure handling retained a17th pause checkpoint.
+Reason SubmissionError:SAVE_BACKLOG_PAUSE:307696219. Count threshold triggered;
+bytes plus reserve were below536870912, and oldest age below3600 seconds.
+The explicitly registered120s interval deferred this limit but did not solve
+long-gate transport scheduling. No limits were changed after the attempt.
+
+FOUR FAILURES (exact phase records and tracebacks retained)
+1 test_change_preservation_rebind::test_recovery_retains_reviewed_core_byte_boundaries:
+  controller file no longer matches its reviewed checksum chain. Observed
+  135b804d0e2c04868ababec7dbdc4c921cbd9243dfb7b29ceb939454212cacda;
+  expected f6913f6b87a8c8919ead77796f3b12f96dfa83b2caa1ffd604b3a0204d297f52.
+  Review actual changes before any new pin; never merely replace expected hash.
+2 test_decoder06_project_stage::test_project_stage_executes_from_exact_captured_source:
+  nested fixture capture refused with SQLITE_RUNTIME_BINDING_REQUIRED.
+3 test_sidecar_lifecycle::test_retained_incident_copies_before_after_native_reads:
+  retained SQLite incident copy contained64 rows versus96 asserted. Do not
+  relabel this fixture or change expected data without tracing its provenance.
+4 test_v05_c6_namespace_identity::test_exact_supervisor_child_roundtrip_in_nested_pid_namespace:
+  isolated child using -B -I -S could not import cryptography. Failure occurs at
+  dependency import; this does not establish a PID namespace mechanism failure.
+
+POST-RUN INTEGRITY
+The exact runtime file-set check failed:51 new CPython bytecode-cache files.
+Captured source gained10 additional bytecode-cache files. No original runtime
+or source file changed or disappeared in the hash comparison. Original1510
+source bytes match; source digest remains unchanged because native source
+inventory excludes bytecode caches. Raw file-set hygiene did not remain exact.
+Bytecode files, hashes/diffs and original failure traceback are retained. Writer
+attribution has not been established; no files were deleted to manufacture a
+clean post-check. The post-check exception is separate from the native pause.
+A fresh byte/mode-verified V4 reconstruction was used only for administrative
+preservation/restore. It did not execute tests, retry, or qualify the old runtime.
+
+DURABILITY AND RESTORE
+All19 capture prerequisites were saved/read back and acknowledged before the
+single dispatch; five large fixtures used native multipart transport receipts.
+All54 distinct checkpoint objects are now hash-verified from saved readbacks:
+35 newly uploaded objects plus19 existing physical objects/transport archives.
+VERIFIED_OBJECT_CATALOG.json has exact hashes, sizes and Drive locators or
+ordered multipart manifests/parts. Five candidate archives reuse V18-V22 data;
+private failed_evidence is not embedded in this bundle or public Git.
+The slim native pause checkpoint was independently restored using those verified
+objects. Paused attempt bytes match, restored source identity matches, and no
+completion exists. No restored workload was executed.
+The408 native per-role outbox acknowledgment obligations remain pending. Physical
+object preservation and restore are verified; native logical acknowledgment
+closure is NOT claimed. Preserve that distinction before considering resume.
+No native receipt was fabricated or rewritten to mark these obligations saved.
+
+RECOVERY / NEXT
+Use this evidence ZIP, its VERIFIED_OBJECT_CATALOG and existing repository
+catalog; fetch/hash each object, concatenate verified multipart archives, then
+native preserve restore-checkpoint with the slim ZIP and object directory.
+All35 new objects are separately saved; no environment-only failure state is
+needed for the verified checkpoint restore. Existing native receipts are in the
+checkpoint; remaining logical receipts must be reconciled through native APIs.
+Next gate is failure triage and a concrete repair plan for the four regressions,
+bytecode isolation and bounded qualification/preservation scheduling. Review
+whether to acknowledge and retain this failed capture permanently versus any
+explicitly preregistered missing-only continuation. No implicit rerun of passed
+nodes, no source mutation inside this capture, no blind checksum or count edit.
+Full source qualification, workspace/representative/timing groups and RC OPEN.

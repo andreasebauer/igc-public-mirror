@@ -519,5 +519,31 @@
     "native_collection": "NOT_YET_EARNED; coupled to native execution",
     "full_source_qualification": "OPEN",
     "report": "decoder-admin/evidence/V23_REPORT.txt"
+  },
+  "latest_current_source_attempt": {
+    "gate": "V24",
+    "status": "PAUSED_UNQUALIFIED",
+    "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+    "capture_id": "937c7d7265fd4d530ef52fa50257702d848a5d75fdee5118dd634ef9bb57f79b",
+    "registered_selectors": 162,
+    "collected_selectors": 140,
+    "collected_nodes": 1439,
+    "reported_node_outcomes": {
+      "PASS": 1363,
+      "FAIL": 4,
+      "INTERRUPTED": 1
+    },
+    "collected_nodes_without_reports": 71,
+    "uncollected_selectors": 22,
+    "stop_reason": "SAVE_BACKLOG_PAUSE",
+    "pending_checkpoints": 17,
+    "native_outbox_obligations_pending": 408,
+    "physical_objects_verified": 54,
+    "runtime_added_bytecode_files": 51,
+    "captured_source_added_bytecode_files": 10,
+    "original_runtime_or_source_files_changed": false,
+    "native_completion": false,
+    "retry_started": false,
+    "full_rc": "OPEN"
   }
 }
