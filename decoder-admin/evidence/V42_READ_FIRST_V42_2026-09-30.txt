@@ -1,0 +1,37 @@
+V42 DEV140 TRANSPORT GATE — 2026-09-30
+18 PASS, 0 FAIL; all 54 setup/call/teardown phases passed, no skips.
+One native registered attempt: tests/test_decoder06_transport.py.
+V27 group B second bounded selector; results preservation passed in V41.
+
+Raw/XZ reconstruction (empty and nonempty), receipt transport identity, corrupt/
+missing/reordered parts, six malformed XZ cases, unsafe parts and binding refusal,
+native CLI pack/bind/unpack for both encodings, legacy receipts, retained original
+upload identity, exact logical-obligation selection and capture acknowledgment
+scope passed. Fixture transport IDs are TEST ONLY and do not prove actual remote
+multipart delivery. Enclosing capture/checkpoint saves use genuine Drive-returned
+raw objects. Live long-selector transport remains unqualified.
+Full pinned runtime pre/post verification passed. Source raw file set, bytes
+and modes match saved archive: 1522 files, no symlinks or bytecode.
+
+Unchanged candidate 0.8.0.dev140+lib.
+Source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.TRANSPORT.V42.DEV140
+Capture: 8fa23c6cb3e7d352efef817c470c436e36c799f590a77d117f7824fd1bad9878
+Completion: d8df10c9056986085d046bb31f5ac174703e1e7b254ad897d1e524713dc43ac6
+Export SHA256: fe503540b3670e35548f3cda91f6aa8d89cee25d665ef894f47cc338080ba311
+Export Drive ID: 1QULMAC7CEec5JsVB6RqQCJSDG_oJwW2_
+
+Nine capture saves and 28 checkpoint roles acknowledged; zero pending.
+Fourteen physical objects catalogued. Fresh Drive-returned terminal export
+restored exact completion with terminal proof and zero dispatched tests.
+Native reports retain timing; no performance claim. Source/runtime unchanged.
+
+V33-V41 126 + V42 18 = 144 focused passes on dev140.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: tests/test_validation_save_waves.py, then remaining native integrations,
+especially failed/skipped-wave refusal and single long-selector live saves.
+Review V31/V33 real wave evidence for reuse without reruns. Current-candidate
+fixture completions, full qualification and RC reconciliation remain before
+canonical L0-G8 replay. Do not rerun completed targeted groups.
