@@ -1,0 +1,22 @@
+{
+  "observed_exception": {
+    "type": "SubmissionError",
+    "message": "SAVE_BACKLOG_PAUSE:2683724"
+  },
+  "pending_checkpoints_after_pause": 17,
+  "non_pause_checkpoints": 16,
+  "elapsed_checkpoint_seconds": 59.537155628204346,
+  "registered_policy": {
+    "interval_seconds": 1,
+    "max_pending_commits": 16
+  },
+  "default_policy_source": "infinity_grid/result_contracts.py:policy",
+  "default_interval_seconds": 30,
+  "effective_max_pending_bytes": 536870912,
+  "effective_max_commit_bytes": 201326592,
+  "effective_max_pending_age_seconds": 3600,
+  "pending_bytes_after_pause": 2913862,
+  "failure_mechanism": "16 unsaved checkpoints reached max_pending_commits; final PAUSED checkpoint adds the 17th. Registered interval1s with deferred upload caused count backpressure. Not the bytes or age threshold.",
+  "proposal_next_gate": "Fresh preregistered capture using standard30-second checkpoint interval and existing16-commit limit. Retain byte/age reserves and stop if backpressure recurs. Do not edit or retry V21.",
+  "new_execution_authorized_by_this_record": false
+}

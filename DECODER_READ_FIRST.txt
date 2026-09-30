@@ -48,7 +48,11 @@ this is not a standalone OS image or independent-platform qualification.
 
 WHAT IS STILL MISSING
 One candidate-specific fixture artifact remains unresolved in CATALOG.json:
-saved_representative_qualification. V20 saved_stage_outcome is a preserved,
+saved_representative_qualification. V21 paused at16 unsaved checkpoints under
+a1-second schedule; no completion or fixture qualification. All238 save roles
+are confirmed and paused restore is verified. See V21_PAUSED_REPORT.txt for
+the fresh-gate30-second schedule proposal; preserve V21 without retry.
+V20 saved_stage_outcome is a preserved,
 restore-verified expected refusal: native PAUSED, no completion.
 V18 saved_stage_one_prerun, saved_stage_one and V19 saved_stage_four are earned,
 saved and restored. Exact one/four-worker task-to-class representative bytes match.

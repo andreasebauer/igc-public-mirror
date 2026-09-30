@@ -1,0 +1,51 @@
+V21 REPRESENTATIVE FIXTURE — PAUSED, NOT EARNED — 2026-09-30
+
+RESULT
+Native job stopped with SubmissionError:SAVE_BACKLOG_PAUSE:2683724.
+One native attempt retained PAUSED; zero prepared/published completions.
+The four-case representative fixture is NOT earned. No partial case PASS totals
+are inherited or advertised. It stopped within the partial-resume case.
+Capture: ad23e1422704c6503ed9e7cdc2a206cef33c8527fdb9c79ae40388ae9d15a350
+Source: e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070
+Runtime4721 file bytes/modes and7host libraries verified before/after.
+
+CAUSE AND RESPONSIBILITY
+This campaign chose interval_seconds=1 and max_pending_commits=16 while
+forbidding live inspection and deferring uploads until termination. Sixteen
+unconfirmed checkpoints accumulated in about59.5seconds; the controller correctly
+paused at the count limit and preserved a seventeenth paused-state checkpoint.
+Pending bytes at the triggering check:2,683,724. The byte+reserve and age limits
+were not reached. This was an unsuitable campaign checkpoint schedule, not
+evidence of a mathematical mismatch or proof that all representative cases pass.
+The captured source, runtime and guard behavior were not modified.
+
+PRESERVATION
+All35 new objects uploaded/read back with exact sizes/hashes; 238 native
+checkpoint obligations confirmed; zero pending. Paused checkpoint restored
+using actual Drive-readback dependency objects and the local slim export.
+Restored attempt bytes exactly match original. Zero completion records and
+zero native workload executions on restore. No V21 job retry occurred.
+V21_PAUSED_CHECKPOINT.zip and OBJECT_CATALOG.json provide the pinned restore
+entrypoint and every dependency locator. The compact bundle is not standalone:
+external source/project/runtime objects, OS/kernel/bootstrap and host libraries
+remain required. Use native preservation.restore_checkpoint with supplied
+objects directory and expected export hash; do not launch the restored job.
+The final compact bundle is itself uploaded/read back byte-exact.
+
+ONE REPOSITORY
+https://github.com/andreasebauer/igc-public-mirror/tree/decoder/consolidated-dev137-20260930
+Start at DECODER_READ_FIRST.txt and decoder-admin/CATALOG.json. Prior four
+fixture roles remain earned; saved_representative_qualification stays unresolved.
+All23 RC acceptance rows/full RC remain OPEN. No source/shared pointer promotion.
+
+NEXT GATE PROPOSAL
+Retain V21 immutably. Prepare a NEW registered capture/preregistration using the
+existing standard30-second checkpoint interval and the same16-commit limit;
+retain byte/age reserves and stop on renewed backpressure. Do not loosen native
+checks or silently recapture under the same gate. The registered four cases
+include their own interruption/resume and legacy mutation assertions; do not
+resume this partially executed handler by assumption. No new execution was
+performed or authorized by the diagnosis record itself. User's standing task
+continues through a separately preregistered next gate.
+After that fixture is genuinely earned, bind all seven required inputs and
+prepare exact current-source qualification. Historical suites were not rerun.

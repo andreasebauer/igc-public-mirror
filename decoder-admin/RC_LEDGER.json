@@ -395,27 +395,26 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V20_DECLARED_OUTCOME_REFUSAL",
-    "fixture_acceptance": "EXPECTED_REFUSAL_VERIFIED",
+    "gate": "V21_REPRESENTATIVE",
+    "status": "PAUSED_SAVE_BACKLOG_NOT_EARNED",
+    "fixture_earned": false,
     "native_status": "PAUSED",
-    "reason": "ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME",
+    "reason": "SubmissionError:SAVE_BACKLOG_PAUSE:2683724",
+    "configured_interval_seconds": 1,
+    "configured_max_pending_commits": 16,
     "completion_sha256": null,
+    "native_attempts": 1,
     "published_completions": 0,
     "prepared_completions": 0,
-    "saved_fixture_roles": [
-      "saved_stage_one_prerun",
-      "saved_stage_one",
-      "saved_stage_four",
-      "saved_stage_outcome"
-    ],
+    "pending_preservation_objects": 0,
+    "preservation_roles_confirmed": 238,
+    "restored_attempt_bytes_identical": true,
+    "workload_executions_on_restore": 0,
     "remaining_fixture_roles": [
       "saved_representative_qualification"
     ],
-    "native_attempts": 1,
-    "workload_executions_on_restore": 0,
-    "restored_attempt_bytes_identical": true,
-    "pending_preservation_objects": 0,
-    "all_23_rc_acceptance_rows": "OPEN"
+    "all_23_rc_acceptance_rows": "OPEN",
+    "next_protocol_proposal": "Fresh capture with standard30-second interval; retain16-commit, byte and age limits; preserve V21 unchanged."
   },
   "fixture_gate_history": [
     {
@@ -458,6 +457,29 @@
       ],
       "native_attempts": 1,
       "workload_executions_on_restore": 0,
+      "pending_preservation_objects": 0,
+      "all_23_rc_acceptance_rows": "OPEN"
+    },
+    {
+      "gate": "V20_DECLARED_OUTCOME_REFUSAL",
+      "fixture_acceptance": "EXPECTED_REFUSAL_VERIFIED",
+      "native_status": "PAUSED",
+      "reason": "ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME",
+      "completion_sha256": null,
+      "published_completions": 0,
+      "prepared_completions": 0,
+      "saved_fixture_roles": [
+        "saved_stage_one_prerun",
+        "saved_stage_one",
+        "saved_stage_four",
+        "saved_stage_outcome"
+      ],
+      "remaining_fixture_roles": [
+        "saved_representative_qualification"
+      ],
+      "native_attempts": 1,
+      "workload_executions_on_restore": 0,
+      "restored_attempt_bytes_identical": true,
       "pending_preservation_objects": 0,
       "all_23_rc_acceptance_rows": "OPEN"
     }
