@@ -1,0 +1,24 @@
+V48 DEV141 NEGATIVE-WAVE GATE — STOPPED AT PROTOCOL MISMATCH
+2026-09-30
+
+Observed one native execution of test_expected_failure. Setup/teardown passed; call FAILED as deliberately registered. The sentinel was not collected/executed. No outcome was relabelled PASS. Source and pinned V4 runtime remained unchanged.
+
+The first invocation published a RESULT_REJECTED completion rather than leaving completion absent. This contradicts the added V48 preregistration expectation. STOP_UNEXPECTED_COMPLETION was recorded. No continuation invocation and no SKIP capture/execution followed. The prepared SKIP script/protocol is retained as unexecuted; it is not a saved capture or admitted job.
+
+This is a protocol/controller-behavior mismatch, not evidence that failure became success. The V48 no-completion assertion was our added expectation; it is not explicitly required by the V27 failed/skipped-wave paragraph. Static review explains the observed route: v05_controller_event_loop.py reduces a failed validation result, records RESULT_REJECTED when its PASS contract is rejected, then publishes preserved terminal evidence. verified_completion verifies the original outcome without requiring PASS. The existing completion/reuse path precedes the later _planned_wave guard; that guard rejects prior non-PASS only when execution reaches the planner. A subsequent rejection reuse is inferred from source, not tested here.
+
+The V45/V47 proposed expectation that every failed-selector continuation must reach VALIDATION_PRIOR_NONPASS_REQUIRES_REVIEW was therefore too narrow for an already published rejected completion. Review the intended acceptance semantics before any new invocation. Safe terminal rejection reuse may satisfy the essential no-new-selector/no-PASS-relabel requirement without raising that exact exception. Do not remove or alter the saved V48 result to force planner coverage.
+
+Preservation: nine capture-save roles and 28 checkpoint roles acknowledged from genuine remote bytes; zero pending. Fourteen unique physical objects. Previously verified V47 readbacks reused only for identical hashes. Fresh terminal export downloaded and restored; rejected completion and terminal proof matched exactly, zero workload dispatch on restore. Captured source exact file set/bytes/modes: 1,523 files, no bytecode or symlinks. Runtime pre/post: 4,721 files plus seven host files.
+
+Job: RC.SAVE.FAIL.V48.DEV141
+Capture: d04bd0aa1cb9d8d3845d6665ca8de6531c0d171793393fc98a389e5520ff20f7
+Rejected completion: 858f1041effbad3fbde2052c3f5db18aceb8838b9101183186c2d60caaa71eeb
+Export SHA256: 724699efa25ac199570940270cd861ec7d7bec4fa4075d615fdc62ad366c4216
+Export Drive ID: 1jbyanQ-CR_71RatQBzS1q_NBsJYDMhLZ
+Source: 01a8911181ca5ee67556bd35f32cb5453428d9cbbf50bcf505b070a968d9e57e
+Package: f04340bfe3cda1f230c8ef7dcb96f0e2c1099ccbfe0ed467cd688e37da9baf82
+
+Dev141 totals: two V47 PASS probes plus one deliberately FAIL probe from V48. V48 gate is NOT accepted; no new PASS qualification credit. Full candidate remains UNQUALIFIED, all 23 RC acceptance rows OPEN. Dev140's 150 focused passes remain historical.
+
+NEXT: reconcile the negative-wave acceptance protocol with preserved rejected completion semantics. Preregister a read-only/administrative continuation check on this exact capture if justified: require original rejected outcome and exact evidence, no new selector/phase execution and no PASS conversion. Separately cover unfinished non-PASS planner refusal if that scenario is required. Then capture SKIP under corrected, saved protocol. LONG live transport, live corruption, current-candidate fixtures, full qualification and RC reconciliation remain open before canonical data replay.
