@@ -1,0 +1,110 @@
+"""Passive owner-PID Python observation; no engine patching or child control."""
+import json
+import os
+import sys
+import time
+from pathlib import Path
+
+
+class ControllerObserver:
+    def __init__(self, preservation, workspace, baseline_ready_path):
+        self.owner = os.getpid()
+        self.workspace = str(Path(workspace).resolve(strict=True))
+        self.baseline_ready_path = Path(baseline_ready_path).resolve()
+        if self.baseline_ready_path.is_relative_to(Path(self.workspace)):
+            raise RuntimeError('OBSERVER_OUTPUT_MUST_BE_EXTERNAL')
+        if self.baseline_ready_path.exists():
+            raise RuntimeError('NEW_OBSERVER_OUTPUT_REQUIRED')
+        self.baseline_published = False
+        self.payload_prefix = str(Path(workspace).resolve() / 'durability/outbox/objects') + '/'
+        self.codes = {getattr(preservation, name).__code__: name for name in
+                      ['safe_point', '_status_from_inventory', '_check_backlog', '_bytes']}
+        self.frames = {}
+        self.records = []
+        self.prior = None
+
+    def _point(self, frame):
+        while frame is not None:
+            if id(frame) in self.frames:
+                return self.frames[id(frame)]
+            frame = frame.f_back
+        return None
+
+    def profile(self, frame, event, arg):
+        if os.getpid() != self.owner:
+            return
+        name = self.codes.get(frame.f_code)
+        if event == 'call' and name == 'safe_point':
+            row = {'started_monotonic': time.monotonic(), 'started_unix': time.time(),
+                   'reason': frame.f_locals.get('reason'), 'metadata_calls': 0,
+                   'payload_verifier_calls': 0, 'payload_read_returns': 0,
+                   'payload_bytes_returned': 0, 'budget_checks': [], 'budget_returns': []}
+            self.frames[id(frame)] = row
+            self.records.append(row)
+        point = self._point(frame)
+        if point is None:
+            return
+        if event == 'call' and name == '_status_from_inventory':
+            if frame.f_locals.get('verified_count') == 0:
+                point['metadata_calls'] += 1
+        elif event == 'call' and name == '_bytes':
+            point['payload_verifier_calls'] += 1
+        elif event == 'call' and name == '_check_backlog':
+            s = frame.f_locals['s']
+            point['budget_checks'].append({
+                'pending_bytes': s['pending_bytes'],
+                'pending_commits': len(s['pending_checkpoints']),
+                'oldest_pending_age_seconds': s['oldest_pending_age_seconds'],
+                'limits': dict(frame.f_locals['limits']),
+                'reserve': frame.f_locals.get('reserve')})
+        elif event == 'return' and name == '_check_backlog':
+            point['budget_returns'].append(isinstance(arg, dict))
+        elif event == 'return' and frame.f_code.co_name == 'read_bytes' and isinstance(arg, bytes):
+            if str(frame.f_locals.get('self', '')).startswith(self.payload_prefix):
+                point['payload_read_returns'] += 1
+                point['payload_bytes_returned'] += len(arg)
+        if event == 'return' and name == 'safe_point':
+            point['finished_monotonic'] = time.monotonic()
+            self.frames.pop(id(frame), None)
+            self._publish_ready_if_earned()
+
+    def _publish_ready_if_earned(self):
+        if self.baseline_published:
+            return
+        healthy = [r for r in self.records if 'finished_monotonic' in r
+                   and r['metadata_calls'] and r['budget_checks']
+                   and len(r['budget_returns']) == len(r['budget_checks'])
+                   and all(r['budget_returns']) and not r['payload_verifier_calls']
+                   and not r['payload_read_returns']]
+        defaults = {'interval_seconds':30, 'max_pending_bytes':536870912,
+                    'max_commit_bytes':201326592, 'max_pending_commits':8,
+                    'max_pending_age_seconds':3600, 'validation_wave_selectors':1}
+        healthy = [r for r in healthy if all(b['reserve'] is True and b['limits']==defaults
+                                            for b in r['budget_checks'])]
+        if len(healthy) < 10:
+            return
+        span = healthy[-1]['finished_monotonic'] - healthy[0]['started_monotonic']
+        if span < 3:
+            return
+        record = {'workspace':self.workspace, 'owner_pid':self.owner,
+                  'healthy_metadata_checks':len(healthy), 'span_seconds':span,
+                  'default_limits_and_reserve_verified':True,
+                  'payload_reads_in_metadata_checks':0, 'published_unix':time.time()}
+        with self.baseline_ready_path.open('x') as handle:
+            handle.write(json.dumps(record,indent=2)+'\n');handle.flush();os.fsync(handle.fileno())
+        self.baseline_published = True
+
+    def start(self):
+        self.prior = sys.getprofile()
+        if self.prior is not None:
+            raise RuntimeError('EXISTING_PROFILE_REFUSE')
+        sys.setprofile(self.profile)
+
+    def stop_and_save(self, path):
+        if os.getpid() != self.owner:
+            raise RuntimeError('OBSERVER_OWNER_REQUIRED')
+        sys.setprofile(self.prior)
+        Path(path).write_text(json.dumps({
+            'owner_pid': self.owner, 'scope': 'owner-controller safe_point Python calls only',
+            'not_measured': ['OS syscalls', 'physical disk IO', 'other processes'],
+            'records': self.records}, indent=2) + '\n')

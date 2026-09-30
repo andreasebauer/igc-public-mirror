@@ -1,0 +1,31 @@
+V54 DRIVER / LIFECYCLE INTEGRATION — PREPARATION ONLY
+
+Added run_native.py and observe_lifecycle.py. All four Python files AST-parse.
+No native capture, workload, corruption or science replay was executed.
+Dev142 unchanged. All 23 RC rows OPEN. This is not gate qualification.
+
+Driver requires fresh saved RC.CORRUPTION.V54.DEV142 capture, pinned source and
+fresh runtime identity. It publishes /proc owner PID/start identity and waits for
+external monitor readiness before dispatch. Observer flush occurs on native return.
+Controller return and full driver finish are distinct markers.
+
+External monitor binds exact owner identity, samples registered descendants every
+0.25 seconds, retains identities across reparenting, and records runtime changes
+after return. Surviving descendants or late writes fail lifecycle acceptance.
+No signals, child supervision, workload retries or repairs are introduced.
+Three stable seconds with no registered processes permit a quiescence finding.
+150 seconds after return without quiescence produces explicit error. Polling can
+miss short-lived descendants; it does not establish complete kernel process tracing.
+
+Remaining before launch:
+1. Exercise the handshake using an isolated synthetic driver, including PID reuse
+   refusal and after-return child observation. AST checks alone are insufficient.
+2. Connect the genuine Drive save/readback operator and guarded injector. Verify
+   healthy baseline occurs after a completed checkpoint and bind monitor liveness
+   to the exact injection target. Save/download original bytes before mutation.
+3. Bind protocol and ALL final script hashes into a fresh saved V54 capture with
+   a separately restored/verified runtime. Do not use V52 workspace or runtime.
+4. After actual quiescence, collect two full stable inventories and run forensic
+   snapshot, remote readback, isolated reconstruction and native refusal check.
+
+These scripts are preparatory, not permission to bypass those prerequisites.
