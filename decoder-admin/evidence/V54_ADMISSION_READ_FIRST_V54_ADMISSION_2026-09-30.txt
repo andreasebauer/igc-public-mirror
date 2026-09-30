@@ -1,0 +1,23 @@
+V54 FAULT ADMISSION HARDENING — PREPARATION ONLY
+
+Observer now observes actual successful make_checkpoint returns inside safe_point
+and subsequent successful budget checks. Baseline requires ten healthy metadata
+checks spanning three seconds strictly after that checkpoint. The checkpoint hash
+is included in the baseline record. Existing pre-checkpoint heartbeats do not count.
+Synthetic admission checks passed: no checkpoint refused; earlier heartbeats refused;
+ten later healthy checks accepted. This does not validate live native profiling.
+
+Injector now refuses optimized Python and requires -B; requires baseline checkpoint
+hash to match the registered target commit and its checkpoint_state hash; checks
+controller /proc PID/start identity and absence of controller-return marker; requires
+monitor sample at most two seconds old containing controller and long selector.
+Existing full native status, genuine readback, exact source, active attempt/node,
+exclusive native lock and one-byte-only mutation guards remain.
+All Python files AST-parse. Injector was not executed. No native capture exists.
+No source change, RC closure or science replay. All 23 RC rows remain OPEN.
+
+Next: integrate the Drive save/readback/ack operator with monitor launch and target
+selection, save complete final script hashes, restore fresh runtime and bind fresh
+RC.CORRUPTION.V54.DEV142 capture. Continue through live gate only when these concrete
+prerequisites hold. Use v54_integration as assembled working scripts; this bundle
+contains changed admission scripts and their synthetic evidence.

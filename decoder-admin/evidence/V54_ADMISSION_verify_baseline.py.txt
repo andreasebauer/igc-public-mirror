@@ -1,0 +1,18 @@
+import tempfile,json
+from pathlib import Path
+from controller_observer import ControllerObserver
+class Preservation:
+ def safe_point():pass
+ def make_checkpoint():pass
+ def _status_from_inventory():pass
+ def _check_backlog():pass
+ def _bytes():pass
+limits={'interval_seconds':30,'max_pending_bytes':536870912,'max_commit_bytes':201326592,'max_pending_commits':8,'max_pending_age_seconds':3600,'validation_wave_selectors':1}
+with tempfile.TemporaryDirectory() as tmp:
+ p=Path(tmp);w=p/'workspace';w.mkdir();out=p/'ready.json';o=ControllerObserver(Preservation,w,out)
+ def rows(start):return [{'started_monotonic':start+i*.4,'finished_monotonic':start+i*.4+.01,'metadata_calls':1,'budget_checks':[{'reserve':True,'limits':limits}],'budget_returns':[True],'payload_verifier_calls':0,'payload_read_returns':0} for i in range(10)]
+ o.records=rows(1);o._publish_ready_if_earned();assert not out.exists()
+ o.completed_checkpoint={'sha256':'a'*64,'finished_monotonic':10};o._publish_ready_if_earned();assert not out.exists()
+ o.records+=rows(11);o._publish_ready_if_earned();r=json.loads(out.read_text());assert r['healthy_metadata_checks']==10 and r['after_completed_checkpoint']['sha256']=='a'*64
+result={'scope':'synthetic admission logic only','no_checkpoint_refused':True,'pre_checkpoint_heartbeats_refused':True,'post_checkpoint_ten_checks_over_three_seconds_accepted':True,'native_dispatches':0}
+(Path(__file__).parent/'BASELINE_VERIFICATION.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
