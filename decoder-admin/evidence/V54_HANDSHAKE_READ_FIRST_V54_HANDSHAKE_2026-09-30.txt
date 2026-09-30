@@ -1,0 +1,20 @@
+V54 SYNTHETIC HANDSHAKE VERIFICATION
+
+Four synthetic cases behaved as required:
+- Clean controller exit: quiescent, lifecycle pass.
+- Child surviving controller return: detected, lifecycle failed; later quiescent.
+- Wrong owner start identity: rejected before MONITOR_READY.
+- Runtime file written after controller return: detected, lifecycle failed.
+
+Zero native decoder dispatches. No actual corruption injected. No RC rows closed.
+These results validate external monitor behavior only, not native cleanup.
+Scripts and JSON results included. verify_handshake.py creates the first three
+results; verify_late_write.py requires that result and appends the fourth.
+All temporary synthetic processes completed normally. No native process killed.
+
+Next: connect actual save/readback/ack operator to V54 driver and monitor; require
+post-checkpoint heartbeat baseline plus live monitor identity before injection;
+bind final scripts to a fresh saved capture and separately restored dev142 runtime.
+The V53 observer's current baseline logic must explicitly enforce the post-checkpoint
+condition before admitting the live fault. No native V54 capture exists yet.
+Dev142 remains unchanged; all 23 RC rows OPEN; data replay has not begun.

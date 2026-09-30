@@ -1,0 +1,53 @@
+"""Isolated synthetic lifecycle cases; no native decoder imports or dispatch."""
+import json,subprocess,sys,tempfile,time,shutil
+from pathlib import Path
+D=Path(__file__).resolve().parent
+OWNER='''import json,time,subprocess,sys
+from pathlib import Path
+from lifecycle_monitor import process
+D=Path(__file__).resolve().parent
+w=Path(sys.argv[1]);mode=sys.argv[2]
+o=process('self')
+if mode=='wrong_identity':o['start_ticks']+=1
+(D/'CONTROLLER_READY.json').write_text(json.dumps(dict(owner=o,workspace=str(w),capture_id=w.name)))
+end=time.monotonic()+10
+while not (D/'MONITOR_READY.json').exists():
+ if time.monotonic()>end:sys.exit(0)
+ time.sleep(.05)
+if mode=='survivor':
+ child=subprocess.Popen([sys.executable,'-B','-c','import time;time.sleep(2)'])
+ time.sleep(.7)
+(D/'CONTROLLER_RETURNED.json').write_text('{}')
+if mode=='late_write':
+ time.sleep(.7)
+ (w/'runtime'/'late.txt').write_text('late evidence')
+ time.sleep(.7)
+if mode=='survivor':child.wait()
+'''
+results=json.loads((D/'HANDSHAKE_VERIFICATION.json').read_text())['cases']
+for mode in ['late_write']:
+ with tempfile.TemporaryDirectory(prefix='ig_gate_v54_synthetic_') as tmp:
+  t=Path(tmp);w=t/'capture';(w/'runtime').mkdir(parents=True)
+  for n in ['observe_lifecycle.py','lifecycle_monitor.py']:shutil.copyfile(D/n,t/n)
+  (t/'owner.py').write_text(OWNER)
+  owner=subprocess.Popen([sys.executable,'-B',str(t/'owner.py'),str(w),mode])
+  deadline=time.monotonic()+5
+  while not (t/'CONTROLLER_READY.json').exists():
+   if time.monotonic()>deadline:raise RuntimeError('SYNTHETIC_OWNER_TIMEOUT')
+   time.sleep(.05)
+  monitor=subprocess.Popen([sys.executable,'-B',str(t/'observe_lifecycle.py')],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+  # Reap synthetic owner promptly so zombie status cannot masquerade as a live process.
+  owner.wait(timeout=15);out,err=monitor.communicate(timeout=15)
+  if mode=='wrong_identity':
+   assert monitor.returncode!=0 and 'OWNER_REUSED' in err and not (t/'MONITOR_READY.json').exists()
+   result={'case':mode,'rejected_before_ready':True}
+  else:
+   assert monitor.returncode==0,err
+   result=json.loads((t/'LIFECYCLE_RESULT.json').read_text());assert result['quiescent']
+   assert result['lifecycle_pass']==(mode=='clean'),result
+   if mode=='survivor':assert result['survivors_at_controller_return']
+   if mode=='late_write':assert result['late_runtime_changes']
+   result={'case':mode,**result}
+  results.append(result)
+(D/'HANDSHAKE_VERIFICATION.json').write_text(json.dumps({'scope':'synthetic; zero native dispatch','cases':results},indent=2)+'\n')
+print(json.dumps(results))

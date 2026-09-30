@@ -1,0 +1,53 @@
+{
+  "scope": "synthetic; zero native dispatch",
+  "cases": [
+    {
+      "case": "clean",
+      "quiescent": true,
+      "survivors_at_controller_return": [],
+      "late_runtime_changes": false,
+      "lifecycle_pass": true,
+      "first_runtime_inventory": {},
+      "final_runtime_inventory": {},
+      "scope": "sampled registered process identities; short-lived descendants can be missed"
+    },
+    {
+      "case": "survivor",
+      "quiescent": true,
+      "survivors_at_controller_return": [
+        {
+          "pid": 620971,
+          "ppid": 620969,
+          "start_ticks": 3741628,
+          "state": "S",
+          "cmdline": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 -B -c import time;time.sleep(2) "
+        }
+      ],
+      "late_runtime_changes": false,
+      "lifecycle_pass": false,
+      "first_runtime_inventory": {},
+      "final_runtime_inventory": {},
+      "scope": "sampled registered process identities; short-lived descendants can be missed"
+    },
+    {
+      "case": "wrong_identity",
+      "rejected_before_ready": true
+    },
+    {
+      "case": "late_write",
+      "quiescent": true,
+      "survivors_at_controller_return": [],
+      "late_runtime_changes": true,
+      "lifecycle_pass": false,
+      "first_runtime_inventory": {},
+      "final_runtime_inventory": {
+        "late.txt": {
+          "sha256": "125a943d2a82c9ce78c492fb81d84cf7297aac52c0fe5c03c890553ca1e032de",
+          "size": 13,
+          "mode": 420
+        }
+      },
+      "scope": "sampled registered process identities; short-lived descendants can be missed"
+    }
+  ]
+}
