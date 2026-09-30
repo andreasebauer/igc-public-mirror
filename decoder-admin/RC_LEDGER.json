@@ -780,5 +780,18 @@
     "live_corruption_tested": false,
     "controller_heartbeat_reads_measured": false,
     "full_RC": "OPEN"
+  },
+  "latest_live_fault_preparation": {
+    "gate": "V53",
+    "status": "STATIC_PREPARATION_ONLY_NOT_ADMITTED",
+    "native_tests_executed": 0,
+    "corruption_injected": false,
+    "report": "decoder-admin/evidence/V53_REPORT.txt",
+    "remaining_before_launch": [
+      "driver integration",
+      "process lifecycle monitor",
+      "forensic snapshot and reconstruction",
+      "saved capture and active operator admission"
+    ]
   }
 }

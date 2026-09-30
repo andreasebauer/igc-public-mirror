@@ -1,0 +1,19 @@
+{
+  "status": "STATIC_PREPARATION_ONLY",
+  "scripts": {
+    "inject_once.py": "614383c0c77d7100636cdf7b536bd4b03ffe234642505b538595f46ea8ebe145",
+    "controller_observer.py": "f3b579f8dc0b2bceef3f96e10862b90dc7ef19a24cc77eae87bd0d2e2c52c3cc"
+  },
+  "native_tests_executed": 0,
+  "corruption_injected": false,
+  "source_changed": false,
+  "observer_scope": "owner-controller Python safe_point calls; no native function substitution",
+  "injection_target": "future exact preregistered V54 capture only; no target selected",
+  "unimplemented_prelaunch_requirements": [
+    "driver attachment and saved capture",
+    "process-lifecycle monitor",
+    "forensic packaging and zero-dispatch reconstruction",
+    "active operator admission check"
+  ],
+  "injector_requires_observer_baseline": true
+}

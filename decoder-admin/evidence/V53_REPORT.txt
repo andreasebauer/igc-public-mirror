@@ -1,0 +1,50 @@
+V53 LIVE CORRUPTION / HEARTBEAT PREPARATION — NOT EXECUTED
+2026-09-30
+
+Prepared the isolated fault protocol, passive owner-controller observer, and
+guarded one-byte injector. Static AST parsing passed; scripts were not executed.
+No capture created, no corruption injected, no source modification or native test.
+Dev142 remains byte-exact and UNQUALIFIED with one V52 bounded probe PASS.
+All 23 RC acceptance rows remain OPEN.
+
+Controller observer records safe-point metadata checks, budget inputs/returns,
+payload-verifier calls and completed payload read_bytes returns in the controller
+PID only. It does not substitute engine functions or supervise children. After
+at least ten healthy metadata checks over three seconds, with default limits,
+reserve enabled and no payload reads, it publishes one external baseline record.
+This is measured Python behavior, not OS I/O, and observer overhead is unqualified.
+
+Injector is restricted to a future exact RC.CORRUPTION.V54.DEV142 capture under
+/tmp/ig_gate_v54_*. It requires source/package pins, matching capture, the observer
+baseline, one RUNNING attempt and unfinished long selector, zero pending roles,
+genuinely saved/downloaded original state bytes and a regular single-link target.
+Under the native outbox lock it preserves external originals and damaged bytes,
+flips one byte without changing length, fsyncs, then requires full native status
+to refuse OUTBOX_OBJECT_MISMATCH. It never repairs or acknowledges damaged bytes.
+No actual target has been selected or armed.
+
+Source-review finding requiring explicit observation: validation exception cleanup
+kills/waits its immediate worker; that excerpt does not establish all descendant
+termination. The protocol therefore requires process identities/liveness and
+before/after evidence inventories. Any surviving registered descendant or late
+native-evidence mutation is a separate lifecycle failure, not a clean frozen stop.
+Do not add hidden process supervision to make the gate pass. This is a reviewed
+risk to test, not an observed leak claim.
+
+The corrupted native outbox may correctly refuse its normal export. The protocol
+requires honestly labelled forensic preservation and isolated reconstruction,
+never a fabricated native completion, repaired original or invented save receipt.
+Pending native roles must remain reported unresolved when they cannot be closed.
+
+NEXT BEFORE LAUNCH: adapt the native driver to the observer; implement process
+lifecycle monitoring and forensic snapshot/reconstruction; bind protocol and all
+actual script hashes into a fresh saved capture; prove active operator loop and
+genuine prereadbacks. Then run this separately admitted fault case once. The
+current preparation bundle alone is not authority to dispatch or inject.
+
+Successful V52 capture/completion remains untouched:
+fbf9fecd2ab4cae201b1128a0fe89e95f2a20d722897abb0fec6376168f97172
+db75abc592946aad5c298684d54672c7a5d13fb71870855ee1c6d9c4439fec56
+Current source 078433404ab554b2ecb081aca35ad8439b7a17b465db53cfc795df1a9825a4fa
+Current package fa48e8e8be3734e2a73429b1b9f843f7d6dd36f2dc52af557aad7fff32cf10e9
+No data-block replay readiness is claimed.
