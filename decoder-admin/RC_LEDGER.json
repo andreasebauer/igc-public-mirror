@@ -395,26 +395,27 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V21_REPRESENTATIVE",
-    "status": "PAUSED_SAVE_BACKLOG_NOT_EARNED",
-    "fixture_earned": false,
-    "native_status": "PAUSED",
-    "reason": "SubmissionError:SAVE_BACKLOG_PAUSE:2683724",
-    "configured_interval_seconds": 1,
-    "configured_max_pending_commits": 16,
-    "completion_sha256": null,
+    "gate": "V22_REPRESENTATIVE",
+    "status": "COMPLETED_VERIFIED",
+    "cases_passed": 4,
+    "cases_failed": 0,
+    "completion_sha256": "27488b60587fbec441ef2b3e8e0fdb1d1f81fb92ed40c9268f44acda299c1560",
     "native_attempts": 1,
-    "published_completions": 0,
-    "prepared_completions": 0,
-    "pending_preservation_objects": 0,
-    "preservation_roles_confirmed": 238,
-    "restored_attempt_bytes_identical": true,
-    "workload_executions_on_restore": 0,
-    "remaining_fixture_roles": [
+    "saved_fixture_roles": [
+      "saved_stage_one_prerun",
+      "saved_stage_one",
+      "saved_stage_four",
+      "saved_stage_outcome",
       "saved_representative_qualification"
     ],
+    "remaining_fixture_roles": [],
+    "workload_executions_on_restore": 0,
+    "pending_preservation_objects": 0,
+    "configured_interval_seconds": 30,
+    "configured_max_pending_commits": 16,
+    "V21_retained_unchanged": true,
     "all_23_rc_acceptance_rows": "OPEN",
-    "next_protocol_proposal": "Fresh capture with standard30-second interval; retain16-commit, byte and age limits; preserve V21 unchanged."
+    "next_gate": "Review selectors and bind seven inputs for native current-source collection/qualification."
   },
   "fixture_gate_history": [
     {
@@ -482,6 +483,28 @@
       "restored_attempt_bytes_identical": true,
       "pending_preservation_objects": 0,
       "all_23_rc_acceptance_rows": "OPEN"
+    },
+    {
+      "gate": "V21_REPRESENTATIVE",
+      "status": "PAUSED_SAVE_BACKLOG_NOT_EARNED",
+      "fixture_earned": false,
+      "native_status": "PAUSED",
+      "reason": "SubmissionError:SAVE_BACKLOG_PAUSE:2683724",
+      "configured_interval_seconds": 1,
+      "configured_max_pending_commits": 16,
+      "completion_sha256": null,
+      "native_attempts": 1,
+      "published_completions": 0,
+      "prepared_completions": 0,
+      "pending_preservation_objects": 0,
+      "preservation_roles_confirmed": 238,
+      "restored_attempt_bytes_identical": true,
+      "workload_executions_on_restore": 0,
+      "remaining_fixture_roles": [
+        "saved_representative_qualification"
+      ],
+      "all_23_rc_acceptance_rows": "OPEN",
+      "next_protocol_proposal": "Fresh capture with standard30-second interval; retain16-commit, byte and age limits; preserve V21 unchanged."
     }
   ]
 }

@@ -56,10 +56,8 @@
       "visibility": "private"
     }
   ],
-  "unresolved_fixtures": [
-    "saved_representative_qualification"
-  ],
-  "scope": "Pinned locator set for source/runtime, two historical qualification inputs and four current-candidate fixture roles (V18-V20). NOT full historical science/replay recovery closure.",
+  "unresolved_fixtures": [],
+  "scope": "Pinned locator set for source/runtime, two historical qualification inputs and all five earned current-candidate fixture roles (V18-V22). NOT full source qualification or historical science/replay recovery closure.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
   "candidate_fixtures": {
@@ -167,13 +165,44 @@
       "expected_refusal": "UNREGISTERED_SCIENTIFIC_OUTCOME",
       "completion_sha256": null,
       "restored_from_drive_readbacks": true
+    },
+    "saved_representative_qualification": {
+      "sha256": "1b28f9b2a351e10a1750b92c97b29289e965b21031c82255f8df7b737ab0267c",
+      "size_bytes": 67958707,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "saved_representative_qualification.part01",
+          "sha256": "80a6334935a54cb9661e35cd237ca0e2ecefc3b73d3a2e347a7a10c738f9b5ba",
+          "size_bytes": 25165824,
+          "drive_id": "1UkMxbAEmY02xmhnXMr_Q8LeIrDmHB37x"
+        },
+        {
+          "filename": "saved_representative_qualification.part02",
+          "sha256": "29f0bbe966f6f2079f8efccad31932b41a05b668efa1c4e3aee42684a661258e",
+          "size_bytes": 25165824,
+          "drive_id": "1wAmJFUTk4amHdyzf3sIdwMzxYfD7eL_K"
+        },
+        {
+          "filename": "saved_representative_qualification.part03",
+          "sha256": "2d5de6f0fa45923d8127c1c5b6f2734b06ba708097919d08eb1a59606b5d29e0",
+          "size_bytes": 17627059,
+          "drive_id": "17LlMsfr0jCJFc5FubVVtPalaPkOMayYx"
+        }
+      ],
+      "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "27488b60587fbec441ef2b3e8e0fdb1d1f81fb92ed40c9268f44acda299c1560",
+      "restored_from_drive_readbacks": true
     }
   },
-  "latest_unearned_fixture_attempt": {
-    "gate": "V21",
-    "fixture": "saved_representative_qualification",
-    "state": "PAUSED_SAVE_BACKLOG",
-    "earned": false,
-    "evidence": "decoder-admin/evidence/V21_PAUSED_REPORT.txt"
-  }
+  "fixture_attempt_history": [
+    {
+      "gate": "V21",
+      "fixture": "saved_representative_qualification",
+      "state": "PAUSED_SAVE_BACKLOG",
+      "earned": false,
+      "evidence": "decoder-admin/evidence/V21_PAUSED_REPORT.txt"
+    }
+  ]
 }

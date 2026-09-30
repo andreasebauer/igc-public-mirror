@@ -46,25 +46,27 @@ failed qualification. A failed reconstruction directory is retained for review.
 Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
 this is not a standalone OS image or independent-platform qualification.
 
-WHAT IS STILL MISSING
-One candidate-specific fixture artifact remains unresolved in CATALOG.json:
-saved_representative_qualification. V21 paused at16 unsaved checkpoints under
-a1-second schedule; no completion or fixture qualification. All238 save roles
-are confirmed and paused restore is verified. See V21_PAUSED_REPORT.txt for
-the fresh-gate30-second schedule proposal; preserve V21 without retry.
-V20 saved_stage_outcome is a preserved,
-restore-verified expected refusal: native PAUSED, no completion.
-V18 saved_stage_one_prerun, saved_stage_one and V19 saved_stage_four are earned,
-saved and restored. Exact one/four-worker task-to-class representative bytes match.
-The candidate_fixtures field pins ordered transport parts and whole archive
-hashes. Concatenate parts in order, verify part and archive bytes/hashes, then
-use native restore_workspace; restoration does not authorize a workload rerun. Complete wheel/native
-dependency resolution and install lock remain open. uv.lock and py312 requirements
-inside decoder/ are historical and must not be used as current install locks.
-Future registered execution needs saved/read-back prerequisites and explicit
-mode-aware protocols. V17 qualified five runtime checks only. Preserve V16.
-The complete historical L0-G8 science/replay data closure is NOT inventoried by
-this engineering catalog. Do not call it complete scientific recovery readiness.
+QUALIFICATION READINESS AND REMAINING WORK
+All five candidate-specific fixture roles are earned and saved in CATALOG.json:
+V18 saved_stage_one_prerun and saved_stage_one; V19 saved_stage_four;
+V20 saved_stage_outcome (expected refusal, native PAUSED, no completion);
+V22 saved_representative_qualification (four cases PASS, native COMPLETED).
+All restore checks reused saved evidence without workload execution. Exact
+one/four-worker task-to-class representative bytes match. V21 remains in audit
+history: PAUSED at the unsaved-checkpoint count limit, not a qualified fixture.
+V22 used standard30-second checkpoints, retaining count/byte/age limits.
+The candidate_fixtures field pins ordered parts and whole archive hashes.
+Concatenate parts in order, verify all sizes/hashes, then native restore_workspace.
+This closes fixture preparation only. Review the165-file profile execution
+classes and bind all seven roles (five candidate plus two historical) before
+native current-source collection/qualification. Actual collected-node inventory
+and every selector outcome remain to be earned. Full source suite and RC OPEN.
+Complete dependency/install-lock resolution remains open. uv.lock and py312
+requirements inside decoder/ are historical, not current installation locks.
+Future native execution requires saved/read-back prerequisites and an explicit
+protocol. Preserve all failures; no implicit retry or PASS inheritance.
+The historical L0-G8 science/replay closure is NOT inventoried by this catalog.
+Existing host dependencies remain external; no independent-platform claim.
 
 RULES
 Use native captured Decoder jobs for qualification/science. Never transplant old
