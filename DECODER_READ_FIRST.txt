@@ -47,8 +47,11 @@ Existing host Python stdlib, OS/kernel/shell and host libraries remain external;
 this is not a standalone OS image or independent-platform qualification.
 
 WHAT IS STILL MISSING
-Five candidate-specific fixture artifacts are named explicitly in CATALOG.json.
-They do not yet have earned current-candidate completions. Complete wheel/native
+Three candidate-specific fixture artifacts remain unresolved in CATALOG.json.
+V18 saved_stage_one_prerun and saved_stage_one are earned, saved and restored.
+The candidate_fixtures field pins ordered transport parts and whole archive
+hashes. Concatenate parts in order, verify part and archive bytes/hashes, then
+use native restore_workspace; restoration does not authorize a workload rerun. Complete wheel/native
 dependency resolution and install lock remain open. uv.lock and py312 requirements
 inside decoder/ are historical and must not be used as current install locks.
 Future registered execution needs saved/read-back prerequisites and explicit

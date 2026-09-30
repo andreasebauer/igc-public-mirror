@@ -393,5 +393,26 @@
     "full_rc": "OPEN",
     "actual_wheel_build": false,
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
+  },
+  "latest_fixture_gate": {
+    "gate": "V18_STAGE_ONE",
+    "status": "COMPLETED_VERIFIED",
+    "task_count": 48,
+    "class_count": 7,
+    "workers": 1,
+    "completion_sha256": "4443a877c2f66bdba27b163bd32ebfa3fa019f1e3a6e1f5cefd146c4b7b0d969",
+    "saved_fixture_roles": [
+      "saved_stage_one_prerun",
+      "saved_stage_one"
+    ],
+    "remaining_fixture_roles": [
+      "saved_stage_four",
+      "saved_stage_outcome",
+      "saved_representative_qualification"
+    ],
+    "native_attempts": 1,
+    "workload_executions_on_restore": 0,
+    "pending_preservation_objects": 0,
+    "all_23_rc_acceptance_rows": "OPEN"
   }
 }

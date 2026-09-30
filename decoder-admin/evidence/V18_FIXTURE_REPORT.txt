@@ -1,0 +1,46 @@
+V18 DEV137 STAGE-ONE FIXTURES — 2026-09-30
+
+DONE: one registered native fixture job COMPLETED / VERIFIED, outcome PASS.
+48 task results, 7 exact classes, one worker. These are fixture counts, not
+48 test-suite passes. Historical suites and V17 were not rerun.
+Completion: 4443a877c2f66bdba27b163bd32ebfa3fa019f1e3a6e1f5cefd146c4b7b0d969
+Result: 97880f52178751cecc9a11ae4d42ab10c3ca17e7491133a265f06fa084b14984
+Source: e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070
+Capture: 8c908a52103bfb6d2760d75a694cd2208a2550d4da7da43a516e691f2fda2308
+V4 runtime bytes/modes and seven external host files verified before/after.
+
+TWO FIXTURE ROLES NOW EARNED AND SAVED
+saved_stage_one_prerun: genuine saved pre-execution complete export.
+SHA256 33a9251e6f021a4e5d78ed34ee48968dba3761d9d24bd820a252734755e8d823
+44,489,756 bytes, two transport parts. Restored before execution; zero attempts,
+prepared completions or completed records. Never rewound or manufactured.
+saved_stage_one: complete post-publication export suitable for existing tests.
+SHA256 6a6fca45383a4ac7d46753d9d0f994fd3aad2134caffbfce117edc48654c3b2d
+66,953,483 bytes, three transport parts. Published completion verified using
+normal verified_completion, without allowing a pending prepared record.
+Both restored from actual Drive readback bytes; no workload ran on restore.
+56 checkpoint preservation obligations confirmed, zero pending.
+
+The earlier terminal checkpoint preserves COMPLETION_PENDING_CHECKPOINT state
+by design. That checkpoint is retained separately, but is not substituted for
+the post-publication completed fixture used by dependent tests. No native
+records were modified. One transport readback failed and was retried; no native
+execution was retried. Every returned part and assembled archive hash matched.
+
+ONE REPOSITORY
+https://github.com/andreasebauer/igc-public-mirror/tree/decoder/consolidated-dev137-20260930
+Start at DECODER_READ_FIRST.txt. The repository catalog holds runtime, historical
+inputs and fixture part locators. This compact bundle holds evidence/scripts;
+the complete fixture archives are external, pinned in FIXTURE_CATALOG.json.
+Reconstruct each archive by concatenating its parts in catalog order, checking
+each size/hash and the whole archive size/hash. Native restore_workspace then
+verifies and restores the complete archive; do not run its job again.
+
+NEXT
+Three fixtures remain: saved_stage_four (48 values modulo 7, four workers),
+saved_stage_outcome (registered expected refusal), and
+saved_representative_qualification. Continue with stage_four in a new native
+capture/protocol; do not rerun the completed stage_one producer.
+Full current-source qualification, install lock/native dependency resolution,
+independent-platform recovery and all 23 RC acceptance rows remain OPEN.
+No scientific release, active pointer or source identity was promoted.
