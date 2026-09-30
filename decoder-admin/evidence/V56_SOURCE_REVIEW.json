@@ -1,0 +1,8 @@
+{
+  "source_file_sha256": "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd",
+  "checks": {
+    "node_process_has_no_try_finally": true,
+    "group_finally_has_direct_worker_wait": true
+  },
+  "scope": "static source inspection only; no tests or workload dispatched"
+}

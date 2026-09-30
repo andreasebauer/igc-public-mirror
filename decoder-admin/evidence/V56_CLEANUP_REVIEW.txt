@@ -1,0 +1,50 @@
+V56 CLEANUP REVIEW — SOURCE DIAGNOSIS; REPAIR NOT YET IMPLEMENTED
+
+Observed V55 result remains FAILED_LIFECYCLE_CLEANUP. No replay or modification
+of the damaged workspace. Current production source remains dev142, unqualified.
+
+SOURCE FINDINGS
+infinity_grid/v05_validation_runtime.py::_run_group owns forked worker PIDs.
+Its exceptional finally block sends SIGKILL to each pending worker and waits for
+that worker only. Its deadline branch uses the same direct-worker-only pattern.
+_child creates a separate selector through _run_node_process / subprocess.Popen.
+_run_node_process calls communicate and publishes output on normal return, but
+has no exceptional cleanup block for the selector process.
+Worker and selector enable subreaper behavior. Their descendant waiting occurs
+on successful paths; killing the worker bypasses its descendant wait entirely.
+The controller then writes PAUSED and attempts a checkpoint after dispatch raises.
+
+This ownership gap is consistent with V55's selector surviving controller return.
+The code and observations establish missing cleanup coverage, not the mechanism
+that eventually ended that selector. That mechanism remains unproven.
+
+REPAIR REQUIREMENTS BEFORE DEV143 CAN BE QUALIFIED
+1. Establish explicit ownership and readiness before a selector can start.
+2. Route cancellation through a supervisor that remains alive until its selector
+   and registered descendants have stopped and been reaped.
+3. Handle cancellation during launch, communicate, result reduction and timeout.
+4. Never treat a signal being sent, worker exit, or pipe EOF as proof that every
+   descendant is gone. Preserve both the original error and any cleanup failure.
+5. Use process identities in the correct PID namespace. Do not send signals to
+   PIDs copied from the mounted /proc: V54 showed they differ from Python PIDs.
+6. Do not signal unrelated processes, adopt broad system-wide cleanup, add a
+   supervisor outside the native engine merely to make the acceptance test pass,
+   or convert missing phases into a successful result.
+7. Keep successful-run evidence publication, native save cadence/budgets, and
+   immutable prior reports unchanged. Do not repair V55 evidence in place.
+
+PREREGISTERED VERIFICATION MATRIX
+- Immediate controller error with selector active: no selector at return.
+- Error at launch boundary: no untracked child and no descriptor leak.
+- Selector with forked descendant: descendants stopped/reaped before return.
+- Selector exits before cancellation: no PID-reuse or unrelated-process signal.
+- Existing timeout path: same ownership guarantee, original timeout retained.
+- Cancellation cleanup error: explicit failure, no accepted completion.
+- Normal PASS, FAIL, SKIP and save-boundary pause: outcomes unchanged.
+- Fresh native checkpoint-damage case: exact refusal, PAUSED, no survivor, stable
+  evidence, and independent saved-copy reconstruction without workload execution.
+
+NEXT IMPLEMENTATION STEP
+Implement and test the native cancellation/ownership mechanism in a separately
+versioned dev143 source. This review does not claim a working repair or justify
+closing any RC row. All 23 RC rows remain OPEN; no science replay.
