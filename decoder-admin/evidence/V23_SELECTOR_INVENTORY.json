@@ -1,0 +1,3418 @@
+{
+  "scope": "Static AST inventory; not native collection or test outcomes",
+  "profile_sha256": "ae392656f48a0f74e8d2bf9e05ef4a3428c6adb41e74babc9bdcce91928d8555",
+  "selector_count": 165,
+  "added_count": 42,
+  "coverage_exact": true,
+  "selectors": [
+    {
+      "selector": "tests/test_08lib_backend.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f07470b40324c02917af0776ad963d351d37915414f716409bc989cb631db236",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.change_sessions",
+        "infinity_grid.representative_qualification",
+        "infinity_grid.submission",
+        "infinity_grid.v05_execution_authority",
+        "pytest",
+        "sys"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_08lib_graph_metrics.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "0f6e52e4303cc71167579cd2f2939aea5cb61f98c8315a40f16a51fbb105ae18",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "igraph",
+        "infinity_grid",
+        "itertools",
+        "math",
+        "pytest",
+        "sys"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_08lib_group_closure.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4d3f2b5eacd7e4acc26f0fcf9700c4a368896c58f2a607372556c91aaa222623",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "infinity_grid",
+        "itertools",
+        "math",
+        "pytest",
+        "sympy.combinatorics",
+        "sys"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_audit_stop_recovery.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "9412cc0eaa2bf0a1a5c6cff8b45558ddba9b8835052083778a71f2b657180d05",
+      "added_since_dev136": false,
+      "test_function_definitions": 12,
+      "imports": [
+        "copy",
+        "hashlib",
+        "importlib.util",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_p2a_replay_dag_runner",
+        "test_p3_replay_reference_data"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_change_preservation_rebind.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8011490c953b839d3fca085da7c523d3d04fdb1082540af00fb8395b5138e994",
+      "added_since_dev136": false,
+      "test_function_definitions": 20,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_compact_label_reuse.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "298fb92cb934f3037e325cd32c05f78ffdb45f720a2ee58e317c57f5bd366533",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "dataclasses",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g5_capabilities",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_completion_publication.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e81e02480b858d55bfa55f717d5b8f8c944e249070dd721a26ad8d4cd249e597",
+      "added_since_dev136": false,
+      "test_function_definitions": 14,
+      "imports": [
+        "ast",
+        "hashlib",
+        "importlib.util",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "pathlib",
+        "pytest",
+        "types"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_database_sidecar_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "6b6e4eb6c5c6367ff6a628afffee47d63e68060db92a564f97d0b38b38b648a0",
+      "added_since_dev136": true,
+      "test_function_definitions": 3,
+      "imports": [
+        "contextlib",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "pathlib",
+        "sqlite3",
+        "struct",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder061_combined_contract.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a50cba50ec35d452e794060a801be4b4b011957fd6e21844b4bf38b7962340f5",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.execution_policy",
+        "json",
+        "pathlib",
+        "tempfile",
+        "unittest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder06_capture.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "df24406613f0aaf566fd0043a7fbafcdc1888ec2eafb10a17e74144db84fddc9",
+      "added_since_dev136": false,
+      "test_function_definitions": 12,
+      "imports": [
+        "ast",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.script_runtime",
+        "json",
+        "packaging.version",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "sys",
+        "tomllib",
+        "zipfile"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 78,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 83,
+          "call": "loop.run_workspace_job"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder06_changes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f887c6f63f1a861cabf78bf911318b3820878a72b22caf7c14dfab456928fb32",
+      "added_since_dev136": false,
+      "test_function_definitions": 13,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "setuptools.build_meta",
+        "shutil",
+        "subprocess",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 147,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 150,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 169,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 175,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 177,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 179,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 181,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 162,
+          "call": "setuptools.build_meta.build_wheel"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder06_invocation.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dd6fe1b52bc9f27e10ebfc428cf7711b4d5ae236282ecbe9248e23d65b0ea895",
+      "added_since_dev136": false,
+      "test_function_definitions": 20,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.execution",
+        "infinity_grid.invocation",
+        "infinity_grid.script_runtime",
+        "infinity_grid.v05_publication",
+        "infinity_grid.v05_stage_runtime",
+        "infinity_grid.v05_validation_runtime",
+        "infinity_grid.workflow_guard",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "subprocess",
+        "sys",
+        "tomllib"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 79,
+          "call": "origin._forked_worker_scope"
+        },
+        {
+          "line": 169,
+          "call": "subprocess.run"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder06_portable_registry.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "1376521b7b7ceeb12ba5ee346f7ed4676399ee3f3c6c10b5e13090264691e2fb",
+      "added_since_dev136": false,
+      "test_function_definitions": 17,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.invocation",
+        "json",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "tests.test_decoder06_capture"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 27,
+          "call": "loop.run_workspace_job"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder06_project_stage.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f20b870acbd2b84159ffc2cc5cd39c91df0bedbf08d54b21f4583a4b8180ccca",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.project_stage",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "subprocess",
+        "sys"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 86,
+          "call": "subprocess.run"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder06_results_preservation.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a6a8d990554fcdafe77239d5572150cb6867340c61c3a90110605d796d33d0ff",
+      "added_since_dev136": false,
+      "test_function_definitions": 22,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.change_sessions",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest",
+        "sqlite3",
+        "tests.test_decoder06_capture",
+        "time",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder06_shared_authority.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "de0db434ceb1a1d224a4746b2a1b1aae57487c1aafc3158ada38711f6eb0a6c4",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "copy",
+        "infinity_grid.shared_authority",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder06_transport.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "7ea18b774d2f6810aec93afb2720022ec28474406a9cc6df4cf6c76d1b8de9f9",
+      "added_since_dev136": false,
+      "test_function_definitions": 9,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "lzma",
+        "pathlib",
+        "pytest",
+        "subprocess",
+        "sys",
+        "tests.test_decoder06_capture",
+        "tests.test_decoder06_results_preservation"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 98,
+          "call": "subprocess.run"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_decoder07_candidate_workflow.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dd19475f8960fcbe93719b2d90e94523b2ae6f0fe6c47495b5b8d07b4f18111c",
+      "added_since_dev136": false,
+      "test_function_definitions": 9,
+      "imports": [
+        "copy",
+        "infinity_grid",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder07_certified_base.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f2411f8073291fb061180903103140f8595b79be0244d764a73e63c3bbfa3de6",
+      "added_since_dev136": false,
+      "test_function_definitions": 11,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder07_migration_continuation.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b6e286225aad51a28b4fc79a659087404bb64e37de211c0bc1f333333586d6b8",
+      "added_since_dev136": false,
+      "test_function_definitions": 7,
+      "imports": [
+        "__future__",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.v05_controller_event_loop",
+        "json",
+        "lzma",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_decoder07_semantic_inputs.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "667b76ca6fbd59c38adbe28622d1b8f487cb5367d8c074588de909c1afb5c62a",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "pathlib",
+        "pytest",
+        "sys"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_e3_g6_controller_generation_evaluators.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dabbe46114a2f17d646b1f01dc7a7347f5925d877d747ee25efc56621372afd5",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_controller_evaluators",
+        "infinity_grid.g6_s1_repair",
+        "infinity_grid.g6_s2_repaired",
+        "infinity_grid.g6_s3_repaired",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_engine_kernel_e1.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "14a51f1b1bee8e16c3d55ef39f3633636fc42d2d968d0a8f3568b62aceacc150",
+      "added_since_dev136": false,
+      "test_function_definitions": 14,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.canon",
+        "infinity_grid.engine_kernel_acceptance",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_controller_evaluators",
+        "infinity_grid.g6_stage_executors",
+        "infinity_grid.v05_stage_architecture",
+        "itertools",
+        "json",
+        "pathlib",
+        "pytest",
+        "random"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_evidence_diagnostics.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "bb4a1d424d2edc553bb48317c73acb3c6d3b585a1345c47293c4fa43ab95163a",
+      "added_since_dev136": true,
+      "test_function_definitions": 9,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.v05_passive_intake",
+        "io",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "sqlite3",
+        "tests.test_decoder06_capture",
+        "threading",
+        "time",
+        "zipfile"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 72,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 145,
+          "call": "threading.Thread"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_exact_relation_profile_bridge_fastpath_a24r.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "1d23d18ee012ad19180c7b322fcef8ba7188bd1567621dcd24adea2660618f4b",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.g6_stage_executors",
+        "infinity_grid.v05_kernel_service_providers",
+        "inspect"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_exact_tree_relation_kernel_v03087.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4fce118a6f2d0148eb6a39dd8b2e265688b6bdf831869aea15a9f2b7a47f3da1",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "__future__",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s3_repaired",
+        "infinity_grid.g6_stage_executors",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_execution_start_method_portability.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "5629125fbaf98e1ad3aa008a51cb77c2606d208eeb14cc67f32e0ba6eb5493f9",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.execution",
+        "multiprocessing"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 50,
+          "call": "execution._forkserver_transport_available"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_g6_fresh_marker_operations.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "011e1f36c30df874629bfd04f3f9a10f267ac891efb76ef297488d23ac49843d",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.uplift_g5_r4",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_marker_cache_optimization.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "364a304f09511d9b34dfcdb36bb20ba4dc9309313b079a183a637202d571d1c4",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_fresh_marker_kernel",
+        "infinity_grid.g6_marker_reference_oracle",
+        "infinity_grid.g6_stage_executors"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_r0_post_graduation_fiber.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a171b0e745c03862c69c3b32c03db8e7ae7a0c978c958db8cf41ae4b2fca6d85",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "infinity_grid.g6_r0_post_graduation_fiber"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s1_repair_v03083.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f33ed271b5737d2456262db4957e7ec8317af351b7a617d95403fc523f563906",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "importlib.resources",
+        "infinity_grid.canon",
+        "infinity_grid.g6_s1_repair",
+        "json"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s2_repaired_v03085.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "1710fce495432dbe02f578831e917b2979b7e4e6356ae3f8a56546b2f0332680",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "importlib.resources",
+        "infinity_grid.canon",
+        "infinity_grid.g6_s2_repaired",
+        "json"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s3_repaired_v03086.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c3ebd1457ac1433abef48c4355f089f5d7491ffe7debe7d9786b6e28b9ebfcd2",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "importlib.resources",
+        "infinity_grid.canon",
+        "infinity_grid.g6_s2_repaired",
+        "infinity_grid.g6_s3_repaired",
+        "json"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s5r_compositional_read_write.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "1a324dba268a955582ec828210d8afd2101d89b9896278d3777a699d0f0caafe",
+      "added_since_dev136": false,
+      "test_function_definitions": 7,
+      "imports": [
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s5r_compositional_read_write",
+        "infinity_grid.g6_s5r_crw_evaluators",
+        "infinity_grid.g6_s5r_crw_kernel",
+        "infinity_grid.g6_stage_executors",
+        "infinity_grid.v05_stage_architecture",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s5r_crw1.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d7e7d28634cd65c57d3842e4f75f7486b08e1eda250499962b9ae47fea19f84e",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s5r_crw_kernel",
+        "infinity_grid.g6_stage_executors",
+        "inspect"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s5r_observer_continuity.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "9c03c0d1954691e79518045dad51686e4d613bac110acbdfc20fd723f4d22495",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "infinity_grid.g6_s5r_observer_continuity",
+        "infinity_grid.v05_controller_event_loop",
+        "json",
+        "pathlib",
+        "pytest",
+        "tempfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s5r_wider_feature_search.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "01654866c5da5927d30918ebfc05bc5cf67fc59542bd25056c41ee4039adfc38",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.execution",
+        "infinity_grid.g6_s5r_wider_feature_search",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_execution_authority",
+        "multiprocessing.spawn",
+        "pathlib",
+        "pytest",
+        "sys"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s6r_global_observer_congruence.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "2e08c49de4f28e9739a205b36f6d424a43e04562fa80e836ce7fe65b6c6a8d57",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.g6_s6r_global_observer_congruence",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_engineering_worker",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s6r_l2_proof_reduction.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e0a99cf7d7bae1dd3247ce2cbf07c551423d7f089533894077ebfd78a088ea32",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "infinity_grid.g6_s6r_l2_proof_reduction",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_stage_registry",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s6r_l2_repair.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4113bba691c15240846d4f4325e2bca7a9afa6bad32810ea4229a6c656ff1d41",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "infinity_grid.g6_s6r_l2_repair",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_stage_registry",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s6r_support.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8d72c548bc1ba0e1a34fc0582fe52347f7a49e267cecca3643d7af85a766ba40",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s5r_compositional_read_write",
+        "infinity_grid.g6_s6r_evaluators",
+        "infinity_grid.g6_s6r_recursive_closure",
+        "infinity_grid.g6_stage_executors",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7_a6_reuse_provenance.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "5b4dd8a7da78a7acd9977606084e3b3b190b710d3b5be785fc0424ef881045ff",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.g6_s7_a6_reuse_provenance",
+        "infinity_grid.structural_encoding",
+        "infinity_grid.v05_controller_event_loop",
+        "inspect",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7_depth2_completion.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a473edcb02271df7a73b44f16562b47dc55394a7bf0f12006ff4a82b258465c1",
+      "added_since_dev136": false,
+      "test_function_definitions": 20,
+      "imports": [
+        "__future__",
+        "infinity_grid.canon",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s7_depth2_completion",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry",
+        "inspect",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7_ordinary_future_quotient.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fcc0962f466be5848bcd98962d050c11c9c3529766f42c4dca617a20dc2d0dfe",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "__future__",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.g6_s7_ordinary_future_quotient",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry",
+        "inspect",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7d2_compact_family_a30.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "2a921e3f4a56014c8826df9f6c62d97323c3333812b4b8041b0222b55b563348",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g5_capabilities",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_validation_runtime",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7d2_e2_export_a22.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8cf758b5cfb2c31a5bc4fde8a2fb8ed3af9b5f1285d8d3a9b959be0aeb0a2130",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.core.canonical",
+        "infinity_grid.g6_s7_depth2_completion",
+        "json",
+        "pathlib",
+        "sqlite3"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "914a257a2e6aaa1149d108c7d7fa374a0aa19bf9137fa4d903ef546aec7ccb91",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "infinity_grid.g6_s7_depth2_completion",
+        "inspect"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7d2_profile_batch_a27.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "644933c896d36ed2420229cbd8011d79ec938e9a4c264c37ed133db8fa47cba0",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g5_capabilities",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s7d2_semantic_equivalence_a21.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "91ee9febbd202a48478700bfef60400f5492540bbedd799eb65f2e1262a14fcb",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s7_depth2_completion",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s8_intrinsic_descriptor.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "44f109776cf205379d6ec1ad457b8713abb9b0f03edb34203f21d1bf832daaca",
+      "added_since_dev136": false,
+      "test_function_definitions": 20,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.v05_stage_registry",
+        "inspect",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_s8_v3_targeted_probe.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e35ac0a5faa7ff4a6cad0188988b884adaddb6b127886f40e5203fab57e869dd",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "inspect",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_g6_stage_executors_v03082.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d438f5cb9226c69d75907bcfd863777e76397426fc5688af63b490f999edfaf9",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "importlib.resources",
+        "infinity_grid.adapters.g4_accepted",
+        "infinity_grid.canon",
+        "infinity_grid.g6_stage_executors",
+        "infinity_grid.v05_chain",
+        "infinity_grid.v05_execution_authority",
+        "infinity_grid.v05_stage_architecture",
+        "json",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_h1_h13_semantic_classification_spot_check.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b0d46917eea6636605b978ca3f8af12e8e791ef1f5b7e43fba0e3984972753c8",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_legacy_capture_receipts.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "2d646f760be334ef84e42581f7df4ae6fa51d954e8a1c75f5e86bba7ad92028a",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "collections",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_live_graph_read.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "56df5779ba2ac8a58c134558ca3a3f09d5273eb33c278ba6d7e2218ba7a11187",
+      "added_since_dev136": true,
+      "test_function_definitions": 20,
+      "imports": [
+        "infinity_grid.graph_replay",
+        "infinity_grid.graph_store",
+        "infinity_grid.jumpstart",
+        "infinity_grid.live_graph_read",
+        "infinity_grid.paths",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_no_deadline_conveyor_run_operation.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dd8be4115e18d5048717b2d064e65629dd5201c319b7eb0acf9f5832b7304800",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "infinity_grid.conveyor",
+        "infinity_grid.run_operations",
+        "os",
+        "pathlib",
+        "tempfile",
+        "time"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 52,
+          "call": "time.perf_counter"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_o7_c1_broader_lanes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "0f6cff3cd3aaeed0f83a6054e31c79cadb1d6b78ed10479562e49ecfbc947161",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_graph_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f635dad10993cdbb149873e1a70280ba5ec1b0a43ab6be988381005df31043b9",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "infinity_grid.o7_c1_graph_comparison",
+        "infinity_grid.regime_scanner",
+        "itertools",
+        "random"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_high_lanes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "58c7e90b1d3ee21dba9728a20908fb3df8fba75acfebd3fe3677c30191b4015a",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_hybrid_lane_extension.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fe1bae7c95f40ca89b21d61fdbf7428530014a471536e74af5ebeafce543c89f",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_legacy_library_comparison",
+        "json",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_canonicalization.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fa69db3e8c3381d238e44aa57b87efcc46b848b723da7404a7da3b494fc2db13",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_materialization.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "0f9002d0b5e87da65007718c90b73a06ebdcf12f6b90fc9217af148ec315cf15",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_merkle.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "87981c6c21657bfa9a5da0cb2b9debad88eb1574600d8c15afe7f2330692d60e",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_legacy_library_comparison",
+        "json",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_o6_lanes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dc2ccf73cc3047600fadac54feb3a823bad7b555561603b2b560c9f2d1be19c5",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_legacy_library_comparison",
+        "json",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_o6_observer.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d7419164573d83863480cc428165e559d3d21e36ff54d8220ae7833d20e43980",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_independent_parent_orbits.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "012ca4ec44e463b12a573c55073fc51ab985d305daff499757f35d6a3b9cd1f5",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_median_lanes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a7d06ddf609b6bec5d03bff3b2c05e6be53d82bb1cdae9cc64375d3656d1215d",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_next_ten.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d8f0d8d4f40adddca48b5cdf26619d0bdee45814a4df057c551c132dc24808b9",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_next_uncovered.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d4aef0a97a16616b55b0aa0a988b3647e748aea68474f676eba5428787346cfa",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_outer_action_profile.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "bb265ef73cd36e489437484c2933fc4920824a40c27d2d0821f403d9b4b8b9a1",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_remaining_151.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f1f5897724d40d283221d9ccdee7ca80679acbae1571c4cb9488cdf79ad8f830",
+      "added_since_dev136": false,
+      "test_function_definitions": 151,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_remaining_maxima.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d0143944c1109880ada350a41236793a0178521af6d8deb6f085ce77c57a126e",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "infinity_grid.o7_c1_outer_action_profile",
+        "infinity_grid.o7_c1_typed_baseline",
+        "infinity_grid.o7_edge_canonicalization",
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_owner_materialization",
+        "infinity_grid.o7_parent_orbits",
+        "json",
+        "sys",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_c1_typed_baseline.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "ef29af92fd80d6d51c9594c725be30ad87bb2dedd96ba93950d1469c08d3bb5b",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.o7_c1_typed_baseline",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_historical_structural_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "83ac36e1e2342961b0ca2bc94ed037f459ad7007b8c95d516374d147e068bf76",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "infinity_grid.o7_historical_structural_comparison",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_legacy_library_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a49b57586fc346fa624a05f68a3a6b4e1e389fa39d9003a61b9c559da23f8824",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.regime_scanner",
+        "itertools",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_o7_symmetry_library_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "1482f439e4045943360c6f8d46e12a0a717145a3fab5d3fe1db6b85a10fcc297",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "infinity_grid.o7_legacy_library_comparison",
+        "infinity_grid.o7_symmetry_library_comparison",
+        "infinity_grid.regime_scanner",
+        "itertools",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p1c2_audit_provenance_ledger.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "270617787cde169c1285e2c7acb1678b3f13d1454ae5167c82b6f47a7afe4353",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p1c3_known_replay_qualifications.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "15d4caab471e6bb4c2177e52c8a71d8e50b54e20164b56e93bd1969b18a3be34",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p1c4_execution_classes.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "2157a0d5f39c79d0096cf9f6de8168c8345fbb92a2dada929d54824db73dd985",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p1c5_cost_budget_ledger.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "5a19447675c30fb62d6ad11341a0fa95872f7698ec21bc3cbfaf1155de3bf4f8",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p1d_fresh_replay_certificate.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "7678c48edc453d386fc7a7182e98b03f1ab668c5d4cde65a5a1f38487733a5df",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "__future__",
+        "infinity_grid",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p2a_replay_dag_runner.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "23835b8bb676eb9cba4c84e7bd81f8efbda509e283de070c3afbd1fcd357b203",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "__future__",
+        "copy",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p2b_registered_replay_root.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "45235575b9a7480faf7c04067c66dc47e01cfa540106b38ad0b7b7810f2b4f3c",
+      "added_since_dev136": false,
+      "test_function_definitions": 9,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "infinity_grid.replay_root_job",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_execution_authority",
+        "infinity_grid.v05_stage_architecture",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest",
+        "types"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p3_replay_reference_data.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "031b34eeb008fe72068dcc23c50da5018009e955ebccde0f9287e4bf6d36b57b",
+      "added_since_dev136": false,
+      "test_function_definitions": 13,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.replay_reference_data",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p4_l0_pilot.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "ff638208019d0d241e635d484e06553229e2e92f5c73533ed1bdc98537bb445d",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "infinity_grid.replay_l0_executor",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.v05_stage_architecture",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p5_c0_historical.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d4c76b69a807c0ebe247e36009d4ca92465113002cf23b7486663407fc951b0c",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_c0_historical_executor",
+        "infinity_grid.replay_frontier_import",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.v05_stage_architecture",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p6_l2j3_historical.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "0808d10e10d2bbc9713c74d3ea587fb370ef3e426120d86f3a2f09b527c41857",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_l2j3_executor",
+        "infinity_grid.replay_p5_frontier_import",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p7_node_in.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d5d3b1fed96da15c66f5228123f9454c31b7a4f65f7df15b81f0c65c0407762b",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "hashlib",
+        "infinity_grid.replay_node_in_executor",
+        "infinity_grid.replay_p6_frontier_import",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p8_scout_historical.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a437ac27517d49bcd2e7f682cc6391584c96e8a9423a0a7320aa76e69cba24bf",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "hashlib",
+        "infinity_grid.replay_p7_frontier_import",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.replay_scout_historical_executor",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_p9_o1_o3.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "11956d4f674b3f51a6039268a9c8fd8f777f851992db5511f235fc8c655629e9",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "hashlib",
+        "infinity_grid.replay_o1_o3_executor",
+        "infinity_grid.replay_p8_frontier_import",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_qualification_contract.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dd71d1fa0bec8ab848dc7d19d9aebb2c7e08824e1f44eebdeaad21f893135197",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "infinity_grid",
+        "json",
+        "pathlib",
+        "pytest",
+        "sys",
+        "tomllib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_r02_replay_self_qualification.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "961bc0af0a471e42456064a7d6251c28c408ef4dfc8e1f08d412141257b2ff78",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_rc_audit_repairs.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8973c7ae8335f0599e3d12f70215dd28550652377f006f1a820c109fb4eab46e",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.graph_library_backend",
+        "infinity_grid.regime_scanner",
+        "infinity_grid.v05_stage_architecture",
+        "os",
+        "pytest",
+        "stat"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_repair7r_reuse_evidence.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f5fb7ee42f7f58605d72bdef17597cc8bcb8dd0f405200ba3ebb221ed8354c09",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "contextlib",
+        "hashlib",
+        "infinity_grid",
+        "json",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 103,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 80,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 90,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 97,
+          "call": "loop.run_workspace_job"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_repair7r_sqlite_lifecycle.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "944e242a8d0ede48002f26e42b7fcf4c156ee1aeff4582aa6b789f05011b45ea",
+      "added_since_dev136": false,
+      "test_function_definitions": 13,
+      "imports": [
+        "contextlib",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.v05_stage_runtime",
+        "inspect",
+        "json",
+        "pathlib",
+        "pytest",
+        "sqlite3",
+        "subprocess",
+        "sys"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 121,
+          "call": "subprocess.run"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_replay_checkpoint_consistency.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "9ad12b1e851047b9704a1c713464232b8fc57e789639b170ab73aab1bde3c007",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "infinity_grid.preservation",
+        "infinity_grid.submission",
+        "json",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_replay_index_preservation.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8c6ef2fb41fe57360d4d3230bf9762d2162583ae34c1c8bdcd00fb1b761cda78",
+      "added_since_dev136": false,
+      "test_function_definitions": 10,
+      "imports": [
+        "copy",
+        "hashlib",
+        "importlib.util",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "infinity_grid.replay_index_lock",
+        "infinity_grid.replay_reference_data",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_p2a_replay_dag_runner",
+        "test_p3_replay_reference_data",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_replay_obligation_compiler_p1a2.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "82f13a06a346d7219e12127580e72f1fe8b8a62c6060c8e277b666f5031c2121",
+      "added_since_dev136": false,
+      "test_function_definitions": 15,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid.canon",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_replay_obligation_compiler_p1b.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "13223e87b3108b75d798fb95c4463e9ecfe1cb070144aabb5ef67d2e97d05011",
+      "added_since_dev136": false,
+      "test_function_definitions": 7,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_replay_obligation_compiler_p1b2.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e01dfd0df927897cebea2d63db28e0a6dfe5183a9598adc6e5a7353590362b5d",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_replay_obligation_compiler_p1c.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "3444495ac240bedf7907786720372aaaf0abebcb8e7c613409869568db320d02",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "copy",
+        "infinity_grid.replay_obligation_compiler",
+        "json",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_science_contract_strength.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b03d366c78de251b5e840db5c39bd18c1511d31c750a4fa139252a0d43f6af69",
+      "added_since_dev136": true,
+      "test_function_definitions": 16,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "pathlib",
+        "pytest",
+        "tests.test_decoder06_capture"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_separate_completion_evidence.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "cb53948d08d8a00f44dfad729e2db5998ea7e848a6880c63203bd104bdce8bf6",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "contextlib",
+        "infinity_grid",
+        "json",
+        "pytest",
+        "sqlite3"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_sidecar_lifecycle.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fab4c0ff0999f81ba54663687cdae18d20b68c943e643245c36c14856e2da8e6",
+      "added_since_dev136": true,
+      "test_function_definitions": 4,
+      "imports": [
+        "contextlib",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "os",
+        "pathlib",
+        "sqlite3",
+        "time",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_snapshot_evidence_filters.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "3564ed1933149b1454b0adc0447d79544c48d7d5adef03b1314397af11de8d40",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid.v05_controller_event_loop",
+        "json",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_admission_bindings.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "0ddc9ce396c850fc69f32460f70e4152821d747e4e53fb79bdbabf1e7d6a8d7c",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_admission_bindings",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_audit",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_audit.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "16e276d812f70deee9daef74d05b4dad8a9e71ac7aabeca0b7e1c062ef79864b",
+      "added_since_dev136": true,
+      "test_function_definitions": 10,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_auxiliary_closure.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "93512004c97ac3ee3283717f6ed9c60554d8dc301231f798a70eb8d3c78e5582",
+      "added_since_dev136": true,
+      "test_function_definitions": 8,
+      "imports": [
+        "hashlib",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_legacy",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_candidate.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c8d4aa4c62334f6ea3503007fd3d5517095b5754798fdd6297b748dbb24e1778",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "hashlib",
+        "infinity_grid.storage_candidate",
+        "infinity_grid.storage_catalog",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_index_descriptor",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_collection_recovery",
+        "test_storage_index_descriptor",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_candidate_metadata.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e63e2fcb9379290045f722f7c2421f7ff73b021e1cb2741171289b23bc0ab08b",
+      "added_since_dev136": true,
+      "test_function_definitions": 10,
+      "imports": [
+        "infinity_grid.storage_candidate",
+        "infinity_grid.storage_capture_metadata",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_index_descriptor",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_capture_metadata",
+        "test_storage_collection_recovery",
+        "test_storage_index_descriptor",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_capture_metadata.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "6cdea4b57afad72dc3b128a54667a677c9816e1a8296824e1d2f9bd2d1f16025",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.storage_capture_metadata",
+        "infinity_grid.storage_index_descriptor",
+        "infinity_grid.v05_controller_event_loop",
+        "io",
+        "json",
+        "pathlib",
+        "pytest",
+        "stat",
+        "warnings",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_catalog_migration.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "e60b1814e654ffd3026832905b6f4446a5241bb8406258c130e74589fd11f0c2",
+      "added_since_dev136": true,
+      "test_function_definitions": 17,
+      "imports": [
+        "hashlib",
+        "importlib.util",
+        "infinity_grid.catalog",
+        "infinity_grid.catalog_read",
+        "infinity_grid.graph_store",
+        "infinity_grid.paths",
+        "infinity_grid.storage_catalog",
+        "infinity_grid.store",
+        "json",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "sqlite3",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_claims.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c668de0fdfdd11e30191594b377ea4bdb9f2c8cc03228943364386b6c32e0cf3",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_closure.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "742181396907758fc3ab9a0b06dd7880fcf313a35848e3dc38a114728f85f1f6",
+      "added_since_dev136": true,
+      "test_function_definitions": 18,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_collection_recovery.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b38c516c79c7a76180ff76a4b5ecd9f70954fe90109ece8087cf6bcf40742128",
+      "added_since_dev136": true,
+      "test_function_definitions": 8,
+      "imports": [
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collection_recovery",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_full_recovery_join",
+        "test_storage_legacy",
+        "test_storage_native_collection"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_collections.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "6e069a493074abef2cc90817439b74e43c16e67682cdbb0edf954f60eb592e0e",
+      "added_since_dev136": true,
+      "test_function_definitions": 18,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_comparison.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "177906131302227203c5cc6d23abaeb680b0e8e4c66cb5a759c5e0050cdd1d01",
+      "added_since_dev136": true,
+      "test_function_definitions": 10,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_evidence",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_contract_registry.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "239ddb462bce5c646af8385bf77be76e064e6565fb0845cb50606756ed040d60",
+      "added_since_dev136": true,
+      "test_function_definitions": 9,
+      "imports": [
+        "copy",
+        "infinity_grid.canon",
+        "infinity_grid.storage_candidate",
+        "infinity_grid.storage_capture_metadata",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_contract_registry",
+        "infinity_grid.storage_index_descriptor",
+        "infinity_grid.storage_schema",
+        "io",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_candidate_metadata",
+        "test_storage_capture_metadata",
+        "test_storage_index_descriptor",
+        "test_storage_legacy",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_dataset_snapshot.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b0766eb74b3699c8de12a28e6975731b2e140f31f574d243e2e4df411579af21",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "infinity_grid.canon",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_dataset_snapshot",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_dependencies.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4b535ad72493cd2442b6b8fbebb25a35525650531c12768050eb0e8c01f42d8b",
+      "added_since_dev136": true,
+      "test_function_definitions": 13,
+      "imports": [
+        "copy",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_dependencies",
+        "infinity_grid.storage_schema",
+        "pathlib",
+        "pytest",
+        "test_storage_collections"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_evidence.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "912dbf412d696279f04e8874a423a18fd399246a221f37c6c8268df68498f149",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "copy",
+        "infinity_grid.canon",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_fixed_runtime.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c8d41f8f6034589212271ab5f722184d73ba5c0aa445c673a10fb7c1cbb08de4",
+      "added_since_dev136": true,
+      "test_function_definitions": 9,
+      "imports": [
+        "hashlib",
+        "infinity_grid.sqlite_attestation",
+        "json",
+        "pathlib",
+        "pytest",
+        "queue",
+        "sqlite3",
+        "subprocess",
+        "sys",
+        "threading"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 28,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 60,
+          "call": "subprocess.run"
+        },
+        {
+          "line": 145,
+          "call": "threading.Thread"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_storage_frontier_history.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "738e36243f60aea67486fcad9f3cbbbf35c1ae70e26dbfc87a0f270a3bf8cef2",
+      "added_since_dev136": true,
+      "test_function_definitions": 8,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.storage_frontier_history",
+        "io",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_history_assembly",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_frontier_snapshot.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "aeda15e00d8d8eb7a4eb3f937681e5a94563a3ba8450e9d940e974a1dc02c0b4",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_l0_executor",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_frontier_snapshot",
+        "infinity_grid.storage_runner_snapshot",
+        "json",
+        "pytest",
+        "test_p2a_replay_dag_runner",
+        "test_storage_runner_snapshot"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_full_recovery_join.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4e3f6b73f9ddafdb07d82532eaaaf32933a87b31a0f5945e9603e491051331eb",
+      "added_since_dev136": true,
+      "test_function_definitions": 9,
+      "imports": [
+        "collections",
+        "hashlib",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_full_recovery_join",
+        "infinity_grid.storage_history_assembly",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "test_storage_auxiliary_closure",
+        "test_storage_frontier_history",
+        "test_storage_history_assembly",
+        "test_storage_legacy",
+        "test_storage_p9_result_closure"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_history_assembly.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "af914a15bdf1e14c02eb0030d12336f067be9871d1a97510d4ad0258eced7541",
+      "added_since_dev136": true,
+      "test_function_definitions": 7,
+      "imports": [
+        "hashlib",
+        "infinity_grid.storage_history_assembly",
+        "io",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_index_descriptor.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8752f40e887de79a2e64177890e11d34bd2becf4101bba6dc377528cc637bbc3",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "infinity_grid.storage_catalog",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_index_descriptor",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "sqlite3",
+        "test_storage_legacy",
+        "test_storage_native_collection"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_legacy.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fa3a56e0d073da1ce8b1e2c97fe34929e301a0c8a47422560d667bb3ea10da3a",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_links.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "68fd7a9cdfe18ce0889f6273383aa5e61f1356dcd68dc6726583b8c9d3e1dcdf",
+      "added_since_dev136": true,
+      "test_function_definitions": 8,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_manifest_sources.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "5b939edc67e2d21a6565b688cae10cb289f9fa545f2f3a5acfd7a1d8e4db4e29",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_obligation_compiler",
+        "infinity_grid.storage_manifest_sources",
+        "json",
+        "pytest",
+        "test_replay_obligation_compiler_p1a2"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_native_collection.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "d558aa65822a0b3b4a0824c81a06a04d99535271ac3c1d992f97cf3aed05d892",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "hashlib",
+        "infinity_grid.storage_catalog",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_legacy",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_negative.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "ba83c56159d14753bc252cf4a9ef7fdd43028f63a9ca541eb2cd69d2784f885e",
+      "added_since_dev136": true,
+      "test_function_definitions": 14,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_oracle_witnesses.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "7947583d2607f52e816a7fc28e4e280c864128166d8196df34b3a9efbd3cb209",
+      "added_since_dev136": true,
+      "test_function_definitions": 10,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.storage_oracle_witnesses",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_p9_result_closure.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "dea4dc1b4fb82d81860eabdd057ea340fcc22e7692137d226815621d5cd47c8f",
+      "added_since_dev136": true,
+      "test_function_definitions": 8,
+      "imports": [
+        "collections",
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_result_closure",
+        "infinity_grid.storage_schema",
+        "io",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_auxiliary_closure",
+        "test_storage_legacy",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_recipe.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "888ec930fd7b3070ca8c9c220388f15144ad7adfe8b0d5571a15fbf4ef224593",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "copy",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_legacy",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_recovery_join.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "286926cde35d7ce1aeca0c330698a157dad9e024624089ee69fddb89fd14d0bf",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "hashlib",
+        "infinity_grid.canon",
+        "infinity_grid.replay_l0_executor",
+        "infinity_grid.replay_obligation_compiler",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_recovery_join",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "test_storage_legacy",
+        "test_storage_result_closure"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_result_closure.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "299f4dcb97870af9cfe3daf29123ea601b9e3bc06ed40ca74db18bf8b6a94d28",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "infinity_grid.canon",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_closure",
+        "infinity_grid.storage_collections",
+        "infinity_grid.storage_result_closure",
+        "infinity_grid.storage_schema",
+        "json",
+        "pytest",
+        "test_storage_legacy",
+        "test_storage_snapshot_results"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_runner_snapshot.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "fb3cf08dcb943c986edd856bf3539476c6c763a45447824de3cb0f51010106f4",
+      "added_since_dev136": true,
+      "test_function_definitions": 12,
+      "imports": [
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "infinity_grid.storage_runner_snapshot",
+        "json",
+        "pytest",
+        "test_p2a_replay_dag_runner"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_snapshot_results.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "b353da0de0bd2bedc1ef4e2b2bd200a8093cc77b1fba91e4fd197b25c4eb99f0",
+      "added_since_dev136": true,
+      "test_function_definitions": 18,
+      "imports": [
+        "copy",
+        "infinity_grid.canon",
+        "infinity_grid.replay_dag_runner",
+        "infinity_grid.replay_l0_executor",
+        "infinity_grid.replay_reference_data",
+        "infinity_grid.storage_runner_snapshot",
+        "infinity_grid.storage_snapshot_results",
+        "json",
+        "pytest",
+        "test_p2a_replay_dag_runner"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_storage_step2.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "80f69f559155128df7f2eae91ec6f5f0a69acb1be6616b72a27267734342f07e",
+      "added_since_dev136": true,
+      "test_function_definitions": 21,
+      "imports": [
+        "copy",
+        "hashlib",
+        "infinity_grid.catalog",
+        "infinity_grid.graph_store",
+        "infinity_grid.paths",
+        "infinity_grid.schema",
+        "infinity_grid.sqlite_attestation",
+        "infinity_grid.storage_catalog",
+        "infinity_grid.storage_schema",
+        "json",
+        "pathlib",
+        "pytest",
+        "referencing.exceptions",
+        "sqlite3"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_structural_encoding_e2.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "4d9e2a90b46a7426b8d2c35ff9f38d43ae378c9c989c173257845c2b88bf4803",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "infinity_grid.canon",
+        "infinity_grid.core.canonical",
+        "infinity_grid.structural_encoding",
+        "pytest",
+        "random",
+        "string"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_terminal_json_equivalence.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "6c16ab83a89123bc716a73847cdf39a3b45eb4def3bcd51085aa7bbc3de021f4",
+      "added_since_dev136": false,
+      "test_function_definitions": 7,
+      "imports": [
+        "copy",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "json",
+        "pytest",
+        "types"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_two_sorted_relation_library.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c2665c61194e6f29b10ca33f16f23ed7bd28a1141eeaeb9718e05d8aa9b5a844",
+      "added_since_dev136": false,
+      "test_function_definitions": 9,
+      "imports": [
+        "igraph",
+        "importlib",
+        "infinity_grid",
+        "itertools",
+        "json",
+        "pathlib",
+        "pytest",
+        "random",
+        "runpy",
+        "shutil",
+        "sys"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 150,
+          "call": "runpy.run_path"
+        },
+        {
+          "line": 139,
+          "call": "runpy.run_path"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_v05_c5_origin_exclusivity.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "eadaebcf440e70aed6f1633d4d27de1655086644f87594277f18c64a6f4c21f3",
+      "added_since_dev136": false,
+      "test_function_definitions": 15,
+      "imports": [
+        "__future__",
+        "importlib",
+        "infinity_grid",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_engineering_jobs",
+        "infinity_grid.v05_engineering_worker",
+        "infinity_grid.v05_origin_guard",
+        "infinity_grid.v05_passive_intake",
+        "infinity_grid.v05_registered_service",
+        "infinity_grid.v05_route_closure",
+        "infinity_grid.v05_validation_runtime",
+        "inspect",
+        "json",
+        "pathlib",
+        "pytest",
+        "tempfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_c6_namespace_identity.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "49152842fdc38c821d913cfc1f2c7d8a43e80d28715530801e3335b554626129",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.v05_engineering_worker",
+        "infinity_grid.v05_execution_authority",
+        "infinity_grid.v05_origin_guard",
+        "infinity_grid.v05_passive_intake",
+        "infinity_grid.v05_process_identity",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "subprocess",
+        "sys",
+        "time",
+        "zipfile"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 51,
+          "call": "os.fork"
+        },
+        {
+          "line": 342,
+          "call": "subprocess.Popen"
+        },
+        {
+          "line": 361,
+          "call": "time.sleep"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_v05_c6_persistent_recovery.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "7a3a9918ebbfc6c2475b3ba9aea4202a2775c79bcca475160236c95c6dc51be9",
+      "added_since_dev136": false,
+      "test_function_definitions": 23,
+      "imports": [
+        "__future__",
+        "errno",
+        "hashlib",
+        "importlib",
+        "infinity_grid",
+        "infinity_grid.v05_c6_recovery",
+        "infinity_grid.v05_c6_recovery_child",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_execution_authority",
+        "infinity_grid.v05_origin_guard",
+        "infinity_grid.v05_process_identity",
+        "inspect",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "zipfile"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_cancel_control.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "a8c8c9f556100815d3e19ed52d1812a2171ce996354157c51263f0e7ddec9b23",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_c6_recovery",
+        "infinity_grid.v05_cancel_control",
+        "infinity_grid.v05_controller_event_loop",
+        "infinity_grid.v05_passive_intake",
+        "inspect",
+        "json",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_controller_namespace_portability.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c787675b8cac1ab5dc6c2778d591092e2aca2b715baa808f8a8476be46ae8b11",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_controller_event_loop",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_controller_process_handler_routing.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "19d44fc2da38ff1e67eb129f25aea3f5e9f7804dec189caf39a0dce4cae6fd33",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_controller_event_loop"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_engineering_same_identity_authorization.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "ec0d143f26ac876dafbf87db3b32ab240c1055d59cc02b46440a0b226677233b",
+      "added_since_dev136": false,
+      "test_function_definitions": 7,
+      "imports": [
+        "__future__",
+        "infinity_grid.canon",
+        "infinity_grid.v05_engineering_jobs",
+        "os",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_g6_chaining_v03081.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "18ed0b3b48386e6e82e9a61c8cccb316c2c8f52ef52042ab306d6983d31cbc19",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "__future__",
+        "infinity_grid.canon",
+        "infinity_grid.v05_chain",
+        "infinity_grid.v05_execution_authority",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_memory_housekeeping.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "9218353df26c4c7983958133966a601411f093d66b4ff720362073be8df4e218",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_stage_runtime",
+        "json",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_o3a_kernel_service_boundary.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "f8cf49444711f37d94de539102972f26b383860d17d3ce129cbbe859d3aa53e8",
+      "added_since_dev136": false,
+      "test_function_definitions": 8,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_o3b_kernel_service_migration.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "52d91bfdd3dbf10cba6606065ab74ea7540a3e73a7b9b926e8b2e8ab1aa0263e",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g6_s6r_recursive_closure",
+        "infinity_grid.v05_kernel_service_providers",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_registry",
+        "pathlib"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_o3c_shared_exact_caches.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "c66e984d6c09c569ee733bdd7bc35fb7c84a619663b062359909dc643fb0f848",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g5_capabilities",
+        "infinity_grid.g6_s5r_crw_kernel"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_passive_intake_idempotency.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "074f0b32289fd9dca8fea9607b9853ea51cf2c19f0e3e0a405cf5ee66414a529",
+      "added_since_dev136": false,
+      "test_function_definitions": 2,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_passive_intake",
+        "json"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_s8_optimization_acceptance.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "51bb4e06d214fafa78dd81b08b923abe1802768a686a6d8b238aa32d151ded28",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "importlib",
+        "infinity_grid.v05_engineering_jobs",
+        "infinity_grid.v05_optimization_acceptance",
+        "inspect",
+        "json",
+        "pathlib",
+        "pytest",
+        "shutil"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_stage_runtime_exact_byte_handoff.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "7dd30eb506b5868816a8143da71ade43843c3f1c6995bb349dc08fba813bf304",
+      "added_since_dev136": false,
+      "test_function_definitions": 3,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid.runtime_telemetry",
+        "infinity_grid.structural_encoding",
+        "infinity_grid.v05_stage_runtime"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_v05_stage_runtime_resume_kernel_view.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "58e8eb7d07d6815bc7ec96f9141bde878b8183ff65c83f73e228ca0a899a6523",
+      "added_since_dev136": false,
+      "test_function_definitions": 1,
+      "imports": [
+        "__future__",
+        "infinity_grid.v05_kernel_services",
+        "infinity_grid.v05_stage_runtime"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_validation_phase_binding.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "8f2698425cc553a78300259deb22e2d721a689e0f398b0c0bff90d83d237f3cf",
+      "added_since_dev136": true,
+      "test_function_definitions": 7,
+      "imports": [
+        "copy",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "pytest",
+        "types"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_validation_recorder_finalization.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "585f11dab9339bb1ddb4066c87559e23e27d646c383da30653dbd11569b01bcb",
+      "added_since_dev136": false,
+      "test_function_definitions": 6,
+      "imports": [
+        "copy",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "pytest",
+        "types"
+      ],
+      "execution_review_flags": []
+    },
+    {
+      "selector": "tests/test_validation_worker_log_publication.py",
+      "group": "functional",
+      "workers": 4,
+      "sha256": "5dfa0ab1d35ae69e7eb0c08dd0d3f91b8f630890451ca924daba7de93a9d00ac",
+      "added_since_dev136": false,
+      "test_function_definitions": 15,
+      "imports": [
+        "hashlib",
+        "infinity_grid",
+        "os",
+        "pathlib",
+        "pytest",
+        "sys",
+        "time"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 62,
+          "call": "os.fork"
+        },
+        {
+          "line": 78,
+          "call": "os.fork"
+        },
+        {
+          "line": 64,
+          "call": "time.sleep"
+        },
+        {
+          "line": 80,
+          "call": "os.fork"
+        },
+        {
+          "line": 82,
+          "call": "time.sleep"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_v05_registered_workspace.py",
+      "group": "workspace",
+      "workers": 4,
+      "sha256": "11280d8957a5e5c8d124d5a0e7a8b31e2bad77d46980c1ab5c993d2346fc79a1",
+      "added_since_dev136": false,
+      "test_function_definitions": 14,
+      "imports": [
+        "__future__",
+        "hashlib",
+        "infinity_grid",
+        "infinity_grid.canon",
+        "infinity_grid.completion_evidence",
+        "infinity_grid.execution",
+        "infinity_grid.invocation",
+        "infinity_grid.v05_execution_authority",
+        "infinity_grid.v05_origin_guard",
+        "json",
+        "pathlib",
+        "pytest",
+        "shutil",
+        "sqlite3"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 120,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 120,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 131,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 133,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 159,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 186,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 208,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 214,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 72,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 81,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 90,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 103,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 149,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 190,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 196,
+          "call": "loop.run_workspace_job"
+        },
+        {
+          "line": 171,
+          "call": "loop.run_workspace_job"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_v05_stage_runtime_representative_bytes.py",
+      "group": "representative",
+      "workers": 4,
+      "sha256": "d5a665a417dd749cd0c8ddeda4cdf2bedd5e6ca5f7c476341b1fb50eb703613e",
+      "added_since_dev136": false,
+      "test_function_definitions": 4,
+      "imports": [
+        "infinity_grid",
+        "infinity_grid._representative_qualification_cases",
+        "pathlib",
+        "pytest"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 15,
+          "call": "loop.run_workspace_job"
+        }
+      ]
+    },
+    {
+      "selector": "tests/test_v05_o3c_benchmarks.py",
+      "group": "timing",
+      "workers": 1,
+      "sha256": "1ff9e0acce92e9fd112a7bd421f9780c433262ca070c9f6f4ed8c79ad70eb8c1",
+      "added_since_dev136": false,
+      "test_function_definitions": 5,
+      "imports": [
+        "__future__",
+        "infinity_grid.exact_tree_relation_kernel",
+        "infinity_grid.g5_capabilities",
+        "infinity_grid.g6_s5r_crw_kernel",
+        "infinity_grid.g6_s7_evaluators",
+        "infinity_grid.v05_kernel_service_providers",
+        "json",
+        "pathlib",
+        "statistics",
+        "time"
+      ],
+      "execution_review_flags": [
+        {
+          "line": 28,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 29,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 42,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 43,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 58,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 59,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 86,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 97,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 28,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 29,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 42,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 43,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 58,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 59,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 94,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 104,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 167,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 171,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 170,
+          "call": "time.perf_counter"
+        },
+        {
+          "line": 174,
+          "call": "time.perf_counter"
+        }
+      ]
+    }
+  ]
+}

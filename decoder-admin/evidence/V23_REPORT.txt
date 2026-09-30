@@ -1,0 +1,74 @@
+V23 — DEV137 QUALIFICATION INPUT AND EXECUTION REVIEW — 2026-09-30
+
+RESULT: STATIC PREPARATION VERIFIED. NO PYTEST OR NATIVE WORKLOAD EXECUTED.
+Parent repository commit ed76cb4b5be016403cb6b3e6b01bae74455c6946.
+Source unchanged: e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070.
+All 1510 source files and V4 4721 runtime files/modes plus seven host libraries
+verified. This is byte verification, not a new runtime or source test PASS.
+
+INPUTS
+All seven qualification roles match the catalog sizes and SHA256 hashes in
+existing downloaded bytes. INPUT_BINDINGS.json freezes identities, states and
+ordered Drive transport parts. No producer was rerun and no saved history was
+rewound. The outcome fixture remains an expected refusal without completion.
+Private failed_evidence bytes are excluded from this bundle and public Git.
+Bindings are preparation data, not yet input_artifacts of a new native capture.
+
+PROFILE REVIEW
+165 unique selectors exactly cover current top-level tests: functional162,
+workspace1, representative1, timing1. Workers4/4/4/1; timing remains last.
+42 functional selectors were added since dev136. AST inventory records hashes,
+imports and execution-sensitive calls for every selector. This is a static
+screen, not an exact pytest node count or exhaustive semantic proof.
+The added storage tests exercise bounded tmp_path fixtures and schema/admission
+contracts. storage_fixed_runtime also creates child processes, threads and WAL
+connections; these belong to native functional execution, not timing isolation.
+evidence_diagnostics uses a monkeypatched refusal path and a local thread.
+Sibling-test imports and packaged resources remain captured with the source.
+No explicit skip/xfail calls were found by this screen; runtime collection can
+still fail or skip and must be independently checked.
+Existing functional tests include fork/descendant cleanup and CLI subprocesses.
+The real wheel build, offline --no-deps installation, installed imports and
+entrypoint version checks are in test_decoder06_changes.py. V17 backend-import
+checks do not cover them. Archived two-sorted scripts are copied into tmp_path
+before execution, so their result writes do not target the captured source.
+Workspace interruption/refusal cases intentionally execute within their future
+registered test job; checking fixture hashes today did not execute those cases.
+
+DEPENDENCIES
+All 22 top-level installed distribution versions match PROFILE.json. Static
+Requires-Dist evaluation for CPython3.13.5 Linux with no extras found no missing
+or incompatible active requirement. This does not qualify actual installation,
+wheel provenance, extras or independent-host closure. Historical uv.lock and
+Python3.12 locks remain unsuitable as current installation locks.
+An initial recursive metadata scan accidentally included setuptools vendored
+distributions and reported packaging/wheel mismatches. It is retained as
+INITIAL_RECURSIVE_METADATA_SCAN_NOT_ACTIVE_ENVIRONMENT.json, not a runtime
+failure. The corrected scan restricts discovery to top-level dist-packages;
+DEPENDENCY_METADATA_REVIEW.json is authoritative for this static check.
+
+NATIVE COLLECTION LIMITATION / NEXT GATE
+The existing native VALIDATION ingress accepts explicit test-file/node selectors.
+validation_node_runner.py invokes pytest with -q -s and no cache provider; there
+is no collection-only switch. Collection receipts are produced inside each
+selector invocation before its test execution, followed by phase/finalization
+receipts. A standalone --collect-only shell run would bypass the required native
+path and is not authorized by this review.
+The profile wording requiring native inventory before execution needs explicit
+campaign treatment: preregister exact selectors first; native node inventory is
+earned during the saved VALIDATION run, then reconciled against all outcomes.
+Do not claim a pre-earned node inventory or invent an unsupported ingress.
+Next: prepare the saved/read-back native functional VALIDATION campaign, binding
+all seven inputs and this review, with an explicit collection/inventory contract,
+resource/preservation budget and exact selector scope. Do not dispatch until
+that protocol and capture prerequisites are saved and read back. Preserve every
+failure and do not retry implicitly. Later groups remain workspace,
+representative, then one-worker timing; no historical PASS counts inherited.
+A long gate must account for the retained checkpoint backlog limit (V21 lesson),
+not simply reuse a short-fixture budget or loosen limits silently.
+
+STATUS
+Full dev137 qualification remains OPEN; actual node inventory and outcomes have
+not been earned. All 23 RC acceptance rows/full RC remain OPEN. V21 backlog pause
+and A12 unexplained prior mutations remain preserved. Independent OS/host closure,
+complete install lock and historical science/replay closure remain open.

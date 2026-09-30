@@ -57,10 +57,16 @@ history: PAUSED at the unsaved-checkpoint count limit, not a qualified fixture.
 V22 used standard30-second checkpoints, retaining count/byte/age limits.
 The candidate_fixtures field pins ordered parts and whole archive hashes.
 Concatenate parts in order, verify all sizes/hashes, then native restore_workspace.
-This closes fixture preparation only. Review the165-file profile execution
-classes and bind all seven roles (five candidate plus two historical) before
-native current-source collection/qualification. Actual collected-node inventory
-and every selector outcome remain to be earned. Full source suite and RC OPEN.
+V23 verifies all seven archive bindings and static coverage of165 selectors,
+including42 additions. All22 top-level distribution versions match; active
+base-environment METADATA constraints have no unsatisfied requirement. This is
+static preparation, not native collection, test PASS or an install lock.
+See decoder-admin/evidence/V23_REPORT.txt and V23_INPUT_BINDINGS.json.
+The native runner collects and executes together. Next prepare/save/read back
+the functional VALIDATION protocol and capture with explicit inventory timing,
+all seven inputs and a preservation budget suitable for the longer workload.
+No native current-source node inventory or outcomes have yet been earned.
+Full source qualification and all23 RC acceptance rows remain OPEN.
 Complete dependency/install-lock resolution remains open. uv.lock and py312
 requirements inside decoder/ are historical, not current installation locks.
 Future native execution requires saved/read-back prerequisites and an explicit

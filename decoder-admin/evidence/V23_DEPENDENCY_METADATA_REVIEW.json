@@ -1,0 +1,1493 @@
+{
+  "scope": "Static installed METADATA constraints for CPython3.13.5 Linux, no extras. Not wheel resolution, import compatibility or install-lock qualification.",
+  "distributions": {
+    "typing-extensions": "4.16.0",
+    "cffi": "2.0.0",
+    "jsonschema-specifications": "2025.9.1",
+    "pytest": "9.0.2",
+    "jsonschema": "4.26.0",
+    "cryptography": "46.0.4",
+    "packaging": "25.0",
+    "wheel": "0.48.0",
+    "mpmath": "1.3.0",
+    "pygments": "2.20.0",
+    "pip": "26.2.1",
+    "sympy": "1.14.0",
+    "pluggy": "1.6.0",
+    "attrs": "26.1.0",
+    "iniconfig": "2.3.0",
+    "networkx": "3.6.1",
+    "igraph": "1.0.0",
+    "setuptools": "84.0.0",
+    "rpds-py": "2026.5.1",
+    "pycparser": "3.0",
+    "referencing": "0.37.0",
+    "texttable": "1.7.0"
+  },
+  "profile_version_mismatches": [],
+  "unsatisfied_active_requirements": [],
+  "requirements": [
+    {
+      "distribution": "cffi",
+      "requirement": "pycparser; implementation_name != \"PyPy\"",
+      "active_for_base_environment": true,
+      "installed_version": "3.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema-specifications",
+      "requirement": "referencing>=0.31.0",
+      "active_for_base_environment": true,
+      "installed_version": "0.37.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "colorama>=0.4; sys_platform == \"win32\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "exceptiongroup>=1; python_version < \"3.11\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "iniconfig>=1.0.1",
+      "active_for_base_environment": true,
+      "installed_version": "2.3.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "packaging>=22",
+      "active_for_base_environment": true,
+      "installed_version": "25.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "pluggy<2,>=1.5",
+      "active_for_base_environment": true,
+      "installed_version": "1.6.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "pygments>=2.7.2",
+      "active_for_base_environment": true,
+      "installed_version": "2.20.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "tomli>=1; python_version < \"3.11\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "argcomplete; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "attrs>=19.2; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": "26.1.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "hypothesis>=3.56; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "mock; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "requests; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "setuptools; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": "84.0.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pytest",
+      "requirement": "xmlschema; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "attrs>=22.2.0",
+      "active_for_base_environment": true,
+      "installed_version": "26.1.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "jsonschema-specifications>=2023.03.6",
+      "active_for_base_environment": true,
+      "installed_version": "2025.9.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "referencing>=0.28.4",
+      "active_for_base_environment": true,
+      "installed_version": "0.37.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rpds-py>=0.25.0",
+      "active_for_base_environment": true,
+      "installed_version": "2026.5.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "fqdn; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "idna; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "isoduration; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "jsonpointer>1.13; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rfc3339-validator; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rfc3987; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "uri-template; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "webcolors>=1.11; extra == 'format'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "fqdn; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "idna; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "isoduration; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "jsonpointer>1.13; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rfc3339-validator; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rfc3986-validator>0.1.0; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "rfc3987-syntax>=1.1.0; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "uri-template; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "jsonschema",
+      "requirement": "webcolors>=24.6.0; extra == 'format-nongpl'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "cffi>=1.14 ; python_full_version == '3.8.*' and platform_python_implementation != 'PyPy'",
+      "active_for_base_environment": false,
+      "installed_version": "2.0.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "cffi>=2.0.0 ; python_full_version >= '3.9' and platform_python_implementation != 'PyPy'",
+      "active_for_base_environment": true,
+      "installed_version": "2.0.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "typing-extensions>=4.13.2 ; python_full_version < '3.11'",
+      "active_for_base_environment": false,
+      "installed_version": "4.16.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "bcrypt>=3.1.5 ; extra == 'ssh'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "nox[uv]>=2024.4.15 ; extra == 'nox'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "cryptography-vectors==46.0.4 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pytest>=7.4.0 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pytest-benchmark>=4.0 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pytest-cov>=2.10.1 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pytest-xdist>=3.5.0 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pretend>=0.7 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "certifi>=2024 ; extra == 'test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pytest-randomly ; extra == 'test-randomorder'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "sphinx>=5.3.0 ; extra == 'docs'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "sphinx-rtd-theme>=3.0.0 ; extra == 'docs'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "sphinx-inline-tabs ; extra == 'docs'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "pyenchant>=3 ; extra == 'docstest'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "readme-renderer>=30.0 ; extra == 'docstest'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "sphinxcontrib-spelling>=7.3.1 ; extra == 'docstest'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "build>=1.0.0 ; extra == 'sdist'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "ruff>=0.11.11 ; extra == 'pep8test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "mypy>=1.14 ; extra == 'pep8test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "check-sdist ; extra == 'pep8test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "cryptography",
+      "requirement": "click>=8.0.1 ; extra == 'pep8test'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "wheel",
+      "requirement": "packaging >= 24.0",
+      "active_for_base_environment": true,
+      "installed_version": "25.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "pytest (>=4.6) ; extra == 'develop'",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "pycodestyle ; extra == 'develop'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "pytest-cov ; extra == 'develop'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "codecov ; extra == 'develop'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "wheel ; extra == 'develop'",
+      "active_for_base_environment": false,
+      "installed_version": "0.48.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "sphinx ; extra == 'docs'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "gmpy2 (>=2.1.0a4) ; (platform_python_implementation != \"PyPy\") and extra == 'gmpy'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "mpmath",
+      "requirement": "pytest (>=4.6) ; extra == 'tests'",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "Pygments",
+      "requirement": "colorama>=0.4.6; extra == 'windows-terminal'",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "sympy",
+      "requirement": "mpmath<1.4,>=1.1.0",
+      "active_for_base_environment": true,
+      "installed_version": "1.3.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "sympy",
+      "requirement": "pytest>=7.1.0; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "sympy",
+      "requirement": "hypothesis>=6.70.0; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pluggy",
+      "requirement": "pre-commit; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pluggy",
+      "requirement": "tox; extra == \"dev\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pluggy",
+      "requirement": "pytest; extra == \"testing\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pluggy",
+      "requirement": "pytest-benchmark; extra == \"testing\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "pluggy",
+      "requirement": "coverage; extra == \"testing\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "asv; extra == \"benchmarking\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "virtualenv; extra == \"benchmarking\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "numpy>=1.25; extra == \"default\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "scipy>=1.11.2; extra == \"default\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "matplotlib>=3.8; extra == \"default\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pandas>=2.0; extra == \"default\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pre-commit>=4.1; extra == \"developer\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "mypy>=1.15; extra == \"developer\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "sphinx>=8.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pydata-sphinx-theme>=0.16; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "sphinx-gallery>=0.18; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "numpydoc>=1.8.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pillow>=10; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "texext>=0.6.7; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "myst-nb>=1.1; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "intersphinx-registry; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "osmnx>=2.0.0; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "momepy>=0.7.2; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "contextily>=1.6; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "seaborn>=0.13; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "cairocffi>=1.7; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "igraph>=0.11; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": "1.0.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "scikit-learn>=1.5; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "iplotx>=0.9.0; extra == \"example\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "lxml>=4.6; extra == \"extra\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pygraphviz>=1.14; extra == \"extra\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pydot>=3.0.1; extra == \"extra\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "sympy>=1.10; extra == \"extra\"",
+      "active_for_base_environment": false,
+      "installed_version": "1.14.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "build>=0.10; extra == \"release\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "twine>=4.0; extra == \"release\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "wheel>=0.40; extra == \"release\"",
+      "active_for_base_environment": false,
+      "installed_version": "0.48.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "changelist==0.5; extra == \"release\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pytest>=7.2; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pytest-cov>=4.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pytest-xdist>=3.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pytest-mpl; extra == \"test-extras\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "networkx",
+      "requirement": "pytest-randomly; extra == \"test-extras\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "texttable>=1.6.2",
+      "active_for_base_environment": true,
+      "installed_version": "1.7.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "cairocffi>=1.2.0; extra == \"cairo\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "matplotlib>=3.6.0; platform_python_implementation != \"PyPy\" and extra == \"matplotlib\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "plotly>=5.3.0; extra == \"plotly\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "cairocffi>=1.2.0; extra == \"plotting\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "cairocffi>=1.2.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "networkx>=2.5; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "3.6.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest>=7.0.1; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest-timeout>=2.1.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "numpy>=1.19.0; platform_python_implementation != \"PyPy\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pandas>=1.1.0; platform_python_implementation != \"PyPy\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "scipy>=1.5.0; platform_python_implementation != \"PyPy\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "matplotlib>=3.6.0; platform_python_implementation != \"PyPy\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "plotly>=5.3.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "Pillow>=9; platform_python_implementation != \"PyPy\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "cairocffi>=1.2.0; extra == \"test-win-arm64\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "networkx>=2.5; extra == \"test-win-arm64\"",
+      "active_for_base_environment": false,
+      "installed_version": "3.6.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest>=7.0.1; extra == \"test-win-arm64\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest-timeout>=2.1.0; extra == \"test-win-arm64\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "cairocffi>=1.2.0; extra == \"test-musl\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "networkx>=2.5; extra == \"test-musl\"",
+      "active_for_base_environment": false,
+      "installed_version": "3.6.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest>=7.0.1; extra == \"test-musl\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pytest-timeout>=2.1.0; extra == \"test-musl\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "Sphinx>=7.0.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "sphinx-rtd-theme>=1.3.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "sphinx-gallery>=0.14.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "igraph",
+      "requirement": "pydoctor>=23.4.0; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest!=8.1.*,>=6; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "9.0.2",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "virtualenv>=13.0.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "wheel>=0.44.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "0.48.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pip>=19.1; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "26.2.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "packaging>=24.2; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": "25.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.envs>=2.2; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-xdist>=3; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.path>=3.7.2; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "build[virtualenv]>=1.0.3; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "filelock>=3.4.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "ini2toml[lite]>=0.14; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "tomli-w>=1.0.0; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-timeout; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-perf; sys_platform != \"cygwin\" and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.develop>=7.21; (python_version >= \"3.9\" and sys_platform != \"cygwin\") and extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-home>=0.5; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-subprocess; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pyproject-hooks!=1.1; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.test>=5.5; extra == \"test\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx>=3.5; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.packaging>=9.3; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "rst.linker>=1.9; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "furo; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx-lint; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.tidelift>=1.4; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pygments-github-lexers==0.0.5; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx-favicon; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx-inline-tabs; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx-reredirects; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinxcontrib-towncrier; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "sphinx-notfound-page<2,>=1; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pyproject-hooks!=1.1; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "towncrier<24.7; extra == \"doc\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "packaging>=24.2; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": "25.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "more_itertools>=8.8; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.text>=3.7; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "importlib_metadata>=6; python_version < \"3.10\" and extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "tomli>=2.0.1; python_version < \"3.11\" and extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "wheel>=0.43.0; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": "0.48.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.functools>=4; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "more_itertools; extra == \"core\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-checkdocs>=2.14; extra == \"check\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "ruff>=0.13.0; sys_platform != \"cygwin\" and extra == \"check\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-cov; extra == \"cover\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-enabler>=3.4; extra == \"enabler\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "mypy==1.18.*; extra == \"type\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "importlib_metadata>=7.0.2; python_version < \"3.10\" and extra == \"type\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "setuptools",
+      "requirement": "jaraco.develop>=7.21; sys_platform != \"cygwin\" and extra == \"type\"",
+      "active_for_base_environment": false,
+      "installed_version": null,
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "referencing",
+      "requirement": "attrs>=22.2.0",
+      "active_for_base_environment": true,
+      "installed_version": "26.1.0",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "referencing",
+      "requirement": "rpds-py>=0.7.0",
+      "active_for_base_environment": true,
+      "installed_version": "2026.5.1",
+      "satisfied_or_inactive": true
+    },
+    {
+      "distribution": "referencing",
+      "requirement": "typing-extensions>=4.4.0; python_version < '3.13'",
+      "active_for_base_environment": false,
+      "installed_version": "4.16.0",
+      "satisfied_or_inactive": true
+    }
+  ],
+  "metadata_files": [
+    {
+      "name": "typing_extensions",
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+    },
+    {
+      "name": "cffi",
+      "sha256": "b98ce7e3417af089bc12d5c73412d9b3b1683ccf8ec73c986c35ac8c9be1ba39"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d"
+    },
+    {
+      "name": "pytest",
+      "sha256": "14131718cc1f40cfecb5eac338037029a519b6392876100afec1e949f023d1ed"
+    },
+    {
+      "name": "jsonschema",
+      "sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2"
+    },
+    {
+      "name": "cryptography",
+      "sha256": "23772263d659f0d86ba11a8de47e7e437df320dc4c531054aec18097f35cfc62"
+    },
+    {
+      "name": "packaging",
+      "sha256": "5b611a609c38fefc3d616bf45d20aec98fb7d53f245daca9e2c30fc85c7ac282"
+    },
+    {
+      "name": "wheel",
+      "sha256": "e702fede719fefbb8accad64c01c78efe8d7efea27a7dcef3423f83ffaadfc48"
+    },
+    {
+      "name": "mpmath",
+      "sha256": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406"
+    },
+    {
+      "name": "Pygments",
+      "sha256": "e0528f51b30427fae94723662ba622f8d8db2a4d8d3f1365698d67a52450a845"
+    },
+    {
+      "name": "pip",
+      "sha256": "3a561005822841f2c45f442f6c7a7505172c8c376c9fe274d876c8ac912968cb"
+    },
+    {
+      "name": "sympy",
+      "sha256": "b756c2fbfd5be05ac5bdb0ebca61f55618f30f633ed92d88a5687429313a7595"
+    },
+    {
+      "name": "pluggy",
+      "sha256": "7438c35ee25a095eb7416f84b461c2d74425c5e734ad54c3912453c65244e01c"
+    },
+    {
+      "name": "attrs",
+      "sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc"
+    },
+    {
+      "name": "iniconfig",
+      "sha256": "40d773f84e4e112f495bbf4f1be9cbd2d456c0aeb6ef5311f75d1bf322f2165b"
+    },
+    {
+      "name": "networkx",
+      "sha256": "aca5d94a97d1f70f301d033addb635f6e66be8973a00aba4127637eed2ef316a"
+    },
+    {
+      "name": "igraph",
+      "sha256": "588ea6dd9bb407db8f37e974f646de12e204ac87f2d81e0e1f41a8bb49487685"
+    },
+    {
+      "name": "setuptools",
+      "sha256": "3ef2975718dd31cabdd5829455e9b868ca14dbf79ed8fed2de0af4e87347006e"
+    },
+    {
+      "name": "rpds-py",
+      "sha256": "1bc561b7215de8649cb5ecde1885d9d448b27f5341245844c33b4a0e38313be5"
+    },
+    {
+      "name": "pycparser",
+      "sha256": "f547a60b0ab54cc2f242213d1f87960ad80df7dd5dfeb98d17a444d48bfb6b93"
+    },
+    {
+      "name": "referencing",
+      "sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a"
+    },
+    {
+      "name": "texttable",
+      "sha256": "4242fbffb65362c5917c349ea25c7ba600bb055b0078ce5355911e3438464f65"
+    }
+  ]
+}

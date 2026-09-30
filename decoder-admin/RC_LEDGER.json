@@ -506,5 +506,18 @@
       "all_23_rc_acceptance_rows": "OPEN",
       "next_protocol_proposal": "Fresh capture with standard30-second interval; retain16-commit, byte and age limits; preserve V21 unchanged."
     }
-  ]
+  ],
+  "latest_preparation_gate": {
+    "gate": "V23",
+    "status": "STATIC_REVIEW_AND_SEVEN_INPUT_HASH_BINDINGS_VERIFIED",
+    "tests_executed": false,
+    "selectors": 165,
+    "added_selectors": 42,
+    "fixture_roles": 7,
+    "top_level_distribution_versions_matched": 22,
+    "active_metadata_dependency_violations": 0,
+    "native_collection": "NOT_YET_EARNED; coupled to native execution",
+    "full_source_qualification": "OPEN",
+    "report": "decoder-admin/evidence/V23_REPORT.txt"
+  }
 }
