@@ -1,0 +1,54 @@
+V33 DEV140 CORE / LIFECYCLE GATE — 5 PASS / 0 FAIL — 2026-09-30
+
+COMPLETED / VERIFIED / SAVED. Exactly five selectors, one worker, one selector
+per wave, no automatic deadline, default preservation ceilings. Four intentional
+PAUSED save boundaries; genuine Drive readback/native acknowledgment before each
+continuation. Earlier evidence unchanged; no selector rerun.
+Capture 1ea23c907a93a257430b95477e97f317d9f1a99e0ee748189bcec57b95d57d93
+Job RC.CORE.LIFECYCLE.V33.DEV140
+Completion 2f02c7d340a5db827b41b5f285cb071a90a58dbdd40be729452f1b58a6d6d7ac
+Source c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+
+NATIVE CHECKS EARNED
+1 Historical pin chain plus six reviewed successor pins matches all core bytes.
+2 Closed-WAL native backup lifecycle retains the expected row.
+3 Closed-DELETE native backup control retains the expected row.
+4 Healthy task finalizer/open-WAL/backup control retains all 96 rows.
+5 Retained incident full-pair copies match V31 exact IDs: CONTROL 64 versus
+claimed 96, HELD_WRITE 96 and PROJECT 2. Native finalization and subsequent backup
+retain those observed counts. Emitted diagnostic keeps mismatch explicit and
+healthy_recovery_qualified=false. This is not healthy 96-task CONTROL recovery
+or an explanation of the original writer/cause. Original archive untouched.
+All five setup/call/teardown records finalized as passed.
+
+PRESERVATION / RESTORATION
+Fresh V4 reconstructed; all 4,721 runtime files/modes and seven host dependencies
+verified before/after every wave. Exact captured source IDs unchanged. No source
+or runtime bytecode additions observed. Nine capture-save obligations acknowledged
+before dispatch. 140 checkpoint roles (28 per wave) acknowledged; zero pending.
+34 distinct physical objects retained across capture/checkpoint history; exact
+restart dependencies are listed in the SLIM export. Native batch positive use
+and four missing-only continuations observed; negative/long-selector gates pending.
+Export SHA 44fb536124b73f6afa306bb8381cded0b3ad4ed2fa34159de37f6d06097b89a3.
+Fresh Drive-returned export and verified object bytes restored exact completion
+and terminal proof; zero tests dispatched during restoration.
+
+SCOPE / NEXT
+This closes the bounded V32 five-selector acceptance step, not full dev140
+qualification. All 23 RC items remain OPEN. V24 and its 408 pending obligations
+remain untouched. Historical rejected completions preserved.
+Next: V26 targeted runtime boundary checks (missing/wrong SQLite binding, isolated
+bootstrap dependencies, exact no-bytecode file sets), then V27 batch negatives,
+interrupted publication/retry and single-long-selector live-save demonstration.
+After those gates, rebind/regenerate candidate fixtures and full qualification.
+Do not start canonical scientific data production yet.
+
+RECOVERY
+V33_TERMINAL_CHECKPOINT.zip is SLIM and not standalone. Fetch exact dependencies
+from OBJECT_CATALOG.json as <sha256>.bin; verify hashes/sizes. Use pinned dev140
+native restore_checkpoint with export SHA, then validate_workspace_job with
+check_loaded=False, verified_completion allowing pending checkpoint, and
+terminal_completion_proof. Do not execute the preserved one-shot launch scripts.
+Runtime locator/manifest/modes remain in decoder-admin. Local fresh runtime was
+/tmp/ig_runtime_v33_fresh_20260930; scripts preserve historical operational paths.
