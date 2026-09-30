@@ -1,0 +1,22 @@
+import json,os,subprocess,sys,tempfile,time,zipfile
+from pathlib import Path
+from lifecycle_monitor import Monitor,inventory
+from forensic_snapshot import snapshot,reconstruct
+D=Path(__file__).resolve().parent
+with tempfile.TemporaryDirectory(prefix='ig_v54_tools_') as tmp:
+ t=Path(tmp);w=t/'workspace';w.mkdir();(w/'damaged.bin').write_bytes(b'\xfforiginal');(w/'damaged.bin').chmod(0o640)
+ mon=Monitor('self',w)
+ child=subprocess.Popen([sys.executable,'-B','-c','import time;time.sleep(2) # IGC_V54_SYNTHETIC_CHILD'])
+ time.sleep(.2);row=mon.sample();seen=[p for p in row['processes'] if 'IGC_V54_SYNTHETIC_CHILD' in p['cmdline'] and p['pid']!=mon.owner['pid']];assert len(seen)==1;child.wait()
+ row=mon.sample();assert not any(p['pid']==seen[0]['pid'] for p in row['processes'])
+ before=inventory(w);time.sleep(3.05);after=inventory(w)
+ q={'live_registered_processes':[],'stable_seconds':3.05,'inventory_before':before,'inventory_after':after,'scope':'synthetic fixture only'}
+ packed=snapshot(w,t/'f.zip',q);restored=reconstruct(t/'f.zip',t/'restored');assert inventory(t/'restored')==before
+ with zipfile.ZipFile(t/'f.zip') as src,zipfile.ZipFile(t/'bad.zip','w') as out:
+  for n in src.namelist():out.writestr(n,b'wrong' if n.startswith('workspace/') else src.read(n))
+ try:reconstruct(t/'bad.zip',t/'badrestore')
+ except RuntimeError as e:assert str(e)=='ARCHIVE_HASH'
+ else:raise AssertionError('tamper accepted')
+ assert not (t/'badrestore').exists()
+ result={'scope':'synthetic tool verification only; no native gate executed','process_seen_then_absent':True,'exact_bytes_modes_reconstructed':restored,'tampered_archive_rejected_before_output':True,'snapshot':packed}
+ (D/'TOOL_VERIFICATION.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

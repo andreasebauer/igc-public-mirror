@@ -1,0 +1,23 @@
+V54 PREPARATION CHECKPOINT — NOT A NATIVE GATE RESULT
+
+Implemented passive process identity tracking and forensic snapshot/reconstruction.
+Synthetic verification: observed child alive then absent; reconstructed exact file
+bytes and permissions; altered archive rejected before destination creation.
+First verification failed OWNER_MISSING: os.getpid() belongs to a different PID
+namespace than the mounted /proc. Corrected owner lookup to /proc/self/stat.
+External operator must receive the controller's /proc PID and start ticks from
+inside that controller, never assume exec-session or Python PID numbers match.
+
+No native V54 capture, workload or corruption has been launched. Dev142 unchanged.
+All 23 RC rows remain OPEN. No science replay. V52 PASS remains preserved.
+
+Next required: bind monitor to controller-published /proc identity/start ticks;
+attach the V53 observer in driver; implement active operator sampling and explicit
+post-return quiescence assessment; save full script/protocol hashes in fresh
+capture; verify original target object save before arming the V53 injector.
+
+Limitations: polling can miss short-lived children. Snapshot accepts an explicit
+caller quiescence record; the operator must establish it, not fabricate it.
+Current snapshot preserves regular-file bytes/modes, not empty directory metadata.
+Forensic restore is not a native export or successful completion. Actual corrupted
+copy must still be checked by native status without dispatch after remote readback.
