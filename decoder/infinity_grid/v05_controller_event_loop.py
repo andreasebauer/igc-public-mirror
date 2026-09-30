@@ -968,6 +968,10 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
                 paused = dict(running,status='PAUSED',reason=type(exc).__name__+':'+str(exc),finished_unix=time.time())
                 write_json_atomic(attempt_path,paused); _snapshot(runtime,paused)
                 try:
+                    # Bind the final refusal into the same paused checkpoint.
+                    # The public wrapper may idempotently retain the same record.
+                    from .invocation import retain_refusal
+                    exc.refusal = retain_refusal(root, job_id, exc)
                     from .preservation import make_checkpoint
                     make_checkpoint(root,'PAUSED:'+type(exc).__name__)
                 except Exception as save_exc:

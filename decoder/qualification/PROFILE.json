@@ -438,15 +438,15 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_DEV143_CLEANUP_REPAIR",
+  "status": "UNQUALIFIED_DEV144_CLEANUP_REPAIR",
   "blocking_conditions": [
-    "Native registered tests not yet executed for dev143.",
+    "Native registered tests not yet executed for dev144.",
     "V55 remains a failed lifecycle gate; no inherited qualification.",
     "Full RC, fixtures and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev143+lib",
-    "parent_archive_sha256": "ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9",
+    "revision": "0.8.0.dev144+lib",
+    "parent_archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

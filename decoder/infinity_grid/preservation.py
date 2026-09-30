@@ -375,7 +375,7 @@ def _verify_terminal_state_evidence(files):
                     'Preserve the original bytes and investigate the mutable replay state.')
 
 
-def _state_files(workspace):
+def _state_files(workspace, *, modes=None):
     from .v05_controller_event_loop import _snapshot_files
     files={}
     quiescent=any(any((Path(workspace)/'runtime/intake'/name).glob('*.json'))
@@ -386,7 +386,12 @@ def _state_files(workspace):
     for p,name in _snapshot_files(workspace):
         if (name.startswith(('source/','coordination/','runtime/intake/artifacts/','durability/outbox/','durability/base_objects/'))
             or name=='PROJECT_LOCATION.json' or (name.endswith(('-wal','-shm')) and not name.startswith('runtime/sealed/'))):continue
+        before=p.stat()
         files[name]=_stable_file(p,quiescent=legacy or name.startswith('runtime/sealed/'))
+        after=p.stat()
+        if (before.st_ino,before.st_mode)!=(after.st_ino,after.st_mode):
+            raise sub.SubmissionError('CHECKPOINT_FILE_MODE_CHANGED',name)
+        if modes is not None:modes[name]=after.st_mode & 0o777
     if quiescent:_verify_terminal_state_evidence(files)
     return files
 
@@ -408,7 +413,14 @@ def make_checkpoint(workspace,reason,*,terminal=False):
         full_project=snapshot(project_root)
         delta=_put(workspace,_project_delta(baseline_raw,full_project));objects[delta['sha256']]=delta
         project={'schema_id':'IG_PROJECT_DELTA_V1','base':baseline,'delta':delta,'full_sha256':sub._sha(full_project)}
-        state_files=_state_files(workspace)
+        state_modes={}
+        state_files=_state_files(workspace,modes=state_modes)
+        for obj in rec['objects']:
+            if obj['role'].startswith('input:'):
+                name='runtime/intake/artifacts/'+obj['sha256']+'.bin'
+                path=workspace/name
+                if path.is_symlink():raise sub.SubmissionError('CHECKPOINT_INPUT_SYMLINK',name)
+                state_modes[name]=path.stat().st_mode & 0o777
         terminal_completions={Path(name).stem:json.loads(raw)['completion_sha256']
             for name,raw in state_files.items()
             if name.startswith(('runtime/intake/completed/','runtime/intake/prepared_completions/'))
@@ -418,7 +430,7 @@ def make_checkpoint(workspace,reason,*,terminal=False):
         previous=sub._read(pointer_file)['sha256'] if pointer_file.exists() else None
         if previous:
             old=sub._read(_root(workspace)/'commits'/(previous+'.json'))
-            if (old['state']==state and old['project']==project and old['source']==source
+            if (old['state']==state and old.get('state_file_modes')==state_modes and old['project']==project and old['source']==source
                     and (not terminal or old.get('terminal') and old.get('terminal_completions')==terminal_completions)):
                 return status(workspace)
         contract=rec.get('result_contract',{})
@@ -428,7 +440,7 @@ def make_checkpoint(workspace,reason,*,terminal=False):
         if payload_size>limits['max_commit_bytes']:raise sub.SubmissionError('CHECKPOINT_SIZE_LIMIT',str(payload_size))
         row={'schema_id':SCHEMA,'capture_id':rec['capture_id'],'job_id':rec['job']['job_id'],
              'source_sha256':rec['workspace']['source_sha256'],'created_unix':time.time(),'previous':previous,
-             'reason':reason,'terminal':terminal,'source':source,'project':project,'state':state,'base_objects':base,
+             'reason':reason,'terminal':terminal,'source':source,'project':project,'state':state,'state_file_modes':state_modes,'base_objects':base,
              'objects':sorted(objects.values(),key=lambda x:x['sha256'])}
         if terminal:row['terminal_completions']=terminal_completions
         raw=sub._json_bytes(row);commit=_put(workspace,raw)
@@ -678,6 +690,19 @@ def restore_checkpoint(archive,destination,expected_sha,objects=None):
         for obj in rec['objects']:
             if obj['role'].startswith('input:'):
                 path=temp/'runtime/intake/artifacts'/(obj['sha256']+'.bin');path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(provided[obj['sha256']])
+        modes=row.get('state_file_modes')
+        if 'state_file_modes' in row:
+            expected=set(_zip_files(provided[row['state']['sha256']]))
+            expected.update('runtime/intake/artifacts/'+obj['sha256']+'.bin'
+                            for obj in rec['objects'] if obj['role'].startswith('input:'))
+            if not isinstance(modes,dict) or set(modes)!=expected:
+                raise sub.SubmissionError('RESTORE_FILE_MODE_SET')
+            for name,mode in modes.items():
+                if type(mode) is not int or not 0 <= mode <= 0o777:
+                    raise sub.SubmissionError('RESTORE_FILE_MODE_INVALID',name)
+                path=temp/sub._relative(name)
+                if path.is_symlink() or not path.is_file():raise sub.SubmissionError('RESTORE_FILE_MODE_PATH',name)
+            for name,mode in modes.items():os.chmod(temp/name,mode)
         from .v05_controller_event_loop import validate_workspace_job,verified_completion
         admission=validate_workspace_job(temp,row['job_id'],check_loaded=False)
         from .portable_registry import events,blob,verify_capsule
@@ -693,7 +718,9 @@ def restore_checkpoint(archive,destination,expected_sha,objects=None):
         os.replace(temp,dest)
     finally:
         if temp.exists():shutil.rmtree(temp)
-    return {'status':'RESTORED_NOT_RUNNING','workspace':str(dest),'source_sha256':row['source_sha256'],'checkpoint_sha256':packet['checkpoint_sha256']}
+    return {'status':'RESTORED_NOT_RUNNING','workspace':str(dest),'source_sha256':row['source_sha256'],'checkpoint_sha256':packet['checkpoint_sha256'],
+            'state_file_modes_restored':'state_file_modes' in row,
+            'mode_scope':'CHECKPOINT_STATE_AND_INPUT_FILES' if 'state_file_modes' in row else 'LEGACY_MODES_NOT_RECORDED'}
 
 
 def request_pause(workspace,reason):

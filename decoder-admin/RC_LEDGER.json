@@ -362,17 +362,16 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev143+lib",
-    "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
-    "package_sha256": "d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9",
-    "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
-    "archive_size_bytes": 22690256,
+    "version": "0.8.0.dev144+lib",
+    "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+    "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+    "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+    "archive_size_bytes": 22692774,
     "qualification": "UNQUALIFIED",
-    "tests_executed": 5,
-    "status": "UNQUALIFIED",
-    "reason": "V60B five native regression passes and exact completion restore; fresh live cleanup gate and full RC pending",
-    "standalone_focused_passes": 49,
-    "native_completions": 1
+    "tests_executed": 75,
+    "status": "UNQUALIFIED_BOUNDED_V62_PASS",
+    "reason": "Fresh corruption scenario, fixtures, full RC and independent-host recovery remain OPEN",
+    "drive_id": "1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy"
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -563,13 +562,13 @@
     "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
   },
   "latest_source_repair": {
-    "gate": "V59",
-    "version": "0.8.0.dev143+lib",
-    "scope": "validation cancellation/cleanup",
-    "native_tests_executed": 5,
+    "gate": "V62",
+    "version": "0.8.0.dev144+lib",
+    "scope": "checkpoint state file modes and paused refusal ordering",
+    "native_tests_executed": 0,
     "full_RC": "OPEN",
-    "standalone_check_attempt": "STOPPED_BEFORE_TEST: launcher import path missing; 0 cleanup assertions executed",
-    "latest_followup": "V60B bounded native PASS; V55 scenario not requalified"
+    "status": "BOUNDED_V62_PASS",
+    "native_interrupt_scenarios": 1
   },
   "latest_targeted_gate": {
     "candidate": "0.8.0.dev140+lib",
@@ -822,26 +821,55 @@
     "full_RC": "OPEN"
   },
   "latest_interrupt_recovery_gate": {
-    "gate": "V61",
-    "status": "FAILED_EXACT_PAUSED_RESTORATION",
-    "export_readback": {
-      "drive_id": "1RiJHiVrZZMU_He9X2TF3-cGQ6KJY9yHC",
-      "readback": "/workspace/scratch/a2e5e2576f17/attachments/bdfc5e4c-2b9c-46b5-8cd2-f46fa2352bbc/V61_PAUSED_CHECKPOINT.zip",
-      "sha256": "1b402981ff0dbec5b4ccc693dcf20accf12faac462bc0068e998ca52323f4f26",
-      "size_bytes": 5748,
+    "gate": "V62",
+    "candidate": {
+      "version": "0.8.0.dev144+lib",
+      "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+      "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+      "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+      "archive_size_bytes": 22692774,
+      "qualification": "UNQUALIFIED"
+    },
+    "status": "PASS_BOUNDED_INTERRUPT_AND_EXACT_PAUSED_RECOVERY",
+    "standalone_passes": 75,
+    "standalone_failures": 0,
+    "new_regression_cases": 9,
+    "native_workload_outcome": "INTERRUPTED_NOT_TEST_PASS",
+    "capture_id": "ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac",
+    "native_attempt": "PAUSED",
+    "accepted_completion": null,
+    "lifecycle_observation_pass": true,
+    "polling_interval_seconds": 0.1,
+    "late_write_observation_seconds": 3,
+    "exact_restore": {
+      "restore": {
+        "status": "RESTORED_NOT_RUNNING",
+        "workspace": "/tmp/ig_gate_v62_restored_20261001",
+        "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+        "checkpoint_sha256": "ed8f342e8f6dd204db633a4a6ac50ebbdea70ab5e479c484eaf4e1a0e7d3a80a",
+        "state_file_modes_restored": true,
+        "mode_scope": "CHECKPOINT_STATE_AND_INPUT_FILES"
+      },
+      "runtime_bytes_and_modes_equal": true,
+      "paused_attempt_equal": true,
+      "accepted_completion": null,
+      "tests_dispatched": 0
+    },
+    "save_roles_acknowledged": 30,
+    "unique_saved_readbacks": 15,
+    "pending_roles": 0,
+    "export": {
+      "drive_id": "15VizFAVeJnsZo-4Q0XZvk9nwDeCwSuWo",
+      "readback": "/workspace/scratch/a2e5e2576f17/attachments/89ef3cb7-ff82-437e-8fd9-b57d3223a4d5/V62_PAUSED_CHECKPOINT.zip",
+      "expected_sha256": "518406bc2a39eee1d0678a77b88d9151dcc13f85acba5d250050353c3ef82b77",
+      "sha256": "518406bc2a39eee1d0678a77b88d9151dcc13f85acba5d250050353c3ef82b77",
       "raw_readback_verified": true
     },
-    "restore_invocations": 1,
-    "exception": "AssertionError at admin.py line 37: runtime inventory mismatch",
-    "expected_runtime_files": 18,
-    "restored_runtime_files": 17,
-    "paused_attempt_equal": true,
-    "completion_artifacts_absent": true,
-    "tests_dispatched_during_recovery": 0,
-    "original_runtime_unchanged": true,
-    "lifecycle_observation": "PASS within recorded polling limits",
-    "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
-    "all_23_rc_rows": "OPEN",
-    "next": "Separately version repair for file-mode preservation and refusal/checkpoint ordering; preserve this attempt and qualify using a fresh capture."
+    "V61_original_runtime_unchanged": true,
+    "V61_failure_preserved": true,
+    "V55_failure_preserved": true,
+    "full_RC": "OPEN",
+    "data_block_ready": false,
+    "next": "Fresh dev144 corruption/controller-error lifecycle gate, then current-source fixtures/full RC/independent-host recovery."
   }
 }

@@ -1,0 +1,55 @@
+V62 DEV144 RECOVERY REPAIR — BOUNDED PASS — 2026-10-01
+
+Implemented checkpoint-bound file permission metadata for state and captured input
+files, exact restoration with complete metadata validation, and refusal retention
+before the paused checkpoint. A permission-only change creates a new checkpoint.
+Legacy checkpoints restore without an invented original-permission guarantee.
+Original execution errors survive refusal/checkpoint-save errors. V61 unchanged.
+
+Focused verification: 75 PASS / 0 FAIL in 122.02 seconds, including nine new cases.
+Covers mode roundtrip and mode-only changes; malformed/incomplete metadata refusal;
+legacy limitation; real controller pause path with unit-only injected interruption;
+refusal-write failure; existing preservation, publication, save-wave and cancellation.
+These are standalone checks, not 75 new native-controller completions.
+
+Fresh native case RC.INTERRUPT.V62.DEV144:
+Ten capture prerequisites genuinely saved/read back before dispatch. One registered
+long durable-progress selector, one worker, default preservation policy, no engine
+deadline. One SIGINT sent through the owned controller Popen after live tick 1.
+Controller returned KeyboardInterrupt, code -2, PAUSED, no accepted completion.
+No descendant observed at return; no runtime change in the following three seconds.
+Polling at 0.1 seconds can miss short-lived descendants; no absolute census claim.
+Thirty checkpoint roles / fifteen unique objects saved with verified raw readbacks.
+Zero pending roles/bytes/checkpoints. Saved pause export read back and hash-verified.
+Fresh destination restored exactly: all 18 runtime file contents and rwx permissions,
+including refusal record, identical PAUSED attempt, no accepted completion.
+Restoration dispatched ZERO tests. The interrupted selector is not counted as PASS.
+
+Source and runtime verified before/after. Reused reviewed Python 3.13 runtime;
+not independent-host qualification. Permission guarantee covers recorded ordinary
+rwx bits, not ownership, timestamps or extended ACLs. Checkpoint mode validation
+rejects special-mode metadata. No science replay.
+
+V61 remains FAILED_EXACT_PAUSED_RESTORATION; its original runtime is unchanged and
+its failed restoration remains retained. V55 FAILED_LIFECYCLE_CLEANUP is unchanged.
+Dev144 remains UNQUALIFIED overall. All 23 RC rows OPEN. Data blocks NOT ready.
+
+NEXT
+Fresh dev144 corruption/controller-error lifecycle case (V55 scenario successor),
+with genuine live evidence, refusal, no survivor/late writes and exact forensic
+recovery. Then current-source fixtures, full RC, findings dispositions and
+independent-host qualification before source/runtime freeze and science replay.
+
+SOURCE
+{
+  "version": "0.8.0.dev144+lib",
+  "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+  "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+  "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+  "archive_size_bytes": 22692774,
+  "qualification": "UNQUALIFIED"
+}
+Source archive Drive ID 1wfgjZwTJEW4UE3uECxhFVqT1lFBZ3GCy
+Native capture ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac
+Paused export SHA256 518406bc2a39eee1d0678a77b88d9151dcc13f85acba5d250050353c3ef82b77
+Paused export Drive ID 15VizFAVeJnsZo-4Q0XZvk9nwDeCwSuWo

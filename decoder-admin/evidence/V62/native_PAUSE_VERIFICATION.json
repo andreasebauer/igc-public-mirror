@@ -1,0 +1,113 @@
+{
+  "attempts": [
+    {
+      "attempt_id": "job-4fc23b254d157144d3415318fa056239:000001",
+      "finished_unix": 1790807665.1729817,
+      "job_id": "RC.INTERRUPT.V62.DEV144",
+      "mirror_status": "NOT_CONFIRMED",
+      "operation": "VALIDATION",
+      "output_root": "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/runtime/runs/intent-101168cb0db215f92a183f5191f244fa",
+      "pid": 10,
+      "reason": "KeyboardInterrupt:",
+      "registration_sha256": "4fc23b254d157144d3415318fa0562391ab3aa52119a24a99bd348ce7d113032",
+      "request_id": "job-4fc23b254d157144d3415318fa056239",
+      "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+      "started_unix": 1790807651.9932077,
+      "status": "PAUSED",
+      "workers_requested": 1
+    }
+  ],
+  "accepted_completion": null,
+  "runtime_inventory": {
+    "attempts/job-4fc23b254d157144d3415318fa056239/000001.json": {
+      "sha256": "417e9f960f45b8639a76abcaaf390223a23d1f6f7467561c677e4e273b83099f",
+      "size": 757,
+      "mode": 420
+    },
+    "intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size": 880319,
+      "mode": 420
+    },
+    "intake/artifacts/79bfcc3c91e4f546a21f84b54f33672e19b1359539c2552b394632daf3d106af.bin": {
+      "sha256": "79bfcc3c91e4f546a21f84b54f33672e19b1359539c2552b394632daf3d106af",
+      "size": 4497,
+      "mode": 420
+    },
+    "intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin": {
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "size": 3295,
+      "mode": 420
+    },
+    "intake/artifacts/c1501ea7ed10f571ab5cac1e2b3bfb160349b330111c567db31c8e8318ccf133.bin": {
+      "sha256": "c1501ea7ed10f571ab5cac1e2b3bfb160349b330111c567db31c8e8318ccf133",
+      "size": 450,
+      "mode": 420
+    },
+    "intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size": 504,
+      "mode": 420
+    },
+    "intake/artifacts/fad7540e278cc896ab8e9d5f32716b93f885723164fad6c7578d4352bd8c0f7c.bin": {
+      "sha256": "fad7540e278cc896ab8e9d5f32716b93f885723164fad6c7578d4352bd8c0f7c",
+      "size": 855,
+      "mode": 420
+    },
+    "intake/pending/job-4fc23b254d157144d3415318fa056239.json": {
+      "sha256": "9857cf30b2e4364e78930c10b7f582c791418caefb16a7b2a900ec612e478980",
+      "size": 1172,
+      "mode": 384
+    },
+    "internal/claims/job-4fc23b254d157144d3415318fa056239.json": {
+      "sha256": "af4b9c32441b28e76d682be2628642d31d72e724350d2dbbd27ed028f1b13d6b",
+      "size": 571,
+      "mode": 384
+    },
+    "internal/ingested/intent-101168cb0db215f92a183f5191f244fa.json": {
+      "sha256": "4dd1eb5b0d1d76fba352bfa5d1bc1f812950e126c6a27fbde03098c78595a150",
+      "size": 1795,
+      "mode": 384
+    },
+    "refusals/99e1870efbc24dbd6fe7bf992d1695233d3d479e9bf0c1b2e82ddb4f887e0cf9.json": {
+      "sha256": "fac2668375228db34c865afe465835263bb62e58e0c586549becd91283d9f768",
+      "size": 1329,
+      "mode": 420
+    },
+    "registrations/job-4fc23b254d157144d3415318fa056239.json": {
+      "sha256": "2d2916b6147c15e9e565786105417e4884ff399b293ba1f229528155ce6b1a9c",
+      "size": 2579,
+      "mode": 420
+    },
+    "runs/intent-101168cb0db215f92a183f5191f244fa/PREFLIGHT.json": {
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "size": 41,
+      "mode": 420
+    },
+    "runs/intent-101168cb0db215f92a183f5191f244fa/logs/REPORT_PLAN.json": {
+      "sha256": "05316cdc8b6a3fc44a21904d5cfed5a0115cc0f021cb56afe4d3ce7f71432bf4",
+      "size": 196,
+      "mode": 420
+    },
+    "runs/intent-101168cb0db215f92a183f5191f244fa/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json": {
+      "sha256": "9a46541282d815e225069da7d85628465045d3d46cfe8561806443515b583f53",
+      "size": 312,
+      "mode": 384
+    },
+    "runs/intent-101168cb0db215f92a183f5191f244fa/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json": {
+      "sha256": "a6473b5a47dba06820a0f7b4fdecff0650fc89334f5af770b0cd9b4153361153",
+      "size": 403,
+      "mode": 384
+    },
+    "runs/intent-101168cb0db215f92a183f5191f244fa/logs/probe_progress/long_durable_progress.log": {
+      "sha256": "07532f206d48eb9634731c97b6b0cfa9a1038c3701c8af1f6226a34c5d72d59a",
+      "size": 662,
+      "mode": 384
+    },
+    "status/CONTROLLER_STATUS.json": {
+      "sha256": "417e9f960f45b8639a76abcaaf390223a23d1f6f7467561c677e4e273b83099f",
+      "size": 757,
+      "mode": 292
+    }
+  }
+}

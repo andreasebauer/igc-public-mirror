@@ -1,0 +1,18 @@
+V62 DEV144 PAUSED RECOVERY REPAIR — 2026-10-01
+Parent dev143 source 2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2.
+Preserve parent repository, V61 original capture and failed restoration unchanged.
+Implement checkpoint-bound state file permissions including captured input artifacts;
+validate complete mode mapping before restoration. Historical checkpoints without
+mode mapping retain legacy byte restoration with explicit limitation, no exact-mode claim.
+Retain native paused refusal before its checkpoint; retain original execution error
+if refusal retention or checkpoint creation fails. Do not report failed saves as preserved.
+Tests: mode roundtrip 0600/0444/0755; mode-only change not deduplicated; invalid/incomplete
+mode metadata refuses; legacy restore explicitly identified; actual native pause path
+with injected dispatch KeyboardInterrupt and real checkpoint/restore; refusal-write
+failure retains original error and checkpoint failure; existing preservation,
+publication, save-wave and cancellation regressions. Unit fixtures must grant no real
+saved-object attestation or native qualification. Stop at first failure. Preserve
+failed attempts, use a separately identified correction if necessary.
+Then fresh registered native interrupt capture using genuine prerequisite saves,
+observed cleanup, stable final evidence, saved export readback and exact paused
+restoration, zero recovery dispatch. Never rerun V61. Full RC remains OPEN.

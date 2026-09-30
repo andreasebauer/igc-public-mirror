@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/a2e5e2576f17/v62_interrupt/controller.py", line 16, in <module>
+    try:write('RUN_RESULT',run_workspace_job(w,c['job_id']))
+                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/source/infinity_grid/v05_controller_event_loop.py", line 849, in run_workspace_job
+    return _run_workspace_job(workspace, job_id)
+  File "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/source/infinity_grid/v05_controller_event_loop.py", line 936, in _run_workspace_job
+    result = _dispatch_workspace_job(admission,record,out)
+  File "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/source/infinity_grid/v05_controller_event_loop.py", line 725, in _dispatch_workspace_job
+    return run_registered_validation_nodes(admission['source'], ex['nodes'],
+        workers=resources['workers'], wall_seconds_max=resources.get('wall_seconds_max') if timed else None, output_dir=out/'logs')
+  File "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/source/infinity_grid/v05_validation_runtime.py", line 472, in run_registered_validation_nodes
+    result = _run_group(candidate, "REGISTERED_NODES", workers=workers, uid=None, gid=None,
+                        wall_seconds_max=wall_seconds_max, registered_nodes=nodes, log_root=out)
+  File "/tmp/ig_gate_v62_20261001/store/captures/ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac/source/infinity_grid/v05_validation_runtime.py", line 391, in _run_group
+    if pending and not progressed: time.sleep(0.02)
+                                   ~~~~~~~~~~^^^^^^
+KeyboardInterrupt

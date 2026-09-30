@@ -1,9 +1,9 @@
 {
-  "version": "0.8.0.dev143+lib",
-  "source_sha256": "2b84c470ffa0d2f60272d89ade18001bb9c3d0a33b8ccc1c25aea40746a71eb2",
-  "package_sha256": "d3a9e5f43b25aa8b639990da8a372bc6aec8f52b2aa3fc941a566f20e6f719b9",
-  "archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
-  "archive_size_bytes": 22690256,
+  "version": "0.8.0.dev144+lib",
+  "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+  "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+  "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+  "archive_size_bytes": 22692774,
   "qualification": "UNQUALIFIED",
   "files": [
     [
@@ -204,7 +204,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "c31be1e72b6099e323f5dda849c1c2a7862ffc478124969afdb595b56ecbab24"
+      "27883c474632d20c0194847cedc9507f8c8ee19341ec85f0dbf6026f97aff996"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -212,7 +212,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "7118524158e1c68454edbb8f83f85e3f4917ed71e099edaf316bfac16ff1c33c"
+      "781a0ef4269bcf15f4f11e95f5c3855a85f099fdf5cc3ff025ada478773ee01f"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -764,7 +764,7 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "de9026e5d4f2cd77264e968a21c1b4c4f8a82bb7129803ea8c0e699a52ff9c62"
+      "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce"
     ],
     [
       "infinity_grid/preservation_batch.py",
@@ -4132,7 +4132,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e"
+      "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4512,7 +4512,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "a188e79919a7378036695ece39e1101f48a095809913bf1128f75db14bf15262"
+      "e7506d50834d2f5ce8b0b1a162a0941e62f25c77b229c49614686d108d5b7be2"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -5753,6 +5753,10 @@
     [
       "tests/test_p9_o1_o3.py",
       "11956d4f674b3f51a6039268a9c8fd8f777f851992db5511f235fc8c655629e9"
+    ],
+    [
+      "tests/test_paused_checkpoint_recovery.py",
+      "c2bc39ea43d0b3a2ed20041c10bef9328892f88d3539e8229a00840c3d7ed86c"
     ],
     [
       "tests/test_preservation_batch.py",

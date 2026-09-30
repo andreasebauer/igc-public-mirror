@@ -1,0 +1,52 @@
+{
+  "gate": "V62",
+  "candidate": {
+    "version": "0.8.0.dev144+lib",
+    "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+    "package_sha256": "1809d6cde0fd9fe017575dcf8acf9a63f66ffb13910ad5605e30ada0159b1544",
+    "archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+    "archive_size_bytes": 22692774,
+    "qualification": "UNQUALIFIED"
+  },
+  "status": "PASS_BOUNDED_INTERRUPT_AND_EXACT_PAUSED_RECOVERY",
+  "standalone_passes": 75,
+  "standalone_failures": 0,
+  "new_regression_cases": 9,
+  "native_workload_outcome": "INTERRUPTED_NOT_TEST_PASS",
+  "capture_id": "ac1902c33f009c21ed551a646266bfdcecf395373d6693ec882bf57aad07baac",
+  "native_attempt": "PAUSED",
+  "accepted_completion": null,
+  "lifecycle_observation_pass": true,
+  "polling_interval_seconds": 0.1,
+  "late_write_observation_seconds": 3,
+  "exact_restore": {
+    "restore": {
+      "status": "RESTORED_NOT_RUNNING",
+      "workspace": "/tmp/ig_gate_v62_restored_20261001",
+      "source_sha256": "2b99ebb20575b2b43043812fdb1d39a2c682b5ff0081d38af2ddab4e7e9b177e",
+      "checkpoint_sha256": "ed8f342e8f6dd204db633a4a6ac50ebbdea70ab5e479c484eaf4e1a0e7d3a80a",
+      "state_file_modes_restored": true,
+      "mode_scope": "CHECKPOINT_STATE_AND_INPUT_FILES"
+    },
+    "runtime_bytes_and_modes_equal": true,
+    "paused_attempt_equal": true,
+    "accepted_completion": null,
+    "tests_dispatched": 0
+  },
+  "save_roles_acknowledged": 30,
+  "unique_saved_readbacks": 15,
+  "pending_roles": 0,
+  "export": {
+    "drive_id": "15VizFAVeJnsZo-4Q0XZvk9nwDeCwSuWo",
+    "readback": "/workspace/scratch/a2e5e2576f17/attachments/89ef3cb7-ff82-437e-8fd9-b57d3223a4d5/V62_PAUSED_CHECKPOINT.zip",
+    "expected_sha256": "518406bc2a39eee1d0678a77b88d9151dcc13f85acba5d250050353c3ef82b77",
+    "sha256": "518406bc2a39eee1d0678a77b88d9151dcc13f85acba5d250050353c3ef82b77",
+    "raw_readback_verified": true
+  },
+  "V61_original_runtime_unchanged": true,
+  "V61_failure_preserved": true,
+  "V55_failure_preserved": true,
+  "full_RC": "OPEN",
+  "data_block_ready": false,
+  "next": "Fresh dev144 corruption/controller-error lifecycle gate, then current-source fixtures/full RC/independent-host recovery."
+}

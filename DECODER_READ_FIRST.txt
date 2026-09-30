@@ -1,6 +1,5 @@
-DEV143 V60B BOUNDED REGRESSION PASS — UNQUALIFIED — 2026-10-01
-49 standalone checks; five native selectors; exact completion restored with zero dispatch.
-Fresh live cleanup scenario, current-source full RC and independent-host recovery pending.
-V55 remains failed lifecycle cleanup. All 23 RC rows OPEN. No science replay.
-Read decoder-admin/evidence/V60_REPORT.txt.
+DEV144 V62 INTERRUPT/EXACT RECOVERY BOUNDED PASS; OVERALL UNQUALIFIED
+75 focused PASS; fresh native interrupt and exact saved paused restoration; zero recovery dispatch.
+All 23 RC rows OPEN. Fresh corruption scenario next. No science replay.
+Read decoder-admin/evidence/V62_REPORT.txt and RC_LEDGER.json.
 Verify source: python3 -B decoder-admin/decoder.py verify-source

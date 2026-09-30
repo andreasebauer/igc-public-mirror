@@ -3,9 +3,9 @@
   "version_source": "infinity_grid._version.__version__",
   "version_api": "infinity_grid.build_meta",
   "target_release": "0.8lib",
-  "engineering_attempt": "DEV143_V59_VALIDATION_CLEANUP",
-  "parent_release": "0.8.0.dev142+lib",
-  "parent_source_archive_sha256": "ac5e2a4be842ab5e90d2d401bbec9e93985f4359a7a8a75ba167a6539a8bb9b9",
+  "engineering_attempt": "DEV144_V62_VALIDATION_CLEANUP",
+  "parent_release": "0.8.0.dev143+lib",
+  "parent_source_archive_sha256": "385c8224312cd40410b372f39b4f5016d55a0f1f2b28cad0cd07a429fdd465e9",
   "historical_metadata": "Git parent e16c5f4:decoder/infinity_grid/_build_meta.json",
   "status": "UNQUALIFIED_CANDIDATE",
   "science_authority_effect": "NONE",
@@ -15,5 +15,5 @@
     "Fresh reliability case",
     "Current candidate full RC"
   ],
-  "scope": "Worker-owned cancellation and explicit cleanup acknowledgment; native qualification pending"
+  "scope": "Checkpoint state modes and paused refusal ordering; native qualification pending"
 }
