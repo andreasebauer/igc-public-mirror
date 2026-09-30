@@ -1,0 +1,37 @@
+V41 DEV140 RESULTS-PRESERVATION GATE — 2026-09-30
+22 PASS, 0 FAIL; all nodes passed setup, call and teardown, no skips.
+One native registered attempt: tests/test_decoder06_results_preservation.py.
+V27 group B first bounded selector; transport remains separate.
+
+Verified declared negative-result conformance and output/prerequisite refusals;
+node status independent of worker grouping, missing-only selection, no promotion
+of interrupted nodes to PASS; committed-only SQLite snapshot; outbox object
+and logical-role accounting; wrong/missing readback refusal; exact dependency
+and project delta reconstruction; stage/replay budget accounting and activation
+packaging. Synthetic fixture receipts are TEST ONLY. These tests do not qualify
+actual scientific results or prove live long-selector remote preservation.
+Full pinned runtime pre/post verification passed. Source raw file set, bytes
+and modes match saved archive: 1522 files, no symlinks or bytecode.
+
+Unchanged candidate 0.8.0.dev140+lib.
+Source: c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd
+Package: 5cd2f515ae311293e7f6eaec2abdfb48f567ff6d7e3d7b481f1f822a917eff18
+Job: RC.RESULTS.PRESERVATION.V41.DEV140
+Capture: 11dea7d39f8124536b72613c7ede6cbf6fda7c064b5920d3929706f058dd5234
+Completion: 6dbe61c6ba3be91ecdabf1575bd5c9eeb313e260ee79bb618acea9287d3421e2
+Export SHA256: 12706085c2c1c209999ff15b7a4a2e65929f75c210af5c196ab9afefd80d02fd
+Export Drive ID: 17_7pPgmVQCjzShrJ0-IHsco0YOknyugn
+
+Nine capture saves and 28 checkpoint roles acknowledged; zero pending.
+Fourteen physical objects catalogued. Fresh Drive-returned terminal export
+restored exact completion with terminal proof and zero dispatched tests.
+Native reports retain timing; no performance claim. Source/runtime unchanged.
+
+V33-V40 104 + V41 22 = 126 focused passes on dev140.
+All 23 RC rows remain OPEN; candidate UNQUALIFIED and not data-block ready.
+V24's 408 unresolved obligations and contaminated runtime remain untouched.
+Next: tests/test_decoder06_transport.py, then test_validation_save_waves.py
+and outstanding native integrations, especially failed/skipped-wave refusal
+and single long-selector live saves. Review V31/V33 wave evidence for reuse.
+Current-candidate fixture completions, full qualification and RC reconciliation
+remain before canonical L0-G8 replay. Do not rerun completed targeted groups.
