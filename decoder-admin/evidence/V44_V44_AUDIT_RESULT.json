@@ -1,0 +1,36 @@
+{
+  "status": "AUDIT_PASS_NO_WORKLOAD_DISPATCH",
+  "source_sha256": "c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd",
+  "v33_archive_sha256": "3abc74a44a98963bde60b644e177de675bd9780839fb418eed7c722392e04bb2",
+  "attempt_statuses": [
+    "PAUSED",
+    "PAUSED",
+    "PAUSED",
+    "PAUSED",
+    "COMPLETED"
+  ],
+  "native_boundaries": 4,
+  "distinct_passed_nodes": 5,
+  "prior_evidence_hash_comparisons": 84,
+  "checkpoint_roles_acknowledged": 140,
+  "physical_readbacks_reverified": 34,
+  "saved_restore": {
+    "restore": {
+      "status": "RESTORED_NOT_RUNNING",
+      "workspace": "/tmp/ig_gate_v33_restored_20260930",
+      "source_sha256": "c19e1dc9ff75f67ece4cf6b9b5875bbfce7b5be36ad3153751c5e276ca7f2ebd",
+      "checkpoint_sha256": "7f78aa83b9355bbabb4df1cb0c2bb21d469d1c7045bd4d37ffddb76151e25810"
+    },
+    "completion_sha256": "2f02c7d340a5db827b41b5f285cb071a90a58dbdd40be729452f1b58a6d6d7ac",
+    "exact_completion_equal": true,
+    "terminal_completion_proof": true,
+    "tests_dispatched": 0
+  },
+  "remaining": [
+    "Native resume refusal while logical roles pending but physical bytes already saved",
+    "Native failed/skipped first selector blocks later selector",
+    "Long selector spanning two ordinary checkpoint intervals with active genuine save loop, reserve/latency measurements and full-boundary corruption refusal"
+  ],
+  "qualification": "OPEN",
+  "new_tests_dispatched": 0
+}
