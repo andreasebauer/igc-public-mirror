@@ -1,0 +1,25 @@
+{
+  "scope": "standalone controller/worker draft; native runtime integration not executed",
+  "cases": [
+    {
+      "case": "early",
+      "result": "CLEANUP_ACK_VERIFIED",
+      "pass": true
+    },
+    {
+      "case": "active",
+      "result": "CLEANUP_ACK_VERIFIED",
+      "pass": true
+    },
+    {
+      "case": "already_exited",
+      "result": "CLEANUP_ACK_VERIFIED",
+      "pass": true
+    },
+    {
+      "case": "missing_ack",
+      "result": "MISSING_ACK_REFUSED",
+      "pass": true
+    }
+  ]
+}

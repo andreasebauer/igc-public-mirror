@@ -1,0 +1,37 @@
+V58 CANCELLATION INTEGRATION DRAFT — NOT YET A RELEASE CANDIDATE
+
+Implemented staged v05_validation_runtime.py and validation_cancellation.py.
+The production decoder tree and dev142 manifest are unchanged. V55 evidence is
+unchanged. No native job executed in this step, and no RC row closed.
+
+Draft changes:
+- SIGTERM blocked across worker fork until handler/subreaper setup completes.
+- Dedicated worker owns selector session and handles cancellation cooperatively.
+- Worker reports cleanup_quiescent only after descendant reaping succeeds.
+- Controller cancels only its unreaped direct children and verifies their replies.
+- Already-exited workers are reaped without signalling their former numeric PID.
+- Partial launch exceptions, controller exceptions and deadline handling call the
+  cancellation coordinator. Missing/failed acknowledgment refuses acceptance.
+- Normal worker replies also require a cleanup acknowledgment.
+
+Verification: four standalone coordinator cases passed under the restored Python
+3.13 runtime: early request; active selector with forked child; worker already
+exited; missing acknowledgment refused. Python AST parsing passed. These checks
+do NOT execute the staged _run_group or qualify native integration.
+
+Known scope and review points:
+The owned process-group model does not guarantee termination of descendants that
+leave the group. Such cases must retain an unconfirmed-cleanup error, not success.
+The 12-second cleanup bound is administrative cleanup, not a workload deadline.
+On bound exhaustion the supervisor is not silently discarded; cleanup remains
+unconfirmed. Review preservation behavior with any such surviving supervisor.
+Review descriptor closure and asynchronous exceptions around parent fork bookkeeping.
+Existing normal reduction, immutable publication and save-boundary tests still need
+execution against the new source. Existing V57 checks are historical draft checks.
+
+NEXT
+Review the staged integration, build a separately identified UNQUALIFIED dev143
+candidate with these two modules and version/profile metadata, then execute the
+registered targeted checks before repeating a fresh native reliability case.
+Do not apply this code inside an existing captured workspace or rewrite prior results.
+All 23 RC rows OPEN. No science replay.

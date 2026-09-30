@@ -1,0 +1,65 @@
+"""Isolated ownership/acknowledgment checks; no native job qualification."""
+import ctypes
+import json
+import os
+from pathlib import Path
+import signal
+import sys
+import time
+from validation_cancellation import WorkerCancellation, ValidationCancelled, cancel_workers
+
+
+def reap():
+    deadline=time.monotonic()+5
+    while True:
+        try:pid,_=os.waitpid(-1,os.WNOHANG)
+        except ChildProcessError:return
+        if not pid:
+            if time.monotonic()>deadline:raise RuntimeError('DESCENDANT_REMAINS')
+            time.sleep(.01)
+
+
+def start(mode):
+    r,w=os.pipe()
+    mask=signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGTERM})
+    pid=os.fork()
+    if pid==0:
+        os.close(r)
+        try:
+            if ctypes.CDLL(None).prctl(36,1,0,0,0)!=0:raise RuntimeError('SUBREAPER')
+            if mode=='early':time.sleep(.15)
+            with WorkerCancellation() as c:
+                signal.pthread_sigmask(signal.SIG_UNBLOCK,{signal.SIGTERM})
+                if mode in ('early','active'):
+                    try:c.communicate([sys.executable,'-B','-c','import os,time;os.fork();time.sleep(30)'],cwd='/tmp',env=dict(os.environ),reap_descendants=reap)
+                    except ValidationCancelled:pass
+                    else:raise RuntimeError('CANCELLATION_NOT_OBSERVED')
+                reap()
+                packet={'cleanup_quiescent':mode!='missing_ack'}
+                os.write(w,json.dumps(packet).encode())
+            os.close(w);os._exit(0)
+        except BaseException as e:
+            os.write(w,json.dumps({'cleanup_quiescent':False,'error':repr(e)}).encode());os._exit(2)
+    signal.pthread_sigmask(signal.SIG_SETMASK,mask);os.close(w)
+    return pid,r
+
+
+results=[]
+for mode in ['early','active','already_exited','missing_ack']:
+    pid,fd=start(mode)
+    if mode!='early':time.sleep(.3)
+    pending={pid:(0,fd,[],None)}
+    try:cancel_workers(pending)
+    except RuntimeError as e:
+        assert mode=='missing_ack' and 'VALIDATION_CLEANUP_UNCONFIRMED' in str(e),str(e)
+        result='MISSING_ACK_REFUSED'
+    else:
+        assert mode!='missing_ack';result='CLEANUP_ACK_VERIFIED'
+    assert not pending
+    try:os.waitpid(pid,os.WNOHANG)
+    except ChildProcessError:pass
+    else:raise AssertionError('WORKER_NOT_REAPED')
+    results.append({'case':mode,'result':result,'pass':True})
+out={'scope':'standalone controller/worker draft; native runtime integration not executed','cases':results}
+Path(__file__).with_name('COORDINATOR_VERIFICATION.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out))
