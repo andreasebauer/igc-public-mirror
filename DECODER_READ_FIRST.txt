@@ -1,5 +1,5 @@
-DECODER — DEV138 / V26 RECOVERY ENTRY POINT
-2026-09-30. UNQUALIFIED group A source repairs; no native execution this step.
+DECODER — DEV139 / V27 RECOVERY ENTRY POINT
+2026-09-30. UNQUALIFIED groups A/B source repairs; no native execution this step.
 
 START
   python -B decoder-admin/decoder.py status
@@ -7,12 +7,12 @@ START
   python -B decoder-admin/decoder.py needs
 
 CURRENT SOURCE
-The candidate is 0.8.0.dev138+lib, derived from V25 commit 5a78a98.
-See decoder-admin/evidence/V26_REPORT.txt and V26_TARGETED_PROTOCOL.txt.
+The candidate is 0.8.0.dev139+lib, derived from V26 local commit 5673c15.
+See decoder-admin/evidence/V27_REPORT.txt and V27_ACK_AND_WAVE_PROTOCOL.txt.
 Group A implements startup bytecode suppression, exact V4 bootstrap package and
 loader bindings, and project fixture SQLite binding. All tests remain pending.
-Next is V25 group B native acknowledgment/scheduling, then C review and D native
-qualification. All 23 RC rows OPEN. No science/replay qualification is granted.
+V27 adds bounded native batch acknowledgments and opt-in validation save waves.
+Next is V25 group C incident/core review, then D native qualification. All 23 RC rows OPEN. No science/replay qualification is granted.
 Five dev137 fixture records now live in historical_candidate_fixtures in CATALOG;
 they are preserved but not current-source completions. V24 stays immutable:
 1,363 PASS / 4 FAIL / 1 interrupted observed, incomplete, no completion;

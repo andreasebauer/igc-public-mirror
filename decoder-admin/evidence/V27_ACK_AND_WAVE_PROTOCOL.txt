@@ -1,0 +1,82 @@
+V27 TARGETED PROTOCOL — PREPARED, NOT A SAVED EXECUTION CAPTURE
+Engineering only. This specification does not authorize an unsaved native job.
+Complete V25 group C, freeze exact successor source/runtime, and save/read back
+all capture prerequisites before using this candidate for native qualification.
+Fresh reconstructed V4, exact pre/post file set/bytes/modes, /tmp live workspace.
+No changes to historical V24 source/runtime/evidence; no implicit workload retry.
+
+BATCH API
+  Decoder preserve confirm-batch WORKSPACE /absolute/batch.json
+Schema fields exactly: schema_id=IG_CHECKPOINT_ACK_BATCH_V1; capture_id;
+obligations; readbacks. Each obligation must copy all six exact fields from
+native status: obligation_id, obligation_scope, role, logical_name, sha256,
+size_bytes. No wildcard/ambiguous role resolution.
+Each unique readback has sha256, kind, drive_file_id, and either:
+  RAW: path (actual downloaded raw bytes)
+  MULTIPART: manifest and parts (actual downloaded manifest/ordered part set)
+For multipart, drive_file_id is the manifest's genuine Drive ID. Existing upload
+notes must match original_object_drive_file_id; absent/conflicting original ID
+refuses when a note exists. Every reference must be used exactly once per hash.
+The connector/operator supplies authentic delivery IDs and returned bytes; the
+native API verifies bytes and records that attestation, not remote identity.
+No scripts may substitute guessed IDs, local originals or fabricated receipts.
+The batch may be split into explicitly identified subsets of obligations. Complete
+all subsets and run full native status before claiming full preservation closure.
+Returned partial-batch status checks other obligations' metadata, not unrelated
+local payload bytes. Full preserve status verifies the entire local object set.
+
+QUALIFICATION GROUPS (separate saved native VALIDATION captures)
+A. tests/test_preservation_batch.py
+   Real native API on synthetic fixture captures. Deduplicated per-hash calls;
+   ten role obligations on three objects; raw and multipart correctness; exact
+   replay; missing/wrong/duplicate/extra identities/readbacks; byte corruption;
+   budget refusal; interrupted publication recovery; tampered journal refusal.
+   Synthetic local IDs/receipts are TEST ONLY, not genuine remote-save proof.
+B. tests/test_decoder06_results_preservation.py and
+   tests/test_decoder06_transport.py, in separately bounded selector groups.
+   Preserve previous recovery/backlog/transport regressions and corruption cases.
+C. tests/test_validation_save_waves.py
+   Data-only policy/missing-only planning/failure/drain tests. These do not prove
+   real controller pause/checkpoint/resume; that integration is mandatory below.
+
+NATIVE SAVE-BOUNDARY INTEGRATION (separate engineering capture)
+Freeze two independent tiny PASS probe selectors, one worker, captured
+validation_wave_selectors=1, unchanged default backlog limits. Genuine pre-run
+save, then dispatch once. Require first selector finalized once, PAUSED with
+VALIDATION_SAVE_BOUNDARY, zero full completion, second selector unexecuted.
+Save/download objects, use native batch acknowledgments, verify full status.
+Resume the same capture: first selector's bytes/phase IDs unchanged, second
+selector executes once, final reduction PASS, native completion and terminal
+checkpoint preserved. Save/readback/restore without re-execution. Attempting
+resume before closing logical roles must refuse even if pending_bytes is zero.
+Inject a failed/skipped selector in a separate capture; no next wave may run
+implicitly. Retain failure, never rewrite its outcome or reuse it as a PASS.
+
+SINGLE LONG SELECTOR / LIVE TRANSPORT INTEGRATION
+A separate preregistered bounded engineering selector intentionally spans at
+least two ordinary checkpoint intervals. No automatic runtime deadline. Before
+dispatch prove an active operator/connector loop can poll native preservation
+status, upload exact pending objects/transport parts, fetch readbacks and invoke
+confirm-batch while the native controller remains active. Drain before any count,
+byte or age threshold; avoid claiming zero pending based on physical bytes alone.
+Measure per-batch physical reads, latency and remaining reserve. Verify that
+heartbeat checks retain count/byte/age checks without rehashing payloads every
+20 ms; inject outbox corruption and require refusal on the next full status or
+checkpoint boundary. Metadata heartbeat does not attest current payload bytes. Retain native
+outbox locks; WORKSPACE_BUSY permits retry of the SAME administrative batch,
+not workload retry or fabricated acknowledgments. No sidecar/database inspection
+outside the registered instrumentation. Child/subprocess checks remain intact.
+If transport cannot keep pace or is unavailable, retain SAVE_BACKLOG_PAUSE.
+Do not raise limits, stretch cadence, silently suspend checkpoints, kill evidence,
+or rerun completed nodes to force a success. A long-selector success cannot be
+inferred from short waves or static complexity estimates.
+
+STOP / ACCEPTANCE
+One attempt per initial gate. Any unexpected failure, skip, missing report,
+receipt conflict, source/runtime mutation or backlog pause stops progression.
+Preserve failure evidence; resume only explicitly designated missing work with
+saved native identity unchanged. Review altered source as a NEW candidate.
+All required positive and negative cases, real batch remote-readback integration,
+real wave resume, and long-selector transport must pass before calling group B
+qualified. Full RC, incident 64/96 explanation, core review, install lock and
+independent-host recovery remain separate open requirements.

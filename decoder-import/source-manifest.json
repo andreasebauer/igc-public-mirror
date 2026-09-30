@@ -1,8 +1,8 @@
 {
-  "source_sha256": "b4e87fe77bd2e1f41ee6e7e40f5bcfa8c62f3115cdf11cf5462ee56365808f75",
-  "package_sha256": "b0cbd368d6e8c9511bb757cb7fb0b27a37a39321d1c4f33a66ec06014573c2f9",
-  "version": "0.8.0.dev138+lib",
-  "archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
+  "source_sha256": "db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d",
+  "package_sha256": "b7c6b750d2c44d9ec9d0ada977acee78edd0f1d544e4edda44225d3cb6b629ba",
+  "version": "0.8.0.dev139+lib",
+  "archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
   "qualification": "UNQUALIFIED",
   "files": [
     [
@@ -203,7 +203,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "66a5c2c95be837a7fc91c1ab1b1e253533bb835caa53ddaec2d04f12a365d4f4"
+      "59be4cf99f68de7f621be5d212454be61b76532b2637c2ee1b786812f7f24f68"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -211,7 +211,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "d106cde3136be3d862000a5f2225363bc18c47103c34400d8a391231a2c8238c"
+      "915db673127e0a9a85b986392804e0f89fd5e0b6f171a076a8266225be7b81d2"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -763,7 +763,11 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "3df4c2037bfb876f37709ec072fd9ace000b12ec7ec729fe495393b59ad13200"
+      "de9026e5d4f2cd77264e968a21c1b4c4f8a82bb7129803ea8c0e699a52ff9c62"
+    ],
+    [
+      "infinity_grid/preservation_batch.py",
+      "457dff12d4c4b46719a26088a752949059568cb17a8dcecd907884be42622199"
     ],
     [
       "infinity_grid/project_migration.py",
@@ -3675,7 +3679,7 @@
     ],
     [
       "infinity_grid/result_contracts.py",
-      "93b1295b3af78a1f4d7aa030acdcf6259021f1ecb03cc6ad34cc1dd8d9e1c62d"
+      "5fd253d4d0d476b633b266e0af84c7b5bfe0fcab40704069efade03b12449dd2"
     ],
     [
       "infinity_grid/run_operations.py",
@@ -3695,7 +3699,7 @@
     ],
     [
       "infinity_grid/save_transport.py",
-      "34c052b5fdf29027e592ce09adab1a3c81fd5bd2371871ef1d053cc62f932ff8"
+      "b94b93b89018e6129b3ebb3d326741f12dab108e2e971d22b6baded67706f494"
     ],
     [
       "infinity_grid/schema.py",
@@ -4127,7 +4131,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "135b804d0e2c04868ababec7dbdc4c921cbd9243dfb7b29ceb939454212cacda"
+      "20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4275,7 +4279,7 @@
     ],
     [
       "infinity_grid/v05_validation_runtime.py",
-      "155fe10d9a7c3b836826cbd0df5f0e054861970994e19b4fc46f5a5aa5a5743b"
+      "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd"
     ],
     [
       "infinity_grid/v05_verifier.py",
@@ -4503,11 +4507,11 @@
     ],
     [
       "qualification/PROFILE.json",
-      "a00470f554abb92718aed520122180cb744d3d42ceb3050cd47874e64fdabf5b"
+      "28f0b436cd3ea43dbc51366a82822444492bf5a97f5a95eec81c0c3dd1858269"
     ],
     [
       "qualification/READ_FIRST.txt",
-      "778c5c904d9be20eb4a23795def458197f66151ded0724e45d548fb1133a7f9d"
+      "e527f189354edc1ea01259ef7043c72e516bb3d2cd1956a192dccc56f8e92467"
     ],
     [
       "qualification/history/dev136/PROFILE.json",
@@ -5734,6 +5738,10 @@
       "11956d4f674b3f51a6039268a9c8fd8f777f851992db5511f235fc8c655629e9"
     ],
     [
+      "tests/test_preservation_batch.py",
+      "fe58d2dbe58fb6f2282c58db793e3570b626779721ec7573d1a2bad417386a6b"
+    ],
+    [
       "tests/test_qualification_contract.py",
       "dd71d1fa0bec8ab848dc7d19d9aebb2c7e08824e1f44eebdeaad21f893135197"
     ],
@@ -6028,6 +6036,10 @@
     [
       "tests/test_validation_recorder_finalization.py",
       "585f11dab9339bb1ddb4066c87559e23e27d646c383da30653dbd11569b01bcb"
+    ],
+    [
+      "tests/test_validation_save_waves.py",
+      "11bb1b42e99967c9835fb3752789617301f45242ef396572370dfcc563dcf71b"
     ],
     [
       "tests/test_validation_worker_log_publication.py",

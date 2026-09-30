@@ -277,6 +277,22 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
     except OSError: pass
     os._exit(rc)
 
+def _planned_wave(log_root:Path,binding:str,nodes:list[str],limit:int)->list[str]:
+    from .validation_reports import pending_selectors,report_rows,node_status,verify_finalization
+    if type(limit) is not int or limit<0:
+        raise ValidationRuntimeError('VALIDATION_WAVE_LIMIT')
+    pending=pending_selectors(log_root,binding,nodes)
+    if not limit:return pending
+    for row in report_rows(log_root,binding):
+        if row.get('finished') and node_status(row)!='PASS':
+            raise ValidationRuntimeError('VALIDATION_PRIOR_NONPASS_REQUIRES_REVIEW')
+    if list((log_root/'collection_errors').glob('*.json')):
+        raise ValidationRuntimeError('VALIDATION_PRIOR_COLLECTION_ERROR_REQUIRES_REVIEW')
+    for ref in (log_root/'finalization_refs').glob('*.json'):
+        verify_finalization(log_root,binding,json.loads(ref.read_text()))
+    return pending[:limit]
+
+
 def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,wall_seconds_max:float|None,registered_nodes:list[str]|None=None,log_root:Path|None=None)->dict[str,Any]:
     nodes=_nodes(candidate,group) if registered_nodes is None else list(registered_nodes)
     from .validation_reports import pending_selectors,reduce_reports
@@ -288,7 +304,9 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
     plan=log_root/'REPORT_PLAN.json'
     if plan.exists() and json.loads(plan.read_text())['binding']!=binding:raise ValidationRuntimeError('VALIDATION_REPORT_PLAN_CHANGED')
     write_json_atomic(plan,{'binding':binding,'nodes':nodes})
-    pending_nodes=pending_selectors(log_root,binding,nodes)
+    from .preservation import validation_wave_limit
+    wave_limit=validation_wave_limit()
+    pending_nodes=_planned_wave(log_root,binding,nodes,wave_limit)
     prior_worker_evidence=_evidence_baseline(log_root,'worker-*.log')
     node_root=log_root/'node_process_logs'
     prior_node_evidence=_evidence_baseline(node_root,'*.log') if node_root.is_dir() else {}
@@ -360,6 +378,20 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
         if packet.get('binding')!=binding or [r['selectors'] for r in packet['receipts']]!=[[n] for n in result['nodes']]:
             raise ValidationRuntimeError('VALIDATION_PARENT_PHASE_SELECTORS')
         for receipt in packet['receipts']: verify_finalization(log_root,binding,receipt)
+    if wave_limit and results and all(r.get('return_code')==0 for r in results):
+        remaining=pending_selectors(log_root,binding,nodes)
+        if remaining:
+            # All wave workers and their exact final phase bytes are closed.
+            # The controller catches this intentional pause and checkpoints the
+            # PAUSED attempt. Never publish a whole-group completion here.
+            wave={'schema_id':'IG_VALIDATION_SAVE_BOUNDARY_V1','binding':binding,
+                  'selectors':pending_nodes,'remaining_selectors':remaining,
+                  'worker_evidence':[{'path':r['log_path'],'sha256':r['log_sha256'],
+                      'phase_manifest_sha256':r['phase_manifest_sha256']} for r in results]}
+            write_json_atomic(log_root/'save_boundaries'/(canonical_sha256(wave)+'.json'),wave)
+            from .submission import SubmissionError
+            raise SubmissionError('VALIDATION_SAVE_BOUNDARY',str(len(remaining)),
+                'Save/read back checkpoint objects, acknowledge every role, then resume missing selectors only.')
     node_rows,group_status,collection_errors=reduce_reports(log_root,binding,nodes,results)
     result_core={'schema_id':'IG_DECODER_VALIDATION_GROUP_RESULT_V1','group':group,'nodes':node_rows,'status':group_status}
     if collection_errors:result_core['collection_errors']=collection_errors

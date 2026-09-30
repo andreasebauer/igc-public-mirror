@@ -1,2 +1,2 @@
-CURRENT SOURCE: dev138, UNQUALIFIED V26 group A. Start at ../DECODER_READ_FIRST.txt.
-The source manifest is regenerated from the settled step tree; old dev137 manifest remains in history/dev137/.
+CURRENT SOURCE: dev139, UNQUALIFIED V27. Start at ../DECODER_READ_FIRST.txt.
+Previous source manifests remain in Git history; no historical PASS is inherited.

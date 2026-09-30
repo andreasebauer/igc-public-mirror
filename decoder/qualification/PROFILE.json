@@ -306,6 +306,7 @@
         "tests/test_p7_node_in.py",
         "tests/test_p8_scout_historical.py",
         "tests/test_p9_o1_o3.py",
+        "tests/test_preservation_batch.py",
         "tests/test_qualification_contract.py",
         "tests/test_r02_replay_self_qualification.py",
         "tests/test_rc_audit_repairs.py",
@@ -377,6 +378,7 @@
         "tests/test_v05_stage_runtime_resume_kernel_view.py",
         "tests/test_validation_phase_binding.py",
         "tests/test_validation_recorder_finalization.py",
+        "tests/test_validation_save_waves.py",
         "tests/test_validation_worker_log_publication.py"
       ]
     },
@@ -436,17 +438,18 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_SOURCE_REPAIRS_NATIVE_VALIDATION_PENDING",
+  "status": "UNQUALIFIED_V26_V27_SOURCE_REPAIRS",
   "blocking_conditions": [
-    "dev138 group A repairs have not been executed or qualified.",
-    "V25 group B preservation/scheduling repair and group C forensic/pin review remain open.",
-    "Five dev137 candidate fixtures remain historical; rebind or regenerate for settled successor source.",
-    "Freeze exact final source/runtime and saved/read-back preregistration before native execution.",
-    "Complete install lock and independent-host recovery remain open."
+    "dev139 V26/V27 repairs are unqualified; no tests executed for either changed source.",
+    "V25 group C forensic preregistration and justified core diff review required.",
+    "Real wave resume and long-selector live transport must be qualified; static changes do not establish it.",
+    "Freeze source/runtime and genuine saved/read-back prerequisites before native qualification.",
+    "Five dev137 fixtures historical only; successor rebinding/regeneration pending.",
+    "Full install lock, full RC and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev138+lib",
-    "parent_archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
+    "revision": "0.8.0.dev139+lib",
+    "parent_archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

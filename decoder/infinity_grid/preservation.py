@@ -53,7 +53,7 @@ def _put(workspace, raw):
 
 def _bytes(workspace, row):
     path = _root(workspace) / 'objects' / (row['sha256'] + '.bin')
-    if not path.is_file():raise sub.SubmissionError('OUTBOX_OBJECT_MISSING',row['sha256'])
+    if path.is_symlink() or not path.is_file():raise sub.SubmissionError('OUTBOX_OBJECT_MISSING',row['sha256'])
     raw = path.read_bytes()
     if sub._sha(raw) != row['sha256'] or len(raw) != row['size_bytes']:
         raise sub.SubmissionError('OUTBOX_OBJECT_MISMATCH', row['sha256'])
@@ -74,22 +74,25 @@ def _receipt(workspace, row, *, ambiguous=False):
                 legacy_unbound='obligation_id' not in receipt
                 if valid_transport_receipt(receipt,row) and (bound or not ambiguous and legacy_unbound):return receipt
             if receipt.get('schema_id')=='IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2':
-                body={k:v for k,v in receipt.items() if k!='receipt_sha256'}
                 if (receipt.get('obligation_id')==row.get('obligation_id')
                     and receipt.get('role')==row.get('role')
+                    and receipt.get('logical_name')==row.get('logical_name')
                     and receipt.get('obligation_scope')=='CHECKPOINT_OUTBOX'
-                    and receipt.get('sha256')==row['sha256'] and receipt.get('size_bytes')==row['size_bytes']
-                    and canonical_sha256(body)==receipt.get('receipt_sha256')): return receipt
-            if not ambiguous and sub._valid_receipt(p, row): return receipt
+                    and _physical_receipt(p,row)): return receipt
+            if receipt.get('schema_id')=='IG_DECODER_EXPLICIT_SAVE_RECEIPT_V1' and not ambiguous and sub._valid_receipt(p,row):return receipt
     return None
 
 def _physical_receipt(path, row):
     """Verify physical durability independent of the logical obligation."""
     try: receipt=sub._read(path)
     except (ValueError,OSError): return False
+    from .save_transport import RECEIPT, valid_receipt, _id
+    if receipt.get('schema_id')==RECEIPT:
+        return valid_receipt(receipt,row)
     body={k:v for k,v in receipt.items() if k!='receipt_sha256'}
     return (receipt.get('schema_id') in {'IG_DECODER_EXPLICIT_SAVE_RECEIPT_V1','IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2'}
         and receipt.get('provider')=='google_drive' and receipt.get('raw_readback_verified') is True
+        and _id(receipt.get('drive_file_id'))
         and receipt.get('sha256')==row['sha256'] and receipt.get('size_bytes')==row['size_bytes']
         and canonical_sha256(body)==receipt.get('receipt_sha256'))
 
@@ -124,39 +127,66 @@ def _commits(workspace):
     return rows
 
 
-def status(workspace):
-    workspace=Path(workspace).resolve();rows=_commits(workspace);objects={};pending_commits=[]
+def _inventory(workspace):
+    """Hash-bound checkpoint metadata; payload verification is separate."""
+    rows=_commits(workspace);by_checkpoint={};physical={}
     for sha,(row,raw) in rows.items():
-        required=_checkpoint_obligations(sha,row,raw); counts={}
-        for obj in required: counts[obj['sha256']]=counts.get(obj['sha256'],0)+1
+        required=_checkpoint_obligations(sha,row,raw)
+        for obj in required:
+            old=physical.get(obj['sha256'])
+            if old is not None and old['size_bytes']!=obj['size_bytes']:
+                raise sub.SubmissionError('OUTBOX_OBJECT_SIZE_CONFLICT')
+            physical[obj['sha256']]=obj
+        by_checkpoint[sha]=required
+    return rows,by_checkpoint,physical
+
+
+def _verified_inventory(workspace):
+    inventory=_inventory(workspace)
+    for obj in inventory[2].values():_bytes(workspace,obj)
+    return inventory
+
+
+def _status_from_inventory(workspace,rows,by_checkpoint,physical,*,verified_count=None):
+    objects={};pending_commits=[]
+    for sha,(row,raw) in rows.items():
+        required=by_checkpoint[sha];counts={}
+        for obj in required:counts[obj['sha256']]=counts.get(obj['sha256'],0)+1
         unsaved=False
         for obj in required:
-            _bytes(workspace,obj)
             if not _receipt(workspace,obj,ambiguous=counts[obj['sha256']]>1):
                 objects.setdefault(obj['obligation_id'],dict(obj,local_object_path=str(_root(workspace)/'objects'/(obj['sha256']+'.bin'))))
                 unsaved=True
-        if unsaved: pending_commits.append({'checkpoint_sha256':sha,'created_unix':row['created_unix'],'reason':row['reason']})
+        if unsaved:pending_commits.append({'checkpoint_sha256':sha,'created_unix':row['created_unix'],'reason':row['reason']})
     for obj in objects.values():
         note=_root(workspace)/'uploads'/(obj['sha256']+'.json')
         if note.is_file():obj['drive_file_id']=sub._read(note)['drive_file_id']
     oldest=min((x['created_unix'] for x in pending_commits),default=None)
-    current=_root(workspace)/'CURRENT.json'
-    pending=list(objects.values())
-    # pending_bytes is a physical transport backlog, not a count of new logical
-    # obligations. A hash already covered by a valid raw-readback receipt in
-    # this capture needs a fresh checkpoint obligation receipt, but its bytes
-    # are already durable and must not consume the reserve again.
-    physically_saved=set()
-    for x in pending:
-        root=Path(workspace)/'durability/receipts'/x['sha256']
-        if any(_physical_receipt(p,x) for p in root.glob('*.json')):
-            physically_saved.add(x['sha256'])
-    physical_pending={x['sha256']:x['size_bytes'] for x in pending if x['sha256'] not in physically_saved}
+    current=_root(workspace)/'CURRENT.json';pending=list(objects.values())
+    # Physical preservation includes valid multipart receipts, but does not
+    # satisfy another checkpoint role's independent logical obligation.
+    physical_pending={}
+    for digest in {x['sha256'] for x in pending}:
+        obj=physical[digest]
+        roots=(Path(workspace)/'durability/receipts'/digest,_root(workspace)/'receipts'/digest)
+        if not any(_physical_receipt(p,obj) for root in roots for p in root.glob('*.json')):
+            physical_pending[digest]=obj['size_bytes']
     return {'status':'SAVE_REQUIRED' if objects else 'PRESERVED' if rows else 'NO_CHECKPOINT',
             'pending_objects':pending,'pending_bytes':sum(physical_pending.values()),
             'pending_checkpoints':pending_commits,'oldest_pending_age_seconds':0 if oldest is None else max(0,time.time()-oldest),
             'latest_checkpoint':sub._read(current)['sha256'] if current.exists() else None,
+            'physical_objects_verified':len(physical) if verified_count is None else verified_count,
             'transport':'EXPLICIT_CONNECTOR; NO_UNATTENDED_TRANSPORT_CONFIGURED'}
+
+
+def status(workspace):
+    workspace=Path(workspace).resolve()
+    return _status_from_inventory(workspace,*_verified_inventory(workspace))
+
+
+def confirm_batch(workspace,batch):
+    from .preservation_batch import confirm_batch as implementation
+    return implementation(workspace,batch)
 
 
 def note_upload(workspace, digest, drive_id):
@@ -471,6 +501,10 @@ def ensure_terminal_completion(workspace, done):
 def backlog(workspace,*,reserve=False):
     from .result_contracts import contract_for,policy
     limits=policy(contract_for(workspace));s=status(workspace)
+    return _check_backlog(s,limits,reserve=reserve)
+
+
+def _check_backlog(s,limits,*,reserve=False):
     over=(s['pending_bytes']+(limits['max_commit_bytes'] if reserve else 0)>limits['max_pending_bytes']
           or len(s['pending_checkpoints'])>=limits['max_pending_commits']
           or s['oldest_pending_age_seconds']>limits['max_pending_age_seconds'])
@@ -481,9 +515,25 @@ def backlog(workspace,*,reserve=False):
 
 @contextmanager
 def session(admission):
-    token=_ACTIVE.set({'workspace':admission['workspace'],'admission':admission,'pid':os.getpid(),'last':time.monotonic(),'last_poll':0})
+    token=_ACTIVE.set({'workspace':admission['workspace'],'admission':admission,'pid':os.getpid(),'last':time.monotonic(),'last_poll':0,'last_backlog_poll':0})
     try:yield
     finally:_ACTIVE.reset(token)
+
+
+def require_validation_drain(admission, pending_saves):
+    from .result_contracts import contract_for,policy
+    if (admission['job']['execution']['kind']=='VALIDATION'
+            and policy(contract_for(admission['workspace']))['validation_wave_selectors']
+            and pending_saves['pending_objects']):
+        raise sub.SubmissionError('VALIDATION_SAVE_DRAIN_REQUIRED',
+            'Acknowledge all prior checkpoint roles before starting the next validation wave.')
+
+
+def validation_wave_limit():
+    active=_ACTIVE.get()
+    if not active or active['pid']!=os.getpid():return 0
+    from .result_contracts import contract_for,policy
+    return policy(contract_for(active['workspace']))['validation_wave_selectors']
 
 
 def safe_point(reason,*,force=False):
@@ -493,11 +543,22 @@ def safe_point(reason,*,force=False):
     require_controller_execution_origin('preservation-safe-point')
     from .result_contracts import contract_for,policy
     limits=policy(contract_for(active['workspace']))
+    now=time.monotonic()
+    if not force and now-active['last']<limits['interval_seconds']:
+        # Between checkpoints only acknowledgments can reduce this controller's
+        # outbox. Check limits/receipt metadata at a bounded cadence; do not
+        # rehash hundreds of MB on every 20 ms validation heartbeat. Payload
+        # integrity is rechecked before/after checkpoint creation and by status.
+        if now-active['last_backlog_poll']<0.25:return
+        active['last_backlog_poll']=now
+        metadata=_status_from_inventory(active['workspace'],*_inventory(active['workspace']),verified_count=0)
+        _check_backlog(metadata,limits,reserve=True)
+        return
     backlog(active['workspace'],reserve=True)
-    if force or time.monotonic()-active['last']>=limits['interval_seconds']:
-        make_checkpoint(active['workspace'],reason)
-        active['last']=time.monotonic()
-        backlog(active['workspace'],reserve=True)
+    current=make_checkpoint(active['workspace'],reason)
+    active['last']=time.monotonic()
+    active['last_backlog_poll']=active['last']
+    _check_backlog(current,limits,reserve=True)
 
 
 def check_budget(admission,*,extra_bytes=0):
@@ -653,6 +714,7 @@ def main(argv):
     p=cmds.add_parser('pause');p.add_argument('workspace');p.add_argument('reason')
     p=cmds.add_parser('confirm');p.add_argument('workspace');p.add_argument('sha256');p.add_argument('readback');p.add_argument('drive_id');p.add_argument('--role');p.add_argument('--logical-name');p.add_argument('--obligation-id')
     p=cmds.add_parser('confirm-transport');p.add_argument('workspace');p.add_argument('sha256');p.add_argument('manifest');p.add_argument('parts');p.add_argument('drive_id');p.add_argument('--role');p.add_argument('--logical-name');p.add_argument('--obligation-id')
+    p=cmds.add_parser('confirm-batch');p.add_argument('workspace');p.add_argument('batch')
     p=cmds.add_parser('export');p.add_argument('workspace');p.add_argument('output');p.add_argument('--slim',action='store_true')
     p=cmds.add_parser('restore');p.add_argument('archive');p.add_argument('destination');p.add_argument('sha256');p.add_argument('--objects')
     args=parser.parse_args(argv)
@@ -663,6 +725,7 @@ def main(argv):
         elif args.command=='note-upload':result=note_upload(args.workspace,args.sha256,args.drive_id)
         elif args.command=='confirm':result=confirm(args.workspace,args.sha256,args.readback,args.drive_id,role=args.role,logical_name=args.logical_name,obligation_id=args.obligation_id)
         elif args.command=='confirm-transport':result=confirm_transport(args.workspace,args.sha256,args.manifest,args.parts,args.drive_id,role=args.role,logical_name=args.logical_name,obligation_id=args.obligation_id)
+        elif args.command=='confirm-batch':result=confirm_batch(args.workspace,args.batch)
         elif args.command=='export':result=export_checkpoint(args.workspace,args.output,slim=args.slim)
         else:result=restore_checkpoint(args.archive,args.destination,args.sha256,args.objects)
         print(json.dumps(result,sort_keys=True,indent=2));return 0

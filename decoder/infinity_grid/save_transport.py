@@ -123,6 +123,16 @@ def make_receipt(obj, manifest_path, parts_directory, manifest_drive_id):
     if not _id(manifest_drive_id):
         raise sub.SubmissionError('DRIVE_FILE_ID_REQUIRED')
     raw, manifest = read_manifest(manifest_path)
+    return _receipt_from_manifest_bytes(obj,raw,parts_directory,manifest_drive_id)
+
+
+def _receipt_from_manifest_bytes(obj, raw, parts_directory, manifest_drive_id):
+    # Callers retain these exact bounded bytes across budget checks and payload
+    # verification; a changed manifest pathname cannot change the admitted plan.
+    if not _id(manifest_drive_id):raise sub.SubmissionError('DRIVE_FILE_ID_REQUIRED')
+    if type(raw) is not bytes or len(raw)>MAX_MANIFEST_BYTES:
+        raise sub.SubmissionError('TRANSPORT_MANIFEST_TOO_LARGE')
+    manifest=validate_manifest(json.loads(raw))
     if manifest['object'] != {k: obj[k] for k in ('sha256', 'size_bytes')}:
         raise sub.SubmissionError('TRANSPORT_OBJECT_BINDING_MISMATCH')
     verify(manifest, parts_directory)

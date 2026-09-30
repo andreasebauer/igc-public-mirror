@@ -362,13 +362,15 @@
     "status": "DRAFT_NOT_ADMITTED_NOT_EXECUTED"
   },
   "latest_candidate": {
-    "version": "0.8.0.dev138+lib",
-    "status": "UNQUALIFIED_V26_GROUP_A",
-    "tests_executed": 0,
-    "source_sha256": "b4e87fe77bd2e1f41ee6e7e40f5bcfa8c62f3115cdf11cf5462ee56365808f75",
-    "package_sha256": "b0cbd368d6e8c9511bb757cb7fb0b27a37a39321d1c4f33a66ec06014573c2f9",
-    "archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
-    "qualification": "UNQUALIFIED"
+    "source_sha256": "db9e13a0384feb23ef5eb2d90697b07b71dd7a3bcda8954a974769da7d8aaa4d",
+    "package_sha256": "b7c6b750d2c44d9ec9d0ada977acee78edd0f1d544e4edda44225d3cb6b629ba",
+    "version": "0.8.0.dev139+lib",
+    "archive_sha256": "f0ff118ce171007622af56f65c5ad217c3cf8f8eace1310bbf011a198fec89d9",
+    "qualification": "UNQUALIFIED",
+    "archive_size_bytes": 22681790,
+    "drive_id": "1L5QZ7ECXH3xJXfCl9L4HePXltjxq5PS0",
+    "status": "UNQUALIFIED_V27_GROUPS_A_B_SOURCE_ONLY",
+    "tests_executed": 0
   },
   "latest_runtime_preparation": {
     "runtime_id": "CPY3135_SQLITE3513_BUILD_TOOLS_V4_UNQUALIFIED_20260930",
@@ -559,11 +561,12 @@
     "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
   },
   "latest_source_repair": {
-    "gate": "V26",
-    "repair_scope": "V25 group A only",
-    "report": "decoder-admin/evidence/V26_REPORT.txt",
-    "protocol": "decoder-admin/evidence/V26_TARGETED_PROTOCOL.txt",
-    "native_execution": false,
-    "next": "V25 group B bounded acknowledgment and scheduling"
+    "gate": "V27",
+    "scope": "V25 groups A/B implemented, unqualified",
+    "report": "decoder-admin/evidence/V27_REPORT.txt",
+    "protocol": "decoder-admin/evidence/V27_ACK_AND_WAVE_PROTOCOL.txt",
+    "tests_executed": 0,
+    "native_acknowledgments_executed": 0,
+    "next": "V25 group C forensic/core review"
   }
 }

@@ -871,7 +871,9 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
         from .result_contracts import prerequisites
         prerequisites(admission)
         from .preservation import backlog
-        backlog(root,reserve=True)
+        pending_saves=backlog(root,reserve=True)
+        from .preservation import require_validation_drain
+        require_validation_drain(admission,pending_saves)
         # A valid saved capsule does not excuse changed evidence in this workspace.
         # A fresh cross-capture workspace has no local completion; reuse stays allowed.
         done = verified_completion(admission, allow_pending_checkpoint=True)

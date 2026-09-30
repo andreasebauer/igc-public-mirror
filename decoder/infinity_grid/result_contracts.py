@@ -122,11 +122,11 @@ def _checks(rows):
 def policy(contract):
     defaults = {'interval_seconds': 30, 'max_pending_bytes': 536870912,
                 'max_commit_bytes': 201326592, 'max_pending_commits': 8,
-                'max_pending_age_seconds': 3600}
+                'max_pending_age_seconds': 3600, 'validation_wave_selectors': 0}
     custom = contract.get('preservation', {})
     if type(custom) is not dict or set(custom) - set(defaults): raise sub.SubmissionError('PRESERVATION_POLICY_FIELDS')
     defaults.update(custom)
-    if any(type(v) is not int or v <= 0 for v in defaults.values()): raise sub.SubmissionError('PRESERVATION_POLICY_VALUE')
+    if any(type(v) is not int or (v < 0 if k=='validation_wave_selectors' else v <= 0) for k,v in defaults.items()): raise sub.SubmissionError('PRESERVATION_POLICY_VALUE')
     if defaults['max_commit_bytes'] > defaults['max_pending_bytes']: raise sub.SubmissionError('PRESERVATION_RESERVE_REQUIRED')
     return defaults
 

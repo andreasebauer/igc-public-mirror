@@ -1,0 +1,55 @@
+V27 — DEV139 BOUNDED ACKNOWLEDGMENT AND VALIDATION WAVES — UNQUALIFIED
+Parent local commit 5673c15b468331449c42b752917ec3886da6b4c1 (V26).
+V26 public equivalent: c2eed6a3491e3dfec368621b0bdbf6dca5c3e0da,
+identical Git tree 7c7c32965fe145ff0cb5b9a11c59d04cfd097456.
+
+IMPLEMENTED (SOURCE ONLY)
+1. Full preservation status verifies each distinct local physical object once
+   per call, instead of rehashing it for every checkpoint role. No persistent
+   digest cache; a later full status rechecks bytes. Between checkpoint creation
+   events, heartbeat limit checks use metadata at 250 ms cadence. Exact payload
+   verification remains before/after checkpoint creation; no per-20-ms payload
+   scan. This is an explicit timing change, not instantaneous corruption detection.
+2. Native preserve confirm-batch verifies exact capture/obligation identities,
+   all selected local objects, explicit raw readbacks or reconstructed multipart
+   readbacks before publication. Each distinct readback is verified once, then
+   expanded into independently bound role receipts. No external receipt is
+   manufactured and no remote identity authentication is claimed.
+3. Bounded batch input: 2 MiB request, 1,024 obligations, 256 distinct objects,
+   512 MiB decoded selected bytes and separately 512 MiB transport bytes.
+   Up to 4,096 checkpoint manifests may be inventoried. Larger workloads need
+   explicit batch/capture planning; this is not an unbounded long-run guarantee.
+4. Prepared journal plus content-addressed individual receipts survives partial
+   publication. Retry the exact batch: fresh byte verification, stable prepared
+   timestamps/receipt identities, conflict refusal and final completion marker.
+   Invalid preflight produces no journal or receipt. Partial publication remains
+   visible and resumable, never relabeled as atomic all-or-nothing completion.
+5. Valid multipart receipts count as physical durability for backlog bytes,
+   including outbox receipts. Their raw_readback_verified stays false. Independent
+   checkpoint obligations still require their own exact acknowledgment.
+   Raw V2 logical receipt checks now require provider/id/logical-name validity.
+6. Captured preservation policy may opt into validation_wave_selectors > 0.
+   Default zero preserves scheduling of historical captures. Completed wave
+   evidence is finalized before intentional PAUSED save boundary. No group PASS
+   or completion is fabricated. Resume requires ALL previous logical obligations
+   closed before making a new attempt; only missing selectors run. Prior finished
+   failures/skips/collection errors stop for review. Finalization refs rechecked.
+7. Single long selectors retain native progress checkpoints, resource checks,
+   and bounded backlog pause. A live explicit transport/acknowledgment loop must
+   be demonstrated before long-gate qualification; waves alone do not solve it.
+
+STATIC OBSERVATIONS / LIMITS
+Retained V24 object catalog: 54 unique objects, 380,347,166 decoded bytes. This
+fits the selected-object byte/count limits; its multipart transport budget still
+needs its own check. This is metadata arithmetic, not measured I/O or execution.
+No V24 capture was edited, acknowledged, resumed or rerun. 408 obligations OPEN.
+No new candidate test, fixture producer or scientific workload ran in this step.
+Static AST/JSON/profile/hash/diff checks only. All 23 RC acceptance rows OPEN.
+Group B source design is implemented; behavioral and cost qualification OPEN.
+
+NEXT
+V25 group C: preregister exact incident-byte/sidecar forensic comparison and
+review six core diffs, now including successor core changes, before justified
+successor amendments. Then freeze final candidate and run V26/V27 targeted
+native gates on fresh pinned V4 with genuine saved/read-back prerequisites.
+Do not call dev137 fixtures current-source completions or start full qualification.

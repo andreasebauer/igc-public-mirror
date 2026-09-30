@@ -3,17 +3,17 @@
   "version_source": "infinity_grid._version.__version__",
   "version_api": "infinity_grid.build_meta",
   "target_release": "0.8lib",
-  "engineering_attempt": "DEV138_V26_BOUNDED_BOUNDARY_REPAIRS",
-  "parent_release": "0.8.0.dev137+lib",
-  "parent_source_archive_sha256": "808d59dcb471c6c403e16fa7715738d10724eb8b7328f4712c24656799620605",
-  "historical_metadata": "qualification/history/dev137/_build_meta.json",
+  "engineering_attempt": "DEV139_V27_BATCH_ACK_AND_SAVE_WAVES",
+  "parent_release": "0.8.0.dev138+lib",
+  "parent_source_archive_sha256": "634acf03dce1ade0fa3b13031656f073f6089dd68b2122da505f7502e1502072",
+  "historical_metadata": "Git parent 5673c15:decoder/infinity_grid/_build_meta.json",
   "status": "UNQUALIFIED_CANDIDATE",
   "science_authority_effect": "NONE",
   "shared_pointer_advanced": false,
   "pending": [
-    "V25 groups B/C: bounded native acknowledgment, forensic incident review, reviewed core amendments",
-    "Saved native targeted validation on fresh pinned runtime",
-    "Candidate-specific fixture rebinding and full source/RC qualification"
+    "V25 group C incident forensic protocol and justified core diff review",
+    "Native V26/V27 targeted, real save-wave and long-selector qualification",
+    "Successor fixture rebinding and full RC"
   ],
-  "scope": "V25 group A source repairs only; no test executed, no historical PASS inherited"
+  "scope": "V25 group B source implementation, no tests or native acknowledgments executed"
 }
