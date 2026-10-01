@@ -1,0 +1,23 @@
+{
+  "gate": "V68_DEV145_REPRESENTATIVE_FIXTURE",
+  "status": "PASS",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "native_jobs_executed": 1,
+  "cases_passed": 4,
+  "cases_failed": 0,
+  "cases": {
+    "test_257_distinct_then_duplicate_needs_no_controller_reopen": "PASS",
+    "test_cold_multicore_over_256_classes_keeps_exact_grouping_and_durable_bytes": "PASS",
+    "test_partial_resume_reuses_durable_rep_bytes_without_reopen": "PASS",
+    "test_legacy_null_rep_binds_view_once_backfills_then_reuses": "PASS"
+  },
+  "fixture_roles_earned": [
+    "saved_representative_qualification"
+  ],
+  "all_five_candidate_fixtures_earned": true,
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "7cf9adfcc536e2dace1ef33890a10e8c1be26485a84d2d895233e1db9ddc968a",
+  "full_rc": "OPEN",
+  "remaining_fixtures": []
+}

@@ -1,0 +1,140 @@
+{
+  "saved_stage_one_prerun": {
+    "sha256": "172b421d869e42367822a5f42b027015662b97cdd7a3b56604087d40dfaf8dc8",
+    "size_bytes": 45028445,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V65_3c8a2560380de362a3fae8014e6a9a23278e2a78a3d0386d2f5334cea37c219f.bin",
+        "sha256": "3c8a2560380de362a3fae8014e6a9a23278e2a78a3d0386d2f5334cea37c219f",
+        "size_bytes": 25000000,
+        "drive_id": "1eo0WwhtaWHv1NRlnKArjY7OVYKh4_Z0e"
+      },
+      {
+        "filename": "V65_df276a051e270198068ed255f3ae9d5b981e37516f3826d9c90812d05fbe5487.bin",
+        "sha256": "df276a051e270198068ed255f3ae9d5b981e37516f3826d9c90812d05fbe5487",
+        "size_bytes": 20028445,
+        "drive_id": "1F92m1Qt79_J39Wq0C2RQekCLrI37Q83R"
+      }
+    ],
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "state": "GENUINE_PRERUN",
+    "completion_sha256": null,
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  },
+  "saved_stage_one": {
+    "sha256": "1482e73cb9f9d9fbe6a16313c9753cfc3797cd94e3a28e7885205a6664faa7b0",
+    "size_bytes": 67528339,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V65_abedb75a2de73fc65e4658a595397abafdf28c6dd239f4154849ce2af94b20cf.bin",
+        "sha256": "abedb75a2de73fc65e4658a595397abafdf28c6dd239f4154849ce2af94b20cf",
+        "size_bytes": 25000000,
+        "drive_id": "1v3qsa8kLN76pq3yToLuJolWEMYvIVjB6"
+      },
+      {
+        "filename": "V65_b980d3565ee33e6c18a3e2fafa1d55aa6fd5864ea40a5471cb1b27ff1b09bb98.bin",
+        "sha256": "b980d3565ee33e6c18a3e2fafa1d55aa6fd5864ea40a5471cb1b27ff1b09bb98",
+        "size_bytes": 25000000,
+        "drive_id": "1j4ZNxFyX-29hN41VycGjPFfyQnAKhlj8"
+      },
+      {
+        "filename": "V65_21549cea8a601dffac961071cb41e125d21991b33ccc25b2fd3351b4dc055575.bin",
+        "sha256": "21549cea8a601dffac961071cb41e125d21991b33ccc25b2fd3351b4dc055575",
+        "size_bytes": 17528339,
+        "drive_id": "1nHwYbS-H5oHujaCjqdJ1XTM8X_GeW2U7"
+      }
+    ],
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "state": "PUBLISHED_COMPLETION",
+    "completion_sha256": "df0df2514011e09e0e19734a62d2456d7822ae3b3f47b7608afde61e96a635ba",
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  },
+  "saved_stage_four": {
+    "sha256": "7fc1df9fa4c75413aa132b47471236a01440ebe24a97e70fbdf07c5a8c130ccd",
+    "size_bytes": 67527790,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V66_719bf131667c567be2a29a7120039450ef3176faba786a79e8ee86f96f0f5c40.bin",
+        "sha256": "719bf131667c567be2a29a7120039450ef3176faba786a79e8ee86f96f0f5c40",
+        "size_bytes": 25000000,
+        "drive_id": "1-G50D_Sjanjl30rgAKqsShxOVIy09EAA"
+      },
+      {
+        "filename": "V66_2565e801730ed10ba4cd6822716b0a33d1d90451d773c7fafcfc4ca8959c3ff1.bin",
+        "sha256": "2565e801730ed10ba4cd6822716b0a33d1d90451d773c7fafcfc4ca8959c3ff1",
+        "size_bytes": 25000000,
+        "drive_id": "15GtpSGTGfbhy9aDf2Yc4y8H4_Pmjz7nv"
+      },
+      {
+        "filename": "V66_9ec4a951ee4d2761b51ae9b05a8760022308aa9210ba1efe72e4164712656501.bin",
+        "sha256": "9ec4a951ee4d2761b51ae9b05a8760022308aa9210ba1efe72e4164712656501",
+        "size_bytes": 17527790,
+        "drive_id": "1uY-Mmy3lGAMjWbSAc2TGCPcoivhMXnTr"
+      }
+    ],
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "state": "PUBLISHED_COMPLETION",
+    "completion_sha256": "d89b9c525971ce75288df2b92836fe938f7241abf62f152afd4b794e3e104cac",
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  },
+  "saved_stage_outcome": {
+    "sha256": "69e2d882408b86489e1ec979f43cab4d4f6ac02865bc4a0273260cd5cf8c359e",
+    "size_bytes": 45053119,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V67_efcd1541bdf04b661b24ce93ff7d9cc3a01981626b1ba05649782d6a8e06f301.bin",
+        "sha256": "efcd1541bdf04b661b24ce93ff7d9cc3a01981626b1ba05649782d6a8e06f301",
+        "size_bytes": 25000000,
+        "drive_id": "1OryRtnWcItCbVfk1gj8R6sTZdtpqpxbw"
+      },
+      {
+        "filename": "V67_5e29d0b8e4c8df8055f9e8dafee9ad26c5088e614fe77e38ffc166ebe55b7910.bin",
+        "sha256": "5e29d0b8e4c8df8055f9e8dafee9ad26c5088e614fe77e38ffc166ebe55b7910",
+        "size_bytes": 20053119,
+        "drive_id": "1EAM8BQ0l_VgV15EMkRSewX24yFq0IJUB"
+      }
+    ],
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "state": "PAUSED_EXPECTED_REFUSAL",
+    "completion_sha256": null,
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  },
+  "saved_representative_qualification": {
+    "sha256": "10047495826464edde447517cedad54bd633d1da0c12cae1a75415d1b1d90af0",
+    "size_bytes": 68532057,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V68_9e7f7898399c43076f59d0b83cc96cd2fa862da43728d05c9a275718b830cc3e.bin",
+        "sha256": "9e7f7898399c43076f59d0b83cc96cd2fa862da43728d05c9a275718b830cc3e",
+        "size_bytes": 25000000,
+        "drive_id": "1nhVRNKEl_lGH4jOf6SzNGMcQYpyFoRs8"
+      },
+      {
+        "filename": "V68_0a225694f00cf03b8583773bfbcd80793ed4bea8961e7b621f83926828c287e3.bin",
+        "sha256": "0a225694f00cf03b8583773bfbcd80793ed4bea8961e7b621f83926828c287e3",
+        "size_bytes": 25000000,
+        "drive_id": "1obMVpR8wnoRXo3dfeR-4o1rmclzDJTPW"
+      },
+      {
+        "filename": "V68_e1254aff70c3e993793f07dea077c92a91137e94695ddae03b40df6b7ce16196.bin",
+        "sha256": "e1254aff70c3e993793f07dea077c92a91137e94695ddae03b40df6b7ce16196",
+        "size_bytes": 18532057,
+        "drive_id": "1ma4ChTnHCS8lrNICU8UeE9Qj7duKtOt5"
+      }
+    ],
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "state": "PUBLISHED_COMPLETION",
+    "completion_sha256": "7cf9adfcc536e2dace1ef33890a10e8c1be26485a84d2d895233e1db9ddc968a",
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_id": "IG_CHECKPOINT_ACK_COMPLETE_V1",
+  "batch_id": "cec6c2cdc2f70753d8d3f9001e771a897cd64f7e794df671d25f0041d39f7870",
+  "capture_id": "917d2b7e168f5daa214b463f5949070fb55b681d71fad8ef1c1ed375b1b7898f",
+  "prepared_sha256": "66a46de5beff44ebbb6eeeae4be77f89795a1cdf8f2a1817733bf84506b6b106",
+  "obligations_acknowledged": 15,
+  "readbacks_verified": 13,
+  "outbox": {
+    "status": "PRESERVED",
+    "pending_objects": [],
+    "pending_bytes": 0,
+    "pending_checkpoints": [],
+    "oldest_pending_age_seconds": 0,
+    "latest_checkpoint": "e55e75bd013149e7306337af2a3c8450b7c2e00469560f032cc368a68e2a16b6",
+    "physical_objects_verified": 13,
+    "transport": "EXPLICIT_CONNECTOR; NO_UNATTENDED_TRANSPORT_CONFIGURED"
+  },
+  "verification_scope": "CALL_LOCAL_NO_PERSISTENT_HASH_CACHE",
+  "remote_identity_authenticated": false
+}

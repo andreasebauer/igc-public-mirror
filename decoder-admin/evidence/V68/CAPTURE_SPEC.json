@@ -1,0 +1,240 @@
+{
+  "schema_id": "IG_DECODER_CAPTURE_SPEC_V1",
+  "job_id": "RC.FIXTURE.REPRESENTATIVE.V68.DEV145",
+  "engine_source": "/tmp/ig_decoder_dev145_20261001/decoder",
+  "project_source": "/workspace/scratch/a2e5e2576f17/v68_representative/project",
+  "question": {
+    "stage_id": "ENG:REPRESENTATIVE_QUALIFICATION",
+    "description": "Dev145 four-case representative qualification fixture",
+    "outcomes": [
+      "PASS"
+    ],
+    "stopping_rule": "V68 DEV145 REPRESENTATIVE QUALIFICATION FIXTURE \u2014 2026-10-01\nFrozen dev145 source ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f. Verify source and reviewed runtime before/after. Fresh registered native representative_qualification:handler, stage ENG:REPRESENTATIVE_QUALIFICATION; four worker resource budget. Exactly four unchanged handler cases must PASS: 257 distinct then duplicate, cold multicore grouping and durable bytes, partial resume without representative reopen, legacy NULL backfill then reuse. Internal interruption/resume is part of the declared case, not an operator retry. Standalone schema-migration test remains for full suite. Preserve interval_seconds=30; all other default limits unchanged. Genuine prerequisite saves/readbacks before dispatch; observe and drain checkpoint obligations. Execute producer once; stop first unexplained mismatch. Save full post-publication export, read back, restore identical published completion and terminal proof with zero restoration workloads. Drain all export obligations. No old job reruns, source changes or scientific replay. All23 RC rows remain OPEN.\n"
+  },
+  "execution": {
+    "kind": "STAGE",
+    "handler_ref": "infinity_grid.representative_qualification:handler",
+    "evaluator_refs": [
+      "infinity_grid.controller_only_fixture:partition_evaluator"
+    ],
+    "parameters": {}
+  },
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 1073741824,
+    "start_method": "fork",
+    "workers": 4,
+    "workspace_budget_bytes": 2147483648
+  },
+  "inputs": [],
+  "environment": {
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "attrs",
+        "version": "26.1.0",
+        "imports": [
+          "attrs"
+        ]
+      },
+      {
+        "distribution": "cffi",
+        "version": "2.0.0",
+        "imports": [
+          "cffi"
+        ]
+      },
+      {
+        "distribution": "cryptography",
+        "version": "46.0.4",
+        "imports": [
+          "cryptography"
+        ]
+      },
+      {
+        "distribution": "igraph",
+        "version": "1.0.0",
+        "imports": [
+          "igraph"
+        ]
+      },
+      {
+        "distribution": "iniconfig",
+        "version": "2.3.0",
+        "imports": [
+          "iniconfig"
+        ]
+      },
+      {
+        "distribution": "jsonschema",
+        "version": "4.26.0",
+        "imports": [
+          "jsonschema"
+        ]
+      },
+      {
+        "distribution": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "imports": [
+          "jsonschema_specifications"
+        ]
+      },
+      {
+        "distribution": "mpmath",
+        "version": "1.3.0",
+        "imports": [
+          "mpmath"
+        ]
+      },
+      {
+        "distribution": "networkx",
+        "version": "3.6.1",
+        "imports": [
+          "networkx"
+        ]
+      },
+      {
+        "distribution": "packaging",
+        "version": "25.0",
+        "imports": [
+          "packaging"
+        ]
+      },
+      {
+        "distribution": "pluggy",
+        "version": "1.6.0",
+        "imports": [
+          "pluggy"
+        ]
+      },
+      {
+        "distribution": "pycparser",
+        "version": "3.0",
+        "imports": [
+          "pycparser"
+        ]
+      },
+      {
+        "distribution": "Pygments",
+        "version": "2.20.0",
+        "imports": [
+          "pygments"
+        ]
+      },
+      {
+        "distribution": "pytest",
+        "version": "9.0.2",
+        "imports": [
+          "pytest"
+        ]
+      },
+      {
+        "distribution": "referencing",
+        "version": "0.37.0",
+        "imports": [
+          "referencing"
+        ]
+      },
+      {
+        "distribution": "rpds-py",
+        "version": "2026.5.1",
+        "imports": [
+          "rpds"
+        ]
+      },
+      {
+        "distribution": "sympy",
+        "version": "1.14.0",
+        "imports": [
+          "sympy"
+        ]
+      },
+      {
+        "distribution": "texttable",
+        "version": "1.7.0",
+        "imports": [
+          "texttable"
+        ]
+      },
+      {
+        "distribution": "typing_extensions",
+        "version": "4.16.0",
+        "imports": [
+          "typing_extensions"
+        ]
+      },
+      {
+        "distribution": "setuptools",
+        "version": "84.0.0",
+        "imports": [
+          "setuptools"
+        ]
+      },
+      {
+        "distribution": "wheel",
+        "version": "0.48.0",
+        "imports": [
+          "wheel"
+        ]
+      },
+      {
+        "distribution": "pip",
+        "version": "26.2.1",
+        "imports": [
+          "pip"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "logical_name": "sqlite_runtime_binding",
+        "path": "/workspace/scratch/a2e5e2576f17/v68_representative/SQLITE_BINDING.json",
+        "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5"
+      },
+      {
+        "logical_name": "host_runtime_manifest",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_MANIFEST.json",
+        "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58"
+      },
+      {
+        "logical_name": "runtime_mode_policy",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_POLICY.json",
+        "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68"
+      },
+      {
+        "logical_name": "qualification_protocol",
+        "path": "/workspace/scratch/a2e5e2576f17/v68_representative/PREREGISTRATION.txt",
+        "sha256": "fc9330fc3a568bef34504321b7429fc0b2c4e68d12292e6c94f9a5b9efc0e40e"
+      },
+      {
+        "logical_name": "operator_script",
+        "path": "/workspace/scratch/a2e5e2576f17/v68_representative/ops.py",
+        "sha256": "e60a3cf808e087076c096ef24be701a76e97571911e46949cc876e1b408245b2"
+      }
+    ]
+  },
+  "output_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "VALIDATION",
+    "required_artifacts": [],
+    "result_checks": [
+      {
+        "pointer": "/outcome",
+        "equals": "PASS"
+      },
+      {
+        "pointer": "/cases",
+        "equals": {
+          "test_257_distinct_then_duplicate_needs_no_controller_reopen": "PASS",
+          "test_cold_multicore_over_256_classes_keeps_exact_grouping_and_durable_bytes": "PASS",
+          "test_partial_resume_reuses_durable_rep_bytes_without_reopen": "PASS",
+          "test_legacy_null_rep_binds_view_once_backfills_then_reuses": "PASS"
+        }
+      }
+    ],
+    "prerequisites": [],
+    "preservation": {
+      "interval_seconds": 30
+    }
+  }
+}
