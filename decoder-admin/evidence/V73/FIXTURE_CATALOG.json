@@ -1,0 +1,56 @@
+{
+  "saved_stage_one_prerun": {
+    "sha256": "b623569a777b3c9df594977c6e55a1e2d52d8c24d6da800115c63284c1c3cec0",
+    "size_bytes": 45030528,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V73_66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464.bin",
+        "sha256": "66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464",
+        "size_bytes": 25000000,
+        "drive_id": "1jlojrYNj8SEPuUvZi9R3OReZuHOgHKX2"
+      },
+      {
+        "filename": "V73_c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8.bin",
+        "sha256": "c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8",
+        "size_bytes": 20030528,
+        "drive_id": "1F2ZEMq6S7kyrehuIjd37BB0GwL-PpuCh"
+      }
+    ],
+    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+    "state": "GENUINE_PRERUN",
+    "completion_sha256": null,
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  },
+  "saved_stage_one": {
+    "sha256": "eb6516507595fb015acd3e2abce8360d2de2ffb37af71dae2a0fe086a7edc233",
+    "size_bytes": 67531889,
+    "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+    "parts": [
+      {
+        "filename": "V73_4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd.bin",
+        "sha256": "4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd",
+        "size_bytes": 25000000,
+        "drive_id": "1qLxXq_H4Fe1TTG7C4H3CO10stowpTcIm"
+      },
+      {
+        "filename": "V73_9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626.bin",
+        "sha256": "9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626",
+        "size_bytes": 25000000,
+        "drive_id": "1E626BzlHiEz4GFhMGQLvQSM3Ev7tuvqm"
+      },
+      {
+        "filename": "V73_b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a.bin",
+        "sha256": "b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a",
+        "size_bytes": 17531889,
+        "drive_id": "1orlgQFdlJIVXhkqwRS4S24Y6Qj0E69bB"
+      }
+    ],
+    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+    "state": "PUBLISHED_COMPLETION",
+    "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+    "restored_from_drive_readbacks": true,
+    "workload_executions_on_restore": 0
+  }
+}

@@ -1,0 +1,48 @@
+V73 DEV146 STAGE-ONE FIXTURES — PASS — 2026-10-01
+
+One fresh registered stage-one job completed PASS:48 task results,seven classes,
+one worker. These are fixture counts, not 48 test-suite passes. Exact frozen
+dev146 source and reviewed runtime passed byte/mode verification.
+
+Ten capture prerequisites saved and read back before dispatch. Genuine complete
+pre-run export saved in two parts and full hash verified; restored with zero
+attempts, prepared completions and published completions. Complete post-publication
+export saved in three parts, full hash verified, restored with identical published
+completion and terminal proof. Zero workloads dispatched on either restore.
+All60 checkpoint role obligations acknowledged; zero pending at closeout.
+No workload failures/retries; source unchanged. V70 and V72 captures untouched.
+
+Two of five current-dev146 fixture roles earned. NEXT: fresh four-worker stage
+fixture using the same48 values modulo7; use V66 protocol adapted to dev146 and
+compare exact partition relation with V73. Then expected-outcome refusal and
+representative qualification fixtures, followed by fresh full RC. All23 acceptance
+rows remain OPEN. No science replay or release qualification claim.
+Do not rerun V73. FIXTURE_CATALOG.json contains ordered Drive part IDs and hashes.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; PYTHONOPTIMIZE=0,-B.
+Producer and both restored fixtures remain available under this evidence folder
+and /tmp/ig_fixture_v73_20261001. After reset use saved readbacks; no recovery rerun.
+
+{
+  "gate": "V73_DEV146_STAGE_ONE_FIXTURES",
+  "status": "PASS",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "native_jobs_executed": 1,
+  "task_count": 48,
+  "class_count": 7,
+  "workers": 1,
+  "fixture_roles_earned": [
+    "saved_stage_one_prerun",
+    "saved_stage_one"
+  ],
+  "checkpoint_roles_acknowledged": 60,
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_stage_four",
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ]
+}

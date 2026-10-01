@@ -1,0 +1,23 @@
+{
+  "gate": "V73_DEV146_STAGE_ONE_FIXTURES",
+  "status": "PASS",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "native_jobs_executed": 1,
+  "task_count": 48,
+  "class_count": 7,
+  "workers": 1,
+  "fixture_roles_earned": [
+    "saved_stage_one_prerun",
+    "saved_stage_one"
+  ],
+  "checkpoint_roles_acknowledged": 60,
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_stage_four",
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ]
+}

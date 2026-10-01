@@ -1,0 +1,81 @@
+{
+  "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+  "evidence": [
+    {
+      "path": "PREFLIGHT.json",
+      "sha256": "15ce249c952de783d9f6e66ac2dd8e2bd9e179dd25d888c41e11837d21efa725",
+      "size_bytes": 551
+    },
+    {
+      "path": "RESULT_VERIFICATION.json",
+      "sha256": "4890b5fb4a584b001f9ada90babca8d1c0da39da52dab0bca88fdb46da674fcb",
+      "size_bytes": 260
+    },
+    {
+      "path": "chain/decoder_stage_runtime/ENG__FIXTURE__STAGE_ONE/phases/PARTITION/RUNTIME_STATUS.json",
+      "sha256": "f9fac9610f7e007378699e81d81d5356b56425953ace133ce5ef8c6fb8a4c34a",
+      "size_bytes": 556
+    },
+    {
+      "path": "chain/decoder_stage_runtime/ENG__FIXTURE__STAGE_ONE/phases/PARTITION/SUMMARY.json",
+      "sha256": "a0f574d268b05aa60c40ce0cf069d2e206fe9783b09bc9e8bcfa8f6aa805f34f",
+      "size_bytes": 3418
+    },
+    {
+      "path": "chain/decoder_stage_runtime/ENG__FIXTURE__STAGE_ONE/phases/PARTITION/partition.sqlite3",
+      "sha256": "e63d7282a3df6bcbee4d89a2c62a8174ce4e84134ef9582dbffe5c31903ac4de",
+      "size_bytes": 69632
+    },
+    {
+      "path": "chain/decoder_stage_runtime/ENG__FIXTURE__STAGE_ONE/phases/PARTITION/telemetry/RUNTIME_STATUS.json",
+      "sha256": "5fd5e8ed42e1d9e41d1c8e3d0b3d25ef0a9637ace5481332752f7870404caca2",
+      "size_bytes": 1794
+    },
+    {
+      "path": "chain/decoder_stage_runtime/ENG__FIXTURE__STAGE_ONE/phases/PARTITION/telemetry/RUNTIME_TIMINGS.json",
+      "sha256": "bf45d996cdbe0874cb589f9f8079847ad441a2af2e5f349426688ce32a0e36c7",
+      "size_bytes": 497
+    }
+  ],
+  "evidence_protocol": "SEPARATE_COMPLETION_EVIDENCE_V1",
+  "evidence_root": "runtime/sealed/intent-6aa4284e9f95875a9cf52a70b1a8b5e5",
+  "evidence_status": "VERIFIED",
+  "execution_status": "FINISHED",
+  "mirror_status": "NOT_CONFIRMED",
+  "policy": "REGISTERED_ATTEMPT_V1",
+  "publication_protocol": "CHECKPOINT_BEFORE_COMPLETION_V1",
+  "registration_sha256": "b9e94813b62fa00aac922b24c883dee92adbdbf3160432de5e5136cd7cbfca9f",
+  "request_id": "job-b9e94813b62fa00aac922b24c883dee9",
+  "request_sha256": "4b7f88105b24eda6069e1be5de20ab2b1813304f24b73e73ce03962576c18874",
+  "result": {
+    "outcome": "PASS",
+    "partition": {
+      "chain_id": "RC.FIXTURE.STAGE.ONE.V73.DEV146",
+      "class_count": 7,
+      "deterministic_collision_class_ordering": "EXACT_CANONICAL_BYTES_ASCENDING_V1",
+      "different_digest_implies_different_canonical_encoding": true,
+      "first_multi_class": {
+        "class_token": "16a556cbb10e889d274ca5387a368d7016fda7d6e55bf405fc14eb87c0516fcd:0",
+        "representative_task_id": "v000006",
+        "size": 6
+      },
+      "hash_equality_never_decides_scientific_equality": true,
+      "max_class_size": 7,
+      "multi_class_count": 7,
+      "partition_binding_hash_schema": "IG_DECODER_V05_PARTITION_BINDINGS_STREAM_V1",
+      "partition_bindings_sha256": "f716c83fab6ee76caa9c9bc6ba827beb0c4190ba9ea2807b5b920980c50a3cee",
+      "phase_id": "PARTITION",
+      "question_sha256": "23276555615aa650f284233f04e44f0fdf20d30a4f0e7138f07238704aaf2130",
+      "schema_id": "IG_DECODER_V05_STRUCTURAL_PARTITION_SUMMARY_V2",
+      "stage_id": "ENG:FIXTURE:STAGE_ONE",
+      "structural_equality_used_for_equal_digest": true,
+      "summary_sha256": "5754c49eba62fd6d2a3f0d472b4f70c594e062c9aba7391ed331233068ef899d",
+      "task_count": 48
+    }
+  },
+  "result_sha256": "cb85128288b6555994a392b89c079ffef82b89724f110a71fe45e785d8653e21",
+  "schema_id": "IG_DECODER_WORKSPACE_COMPLETION_V1",
+  "scientific_outcome": null,
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "status": "COMPLETED"
+}
