@@ -1,0 +1,112 @@
+{
+  "status": "SAVE_REQUIRED",
+  "capture_status": "CAPTURED",
+  "workspace": "/tmp/ig_fixture_v67_20261001/store/captures/690066b28a8547e8db7d73b05a18d8ba681c7864e89f05e970044d33bb899b41",
+  "capture_id": "690066b28a8547e8db7d73b05a18d8ba681c7864e89f05e970044d33bb899b41",
+  "job_id": "RC.FIXTURE.STAGE.OUTCOME.V67.DEV145",
+  "decoder_version": "0.8.0.dev145+lib",
+  "pending_objects": [
+    {
+      "object_name": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip",
+      "role": "engine_source",
+      "sha256": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189",
+      "size_bytes": 22692795,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip",
+      "obligation_id": "103b6aac8b32d52002ee942a4838fe402482b6b147d79d85aaacf25de5870d7b",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/e1e065f4d145167eca19c0096e6e62901c76362b998a36ac67ab50525c624189.zip"
+    },
+    {
+      "object_name": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin",
+      "role": "input:sqlite_runtime_binding",
+      "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5",
+      "size_bytes": 3294,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin",
+      "obligation_id": "bce0c709b82a8fffab68d50fd01e5ee563bcd0e950f217c3da635c4a71eb0d55",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin"
+    },
+    {
+      "object_name": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin",
+      "role": "input:host_runtime_manifest",
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "size_bytes": 880319,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin",
+      "obligation_id": "ab79bf8aa2cc4b1954196b59c70d729228f20bb6e03c1ca7b5855761e694ff06",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin"
+    },
+    {
+      "object_name": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin",
+      "role": "input:runtime_mode_policy",
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "size_bytes": 504,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin",
+      "obligation_id": "34ae730de7bf05ee4cb1c3c9c5be5a2cf9b2685656664f83929b11b2c65e43fb",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin"
+    },
+    {
+      "object_name": "4e37326c75e25dae9522cac83f7fa0762073722c7af07243b9290f92e110892a.bin",
+      "role": "input:qualification_protocol",
+      "sha256": "4e37326c75e25dae9522cac83f7fa0762073722c7af07243b9290f92e110892a",
+      "size_bytes": 967,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "4e37326c75e25dae9522cac83f7fa0762073722c7af07243b9290f92e110892a.bin",
+      "obligation_id": "1a77f459996299cf466da8590911b0035bffe5ae90241d1a76c487d2179b24af",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/4e37326c75e25dae9522cac83f7fa0762073722c7af07243b9290f92e110892a.bin"
+    },
+    {
+      "object_name": "f56555d190ca50532fadabc02e73c3ada3c192bded245908d4a66a3934a000e7.bin",
+      "role": "input:operator_script",
+      "sha256": "f56555d190ca50532fadabc02e73c3ada3c192bded245908d4a66a3934a000e7",
+      "size_bytes": 5255,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "f56555d190ca50532fadabc02e73c3ada3c192bded245908d4a66a3934a000e7.bin",
+      "obligation_id": "0461a6a9c7ff4a9cd9e97656cf24221cde1bfa4ea976aa8bc7899fbc748b0ab5",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/f56555d190ca50532fadabc02e73c3ada3c192bded245908d4a66a3934a000e7.bin"
+    },
+    {
+      "object_name": "f7da8c23927b88b03482dfef2dd3c14d0bc141694e8f3dce1c76b75f363908a9.bin",
+      "role": "input:submission_contract",
+      "sha256": "f7da8c23927b88b03482dfef2dd3c14d0bc141694e8f3dce1c76b75f363908a9",
+      "size_bytes": 4821,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "f7da8c23927b88b03482dfef2dd3c14d0bc141694e8f3dce1c76b75f363908a9.bin",
+      "obligation_id": "79919c2eeeff00534d3f3e4563687cc44104367a1f6e05d23385478007f0870b",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/f7da8c23927b88b03482dfef2dd3c14d0bc141694e8f3dce1c76b75f363908a9.bin"
+    },
+    {
+      "role": "capture_record",
+      "sha256": "e80652c3fb226d2c2844450f2af928c4b8896133b25a3bedd8ffafbd0af2b916",
+      "size_bytes": 11082,
+      "object_name": "e80652c3fb226d2c2844450f2af928c4b8896133b25a3bedd8ffafbd0af2b916.json",
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "e80652c3fb226d2c2844450f2af928c4b8896133b25a3bedd8ffafbd0af2b916.json",
+      "obligation_id": "f4ee6cc2e310f4882bde710d53c05ed2cee015221aff23d5e46b5ed43213e0d8",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/e80652c3fb226d2c2844450f2af928c4b8896133b25a3bedd8ffafbd0af2b916.json"
+    },
+    {
+      "object_name": "9118c76ade17972a3e0e21c3f5f371942661e73e1b6d5475ef7bea0005058222.zip",
+      "role": "project_baseline",
+      "sha256": "9118c76ade17972a3e0e21c3f5f371942661e73e1b6d5475ef7bea0005058222",
+      "size_bytes": 22377118,
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "9118c76ade17972a3e0e21c3f5f371942661e73e1b6d5475ef7bea0005058222.zip",
+      "obligation_id": "e194cf88183fb678cc8c8ef1a5a52916434fb64bd393f9c746027a589fa1322f",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/9118c76ade17972a3e0e21c3f5f371942661e73e1b6d5475ef7bea0005058222.zip"
+    },
+    {
+      "role": "project_binding",
+      "sha256": "97207294ba40a5448fb3750531711206e1d93cc96a4d49e8c210a524049200cd",
+      "size_bytes": 8278,
+      "object_name": "97207294ba40a5448fb3750531711206e1d93cc96a4d49e8c210a524049200cd.json",
+      "obligation_scope": "CAPTURE_SAVE",
+      "logical_name": "97207294ba40a5448fb3750531711206e1d93cc96a4d49e8c210a524049200cd.json",
+      "obligation_id": "f0e6c8cbb798db6af1e75bfde656f5c2cc3d57994c8c43796f101ae8730deb3d",
+      "local_object_path": "/tmp/ig_fixture_v67_20261001/store/objects/97207294ba40a5448fb3750531711206e1d93cc96a4d49e8c210a524049200cd.json"
+    }
+  ],
+  "next_action": "Upload pending objects through the Drive connector; download raw bytes and use confirm-save.",
+  "acknowledgment_scope": "Explicit connector/operator attestation plus local byte verification; not remote identity authentication."
+}
