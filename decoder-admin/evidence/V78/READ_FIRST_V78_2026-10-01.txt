@@ -1,0 +1,19 @@
+V78 / DEV147 LOCK-CONTENTION REPAIR — 2026-10-01
+
+Result: 30 focused tests passed; zero failures, errors or skips. This is standalone native API regression coverage, not native controller qualification.
+
+Repair: checkpoint publication waits for the durability/outbox lock held by acknowledgment verification/publication. Normal workspace ownership still fails fast. Only two engine files changed; historical core pins remain immutable, with an explicit dev147 review successor.
+
+New cross-process evidence: actual confirm_batch holds the outbox lock while verifying a synthetic readback; make_checkpoint waits until release; acknowledgment receipts and a chained checkpoint are then published. Concurrent ordinary lock acquisition refuses. Exception exit releases the ownership lock. Existing receipt, mode restoration, paused-refusal and qualification-contract regressions passed.
+
+Source: 098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8
+Package: 5ea6f306fc85af0b58e183843af73f7ba788fdf6588f815ee480932677757dbc
+Archive: 0c10fb3b32b70304ee656f16f9759d2308aef2551d3622975d26bdec3722c31f
+Source archive Drive ID: 1QpWqHiMi3O80twl5cIqErtAUyse5GOk5
+Source archive, protocol and core review were genuinely saved and downloaded byte-equal before execution. Reviewed runtime: 4721 runtime files and 7 host files verified before and after. Source bytes unchanged after testing.
+
+V77 remains a preserved failed dev146 qualification attempt: 583 passed nodes, controller WORKSPACE_BUSY, exact paused restoration of 889 files. V78 does not rewrite or resume it. No scientific fixture payloads or historical failed-evidence payloads are published by this gate.
+
+RC remains OPEN on all 23 acceptance rows. Next: native live-save contention and exact paused restoration; regenerate five exact-dev147 fixtures; complete four qualification groups covering 170 files; resolve acceptance findings; independent remote-only recovery; explicit acceptance/promotion. The five dev146 fixtures are retained as historical and never relabeled dev147. Shared release pointer unchanged.
+
+Limits: waiting has no new timeout/fairness guarantee; no proof here of a live controller/connector acknowledgment overlap. Synthetic test save IDs are not remote-save evidence.

@@ -150,3 +150,93 @@ def test_corrupted_prepared_journal_is_not_repaired_silently(tmp_path,monkeypatc
     monkeypatch.setattr(batch,'_publish',original)
     with pytest.raises(sub.SubmissionError,match='JOURNAL_RECEIPT'):pr.confirm_batch(root,path)
     assert not list((pr._root(root)/'receipts').rglob('*.json'))
+
+
+def _contended_ack(root, request, channel):
+    # Synthetic readbacks only. Stop inside real verification while lock is held.
+    original=batch._verify_raw
+    first=True
+    def gated(path, expected):
+        nonlocal first
+        if first:
+            first=False;channel.send('ACK_LOCKED')
+            assert channel.poll(30) and channel.recv()=='RELEASE'
+        return original(path,expected)
+    batch._verify_raw=gated
+    try:channel.send(('ACK_DONE',batch.confirm_batch(root,request)['obligations_acknowledged']))
+    except BaseException as exc:channel.send(('ERROR',repr(exc)));raise
+
+
+def _contended_checkpoint(root, channel):
+    from infinity_grid import v05_controller_event_loop as loop
+    original=loop.fcntl.flock
+    def traced(handle, flags):
+        if flags==loop.fcntl.LOCK_EX:channel.send('CHECKPOINT_WAITING')
+        return original(handle,flags)
+    loop.fcntl.flock=traced
+    try:channel.send(('CHECKPOINT_DONE',pr.make_checkpoint(root,'CONTENTION_UNIT')['latest_checkpoint']))
+    except BaseException as exc:channel.send(('ERROR',repr(exc)));raise
+
+
+def test_checkpoint_waits_for_real_ack_and_preserves_workspace_exclusion(tmp_path):
+    import multiprocessing
+    from infinity_grid import v05_controller_event_loop as loop
+    from tests.test_paused_checkpoint_recovery import fixture as capture_fixture
+    root,capture=capture_fixture(tmp_path)
+    before=pr.make_checkpoint(root,'BEFORE_CONTENTION_UNIT')['latest_checkpoint']
+    # A changed preserved mode requires a successor even when payload bytes match.
+    next((root/'runtime/intake/artifacts').glob('*.bin')).chmod(0o400)
+    state=pr.status(root)
+    obligations=[{k:r[k] for k in batch.IDENTITY} for r in state['pending_objects']]
+    refs=[]
+    for sha in sorted({r['sha256'] for r in obligations}):
+        path=tmp_path/('readback-'+sha)
+        path.write_bytes((pr._root(root)/'objects'/(sha+'.bin')).read_bytes())
+        refs.append({'sha256':sha,'kind':'RAW','path':str(path),'drive_file_id':'synthetic_contention_unit'})
+    request=save(tmp_path,{'schema_id':batch.SCHEMA,'capture_id':capture['capture_id'],'obligations':obligations,'readbacks':refs})
+    ctx=multiprocessing.get_context('fork');ack,a=ctx.Pipe();checkpoint,b=ctx.Pipe()
+    writer=ctx.Process(target=_contended_ack,args=(root,request,a))
+    saver=ctx.Process(target=_contended_checkpoint,args=(root,b))
+    writer.start()
+    try:
+        assert ack.poll(30) and ack.recv()=='ACK_LOCKED'
+        # The ordinary outbox acquisition still fails fast while another process owns it.
+        with pytest.raises(loop.ControllerLoopError,match='WORKSPACE_BUSY'):
+            with loop._workspace_lock(pr._root(root)):pytest.fail('concurrent owner admitted')
+        saver.start()
+        assert checkpoint.poll(30) and checkpoint.recv()=='CHECKPOINT_WAITING'
+        assert not checkpoint.poll(0.2), 'checkpoint must wait until acknowledgment releases lock'
+        ack.send('RELEASE')
+        assert ack.poll(30) and ack.recv()==('ACK_DONE',len(obligations))
+        assert checkpoint.poll(30)
+        result=checkpoint.recv();assert result[0]=='CHECKPOINT_DONE' and result[1]!=before
+        writer.join(10);saver.join(10);assert writer.exitcode==saver.exitcode==0
+        assert sub._read(pr._root(root)/'commits'/(result[1]+'.json'))['previous']==before
+        assert len(list((pr._root(root)/'receipts').rglob('*.json')))==len(obligations)
+    finally:
+        for process in (writer,saver):
+            if process.pid is not None:
+                if process.is_alive():process.terminate()
+                process.join(10)
+        for pipe in (ack,a,checkpoint,b):pipe.close()
+
+
+def _try_workspace_owner(root, channel):
+    from infinity_grid import v05_controller_event_loop as loop
+    try:
+        with loop._workspace_lock(root):channel.send('ACQUIRED')
+    except loop.ControllerLoopError as exc:channel.send(str(exc))
+
+
+def test_workspace_owner_still_refuses_and_exception_releases_lock(tmp_path):
+    import multiprocessing
+    from infinity_grid import v05_controller_event_loop as loop
+    ctx=multiprocessing.get_context('fork');parent,child=ctx.Pipe()
+    with pytest.raises(ValueError,match='release probe'):
+        with loop._workspace_lock(tmp_path):
+            process=ctx.Process(target=_try_workspace_owner,args=(tmp_path,child));process.start()
+            assert parent.poll(10) and parent.recv()=='WORKSPACE_BUSY'
+            process.join(10);assert process.exitcode==0
+            raise ValueError('release probe')
+    with loop._workspace_lock(tmp_path,blocking=True):pass
+    parent.close();child.close()

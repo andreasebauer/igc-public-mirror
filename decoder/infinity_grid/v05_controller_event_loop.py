@@ -647,10 +647,11 @@ def validate_workspace_job(workspace: str | Path, job_id: str, *, check_loaded: 
 
 
 @contextmanager
-def _workspace_lock(workspace: Path):
+def _workspace_lock(workspace: Path, *, blocking: bool = False):
+    """Fail fast for workload ownership; serialize opted-in durability writers."""
     workspace.mkdir(parents=True, exist_ok=True)
     with (workspace / '.runner.lock').open('a+b') as handle:
-        try: fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try: fcntl.flock(handle, fcntl.LOCK_EX | (0 if blocking else fcntl.LOCK_NB))
         except BlockingIOError as exc: raise ControllerLoopError('WORKSPACE_BUSY') from exc
         try: yield
         finally: fcntl.flock(handle, fcntl.LOCK_UN)

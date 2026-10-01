@@ -440,15 +440,15 @@
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited.",
-  "status": "UNQUALIFIED_DEV146_REVIEW_SUCCESSOR",
+  "status": "UNQUALIFIED_DEV147_REVIEW_SUCCESSOR",
   "blocking_conditions": [
     "Current-source native qualification and fixtures remain OPEN.",
     "V62/V63 dev144 bounded results remain separately identified.",
     "Full RC and independent-host recovery remain OPEN."
   ],
   "source_reference": {
-    "revision": "0.8.0.dev146+lib",
-    "parent_archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+    "revision": "0.8.0.dev147+lib",
+    "parent_archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
     "scope": "candidate requirements, not a qualification receipt"
   },
   "runtime_requirements": {

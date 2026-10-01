@@ -1,0 +1,17 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "V77 contention repair only; full RC unqualified. Historical pins unchanged.",
+  "review_record": "decoder-admin/evidence/V78/CORE_REVIEW.txt",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1",
+      "reviewed_sha256": "11cfe903b6210587d438e36778cf22e20e1aa1c5eddaa720c5bedcb01e49eda5",
+      "reason": "Add explicit blocking opt-in; default workspace ownership remains nonblocking."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce",
+      "reviewed_sha256": "3527637cee7da39c0dfdf8e575240d183513368e44f1d5e56f06e8dc2f4816e5",
+      "reason": "Checkpoint writer waits for outbox acknowledgment publication; no lock order reversal or skipped persistence."
+    }
+  }
+}

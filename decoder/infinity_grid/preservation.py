@@ -402,7 +402,9 @@ def make_checkpoint(workspace,reason,*,terminal=False):
     from .v05_controller_event_loop import _workspace_lock,_source_ids
     workspace=Path(workspace).resolve();rec=sub.capture_record(workspace)
     if _source_ids(workspace/'source')!=(rec['workspace']['source_sha256'],rec['workspace']['package_sha256']):raise sub.SubmissionError('CHECKPOINT_SOURCE_MISMATCH')
-    with _workspace_lock(_root(workspace)):
+    # Acknowledgments hold only the outbox lock, never workspace ownership.
+    # Wait for their bounded publication instead of aborting the controller.
+    with _workspace_lock(_root(workspace), blocking=True):
         objects={};base=[];baseline=None;baseline_raw=None
         for obj in sub.required_objects(workspace):
             row=_put(workspace,_base_raw(workspace,obj));objects[row['sha256']]=row;base.append(dict(obj))

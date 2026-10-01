@@ -1,13 +1,13 @@
 {
   "schema_id": "DECODER_RECOVERY_CATALOG_V1",
   "source": {
-    "version": "0.8.0.dev146+lib",
-    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-    "package_sha256": "24295fa8d95ffe9ba6d00edf8eaee8fa6db49217395f32ed3c4ffefefd73daf0",
-    "archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
-    "archive_size_bytes": 22693823,
+    "version": "0.8.0.dev147+lib",
+    "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+    "package_sha256": "5ea6f306fc85af0b58e183843af73f7ba788fdf6588f815ee480932677757dbc",
+    "archive_sha256": "0c10fb3b32b70304ee656f16f9759d2308aef2551d3622975d26bdec3722c31f",
+    "archive_size_bytes": 22696041,
     "qualification": "UNQUALIFIED",
-    "drive_id": "1XmfuMyCjhLvkGS9B5RzPBAjNgacbRYaR"
+    "drive_id": "1QpWqHiMi3O80twl5cIqErtAUyse5GOk5"
   },
   "objects": [
     {
@@ -58,8 +58,14 @@
       "visibility": "private"
     }
   ],
-  "unresolved_fixtures": [],
-  "scope": "dev145 unqualified source/runtime locators; five candidate fixtures pending; prior candidate results historical.",
+  "unresolved_fixtures": [
+    "saved_stage_one_prerun",
+    "saved_stage_one",
+    "saved_stage_four",
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ],
+  "scope": "dev147 lock repair candidate; V78 focused standalone pass. Historical failed V77 immutable; all 23 RC rows OPEN.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
   "fixture_attempt_history": [
@@ -404,148 +410,149 @@
         "restored_from_drive_readbacks": true,
         "workload_executions_on_restore": 0
       }
+    },
+    "dev146": {
+      "saved_stage_one_prerun": {
+        "sha256": "b623569a777b3c9df594977c6e55a1e2d52d8c24d6da800115c63284c1c3cec0",
+        "size_bytes": 45030528,
+        "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+        "parts": [
+          {
+            "filename": "V73_66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464.bin",
+            "sha256": "66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464",
+            "size_bytes": 25000000,
+            "drive_id": "1jlojrYNj8SEPuUvZi9R3OReZuHOgHKX2"
+          },
+          {
+            "filename": "V73_c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8.bin",
+            "sha256": "c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8",
+            "size_bytes": 20030528,
+            "drive_id": "1F2ZEMq6S7kyrehuIjd37BB0GwL-PpuCh"
+          }
+        ],
+        "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+        "state": "GENUINE_PRERUN",
+        "completion_sha256": null,
+        "restored_from_drive_readbacks": true,
+        "workload_executions_on_restore": 0
+      },
+      "saved_stage_one": {
+        "sha256": "eb6516507595fb015acd3e2abce8360d2de2ffb37af71dae2a0fe086a7edc233",
+        "size_bytes": 67531889,
+        "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+        "parts": [
+          {
+            "filename": "V73_4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd.bin",
+            "sha256": "4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd",
+            "size_bytes": 25000000,
+            "drive_id": "1qLxXq_H4Fe1TTG7C4H3CO10stowpTcIm"
+          },
+          {
+            "filename": "V73_9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626.bin",
+            "sha256": "9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626",
+            "size_bytes": 25000000,
+            "drive_id": "1E626BzlHiEz4GFhMGQLvQSM3Ev7tuvqm"
+          },
+          {
+            "filename": "V73_b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a.bin",
+            "sha256": "b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a",
+            "size_bytes": 17531889,
+            "drive_id": "1orlgQFdlJIVXhkqwRS4S24Y6Qj0E69bB"
+          }
+        ],
+        "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+        "state": "PUBLISHED_COMPLETION",
+        "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+        "restored_from_drive_readbacks": true,
+        "workload_executions_on_restore": 0
+      },
+      "saved_stage_four": {
+        "sha256": "824a160e309e5b191787524cc8d87a430150a854a421b65c5fd7254a2a4fac79",
+        "size_bytes": 67530901,
+        "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+        "parts": [
+          {
+            "filename": "V74_5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea.bin",
+            "sha256": "5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea",
+            "size_bytes": 25000000,
+            "drive_id": "1mW8atZyWgB8V3VyehAYO74cuDh9HrITZ"
+          },
+          {
+            "filename": "V74_7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193.bin",
+            "sha256": "7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193",
+            "size_bytes": 25000000,
+            "drive_id": "1--8FxUxcVFi_TnjXAjl8D0zavwjxgoD-"
+          },
+          {
+            "filename": "V74_0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528.bin",
+            "sha256": "0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528",
+            "size_bytes": 17530901,
+            "drive_id": "1EgWoi5vuIbfvdhJ3CucsIpAhJ-fhKa_6"
+          }
+        ],
+        "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+        "state": "PUBLISHED_COMPLETION",
+        "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
+        "restored_from_drive_readbacks": true,
+        "workload_executions_on_restore": 0
+      },
+      "saved_stage_outcome": {
+        "sha256": "59c87fb99c5a1296744c4b169d6c9a86b9ab0db9c5e47205d607c286166fb22b",
+        "size_bytes": 45055237,
+        "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+        "parts": [
+          {
+            "filename": "V75_2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5.bin",
+            "sha256": "2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5",
+            "size_bytes": 25000000,
+            "drive_id": "1lJKVg7SwPRfJxvZG2N2IUPCxfhDf7e2C"
+          },
+          {
+            "filename": "V75_0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02.bin",
+            "sha256": "0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02",
+            "size_bytes": 20055237,
+            "drive_id": "1VqkTMlsp1A_KD0XgA11mPYkee_tQzB00"
+          }
+        ],
+        "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+        "state": "PAUSED_EXPECTED_REFUSAL",
+        "completion_sha256": null,
+        "restored_from_drive_readbacks": true,
+        "workload_executions_on_restore": 0
+      },
+      "saved_representative_qualification": {
+        "sha256": "163eaa6f7a37f9562774d04d35b5cbffa56d1633248bb3157eb4e52606848d4f",
+        "size_bytes": 68534837,
+        "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+        "parts": [
+          {
+            "filename": "V76_6d9f544de34db7f6e99114daf56e0b629d137e433c9ccf0c8e3d9e19d67fd4c2.bin",
+            "sha256": "6d9f544de34db7f6e99114daf56e0b629d137e433c9ccf0c8e3d9e19d67fd4c2",
+            "size_bytes": 25000000,
+            "drive_id": "1Omz95WV2L_k2-fTWWG3MsiR03ZO8t63K"
+          },
+          {
+            "filename": "V76_1e85250f4387aa8a1de2b885b16610d37b8241af599af76435ca34ebb54da6eb.bin",
+            "sha256": "1e85250f4387aa8a1de2b885b16610d37b8241af599af76435ca34ebb54da6eb",
+            "size_bytes": 25000000,
+            "drive_id": "1VkxmoypqfCVY7FUg1f79XuzAa7I_4I3t"
+          },
+          {
+            "filename": "V76_b4644d8fa4add6249ae177bc5d617ccd8ee0e5efcb260393b58ee9296d1201de.bin",
+            "sha256": "b4644d8fa4add6249ae177bc5d617ccd8ee0e5efcb260393b58ee9296d1201de",
+            "size_bytes": 18534837,
+            "drive_id": "1IGuJi_t9J_1KfcsnBNZH4R6gYhwWtaRK"
+          }
+        ],
+        "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+        "state": "PUBLISHED_COMPLETION",
+        "completion_sha256": "446517d7aea54b7383ec4a0514798c52cd08696163684d4693be9a9b851524fe",
+        "restored_from_drive_readbacks": true,
+        "workload_executions_on_restore": 0
+      }
     }
   },
-  "candidate_fixtures": {
-    "saved_stage_one_prerun": {
-      "sha256": "b623569a777b3c9df594977c6e55a1e2d52d8c24d6da800115c63284c1c3cec0",
-      "size_bytes": 45030528,
-      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
-      "parts": [
-        {
-          "filename": "V73_66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464.bin",
-          "sha256": "66fcfb8e844b6148346073d32fdf4a7d78f3e56c63200b7c9bf5fa58b0aaa464",
-          "size_bytes": 25000000,
-          "drive_id": "1jlojrYNj8SEPuUvZi9R3OReZuHOgHKX2"
-        },
-        {
-          "filename": "V73_c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8.bin",
-          "sha256": "c83ebefe5899544a721cfbe0d42d06a035767dd95e55d16babcd8474ec8a49a8",
-          "size_bytes": 20030528,
-          "drive_id": "1F2ZEMq6S7kyrehuIjd37BB0GwL-PpuCh"
-        }
-      ],
-      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-      "state": "GENUINE_PRERUN",
-      "completion_sha256": null,
-      "restored_from_drive_readbacks": true,
-      "workload_executions_on_restore": 0
-    },
-    "saved_stage_one": {
-      "sha256": "eb6516507595fb015acd3e2abce8360d2de2ffb37af71dae2a0fe086a7edc233",
-      "size_bytes": 67531889,
-      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
-      "parts": [
-        {
-          "filename": "V73_4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd.bin",
-          "sha256": "4e9c7da838346dcc1eb8adb13bd2fb20dbcdf46e1960623f3e18698b0083a2dd",
-          "size_bytes": 25000000,
-          "drive_id": "1qLxXq_H4Fe1TTG7C4H3CO10stowpTcIm"
-        },
-        {
-          "filename": "V73_9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626.bin",
-          "sha256": "9bc62f564c79be008d4baf07ece50d929d831f299f2c74eeff5929ddf3692626",
-          "size_bytes": 25000000,
-          "drive_id": "1E626BzlHiEz4GFhMGQLvQSM3Ev7tuvqm"
-        },
-        {
-          "filename": "V73_b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a.bin",
-          "sha256": "b29e8ddaf493b292be9b0af05b3045bf935e247079390e9b70084361212b5c6a",
-          "size_bytes": 17531889,
-          "drive_id": "1orlgQFdlJIVXhkqwRS4S24Y6Qj0E69bB"
-        }
-      ],
-      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-      "state": "PUBLISHED_COMPLETION",
-      "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
-      "restored_from_drive_readbacks": true,
-      "workload_executions_on_restore": 0
-    },
-    "saved_stage_four": {
-      "sha256": "824a160e309e5b191787524cc8d87a430150a854a421b65c5fd7254a2a4fac79",
-      "size_bytes": 67530901,
-      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
-      "parts": [
-        {
-          "filename": "V74_5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea.bin",
-          "sha256": "5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea",
-          "size_bytes": 25000000,
-          "drive_id": "1mW8atZyWgB8V3VyehAYO74cuDh9HrITZ"
-        },
-        {
-          "filename": "V74_7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193.bin",
-          "sha256": "7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193",
-          "size_bytes": 25000000,
-          "drive_id": "1--8FxUxcVFi_TnjXAjl8D0zavwjxgoD-"
-        },
-        {
-          "filename": "V74_0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528.bin",
-          "sha256": "0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528",
-          "size_bytes": 17530901,
-          "drive_id": "1EgWoi5vuIbfvdhJ3CucsIpAhJ-fhKa_6"
-        }
-      ],
-      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-      "state": "PUBLISHED_COMPLETION",
-      "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
-      "restored_from_drive_readbacks": true,
-      "workload_executions_on_restore": 0
-    },
-    "saved_stage_outcome": {
-      "sha256": "59c87fb99c5a1296744c4b169d6c9a86b9ab0db9c5e47205d607c286166fb22b",
-      "size_bytes": 45055237,
-      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
-      "parts": [
-        {
-          "filename": "V75_2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5.bin",
-          "sha256": "2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5",
-          "size_bytes": 25000000,
-          "drive_id": "1lJKVg7SwPRfJxvZG2N2IUPCxfhDf7e2C"
-        },
-        {
-          "filename": "V75_0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02.bin",
-          "sha256": "0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02",
-          "size_bytes": 20055237,
-          "drive_id": "1VqkTMlsp1A_KD0XgA11mPYkee_tQzB00"
-        }
-      ],
-      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-      "state": "PAUSED_EXPECTED_REFUSAL",
-      "completion_sha256": null,
-      "restored_from_drive_readbacks": true,
-      "workload_executions_on_restore": 0
-    },
-    "saved_representative_qualification": {
-      "sha256": "163eaa6f7a37f9562774d04d35b5cbffa56d1633248bb3157eb4e52606848d4f",
-      "size_bytes": 68534837,
-      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
-      "parts": [
-        {
-          "filename": "V76_6d9f544de34db7f6e99114daf56e0b629d137e433c9ccf0c8e3d9e19d67fd4c2.bin",
-          "sha256": "6d9f544de34db7f6e99114daf56e0b629d137e433c9ccf0c8e3d9e19d67fd4c2",
-          "size_bytes": 25000000,
-          "drive_id": "1Omz95WV2L_k2-fTWWG3MsiR03ZO8t63K"
-        },
-        {
-          "filename": "V76_1e85250f4387aa8a1de2b885b16610d37b8241af599af76435ca34ebb54da6eb.bin",
-          "sha256": "1e85250f4387aa8a1de2b885b16610d37b8241af599af76435ca34ebb54da6eb",
-          "size_bytes": 25000000,
-          "drive_id": "1VkxmoypqfCVY7FUg1f79XuzAa7I_4I3t"
-        },
-        {
-          "filename": "V76_b4644d8fa4add6249ae177bc5d617ccd8ee0e5efcb260393b58ee9296d1201de.bin",
-          "sha256": "b4644d8fa4add6249ae177bc5d617ccd8ee0e5efcb260393b58ee9296d1201de",
-          "size_bytes": 18534837,
-          "drive_id": "1IGuJi_t9J_1KfcsnBNZH4R6gYhwWtaRK"
-        }
-      ],
-      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-      "state": "PUBLISHED_COMPLETION",
-      "completion_sha256": "446517d7aea54b7383ec4a0514798c52cd08696163684d4693be9a9b851524fe",
-      "restored_from_drive_readbacks": true,
-      "workload_executions_on_restore": 0
-    }
-  },
+  "candidate_fixtures": {},
   "historical_sources": {
     "dev140": {
       "version": "0.8.0.dev140+lib",
@@ -582,6 +589,15 @@
       "archive_size_bytes": 22692795,
       "qualification": "UNQUALIFIED",
       "drive_id": "1CZaRf1jOG1LczM903d0pc8uKBVu2IXVW"
+    },
+    "dev146": {
+      "version": "0.8.0.dev146+lib",
+      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+      "package_sha256": "24295fa8d95ffe9ba6d00edf8eaee8fa6db49217395f32ed3c4ffefefd73daf0",
+      "archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
+      "archive_size_bytes": 22693823,
+      "qualification": "UNQUALIFIED",
+      "drive_id": "1XmfuMyCjhLvkGS9B5RzPBAjNgacbRYaR"
     }
   },
   "native_pause_gate": {
@@ -602,6 +618,20 @@
     "export_sha256": "4bc63fc7af03b549fbf9a30459c69abf948d84b3eb37231d236bcdf20db197cc",
     "export_drive_id": "1saZBzUlmhXkXHFuQ01MOo3EY_l4khhY8",
     "full_rc": "OPEN",
-    "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
+    "next": "Run dev147 native lock-contention qualification; regenerate five exact-candidate fixtures.",
+    "applicability": "HISTORICAL_DEV146_ONLY"
+  },
+  "lock_repair_gate": {
+    "gate": "V78_DEV147_STANDALONE",
+    "status": "BOUNDED_STANDALONE_PASS",
+    "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+    "pre_execution_readbacks": "decoder-admin/evidence/V78/PRE_EXECUTION_READBACKS.json",
+    "scope": "Synthetic native API regressions; no native controller qualification",
+    "native_completions": 0,
+    "full_rc": "OPEN",
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
   }
 }

@@ -1,0 +1,7 @@
+V78 dev147 focused repair gate, preregistered before execution
+Freeze and genuinely save/read back exact source archive and this protocol before tests.
+Execute once with reviewed CPython runtime, PYTHONOPTIMIZE=0, no cache, stop first failure.
+Selectors: tests/test_change_preservation_rebind.py::test_recovery_retains_reviewed_core_byte_boundaries; tests/test_preservation_batch.py; tests/test_paused_checkpoint_recovery.py; tests/test_qualification_contract.py.
+New regressions: cross-process actual acknowledgment verification blocks checkpoint, release permits coherent successor and complete role receipts; default lock refusal and exception release preserved. Synthetic fixtures are not remote-save attestations or native workload qualification.
+Verify source/runtime before and after. Preserve any failed result unchanged; no retry in this gate. V77 failed capture is immutable.
+Native contention qualification, exact dev147 fixtures, full profile, independent recovery and RC acceptance remain subsequent gates.

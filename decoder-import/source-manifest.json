@@ -1,9 +1,9 @@
 {
-  "version": "0.8.0.dev146+lib",
-  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
-  "package_sha256": "24295fa8d95ffe9ba6d00edf8eaee8fa6db49217395f32ed3c4ffefefd73daf0",
-  "archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
-  "archive_size_bytes": 22693823,
+  "version": "0.8.0.dev147+lib",
+  "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+  "package_sha256": "5ea6f306fc85af0b58e183843af73f7ba788fdf6588f815ee480932677757dbc",
+  "archive_sha256": "0c10fb3b32b70304ee656f16f9759d2308aef2551d3622975d26bdec3722c31f",
+  "archive_size_bytes": 22696041,
   "qualification": "UNQUALIFIED",
   "files": [
     [
@@ -204,7 +204,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "fcaea1740b7b7d4938b8dbe6f3fed0081df2fe92ec56b9d4eb69cf17f9bbe9fd"
+      "ad2494a8364ac38181b5f1ebc56d49435b3ee4d1a04973d15fc8191a3ccf5237"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -212,7 +212,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "430cf3825afa0160de1c535bce2c3ecfc04ca5b0a053c91d822eaa0e7344c080"
+      "dc429b95299b35a82aeeb61c260463419c68ed84fd142be3b031fda2329679fe"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -764,7 +764,7 @@
     ],
     [
       "infinity_grid/preservation.py",
-      "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce"
+      "3527637cee7da39c0dfdf8e575240d183513368e44f1d5e56f06e8dc2f4816e5"
     ],
     [
       "infinity_grid/preservation_batch.py",
@@ -4132,7 +4132,7 @@
     ],
     [
       "infinity_grid/v05_controller_event_loop.py",
-      "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1"
+      "11cfe903b6210587d438e36778cf22e20e1aa1c5eddaa720c5bedcb01e49eda5"
     ],
     [
       "infinity_grid/v05_engineering_jobs.py",
@@ -4512,7 +4512,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "d2c3ee7a1bf21b4264f67f4ca2d1f974efaa155259650ea6911a2963b19cb52c"
+      "445c53c94f24de4d7cfb402eced170208c9e976e3b8b062550b3060129e759a1"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -4769,6 +4769,10 @@
     [
       "tests/fixtures/preservation_rebind/DEV146_REVIEWED_CORE_CHANGES.json",
       "68745f504508d9f80a321b9590de860f33595ea10a9932afdd9ed6322b3189f6"
+    ],
+    [
+      "tests/fixtures/preservation_rebind/DEV147_REVIEWED_CORE_CHANGES.json",
+      "b00fc97ffae4e2b9c9d7cdf6d4a86aa7378b90230760cc9a8281a3bdebb24394"
     ],
     [
       "tests/fixtures/preservation_rebind/DEV83_REVIEWED_CORE_CHANGES.json",
@@ -5412,7 +5416,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "cc8f013571881086e0fd5cbe6a12bf404f96cd5e24084c3ef643cc51b2379638"
+      "136a2836776201b23a30edbc26150a6a5f61e1de717f6cd1264bba7178e05264"
     ],
     [
       "tests/test_compact_label_reuse.py",
@@ -5764,7 +5768,7 @@
     ],
     [
       "tests/test_preservation_batch.py",
-      "fe58d2dbe58fb6f2282c58db793e3570b626779721ec7573d1a2bad417386a6b"
+      "62cd81547233f1035dd8b33bf091d34ebc497133e0be6e33c86262a22e0abf4b"
     ],
     [
       "tests/test_qualification_contract.py",

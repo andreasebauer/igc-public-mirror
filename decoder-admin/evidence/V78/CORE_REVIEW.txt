@@ -1,0 +1,7 @@
+V78 dev147 narrow lock repair review
+Parent: dev146, V77 failed full-profile capture retained unchanged.
+_workspace_lock default remains LOCK_EX|LOCK_NB. Only make_checkpoint opts into blocking acquisition of durability/outbox lock.
+confirm_batch holds outbox lock and never acquires workspace ownership. Checkpoint callers do not already own the outbox lock; callers may own outer workspace lock. No reverse acquisition introduced. Receipt verification and publication remain unchanged.
+No retry, skipped checkpoint, fabricated receipt, or workload recovery dispatch. No new timeout/fairness guarantee: checkpoint waits until an existing bounded acknowledgment operation releases its lock.
+Two core pins are explicit reviewed successors; every historical amendment stays unchanged.
+Validation scope: focused standalone synthetic API regressions only. Native live contention and full qualification remain pending. All 23 RC rows OPEN.

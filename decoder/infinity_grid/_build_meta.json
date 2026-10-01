@@ -3,9 +3,9 @@
   "version_source": "infinity_grid._version.__version__",
   "version_api": "infinity_grid.build_meta",
   "target_release": "0.8lib",
-  "engineering_attempt": "DEV146_V71_REVIEW_SUCCESSOR",
-  "parent_release": "0.8.0.dev145+lib",
-  "parent_source_archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
+  "engineering_attempt": "DEV147_V78_LOCK_REPAIR",
+  "parent_release": "0.8.0.dev146+lib",
+  "parent_source_archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
   "historical_metadata": "Git parent e16c5f4:decoder/infinity_grid/_build_meta.json",
   "status": "UNQUALIFIED_CANDIDATE",
   "science_authority_effect": "NONE",
@@ -16,5 +16,5 @@
     "Full RC",
     "Independent-host recovery"
   ],
-  "scope": "Reviewed core-pin successor and test chain; implementation unchanged"
+  "scope": "Wait for acknowledgment outbox lock during checkpoint publication; preserve fail-fast workload ownership"
 }
