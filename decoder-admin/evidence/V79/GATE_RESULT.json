@@ -1,0 +1,25 @@
+{
+  "gate": "V79_DEV147_NATIVE_STARTUP_CONTENTION",
+  "status": "BOUNDED_NATIVE_CONTENTION_PAUSE_AND_EXACT_RESTORE_PASS",
+  "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+  "capture_id": "263f995dbfd80c8763ecc9cf2052dce302977e346d14235a1df419e34410fa62",
+  "native_attempts": 1,
+  "attempt_status": "PAUSED",
+  "native_completions": 0,
+  "completed_test_passes": 0,
+  "startup_lock_wait_seconds": 0.5863692760467529,
+  "pending_roles": 0,
+  "pending_bytes": 0,
+  "pending_checkpoints": 0,
+  "checkpoint_roles_acknowledged": 45,
+  "restore_files_bytes_and_modes": 34,
+  "recovery_workloads_dispatched": 0,
+  "export_sha256": "3b8849b05deec8ee8bd2c50f3ed42c1f6b2d5ec3fd596f2c84821cd1424aeb39",
+  "export_drive_id": "15PAz5a50sMMkhBuqsoZSfZG3nIj1c5v-",
+  "full_rc": "OPEN",
+  "limitations": [
+    "Induced startup checkpoint contention; not incidental acknowledgment overlap during an active worker.",
+    "Cleanup inferred from unchanged reviewed fail-closed control flow; raw worker cleanup pipe acknowledgment not persisted.",
+    "Same-host recovery; independent remote-only recovery remains open."
+  ]
+}

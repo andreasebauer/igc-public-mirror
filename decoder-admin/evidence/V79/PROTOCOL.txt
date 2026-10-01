@@ -1,0 +1,10 @@
+V79 DEV147 NATIVE STARTUP CONTENTION AND PAUSE — 2026-10-01
+Exact dev147 source 098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8.
+One fresh capture and native attempt. Reviewed CPython runtime, PYTHONOPTIMIZE=0, -B. One worker, fork; default checkpoint/backlog policy unchanged.
+Select only native_save_wave_probe.py::test_long_durable_progress_selector. No workload retries.
+Save/read back every capture prerequisite. Create a pre-run checkpoint without workload dispatch; save and read back its objects. Keep this one pending checkpoint within native backlog limits at startup.
+The separate acknowledgment operator gates its first _verify_raw call while owning the outbox lock. It verifies genuine downloaded bytes and publishes genuine receipts after release. It has a 60-second gate guard.
+After ACK_LOCKED launch native controller. Observe flock WAIT/ACQUIRED without changing flags or behavior. After WAIT remains unacquired for 0.5 seconds, release acknowledgment. Require ACK_DONE and native ACQUIRED in sequence. This is induced startup checkpoint contention, not evidence of incidental overlap during an active worker.
+Then observe durable worker START and request native pause with V79_PREREGISTERED_ACTIVE_PAUSE. Never signal workload. A 45-second observation guard releases the gate and requests native pause if the expected overlap/progress is absent; it does not turn absence into PASS.
+Require PAUSED attempt, matching pause acknowledgment, retained REQUESTED_PAUSE refusal, no completion. Worker cleanup is inferred from reviewed fail-closed native path, not independently persisted pipe acknowledgment.
+Drain saves, export slim checkpoint, save/download export, restore from downloaded dependencies without workload execution. Compare every state/input byte and ordinary mode. Verify source/runtime unchanged. Any failure remains immutable. All 23 RC rows OPEN; no independent-host claim.

@@ -1,0 +1,257 @@
+{
+  "status": "EXACT_PAUSED_RESTORATION_PASS",
+  "restore": {
+    "status": "RESTORED_NOT_RUNNING",
+    "workspace": "/tmp/ig_v79_paused_restored_20261001",
+    "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+    "checkpoint_sha256": "ead3c7c89f360064e09eb373eccc6862e298c1aac7d72c925fa74625ce5d314a",
+    "state_file_modes_restored": true,
+    "mode_scope": "CHECKPOINT_STATE_AND_INPUT_FILES"
+  },
+  "export_sha256": "3b8849b05deec8ee8bd2c50f3ed42c1f6b2d5ec3fd596f2c84821cd1424aeb39",
+  "files_checked": 34,
+  "checks": [
+    {
+      "path": "CAPTURE.json",
+      "sha256": "1ea0d09e5aae1fc6afcf9c6524a4b05a1a5abd358cdf8e1e99d3dea0ef0e64c8",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "PROJECT_BINDING.json",
+      "sha256": "d210994e3732fc70543cc918686de7326ebad69831ebead9350c39fbff02bbe4",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "WORKSPACE.json",
+      "sha256": "95aea5bd1da556103551755cfb7c74f79be8dd7aceb94d8457e66b0c0f5ebb97",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/1ea0d09e5aae1fc6afcf9c6524a4b05a1a5abd358cdf8e1e99d3dea0ef0e64c8/a56b0aa1166df6e24e6158f5bdfea81779a235353a7c2004d7baff5131b97bac.json",
+      "sha256": "f7dde9d4166dc34d7be6b4c70bcc562c3c82c6518bc5a7cb7e364fc6c2b9a372",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/45db3e91f4b3198b328ebface67c971c1641b4af8123a9e4a8b7495831221ae9/827f18dab26a59643a02c6a8927129c68de5a32bf47e6b0e7ca6127d377fce59.json",
+      "sha256": "fecab1b0de9e70232ffc684cd98fc8974a7c5478c7f5ddfa1026af5fa0900264",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58/e413947334e4b299da825620007c154aa16f0e2f86411e466e5fabf7c124f209.json",
+      "sha256": "64b4b656df614645d0063d7e84898b475dd696031491434ae2021f06de7d8f6d",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/5ebadeafe062ca6814404961dc81f29fdf18b94346a27bc5784bace1fb983515/0da80d05e0eee87692ddc2379196462b1488c7343661bd5e825d88e6a318345c.json",
+      "sha256": "18b9157f91bd8311178d43bfe2834052835e8b4aaf34ac18de682ab6a424ffa3",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/97c47997a7ae42bc9c752c5896ed858bb97d872c678dd2d1b80186d3f3faf038/d5f5bd7f8bdf0daeec4da76343d112638d71408d1da4c009a66233ee5a9c33ab.json",
+      "sha256": "fa728abb872ad0c71fa9ac7377acdf3b7b1de07136f94e4e00fe8689d4a44a48",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75/9887404d313f81d1852416709a3cbafbaa5df9fe2c8b5bca4c592bc1d2d60732.json",
+      "sha256": "b098e583fb6eb08f302bcabe101db6515cded3bc9e668a0ec7a427f021c73b28",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/c5972094fd6f99d632a894825a029ca2fad2d9fdd51bdf494e54f5301f6191bb/ae28adca35ae69f7731b428c2ffdc041bf13d330e065798321dc0e6dc4756398.json",
+      "sha256": "0b63ef0a2cafb82aeb20d4ba0eaddeb003530f3e4b06f0c0b3a0ccac31c21b1a",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/d210994e3732fc70543cc918686de7326ebad69831ebead9350c39fbff02bbe4/2d46c873847d5e013b2bd32fd800ac2b2ba78ea5535211a03a74d4145e7652a1.json",
+      "sha256": "268526d8db3a4aecc1f59cc554da80ab6f431f13ff2b0a2b773acc42a69f718b",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68/a4be2bb56aa98746650ee3dc6a14d4201c5e394579e3582747aeb70c9e8b7aec.json",
+      "sha256": "b3eb75b5da090b0c20df50e10dae4a0aacaaa3065b4d4c2b64bffd50e5142f00",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "durability/receipts/f674978dbd8016cc90cff4240af5e747378ca035b8e7e562505d5c49c652b1b2/32d6700d4060bd27f79ce2dc5e1fb0383e68303895ce1ab791d45726eeb5379f.json",
+      "sha256": "a5b697a6971241cbd3a9ed58f8b46b42e6f3c078e99ac1a4d52d23e49d889197",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "registry/RC.INTERRUPT.V79.DEV147.json",
+      "sha256": "cfd90ec9b6592fb0a47a9d139bdc4be21802207cbaf0f77dea5b5670a3655658",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/PAUSE_ACK.json",
+      "sha256": "a099a288e71485f2c4fda135940aa3e46f9c744d5804e1baac3eb615dd122630",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/PAUSE_REQUEST.json",
+      "sha256": "a099a288e71485f2c4fda135940aa3e46f9c744d5804e1baac3eb615dd122630",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/attempts/job-1da35b6f7a4eb2534e4e020555cdd848/000001.json",
+      "sha256": "b002979fd7f2708226adf7dc2b34ed5bf54dc1bcbcd70f9614dfc80fbaefe078",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/pending/job-1da35b6f7a4eb2534e4e020555cdd848.json",
+      "sha256": "65e1f4f4400e71c3ab752092a0dc8cc637650806e1d6c797043e43b9bef25bc6",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/internal/claims/job-1da35b6f7a4eb2534e4e020555cdd848.json",
+      "sha256": "7e48e6e37603b2dc744d7aa5f68e7c348db80d727b3fe87f60829e9c8fbfaca1",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/internal/ingested/intent-c7c8b0c560604fe2824211fb790340a9.json",
+      "sha256": "207b3c0d656a7d27e5f7098862a21130f9f004f1d6808e4c1e2742bc5b058d95",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/refusals/26dc0924c400d4a61c65ad7190c41c7b66b156b187b55e27f1bf6ab7b72c1101.json",
+      "sha256": "79b31983caf3a2490adec79c066adfa6ea68228120ca9bf29543525c4d80e39d",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/registrations/job-1da35b6f7a4eb2534e4e020555cdd848.json",
+      "sha256": "cfd90ec9b6592fb0a47a9d139bdc4be21802207cbaf0f77dea5b5670a3655658",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/runs/intent-c7c8b0c560604fe2824211fb790340a9/PREFLIGHT.json",
+      "sha256": "60a6428ff8443e236af8c7a05110bede3e6fc4b16062d9ae4a6e432ed88727f9",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/runs/intent-c7c8b0c560604fe2824211fb790340a9/logs/REPORT_PLAN.json",
+      "sha256": "aeaf9f8609bd5261a10e0144cd5358b007b428c0a56f4553d0fe67d2a4b35c81",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/runs/intent-c7c8b0c560604fe2824211fb790340a9/logs/collections/0d34e7acbabe72eb5c431989aaa584097870d3f1a4991d237adbecfb0bd85ecd.json",
+      "sha256": "cfe16c76407790c549fdfb9fcf3611a4a21f4904b1e3b859eed3dcc23af9b266",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/runs/intent-c7c8b0c560604fe2824211fb790340a9/logs/nodes/035c5747e69911630de97165e4febb9014bf49d2206100f87a0513d1816ec678.json",
+      "sha256": "a91f8b4ee2091686d92f93ab1fcc5e5861080662e48dba8e396d557ac30bdc61",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/runs/intent-c7c8b0c560604fe2824211fb790340a9/logs/probe_progress/long_durable_progress.log",
+      "sha256": "77c7049097ecc8b5522a9ca70a436722214a7d13c788cac74d52f2551a074f62",
+      "bytes_equal": true,
+      "mode": 384,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/status/CONTROLLER_STATUS.json",
+      "sha256": "b002979fd7f2708226adf7dc2b34ed5bf54dc1bcbcd70f9614dfc80fbaefe078",
+      "bytes_equal": true,
+      "mode": 292,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/45db3e91f4b3198b328ebface67c971c1641b4af8123a9e4a8b7495831221ae9.bin",
+      "sha256": "45db3e91f4b3198b328ebface67c971c1641b4af8123a9e4a8b7495831221ae9",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin",
+      "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75.bin",
+      "sha256": "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/c5972094fd6f99d632a894825a029ca2fad2d9fdd51bdf494e54f5301f6191bb.bin",
+      "sha256": "c5972094fd6f99d632a894825a029ca2fad2d9fdd51bdf494e54f5301f6191bb",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin",
+      "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    },
+    {
+      "path": "runtime/intake/artifacts/f674978dbd8016cc90cff4240af5e747378ca035b8e7e562505d5c49c652b1b2.bin",
+      "sha256": "f674978dbd8016cc90cff4240af5e747378ca035b8e7e562505d5c49c652b1b2",
+      "bytes_equal": true,
+      "mode": 420,
+      "mode_equal": true
+    }
+  ],
+  "attempt_status": "PAUSED",
+  "refusal_retained": true,
+  "native_completion": null,
+  "recovery_workloads_dispatched": 0
+}
