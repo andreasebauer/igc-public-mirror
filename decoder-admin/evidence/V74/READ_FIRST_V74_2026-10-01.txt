@@ -1,0 +1,48 @@
+V74 DEV146 FOUR-WORKER FIXTURE — PASS — 2026-10-01
+
+One fresh registered native job completed: PASS, 48 task results, seven classes.
+Observed LOCAL_PROCESS_POOL with four workers. Exact task_id and representative
+signature bytes match all 48 rows of saved V73 one-worker result. V73 was not
+rerun. These are fixture counts, not 48 test-suite passes.
+
+Source unchanged; all 1527 files verified. Reviewed runtime verified before and
+after execution: 4721 files/modes and seven exact host dependencies.
+All ten capture prerequisites saved/read back before dispatch. Completed native
+export saved in three ordered parts, reconstructed from actual Drive readbacks,
+restored to identical published completion and verified terminal proof. Zero
+workloads dispatched on restoration. All 45 checkpoint role obligations
+acknowledged, zero pending at closeout. No native reruns or unexplained failures.
+
+Three of five current-dev146 fixture roles are earned. Next: expected-outcome
+refusal and representative qualification. Then full RC; all 23 acceptance rows
+remain OPEN. No science replay. Do not rerun V73 or V74.
+Read FIXTURE_CATALOG.json for ordered Drive parts and exact hashes.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; PYTHONOPTIMIZE=0, -B.
+After reset clone public branch, verify source/tree, import runtime objects from
+decoder-admin/CATALOG.json, restore with decoder-admin/decoder.py.
+
+{
+  "gate": "V74_DEV146_FOUR_WORKER_FIXTURE",
+  "status": "PASS",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "native_jobs_executed": 1,
+  "task_count": 48,
+  "class_count": 7,
+  "observed_workers": 4,
+  "backend": "LOCAL_PROCESS_POOL",
+  "exact_relation_matches_V73": true,
+  "compared_rows": 48,
+  "V73_rerun": false,
+  "fixture_roles_earned": [
+    "saved_stage_four"
+  ],
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ]
+}

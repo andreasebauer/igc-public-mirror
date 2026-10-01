@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "exact_relation_equal": true,
+  "rows": 48,
+  "v73_rerun": false,
+  "execution": [
+    {
+      "backend": "LOCAL_PROCESS_POOL",
+      "completed_stream_shards": 16,
+      "completed_task_count": 48,
+      "completion_order_not_science": true,
+      "controller_representative_bytes_backfilled": 0,
+      "controller_representative_durable_hits": 0,
+      "controller_representative_fallback_evaluations": 0,
+      "cpu_budget_detected": 4,
+      "deterministic_collision_class_remaps": 0,
+      "durable_scope_sha256": "e64c1ade20d92fef6f152f7ff0c80e35efc9455a9fc72b171f7700d7867d265c",
+      "durable_store": "SQLITE_COMPACT_ENGINE_OWNED",
+      "evidence_bytes": 186858,
+      "evidence_bytes_peak": 186858,
+      "lease_id": "f5245558ab4e40bf9b2953c7c0b6d797",
+      "lease_workers": 4,
+      "max_inflight_shards": 8,
+      "max_observed_inflight_shards": 8,
+      "max_stream_shard_tasks": 3,
+      "phase_timing_seconds": {
+        "admission": 0.09478313900035573,
+        "controller_classification": 0.005729666994739091,
+        "controller_commit": 0.004907469998215674,
+        "controller_structural_fallback": 0.0,
+        "engine_execution_including_stream_reduce": 0.39810181699976965,
+        "finalize_verify": 0.0021595880007225787,
+        "runtime_call_total_to_summary": 0.5235208079993754
+      },
+      "reducer_rss_bytes_final": 0,
+      "reducer_rss_bytes_peak": 0,
+      "representative_signature_storage": "SQLITE_CLASSES_BLOB_V1",
+      "scheduler": "COST_WEIGHTED_SHARDS",
+      "scientific_task_units": 48,
+      "start_method": "fork",
+      "stream_shard_count": 16,
+      "stream_shard_task_limit": 24,
+      "streaming_results": true,
+      "structural_signature_encoder_id": "IG_STRUCTURAL_CANONICAL_BYTES_FAST_V1",
+      "task_count": 48,
+      "wall_seconds": 0.39810181699976965,
+      "worker_count_not_science": true,
+      "worker_metric_categories": {
+        "engine_signature_encoder_id": "IG_STRUCTURAL_CANONICAL_BYTES_FAST_V1"
+      },
+      "worker_metric_totals": {
+        "engine_controller_classification_wall_seconds": 0.005729666994739091,
+        "engine_controller_structural_fallback_wall_seconds": 0.0,
+        "engine_evaluator_cpu_seconds": 0.003767879000000196,
+        "engine_evaluator_wall_seconds": 0.0037740340048912913,
+        "engine_signature_encode_wall_seconds": 0.0006041489978088066,
+        "value": 1128.0
+      },
+      "workers": 4,
+      "workspace_accounting_mode": "CLOSED_LAYOUT_INCREMENTAL_FILE_SIZES_V1"
+    }
+  ],
+  "comparison": "task_id and representative_signature_bytes exact equality"
+}

@@ -400,24 +400,25 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V73_DEV146_STAGE_ONE_FIXTURES",
+    "gate": "V74_DEV146_FOUR_WORKER_FIXTURE",
     "status": "PASS",
     "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
     "native_jobs_executed": 1,
     "task_count": 48,
     "class_count": 7,
-    "workers": 1,
+    "observed_workers": 4,
+    "backend": "LOCAL_PROCESS_POOL",
+    "exact_relation_matches_V73": true,
+    "compared_rows": 48,
+    "V73_rerun": false,
     "fixture_roles_earned": [
-      "saved_stage_one_prerun",
-      "saved_stage_one"
+      "saved_stage_four"
     ],
-    "checkpoint_roles_acknowledged": 60,
     "pending_checkpoint_roles": 0,
     "workload_executions_on_restore": 0,
-    "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+    "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
     "full_rc": "OPEN",
     "remaining_fixtures": [
-      "saved_stage_four",
       "saved_stage_outcome",
       "saved_representative_qualification"
     ]
@@ -622,6 +623,29 @@
       "completion_sha256": "7cf9adfcc536e2dace1ef33890a10e8c1be26485a84d2d895233e1db9ddc968a",
       "full_rc": "OPEN",
       "remaining_fixtures": []
+    },
+    {
+      "gate": "V73_DEV146_STAGE_ONE_FIXTURES",
+      "status": "PASS",
+      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+      "native_jobs_executed": 1,
+      "task_count": 48,
+      "class_count": 7,
+      "workers": 1,
+      "fixture_roles_earned": [
+        "saved_stage_one_prerun",
+        "saved_stage_one"
+      ],
+      "checkpoint_roles_acknowledged": 60,
+      "pending_checkpoint_roles": 0,
+      "workload_executions_on_restore": 0,
+      "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+      "full_rc": "OPEN",
+      "remaining_fixtures": [
+        "saved_stage_four",
+        "saved_stage_outcome",
+        "saved_representative_qualification"
+      ]
     }
   ],
   "latest_preparation_gate": {

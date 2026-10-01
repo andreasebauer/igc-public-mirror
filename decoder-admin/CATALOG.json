@@ -60,7 +60,6 @@
   ],
   "unresolved_fixtures": [
     "saved_representative_qualification",
-    "saved_stage_four",
     "saved_stage_outcome"
   ],
   "scope": "dev145 unqualified source/runtime locators; five candidate fixtures pending; prior candidate results historical.",
@@ -433,6 +432,36 @@
       "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
       "state": "PUBLISHED_COMPLETION",
       "completion_sha256": "f65b752550fb6f27d1a6e1c336a7a198d2dc32eec13f49497ec1ef3fdc005cfa",
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_stage_four": {
+      "sha256": "824a160e309e5b191787524cc8d87a430150a854a421b65c5fd7254a2a4fac79",
+      "size_bytes": 67530901,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V74_5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea.bin",
+          "sha256": "5ff35751559f53e8044f1e1c6afa591d3639d91922270921531813e1561eb6ea",
+          "size_bytes": 25000000,
+          "drive_id": "1mW8atZyWgB8V3VyehAYO74cuDh9HrITZ"
+        },
+        {
+          "filename": "V74_7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193.bin",
+          "sha256": "7269d314a9f79d3baf9f85d59c59f07e69b24d54dcf1f6ec498a5707baccf193",
+          "size_bytes": 25000000,
+          "drive_id": "1--8FxUxcVFi_TnjXAjl8D0zavwjxgoD-"
+        },
+        {
+          "filename": "V74_0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528.bin",
+          "sha256": "0bdc7523ed786ee1d62c0e59d05f6e6c86686f987872b9300bb2ab19e746f528",
+          "size_bytes": 17530901,
+          "drive_id": "1EgWoi5vuIbfvdhJ3CucsIpAhJ-fhKa_6"
+        }
+      ],
+      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
       "restored_from_drive_readbacks": true,
       "workload_executions_on_restore": 0
     }
