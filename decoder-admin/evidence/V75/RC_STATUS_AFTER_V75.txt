@@ -1,0 +1,49 @@
+RC STATUS AFTER V75 — 2026-10-01
+
+CURRENT POSITION
+Dev146 is an unqualified engineering candidate. V71 reviewed the stale core-pin
+successor and passed5 targeted tests. V72 verified native request_pause and exact
+paused restoration. V73–V75 now establish4/5 exact-dev146 fixture roles: genuine
+stage-one pre-run, one-worker completion, four-worker completion, expected-outcome
+refusal. The four-worker relation matches all48 one-worker rows. Fixture counts
+are not test counts or a percentage of release completion.
+V70 full functional attempt FAILED on dev145; its failed capture remains immutable.
+The dev146 fix has not yet passed a new full qualification run.
+
+ORDERED REMAINING WORK
+1. Representative qualification fixture (V68 protocol adapted to frozen dev146),
+   saved/read back/restored without recovery dispatch. This finishes5/5 fixtures.
+2. Bind all7 required fixture roles:5 exact-candidate fixtures plus2 historical
+   inputs. Preregister and save the fresh qualification captures before execution.
+3. Run all170 registered test files through native qualification:167 functional,
+   1 workspace,1 representative,1 timing. Bind actual collected node inventory;
+   every collected node must pass. Skips, failures, collection errors and unexecuted
+   selectors remain open. No historical pass totals are inherited. Stop first
+   unexplained failure, preserve evidence, review repair before a new candidate.
+4. Reconcile all23 acceptance rows with current evidence and review dispositions.
+   These are not23 proven current defects. Many have historical bounded repairs
+   awaiting current-source proof; others remain unresolved or require scope review.
+   Examples of separate outstanding work: A07 supported scientific-object admission;
+   A08 historical SCIENCE-contract inventory/migration; A12 historical causality vs
+   bounded workaround; A13 capture/checkpoint/restore memory and admin budgets;
+   A14 production backend responsibility map; A16 bounded canonicalization invariance;
+   A17–A19 scientific-obligation/historical-semantic dispositions; A21 maintenance
+   consolidation scope. Do not silently waive these after a green suite. Some
+   scientific obligations require bounded nonclaims rather than software reruns.
+5. A22 independent remote-only recovery: approved independent base environment,
+   complete native/runtime bootstrap closure, enforced cache boundary, unoptimized
+   verifier and preregistered preservation-only qualification. Current same-host
+   restores do not satisfy this gate.
+6. Final exact-source/controller/environment/input/selector/completion/restore matrix,
+   support and residual-risk review, then explicit RC acceptance/promotion decision.
+   No automatic shared-development pointer movement from a bounded PASS.
+
+ESTIMATE
+One fixture gate remains before preparing the next full qualification attempt.
+There is no defensible count of turns or days to RC until full-suite results and
+remaining finding dispositions are known. Four-of-five is fixture preparation
+progress only, not80% release readiness. All23 RC acceptance rows remain OPEN.
+
+Ledger cautions: older fields such as latest_qualification and dev124/dev137
+remaining-work descriptions are historical, not a current dev146 qualification.
+This status reconciles them at high level; it does not close or rewrite findings.

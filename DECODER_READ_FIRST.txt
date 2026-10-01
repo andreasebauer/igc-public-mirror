@@ -1,5 +1,5 @@
-DEV146 V74 FOUR-WORKER FIXTURE PASS — OVERALL UNQUALIFIED
-Three of five fixture roles earned; expected-outcome refusal and representative qualification remain.
-48 exact rows equal saved V73; four workers observed; saved identical completion restored without rerun.
-Read decoder-admin/evidence/V74_REPORT.txt, CATALOG.json and RC_LEDGER.json. All 23 RC rows OPEN.
+DEV146 V75 EXPECTED-REFUSAL FIXTURE ACCEPTED — OVERALL UNQUALIFIED
+Four of five fixture roles earned; representative qualification remains.
+One PAUSED attempt, no completion; saved attempt bytes restored identically without rerun.
+Read decoder-admin/evidence/V75_REPORT.txt, CATALOG.json and RC_LEDGER.json. All 23 RC rows OPEN.
 Verify source: python3 -B decoder-admin/decoder.py verify-source

@@ -59,8 +59,7 @@
     }
   ],
   "unresolved_fixtures": [
-    "saved_representative_qualification",
-    "saved_stage_outcome"
+    "saved_representative_qualification"
   ],
   "scope": "dev145 unqualified source/runtime locators; five candidate fixtures pending; prior candidate results historical.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
@@ -462,6 +461,30 @@
       "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
       "state": "PUBLISHED_COMPLETION",
       "completion_sha256": "0a82937ebe96562714933432de4983d7053f6e700d8bd9b0449acf9622ef237e",
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_stage_outcome": {
+      "sha256": "59c87fb99c5a1296744c4b169d6c9a86b9ab0db9c5e47205d607c286166fb22b",
+      "size_bytes": 45055237,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V75_2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5.bin",
+          "sha256": "2b538e0b95a03a42969222a99d4655e2a04eaf47d6919c954124bc756bc1cba5",
+          "size_bytes": 25000000,
+          "drive_id": "1lJKVg7SwPRfJxvZG2N2IUPCxfhDf7e2C"
+        },
+        {
+          "filename": "V75_0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02.bin",
+          "sha256": "0547a184787972720308b2e679c42a3b290bbe24d9536e4d1c4cd9679bd01c02",
+          "size_bytes": 20055237,
+          "drive_id": "1VqkTMlsp1A_KD0XgA11mPYkee_tQzB00"
+        }
+      ],
+      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+      "state": "PAUSED_EXPECTED_REFUSAL",
+      "completion_sha256": null,
       "restored_from_drive_readbacks": true,
       "workload_executions_on_restore": 0
     }
