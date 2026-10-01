@@ -1,0 +1,61 @@
+V76 DEV146 REPRESENTATIVE FIXTURE — PASS — 2026-10-01
+
+Four representative-byte cases PASS, zero FAIL. Cases:257 distinct then duplicate;
+cold multicore grouping and durable bytes; partial resume without representative
+reopen; legacy NULL backfill then reuse. Unchanged handler and assertions.
+Internal interruption/resume is part of the declared scenario. Standalone
+schema-migration test remains for full qualification.
+
+One fresh registered job completed. Source unchanged; 1527 files verified.
+Reviewed runtime verified before/after:4721 files/modes and seven host files.
+Ten capture prerequisites saved/read back before dispatch. interval_seconds=30,
+other preservation limits default. Completed fixture saved in three ordered
+parts, reconstructed from actual Drive readbacks, restored to identical published
+completion and terminal proof. Zero restoration workloads. All45 checkpoint
+role obligations acknowledged; zero pending. No producer rerun.
+
+FIVE-FIXTURE PREPARATION GATE COMPLETE
+All five exact-dev146 roles earned:stage-one pre-run, stage-one completed,
+stage-four completed, expected-outcome refusal (native PAUSED), representative
+qualification completed. ALL_FIVE_FIXTURE_CATALOG.json pins every archive and
+ordered Drive part. Two historical profile inputs remain separately pinned in
+repository CATALOG:step2_parent_snapshot and private failed_evidence.
+This is fixture readiness, not full source qualification or RC acceptance.
+
+NEXT
+Preregister full exact-source qualification and bind all seven fixture roles.
+Verify historical inputs from saved bytes and capture actual node inventory.
+Functional group first; workspace and representative next; isolated one-worker
+timing last. Skips/errors/unexecuted cases never count as PASS. Preserve source
+identity; do not edit frozen PROFILE just to update progress. All23 RC rows OPEN.
+Install lock/native dependency and independent-host closure remain open.
+No science replay or release promotion. Do not rerun V73/V74/V75/V76 producers.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; PYTHONOPTIMIZE=0, -B.
+After reset clone public branch, verify source/tree, import runtime objects from
+repository CATALOG, then restore with decoder-admin/decoder.py. Fixture recovery:
+concatenate listed parts, verify every part and archive, native restore_workspace.
+
+{
+  "gate": "V76_DEV146_REPRESENTATIVE_FIXTURE",
+  "status": "PASS",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "native_jobs_executed": 1,
+  "cases_passed": 4,
+  "cases_failed": 0,
+  "cases": {
+    "test_257_distinct_then_duplicate_needs_no_controller_reopen": "PASS",
+    "test_cold_multicore_over_256_classes_keeps_exact_grouping_and_durable_bytes": "PASS",
+    "test_partial_resume_reuses_durable_rep_bytes_without_reopen": "PASS",
+    "test_legacy_null_rep_binds_view_once_backfills_then_reuses": "PASS"
+  },
+  "fixture_roles_earned": [
+    "saved_representative_qualification"
+  ],
+  "all_five_candidate_fixtures_earned": true,
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "446517d7aea54b7383ec4a0514798c52cd08696163684d4693be9a9b851524fe",
+  "full_rc": "OPEN",
+  "remaining_fixtures": []
+}
