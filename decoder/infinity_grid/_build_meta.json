@@ -3,17 +3,18 @@
   "version_source": "infinity_grid._version.__version__",
   "version_api": "infinity_grid.build_meta",
   "target_release": "0.8lib",
-  "engineering_attempt": "DEV145_V64_PROFILE_COVERAGE",
-  "parent_release": "0.8.0.dev144+lib",
-  "parent_source_archive_sha256": "81a7a21f44e651122a34d3246ff142a84ee4026758f41a10be58350f99c471fc",
+  "engineering_attempt": "DEV146_V71_REVIEW_SUCCESSOR",
+  "parent_release": "0.8.0.dev145+lib",
+  "parent_source_archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
   "historical_metadata": "Git parent e16c5f4:decoder/infinity_grid/_build_meta.json",
   "status": "UNQUALIFIED_CANDIDATE",
   "science_authority_effect": "NONE",
   "shared_pointer_advanced": false,
   "pending": [
-    "Current-source fixtures",
+    "Fresh native pause validation",
+    "Exact-candidate fixtures",
     "Full RC",
     "Independent-host recovery"
   ],
-  "scope": "Register two omitted active test suites; engine implementation unchanged"
+  "scope": "Reviewed core-pin successor and test chain; implementation unchanged"
 }

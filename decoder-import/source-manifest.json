@@ -1,9 +1,9 @@
 {
-  "version": "0.8.0.dev145+lib",
-  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
-  "package_sha256": "516ec7eecf730acd9e8244eb0a7ccf0c5fbbcadad9055772356a04b7ba1d764d",
-  "archive_sha256": "86d5d9642413e583cad98a82e1bf49a7a22f4af5a1a1f13842ba458d20356842",
-  "archive_size_bytes": 22692795,
+  "version": "0.8.0.dev146+lib",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "package_sha256": "24295fa8d95ffe9ba6d00edf8eaee8fa6db49217395f32ed3c4ffefefd73daf0",
+  "archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
+  "archive_size_bytes": 22693823,
   "qualification": "UNQUALIFIED",
   "files": [
     [
@@ -204,7 +204,7 @@
     ],
     [
       "infinity_grid/_build_meta.json",
-      "32a688c2f29959874b36f728ff56d050f937de5dd2226b58ab292d85d9284e95"
+      "fcaea1740b7b7d4938b8dbe6f3fed0081df2fe92ec56b9d4eb69cf17f9bbe9fd"
     ],
     [
       "infinity_grid/_representative_qualification_cases.py",
@@ -212,7 +212,7 @@
     ],
     [
       "infinity_grid/_version.py",
-      "80aced6cee85b6dddcdad3bd469ed73502b1c89ffb6920c22fdade29a41a7fda"
+      "430cf3825afa0160de1c535bce2c3ecfc04ca5b0a053c91d822eaa0e7344c080"
     ],
     [
       "infinity_grid/adapters/__init__.py",
@@ -4512,7 +4512,7 @@
     ],
     [
       "qualification/PROFILE.json",
-      "65a59aea2001d4b1d70914941249c0ad103ef57026b4d1871e0a17848cec3c5f"
+      "d2c3ee7a1bf21b4264f67f4ca2d1f974efaa155259650ea6911a2963b19cb52c"
     ],
     [
       "qualification/READ_FIRST.txt",
@@ -4765,6 +4765,10 @@
     [
       "tests/fixtures/preservation_rebind/DEV140_REVIEWED_CORE_CHANGES.json",
       "671d7ff76643eb707af289504e9079983f0a5a69e1964a708d624bdbcb21724b"
+    ],
+    [
+      "tests/fixtures/preservation_rebind/DEV146_REVIEWED_CORE_CHANGES.json",
+      "68745f504508d9f80a321b9590de860f33595ea10a9932afdd9ed6322b3189f6"
     ],
     [
       "tests/fixtures/preservation_rebind/DEV83_REVIEWED_CORE_CHANGES.json",
@@ -5408,7 +5412,7 @@
     ],
     [
       "tests/test_change_preservation_rebind.py",
-      "10667014fd3bc60f27610a9e4d12a4147d82681cd01d88f8d11751e5ec098691"
+      "cc8f013571881086e0fd5cbe6a12bf404f96cd5e24084c3ef643cc51b2379638"
     ],
     [
       "tests/test_compact_label_reuse.py",

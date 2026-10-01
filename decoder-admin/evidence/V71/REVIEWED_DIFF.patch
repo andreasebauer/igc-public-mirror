@@ -1,0 +1,249 @@
+diff --git a/decoder/infinity_grid/preservation.py b/decoder/infinity_grid/preservation.py
+index 0b2ecc0..0f585d5 100644
+--- a/decoder/infinity_grid/preservation.py
++++ b/decoder/infinity_grid/preservation.py
+@@ -375,7 +375,7 @@ def _verify_terminal_state_evidence(files):
+                     'Preserve the original bytes and investigate the mutable replay state.')
+ 
+ 
+-def _state_files(workspace):
++def _state_files(workspace, *, modes=None):
+     from .v05_controller_event_loop import _snapshot_files
+     files={}
+     quiescent=any(any((Path(workspace)/'runtime/intake'/name).glob('*.json'))
+@@ -386,7 +386,12 @@ def _state_files(workspace):
+     for p,name in _snapshot_files(workspace):
+         if (name.startswith(('source/','coordination/','runtime/intake/artifacts/','durability/outbox/','durability/base_objects/'))
+             or name=='PROJECT_LOCATION.json' or (name.endswith(('-wal','-shm')) and not name.startswith('runtime/sealed/'))):continue
++        before=p.stat()
+         files[name]=_stable_file(p,quiescent=legacy or name.startswith('runtime/sealed/'))
++        after=p.stat()
++        if (before.st_ino,before.st_mode)!=(after.st_ino,after.st_mode):
++            raise sub.SubmissionError('CHECKPOINT_FILE_MODE_CHANGED',name)
++        if modes is not None:modes[name]=after.st_mode & 0o777
+     if quiescent:_verify_terminal_state_evidence(files)
+     return files
+ 
+@@ -408,7 +413,14 @@ def make_checkpoint(workspace,reason,*,terminal=False):
+         full_project=snapshot(project_root)
+         delta=_put(workspace,_project_delta(baseline_raw,full_project));objects[delta['sha256']]=delta
+         project={'schema_id':'IG_PROJECT_DELTA_V1','base':baseline,'delta':delta,'full_sha256':sub._sha(full_project)}
+-        state_files=_state_files(workspace)
++        state_modes={}
++        state_files=_state_files(workspace,modes=state_modes)
++        for obj in rec['objects']:
++            if obj['role'].startswith('input:'):
++                name='runtime/intake/artifacts/'+obj['sha256']+'.bin'
++                path=workspace/name
++                if path.is_symlink():raise sub.SubmissionError('CHECKPOINT_INPUT_SYMLINK',name)
++                state_modes[name]=path.stat().st_mode & 0o777
+         terminal_completions={Path(name).stem:json.loads(raw)['completion_sha256']
+             for name,raw in state_files.items()
+             if name.startswith(('runtime/intake/completed/','runtime/intake/prepared_completions/'))
+@@ -418,7 +430,7 @@ def make_checkpoint(workspace,reason,*,terminal=False):
+         previous=sub._read(pointer_file)['sha256'] if pointer_file.exists() else None
+         if previous:
+             old=sub._read(_root(workspace)/'commits'/(previous+'.json'))
+-            if (old['state']==state and old['project']==project and old['source']==source
++            if (old['state']==state and old.get('state_file_modes')==state_modes and old['project']==project and old['source']==source
+                     and (not terminal or old.get('terminal') and old.get('terminal_completions')==terminal_completions)):
+                 return status(workspace)
+         contract=rec.get('result_contract',{})
+@@ -428,7 +440,7 @@ def make_checkpoint(workspace,reason,*,terminal=False):
+         if payload_size>limits['max_commit_bytes']:raise sub.SubmissionError('CHECKPOINT_SIZE_LIMIT',str(payload_size))
+         row={'schema_id':SCHEMA,'capture_id':rec['capture_id'],'job_id':rec['job']['job_id'],
+              'source_sha256':rec['workspace']['source_sha256'],'created_unix':time.time(),'previous':previous,
+-             'reason':reason,'terminal':terminal,'source':source,'project':project,'state':state,'base_objects':base,
++             'reason':reason,'terminal':terminal,'source':source,'project':project,'state':state,'state_file_modes':state_modes,'base_objects':base,
+              'objects':sorted(objects.values(),key=lambda x:x['sha256'])}
+         if terminal:row['terminal_completions']=terminal_completions
+         raw=sub._json_bytes(row);commit=_put(workspace,raw)
+@@ -678,6 +690,19 @@ def restore_checkpoint(archive,destination,expected_sha,objects=None):
+         for obj in rec['objects']:
+             if obj['role'].startswith('input:'):
+                 path=temp/'runtime/intake/artifacts'/(obj['sha256']+'.bin');path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(provided[obj['sha256']])
++        modes=row.get('state_file_modes')
++        if 'state_file_modes' in row:
++            expected=set(_zip_files(provided[row['state']['sha256']]))
++            expected.update('runtime/intake/artifacts/'+obj['sha256']+'.bin'
++                            for obj in rec['objects'] if obj['role'].startswith('input:'))
++            if not isinstance(modes,dict) or set(modes)!=expected:
++                raise sub.SubmissionError('RESTORE_FILE_MODE_SET')
++            for name,mode in modes.items():
++                if type(mode) is not int or not 0 <= mode <= 0o777:
++                    raise sub.SubmissionError('RESTORE_FILE_MODE_INVALID',name)
++                path=temp/sub._relative(name)
++                if path.is_symlink() or not path.is_file():raise sub.SubmissionError('RESTORE_FILE_MODE_PATH',name)
++            for name,mode in modes.items():os.chmod(temp/name,mode)
+         from .v05_controller_event_loop import validate_workspace_job,verified_completion
+         admission=validate_workspace_job(temp,row['job_id'],check_loaded=False)
+         from .portable_registry import events,blob,verify_capsule
+@@ -693,7 +718,9 @@ def restore_checkpoint(archive,destination,expected_sha,objects=None):
+         os.replace(temp,dest)
+     finally:
+         if temp.exists():shutil.rmtree(temp)
+-    return {'status':'RESTORED_NOT_RUNNING','workspace':str(dest),'source_sha256':row['source_sha256'],'checkpoint_sha256':packet['checkpoint_sha256']}
++    return {'status':'RESTORED_NOT_RUNNING','workspace':str(dest),'source_sha256':row['source_sha256'],'checkpoint_sha256':packet['checkpoint_sha256'],
++            'state_file_modes_restored':'state_file_modes' in row,
++            'mode_scope':'CHECKPOINT_STATE_AND_INPUT_FILES' if 'state_file_modes' in row else 'LEGACY_MODES_NOT_RECORDED'}
+ 
+ 
+ def request_pause(workspace,reason):
+diff --git a/decoder/infinity_grid/v05_controller_event_loop.py b/decoder/infinity_grid/v05_controller_event_loop.py
+index 9ead43a..26caff5 100644
+--- a/decoder/infinity_grid/v05_controller_event_loop.py
++++ b/decoder/infinity_grid/v05_controller_event_loop.py
+@@ -968,6 +968,10 @@ def _run_workspace_job(workspace: str | Path, job_id: str) -> dict[str, Any]:
+                 paused = dict(running,status='PAUSED',reason=type(exc).__name__+':'+str(exc),finished_unix=time.time())
+                 write_json_atomic(attempt_path,paused); _snapshot(runtime,paused)
+                 try:
++                    # Bind the final refusal into the same paused checkpoint.
++                    # The public wrapper may idempotently retain the same record.
++                    from .invocation import retain_refusal
++                    exc.refusal = retain_refusal(root, job_id, exc)
+                     from .preservation import make_checkpoint
+                     make_checkpoint(root,'PAUSED:'+type(exc).__name__)
+                 except Exception as save_exc:
+diff --git a/decoder/infinity_grid/v05_validation_runtime.py b/decoder/infinity_grid/v05_validation_runtime.py
+index 9fc6cfd..997f5ec 100644
+--- a/decoder/infinity_grid/v05_validation_runtime.py
++++ b/decoder/infinity_grid/v05_validation_runtime.py
+@@ -13,6 +13,9 @@ from typing import Any, Iterable
+ from .canon import canonical_sha256
+ from .v05_execution_authority import ExecutionAuthorityError
+ from .v05_origin_guard import require_controller_execution_origin
++from .validation_cancellation import WorkerCancellation, cancel_workers
++
++_WORKER_CANCELLATION = None
+ 
+ REGISTERED_VALIDATION_GROUPS={
+     "engineering_layer":[
+@@ -112,9 +115,13 @@ def _publish_node_output(final_path:Path,raw:bytes)->dict[str,Any]:
+ def _run_node_process(command:list[str],*,cwd:Path,env:dict[str,str],final_path:Path
+                      )->tuple[subprocess.CompletedProcess[bytes],bytes]:
+     """Capture through an anonymous pipe, then publish exactly once."""
+-    proc=subprocess.Popen(command,cwd=cwd,env=env,stdout=subprocess.PIPE,
+-                          stderr=subprocess.STDOUT)
+-    raw,_=proc.communicate()
++    if _WORKER_CANCELLATION is not None:
++        proc,raw=_WORKER_CANCELLATION.communicate(
++            command,cwd=cwd,env=env,reap_descendants=_wait_for_validation_descendants)
++    else:
++        proc=subprocess.Popen(command,cwd=cwd,env=env,stdout=subprocess.PIPE,
++                              stderr=subprocess.STDOUT)
++        raw,_=proc.communicate()
+     _publish_node_output(final_path,raw)
+     return subprocess.CompletedProcess(command,proc.returncode,raw,None),raw
+ 
+@@ -211,9 +218,14 @@ def _verify_node_evidence_set(log_root:Path,results:list[dict[str,Any]],*,
+ 
+ 
+ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_path:Path|None=None)->None:
++    global _WORKER_CANCELLATION
+     rc=2; payload={}; owner_pid=os.getpid()
+     try:
++        _WORKER_CANCELLATION=WorkerCancellation()
++        _WORKER_CANCELLATION.__enter__()
+         _enable_validation_subreaper()
++        signal.pthread_sigmask(signal.SIG_UNBLOCK,{signal.SIGTERM})
++        _WORKER_CANCELLATION.check()
+         tmp=Path(tempfile.mkdtemp(prefix='ig-decoder-validation-'))
+         if uid is not None and gid is not None and hasattr(os,'setuid'):
+             os.chown(tmp,int(uid),int(gid)); os.setgroups([]); os.setgid(int(gid)); os.setuid(int(uid))
+@@ -264,6 +276,11 @@ def _child(candidate:Path,nodes:list[str],uid:int|None,gid:int|None,wfd:int,log_
+     except BaseException as exc:
+         payload={'return_code':2,'nodes':nodes,'status':'FAIL','error':type(exc).__name__+':'+str(exc),'tail':''}
+         rc=0
++    try:
++        _wait_for_validation_descendants()
++        payload['cleanup_quiescent']=True
++    except BaseException as cleanup_exc:
++        payload.update(cleanup_quiescent=False,cleanup_error=str(cleanup_exc),status='FAIL',return_code=2)
+     if log_path is not None:
+         # Full text is on disk; keep the result pipe below PIPE_BUF so the legacy
+         # wait-then-read reducer cannot wait for a child blocked on a large log.
+@@ -311,15 +328,34 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
+     node_root=log_root/'node_process_logs'
+     prior_node_evidence=_evidence_baseline(node_root,'*.log') if node_root.is_dir() else {}
+     parts=_partition(pending_nodes,workers)
+-    children=[]; started=time.monotonic()
+-    for idx,part in enumerate(parts):
+-        log_path=log_root / f"worker-{idx}-{time.time_ns()}.log"
+-        rfd,wfd=os.pipe(); pid=os.fork()
+-        if pid==0:
+-            os.close(rfd); _child(candidate,part,uid,gid,wfd,log_path)
+-        os.close(wfd); children.append((idx,pid,rfd,part,log_path))
++    children=[]; started=time.monotonic(); pending={}
++    try:
++        for idx,part in enumerate(parts):
++            log_path=log_root / f"worker-{idx}-{time.time_ns()}.log"
++            rfd,wfd=os.pipe()
++            pid=None;prior_mask=None
++            try:
++                prior_mask=signal.pthread_sigmask(signal.SIG_BLOCK,{signal.SIGTERM})
++                pid=os.fork()
++            except BaseException:
++                os.close(rfd);os.close(wfd)
++                raise
++            finally:
++                # In the child, keep cancellation blocked until its handler
++                # and subreaper are ready. Parent restores its original mask.
++                if pid!=0 and prior_mask is not None:
++                    signal.pthread_sigmask(signal.SIG_SETMASK,prior_mask)
++            if pid==0:
++                os.close(rfd)
++                for _,oldfd,_,_ in pending.values():os.close(oldfd)
++                _child(candidate,part,uid,gid,wfd,log_path)
++                os._exit(3)
++            os.close(wfd); children.append((idx,pid,rfd,part,log_path))
++            pending[pid]=(idx,rfd,part,log_path)
++    except BaseException:
++        cancel_workers(pending)
++        raise
+     results=[]; deadline=None if wall_seconds_max is None else started+float(wall_seconds_max)
+-    pending={pid:(idx,rfd,part,log_path) for idx,pid,rfd,part,log_path in children}
+     try:
+         while pending:
+             progressed=False
+@@ -335,6 +371,8 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
+                 os.close(rfd)
+                 try: obj=json.loads(raw.decode('utf-8').strip())
+                 except Exception: obj={'return_code':2,'nodes':part,'status':'FAIL','error':'MALFORMED_VALIDATION_CHILD_RESULT','tail':raw.decode('utf-8','replace')[-2000:]}
++                if obj.get('cleanup_quiescent') is not True:
++                    raise ValidationRuntimeError('VALIDATION_CLEANUP_ACK_MISSING:'+str(pid))
+                 try: _verify_worker_log(log_path,obj)
+                 except (OSError,ValidationRuntimeError) as exc:
+                     reason=type(exc).__name__+':'+str(exc)
+@@ -342,14 +380,9 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
+                 obj['log_path']=log_path.name
+                 obj['nodes']=part; obj['worker_index']=idx; obj['pid']=pid; results.append(obj)
+             if pending and deadline is not None and time.monotonic()>=deadline:
+-                for pid,(idx,rfd,part,log_path) in pending.items():
+-                    try: os.kill(pid,signal.SIGKILL)
+-                    except OSError: pass
+-                for pid,(idx,rfd,part,log_path) in list(pending.items()):
+-                    try: os.waitpid(pid,0)
+-                    except OSError: pass
+-                    try: os.close(rfd)
+-                    except OSError: pass
++                timed_out=list(pending.items())
++                cancel_workers(pending)
++                for pid,(idx,rfd,part,log_path) in timed_out:
+                     results.append({'worker_index':idx,'pid':pid,'nodes':part,'return_code':124,'status':'FAIL','error':'VALIDATION_TIMEOUT','tail':''})
+                 pending.clear(); break
+             if pending:
+@@ -357,13 +390,7 @@ def _run_group(candidate:Path,group:str,*,workers:int,uid:int|None,gid:int|None,
+                 poll();safe_point('VALIDATION_PROGRESS')
+             if pending and not progressed: time.sleep(0.02)
+     finally:
+-        for pid,(idx,rfd,part,log_path) in list(pending.items()):
+-            try:os.kill(pid,signal.SIGKILL)
+-            except OSError:pass
+-            try:os.waitpid(pid,0)
+-            except OSError:pass
+-            try:os.close(rfd)
+-            except OSError:pass
++        if pending:cancel_workers(pending)
+     _verify_worker_evidence_set(log_root,results,prior=prior_worker_evidence)
+     _verify_node_evidence_set(log_root,results,prior=prior_node_evidence)
+     from .validation_reports import verify_finalization

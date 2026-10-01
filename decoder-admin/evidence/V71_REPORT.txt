@@ -1,0 +1,60 @@
+V71 DEV146 REVIEWED-PIN SUCCESSOR — 5 TARGETED PASS — 2026-10-01
+
+Reviewed actual diffs from dev140 baseline across controller, preservation and
+validation runtime:89 additions31 deletions. Changes are refusal-before-checkpoint,
+ordinary rwx mode restoration and owned worker cancellation/cleanup acknowledgments.
+Reviewed associated validation_cancellation.py and bounded V62/V63/V64 evidence.
+Baseline file hashes exactly match dev140 amendment. New successor records reasons
+and exact identities; all historical pin files unchanged. No engine implementation
+changed in dev146. Five source files change:version, build metadata, profile
+identity/status, pin test successor block, new pin amendment JSON.
+
+Source archive plus review/protocol saved and byte-verified before execution.
+Previously failing core-pin test and four profile-contract cases:5 PASS,0 FAIL.
+Standalone regression only, not native qualification or full RC. Source and
+reviewed runtime verified before/after. Initial administrative launch failed
+before pytest because wrapper PYTHONHOME was inherited by host Python3.12;
+corrected by running orchestrator under host Python, which launches tests through
+reviewed3.13 wrapper. No tests dispatched by failed launch; no native replay.
+
+OPERATOR CORRECTION
+V70 used external signals/session termination. Existing request_pause is the
+proper native route: capture-bound nonce, polled acknowledgment, owned cleanup,
+PAUSED checkpoint. Added decoder-admin/request_pause.py; no new signalling code.
+Fresh active-pause native validation remains REQUIRED before another full run.
+Never send a pause or resume request to the frozen V70 failed capture to make
+its stale RUNNING record look clean. V70 evidence/restoration remains immutable.
+
+NEXT
+Use a fresh saved dev146 native capture to verify public request_pause reaches
+active validation, cleanup acknowledgment, PAUSED/refusal checkpoint and exact
+restoration without rerunning recovery workloads. Then regenerate exact-dev146
+fixtures as required; dev145 five fixtures remain separately historical and are
+not silently promoted to dev146. Full qualification remains open; all23 RC rows
+OPEN. No science replay, native completion, independent-host or release claim.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; -B,PYTHONOPTIMIZE=0.
+Administrative run_checks.py uses host python3; its test subprocess uses wrapper.
+Review CORE_REVIEW.txt, REVIEWED_DIFF.patch, PIN_REVIEW.json and SOURCE_IDENTITY.
+
+{
+  "version": "0.8.0.dev146+lib",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "package_sha256": "24295fa8d95ffe9ba6d00edf8eaee8fa6db49217395f32ed3c4ffefefd73daf0",
+  "archive_sha256": "cba0295d9b231bb6b58476d97c963eb36cd218c9414e1f167b82181317981e96",
+  "archive_size_bytes": 22693823,
+  "qualification": "UNQUALIFIED",
+  "drive_id": "1XmfuMyCjhLvkGS9B5RzPBAjNgacbRYaR"
+}
+{
+  "gate": "V71_DEV146_REVIEW_SUCCESSOR",
+  "status": "BOUNDED_STANDALONE_PASS",
+  "tests_passed": 5,
+  "tests_failed": 0,
+  "native_completions": 0,
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "engine_implementation_unchanged": true,
+  "historical_pins_unchanged": true,
+  "native_pause_operator": "Existing request_pause API exposed through decoder-admin/request_pause.py; fresh active-pause qualification pending",
+  "full_rc": "OPEN"
+}
