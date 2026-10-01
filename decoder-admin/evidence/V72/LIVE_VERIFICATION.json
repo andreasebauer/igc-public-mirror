@@ -1,0 +1,72 @@
+{
+  "status": "NATIVE_PAUSE_OBSERVATIONS_PASS",
+  "attempts": [
+    {
+      "attempt_id": "job-8773df38e2b9896440aeb1db454e9cb8:000001",
+      "finished_unix": 1790816611.2099364,
+      "job_id": "RC.INTERRUPT.V72.DEV146",
+      "mirror_status": "NOT_CONFIRMED",
+      "operation": "VALIDATION",
+      "output_root": "/tmp/ig_gate_v72_20261001/store/captures/0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080/runtime/runs/intent-0e39a65a46ff2c86fe702ecb200559b6",
+      "pid": 5,
+      "reason": "SubmissionError:REQUESTED_PAUSE:V72_PREREGISTERED_ACTIVE_PAUSE",
+      "registration_sha256": "8773df38e2b9896440aeb1db454e9cb8d9cf638c14598a568811b753ad58e225",
+      "request_id": "job-8773df38e2b9896440aeb1db454e9cb8",
+      "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+      "started_unix": 1790816606.376319,
+      "status": "PAUSED",
+      "workers_requested": 1
+    }
+  ],
+  "pause_ack": {
+    "capture_id": "0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080",
+    "nonce": "1790816610979533098",
+    "reason": "V72_PREREGISTERED_ACTIVE_PAUSE"
+  },
+  "refusals": [
+    {
+      "missing_decisions": [],
+      "next_supported_operation": "run",
+      "operation_attempted": "run",
+      "preserved_artifact_ids": [
+        "648a1a901dc6374e9ca66b9e67a6d353077c9713752a4240818edec0a4e4c530",
+        "bf1d36618f684eb66af6db91b3ca09e8a9ad66d982d540cfae59f4f9d0595c75",
+        "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+        "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+        "506b36b1009a922e89729db3dad0ef8dfb844de314a66db57ceed262aa89fd7f",
+        "802035faa357f527bdec6ed5dc90f846263a5931d2e66d43301021c5ec334f63",
+        "dd7d00f2eb190ad9f7df0821f8f19065d5f56a1d563a51707c8f622a4fc33ad7",
+        "d43b4e277fb66ae58464e78db49ad89295111778c6bf934a9e11b64adc10ab65",
+        "d303153a558e03626aef7859d0ad67c97411b7e91e4f5780a8e7b01075abe7da",
+        "06383e9a54ba740f69f2e86d259da60aba94d3aea141236c8a33bffe53676241"
+      ],
+      "reason_code": "REQUESTED_PAUSE",
+      "required_arguments": {
+        "job_id": "RC.INTERRUPT.V72.DEV146",
+        "workspace": "/tmp/ig_gate_v72_20261001/store/captures/0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080"
+      },
+      "retry_condition": "Apply the listed correction and complete the save gate; completed jobs are verified and reused.",
+      "retry_is_safe": false,
+      "schema_id": "IG_DECODER_REFUSAL_V1",
+      "status": "REFUSED",
+      "unmet_checks": [
+        "REQUESTED_PAUSE:V72_PREREGISTERED_ACTIVE_PAUSE"
+      ]
+    }
+  ],
+  "progress": [
+    {
+      "binding": "fe162496c10d1ead2b64138058a3fe85e72a60116625e6dd3da19ed2c4026d4f",
+      "elapsed_seconds": 0.0003661399996417458,
+      "event": "START",
+      "schema_id": "IG_NATIVE_LONG_PROBE_PROGRESS_V1",
+      "selector": "tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector",
+      "tick": 0,
+      "unix": 1790816610.2301898
+    }
+  ],
+  "cleanup_evidence": "Inference from unchanged reviewed control flow: cancel_workers must reap worker and validate cleanup_quiescent reply before REQUESTED_PAUSE propagates. Raw pipe reply is not persisted. No cleanup error observed.",
+  "native_completion": null,
+  "native_attempts": 1,
+  "workload_reruns": 0
+}

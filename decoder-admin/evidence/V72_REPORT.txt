@@ -1,0 +1,57 @@
+V72 DEV146 NATIVE PAUSE AND EXACT RESTORE — BOUNDED PASS — 2026-10-01
+
+One fresh native attempt used the saved 150-second engineering probe. After its
+durable START record, the public request_pause CLI requested a capture-bound pause.
+The controller acknowledged the nonce, returned REQUESTED_PAUSE and retained one
+PAUSED attempt plus refusal. The probe did not complete and is not a test PASS.
+No external signal/session termination; no workload rerun. V70 remains untouched.
+
+Cleanup evidence is control-flow based: the unchanged reviewed cancel_workers
+requires worker reaping and cleanup_quiescent acknowledgment before propagating
+the original pause. No cleanup error occurred. Raw pipe acknowledgment is not
+persisted; this is not a new continuous process-tree or escaped-descendant audit.
+
+Ten capture prerequisites and the observer/CLI addendum were saved and read back
+before dispatch. All30 checkpoint roles acknowledged from15 unique saved objects;
+zero pending. Slim PAUSED export saved and raw-readback hash verified. Fresh restore
+matched all34 checkpoint state/input files byte-for-byte and ordinary rwx modes,
+including PAUSED attempt and refusal. No completion, zero recovery dispatches.
+Source and reviewed runtime verified before/after. Native exit1 is expected for
+the retained REQUESTED_PAUSE exception; the outer operator completed normally.
+
+Administrative acknowledgment correction: first batch contained extra catalog
+fields and was rejected ACK_BATCH_READBACK_FIELDS. Rejected batch retained;
+projected to the four required RAW-reference fields and acknowledgment succeeded.
+No engine modification or workload retry. POST_SOURCE.json is null because the
+verifier returns None; POST_SOURCE_READBACK.json retains its explicit passing output.
+
+NEXT
+Regenerate exact-dev146 fixtures using V65–V68 protocols, first stage-one pre-run
+and completed fixtures. Save/readback source, protocol and capture prerequisites
+before any native dispatch. Use request_pause for active graceful stops. Keep
+V70 failed capture and this V72 paused capture immutable; do not resume either.
+Then fresh full RC. All23 RC rows OPEN; no release/science/independent-host claim.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; -B,PYTHONOPTIMIZE=0.
+Restored checkpoint /tmp/ig_v72_paused_restored_20261001
+
+{
+  "gate": "V72_DEV146_NATIVE_PAUSE",
+  "status": "BOUNDED_NATIVE_PAUSE_AND_EXACT_RESTORE_PASS",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "capture_id": "0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080",
+  "native_attempts": 1,
+  "attempt_status": "PAUSED",
+  "native_completions": 0,
+  "completed_test_passes": 0,
+  "request_acknowledged": true,
+  "cleanup_evidence": "Reviewed fail-closed control flow; raw cleanup pipe reply not persisted",
+  "checkpoint_save_roles_acknowledged": 30,
+  "pending_roles": 0,
+  "restore_files_bytes_and_modes": 34,
+  "recovery_workloads_dispatched": 0,
+  "export_sha256": "4bc63fc7af03b549fbf9a30459c69abf948d84b3eb37231d236bcdf20db197cc",
+  "export_drive_id": "1saZBzUlmhXkXHFuQ01MOo3EY_l4khhY8",
+  "full_rc": "OPEN",
+  "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
+}

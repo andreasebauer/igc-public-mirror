@@ -1,0 +1,18 @@
+V72 DEV146 NATIVE REQUEST_PAUSE GATE — 2026-10-01
+Fresh capture; one native attempt; no workload reruns. Source dev146
+930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137.
+Reviewed runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host,
+PYTHONOPTIMIZE=0 and -B. One worker, fork,1GiB memory,2GiB workspace.
+Select only tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector.
+Default checkpoint/backlog policy unchanged; no automatic runtime deadline.
+Save and read back every capture prerequisite before dispatch.
+After first durable START record, invoke decoder-admin/request_pause.py with
+reason V72_PREREGISTERED_ACTIVE_PAUSE. Do not signal or terminate session.
+Require capture-bound pause acknowledgment, owned worker cleanup acknowledgment,
+PAUSED attempt and retained REQUESTED_PAUSE refusal; no native completion.
+Unexpected early completion or pause failure is FAILED evidence, never relabel.
+Drain native pending saves with actual remote readbacks; export slim checkpoint,
+save/read back, restore to fresh destination without dispatch. Compare all checkpoint
+state bytes and ordinary rwx modes; require same PAUSED/refusal record and no completion.
+Verify source/runtime before and after. Preserve every failed attempt.
+No full RC, scientific replay, independent-host or release qualification claim.

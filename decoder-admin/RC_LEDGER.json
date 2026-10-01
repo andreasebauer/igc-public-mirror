@@ -1097,5 +1097,25 @@
     "full_RC": "OPEN",
     "candidate_fixtures_remaining": 5,
     "data_block_ready": false
+  },
+  "latest_native_pause_gate": {
+    "gate": "V72_DEV146_NATIVE_PAUSE",
+    "status": "BOUNDED_NATIVE_PAUSE_AND_EXACT_RESTORE_PASS",
+    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+    "capture_id": "0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080",
+    "native_attempts": 1,
+    "attempt_status": "PAUSED",
+    "native_completions": 0,
+    "completed_test_passes": 0,
+    "request_acknowledged": true,
+    "cleanup_evidence": "Reviewed fail-closed control flow; raw cleanup pipe reply not persisted",
+    "checkpoint_save_roles_acknowledged": 30,
+    "pending_roles": 0,
+    "restore_files_bytes_and_modes": 34,
+    "recovery_workloads_dispatched": 0,
+    "export_sha256": "4bc63fc7af03b549fbf9a30459c69abf948d84b3eb37231d236bcdf20db197cc",
+    "export_drive_id": "1saZBzUlmhXkXHFuQ01MOo3EY_l4khhY8",
+    "full_rc": "OPEN",
+    "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
   }
 }

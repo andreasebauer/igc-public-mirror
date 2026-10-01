@@ -1,0 +1,16 @@
+{
+  "unix": 1790816610.278883,
+  "path": "/tmp/ig_gate_v72_20261001/store/captures/0f744bd4fdcafd3f05bd512153af4cc27a4ff35b6682eeb830df2c71bb31b080/runtime/runs/intent-0e39a65a46ff2c86fe702ecb200559b6/logs/probe_progress/long_durable_progress.log",
+  "sha256": "37e4b68ce02f524fa6852a92cd412c387720ba37a4d53d9380d8c2190b7f278d",
+  "rows": [
+    {
+      "binding": "fe162496c10d1ead2b64138058a3fe85e72a60116625e6dd3da19ed2c4026d4f",
+      "elapsed_seconds": 0.0003661399996417458,
+      "event": "START",
+      "schema_id": "IG_NATIVE_LONG_PROBE_PROGRESS_V1",
+      "selector": "tests/integration_probes/native_save_wave_probe.py::test_long_durable_progress_selector",
+      "tick": 0,
+      "unix": 1790816610.2301898
+    }
+  ]
+}
