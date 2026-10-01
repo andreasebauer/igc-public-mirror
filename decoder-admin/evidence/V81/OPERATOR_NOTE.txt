@@ -1,0 +1,1 @@
+The first fixture_parts.py split invocation ran before the asynchronous export completed and refused FileNotFoundError without writing parts. The export process subsequently completed with exit code 0. The split was then invoked on the completed archive. No capture, native workload, export, or fixture restore was rerun; engine source unchanged.
