@@ -1,0 +1,47 @@
+V82 DEV147 EXPECTED-OUTCOME REFUSAL FIXTURE — ACCEPTED — 2026-10-01
+
+One registered attempt returned exactly the expected controller refusal:
+ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME. Native status remains PAUSED.
+Unchanged handler returns PASS; registration permits only EXPECTED_OTHER.
+One attempt, zero prepared completions, zero published completions.
+No native success or test-suite PASS is claimed.
+
+Source unchanged; all 1528 files verified. Reviewed runtime verified before and
+after execution: 4721 files/modes and seven exact host dependencies.
+All ten capture prerequisites saved/read back before dispatch. Complete paused
+workspace saved in two ordered parts, reconstructed from actual Drive readbacks,
+and restored with identical attempt bytes, PAUSED status and no completion.
+Zero workloads dispatched on restoration. All 45 checkpoint role obligations
+acknowledged, zero pending at closeout. No native rerun or unexplained failure.
+
+Four of five current-dev147 fixture roles are earned. Next: representative
+qualification via representative_qualification:handler, stage_id
+ENG:REPRESENTATIVE_QUALIFICATION. Then bind all seven profile fixture roles
+(including two historical inputs) and execute full RC. All 23 acceptance rows
+remain OPEN. No science replay. Do not rerun V80, V81 or V82.
+Read FIXTURE_CATALOG.json for ordered Drive parts and exact hashes.
+Worktree /tmp/ig_decoder_dev147_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host; PYTHONOPTIMIZE=0, -B.
+After reset clone public branch, verify source/tree, import runtime objects from
+decoder-admin/CATALOG.json, restore with decoder-admin/decoder.py.
+
+{
+  "gate": "V82_DEV147_EXPECTED_OUTCOME_REFUSAL",
+  "fixture_acceptance": "EXPECTED_REFUSAL_VERIFIED",
+  "native_status": "PAUSED",
+  "reason": "ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME",
+  "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+  "native_attempts": 1,
+  "published_completions": 0,
+  "prepared_completions": 0,
+  "fixture_roles_earned": [
+    "saved_stage_outcome"
+  ],
+  "pending_checkpoint_roles": 0,
+  "attempt_bytes_identical_on_restore": true,
+  "workload_executions_on_restore": 0,
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_representative_qualification"
+  ]
+}

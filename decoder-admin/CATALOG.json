@@ -59,7 +59,6 @@
     }
   ],
   "unresolved_fixtures": [
-    "saved_stage_outcome",
     "saved_representative_qualification"
   ],
   "scope": "Dev147 V78 focused repair and V79 bounded native startup contention/recovery passed; full RC OPEN; exact-candidate fixtures pending.",
@@ -631,6 +630,30 @@
       "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
       "state": "PUBLISHED_COMPLETION",
       "completion_sha256": "a54104d83e68a4cc56b8352a7543845ba1e6c455cc6849ea11e2779dd5fba5c2",
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_stage_outcome": {
+      "sha256": "7a9ff806dd7c21e54d62d815fbac72da18c748272ef6bb7a24a29879fe697880",
+      "size_bytes": 45059655,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V82_7060211f423186595b0ffdda4c5065a9d651ac055dbab6620ae90fb85002d572.bin",
+          "sha256": "7060211f423186595b0ffdda4c5065a9d651ac055dbab6620ae90fb85002d572",
+          "size_bytes": 25000000,
+          "drive_id": "1mYAWmub_C8OQOPbfyn4jpccbw-pqcl2k"
+        },
+        {
+          "filename": "V82_ec54a7e306fb3a3a47c5e49a3c171360b825e74584f1cefc94226ce9c7840dba.bin",
+          "sha256": "ec54a7e306fb3a3a47c5e49a3c171360b825e74584f1cefc94226ce9c7840dba",
+          "size_bytes": 20059655,
+          "drive_id": "1qzkktC2e5VcnqiLMSM6VV0kZeswPnyk0"
+        }
+      ],
+      "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+      "state": "PAUSED_EXPECTED_REFUSAL",
+      "completion_sha256": null,
       "restored_from_drive_readbacks": true,
       "workload_executions_on_restore": 0
     }

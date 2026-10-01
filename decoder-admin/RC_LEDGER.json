@@ -399,26 +399,22 @@
     "evidence": "decoder-admin/evidence/V17_QUALIFICATION.txt"
   },
   "latest_fixture_gate": {
-    "gate": "V81_DEV147_FOUR_WORKER_FIXTURE",
-    "status": "PASS",
+    "gate": "V82_DEV147_EXPECTED_OUTCOME_REFUSAL",
+    "fixture_acceptance": "EXPECTED_REFUSAL_VERIFIED",
+    "native_status": "PAUSED",
+    "reason": "ControllerLoopError:UNREGISTERED_SCIENTIFIC_OUTCOME",
     "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
-    "native_jobs_executed": 1,
-    "task_count": 48,
-    "class_count": 7,
-    "observed_workers": 4,
-    "backend": "LOCAL_PROCESS_POOL",
-    "exact_relation_matches_V80": true,
-    "compared_rows": 48,
-    "V80_rerun": false,
+    "native_attempts": 1,
+    "published_completions": 0,
+    "prepared_completions": 0,
     "fixture_roles_earned": [
-      "saved_stage_four"
+      "saved_stage_outcome"
     ],
     "pending_checkpoint_roles": 0,
+    "attempt_bytes_identical_on_restore": true,
     "workload_executions_on_restore": 0,
-    "completion_sha256": "a54104d83e68a4cc56b8352a7543845ba1e6c455cc6849ea11e2779dd5fba5c2",
     "full_rc": "OPEN",
     "remaining_fixtures": [
-      "saved_stage_outcome",
       "saved_representative_qualification"
     ]
   },
@@ -732,6 +728,30 @@
       "full_rc": "OPEN",
       "remaining_fixtures": [
         "saved_stage_four",
+        "saved_stage_outcome",
+        "saved_representative_qualification"
+      ]
+    },
+    {
+      "gate": "V81_DEV147_FOUR_WORKER_FIXTURE",
+      "status": "PASS",
+      "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+      "native_jobs_executed": 1,
+      "task_count": 48,
+      "class_count": 7,
+      "observed_workers": 4,
+      "backend": "LOCAL_PROCESS_POOL",
+      "exact_relation_matches_V80": true,
+      "compared_rows": 48,
+      "V80_rerun": false,
+      "fixture_roles_earned": [
+        "saved_stage_four"
+      ],
+      "pending_checkpoint_roles": 0,
+      "workload_executions_on_restore": 0,
+      "completion_sha256": "a54104d83e68a4cc56b8352a7543845ba1e6c455cc6849ea11e2779dd5fba5c2",
+      "full_rc": "OPEN",
+      "remaining_fixtures": [
         "saved_stage_outcome",
         "saved_representative_qualification"
       ]
@@ -1283,16 +1303,16 @@
     "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
   },
   "current_rc_roadmap": {
-    "as_of_gate": "V81",
+    "as_of_gate": "V82",
     "candidate": "dev147",
-    "fixture_roles_complete": 3,
+    "fixture_roles_complete": 4,
     "fixture_roles_total": 5,
     "full_candidate_qualification": "NOT_RUN",
     "profile_files": 170,
     "open_acceptance_rows": 23,
     "independent_remote_recovery": "OPEN",
     "promotion": "NOT_GRANTED",
-    "next": "Generate expected-outcome refusal and representative dev147 fixtures, then full qualification."
+    "next": "Generate representative dev147 fixture, then full qualification."
   },
   "latest_native_contention_gate": {
     "gate": "V79_DEV147_NATIVE_STARTUP_CONTENTION",
