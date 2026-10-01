@@ -1,0 +1,24 @@
+{
+  "gate": "V66_DEV145_FOUR_WORKER_FIXTURE",
+  "status": "PASS",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "native_jobs_executed": 1,
+  "task_count": 48,
+  "class_count": 7,
+  "observed_workers": 4,
+  "backend": "LOCAL_PROCESS_POOL",
+  "exact_relation_matches_V65": true,
+  "compared_rows": 48,
+  "V65_rerun": false,
+  "fixture_roles_earned": [
+    "saved_stage_four"
+  ],
+  "pending_checkpoint_roles": 0,
+  "workload_executions_on_restore": 0,
+  "completion_sha256": "d89b9c525971ce75288df2b92836fe938f7241abf62f152afd4b794e3e104cac",
+  "full_rc": "OPEN",
+  "remaining_fixtures": [
+    "saved_stage_outcome",
+    "saved_representative_qualification"
+  ]
+}
