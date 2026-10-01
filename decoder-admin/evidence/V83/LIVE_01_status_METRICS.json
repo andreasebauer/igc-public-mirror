@@ -1,0 +1,80 @@
+{
+  "started": 1790825160.7331355,
+  "finished": 1790825160.828352,
+  "mode": "status",
+  "tag": "LIVE_01",
+  "pending_roles": 30,
+  "pending_bytes": 616894,
+  "pending_commits": 2,
+  "oldest_age": 7.677417755126953,
+  "count_reserve": 6,
+  "byte_reserve_after_commit": 334927426,
+  "age_reserve": 3592.322582244873,
+  "native_physical_objects_verified": 15,
+  "attempt_statuses": [
+    "COMPLETED"
+  ],
+  "selector_finished": false,
+  "payload_read_bytes_calls": {
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/5ebadeafe062ca6814404961dc81f29fdf18b94346a27bc5784bace1fb983515.bin": {
+      "calls": 1,
+      "bytes": 22696041
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin": {
+      "calls": 1,
+      "bytes": 3294
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "calls": 1,
+      "bytes": 880319
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "calls": 1,
+      "bytes": 504
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/31da3fb3b17aa3603922102dc6878cf8a5ce31b57498182dda24f46a47ecc0f0.bin": {
+      "calls": 1,
+      "bytes": 1136
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/e14cba7dba3933d806fd924f3f68426912b477f7f1f7aa0d56a508c9ed9bc5ac.bin": {
+      "calls": 1,
+      "bytes": 5022
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/c16d6ebb053186edb1e85c4b70f737aa56c29f6e440d71e04fea59e54c90c4b6.bin": {
+      "calls": 1,
+      "bytes": 5379
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/3293dbee9eb375f9856796616ea350d7210320f5b00efd8d756b45f7d957762c.bin": {
+      "calls": 1,
+      "bytes": 11029
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/cb073e56c620f812734f45904e77686420bec760ef051ae9f61976b073e0c973.bin": {
+      "calls": 1,
+      "bytes": 22380366
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/d31fdc8c4badb14cf1514d2b541bd86098c01ecdf9557bd32ff761de61899bd5.bin": {
+      "calls": 1,
+      "bytes": 7957
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/2686dee88a8655e0e4e265617c65f0d7ea24f2c72d1824c77dbca5b60b4bc5ae.bin": {
+      "calls": 1,
+      "bytes": 2719
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/a1c1596c5e44745a30f405c870041952fb82ff551208964d289c91e2d6456253.bin": {
+      "calls": 1,
+      "bytes": 21666
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/54a29cae71a79643019d71537287dfa75e20398b57a589cdeb138e3cc4da9595.bin": {
+      "calls": 1,
+      "bytes": 10391
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/efef5eda222d9671319a50975fa68cf1d59ed7f43ae75121d3f66a2b97851ff0.bin": {
+      "calls": 1,
+      "bytes": 564621
+    },
+    "/tmp/ig_fixture_v83_20261001/store/captures/624aa499104aaf1ecf9f63cc588a235310de598483de807f38e2154de6459e7e/durability/outbox/objects/d9bc1f910b51a8a2e08974e6b2b03aaa797df83cafd555983a3e5db4de432883.bin": {
+      "calls": 1,
+      "bytes": 17497
+    }
+  }
+}

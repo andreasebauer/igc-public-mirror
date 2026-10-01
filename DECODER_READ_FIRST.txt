@@ -1,5 +1,6 @@
-DEV147 V82 EXPECTED-REFUSAL FIXTURE ACCEPTED — OVERALL UNQUALIFIED
-Four of five fixture roles earned; representative qualification remains.
-One PAUSED attempt, no completion; saved attempt bytes restored identically without rerun.
-Read decoder-admin/evidence/V82_REPORT.txt, CATALOG.json and RC_LEDGER.json. All 23 RC rows OPEN.
+DEV147 V83 FIVE-FIXTURE PREPARATION COMPLETE — OVERALL UNQUALIFIED
+All five candidate fixture roles earned and saved/readback/restoration verified.
+V83 four representative cases PASS; identical completion restored without rerun.
+Next: preregister full qualification, bind all seven fixture roles, functional first.
+Read decoder-admin/evidence/V83_REPORT.txt, CATALOG.json and RC_LEDGER.json. All23 RC rows OPEN.
 Verify source: python3 -B decoder-admin/decoder.py verify-source

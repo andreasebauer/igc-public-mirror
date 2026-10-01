@@ -58,9 +58,7 @@
       "visibility": "private"
     }
   ],
-  "unresolved_fixtures": [
-    "saved_representative_qualification"
-  ],
+  "unresolved_fixtures": [],
   "scope": "Dev147 V78 focused repair and V79 bounded native startup contention/recovery passed; full RC OPEN; exact-candidate fixtures pending.",
   "science_replay_closure": "NOT_INVENTORIED_HERE",
   "full_rc": "OPEN",
@@ -654,6 +652,36 @@
       "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
       "state": "PAUSED_EXPECTED_REFUSAL",
       "completion_sha256": null,
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_representative_qualification": {
+      "sha256": "c5c61bd2629ee61ef78f12ab87f1cdcb32b5bb03506698996867952c767649bb",
+      "size_bytes": 68543419,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V83_e8a96a0998d5aa7f9ae81b10cf3451275f5d249b51a972ee2284f9e582426aa8.bin",
+          "sha256": "e8a96a0998d5aa7f9ae81b10cf3451275f5d249b51a972ee2284f9e582426aa8",
+          "size_bytes": 25000000,
+          "drive_id": "1GPmde_svjPChOJFEfxqzJIGHBuBBWt8M"
+        },
+        {
+          "filename": "V83_bcdcb346bb51f09d248e1b854455436b6161e2d236ec347e9abbb2478a13b3ae.bin",
+          "sha256": "bcdcb346bb51f09d248e1b854455436b6161e2d236ec347e9abbb2478a13b3ae",
+          "size_bytes": 25000000,
+          "drive_id": "1yaidmiA3eJPUSvNzhflAzArxJWdbtWDL"
+        },
+        {
+          "filename": "V83_e52a72cd7c21b1856f17f979106545657a68414296187bc372929dd98868b152.bin",
+          "sha256": "e52a72cd7c21b1856f17f979106545657a68414296187bc372929dd98868b152",
+          "size_bytes": 18543419,
+          "drive_id": "1Pc8_rBlJKeWLXCGgSVo6Zays2DfH_hAT"
+        }
+      ],
+      "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "5756594e9c497784516cbb3007b7495be3349beda227ba7a34fc1fad35cf1a84",
       "restored_from_drive_readbacks": true,
       "workload_executions_on_restore": 0
     }
