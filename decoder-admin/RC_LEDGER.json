@@ -710,37 +710,65 @@
     "rejected_preparation": "V69 protocol text said default300 seconds; actual default30. Capture preserved unused; corrected in fresh V69B."
   },
   "latest_current_source_attempt": {
-    "node_reports": 532,
-    "finished_all_phases_passed": 527,
-    "nonpass_reports": 1,
-    "unfinished": 4,
-    "native_completion": false,
-    "attempt_statuses": [
-      "RUNNING"
-    ],
-    "native_session_exit": 130,
-    "operator_stop": "Session Ctrl-C after first observed core-pin failure. Direct PID signals could not reach process across namespace. Wrapper ended before native pause/finally; retained RUNNING record is not evidence of a live process.",
-    "reruns": 0,
-    "gate": "V70_DEV145_FUNCTIONAL_INTERRUPTED_FAILURE",
-    "status": "FAILED_UNQUALIFIED",
-    "capture_id": "c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39",
-    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
-    "selected_files": 167,
-    "collected_selectors": 56,
-    "collected_nodes": 556,
-    "collected_without_report": 24,
-    "uncollected_files": 111,
+    "gate": "V77_DEV146_FULL_QUALIFICATION_ATTEMPT",
+    "status": "FAILED_INCOMPLETE_INFRASTRUCTURE_LOCK_CONTENTION",
+    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+    "capture_id": "b74acf6e42812a6657c56926ee14cc02b1ffab2f05b37021c6befa994ee3615d",
+    "native_attempts": 1,
+    "native_status": "PAUSED",
+    "reason": "ControllerLoopError:WORKSPACE_BUSY",
+    "native_completions": 0,
+    "functional_registered_files": 167,
+    "functional_collected_files": 65,
+    "functional_collected_nodes": 594,
+    "fully_passed_nodes": 583,
+    "reported_test_failures_or_skips": 0,
+    "unfinished_node_reports": 4,
+    "collected_without_report": 7,
+    "uncollected_functional_files": 102,
+    "other_groups": "NOT_STARTED",
+    "v70_core_pin_regression": "PASS",
+    "checkpoint_roles_acknowledged": 351,
     "pending_checkpoint_roles": 0,
-    "restore_workloads": 0
+    "restore_files_exact_bytes_modes": 889,
+    "recovery_workloads_dispatched": 0,
+    "export_sha256": "2d46d160cef94e5db9e3362a5adf2a906ffad2a078eb2421894a66ec95d87b21",
+    "export_drive_id": "1H3hxOh29AAO_-MYrQt4FC6MpQm1bKBdp",
+    "source_unchanged": true,
+    "full_rc": "OPEN",
+    "next": "Review narrow durability-lock serialization repair on new candidate; deterministic contention regression and native live-save proof before another full qualification attempt."
   },
   "latest_failure_triage": {
-    "gate": "V25",
-    "status": "READ_ONLY_TRIAGE_COMPLETE_REPAIRS_PENDING",
-    "source_changed": false,
-    "tests_executed": false,
-    "stale_core_pins": 6,
-    "report": "decoder-admin/evidence/V25_REPORT.txt",
-    "next": "New candidate: bytecode startup flag, isolated bootstrap paths and nested fixture binding; native preservation/scheduling design; incident forensics and pin review."
+    "failure": "ControllerLoopError:WORKSPACE_BUSY",
+    "attempt_finished_unix": 1790820425.6619136,
+    "nearby_acknowledgment_journals": [
+      {
+        "path": "durability/outbox/batches/e06e88c26873ae4631481a58c08e4361e08de147b2b2103abb164dc89aad979f/PREPARED.json",
+        "batch_id": "e06e88c26873ae4631481a58c08e4361e08de147b2b2103abb164dc89aad979f",
+        "min_receipt_unix": 1790820425.8047986,
+        "max_receipt_unix": 1790820426.4219987,
+        "obligations": 54
+      }
+    ],
+    "native_call_path": [
+      "validation _run_group",
+      "preservation.safe_point",
+      "preservation.make_checkpoint",
+      "_workspace_lock(durability/outbox)"
+    ],
+    "evidence": "Stack proves nonblocking checkpoint lock acquisition failed. make_checkpoint and confirm_batch use the same durability/outbox lock. Nearby acknowledgment journal times support the operator-acknowledgment contention explanation. No claim of an independently traced lock owner.",
+    "paused_checkpoint_failure": {
+      "execution_reason": "WORKSPACE_BUSY",
+      "reason": "WORKSPACE_BUSY",
+      "status": "CHECKPOINT_UNAVAILABLE"
+    },
+    "recovery": "Later idle export created after process exit and saves drained; original failed attempt and refusal preserved, not resumed.",
+    "proposed_repair_scope": "Separate controller-owned checkpoint serialization from fail-fast top-level workspace execution exclusion. Add deterministic cross-process acknowledgment/checkpoint contention regression and native live-save proof; do not catch or ignore every WORKSPACE_BUSY or relax preservation limits.",
+    "reviewed_files": {
+      "preservation.py": "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce",
+      "preservation_batch.py": "457dff12d4c4b46719a26088a752949059568cb17a8dcecd907884be42622199",
+      "v05_controller_event_loop.py": "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1"
+    }
   },
   "latest_source_repair": {
     "gate": "V71_DEV146_REVIEW_SUCCESSOR",
@@ -1209,16 +1237,16 @@
     "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
   },
   "current_rc_roadmap": {
-    "as_of_gate": "V76",
+    "as_of_gate": "V77",
     "candidate": "dev146",
     "fixture_roles_complete": 5,
     "fixture_roles_total": 5,
-    "full_candidate_qualification": "NOT_YET_PASSED",
+    "full_candidate_qualification": "FAILED_INCOMPLETE_LOCK_CONTENTION",
     "profile_files": 170,
     "open_acceptance_rows": 23,
     "independent_remote_recovery": "OPEN",
     "promotion": "NOT_AUTHORIZED_BY_BOUNDED_PASS",
     "details": "evidence/V75/RC_STATUS_AFTER_V75.txt",
-    "next": "Fresh saved full-qualification preparation; bind all seven roles and native selector inventory. V75 residual acceptance roadmap remains applicable."
+    "next": "Review narrow durability-lock serialization repair on new candidate; deterministic contention regression and native live-save proof before another full qualification attempt."
   }
 }

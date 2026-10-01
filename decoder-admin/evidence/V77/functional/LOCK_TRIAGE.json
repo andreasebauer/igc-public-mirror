@@ -1,0 +1,32 @@
+{
+  "failure": "ControllerLoopError:WORKSPACE_BUSY",
+  "attempt_finished_unix": 1790820425.6619136,
+  "nearby_acknowledgment_journals": [
+    {
+      "path": "durability/outbox/batches/e06e88c26873ae4631481a58c08e4361e08de147b2b2103abb164dc89aad979f/PREPARED.json",
+      "batch_id": "e06e88c26873ae4631481a58c08e4361e08de147b2b2103abb164dc89aad979f",
+      "min_receipt_unix": 1790820425.8047986,
+      "max_receipt_unix": 1790820426.4219987,
+      "obligations": 54
+    }
+  ],
+  "native_call_path": [
+    "validation _run_group",
+    "preservation.safe_point",
+    "preservation.make_checkpoint",
+    "_workspace_lock(durability/outbox)"
+  ],
+  "evidence": "Stack proves nonblocking checkpoint lock acquisition failed. make_checkpoint and confirm_batch use the same durability/outbox lock. Nearby acknowledgment journal times support the operator-acknowledgment contention explanation. No claim of an independently traced lock owner.",
+  "paused_checkpoint_failure": {
+    "execution_reason": "WORKSPACE_BUSY",
+    "reason": "WORKSPACE_BUSY",
+    "status": "CHECKPOINT_UNAVAILABLE"
+  },
+  "recovery": "Later idle export created after process exit and saves drained; original failed attempt and refusal preserved, not resumed.",
+  "proposed_repair_scope": "Separate controller-owned checkpoint serialization from fail-fast top-level workspace execution exclusion. Add deterministic cross-process acknowledgment/checkpoint contention regression and native live-save proof; do not catch or ignore every WORKSPACE_BUSY or relax preservation limits.",
+  "reviewed_files": {
+    "preservation.py": "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce",
+    "preservation_batch.py": "457dff12d4c4b46719a26088a752949059568cb17a8dcecd907884be42622199",
+    "v05_controller_event_loop.py": "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1"
+  }
+}

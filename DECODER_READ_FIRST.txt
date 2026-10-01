@@ -1,6 +1,5 @@
-DEV146 V76 FIVE-FIXTURE PREPARATION COMPLETE — OVERALL UNQUALIFIED
-All five candidate fixture roles earned and saved/readback/restoration verified.
-V76 four representative cases PASS; identical completion restored without rerun.
-Next: preregister full qualification, bind all seven fixture roles, functional first.
-Read decoder-admin/evidence/V76_REPORT.txt, CATALOG.json and RC_LEDGER.json. All23 RC rows OPEN.
-Verify source: python3 -B decoder-admin/decoder.py verify-source
+DEV146 V77 FULL QUALIFICATION FAILED/INCOMPLETE — WORKSPACE_BUSY
+583 fully passed nodes,0 reported test failures/skips;controller checkpoint lock contention stopped run.
+Failed PAUSED capture restored889 files exactly,zero recovery workloads. Do not resume V77.
+Next:narrow durability-lock repair and contention/native-save proof on new candidate.
+Read decoder-admin/evidence/V77_REPORT.txt.All23 RC rows OPEN;no release promotion.

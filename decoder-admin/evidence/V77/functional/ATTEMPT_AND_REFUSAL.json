@@ -1,0 +1,66 @@
+{
+  "attempt": {
+    "attempt_id": "job-0dd20ef3b786d8d13ce5aa561c41bfd8:000001",
+    "finished_unix": 1790820425.6619136,
+    "job_id": "RC.FUNCTIONAL.V77.DEV146",
+    "mirror_status": "NOT_CONFIRMED",
+    "operation": "VALIDATION",
+    "output_root": "/tmp/ig_qualification_v77_20261001/functional/store/captures/b74acf6e42812a6657c56926ee14cc02b1ffab2f05b37021c6befa994ee3615d/runtime/runs/intent-f04d9b8af95151a9f44221884ae05748",
+    "pid": 5,
+    "reason": "ControllerLoopError:WORKSPACE_BUSY",
+    "registration_sha256": "0dd20ef3b786d8d13ce5aa561c41bfd89a3eb2a6916cc24aca2db556dd4a88b2",
+    "request_id": "job-0dd20ef3b786d8d13ce5aa561c41bfd8",
+    "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+    "started_unix": 1790819999.5497518,
+    "status": "PAUSED",
+    "workers_requested": 4
+  },
+  "refusals": [
+    {
+      "missing_decisions": [],
+      "next_supported_operation": "run",
+      "operation_attempted": "run",
+      "preserved_artifact_ids": [
+        "648a1a901dc6374e9ca66b9e67a6d353077c9713752a4240818edec0a4e4c530",
+        "b623569a777b3c9df594977c6e55a1e2d52d8c24d6da800115c63284c1c3cec0",
+        "eb6516507595fb015acd3e2abce8360d2de2ffb37af71dae2a0fe086a7edc233",
+        "824a160e309e5b191787524cc8d87a430150a854a421b65c5fd7254a2a4fac79",
+        "59c87fb99c5a1296744c4b169d6c9a86b9ab0db9c5e47205d607c286166fb22b",
+        "163eaa6f7a37f9562774d04d35b5cbffa56d1633248bb3157eb4e52606848d4f",
+        "713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8",
+        "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41",
+        "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5",
+        "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58",
+        "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68",
+        "c3ea94c6154d9e23c4d89c4620c46e20d4a49ea8be4ac2a2cf7c10eb973c7fc6",
+        "c58c7f15a8ce1be71fdb4f2d5c73bf18d267515486c73a9f954cb60ecdd5e1ed",
+        "80201313b7530124970888c593f27cc835151ff0e6adf7456239c846cdbcd4a0",
+        "0ac652f0e1a1d9d7a64fd012216660fb94b9c563be4742d96ece52341b1d347e",
+        "4b3b47fb9a16173c4ad54b8cb2819d1a1eb4b27f24dffc6aab7ba69825f11b3c",
+        "caa7bde9ce2afbbb3de40852596aadce6c2a2695c958ec30e3088021d10fe5d0",
+        "41f38c991f0620bddd74df8739c629933c6ee52e452bfea4f3731bd9bd012cc1",
+        "3b196850883c3b3f2449c70a082ed64c13996277187cfa76e7b1c2fdfb51c655",
+        "caa42bd8fb0cb165a73b22d28458b42a2b645f9684d70cc6a855880588834d0c",
+        "36b21085d828f3bc6655be5be6fba4b89fe5492fea7f962493ad71af14cfe2ed",
+        "65267167fb24906180c01889f715ab69db7a204c9edd2ce2c3ad1f225b725d7e"
+      ],
+      "reason_code": "WORKSPACE_BUSY",
+      "required_arguments": {
+        "job_id": "RC.FUNCTIONAL.V77.DEV146",
+        "workspace": "/tmp/ig_qualification_v77_20261001/functional/store/captures/b74acf6e42812a6657c56926ee14cc02b1ffab2f05b37021c6befa994ee3615d"
+      },
+      "retry_condition": "Apply the listed correction and complete the save gate; completed jobs are verified and reused.",
+      "retry_is_safe": false,
+      "schema_id": "IG_DECODER_REFUSAL_V1",
+      "status": "REFUSED",
+      "unmet_checks": [
+        "WORKSPACE_BUSY"
+      ]
+    }
+  ],
+  "checkpoint_failure": {
+    "execution_reason": "WORKSPACE_BUSY",
+    "reason": "WORKSPACE_BUSY",
+    "status": "CHECKPOINT_UNAVAILABLE"
+  }
+}

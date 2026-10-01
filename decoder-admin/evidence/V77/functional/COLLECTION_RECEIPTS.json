@@ -1,0 +1,1116 @@
+[
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder07_migration_continuation.py::test_project_local_migration_is_append_only_and_idempotent",
+      "tests/test_decoder07_migration_continuation.py::test_project_local_migration_rejects_bad_old_target_and_qualification",
+      "tests/test_decoder07_migration_continuation.py::test_migration_refuses_branch_label_qualification_without_mutation",
+      "tests/test_decoder07_migration_continuation.py::test_worker02_continues_only_112_to_124_suffix",
+      "tests/test_decoder07_migration_continuation.py::test_continuation_refuses_gap_corruption_failed_and_budget",
+      "tests/test_decoder07_migration_continuation.py::test_chunked_save_resume_readback_and_reconstruction",
+      "tests/test_decoder07_migration_continuation.py::test_historical_xz_chunk_transport_reconstructs"
+    ],
+    "selectors": [
+      "tests/test_decoder07_migration_continuation.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder07_certified_base.py::test_same_content_across_producer_versions_is_one_admissible_block",
+      "tests/test_decoder07_certified_base.py::test_canonical_json_deduplicates_key_order",
+      "tests/test_decoder07_certified_base.py::test_changed_bytes_are_a_new_block",
+      "tests/test_decoder07_certified_base.py::test_corrupted_physical_bytes_refuse",
+      "tests/test_decoder07_certified_base.py::test_incompatible_semantics_refuse[schema_id-IG_OTHER_V1]",
+      "tests/test_decoder07_certified_base.py::test_incompatible_semantics_refuse[meaning-other.meaning]",
+      "tests/test_decoder07_certified_base.py::test_incompatible_semantics_refuse[domain-other.domain]",
+      "tests/test_decoder07_certified_base.py::test_missing_coverage_and_invariant_refuse",
+      "tests/test_decoder07_certified_base.py::test_revocation_is_exact_and_blocks_dependents",
+      "tests/test_decoder07_certified_base.py::test_clean_materialization_and_tamper_refusal",
+      "tests/test_decoder07_certified_base.py::test_base_plus_delta_reconstructs_exact_target_and_refcounts",
+      "tests/test_decoder07_certified_base.py::test_representative_existing_inputs_are_measured_not_modified",
+      "tests/test_decoder07_certified_base.py::test_raw_large_fixture_can_be_certified_without_json_rewrite"
+    ],
+    "selectors": [
+      "tests/test_decoder07_certified_base.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_hybrid_lane_extension.py::test_hom6_single",
+      "tests/test_o7_c1_hybrid_lane_extension.py::test_twin4_single",
+      "tests/test_o7_c1_hybrid_lane_extension.py::test_hom6_twin4_pair",
+      "tests/test_o7_c1_hybrid_lane_extension.py::test_twin4_twin4_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_hybrid_lane_extension.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s5r_observer_continuity.py::test_postc5_registry_has_passive_g6_science_and_no_c5_finalize",
+      "tests/test_g6_s5r_observer_continuity.py::test_s5r_plan_requires_fixed_observer_and_factorization",
+      "tests/test_g6_s5r_observer_continuity.py::test_direct_science_evaluator_call_is_rejected",
+      "tests/test_g6_s5r_observer_continuity.py::test_final_source_direct_bootstrap_remains_closed"
+    ],
+    "selectors": [
+      "tests/test_g6_s5r_observer_continuity.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_exact_tree_relation_kernel_v03087.py::test_exact_relation_kernel_matches_historical_on_operator_basis_panel",
+      "tests/test_exact_tree_relation_kernel_v03087.py::test_exact_relation_kernel_matches_historical_on_reconstructed_s3r_sample"
+    ],
+    "selectors": [
+      "tests/test_exact_tree_relation_kernel_v03087.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_08lib_group_closure.py::test_every_single_generator[1]",
+      "tests/test_08lib_group_closure.py::test_every_single_generator[2]",
+      "tests/test_08lib_group_closure.py::test_every_single_generator[3]",
+      "tests/test_08lib_group_closure.py::test_every_single_generator[4]",
+      "tests/test_08lib_group_closure.py::test_every_single_generator[5]",
+      "tests/test_08lib_group_closure.py::test_every_single_generator[6]",
+      "tests/test_08lib_group_closure.py::test_every_ordered_generator_pair[1]",
+      "tests/test_08lib_group_closure.py::test_every_ordered_generator_pair[2]",
+      "tests/test_08lib_group_closure.py::test_every_ordered_generator_pair[3]",
+      "tests/test_08lib_group_closure.py::test_every_ordered_generator_pair[4]",
+      "tests/test_08lib_group_closure.py::test_every_ordered_generator_pair[5]",
+      "tests/test_08lib_group_closure.py::test_six_owner_selection_and_full_symmetric_group",
+      "tests/test_08lib_group_closure.py::test_identity_fixed_points_and_refusals",
+      "tests/test_08lib_group_closure.py::test_missing_library_does_not_fall_back",
+      "tests/test_08lib_group_closure.py::test_invalid_library_output_does_not_fall_back",
+      "tests/test_08lib_group_closure.py::test_typed_graph_integration[1]",
+      "tests/test_08lib_group_closure.py::test_typed_graph_integration[2]",
+      "tests/test_08lib_group_closure.py::test_typed_graph_integration[3]",
+      "tests/test_08lib_group_closure.py::test_typed_graph_integration[4]",
+      "tests/test_08lib_group_closure.py::test_downstream_action_summary"
+    ],
+    "selectors": [
+      "tests/test_08lib_group_closure.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[changed-BYTES]",
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[extra-FILE_SET]",
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[missing-FILE_SET]",
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[mode-MODE]",
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[symlink-SPECIAL_FILE]",
+      "tests/test_isolated_runtime.py::test_runtime_tree_refuses_mutation[bytecode-FILE_SET]",
+      "tests/test_isolated_runtime.py::test_bootstrap_refuses_unpinned_manifest",
+      "tests/test_isolated_runtime.py::test_bootstrap_refuses_unbound_interpreter_path",
+      "tests/test_isolated_runtime.py::test_isolated_process_uses_pinned_packages_and_sqlite",
+      "tests/test_isolated_runtime.py::test_isolated_bootstrap_refuses_unsafe_launch[flags-STARTUP_FLAGS]",
+      "tests/test_isolated_runtime.py::test_isolated_bootstrap_refuses_unsafe_launch[loader-LOADER_ENVIRONMENT]"
+    ],
+    "selectors": [
+      "tests/test_isolated_runtime.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_marker_cache_optimization.py::test_marker_q_cache_is_exact_and_semantics_preserving",
+      "tests/test_g6_marker_cache_optimization.py::test_marker_decode_cache_preserves_full_child_agreement_semantics",
+      "tests/test_g6_marker_cache_optimization.py::test_marker_write_fuses_raw_projection_without_second_relation_pass",
+      "tests/test_g6_marker_cache_optimization.py::test_marker_write_fused_projection_matches_independent_raw_reobservation",
+      "tests/test_g6_marker_cache_optimization.py::test_marker_q_seeds_exact_decode_cache_on_marker_free_domain"
+    ],
+    "selectors": [
+      "tests/test_g6_marker_cache_optimization.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7d2_e2_export_a22.py::test_a22_context_normalization_exact_248_to_124_alias_coverage",
+      "tests/test_g6_s7d2_e2_export_a22.py::test_a22_split_event_has_exact_structural_separator_and_stable_group_ids",
+      "tests/test_g6_s7d2_e2_export_a22.py::test_a22_final_export_has_complete_memberships_survivors_and_thin_manifest",
+      "tests/test_g6_s7d2_e2_export_a22.py::test_a22_progress_checkpoint_is_atomic_current_state_not_nested_bundle"
+    ],
+    "selectors": [
+      "tests/test_g6_s7d2_e2_export_a22.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_shared_authority.py::test_labels_discover_and_completed_work_reuses",
+      "tests/test_decoder06_shared_authority.py::test_repeat_and_unrelated_work_can_coexist",
+      "tests/test_decoder06_shared_authority.py::test_stale_activation_and_aba_are_refused",
+      "tests/test_decoder06_shared_authority.py::test_running_work_keeps_original_engine_after_activation",
+      "tests/test_decoder06_shared_authority.py::test_provider_replacement_detects_conflict",
+      "tests/test_decoder06_shared_authority.py::test_identity_binds_every_semantic_field",
+      "tests/test_decoder06_shared_authority.py::test_wrong_owner_cannot_complete_and_completion_is_immutable",
+      "tests/test_decoder06_shared_authority.py::test_reopen_retains_claim_release_and_provider"
+    ],
+    "selectors": [
+      "tests/test_decoder06_shared_authority.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_ambiguous_digest_transport_cannot_bypass_roles",
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_checkpoint_obligations_are_role_bound",
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_policy_is_explicit_and_legacy_default_is_preserved",
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_same_digest_keeps_distinct_capture_obligations"
+    ],
+    "selectors": [
+      "tests/test_decoder061_combined_contract.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_changes.py::test_open_binds_verified_parent_without_importing_it",
+      "tests/test_decoder06_changes.py::test_deep_controller_edit_captured_and_unchanged_revision_reused",
+      "tests/test_decoder06_changes.py::test_requirement_change_needs_reason_and_retains_both_forms",
+      "tests/test_decoder06_changes.py::test_changed_test_bytes_need_reason",
+      "tests/test_decoder06_changes.py::test_candidate_status_flag_cannot_prepare_activation",
+      "tests/test_decoder06_changes.py::test_unsaved_change_test_refuses_and_keeps_event",
+      "tests/test_decoder06_changes.py::test_modified_revision_and_wrong_save_bytes_are_rejected",
+      "tests/test_decoder06_changes.py::test_rollback_requires_exact_current_and_previous",
+      "tests/test_decoder06_changes.py::test_recovery_offers_engineering_only",
+      "tests/test_decoder06_changes.py::test_built_and_installed_version_matches_runtime_and_cli",
+      "tests/test_decoder06_changes.py::test_receipt_fields_cannot_overwrite_event_identity",
+      "tests/test_decoder06_changes.py::test_fabricated_pass_receipt_requires_real_controller_completion",
+      "tests/test_decoder06_changes.py::test_validation_runner_project_does_not_change_parent_release"
+    ],
+    "selectors": [
+      "tests/test_decoder06_changes.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_broader_lanes.py::test_het4_single",
+      "tests/test_o7_c1_broader_lanes.py::test_het4_het4_pair",
+      "tests/test_o7_c1_broader_lanes.py::test_het4_hom6_pair",
+      "tests/test_o7_c1_broader_lanes.py::test_het4_twin4_pair",
+      "tests/test_o7_c1_broader_lanes.py::test_hom6_hom6_pair",
+      "tests/test_o7_c1_broader_lanes.py::test_c1_77_case_zero"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_broader_lanes.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s6r_support.py::test_g6_s6r_modules_import_and_registry",
+      "tests/test_g6_s6r_support.py::test_s6_holdout_evaluator_reuses_raw_child_observer_states"
+    ],
+    "selectors": [
+      "tests/test_g6_s6r_support.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_portable_registry.py::test_capture_automatically_binds_project_and_requires_saved_history",
+      "tests/test_decoder06_portable_registry.py::test_engine_identity_excludes_experiment_and_display_labels",
+      "tests/test_decoder06_portable_registry.py::test_repeat_is_explicit_and_preserved",
+      "tests/test_decoder06_portable_registry.py::test_semantic_inputs_contract_resources_and_environment_change_identity",
+      "tests/test_decoder06_portable_registry.py::test_modified_binding_refuses",
+      "tests/test_decoder06_portable_registry.py::test_missing_project_cannot_start_registered_route",
+      "tests/test_decoder06_portable_registry.py::test_stale_release_compare_and_swap_and_history_retention",
+      "tests/test_decoder06_portable_registry.py::test_branch_import_retains_conflict_and_requires_explicit_selection",
+      "tests/test_decoder06_portable_registry.py::test_unrelated_work_histories_merge_without_project_wide_conflict",
+      "tests/test_decoder06_portable_registry.py::test_provider_requires_current_parent_and_real_check_capsules",
+      "tests/test_decoder06_portable_registry.py::test_archive_hash_and_missing_parent_refuse",
+      "tests/test_decoder06_portable_registry.py::test_direct_release_activation_has_no_authority",
+      "tests/test_decoder06_portable_registry.py::test_current_validation_has_native_project_claim",
+      "tests/test_decoder06_portable_registry.py::test_refusal_provides_usable_store_and_explicit_missing_arguments",
+      "tests/test_decoder06_portable_registry.py::test_recapture_refreshes_release_and_provider_context",
+      "tests/test_decoder06_portable_registry.py::test_existing_work_keeps_its_provider_binding",
+      "tests/test_decoder06_portable_registry.py::test_reuse_lookup_uses_captured_host_but_does_not_create_a_claim"
+    ],
+    "selectors": [
+      "tests/test_decoder06_portable_registry.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_database_sidecar_comparison.py::test_control_database_file_combinations",
+      "tests/test_database_sidecar_comparison.py::test_held_write_database_file_combinations",
+      "tests/test_database_sidecar_comparison.py::test_project_database_file_combinations"
+    ],
+    "selectors": [
+      "tests/test_database_sidecar_comparison.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_independent_canonicalization.py::test_c1_76_case_zero",
+      "tests/test_o7_c1_independent_canonicalization.py::test_hom6_single",
+      "tests/test_o7_c1_independent_canonicalization.py::test_twin4_single",
+      "tests/test_o7_c1_independent_canonicalization.py::test_hom6_twin4_pair",
+      "tests/test_o7_c1_independent_canonicalization.py::test_twin4_twin4_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_independent_canonicalization.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_independent_materialization.py::test_c1_76_case_zero",
+      "tests/test_o7_c1_independent_materialization.py::test_hom6_single",
+      "tests/test_o7_c1_independent_materialization.py::test_twin4_single",
+      "tests/test_o7_c1_independent_materialization.py::test_hom6_twin4_pair",
+      "tests/test_o7_c1_independent_materialization.py::test_twin4_twin4_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_independent_materialization.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_intrinsic_graph_descriptors_are_vertex_relabel_invariant",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_descriptor_exactness_classifies_exact_under_and_over_refinement",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_component_split_witness_is_deterministic",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_evaluators_are_registered_primary_with_identity_free_service_surface",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_factor_swap_alias_map_covers_248_scientific_contexts_from_124_execution_contexts",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_source_freezes_depth_operator_resource_and_nonclaim_boundaries",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_controller_registers_s8_only_through_passive_science_intake",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_v2_plan_and_relation_service_budget_are_fail_closed",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_compact_depth1_encoding_is_exact_equality_equivalent_to_expanded_form",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_context_normalization_is_a_bound_science_artifact",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_depth2_uses_s7_a30_count_vectors_without_grandchild_public_reads_or_alias_expansion",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_124_execution_tuple_is_equality_equivalent_to_248_factor_swap_alias_materialization",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen32_class_prefix_comparator_registered_and_frozen",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen32_plan_freezes_class_order_batch_and_projection_schedule",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen32_projection_schedule_is_monotone_and_full_at_p124",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen32_class_comparator_short_circuits_on_first_prefix_separator",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen32_controller_permit_includes_class_prefix_evaluator",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen34_partial_depth1_projection_uses_scalar_profiles_and_p124_uses_family",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen34_profile_prefix_extends_monotonically_and_full_boundary_is_exact",
+      "tests/test_g6_s8_intrinsic_descriptor.py::test_s8_gen34_partial_prefix_is_execution_only_and_does_not_change_full_depth1"
+    ],
+    "selectors": [
+      "tests/test_g6_s8_intrinsic_descriptor.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_compact_label_reuse.py::test_compact_label_reuse_matches_generic_with_asymmetric_and_missing_labels",
+      "tests/test_compact_label_reuse.py::test_compact_label_lookup_cannot_admit_bool_or_float_operator_aliases[True]",
+      "tests/test_compact_label_reuse.py::test_compact_label_lookup_cannot_admit_bool_or_float_operator_aliases[1.0]",
+      "tests/test_compact_label_reuse.py::test_family_label_reuse_keeps_authority_table_bounded_and_scopes_exact"
+    ],
+    "selectors": [
+      "tests/test_compact_label_reuse.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s2_repaired_v03085.py::test_question_hash_and_stage",
+      "tests/test_g6_s2_repaired_v03085.py::test_context_ladder_sizes_and_binding",
+      "tests/test_g6_s2_repaired_v03085.py::test_s1r_authority_commit_integrity",
+      "tests/test_g6_s2_repaired_v03085.py::test_universe_rebuild_binding",
+      "tests/test_g6_s2_repaired_v03085.py::test_primary_independent_first_context_one_state"
+    ],
+    "selectors": [
+      "tests/test_g6_s2_repaired_v03085.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_live_graph_read.py::test_adjacency_matches_legacy_order_and_filters",
+      "tests/test_live_graph_read.py::test_repeated_adjacency_uses_index_without_source_reads",
+      "tests/test_live_graph_read.py::test_reads_preserve_workspace_bytes_and_times",
+      "tests/test_live_graph_read.py::test_new_operation_sees_addition_and_removal",
+      "tests/test_live_graph_read.py::test_concurrent_addition_refuses_result_and_cleans_temp",
+      "tests/test_live_graph_read.py::test_concurrent_removal_refuses_result",
+      "tests/test_live_graph_read.py::test_concurrent_same_length_rewrite_refuses_result",
+      "tests/test_live_graph_read.py::test_planner_does_not_return_when_edges_change",
+      "tests/test_live_graph_read.py::test_count_and_total_byte_budgets_refuse_whole_view",
+      "tests/test_live_graph_read.py::test_oversize_record_refused_before_decode",
+      "tests/test_live_graph_read.py::test_invalid_json_cleans_failed_view",
+      "tests/test_live_graph_read.py::test_valid_edge_wrong_filename_refused",
+      "tests/test_live_graph_read.py::test_symlink_record_refused",
+      "tests/test_live_graph_read.py::test_closed_view_and_exception_cleanup",
+      "tests/test_live_graph_read.py::test_computation_mandatory_cycles_and_evidence_separation",
+      "tests/test_live_graph_read.py::test_evidence_both_directions_selfloops_and_type_separation",
+      "tests/test_live_graph_read.py::test_minimum_preservation_pinned_mandatory_closure",
+      "tests/test_live_graph_read.py::test_replay_local_and_forced_missing_recipe",
+      "tests/test_live_graph_read.py::test_jumpstart_indexes_only_mandatory_material_dependencies",
+      "tests/test_live_graph_read.py::test_jumpstart_next_plan_observes_new_missing_leaf"
+    ],
+    "selectors": [
+      "tests/test_live_graph_read.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_PATH-D2_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_PATH-D2_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_PATH-D4_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_PATH-D4_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_BROOM-D2_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_BROOM-D2_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_BROOM-D4_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D2_BROOM-D4_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_PATH-D2_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_PATH-D2_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_PATH-D4_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_PATH-D4_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_BROOM-D2_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_BROOM-D2_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_BROOM-D4_PATH]",
+      "tests/test_engine_kernel_e1.py::test_all_496_frozen_basis_relations_equal_historical[D4_BROOM-D4_BROOM]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[0]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[17]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[35]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[61]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[83]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[101]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[133]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[159]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[181]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[207]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[231]",
+      "tests/test_engine_kernel_e1.py::test_portable_higher_panel_exact_signature_and_returned_children[255]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[0]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[1]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[2]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[3]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[4]",
+      "tests/test_engine_kernel_e1.py::test_asymmetric_endpoints_relabel_and_reorder_exact[5]",
+      "tests/test_engine_kernel_e1.py::test_exactly_one_graft_canon_per_candidate_no_child_validation",
+      "tests/test_engine_kernel_e1.py::test_cache_hits_bounds_eviction_and_disabled_cache",
+      "tests/test_engine_kernel_e1.py::test_cache_byte_bound_causes_eviction",
+      "tests/test_engine_kernel_e1.py::test_scope_reset_is_lazy_and_discards_old_cache",
+      "tests/test_engine_kernel_e1.py::test_immutable_prepared_and_different_authority_rejected",
+      "tests/test_engine_kernel_e1.py::test_record_decoder_rejects_lossy_coercion[record0]",
+      "tests/test_engine_kernel_e1.py::test_record_decoder_rejects_lossy_coercion[record1]",
+      "tests/test_engine_kernel_e1.py::test_record_decoder_rejects_lossy_coercion[record2]",
+      "tests/test_engine_kernel_e1.py::test_record_decoder_rejects_lossy_coercion[record3]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree0]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree1]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree2]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree3]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree4]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree5]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree6]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree7]",
+      "tests/test_engine_kernel_e1.py::test_invalid_carrier_fails_before_observation[tree8]",
+      "tests/test_engine_kernel_e1.py::test_resource_exhaustion_guards_engineering_tiny_authority",
+      "tests/test_engine_kernel_e1.py::test_singleton_and_repeated_equal_branches_preserved",
+      "tests/test_engine_kernel_e1.py::test_registered_engineering_evaluators_pass_architecture_gate",
+      "tests/test_engine_kernel_e1.py::test_extracted_reference_matches_unchanged_historical_function"
+    ],
+    "selectors": [
+      "tests/test_engine_kernel_e1.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_recomputes_exact_structural_member_identity",
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_mutated_state_fails_closed",
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_mutated_state_token_fails_closed",
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_receipt_source_cannot_self_certify_independent_membership",
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_phase_schedule_is_exact_inherited_plus_31_batches",
+      "tests/test_g6_s7_a6_reuse_provenance.py::test_a20_controller_owns_provenance_operation"
+    ],
+    "selectors": [
+      "tests/test_g6_s7_a6_reuse_provenance.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_no_deadline_conveyor_run_operation.py::test_conveyor_and_run_operation_ignore_time_only_limits_but_keep_non_time_limits"
+    ],
+    "selectors": [
+      "tests/test_no_deadline_conveyor_run_operation.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder07_candidate_workflow.py::test_independent_candidates_merge_without_owner_token",
+      "tests/test_decoder07_candidate_workflow.py::test_same_contract_refuses_with_witness",
+      "tests/test_decoder07_candidate_workflow.py::test_same_file_refuses_even_when_contract_labels_differ",
+      "tests/test_decoder07_candidate_workflow.py::test_task_local_selection_never_writes_shared_pointer",
+      "tests/test_decoder07_candidate_workflow.py::test_failed_candidate_cannot_be_selected",
+      "tests/test_decoder07_candidate_workflow.py::test_candidate_record_is_immutable",
+      "tests/test_decoder07_candidate_workflow.py::test_candidate_version_roundtrip[0.8.0.dev2+lib]",
+      "tests/test_decoder07_candidate_workflow.py::test_candidate_version_roundtrip[0.8.0+lib]",
+      "tests/test_decoder07_candidate_workflow.py::test_candidate_version_roundtrip[0.8lib]",
+      "tests/test_decoder07_candidate_workflow.py::test_candidate_version_roundtrip[0.7.0.dev4]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[0.8.0.dev2+]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[0.8.0.dev2+lib+other]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[0.8.0.dev2+other]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[0.8.0.dev2+lib\\n]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[../0.8lib]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[]",
+      "tests/test_decoder07_candidate_workflow.py::test_invalid_local_candidate_versions_refused[None]",
+      "tests/test_decoder07_candidate_workflow.py::test_local_suffix_does_not_relax_project_names"
+    ],
+    "selectors": [
+      "tests/test_decoder07_candidate_workflow.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py::test_a21_fixed_a6_collision_pair_literal_248_equals_normalized_124_joint_bags",
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py::test_a21_outer_right_coordinate_maps_exactly_to_transposed_left_representative",
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py::test_a21_empty_successor_relation_has_exact_empty_joint_bag",
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py::test_a21_joint_vectors_preserve_correlation_that_equal_marginals_lose",
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py::test_a21_singleton_skip_is_exact_monotone_partition_refinement"
+    ],
+    "selectors": [
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s6r_global_observer_congruence.py::test_global_operation_registered",
+      "tests/test_g6_s6r_global_observer_congruence.py::test_global_module_has_fail_closed_unresolved_path"
+    ],
+    "selectors": [
+      "tests/test_g6_s6r_global_observer_congruence.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_change_preservation_rebind.py::test_frozen_real_capture_and_review_scope",
+      "tests/test_change_preservation_rebind.py::test_allowance_amendment_changes_only_pending_ceiling",
+      "tests/test_change_preservation_rebind.py::test_contract_changes_no_result_or_input_semantics",
+      "tests/test_change_preservation_rebind.py::test_no_mutation_of_supplied_record",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[0]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[-1]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[536870912]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[536870911]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[True]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[1073741824.0]",
+      "tests/test_change_preservation_rebind.py::test_invalid_allowance_refused[1073741824]",
+      "tests/test_change_preservation_rebind.py::test_workspace_limit_still_enforced",
+      "tests/test_change_preservation_rebind.py::test_no_automatic_deadline_allowed[wall_seconds_max-120]",
+      "tests/test_change_preservation_rebind.py::test_no_automatic_deadline_allowed[execution_policy-AUTOMATIC_RUNTIME_DEADLINE_V1]",
+      "tests/test_change_preservation_rebind.py::test_project_science_capture_cannot_be_rebound",
+      "tests/test_change_preservation_rebind.py::test_nonengineering_handler_cannot_be_rebound",
+      "tests/test_change_preservation_rebind.py::test_initial_pointer_reconstructs_exact_saved_hash",
+      "tests/test_change_preservation_rebind.py::test_noninitial_or_foreign_pointer_refuses",
+      "tests/test_change_preservation_rebind.py::test_semantic_changes_are_detected[where0]",
+      "tests/test_change_preservation_rebind.py::test_semantic_changes_are_detected[where1]",
+      "tests/test_change_preservation_rebind.py::test_semantic_changes_are_detected[where2]",
+      "tests/test_change_preservation_rebind.py::test_semantic_changes_are_detected[where3]",
+      "tests/test_change_preservation_rebind.py::test_semantic_changes_are_detected[where4]",
+      "tests/test_change_preservation_rebind.py::test_legacy_binding_remains_exact_when_no_amendment",
+      "tests/test_change_preservation_rebind.py::test_corrupted_amendment_seal_refuses",
+      "tests/test_change_preservation_rebind.py::test_foreign_amendment_binding_refuses",
+      "tests/test_change_preservation_rebind.py::test_immutable_byte_writer_never_overwrites",
+      "tests/test_change_preservation_rebind.py::test_qualification_is_mandatory_before_mutation",
+      "tests/test_change_preservation_rebind.py::test_absent_completion_cannot_be_recorded",
+      "tests/test_change_preservation_rebind.py::test_activation_packet_preserves_amendment_bytes",
+      "tests/test_change_preservation_rebind.py::test_recovery_retains_reviewed_core_byte_boundaries"
+    ],
+    "selectors": [
+      "tests/test_change_preservation_rebind.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_legacy_capture_receipts.py::test_original_capsule_restores_its_historical_save_contract",
+      "tests/test_legacy_capture_receipts.py::test_real_physical_receipt_satisfies_both_original_roles_without_rewrite",
+      "tests/test_legacy_capture_receipts.py::test_saved_evidence_can_be_verified_without_execution_environment",
+      "tests/test_legacy_capture_receipts.py::test_execution_environment_remains_strict",
+      "tests/test_legacy_capture_receipts.py::test_unverified_producer_does_not_enable_legacy_fallback[version_only]",
+      "tests/test_legacy_capture_receipts.py::test_unverified_producer_does_not_enable_legacy_fallback[wrong_archive]",
+      "tests/test_legacy_capture_receipts.py::test_unverified_producer_does_not_enable_legacy_fallback[missing_producer]",
+      "tests/test_legacy_capture_receipts.py::test_unverified_producer_does_not_enable_legacy_fallback[changed_source]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[digest]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[size]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[provider]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[drive_id]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[not_verified]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[bad_seal]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[missing]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[role_bound_v1]",
+      "tests/test_legacy_capture_receipts.py::test_bad_or_wrong_scope_receipt_never_satisfies_legacy_pair[wrong_capture_v2]",
+      "tests/test_legacy_capture_receipts.py::test_modern_ambiguous_role_still_rejects_original_unbound_receipt",
+      "tests/test_legacy_capture_receipts.py::test_original_capsule_corrupt_object_refuses_before_save_fallback"
+    ],
+    "selectors": [
+      "tests/test_legacy_capture_receipts.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_evaluator_passes_controller_stage_architecture_gate",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_frozen_observer_inverts_all_four_seed_carriers",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_evaluator_is_in_accepted_worker_registry",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_s1_identifier_uses_exact_canon_repr_when_historical_index_has_no_id_fields",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_fast_inversion_is_structurally_exact_on_live_size_strata",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_verified_decode_fast_path_is_exact_on_live_size_strata",
+      "tests/test_g6_s5r_compositional_read_write.py::test_crw_verified_decode_falls_back_without_changing_empty_state_failure"
+    ],
+    "selectors": [
+      "tests/test_g6_s5r_compositional_read_write.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s1_repair_v03083.py::test_repair_question_hash_and_ladder",
+      "tests/test_g6_s1_repair_v03083.py::test_embedded_authority_commit_integrity",
+      "tests/test_g6_s1_repair_v03083.py::test_frozen_basis_rho01_matches_review",
+      "tests/test_g6_s1_repair_v03083.py::test_typed_owner_orbit_structural_interpretation_matches_review"
+    ],
+    "selectors": [
+      "tests/test_g6_s1_repair_v03083.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py::test_a24r_equal_size_is_conservative_exact_fallback",
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py::test_a24r_exact_rooted_cavity_ambiguity_fixture_falls_back_10_to_9",
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py::test_a24r_positive_unequal_size_fastpath_is_differentially_exact",
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py::test_a24r_full_bounded_differential_panel_matches_retained_canonical_core",
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py::test_a24r_provider_exposes_operational_fastpath_metrics_only"
+    ],
+    "selectors": [
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_evidence_diagnostics.py::test_matching_completion_remains_read_only",
+      "tests/test_evidence_diagnostics.py::test_live_mismatch_inventory_is_single_read_and_read_only",
+      "tests/test_evidence_diagnostics.py::test_missing_and_synthetic_sidecar_are_distinct",
+      "tests/test_evidence_diagnostics.py::test_public_refusal_retains_same_diagnostic_outside_evidence",
+      "tests/test_evidence_diagnostics.py::test_metadata_refusal_does_not_claim_inventory_read",
+      "tests/test_evidence_diagnostics.py::test_diagnostic_freezes_input_and_handles_duplicate_paths",
+      "tests/test_evidence_diagnostics.py::test_checkpoint_legacy_does_not_invent_unique_root",
+      "tests/test_evidence_diagnostics.py::test_exact_partition_incident_reports_retained_mismatch",
+      "tests/test_evidence_diagnostics.py::test_real_checkpoint_overlaps_held_writer_transaction"
+    ],
+    "selectors": [
+      "tests/test_evidence_diagnostics.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_registered_and_marker_free",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_evaluator_specs_are_public_service_only",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_public_read_service_matches_inherited_adapter_on_basis",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_multiset_signature_preserves_successor_block_multiplicity_without_exact_ids",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_depth2_is_declared_as_refinement_not_scalar_count_only",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_profile_service_matches_full_relation_count_on_basis_contexts",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_depth1_fast_path_preserves_full_public_multiset_formula",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_lazy_component_and_heavy_shard_controls_present",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_fast_depth1_signature_is_exactly_reference_materialization_on_frozen_seed",
+      "tests/test_g6_s7_ordinary_future_quotient.py::test_s7_depth1_component_evaluator_needs_no_public_read_service"
+    ],
+    "selectors": [
+      "tests/test_g6_s7_ordinary_future_quotient.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7d2_compact_family_a30.py::test_a30_compact_family_matches_accepted_exact_batch_on_wide_certified_a6_carriers",
+      "tests/test_g6_s7d2_compact_family_a30.py::test_a30_family_preserves_order_and_falls_back_exactly_outside_s7d2_shape",
+      "tests/test_g6_s7d2_compact_family_a30.py::test_a30_public_family_provider_is_right_major_and_exact",
+      "tests/test_g6_s7d2_compact_family_a30.py::test_a30_validation_runtime_retains_pytest_prefixed_benchmark_payload"
+    ],
+    "selectors": [
+      "tests/test_g6_s7d2_compact_family_a30.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_h1_h13_semantic_classification_spot_check.py::test_spot_check_remains_a_dev48_historical_non_authorizing_record",
+      "tests/test_h1_h13_semantic_classification_spot_check.py::test_frozen_theorem_and_instantiation_bytes_match_pins",
+      "tests/test_h1_h13_semantic_classification_spot_check.py::test_every_hypothesis_text_and_single_series_mapping_match_the_audit",
+      "tests/test_h1_h13_semantic_classification_spot_check.py::test_all_thirteen_verdicts_are_explicit_and_borderlines_are_adjudicated",
+      "tests/test_h1_h13_semantic_classification_spot_check.py::test_historical_o7_pass_is_not_relabelled_as_independent_confirmation"
+    ],
+    "selectors": [
+      "tests/test_h1_h13_semantic_classification_spot_check.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_capture.py::test_active_version_has_one_source",
+      "tests/test_decoder06_capture.py::test_unchanged_capture_is_reused_and_helper_change_is_new",
+      "tests/test_decoder06_capture.py::test_unsaved_or_failed_save_cannot_start_a_job",
+      "tests/test_decoder06_capture.py::test_wrong_readback_is_preserved_and_cannot_confirm",
+      "tests/test_decoder06_capture.py::test_capture_objects_restore_after_working_project_deletion",
+      "tests/test_decoder06_capture.py::test_unresolved_helper_and_generated_code_are_actionable",
+      "tests/test_decoder06_capture.py::test_input_hash_and_symlink_mismatches_are_refused",
+      "tests/test_decoder06_capture.py::test_contract_and_environment_are_bound_to_revision",
+      "tests/test_decoder06_capture.py::test_project_import_guard_checks_helper_bytes",
+      "tests/test_decoder06_capture.py::test_current_validation_job_has_real_saved_source_records",
+      "tests/test_decoder06_capture.py::test_capture_metadata_change_cannot_rebind_frozen_job",
+      "tests/test_decoder06_capture.py::test_rejected_capture_preserves_original_script_and_intent"
+    ],
+    "selectors": [
+      "tests/test_decoder06_capture.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s6r_l2_proof_reduction.py::test_l2p_operation_registered",
+      "tests/test_g6_s6r_l2_proof_reduction.py::test_l2p_evaluator_registered_and_scoped",
+      "tests/test_g6_s6r_l2_proof_reduction.py::test_l2p_module_is_fail_closed_and_nonpromoting"
+    ],
+    "selectors": [
+      "tests/test_g6_s6r_l2_proof_reduction.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_project_stage.py::test_project_stage_executes_from_exact_captured_source",
+      "tests/test_decoder06_project_stage.py::test_project_callable_requires_exact_source_and_module_binding",
+      "tests/test_decoder06_project_stage.py::test_unbound_or_outside_project_callable_refuses",
+      "tests/test_decoder06_project_stage.py::test_project_stage_retains_runtime_binding_refusals[missing-SQLITE_RUNTIME_BINDING_REQUIRED]",
+      "tests/test_decoder06_project_stage.py::test_project_stage_retains_runtime_binding_refusals[wrong-PINNED_RUNTIME_MISMATCH]"
+    ],
+    "selectors": [
+      "tests/test_decoder06_project_stage.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_stage_executors_v03082.py::test_all_frozen_g6_question_hashes_are_embedded_and_exact",
+      "tests/test_g6_stage_executors_v03082.py::test_historical_g6_private_executor_registration_is_inspect_only",
+      "tests/test_g6_stage_executors_v03082.py::test_g6_s0_frozen_authority_records_four_certified_g5_seed_carriers",
+      "tests/test_g6_stage_executors_v03082.py::test_g6_s1_exact_relation_oracle_finds_residual_independently",
+      "tests/test_g6_stage_executors_v03082.py::test_historical_g6_s0_s1_chain_evidence_is_packaged_and_integrity_bound"
+    ],
+    "selectors": [
+      "tests/test_g6_stage_executors_v03082.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_graph_comparison.py::test_historical_c1_qualified_outer_graph_subset",
+      "tests/test_o7_c1_graph_comparison.py::test_historical_c1_archive_identity",
+      "tests/test_o7_c1_graph_comparison.py::test_extended_graph_domain_against_retained_independent_calculation"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_graph_comparison.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_audit_stop_recovery.py::test_dev80_reproduces_hidden_stop",
+      "tests/test_audit_stop_recovery.py::test_dev80_reproduces_missing_repeat_evidence",
+      "tests/test_audit_stop_recovery.py::test_dev80_reproduces_pre_payload_recovery_failure",
+      "tests/test_audit_stop_recovery.py::test_old_index_cannot_hide_retained_stop",
+      "tests/test_audit_stop_recovery.py::test_repeat_evidence_is_required_on_resume[deleted]",
+      "tests/test_audit_stop_recovery.py::test_repeat_evidence_is_required_on_resume[corrupt]",
+      "tests/test_audit_stop_recovery.py::test_repeat_evidence_is_required_on_resume[unindexed]",
+      "tests/test_audit_stop_recovery.py::test_repeat_evidence_is_required_on_resume[missing_capsule]",
+      "tests/test_audit_stop_recovery.py::test_multiple_repeats_and_success_resume",
+      "tests/test_audit_stop_recovery.py::test_other_decisions_remain_resumable[PATCH_REQUIRED]",
+      "tests/test_audit_stop_recovery.py::test_other_decisions_remain_resumable[NEW_SCIENCE_REQUIRED]",
+      "tests/test_audit_stop_recovery.py::test_other_decisions_remain_resumable[CERTIFY_AND_ADVANCE]",
+      "tests/test_audit_stop_recovery.py::test_other_decisions_remain_resumable[CONTINUE]",
+      "tests/test_audit_stop_recovery.py::test_crash_after_capsule_before_state_refuses",
+      "tests/test_audit_stop_recovery.py::test_crash_after_decision_before_state_refuses",
+      "tests/test_audit_stop_recovery.py::test_reference_recovers_before_payload_and_commits_once",
+      "tests/test_audit_stop_recovery.py::test_legacy_missing_payload_refuses_then_exact_restoration_recovers",
+      "tests/test_audit_stop_recovery.py::test_corrupt_embedded_record_does_not_publish"
+    ],
+    "selectors": [
+      "tests/test_audit_stop_recovery.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_08lib_backend.py::test_exact_owner_maps_and_downstream_summary",
+      "tests/test_08lib_backend.py::test_dispatch_and_no_error_fallback",
+      "tests/test_08lib_backend.py::test_version_contract",
+      "tests/test_08lib_backend.py::test_representative_qualification_cannot_mint_external_authority"
+    ],
+    "selectors": [
+      "tests/test_08lib_backend.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_hash_split_and_scope_accepts_frozen_plan",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_executor_is_registered_and_old_v2_remains_registered",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_profile_coordinate_budget_is_counted_by_coordinate",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_e1_is_emitted_distinctly",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_module_contains_witness_replay_and_no_full_sweep",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_stage_runtime_error_filter_is_fail_closed",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_gen38_staged_executor_declares_parallel_dedup_and_incremental_prefixes",
+      "tests/test_g6_s8_v3_targeted_probe.py::test_v3_profile_extension_uses_batch_and_only_delta"
+    ],
+    "selectors": [
+      "tests/test_g6_s8_v3_targeted_probe.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s5r_crw1.py::test_crw1_abstract_write_signature_has_no_raw_parent_parameter",
+      "tests/test_g6_s5r_crw1.py::test_crw1_q_only_write_matches_raw_on_basis_panel",
+      "tests/test_g6_s5r_crw1.py::test_crw1_empty_relation_is_exact_empty_set",
+      "tests/test_g6_s5r_crw1.py::test_crw1_q_only_write_diagnostics_reuse_same_decoded_parents"
+    ],
+    "selectors": [
+      "tests/test_g6_s5r_crw1.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_e3_g6_controller_generation_evaluators.py::test_e3_axis_a_generation_matches_historical_structural_relation",
+      "tests/test_e3_g6_controller_generation_evaluators.py::test_e3_axis_b_generation_matches_historical_structural_relation",
+      "tests/test_e3_g6_controller_generation_evaluators.py::test_e3_l1_wrapper_preserves_historical_signature_shape_exactly"
+    ],
+    "selectors": [
+      "tests/test_e3_g6_controller_generation_evaluators.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_independent_merkle.py::test_c1_76_case_zero",
+      "tests/test_o7_c1_independent_merkle.py::test_hom6_single",
+      "tests/test_o7_c1_independent_merkle.py::test_twin4_single",
+      "tests/test_o7_c1_independent_merkle.py::test_hom6_twin4_pair",
+      "tests/test_o7_c1_independent_merkle.py::test_twin4_twin4_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_independent_merkle.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_high_lanes.py::test_het4_single",
+      "tests/test_o7_c1_high_lanes.py::test_hom6_single",
+      "tests/test_o7_c1_high_lanes.py::test_twin4_single",
+      "tests/test_o7_c1_high_lanes.py::test_het4_hom6_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_high_lanes.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_execution_start_method_portability.py::test_auto_falls_back_to_spawn_when_forkserver_transport_is_blocked",
+      "tests/test_execution_start_method_portability.py::test_auto_prefers_forkserver_when_transport_is_available",
+      "tests/test_execution_start_method_portability.py::test_explicit_forkserver_remains_explicit_when_transport_probe_fails",
+      "tests/test_execution_start_method_portability.py::test_legacy_fork_initializer_still_selects_fork",
+      "tests/test_execution_start_method_portability.py::test_current_auto_choice_is_advertised_and_transport_usable"
+    ],
+    "selectors": [
+      "tests/test_execution_start_method_portability.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py::test_a25_active_schedule_pays_full_inner_vector_once_per_outer_component",
+      "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py::test_a25_handler_keeps_exact_monotone_singleton_pruning_and_factor_swap_science_binding",
+      "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py::test_a25_is_execution_only_and_does_not_relax_completion_requirement"
+    ],
+    "selectors": [
+      "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s6r_l2_repair.py::test_l2_operation_registered",
+      "tests/test_g6_s6r_l2_repair.py::test_l2_evaluator_registered_and_scoped",
+      "tests/test_g6_s6r_l2_repair.py::test_l2_module_is_fail_closed"
+    ],
+    "selectors": [
+      "tests/test_g6_s6r_l2_repair.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_completion_publication.py::test_dev81_reproduces_hash_and_json_from_different_bytes",
+      "tests/test_completion_publication.py::test_hash_json_checks_and_outcome_use_one_byte_snapshot",
+      "tests/test_completion_publication.py::test_outcome_only_artifact_is_also_read_once",
+      "tests/test_completion_publication.py::test_invalid_artifact_bytes_cannot_supply_outcome[malformed]",
+      "tests/test_completion_publication.py::test_invalid_artifact_bytes_cannot_supply_outcome[invalid_utf8]",
+      "tests/test_completion_publication.py::test_unchanged_artifact_evidence_binds_and_mutation_refuses",
+      "tests/test_completion_publication.py::test_exact_dev81_source_publishes_claim_before_terminal_checkpoint",
+      "tests/test_completion_publication.py::test_checkpoint_failure_never_calls_claim_complete",
+      "tests/test_completion_publication.py::test_publication_occurs_only_after_checkpoint_success",
+      "tests/test_completion_publication.py::test_prepared_checkpoint_evidence_is_checked_and_divergence_refuses",
+      "tests/test_completion_publication.py::test_missing_checkpoint_proof_stays_unpublished",
+      "tests/test_completion_publication.py::test_invalid_checkpoint_proof_refuses[hash]",
+      "tests/test_completion_publication.py::test_invalid_checkpoint_proof_refuses[completion]",
+      "tests/test_completion_publication.py::test_invalid_checkpoint_proof_refuses[source]",
+      "tests/test_completion_publication.py::test_invalid_checkpoint_proof_refuses[capture]",
+      "tests/test_completion_publication.py::test_invalid_checkpoint_proof_refuses[terminal]",
+      "tests/test_completion_publication.py::test_terminal_restore_proof_is_portable",
+      "tests/test_completion_publication.py::test_paused_restore_remains_pending",
+      "tests/test_completion_publication.py::test_historical_completion_rules_remain_and_unknown_protocol_refuses"
+    ],
+    "selectors": [
+      "tests/test_completion_publication.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_r0_post_graduation_fiber.py::test_r0_singleton_fiber_direct_corollary"
+    ],
+    "selectors": [
+      "tests/test_g6_r0_post_graduation_fiber.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s5r_wider_feature_search.py::test_wider_operation_is_registered_without_external_execution",
+      "tests/test_g6_s5r_wider_feature_search.py::test_controller_event_runtime_permit_cannot_be_minted_externally",
+      "tests/test_g6_s5r_wider_feature_search.py::test_wider_module_has_fixed_evaluator_and_candidate_order",
+      "tests/test_g6_s5r_wider_feature_search.py::test_event_loop_dispatches_wider_operation",
+      "tests/test_g6_s5r_wider_feature_search.py::test_spawn_pool_guard_removes_launcher_main_path_and_restores_it"
+    ],
+    "selectors": [
+      "tests/test_g6_s5r_wider_feature_search.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_fresh_marker_operations.py::test_marker_operations_registered",
+      "tests/test_g6_fresh_marker_operations.py::test_g5_r4_marker_theorem_authority"
+    ],
+    "selectors": [
+      "tests/test_g6_fresh_marker_operations.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_operation_registered_and_reuse_only",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_evaluator_uses_public_services_only_and_no_public_read",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_outer_prefix_component_matches_direct_exact_formula_on_frozen_seed",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_exact_child_identity_never_enters_signature_source",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_global_dedup_evaluators_use_existing_kernel_services_only",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_active_handler_uses_parent_prefix_monotone_not_global_child_universe",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_split_global_dedup_signature_matches_reference_at_prefix8_and32",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_profile_extension_reuses_prior_prefix_without_recomputing_it",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_prefix1_prefilter_is_exact_prefix_of_reference_prefix8",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_parent_prefix_monotone_path_never_touches_kernel_files",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_controller_permit_admits_existing_reference_prefilter_evaluator",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_compact_profile_task_payload_avoids_eager_identity_and_tree_expansion",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_compact_profile_evaluator_matches_legacy_payload",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_compact_parent_assembly_matches_legacy_payload",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_a25_full_inner_outer_monotone_preserves_chaining_and_bounds_task_universe",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_parent_prefix_task_is_exact_registered_component_and_task_count_is_parent_bounded",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_factor_swap_normalization_basis_is_exact_and_124_wide",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_factor_swap_normalized_inner_vector_expands_to_literal_248_vector",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_active_factor_swap_execution_is_124_by_124_and_scientific_observer_stays_248",
+      "tests/test_g6_s7_depth2_completion.py::test_s7d2_parent_prefix_worker_child_cache_disabled_after_zero_hit_audit"
+    ],
+    "selectors": [
+      "tests/test_g6_s7_depth2_completion.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s7d2_profile_batch_a27.py::test_kernel_relation_profile_batch_exactly_matches_scalar_all_31_ops_equal_and_unequal_sizes",
+      "tests/test_g6_s7d2_profile_batch_a27.py::test_public_batch_provider_preserves_operator_order_and_scalar_counts",
+      "tests/test_g6_s7d2_profile_batch_a27.py::test_s7d2_full_p124_batch_path_matches_scalar_reference_exactly"
+    ],
+    "selectors": [
+      "tests/test_g6_s7d2_profile_batch_a27.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_invocation.py::test_public_scope_refuses_and_has_working_run_instruction",
+      "tests/test_decoder06_invocation.py::test_private_scope_refuses_even_before_reading_attempt",
+      "tests/test_decoder06_invocation.py::test_legacy_context_key_cannot_create_unbound_root",
+      "tests/test_decoder06_invocation.py::test_direct_internal_dispatch_has_no_effect",
+      "tests/test_decoder06_invocation.py::test_direct_script_runtime_has_no_effect",
+      "tests/test_decoder06_invocation.py::test_direct_task_service_does_not_consume_generator",
+      "tests/test_decoder06_invocation.py::test_direct_validation_refuses_before_output",
+      "tests/test_decoder06_invocation.py::test_direct_publication_refuses_before_path_access",
+      "tests/test_decoder06_invocation.py::test_direct_worker_scope_refuses",
+      "tests/test_decoder06_invocation.py::test_native_worker_initialization_cannot_be_called_directly",
+      "tests/test_decoder06_invocation.py::test_direct_handler_pool_is_rejected_before_import",
+      "tests/test_decoder06_invocation.py::test_helper_pool_rejected_before_import_side_effect",
+      "tests/test_decoder06_invocation.py::test_version_style_helper_name_is_not_exempt",
+      "tests/test_decoder06_invocation.py::test_pure_cache_tempfiles_shutil_and_main_are_allowed",
+      "tests/test_decoder06_invocation.py::test_refusal_contract_does_not_claim_missing_artifacts_saved",
+      "tests/test_decoder06_invocation.py::test_neutral_entrypoints_and_legacy_aliases_share_native_controller",
+      "tests/test_decoder06_invocation.py::test_saved_current_validation_is_attempt_bound",
+      "tests/test_decoder06_invocation.py::test_private_process_refused_with_separate_admission_root[False]",
+      "tests/test_decoder06_invocation.py::test_private_process_refused_with_separate_admission_root[True]",
+      "tests/test_decoder06_invocation.py::test_interrupted_attempt_reconciliation_retains_original",
+      "tests/test_decoder06_invocation.py::test_interrupted_attempt_binding_mismatch_is_atomic"
+    ],
+    "selectors": [
+      "tests/test_decoder06_invocation.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_results_preservation.py::test_negative_scientific_result_can_be_verified",
+      "tests/test_decoder06_results_preservation.py::test_descriptive_contract_does_not_certify_science",
+      "tests/test_decoder06_results_preservation.py::test_script_scientific_outcome_is_read_from_declared_artifact",
+      "tests/test_decoder06_results_preservation.py::test_missing_output_is_rejected",
+      "tests/test_decoder06_results_preservation.py::test_wrong_hash_count_and_typed_value_are_rejected",
+      "tests/test_decoder06_results_preservation.py::test_bad_contract_paths_schema_and_limits_refuse",
+      "tests/test_decoder06_results_preservation.py::test_output_symlink_is_rejected",
+      "tests/test_decoder06_results_preservation.py::test_missing_prerequisite_refuses_before_execution",
+      "tests/test_decoder06_results_preservation.py::test_mixed_worker_does_not_relabel_passed_node",
+      "tests/test_decoder06_results_preservation.py::test_resume_selects_only_unfinished_nodes",
+      "tests/test_decoder06_results_preservation.py::test_node_results_do_not_depend_on_worker_grouping",
+      "tests/test_decoder06_results_preservation.py::test_checkpoint_copies_committed_sqlite_state_only",
+      "tests/test_decoder06_results_preservation.py::test_outbox_deduplicates_objects_and_never_invents_ack",
+      "tests/test_decoder06_results_preservation.py::test_wrong_outbox_readback_cannot_mark_saved",
+      "tests/test_decoder06_results_preservation.py::test_missing_outbox_object_is_visible",
+      "tests/test_decoder06_results_preservation.py::test_slim_restore_requires_exact_dependencies",
+      "tests/test_decoder06_results_preservation.py::test_interrupted_node_is_never_reported_as_pass",
+      "tests/test_decoder06_results_preservation.py::test_project_checkpoint_delta_reuses_baseline_and_reconstructs_exactly",
+      "tests/test_decoder06_results_preservation.py::test_stage_budget_counts_publication_and_all_phases",
+      "tests/test_decoder06_results_preservation.py::test_stage_budget_counts_closed_replay_stores_and_rejects_unknown_entries",
+      "tests/test_decoder06_results_preservation.py::test_activation_packaging_retains_proof_without_duplicate_checkpoint_payloads",
+      "tests/test_decoder06_results_preservation.py::test_physically_saved_capture_object_does_not_reconsume_backlog_reserve"
+    ],
+    "selectors": [
+      "tests/test_decoder06_results_preservation.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder06_transport.py::test_verified_reconstruction_and_receipt_keep_transport_identity[-RAW_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_verified_reconstruction_and_receipt_keep_transport_identity[-XZ_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_verified_reconstruction_and_receipt_keep_transport_identity[0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789-RAW_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_verified_reconstruction_and_receipt_keep_transport_identity[0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789-XZ_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_corrupt_missing_reordered_parts_leave_no_output",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[truncated]",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[trailing]",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[concatenated]",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[overflow]",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[wrong_hash]",
+      "tests/test_decoder06_transport.py::test_xz_failures_are_refused_without_ack[invalid]",
+      "tests/test_decoder06_transport.py::test_manifest_binding_and_unsafe_parts_refuse",
+      "tests/test_decoder06_transport.py::test_pack_bind_and_unpack_native_cli[RAW_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_pack_bind_and_unpack_native_cli[XZ_CHUNKS]",
+      "tests/test_decoder06_transport.py::test_legacy_receipt_still_valid",
+      "tests/test_decoder06_transport.py::test_native_outbox_accepts_transport_and_retains_raw_upload_note",
+      "tests/test_decoder06_transport.py::test_native_outbox_transport_requires_and_accepts_exact_obligation_selector",
+      "tests/test_decoder06_transport.py::test_native_capture_confirms_only_required_object"
+    ],
+    "selectors": [
+      "tests/test_decoder06_transport.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_o7_c1_independent_parent_orbits.py::test_c1_76_case_zero",
+      "tests/test_o7_c1_independent_parent_orbits.py::test_hom6_single",
+      "tests/test_o7_c1_independent_parent_orbits.py::test_twin4_single",
+      "tests/test_o7_c1_independent_parent_orbits.py::test_hom6_twin4_pair",
+      "tests/test_o7_c1_independent_parent_orbits.py::test_twin4_twin4_pair"
+    ],
+    "selectors": [
+      "tests/test_o7_c1_independent_parent_orbits.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_g6_s3_repaired_v03086.py::test_s3r_question_hash_and_authority",
+      "tests/test_g6_s3_repaired_v03086.py::test_higher_panel_frozen_sizes",
+      "tests/test_g6_s3_repaired_v03086.py::test_observer_ladder_still_contains_s2r_context",
+      "tests/test_g6_s3_repaired_v03086.py::test_s2r_authority_commit_integrity"
+    ],
+    "selectors": [
+      "tests/test_g6_s3_repaired_v03086.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_decoder07_semantic_inputs.py::test_versions_are_diagnostic_and_do_not_gate_selection",
+      "tests/test_decoder07_semantic_inputs.py::test_smallest_cover_is_one_block_then_fewest_bytes",
+      "tests/test_decoder07_semantic_inputs.py::test_equal_size_tie_is_deterministic_by_block_id",
+      "tests/test_decoder07_semantic_inputs.py::test_incompatible_or_incomplete_semantics_refuse[schema]",
+      "tests/test_decoder07_semantic_inputs.py::test_incompatible_or_incomplete_semantics_refuse[meaning]",
+      "tests/test_decoder07_semantic_inputs.py::test_incompatible_or_incomplete_semantics_refuse[domain]",
+      "tests/test_decoder07_semantic_inputs.py::test_incompatible_or_incomplete_semantics_refuse[coverage]",
+      "tests/test_decoder07_semantic_inputs.py::test_incompatible_or_incomplete_semantics_refuse[invariant]",
+      "tests/test_decoder07_semantic_inputs.py::test_control_roles_select_only_declared_control_category",
+      "tests/test_decoder07_semantic_inputs.py::test_optional_unavailable_is_reported_but_not_selected",
+      "tests/test_decoder07_semantic_inputs.py::test_changed_bytes_corruption_and_revocation_refuse",
+      "tests/test_decoder07_semantic_inputs.py::test_run_receipt_binds_selection_code_parameters_and_result",
+      "tests/test_decoder07_semantic_inputs.py::test_input_classification_keeps_administration_out_of_project_requirements",
+      "tests/test_decoder07_semantic_inputs.py::test_capture_reserves_admin_names_for_environment"
+    ],
+    "selectors": [
+      "tests/test_decoder07_semantic_inputs.py"
+    ]
+  },
+  {
+    "binding": "2b859e1c5938ab1be27703f28932c0e0e750b60a592b42b78da16d1356475253",
+    "nodes": [
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[1]",
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[2]",
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[3]",
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[4]",
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[5]",
+      "tests/test_08lib_graph_metrics.py::test_exhaustive_multigraph_metrics[6]",
+      "tests/test_08lib_graph_metrics.py::test_orientation_generator_and_no_input_mutation",
+      "tests/test_08lib_graph_metrics.py::test_dispatch_empty_and_unsupported_inputs",
+      "tests/test_08lib_graph_metrics.py::test_no_silent_library_fallback",
+      "tests/test_08lib_graph_metrics.py::test_library_runtime_error_propagates",
+      "tests/test_08lib_graph_metrics.py::test_downstream_service_effects"
+    ],
+    "selectors": [
+      "tests/test_08lib_graph_metrics.py"
+    ]
+  }
+]

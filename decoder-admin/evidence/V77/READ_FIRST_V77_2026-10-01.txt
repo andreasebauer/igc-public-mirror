@@ -1,0 +1,84 @@
+V77 DEV146 FULL QUALIFICATION ATTEMPT — FAILED/INCOMPLETE — 2026-10-01
+
+BIGGER STEP EXECUTED
+All seven exact fixture inputs verified;170 files registered in four ordered
+groups. Functional167 files dispatched once with4 workers. Other groups were
+planned to run automatically only after prior group passed. No routine pause or
+user confirmation stopped the campaign.
+
+OBSERVATION
+583 nodes fully passed all three phases;0 failed/skipped reports.65 functional
+files collected594 nodes;587 have reports,4 unfinished and7 not yet reported.
+102 functional files and all3 later groups remain unexecuted. V70's previously
+failing reviewed-core-pin test passed under native dev146 execution.
+The controller aborted on WORKSPACE_BUSY while making a progress checkpoint.
+It retained PAUSED attempt/refusal. Its immediate paused-checkpoint attempt also
+failed WORKSPACE_BUSY; CHECKPOINT_FAILURE.json is retained. No completion exists.
+No pause was requested by the report monitor because no test non-pass appeared.
+This is an incomplete failed campaign, not a successful583-test qualification.
+
+LOCK TRIAGE
+preservation.make_checkpoint and preservation_batch.confirm_batch both acquire
+the same durability/outbox .runner.lock through the nonblocking _workspace_lock.
+The native stack proves checkpoint lock acquisition failed. The54-role batch
+journal has receipt timestamps overlapping the failure (LOCK_TRIAGE.json).
+This supports save-acknowledgment/checkpoint contention; lock owner was not traced
+independently. Top-level workload exclusion must remain fail-fast. The narrow
+repair is to serialize controller checkpoint writes with legitimate acknowledgment
+work, with deterministic cross-process tests and native live-save qualification.
+Do not swallow every WORKSPACE_BUSY, relax backlog limits or retry the old job.
+
+PRESERVATION
+All22 capture roles saved/read back before dispatch (legacy helper prints19;
+actual pending-role count was22 and confirmation covered every role).
+All checkpoint roles drained after exit. Later idle export captures the unchanged
+failed attempt and refusal; it does not retroactively make the immediate paused
+checkpoint succeed. Saved export raw readback restored889 state/input files with
+exact bytes and ordinary rwx modes; same PAUSED attempt/refusal, no completion,
+zero recovery workloads. Source and reviewed runtime passed verification.
+One administrative acknowledgment poll returned a still-running session; it was
+waited to successful completion, not retried. No workload rerun or source change.
+
+NEXT / RC POSITION
+Five dev146 fixtures remain earned but dev146 full qualification is NOT passed.
+Prepare a reviewed new candidate for the durability-lock repair, update exact
+core-pin successor if applicable, save/read back candidate/protocol before tests,
+prove contention handling and live saves, then reconcile exact-candidate fixture
+requirements and retry full qualification on a fresh capture. Never resume V77.
+All23 RC acceptance rows OPEN. V75 RC roadmap still applies:full profile, finding
+dispositions, independent remote-only recovery, final matrix and explicit promotion.
+No science replay or release claim. Private failed_evidence bytes are excluded
+from public artifacts; raw node output is kept in the private saved bundle.
+Worktree /tmp/ig_decoder_dev146_20261001
+Runtime /tmp/ig_runtime_v55_fresh_20260930/python-fixed-host;PYTHONOPTIMIZE=0,-B.
+Failure restore /tmp/ig_v77_failure_restored_20261001
+
+{
+  "gate": "V77_DEV146_FULL_QUALIFICATION_ATTEMPT",
+  "status": "FAILED_INCOMPLETE_INFRASTRUCTURE_LOCK_CONTENTION",
+  "source_sha256": "930d6b4287782687891a57e034f7da69ab75a6b3b2426b20d85da36c64186137",
+  "capture_id": "b74acf6e42812a6657c56926ee14cc02b1ffab2f05b37021c6befa994ee3615d",
+  "native_attempts": 1,
+  "native_status": "PAUSED",
+  "reason": "ControllerLoopError:WORKSPACE_BUSY",
+  "native_completions": 0,
+  "functional_registered_files": 167,
+  "functional_collected_files": 65,
+  "functional_collected_nodes": 594,
+  "fully_passed_nodes": 583,
+  "reported_test_failures_or_skips": 0,
+  "unfinished_node_reports": 4,
+  "collected_without_report": 7,
+  "uncollected_functional_files": 102,
+  "other_groups": "NOT_STARTED",
+  "v70_core_pin_regression": "PASS",
+  "checkpoint_roles_acknowledged": 351,
+  "pending_checkpoint_roles": 0,
+  "restore_files_exact_bytes_modes": 889,
+  "recovery_workloads_dispatched": 0,
+  "export_sha256": "2d46d160cef94e5db9e3362a5adf2a906ffad2a078eb2421894a66ec95d87b21",
+  "export_drive_id": "1H3hxOh29AAO_-MYrQt4FC6MpQm1bKBdp",
+  "source_unchanged": true,
+  "full_rc": "OPEN",
+  "next": "Review narrow durability-lock serialization repair on new candidate; deterministic contention regression and native live-save proof before another full qualification attempt."
+}
