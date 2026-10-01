@@ -1,0 +1,45 @@
+V84 PAUSED EVIDENCE RECOVERY — VERIFIED — 2026-10-01
+
+Dev147 functional attempt paused on SAVE_BACKLOG_PAUSE after live checkpoint
+saving was interrupted. 1,406 tests passed; no recorded test failures; one report
+unfinished. 144/167 files collected, 1,474 nodes collected. No native completion.
+This is incomplete qualification, not a functional PASS or a decoder mismatch.
+
+Preservation: complete paused checkpoint saved in 15 ordered Drive parts.
+Each part downloaded and SHA256 verified; complete archive reconstructed and
+SHA256 verified, then restored through the native restoration API.
+2021 state files checked against exact checkpoint bytes;
+2039 recorded modes verified. Restored attempt remains PAUSED,
+with no published completion. Zero workloads executed during recovery.
+Original captured workspace unchanged. The 243 pending save obligations have
+NOT been marked acknowledged. Their extra objects and outbox metadata are also
+saved in V84_PENDING_AUDIT.zip, downloaded and verified.
+Source: 098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8
+Complete archive SHA256: 138aea465ff33307ceb94a1baece874d3bdb00e774e02e86c23db547a6ef8c36
+
+RECOVERY ASSESSMENT
+Read-only native selection gives 91 selectors: 68 unfinished tests
+and 23 uncollected files. None of the 1,406 completed nodes is selected again.
+This is a possible continuation path, NOT a finding that retry is already safe.
+The refusal says retry_is_safe=false. Before dispatch: resolve genuine save
+receipts, verify runtime/environment paths after scratch maintenance, review
+retained finalization evidence and explicitly record the changed attempt protocol.
+No blanket rerun, source repair, master-data generation or promotion performed.
+
+PRACTICAL NEXT DIRECTION — USER REQUEST
+Do not make exhaustive release ceremony a prerequisite for exploratory work.
+Prioritize a bounded master-data block and differential comparison with the
+older non-library decoder. Pin both implementations and identical inputs;
+agree on canonical block fields, ordering, identities, counts and numerical
+tolerances where applicable. Compare results, retain exact differing rows and
+diagnose the first divergence before repairs. Expected future changes are fine;
+do not silently normalize away differences or treat the old decoder as infallible.
+Keep qualification incomplete and all23 RC acceptance rows OPEN meanwhile.
+
+FILES
+REMOTE_PART_CATALOG.json: ordered snapshot parts, hashes, Drive IDs.
+PENDING_AUDIT_REMOTE.json: additional pending-save audit archive.
+RECOVERY_PROOF.json and RECOVERY_PLAN.json: checks and bounded continuation plan.
+Original capture /tmp/ig_qualification_v84_20261001/functional/store/captures/
+853b210f67a06c50ec51c262a72eae13918090e9e1246463a15327b074e88731
+Verified restored copy /tmp/ig_v84_paused_verified_recovery_20261001

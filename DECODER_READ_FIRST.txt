@@ -1,6 +1,6 @@
-DEV147 V83 FIVE-FIXTURE PREPARATION COMPLETE — OVERALL UNQUALIFIED
-All five candidate fixture roles earned and saved/readback/restoration verified.
-V83 four representative cases PASS; identical completion restored without rerun.
-Next: preregister full qualification, bind all seven fixture roles, functional first.
-Read decoder-admin/evidence/V83_REPORT.txt, CATALOG.json and RC_LEDGER.json. All23 RC rows OPEN.
-Verify source: python3 -B decoder-admin/decoder.py verify-source
+DEV147 V84 PAUSED — EVIDENCE RECOVERED
+1406 tests passed; no recorded failures; qualification incomplete.
+Exact remote snapshot recovery verified with zero execution.243 save obligations remain unacknowledged.
+Next priority: bounded master-data block comparison against older non-library decoder.
+Read decoder-admin/evidence/V84_RECOVERY/READ_FIRST_V84_RECOVERY_2026-10-01.txt.
+All23 RC acceptance rows OPEN; no release promotion.

@@ -1326,16 +1326,16 @@
     "next": "Regenerate five exact-dev146 fixtures, beginning with stage-one pre-run and completed fixtures; preregister/save/readback before dispatch."
   },
   "current_rc_roadmap": {
-    "as_of_gate": "V83",
+    "as_of_gate": "V84_RECOVERY",
     "candidate": "dev147",
     "fixture_roles_complete": 5,
     "fixture_roles_total": 5,
-    "full_candidate_qualification": "NOT_RUN",
+    "full_candidate_qualification": "PAUSED_INCOMPLETE",
     "profile_files": 170,
     "open_acceptance_rows": 23,
     "independent_remote_recovery": "OPEN",
     "promotion": "NOT_GRANTED",
-    "next": "Preregister full exact-dev147 qualification, bind all seven fixture roles; functional group first."
+    "next": "Bounded master-data block and older non-library decoder differential comparison; no automatic release promotion"
   },
   "latest_native_contention_gate": {
     "gate": "V79_DEV147_NATIVE_STARTUP_CONTENTION",
@@ -1385,5 +1385,21 @@
     "drive_id": "1XmfuMyCjhLvkGS9B5RzPBAjNgacbRYaR",
     "status": "UNQUALIFIED_BOUNDED_V71_PASS",
     "tests_executed": 5
+  },
+  "latest_paused_recovery_v84": {
+    "status": "PAUSED_INCOMPLETE_EVIDENCE_RECOVERED",
+    "passed_nodes": 1406,
+    "recorded_nonpass": 0,
+    "collected_files": 144,
+    "registered_files": 167,
+    "collected_nodes": 1474,
+    "unfinished_reports": 1,
+    "reason": "SAVE_BACKLOG_PAUSE",
+    "native_completion": null,
+    "snapshot_sha256": "138aea465ff33307ceb94a1baece874d3bdb00e774e02e86c23db547a6ef8c36",
+    "exact_recovery_verified": true,
+    "workloads_executed_on_recovery": 0,
+    "pending_save_obligations": 243,
+    "next_priority": "Bounded master-data block and older non-library decoder differential comparison; no automatic release promotion"
   }
 }
