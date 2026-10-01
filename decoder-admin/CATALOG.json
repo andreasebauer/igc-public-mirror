@@ -59,8 +59,6 @@
     }
   ],
   "unresolved_fixtures": [
-    "saved_stage_one_prerun",
-    "saved_stage_one",
     "saved_stage_four",
     "saved_stage_outcome",
     "saved_representative_qualification"
@@ -552,7 +550,62 @@
       }
     }
   },
-  "candidate_fixtures": {},
+  "candidate_fixtures": {
+    "saved_stage_one_prerun": {
+      "sha256": "69d066194f5e67af211d8196c26b6d0169cfb438be0bb2d7e883fdb728b79fed",
+      "size_bytes": 45034870,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V80_3644c76d7bb5650665314c1ab5ab265990624345dfbdf2db4dabf671b883ce10.bin",
+          "sha256": "3644c76d7bb5650665314c1ab5ab265990624345dfbdf2db4dabf671b883ce10",
+          "size_bytes": 25000000,
+          "drive_id": "1r_MVEXX_SyWi1YkV6mk10A8CKYh_jl-m"
+        },
+        {
+          "filename": "V80_aa854353cec2179cc31804e273e8e67f6d6732accf68b56b03a6f1f662f289af.bin",
+          "sha256": "aa854353cec2179cc31804e273e8e67f6d6732accf68b56b03a6f1f662f289af",
+          "size_bytes": 20034870,
+          "drive_id": "1fc1zogHevyl3x-6dR8RunfAIXvbhQ6f7"
+        }
+      ],
+      "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+      "state": "GENUINE_PRERUN",
+      "completion_sha256": null,
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    },
+    "saved_stage_one": {
+      "sha256": "8c55d67b820433367fe9adab62a3d52a84e80001c4d0fe819aabc8f0baba4d08",
+      "size_bytes": 67538368,
+      "transport": "CONCATENATE_PARTS_IN_ORDER_THEN_VERIFY_ARCHIVE_HASH",
+      "parts": [
+        {
+          "filename": "V80_5e8316b678cb04813f923835fd0b91687586df03df6825c665215295312923ad.bin",
+          "sha256": "5e8316b678cb04813f923835fd0b91687586df03df6825c665215295312923ad",
+          "size_bytes": 25000000,
+          "drive_id": "1L0uKADQyl--YW3Flqk3NB1F8V8UfllP9"
+        },
+        {
+          "filename": "V80_fa5d2b3828baa81ce43358c0a7c97f40a4ad624a405a16d1b10308ae29e635ea.bin",
+          "sha256": "fa5d2b3828baa81ce43358c0a7c97f40a4ad624a405a16d1b10308ae29e635ea",
+          "size_bytes": 25000000,
+          "drive_id": "15qZXdd7iPCvAcgDhgWw4Xr2GFRrnawfI"
+        },
+        {
+          "filename": "V80_9ef96869f982f8a5d9773fbdb75548f008be08a45d2a19949e8be3069ef7d8a4.bin",
+          "sha256": "9ef96869f982f8a5d9773fbdb75548f008be08a45d2a19949e8be3069ef7d8a4",
+          "size_bytes": 17538368,
+          "drive_id": "1wpaufUKy5PbKrdoeEFeshqdSm6s_CYDx"
+        }
+      ],
+      "source_sha256": "098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8",
+      "state": "PUBLISHED_COMPLETION",
+      "completion_sha256": "3f33e68f3f7367562115fee96010d6852e0d9891ad55ef350dc1c38bb8ae2d2d",
+      "restored_from_drive_readbacks": true,
+      "workload_executions_on_restore": 0
+    }
+  },
   "historical_sources": {
     "dev140": {
       "version": "0.8.0.dev140+lib",

@@ -1,19 +1,4 @@
-V79 / DEV147 NATIVE CONTENTION AND EXACT PAUSED RECOVERY — 2026-10-01
-
-BOUNDED GATE PASS. Native startup checkpoint publication waited for genuine readback acknowledgment to release the outbox lock. The worker then started; the requested native pause was retained with its matching acknowledgment and refusal. There is no completed test pass or accepted completion from this intentionally paused probe.
-
-All 45 checkpoint-role acknowledgments across three checkpoints are complete (15 during startup plus 30 during closeout). Zero pending roles, bytes or checkpoints. Nineteen downloaded dependency objects were hash-verified. The saved slim export was downloaded and restored; all 34 checkpoint state/input files matched bytes and ordinary permission modes. Recovery dispatched zero workloads. No rerun of V79 or V77.
-
-Exact source: 098d505dfba5575aec3efc9f2ecf3614a28be3b7caeda41482a94dda2e5a1ea8
-Export: 3b8849b05deec8ee8bd2c50f3ed42c1f6b2d5ec3fd596f2c84821cd1424aeb39
-Export Drive ID: 15PAz5a50sMMkhBuqsoZSfZG3nIj1c5v-
-Source verification: 1,528 files byte-exact. Recorded pre/post runtime verification: 4,721 runtime files and seven host files. Engine source unchanged by this closeout.
-
-LIMITS
-This deliberately induced startup contention, not incidental connector overlap during an active worker. Worker cleanup is inferred from reviewed fail-closed control flow; raw pipe acknowledgment was not persisted. Recovery uses downloaded files on the same host, not an independent-host qualification. V77 remains failed/incomplete with its original 583 passed nodes; those passes are not dev147 qualification.
-
-CURRENT POSITION AND NEXT
-Dev147 remains UNQUALIFIED. V78's 30 focused passes remain valid bounded evidence. All 23 RC acceptance rows remain OPEN. Five exact-dev147 fixture roles remain to be generated; historical dev146 fixtures cannot be relabeled. Next: prepare the one-worker stage fixture, preserving both pre-run and completed states, then four-worker, expected-outcome refusal, and representative fixtures. After fixtures: all four qualification groups / 170 test files, finding dispositions, independent remote-only recovery, explicit RC acceptance/promotion. Canonical scientific L0-to-G8 replay has not started.
-
-RECOVERY
-Use READBACKS.json for exact saved dependency IDs/hashes, EXPORT_READBACK.json for the export, and restore_exact.py as the reconstruction reference. Its existing destination and restore_objects directory are exclusive; do not blindly rerun it. Existing source: /tmp/ig_decoder_dev147_20261001. Existing runtime: /tmp/ig_runtime_v55_fresh_20260930. Existing paused capture and restored copy remain intact. No workload is running for V79.
+DEV147 V80 STAGE-ONE FIXTURES PASS — OVERALL UNQUALIFIED
+Two of five current-candidate fixture roles earned;three remain.
+48 task results,seven classes;genuine pre-run and identical completion recovery,zero restore dispatch.
+Read decoder-admin/evidence/V80_REPORT.txt,CATALOG.json and RC_LEDGER.json.All23 RC rows OPEN.

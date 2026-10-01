@@ -1,0 +1,109 @@
+{
+  "started": 1790823171.1473584,
+  "finished": 1790823171.410556,
+  "mode": "ack",
+  "tag": "LIVE_01",
+  "pending_roles": 0,
+  "pending_bytes": 0,
+  "pending_commits": 0,
+  "oldest_age": 0,
+  "count_reserve": 8,
+  "byte_reserve_after_commit": 335544320,
+  "age_reserve": 3600,
+  "native_physical_objects_verified": 18,
+  "attempt_statuses": [
+    "COMPLETED"
+  ],
+  "selector_finished": false,
+  "closed_checkpoints": [
+    {
+      "checkpoint_sha256": "93b227646fa725cf10b8c2ff89c3aa20980134b771a4da7d8600d9f73446a50b",
+      "created_unix": 1790823006.3821235,
+      "reason": "EXPLICIT_IDLE_EXPORT"
+    },
+    {
+      "checkpoint_sha256": "46b5a56f0656014f49787e4f19d07760baed0e5c0b2c1febbe34e0bdfa5cbed0",
+      "created_unix": 1790823084.112374,
+      "reason": "BEFORE_EXECUTION"
+    },
+    {
+      "checkpoint_sha256": "c0a7b622f2d674c1829b694efd52869002199b7bc43f5eb5574e7f08fc8b5721",
+      "created_unix": 1790823087.6305041,
+      "reason": "TERMINAL_RESULT"
+    }
+  ],
+  "payload_read_bytes_calls": {
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/5ebadeafe062ca6814404961dc81f29fdf18b94346a27bc5784bace1fb983515.bin": {
+      "calls": 2,
+      "bytes": 45392082
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5.bin": {
+      "calls": 2,
+      "bytes": 6588
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58.bin": {
+      "calls": 2,
+      "bytes": 1760638
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68.bin": {
+      "calls": 2,
+      "bytes": 1008
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/d75cdab844d126952f90029682a56bf3ab391a08ea2e87fcc14b637822c6997f.bin": {
+      "calls": 2,
+      "bytes": 1742
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/2b77e47259f63466afc3b90d21f88fbadf45f77c6a3a98f2c6ce78aa175a09c9.bin": {
+      "calls": 2,
+      "bytes": 10458
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/89cc12b983f0b0c2be712fea2830d9bd02b1521aea9e85c9768f22082c1c40e3.bin": {
+      "calls": 2,
+      "bytes": 9622
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/f6ce4e39c8f11ded5e253fb96c8c139ef36839b3c9298526f450dfc72e491aa1.bin": {
+      "calls": 2,
+      "bytes": 21912
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/b70411b1b4180c5c87ae7c2fa30214e24151938009a9a5cdd34ae9b0c29bb96b.bin": {
+      "calls": 2,
+      "bytes": 44760702
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/40173f26a1d2ea0dc6cd887545447b074d65ee06180447bba1d93cf12352e702.bin": {
+      "calls": 2,
+      "bytes": 16346
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85.bin": {
+      "calls": 2,
+      "bytes": 44
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/0c8a3ef60f069dbc1fed8cd489a23f9cc613194209cee9e0c39d7cf88b0e372b.bin": {
+      "calls": 2,
+      "bytes": 31808
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/93b227646fa725cf10b8c2ff89c3aa20980134b771a4da7d8600d9f73446a50b.bin": {
+      "calls": 2,
+      "bytes": 19714
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/7bca055e8b8cc2ae9cc2ef370eb6f9f8f1b2f8eaf2cf396a5b4dcda9b9fbed9f.bin": {
+      "calls": 2,
+      "bytes": 5284
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/171f6778c10d66809c34b965a1eccaf24427cde5a2125ff9895d64920b36e866.bin": {
+      "calls": 2,
+      "bytes": 43764
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/46b5a56f0656014f49787e4f19d07760baed0e5c0b2c1febbe34e0bdfa5cbed0.bin": {
+      "calls": 2,
+      "bytes": 20880
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/e604dda19b8eb02d016774c207e8044da06f2e458072d47bc661a4785fae7b16.bin": {
+      "calls": 2,
+      "bytes": 100304
+    },
+    "/tmp/ig_fixture_v80_20261001/store/captures/7713101a2ee06a8fb49a73a6f661cbe95b6c712372a1765ae9c96726f946ac43/durability/outbox/objects/c0a7b622f2d674c1829b694efd52869002199b7bc43f5eb5574e7f08fc8b5721.bin": {
+      "calls": 2,
+      "bytes": 24842
+    }
+  }
+}
