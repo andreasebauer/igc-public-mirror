@@ -603,17 +603,22 @@
     }
   ],
   "latest_preparation_gate": {
-    "gate": "V23",
-    "status": "STATIC_REVIEW_AND_SEVEN_INPUT_HASH_BINDINGS_VERIFIED",
-    "tests_executed": false,
-    "selectors": 165,
-    "added_selectors": 42,
-    "fixture_roles": 7,
-    "top_level_distribution_versions_matched": 22,
-    "active_metadata_dependency_violations": 0,
-    "native_collection": "NOT_YET_EARNED; coupled to native execution",
-    "full_source_qualification": "OPEN",
-    "report": "decoder-admin/evidence/V23_REPORT.txt"
+    "gate": "V69B_DEV145_FUNCTIONAL_PREPARATION",
+    "status": "SAVED_CAPTURE_PREPARED_NOT_EXECUTED",
+    "capture_id": "c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39",
+    "job_id": "RC.FUNCTIONAL.V69B.DEV145",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "input_roles_verified": 7,
+    "active_selectors": 170,
+    "functional_selectors": 167,
+    "capture_save_roles_confirmed": 19,
+    "raw_readbacks": 14,
+    "multipart_readbacks": 5,
+    "pending_capture_roles": 0,
+    "native_attempts": 0,
+    "tests_executed": 0,
+    "full_rc": "OPEN",
+    "rejected_preparation": "V69 protocol text said default300 seconds; actual default30. Capture preserved unused; corrected in fresh V69B."
   },
   "latest_current_source_attempt": {
     "gate": "V24",

@@ -1,0 +1,439 @@
+{
+  "schema_id": "IG_DECODER_CAPTURE_SPEC_V1",
+  "job_id": "RC.FUNCTIONAL.V69B.DEV145",
+  "engine_source": "/tmp/ig_decoder_dev145_20261001/decoder",
+  "project_source": null,
+  "question": {
+    "stage_id": "RC:FUNCTIONAL:DEV145",
+    "description": "Dev145 full functional qualification",
+    "outcomes": [
+      "PASS"
+    ],
+    "stopping_rule": "V69B DEV145 FULL QUALIFICATION CAMPAIGN PREPARATION \u2014 2026-10-01\nFrozen source ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f; exact reviewed V4 runtime.\nFour ordered registered groups: functional167 selectors/4workers; workspace1/4; representative1/4; timing1/1 isolated last. This capture covers functional only. All seven fixture inputs must bind exact saved bytes. Private failed_evidence remains excluded from public artifacts.\nNo standalone pytest or unsupported collect-only ingress. Preregister selectors/hashes; native collection receipts establish actual expanded node inventory during execution. Reconcile every selector, collected node, phase and outcome. All must PASS; missing/skipped/interrupted/errors remain OPEN. Do not inherit historical counts.\nFirst dispatch only after all capture obligations saved/read back and confirmed, live transport operator ready, source/runtime verified, no attempts present. Preparation itself dispatches no workloads.\nFunctional resources:4workers, fork, memory budget2147483648, workspace budget8589934592, no automatic runtime deadline. Default preservation limits including interval30seconds retained. Operator polls status between save waves while running and continuously drains new obligations, uploads new physical objects and confirms role-aware batches through native APIs; multipart inputs use actual saved transport manifests and parts. Never modify limits to bypass backlog. If unexpected native failure, source/runtime mismatch or inability to safely preserve occurs, retain evidence and stop advancement; no implicit rerun, no automatic resume, no next group after a failed functional gate.\nCompletion requires native published completion, zero pending save obligations, full outcome reconciliation and saved export recovery with zero workload dispatch. Existing expected failure/injection test scenarios remain registered suite behavior. This gate grants no science replay/release or full RC acceptance. All23 acceptance rows remain OPEN until independently earned.\n"
+  },
+  "execution": {
+    "kind": "VALIDATION",
+    "nodes": [
+      "tests/test_08lib_backend.py",
+      "tests/test_08lib_graph_metrics.py",
+      "tests/test_08lib_group_closure.py",
+      "tests/test_audit_stop_recovery.py",
+      "tests/test_change_preservation_rebind.py",
+      "tests/test_compact_label_reuse.py",
+      "tests/test_completion_publication.py",
+      "tests/test_database_sidecar_comparison.py",
+      "tests/test_decoder061_combined_contract.py",
+      "tests/test_decoder06_capture.py",
+      "tests/test_decoder06_changes.py",
+      "tests/test_decoder06_invocation.py",
+      "tests/test_decoder06_portable_registry.py",
+      "tests/test_decoder06_project_stage.py",
+      "tests/test_decoder06_results_preservation.py",
+      "tests/test_decoder06_shared_authority.py",
+      "tests/test_decoder06_transport.py",
+      "tests/test_decoder07_candidate_workflow.py",
+      "tests/test_decoder07_certified_base.py",
+      "tests/test_decoder07_migration_continuation.py",
+      "tests/test_decoder07_semantic_inputs.py",
+      "tests/test_e3_g6_controller_generation_evaluators.py",
+      "tests/test_engine_kernel_e1.py",
+      "tests/test_evidence_diagnostics.py",
+      "tests/test_exact_relation_profile_bridge_fastpath_a24r.py",
+      "tests/test_exact_tree_relation_kernel_v03087.py",
+      "tests/test_execution_start_method_portability.py",
+      "tests/test_g6_fresh_marker_operations.py",
+      "tests/test_g6_marker_cache_optimization.py",
+      "tests/test_g6_r0_post_graduation_fiber.py",
+      "tests/test_g6_s1_repair_v03083.py",
+      "tests/test_g6_s2_repaired_v03085.py",
+      "tests/test_g6_s3_repaired_v03086.py",
+      "tests/test_g6_s5r_compositional_read_write.py",
+      "tests/test_g6_s5r_crw1.py",
+      "tests/test_g6_s5r_observer_continuity.py",
+      "tests/test_g6_s5r_wider_feature_search.py",
+      "tests/test_g6_s6r_global_observer_congruence.py",
+      "tests/test_g6_s6r_l2_proof_reduction.py",
+      "tests/test_g6_s6r_l2_repair.py",
+      "tests/test_g6_s6r_support.py",
+      "tests/test_g6_s7_a6_reuse_provenance.py",
+      "tests/test_g6_s7_depth2_completion.py",
+      "tests/test_g6_s7_ordinary_future_quotient.py",
+      "tests/test_g6_s7d2_compact_family_a30.py",
+      "tests/test_g6_s7d2_e2_export_a22.py",
+      "tests/test_g6_s7d2_full_inner_outer_schedule_a25.py",
+      "tests/test_g6_s7d2_profile_batch_a27.py",
+      "tests/test_g6_s7d2_semantic_equivalence_a21.py",
+      "tests/test_g6_s8_intrinsic_descriptor.py",
+      "tests/test_g6_s8_v3_targeted_probe.py",
+      "tests/test_g6_stage_executors_v03082.py",
+      "tests/test_h1_h13_semantic_classification_spot_check.py",
+      "tests/test_isolated_runtime.py",
+      "tests/test_legacy_capture_receipts.py",
+      "tests/test_live_graph_read.py",
+      "tests/test_no_deadline_conveyor_run_operation.py",
+      "tests/test_o7_c1_broader_lanes.py",
+      "tests/test_o7_c1_graph_comparison.py",
+      "tests/test_o7_c1_high_lanes.py",
+      "tests/test_o7_c1_hybrid_lane_extension.py",
+      "tests/test_o7_c1_independent_canonicalization.py",
+      "tests/test_o7_c1_independent_materialization.py",
+      "tests/test_o7_c1_independent_merkle.py",
+      "tests/test_o7_c1_independent_o6_lanes.py",
+      "tests/test_o7_c1_independent_o6_observer.py",
+      "tests/test_o7_c1_independent_parent_orbits.py",
+      "tests/test_o7_c1_median_lanes.py",
+      "tests/test_o7_c1_next_ten.py",
+      "tests/test_o7_c1_next_uncovered.py",
+      "tests/test_o7_c1_outer_action_profile.py",
+      "tests/test_o7_c1_remaining_151.py",
+      "tests/test_o7_c1_remaining_maxima.py",
+      "tests/test_o7_c1_typed_baseline.py",
+      "tests/test_o7_historical_structural_comparison.py",
+      "tests/test_o7_legacy_library_comparison.py",
+      "tests/test_o7_symmetry_library_comparison.py",
+      "tests/test_p1c2_audit_provenance_ledger.py",
+      "tests/test_p1c3_known_replay_qualifications.py",
+      "tests/test_p1c4_execution_classes.py",
+      "tests/test_p1c5_cost_budget_ledger.py",
+      "tests/test_p1d_fresh_replay_certificate.py",
+      "tests/test_p2a_replay_dag_runner.py",
+      "tests/test_p2b_registered_replay_root.py",
+      "tests/test_p3_replay_reference_data.py",
+      "tests/test_p4_l0_pilot.py",
+      "tests/test_p5_c0_historical.py",
+      "tests/test_p6_l2j3_historical.py",
+      "tests/test_p7_node_in.py",
+      "tests/test_p8_scout_historical.py",
+      "tests/test_p9_o1_o3.py",
+      "tests/test_paused_checkpoint_recovery.py",
+      "tests/test_preservation_batch.py",
+      "tests/test_qualification_contract.py",
+      "tests/test_r02_replay_self_qualification.py",
+      "tests/test_rc_audit_repairs.py",
+      "tests/test_repair7r_reuse_evidence.py",
+      "tests/test_repair7r_sqlite_lifecycle.py",
+      "tests/test_replay_checkpoint_consistency.py",
+      "tests/test_replay_index_preservation.py",
+      "tests/test_replay_obligation_compiler_p1a2.py",
+      "tests/test_replay_obligation_compiler_p1b.py",
+      "tests/test_replay_obligation_compiler_p1b2.py",
+      "tests/test_replay_obligation_compiler_p1c.py",
+      "tests/test_science_contract_strength.py",
+      "tests/test_separate_completion_evidence.py",
+      "tests/test_sidecar_lifecycle.py",
+      "tests/test_snapshot_evidence_filters.py",
+      "tests/test_storage_admission_bindings.py",
+      "tests/test_storage_audit.py",
+      "tests/test_storage_auxiliary_closure.py",
+      "tests/test_storage_candidate.py",
+      "tests/test_storage_candidate_metadata.py",
+      "tests/test_storage_capture_metadata.py",
+      "tests/test_storage_catalog_migration.py",
+      "tests/test_storage_claims.py",
+      "tests/test_storage_closure.py",
+      "tests/test_storage_collection_recovery.py",
+      "tests/test_storage_collections.py",
+      "tests/test_storage_comparison.py",
+      "tests/test_storage_contract_registry.py",
+      "tests/test_storage_dataset_snapshot.py",
+      "tests/test_storage_dependencies.py",
+      "tests/test_storage_evidence.py",
+      "tests/test_storage_fixed_runtime.py",
+      "tests/test_storage_frontier_history.py",
+      "tests/test_storage_frontier_snapshot.py",
+      "tests/test_storage_full_recovery_join.py",
+      "tests/test_storage_history_assembly.py",
+      "tests/test_storage_index_descriptor.py",
+      "tests/test_storage_legacy.py",
+      "tests/test_storage_links.py",
+      "tests/test_storage_manifest_sources.py",
+      "tests/test_storage_native_collection.py",
+      "tests/test_storage_negative.py",
+      "tests/test_storage_oracle_witnesses.py",
+      "tests/test_storage_p9_result_closure.py",
+      "tests/test_storage_recipe.py",
+      "tests/test_storage_recovery_join.py",
+      "tests/test_storage_result_closure.py",
+      "tests/test_storage_runner_snapshot.py",
+      "tests/test_storage_snapshot_results.py",
+      "tests/test_storage_step2.py",
+      "tests/test_structural_encoding_e2.py",
+      "tests/test_terminal_json_equivalence.py",
+      "tests/test_two_sorted_relation_library.py",
+      "tests/test_v05_c5_origin_exclusivity.py",
+      "tests/test_v05_c6_namespace_identity.py",
+      "tests/test_v05_c6_persistent_recovery.py",
+      "tests/test_v05_cancel_control.py",
+      "tests/test_v05_controller_namespace_portability.py",
+      "tests/test_v05_controller_process_handler_routing.py",
+      "tests/test_v05_engineering_same_identity_authorization.py",
+      "tests/test_v05_g6_chaining_v03081.py",
+      "tests/test_v05_memory_housekeeping.py",
+      "tests/test_v05_o3a_kernel_service_boundary.py",
+      "tests/test_v05_o3b_kernel_service_migration.py",
+      "tests/test_v05_o3c_shared_exact_caches.py",
+      "tests/test_v05_passive_intake_idempotency.py",
+      "tests/test_v05_s8_optimization_acceptance.py",
+      "tests/test_v05_stage_runtime_exact_byte_handoff.py",
+      "tests/test_v05_stage_runtime_resume_kernel_view.py",
+      "tests/test_validation_cancellation.py",
+      "tests/test_validation_phase_binding.py",
+      "tests/test_validation_recorder_finalization.py",
+      "tests/test_validation_save_waves.py",
+      "tests/test_validation_worker_log_publication.py"
+    ]
+  },
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 2147483648,
+    "start_method": "fork",
+    "workers": 4,
+    "workspace_budget_bytes": 8589934592
+  },
+  "inputs": [
+    {
+      "logical_name": "saved_stage_one_prerun",
+      "path": "/workspace/scratch/a2e5e2576f17/v65_stage_one/saved_stage_one_prerun.readback.zip",
+      "sha256": "172b421d869e42367822a5f42b027015662b97cdd7a3b56604087d40dfaf8dc8"
+    },
+    {
+      "logical_name": "saved_stage_one",
+      "path": "/workspace/scratch/a2e5e2576f17/v65_stage_one/saved_stage_one_completed.readback.zip",
+      "sha256": "1482e73cb9f9d9fbe6a16313c9753cfc3797cd94e3a28e7885205a6664faa7b0"
+    },
+    {
+      "logical_name": "saved_stage_four",
+      "path": "/workspace/scratch/a2e5e2576f17/v66_stage_four/saved_stage_four_completed.readback.zip",
+      "sha256": "7fc1df9fa4c75413aa132b47471236a01440ebe24a97e70fbdf07c5a8c130ccd"
+    },
+    {
+      "logical_name": "saved_stage_outcome",
+      "path": "/workspace/scratch/a2e5e2576f17/v67_outcome/saved_stage_outcome.readback.zip",
+      "sha256": "69e2d882408b86489e1ec979f43cab4d4f6ac02865bc4a0273260cd5cf8c359e"
+    },
+    {
+      "logical_name": "saved_representative_qualification",
+      "path": "/workspace/scratch/a2e5e2576f17/v68_representative/saved_representative_qualification.readback.zip",
+      "sha256": "10047495826464edde447517cedad54bd633d1da0c12cae1a75415d1b1d90af0"
+    },
+    {
+      "logical_name": "step2_parent_snapshot",
+      "path": "/workspace/scratch/a2e5e2576f17/attachments/fa0ab548-d46c-4c97-ac6d-8acdfabae1c7/713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8.bin",
+      "sha256": "713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8"
+    },
+    {
+      "logical_name": "failed_evidence",
+      "path": "/workspace/scratch/a2e5e2576f17/attachments/040db3e3-fe58-45f5-9ad1-1d5c18b41c29/5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41.bin",
+      "sha256": "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41"
+    }
+  ],
+  "environment": {
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "attrs",
+        "version": "26.1.0",
+        "imports": [
+          "attrs"
+        ]
+      },
+      {
+        "distribution": "cffi",
+        "version": "2.0.0",
+        "imports": [
+          "cffi"
+        ]
+      },
+      {
+        "distribution": "cryptography",
+        "version": "46.0.4",
+        "imports": [
+          "cryptography"
+        ]
+      },
+      {
+        "distribution": "igraph",
+        "version": "1.0.0",
+        "imports": [
+          "igraph"
+        ]
+      },
+      {
+        "distribution": "iniconfig",
+        "version": "2.3.0",
+        "imports": [
+          "iniconfig"
+        ]
+      },
+      {
+        "distribution": "jsonschema",
+        "version": "4.26.0",
+        "imports": [
+          "jsonschema"
+        ]
+      },
+      {
+        "distribution": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "imports": [
+          "jsonschema_specifications"
+        ]
+      },
+      {
+        "distribution": "mpmath",
+        "version": "1.3.0",
+        "imports": [
+          "mpmath"
+        ]
+      },
+      {
+        "distribution": "networkx",
+        "version": "3.6.1",
+        "imports": [
+          "networkx"
+        ]
+      },
+      {
+        "distribution": "packaging",
+        "version": "25.0",
+        "imports": [
+          "packaging"
+        ]
+      },
+      {
+        "distribution": "pluggy",
+        "version": "1.6.0",
+        "imports": [
+          "pluggy"
+        ]
+      },
+      {
+        "distribution": "pycparser",
+        "version": "3.0",
+        "imports": [
+          "pycparser"
+        ]
+      },
+      {
+        "distribution": "Pygments",
+        "version": "2.20.0",
+        "imports": [
+          "pygments"
+        ]
+      },
+      {
+        "distribution": "pytest",
+        "version": "9.0.2",
+        "imports": [
+          "pytest"
+        ]
+      },
+      {
+        "distribution": "referencing",
+        "version": "0.37.0",
+        "imports": [
+          "referencing"
+        ]
+      },
+      {
+        "distribution": "rpds-py",
+        "version": "2026.5.1",
+        "imports": [
+          "rpds"
+        ]
+      },
+      {
+        "distribution": "sympy",
+        "version": "1.14.0",
+        "imports": [
+          "sympy"
+        ]
+      },
+      {
+        "distribution": "texttable",
+        "version": "1.7.0",
+        "imports": [
+          "texttable"
+        ]
+      },
+      {
+        "distribution": "typing_extensions",
+        "version": "4.16.0",
+        "imports": [
+          "typing_extensions"
+        ]
+      },
+      {
+        "distribution": "setuptools",
+        "version": "84.0.0",
+        "imports": [
+          "setuptools"
+        ]
+      },
+      {
+        "distribution": "wheel",
+        "version": "0.48.0",
+        "imports": [
+          "wheel"
+        ]
+      },
+      {
+        "distribution": "pip",
+        "version": "26.2.1",
+        "imports": [
+          "pip"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "logical_name": "sqlite_runtime_binding",
+        "path": "/workspace/scratch/a2e5e2576f17/v69b_preparation/SQLITE_BINDING.json",
+        "sha256": "a26e3311172ee0f6efaf559f4aed40a306e89c2de28de1c3e16b705fbdcc44d5"
+      },
+      {
+        "logical_name": "host_runtime_manifest",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_MANIFEST.json",
+        "sha256": "58481bb12202404e0d88b65940ac965359c80492f75c7a6c8182dc19b040af58"
+      },
+      {
+        "logical_name": "runtime_mode_policy",
+        "path": "/tmp/ig_decoder_dev145_20261001/decoder-admin/RUNTIME_POLICY.json",
+        "sha256": "dbb7d6a689fd2f3c1606b4fc115df8da06705eedea54ab94f2b83cc9e58e4b68"
+      },
+      {
+        "logical_name": "qualification_protocol",
+        "path": "/workspace/scratch/a2e5e2576f17/v69b_preparation/PREREGISTRATION.txt",
+        "sha256": "de8ee527e76a942657e4de0100b0cd3763e9fbcd9f5f30a67d33c0a252b225c7"
+      },
+      {
+        "logical_name": "operator_script",
+        "path": "/workspace/scratch/a2e5e2576f17/v69b_preparation/prepare_capture.py",
+        "sha256": "af51f890900d405d2d9e946794608e0b3b36d40c42f0bec61d24b51504de4a47"
+      },
+      {
+        "logical_name": "input_bindings",
+        "path": "/workspace/scratch/a2e5e2576f17/v69b_preparation/INPUT_BINDINGS.json",
+        "sha256": "ecd46361e378997d94e9b213842541875d68ad34ff50718b5de9400cd3f4be09"
+      },
+      {
+        "logical_name": "selector_inventory",
+        "path": "/workspace/scratch/a2e5e2576f17/v69b_preparation/SELECTOR_INVENTORY.json",
+        "sha256": "867feaf151044c96fa391782bc94b07165f95b627a5bff2960771a7a3c59908f"
+      }
+    ]
+  },
+  "output_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "VALIDATION",
+    "required_artifacts": [],
+    "result_checks": [
+      {
+        "pointer": "/status",
+        "equals": "PASS"
+      }
+    ],
+    "prerequisites": [],
+    "preservation": {}
+  }
+}
