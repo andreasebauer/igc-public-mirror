@@ -1,0 +1,66 @@
+V70 DEV145 FUNCTIONAL ATTEMPT — FAILED / INTERRUPTED / UNQUALIFIED — 2026-10-01
+
+527 finished node reports have all three phases passed; one reported failure;
+four node reports unfinished. These are incomplete observations, not a functional
+PASS. Collection reconciliation below records missing/uncollected scope.
+Failing test: test_change_preservation_rebind.py::
+test_recovery_retains_reviewed_core_byte_boundaries.
+Last dev140 reviewed pin record differs from actual controller, preservation
+and validation-runtime files. Full source manifest still matches dev145 exactly.
+The candidate itself is unchanged; the reviewed pin chain needs actual change
+review before any new amendment. Never merely replace expected checksums.
+
+STOP AND PRESERVATION
+Operator stopped at the first observed unexplained failure. Namespace isolation
+prevented direct PID signals; native session was ultimately stopped with Ctrl-C.
+Tests continued during the stop attempts; final counts above include those reports.
+Session exit130 preceded native finally/pause handling:attempt record remains
+RUNNING although the process session ended and subsequent process observation
+found no matching controller/validation workers. No native PAUSED state or
+successful completion is claimed. Original stale record is intentionally retained.
+No test rerun or automatic resume. Source/runtime post-check passed.
+Checkpoint transport ran throughout. A temporary WORKSPACE_BUSY acknowledgment
+was retried; no workload was retried. All final checkpoint roles acknowledged,
+zero pending bytes/checkpoints. Native idle slim export saved/read back and
+restored with identical attempt bytes, no completion and zero workload dispatch.
+The saved recovery preserves interrupted evidence; it does not grant resume.
+
+NEXT
+Review diffs since dev140 for three mismatched core files and record why each
+change is valid before a separate candidate amendment. Also correct the operator
+launch/interrupt mechanism so a requested stop reaches native cleanup within
+its process namespace. Preserve this failed capture and report every missing
+node. Decide a separately preregistered qualification continuation only after
+repair/review. Do not rerun V70 or advance to other groups automatically.
+All23 RC rows remain OPEN. No science replay or release promotion.
+Worktree /tmp/ig_decoder_dev145_20261001; runtime /tmp/ig_runtime_v55_fresh_20260930.
+V69B capture c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39.
+READBACKS.json includes native RAW/MULTIPART references for all preserved objects.
+Use saved export plus verified objects with native restore_checkpoint; do not
+repair the original record or dispatch its job. Private fixture bytes excluded
+from public repository and compact bundle.
+
+{
+  "node_reports": 532,
+  "finished_all_phases_passed": 527,
+  "nonpass_reports": 1,
+  "unfinished": 4,
+  "native_completion": false,
+  "attempt_statuses": [
+    "RUNNING"
+  ],
+  "native_session_exit": 130,
+  "operator_stop": "Session Ctrl-C after first observed core-pin failure. Direct PID signals could not reach process across namespace. Wrapper ended before native pause/finally; retained RUNNING record is not evidence of a live process.",
+  "reruns": 0,
+  "gate": "V70_DEV145_FUNCTIONAL_INTERRUPTED_FAILURE",
+  "status": "FAILED_UNQUALIFIED",
+  "capture_id": "c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "selected_files": 167,
+  "collected_selectors": 56,
+  "collected_nodes": 556,
+  "collected_without_report": 24,
+  "uncollected_files": 111,
+  "pending_checkpoint_roles": 0,
+  "restore_workloads": 0
+}

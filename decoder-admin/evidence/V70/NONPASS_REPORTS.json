@@ -1,0 +1,33 @@
+[
+  {
+    "binding": "d383733bf157ae43aa4d442dfa9b5ee742f1ae64e13c12e02cff7a26952ec1cf",
+    "finished": true,
+    "node": "tests/test_change_preservation_rebind.py::test_recovery_retains_reviewed_core_byte_boundaries",
+    "phases": {
+      "call": {
+        "detail": "def test_recovery_retains_reviewed_core_byte_boundaries():\n        # Keep the historical baseline immutable. Explicitly account for the reviewed\n        # controller evolution; all other pins and exact-byte checks remain required.\n        expected=json.loads((F/'UNCHANGED_CORE_SHA256.json').read_text())\n        amendment=json.loads((F/'APPROVED_08LIB_CORE_CHANGES.json').read_text())\n        assert amendment['schema']=='IG_08LIB_REVIEWED_CORE_PIN_AMENDMENT_V1'\n        assert set(amendment['changes'])=={\n            'infinity_grid/v05_controller_event_loop.py',\n            'infinity_grid/v05_origin_guard.py',\n            'infinity_grid/v05_validation_runtime.py',\n            'infinity_grid/preservation.py',\n            'infinity_grid/result_contracts.py',\n        }\n        for name,row in amendment['changes'].items():\n            assert row['historical_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        successor=json.loads((F/'DEV83_REVIEWED_CORE_CHANGES.json').read_text())\n        assert successor['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(successor['changes'])=={\n            'infinity_grid/v05_controller_event_loop.py',\n            'infinity_grid/preservation.py',\n            'infinity_grid/result_contracts.py',\n        }\n        for name,row in successor['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        recovery=json.loads((F/'ATTEMPT_RECOVERY_REVIEWED_CORE_CHANGES.json').read_text())\n        assert recovery['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(recovery['changes'])=={'infinity_grid/v05_controller_event_loop.py'}\n        for name,row in recovery['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        sealed=json.loads((F/'SQLITE_SEPARATE_EVIDENCE_CORE_CHANGES.json').read_text())\n        assert sealed['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(sealed['changes'])=={'infinity_grid/v05_controller_event_loop.py','infinity_grid/preservation.py'}\n        for name,row in sealed['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        publication=json.loads((F/'TERMINAL_JSON_EQUIVALENCE_CORE_CHANGES.json').read_text())\n        assert publication['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(publication['changes'])=={'infinity_grid/preservation.py','infinity_grid/v05_controller_event_loop.py'}\n        for name,row in publication['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        snapshot=json.loads((F/'SNAPSHOT_EVIDENCE_FILTER_CORE_CHANGES.json').read_text())\n        assert snapshot['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(snapshot['changes'])=={'infinity_grid/v05_controller_event_loop.py'}\n        for name,row in snapshot['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        reviewed=json.loads((F/'DEV140_REVIEWED_CORE_CHANGES.json').read_text())\n        assert reviewed['schema']=='IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1'\n        assert set(reviewed['changes'])=={'infinity_grid/submission.py', 'infinity_grid/result_contracts.py', 'infinity_grid/portable_registry.py', 'infinity_grid/v05_controller_event_loop.py', 'infinity_grid/preservation.py', 'infinity_grid/v05_validation_runtime.py'}\n        for name,row in reviewed['changes'].items():\n            assert row['previous_reviewed_sha256']==expected[name] and row['reason']\n            expected[name]=row['reviewed_sha256']\n        root=Path(__file__).resolve().parents[1]\n>       for name,digest in expected.items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 'd864fcd4b704...aea6fb9af55f1' == '20804c65e82d...1700405621e4e'\nE         \nE         - 20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e\nE         + d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1\n\ntests/test_change_preservation_rebind.py:165: AssertionError",
+        "duration_seconds": 0.005209631999605335,
+        "outcome": "failed",
+        "stderr": "",
+        "stdout": "",
+        "xfail": null
+      },
+      "setup": {
+        "detail": "",
+        "duration_seconds": 6.487199971161317e-05,
+        "outcome": "passed",
+        "stderr": "",
+        "stdout": "",
+        "xfail": null
+      },
+      "teardown": {
+        "detail": "",
+        "duration_seconds": 0.00012896800035377964,
+        "outcome": "passed",
+        "stderr": "",
+        "stdout": "",
+        "xfail": null
+      }
+    }
+  }
+]

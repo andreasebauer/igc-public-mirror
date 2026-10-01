@@ -1,0 +1,24 @@
+{
+  "node_reports": 532,
+  "finished_all_phases_passed": 527,
+  "nonpass_reports": 1,
+  "unfinished": 4,
+  "native_completion": false,
+  "attempt_statuses": [
+    "RUNNING"
+  ],
+  "native_session_exit": 130,
+  "operator_stop": "Session Ctrl-C after first observed core-pin failure. Direct PID signals could not reach process across namespace. Wrapper ended before native pause/finally; retained RUNNING record is not evidence of a live process.",
+  "reruns": 0,
+  "gate": "V70_DEV145_FUNCTIONAL_INTERRUPTED_FAILURE",
+  "status": "FAILED_UNQUALIFIED",
+  "capture_id": "c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39",
+  "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+  "selected_files": 167,
+  "collected_selectors": 56,
+  "collected_nodes": 556,
+  "collected_without_report": 24,
+  "uncollected_files": 111,
+  "pending_checkpoint_roles": 0,
+  "restore_workloads": 0
+}

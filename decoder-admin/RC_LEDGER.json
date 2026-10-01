@@ -621,30 +621,28 @@
     "rejected_preparation": "V69 protocol text said default300 seconds; actual default30. Capture preserved unused; corrected in fresh V69B."
   },
   "latest_current_source_attempt": {
-    "gate": "V24",
-    "status": "PAUSED_UNQUALIFIED",
-    "source_sha256": "e841a9185bb8099bcf5bf532732d001b55eb96cf36e0f1586ff27a43a7e92070",
-    "capture_id": "937c7d7265fd4d530ef52fa50257702d848a5d75fdee5118dd634ef9bb57f79b",
-    "registered_selectors": 162,
-    "collected_selectors": 140,
-    "collected_nodes": 1439,
-    "reported_node_outcomes": {
-      "PASS": 1363,
-      "FAIL": 4,
-      "INTERRUPTED": 1
-    },
-    "collected_nodes_without_reports": 71,
-    "uncollected_selectors": 22,
-    "stop_reason": "SAVE_BACKLOG_PAUSE",
-    "pending_checkpoints": 17,
-    "native_outbox_obligations_pending": 408,
-    "physical_objects_verified": 54,
-    "runtime_added_bytecode_files": 51,
-    "captured_source_added_bytecode_files": 10,
-    "original_runtime_or_source_files_changed": false,
+    "node_reports": 532,
+    "finished_all_phases_passed": 527,
+    "nonpass_reports": 1,
+    "unfinished": 4,
     "native_completion": false,
-    "retry_started": false,
-    "full_rc": "OPEN"
+    "attempt_statuses": [
+      "RUNNING"
+    ],
+    "native_session_exit": 130,
+    "operator_stop": "Session Ctrl-C after first observed core-pin failure. Direct PID signals could not reach process across namespace. Wrapper ended before native pause/finally; retained RUNNING record is not evidence of a live process.",
+    "reruns": 0,
+    "gate": "V70_DEV145_FUNCTIONAL_INTERRUPTED_FAILURE",
+    "status": "FAILED_UNQUALIFIED",
+    "capture_id": "c320632d07c8f0d6ad2631c44de777a16b32bcb17f7d50d9fffd18c8ef02ba39",
+    "source_sha256": "ccb2baf1f53d3b2834d78acf034c7ffbbf833e2b54940c8e51d7a645aec50d6f",
+    "selected_files": 167,
+    "collected_selectors": 56,
+    "collected_nodes": 556,
+    "collected_without_report": 24,
+    "uncollected_files": 111,
+    "pending_checkpoint_roles": 0,
+    "restore_workloads": 0
   },
   "latest_failure_triage": {
     "gate": "V25",
