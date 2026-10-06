@@ -1,0 +1,30 @@
+MASTER_DATA_V1_0140 — UNIFIED READER
+
+from project.unified import IntegratedMasterReader
+with IntegratedMasterReader(
+    'CATALOG_0140.json', 'SCOPED_ADMISSION.json',
+    'predecessor/CATALOG_0139.json', 'NODE_NATIVE_ROOTED_DEPTH1_DEPTH2_V1.zip',
+    canonical_directory='canonical14', archive_directory='permutation_archives'
+) as reader:
+    report = reader.coverage_report()
+    construction = reader.lookup_construction(exact_object_id)
+    formation = reader.lookup_formation(exact_formation_id)
+    origins = reader.lineage(exact_object_id)
+    ids = reader.projection_preimages(depth, exact_boundary_sha256)
+    carrier = reader.lookup_j3(exact_tid, ordered_roots=(2, 1, 0))
+
+Use the unchanged pinned Decoder runtime/engine for canonical identity helpers.
+The predecessor directory must contain the exact CATALOG_0139.json. Old family
+reads use the byte-identical existing reader and require its saved scientific
+archives. Missing canonical/permutation dependencies raise an explicit error;
+recursive-only reads do not fetch or regenerate legacy science. Canonical
+restoration uses ORIGINAL14_DRIVE_TRANSPORT.json. Verify every fetched hash.
+
+Exact recursive scientific parts in the saved transport are raw chunks of one
+ZIP: concatenate index order, verify total size48506452 and SHA256
+9665227943ddc08b09bd829da185669f1441fa9005757abd6bc6a54fc7ca0809.
+
+The scientific export's automatic-admission flags remain unchanged. The separate
+SCOPED_ADMISSION.json grants only the declared native depth1/depth2 scope.
+Historical weighting, historical L13 reproduction, mature NODE_IN/SCOUT census,
+O/G completion and full L0-to-G8 completion remain outside this admission.
