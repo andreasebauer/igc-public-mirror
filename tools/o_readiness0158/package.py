@@ -27,7 +27,10 @@ if (B/'CODE_MIRROR.json').exists():s['code_mirror']=json.load(open(B/'CODE_MIRRO
 Path('CURRENT_STATUS.json').write_text(json.dumps(s,indent=2));D=Path('handoff0158_o4_readiness');D.mkdir(exist_ok=True);dest=D/B;dest.mkdir(exist_ok=True)
 for p in B.iterdir():
  if p.is_file() and p.suffix in ['.json','.py','.txt']:shutil.copy2(p,dest/p.name)
-shutil.copytree(B/'sources',dest/'sources',ignore=shutil.ignore_patterns('__pycache__'),dirs_exist_ok=True)
+for ref in json.load(open(B/'RECOVERED_SOURCE_REFS.json')):
+ tag=Path(ref['chain'][-1]).stem
+ for e in ref['recovered_members']:
+  target=dest/'sources'/tag/e['name'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(B/'sources'/tag/e['name'],target)
 # Self-contained O3 byte-level validation without recovering the entire older master.
 for d,names in [('o3_export0156',['EXPORT_BINDINGS.json','SCIENTIFIC_EXPORT.zip']),('o3_integrate0157',['CATALOG_0144.json']),('o3_scope0155',['PAYLOAD_SHA256.json'])]:
  target=D/d;target.mkdir(exist_ok=True)
