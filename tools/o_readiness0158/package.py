@@ -1,0 +1,41 @@
+from pathlib import Path
+import json,hashlib,zipfile,shutil,datetime,ast
+B=Path('o_readiness0158');v=json.load(open(B/'READINESS_VALIDATION.json'));assert v['status']=='SAVED_O4_SCOPE_READY_WITH_INHERITED_QBANK_BOUNDARY';sha=lambda b:hashlib.sha256(b).hexdigest();sources=[]
+for p in (B/'sources').rglob('*.py'):
+ if not any(t in p.name for t in ['o4_phase','o5_phase','o6_phase','o7_live_engine','verify_o7_prereg']):continue
+ tree=ast.parse(p.read_text());imports=[]
+ for n in ast.walk(tree):
+  if isinstance(n,ast.Import):imports.extend(a.name for a in n.names)
+  elif isinstance(n,ast.ImportFrom):imports.append(n.module)
+ literals=sorted({n.value for n in ast.walk(tree) if isinstance(n,ast.Constant) and isinstance(n.value,str) and n.value.endswith(('.json','.csv','.gz','.zip','.py'))})
+ sources.append({'source':str(p.relative_to(B)),'sha256':sha(p.read_bytes()),'functions':[n.name for n in tree.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))],'imports':sorted(set(imports)),'file_literals':literals,'execution':'NOT_EXECUTED; source inventory only'})
+(B/'PRODUCER_MAP.json').write_text(json.dumps(sources,indent=2))
+contract={'schema':'IG_SAVED_O4_TYPED_INCIDENCE_EXPORT_CONTRACT_V1','population':'354 saved selected state occurrences across HET4(m4=0..5) and HOM6(m4=0..6); rank0 roots external seeds','expected_counts':v['O4_saved_counts'],'lower_owner_bindings':v['O3_parent_bindings'],'retention':['Original state/lane/prototype IDs, edge multiset and edge-only digest','Lane and rank qualified identity with full state payload SHA256','Original prototype resource coordinates plus full admitted O3 root/component/E3 references','Typed E4 eight-index endpoint paths including parallel multiplicity','Nontrivial connected component restrictions and original root correspondence','Frozen source algebra and producer/selection/manifest hashes'],'identity_limit':'Original edge-only digest excludes owner forest identity. Qualify by lane/rank and full payload hash; no claim of global isomorphism canonicalization.','derivation_limit':'No stored parent/action occurrences in these state rows; no complete generation ancestry or action multiplicity admission.','inherited_boundary':'O3 nested anonymous(p,u2) Q-bank resources;76 microscopic O2 panels and bank selection provenance remain unresolved.','execution':'Saved-data export and reader verification first; no generation, historical graduation replay, or admission yet.','next_scope':'SAVED_O4_TYPED_INCIDENCE_EXPORT_WITH_ADMITTED_O3_COMPONENT_BINDINGS','master_release':'MASTER_DATA_V1_0144','master_catalog_sha256':v['catalog_sha256']};(B/'EXPORT_CONTRACT.json').write_text(json.dumps(contract,indent=2))
+report='''INFINITY GRID REMAINING O PRODUCER READINESS0158 — 2026-10-06
+
+READY:Separately bounded saved O4 selected-state scope.354 states across HET4(m4=0..5) and HOM6(m4=0..6);1152 typed E4 edges,1802 O3 owner occurrences,442 nontrivial connected components. Six selected O3 prototypes plus the pinned O3 component bind to exact admitted rank-qualified O3 root/component references. Source panel byte hashes, ordered resource coordinates and resource canonicalization match; pinned E3 incidence matches original root. Original six-prototype selector passes from saved features. Typed E4 endpoint legality/capacity, edge-only digest and component accounting pass. No generation.
+
+Important export requirement:Keep lower O3 E3 incidence through root/component references; a nested resource observer alone does not preserve hidden topology. Edge-only O4 digest ignores owner identities; retain lane/rank and full literal payload hash. Saved state rows lack parent/action occurrence records; complete generation ancestry is outside this scope. The inherited anonymous Q-bank boundary and76 missing microscopic O2 panels remain unresolved.
+
+Recovered and hash-bound9 original archives containing O4/O5/O6 producer/audit code, prototype pools, selected states and O7 preregistration/closeout code. Extraction omits nested ZIP members, with original archive hashes/chain references preserved. O4 present-member manifests verified; other recovered members byte-verified. This does not certify every nested archive or historical graduation. O5/O6/O7 are source leads pending exact dependency/serialization binding. O7 closeout archive explicitly labels execution incomplete; no completion inferred.
+
+MASTER:MASTER_DATA_V1_0144/144 scientific slices unchanged. No new admission, registered execution, generation or graduation.
+NEXT:Saved O4 typed-incidence export and reader gate under EXPORT_CONTRACT.json, resolving base O3 component/E3 references to admitted data. Register, verify and preserve before scoped admission. Do not regenerate completed constructions or treat this readiness as full WP5 completion.
+'''
+(B/'REPORT.txt').write_text(report);s=json.load(open('CURRENT_STATUS.json'));s.update(status_as_of_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),next_scope=contract['next_scope'],next_scope_status='SAVED_O4_READY_WITH_ADMITTED_O3_COMPONENT_BINDINGS_AND_INHERITED_QBANK_BOUNDARY',remaining_o_readiness='o_readiness0158/READINESS_VALIDATION.json',o4_export_contract='o_readiness0158/EXPORT_CONTRACT.json');
+if (B/'CODE_MIRROR.json').exists():s['code_mirror']=json.load(open(B/'CODE_MIRROR.json'))
+Path('CURRENT_STATUS.json').write_text(json.dumps(s,indent=2));D=Path('handoff0158_o4_readiness');D.mkdir(exist_ok=True);dest=D/B;dest.mkdir(exist_ok=True)
+for p in B.iterdir():
+ if p.is_file() and p.suffix in ['.json','.py','.txt']:shutil.copy2(p,dest/p.name)
+shutil.copytree(B/'sources',dest/'sources',ignore=shutil.ignore_patterns('__pycache__'),dirs_exist_ok=True)
+# Self-contained O3 byte-level validation without recovering the entire older master.
+for d,names in [('o3_export0156',['EXPORT_BINDINGS.json','SCIENTIFIC_EXPORT.zip']),('o3_integrate0157',['CATALOG_0144.json']),('o3_scope0155',['PAYLOAD_SHA256.json'])]:
+ target=D/d;target.mkdir(exist_ok=True)
+ for n in names:shutil.copy2(Path(d)/n,target/n)
+shutil.copytree('o3_export0156/project',D/'o3_export0156/project',ignore=shutil.ignore_patterns('__pycache__'),dirs_exist_ok=True)
+refs={'current_master_restore':{'name':'IG_MASTER_DATA_V1_0144_O3_HANDOFF_2026-10-06.zip','sha256':'acdf876b9feeabac3ad09baa0d98623c5d88c69cb25837d8a57a59238407fe46','drive_file_id':'1HaNha5aXCjks43IVmmkVCHLCDt7_1t2j'},'restore':'This readiness delta does not replace144 master science slices. Restore the pinned master for next registered inputs; no generation. Included O3 export supports independent validation of this saved O4 readiness.'};(D/'RECOVERY_DEPENDENCIES.json').write_text(json.dumps(refs,indent=2));(D/'READ_FIRST.txt').write_text(report);(D/'STATUS.json').write_text(json.dumps(s,indent=2));(D/'CONTINUATION_CURSOR.json').write_text(json.dumps({'master_release':'MASTER_DATA_V1_0144','scientific_slices':144,'completed_action':'0158_REMAINING_O_SOURCE_RECOVERY_AND_SAVED_O4_READINESS','next_scope':contract['next_scope'],'next_job_captured':False,'new_admissions':0,'pending_bytes':0,'generation_calls':0},indent=2));(D/'TEMPLATE_COMPLIANCE.json').write_text(json.dumps({'read_first':True,'status':True,'cursor':True,'code_and_source_bytes':True,'hash_manifest':True,'dependency_refs':True,'next_contract':True,'boundary_limits_explicit':True,'completed_constructions_regenerated':False},indent=2));(D/'MANIFEST.json').unlink(missing_ok=True);m={str(p.relative_to(D)):{'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in D.rglob('*') if p.is_file()};(D/'MANIFEST.json').write_text(json.dumps(m,indent=2));p=Path('IG_O4_SOURCE_BOUND_READINESS_HANDOFF_2026-10-06.zip')
+with zipfile.ZipFile(p,'w',zipfile.ZIP_DEFLATED) as z:
+ for name in [*m,'MANIFEST.json']:z.write(D/name,name)
+with zipfile.ZipFile(p) as z:
+ for name,x in m.items():assert sha(z.read(name))==x['sha256']
+Path('CURRENT_START.txt').write_text(str(D/'READ_FIRST.txt')+'\n');Path('IG_O4_SOURCE_BOUND_READINESS_START_2026-10-06.txt').write_text(report+'\nBundle:'+p.name+'\nBundle SHA256:'+sha(p.read_bytes())+'\n');meta={'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size,'manifest_files':len(m)};(B/'DELIVERY_BINDINGS.json').write_text(json.dumps(meta,indent=2));print(meta)
