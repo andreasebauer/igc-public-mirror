@@ -1,0 +1,33 @@
+MASTER_DATA_V1_0141 — ADMITTED CASE5 PAIR ROUTES
+
+from project.unified import CompleteMasterReader
+with CompleteMasterReader(
+    'CATALOG_0141.json', 'CATALOG_0002.json', 'ORIGINAL_ADMISSION.json',
+    'IG_MASTER_DATA_V1_PREFIX_CASE5_2026-10-02.zip',
+    'IG_MASTER_DATA_V1_CASE5_PAIRS_2026-10-02.zip',
+    previous_catalog='CATALOG_0140.json',
+    recursive_admission='SCOPED_ADMISSION.json',
+    predecessor_catalog='predecessor/CATALOG_0139.json',
+    recursive_archive='NODE_NATIVE_ROOTED_DEPTH1_DEPTH2_V1.zip',
+    canonical_directory='canonical14', archive_directory='permutation_archives'
+) as reader:
+    obj = reader.lookup_pair('AB', exact_object_id)
+    occ = reader.lookup_pair_formation('AB', exact_formation_id)
+    coverage = reader.coverage_report()
+
+Families AB and BC require the original admitted foundation slice. Lookup returns
+full stored pair objects, original formation occurrences, exact J3 events and
+primitive source states. The original pair reader and contract modules are copied
+unchanged. Old J3, ABC and recursive routes delegate to the preceding reader.
+Missing files, identities, families or inconsistent roots fail explicitly.
+The reader never downloads, generates or substitutes historical data.
+
+The AB/BC slice was originally admitted in release0002. This release reconciles
+that existing admission into the current catalog; it does not create new pairs,
+reissue scientific admission or change their original scope. The exact original
+admission and supporting evidence hashes remain preserved in the handoff.
+
+Runtime and archive recovery follows the inherited exact dependency manifests.
+Prior absolute paths are location hints. Rebind local paths while retaining IDs,
+hashes and recipe semantics. Historical weights, mature NODE_IN/SCOUT, O/G and
+full L0-to-G8 completion remain outside current coverage.
