@@ -10,7 +10,7 @@ with tempfile.TemporaryDirectory() as td:
  for k,v in r.report.items():assert n['result'][k]==v
  assert json.load(open(b/'COLD_REUSE_RESULT.json'))['status']=='PASS'
  for key,row in r.records.items():
-  resources=r.resources(*key);usage=r.__class__.__module__
+  resources=r.resources(*key)
   for c,groups in enumerate(resources):
    for g,blocks in enumerate(groups):
     for block in blocks:
