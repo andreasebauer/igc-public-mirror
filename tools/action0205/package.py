@@ -1,34 +1,39 @@
 from pathlib import Path
 import json,datetime,zipfile,hashlib
-B=Path(__file__).resolve().parent;W=B.parent;a=json.loads((B/'AUDIT.json').read_text());r=json.loads((B/'NATIVE_RESULT.json').read_text());m=json.loads((B/'CODE_MIRROR.json').read_text());last=a['rows'][-1]
-assert r['status']=='COMPLETED' and r['result']['completed_depth']==96 and last['level']==96 and len(a['rows'])==6
-report=f'''CHECKPOINT0205 — EXACT G1 CONTINUATION91–96
+B=Path(__file__).resolve().parent;W=B.parent
+a=json.loads((B/'AUDIT.json').read_text());m=json.loads((B/'CODE_MIRROR.json').read_text());pointer=json.loads((B/'POINTER.json').read_text());last=a['rows'][-1]
+assert a['status']=='PASS_COLD_CHECKPOINT_EXACT_NATIVE_IDENTITIES_AND_DAG_CLOSURE' and a['generation_completed_depths']==[91,94] and a['native_published_manifest_depths']==[91,93] and a['pending_bytes']==0
+report=f'''READ FIRST — CHECKPOINT0205 PARTIAL USER-PAUSED NEW-CHAT HANDOFF
 2026-10-08
 
-DONE: Registered six-level tranche91–96 completed with verified native runtime evidence.24roots per depth;1158candidate builds. Earlier depths7–90 reused, not regenerated. Master151 unchanged; zero admissions. Terminal G1 R100 comparison and Q2 payload pending.
+NOT A COMPLETED91–96 TRANCHE. User requested a new-chat handoff; native pause was requested and acknowledged before publishing94. ERROR.txt records REQUESTED_PAUSE, not a scientific mismatch. Original registration91–96 is frozen and incomplete. No terminal PASS claimed.
 
-Depth90 bootstrap assembled solely from cold-restored0204files with raw partition hash verification, full-node conflict checks, exact DAG science identity, independent state reconstruction and exact DAG roundtrip. Complete engine and all four functional adapter files byte-unchanged from0204; empty package marker differs only by one blank newline, recorded in ADAPTER_BYTE_AUDIT.json. No new policy changes; complete transitive preflight and native environment admission passed. New tranche uses an isolated portable registry. Scientific recipe,31bridgepairs,193templates and24-state beam frozen. One task/occurrence per depth;explicit64MiB result budget, derived as min(memory,workspace)/32; preservation limits unchanged.
+SAVED: native exact generation tasks91–94 completed and committed:772candidate builds,24roots per depth. Manifests91–93 published. Depth94 exact delta remains in its native state_store.sqlite3; its manifest was not published.95–96 were not started.7–90 reused, not regenerated. Master151unchanged; zero admissions and zero pending bytes. G1 terminal100 comparison/Q2 remain pending.
 
-Result: PASS_BOUNDED_CONTINUATION through96; not terminal campaign PASS.
-Depth96 exact reachable nodes: {last['nodes']};roots24.
-Depth96 science SHA256: {last['science_sha256']}
-Capture: {json.loads((B/'POINTER.json').read_text())['capture_id']}
-Checkpoint: {json.loads((B/'PRESERVATION_FINAL.json').read_text())['latest_checkpoint']}
+PROOF: all raw objects saved and downloaded with SHA/length verification before acknowledgement. Paused native checkpoint independently restored. All four full canonical identity byte strings compared with their stored state payloads; parent-science bindings, full-node conflicts, exact reachable DAG closure/science hashes verified. Published91–93 also match native stored states. No original-workspace state read during audit. No generation during audit.
+BOUNDARY: independent state-object reconstruction/serialization for91–94 was NOT run; relocated controller resume NOT tested. Do not label this the earlier full independent-state restoration audit. The saved94 gate below is required before further generation.
 
-Audit: PASS_COLD_NATIVE_CHECKPOINT_AND_PARTITION_DAG_RESTORE. All six saved DAGs independently reconstructed and reserialized exactly from the isolated restored tree. Original-workspace state was not used during audit. No generation during audit; no claim that a relocated controller rerun was tested. All native save obligations acknowledged with real raw Drive-object readbacks; pending bytes0.
+Depth94 reachable nodes:{last['nodes']};roots24.
+Depth94 science SHA256:{last['science_sha256']}
+Capture:{pointer['capture_id']}
+Recorded original workspace:{pointer['workspace']}
+Code-only mirror:{m['repository']} commit {m['commit_sha']}.
 
-Runtime CPython3.13.5 / SQLite3.51.3 / Decoder0.8.0.dev151+lib.
-Code-only mirror: {m['repository']} commit {m['commit_sha']}.
+NEXT CHAT:
+1. Recover the exact pinned runtime. runtime/RECOVERY_RUNTIME_PARTS.json gives six raw IDs/hashes. Concatenate in part_number order, verify archive SHA, extract ONLY the specified runtime tar. runtime manifests/policy retain4721file hashes and executable modes. recover_runtime.py verifies these and the captured engine. CPython3.13.5/SQLite3.51.3/Decoder0.8.0.dev151+lib.
+2. Fetch current CHECKPOINT_EXPORT.json dependencies via READBACKS.json; verify every raw hash/length. Restore NATIVE_CHECKPOINT_SLIM.zip with restore_current.py into a fresh /tmp tree. Exact captured engine archive SHA60c729a8ee3ec81b0b367b44719e238271ad7d0ae9112cebe81253cf3f874c30. No theory/concept files required.
+3. Run reconstruct_saved94.py on that restored tree. It checks complete native identities/parent bindings/DAG closure, then independently reconstructs94state objects and requires exact DAG roundtrip. It writes canonical BOOTSTRAP94 JSON with zero candidate generation. Stop on any mismatch.
+4. After this gate passes, register bounded95–96 from the saved94bootstrap in an isolated registry. DO NOT regenerate91–94. Keep193recipes,31bridgepairs,24-state beam, full-node equality and stopping rules. Engine and all four functional adapter files unchanged from0204; only the empty package marker differs by one newline, recorded in ADAPTER_BYTE_AUDIT.json. Keep the explicit64MiB result budget; unnecessary fixed8MiB ceiling was removed in0204.
+5. Fully preserve/audit95–96 before97–99, then register100 and independently compare193terminal public interfaces before reviewing admission.
 
-NEXT: Register bounded97–99 from preserved depth96. Initialize an isolated registry per tranche; reuse verified predecessor science and retain its provenance. Keep full-node collision checks, exact science hashes and current stopping rules. Continue toward100, independently compare193terminal interfaces with the bound saved reference, then review admission. No automatic changes to science.
-
-RESTART: NATIVE_CHECKPOINT_SLIM.zip and CHECKPOINT_EXPORT.json list exact raw dependencies and saved IDs. READBACKS.json maps IDs/hashes/verified bytes. Fetch exact objects, verify bytes before native restore. Partition paths are transport locators: after relocation resolve hash-identical files inside restored tree as audited. Handoff includes scripts, registration, tests, native result, audit and preservation metadata; bulk state is separately preserved.
+Original paused capture retained for provenance. Same-capture resume must keep all task/input bindings and reuse four committed tasks. Relocated controller resume has NOT been qualified; do not bypass a binding failure or rerun completed94. Separately registered95–96 after the exact94gate is the planned clean continuation.
+audit_restore.py is the ORIGINAL planned six-depth audit, not valid yet for this partial scope. audit_handoff.py records the actual handoff audit. Self-contained runtime and predecessor recovery metadata included. Bulk raw checkpoint state is separately saved.
 '''
-(B/'REPORT.txt').write_text(report);p=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0205_START_2026-10-08.txt';p.write_text(report)
-s=json.loads((W/'CURRENT_STATUS.json').read_text());s.update(latest_checkpoint=205,status_as_of_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),in_flight_active='NONE',generator_calls=6,generator_calls_scope='0205:six evaluator tasks/1158candidate builds; historical cumulative count not asserted',pending_bytes=0,active_native_runtime=json.loads((B/'POINTER.json').read_text())['workspace'],next_scope='WP6_G1_EXACT_CONTINUATION_FROM96',next_scope_status='DEPTH96_COLD_PARTITION_RESTORE_VERIFIED');s['code_mirror']=m;s['checkpoint0205']={k:v for k,v in a.items() if k!='rows'};(B/'STATUS_CANDIDATE.json').write_text(json.dumps(s,indent=2))
-z=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0205_HANDOFF_2026-10-08.zip'
-with zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED) as f:
- for q in sorted(B.rglob('*')):
-  if q.is_file() and q.suffix in ['.json','.txt','.zip','.log','.py'] and not any(v in q.parts for v in ['readbacks','restore_objects','__pycache__']) and not q.name.startswith('private_'):f.write(q,'partition0205/'+str(q.relative_to(B)))
-with zipfile.ZipFile(z) as f:assert f.testzip() is None
-meta=[{'path':str(q),'sha256':hashlib.sha256(q.read_bytes()).hexdigest(),'bytes':q.stat().st_size} for q in [p,z]];(B/'DELIVERABLES.json').write_text(json.dumps(meta,indent=2));print(json.dumps(meta))
+(B/'REPORT.txt').write_text(report);start=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0205_START_2026-10-08.txt';start.write_text(report)
+s=json.loads((W/'CURRENT_STATUS.json').read_text());s.update(latest_checkpoint=205,status_as_of_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),in_flight_active='NONE',generator_calls=4,generator_calls_scope='0205:four committed evaluator tasks/772candidate builds; paused before94publication',pending_bytes=0,active_native_runtime=pointer['workspace'],next_scope='WP6_G1_SAVED94_INDEPENDENT_RECONSTRUCTION_THEN95_96',next_scope_status='USER_PAUSED_HANDOFF_94_STATE_SAVED_NOT_PUBLISHED');s['code_mirror']=m;s['checkpoint0205']={k:v for k,v in a.items() if k!='rows'};(B/'STATUS_CANDIDATE.json').write_text(json.dumps(s,indent=2))
+handoff=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0205_HANDOFF_2026-10-08.zip'
+with zipfile.ZipFile(handoff,'w',zipfile.ZIP_DEFLATED) as z:
+ for p in sorted(B.rglob('*')):
+  if p.is_file() and p.suffix in ['.json','.txt','.zip','.log','.py'] and not any(x in p.parts for x in ['restore_objects','__pycache__']) and not p.name.startswith('private_'):z.write(p,'partition0205/'+str(p.relative_to(B)))
+with zipfile.ZipFile(handoff) as z:assert z.testzip() is None
+meta=[{'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in [start,handoff]];(B/'DELIVERABLES.json').write_text(json.dumps(meta,indent=2));print(json.dumps(meta))
