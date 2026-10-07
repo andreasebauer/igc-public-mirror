@@ -24,7 +24,7 @@ RESTORE: CHECKPOINT_EXPORT.json lists raw dependencies; READBACKS.json maps hash
 (B/'REPORT.txt').write_text(report)
 files={}
 for p in sorted(B.rglob('*')):
- if p.is_file() and p.suffix in ['.json','.txt','.zip','.log','.py'] and not any(v in p.parts for v in ['restore_objects','__pycache__']) and not p.name.startswith('private_'):files['continuation0206/'+str(p.relative_to(B))]=p
+ if p.is_file() and p.suffix in ['.json','.txt','.zip','.log','.py'] and not any(v in p.parts for v in ['restore_objects','__pycache__']) and not p.name.startswith('private_') and p.name not in ['DELIVERABLES.json','SAVE_RECEIPT.json']:files['continuation0206/'+str(p.relative_to(B))]=p
 files['BOOTSTRAP96.json']=boot
 files['predecessor/IG_MASTER151_G1_PARTITION_CONTINUATION_0205_HANDOFF_2026-10-08.zip']=W/'recovery/IG_MASTER151_G1_PARTITION_CONTINUATION_0205_HANDOFF_2026-10-08.zip'
 manifest={k:{'sha256':hashlib.file_digest(p.open('rb'),'sha256').hexdigest(),'bytes':p.stat().st_size} for k,p in files.items()}
