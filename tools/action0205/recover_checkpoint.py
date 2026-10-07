@@ -4,8 +4,8 @@ import json,hashlib,sys
 B=Path(__file__).resolve().parent;W=B.parent
 sys.path.insert(0,'/tmp/ig_engine0204')
 from infinity_grid import preservation as pr
-export=json.loads((W/'partition0204/CHECKPOINT_EXPORT.json').read_text())
-archive=W/'partition0204/NATIVE_CHECKPOINT_SLIM.zip'
+export=json.loads((B/'predecessor0204/CHECKPOINT_EXPORT.json').read_text())
+archive=B/'predecessor0204/NATIVE_CHECKPOINT_SLIM.zip'
 assert hashlib.file_digest(archive.open('rb'),'sha256').hexdigest()==export['sha256']
 objects=Path('/tmp/ig_verified0205/recovery')
 for row in export['dependencies']:
