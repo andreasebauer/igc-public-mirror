@@ -15,7 +15,7 @@ Depth90 science SHA256: {last['science_sha256']}
 Capture: {json.loads((B/'POINTER.json').read_text())['capture_id']}
 Checkpoint: {json.loads((B/'PRESERVATION_FINAL.json').read_text())['latest_checkpoint']}
 
-Audit: PASS_COLD_NATIVE_CHECKPOINT_AND_PARTITION_DAG_RESTORE. All six saved DAGs independently reconstructed and reserialized exactly from the isolated restored tree. Original-workspace state was not used during audit. No generation during audit; no claim that a relocated controller rerun was tested. All native save obligations acknowledged with real raw Drive-object readbacks; pending bytes0.
+Audit: PASS_COLD_NATIVE_CHECKPOINT_AND_PARTITION_DAG_RESTORE. Both saved DAGs independently reconstructed and reserialized exactly from the isolated restored tree. Original-workspace state was not used during audit. No generation during audit; no claim that a relocated controller rerun was tested. All native save obligations acknowledged with real raw Drive-object readbacks; pending bytes0.
 
 Runtime CPython3.13.5 / SQLite3.51.3 / Decoder0.8.0.dev151+lib.
 Code-only mirror: {m['repository']} commit {m['commit_sha']}.
@@ -25,7 +25,7 @@ NEXT: Register bounded91onward from preserved depth90. Initialize an isolated re
 RESTART: NATIVE_CHECKPOINT_SLIM.zip and CHECKPOINT_EXPORT.json list exact raw dependencies and saved IDs. READBACKS.json maps IDs/hashes/verified bytes. Fetch exact objects, verify bytes before native restore. Partition paths are transport locators: after relocation resolve hash-identical files inside restored tree as audited. Handoff includes scripts, registration, tests, native result, audit and preservation metadata; bulk state is separately preserved.
 '''
 (B/'REPORT.txt').write_text(report);p=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0204_START_2026-10-07.txt';p.write_text(report)
-s=json.loads((W/'CURRENT_STATUS.json').read_text());s.update(latest_checkpoint=204,status_as_of_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),in_flight_active='NONE',generator_calls=2,generator_calls_scope='0204:six evaluator tasks/386candidate builds; historical cumulative count not asserted',pending_bytes=0,active_native_runtime=json.loads((B/'POINTER.json').read_text())['workspace'],next_scope='WP6_G1_EXACT_CONTINUATION_FROM90',next_scope_status='DEPTH90_COLD_PARTITION_RESTORE_VERIFIED');s['code_mirror']=m;s['checkpoint0204']={k:v for k,v in a.items() if k!='rows'};(B/'STATUS_CANDIDATE.json').write_text(json.dumps(s,indent=2))
+s=json.loads((W/'CURRENT_STATUS.json').read_text());s.update(latest_checkpoint=204,status_as_of_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),in_flight_active='NONE',generator_calls=2,generator_calls_scope='0204:two evaluator tasks/386candidate builds; historical cumulative count not asserted',pending_bytes=0,active_native_runtime=json.loads((B/'POINTER.json').read_text())['workspace'],next_scope='WP6_G1_EXACT_CONTINUATION_FROM90',next_scope_status='DEPTH90_COLD_PARTITION_RESTORE_VERIFIED');s['code_mirror']=m;s['checkpoint0204']={k:v for k,v in a.items() if k!='rows'};(B/'STATUS_CANDIDATE.json').write_text(json.dumps(s,indent=2))
 z=W/'IG_MASTER151_G1_PARTITION_CONTINUATION_0204_HANDOFF_2026-10-07.zip'
 with zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED) as f:
  for q in sorted(B.rglob('*')):
