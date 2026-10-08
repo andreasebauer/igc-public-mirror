@@ -6,7 +6,10 @@ sys.path.insert(0,str(J/'source'))
 from infinity_grid import preservation as p
 E=json.loads((B/'CHECKPOINT_EXPORT.json').read_text());M=json.loads((B/'READBACKS.json').read_text());objects=Path('/tmp/ig_cold0225_objects');objects.mkdir(exist_ok=True)
 for x in E['dependencies']:
- f=Path(M[x['sha256']]['path']);assert f.stat().st_size==x['size_bytes'] and hashlib.file_digest(f.open('rb'),'sha256').hexdigest()==x['sha256'];(objects/(x['sha256']+'.bin')).symlink_to(f)
+ f=Path(M[x['sha256']]['path']);assert f.stat().st_size==x['size_bytes'] and hashlib.file_digest(f.open('rb'),'sha256').hexdigest()==x['sha256']
+ link=objects/(x['sha256']+'.bin')
+ if link.exists():assert link.resolve()==f.resolve()
+ else:link.symlink_to(f)
 C=Path('/tmp/ig_native0225/cold');assert not C.exists();restored=p.restore_checkpoint(B/'NATIVE_CHECKPOINT_SLIM.zip',C,E['sha256'],objects=objects)
 for name in list(sys.modules):
  if name=='infinity_grid' or name.startswith('infinity_grid.') or name=='project' or name.startswith('project.'):del sys.modules[name]
@@ -16,8 +19,11 @@ from infinity_grid import submission as sub
 from infinity_grid.structural_encoding import structural_canonical_bytes
 from project.worker import verify,read_bound
 from project.partitions import assemble
-rec=sub.capture_record(C);admission=validate_workspace_job(C,rec['job']['job_id']);done=verified_completion(admission)
+rec=sub.capture_record(C);admission=validate_workspace_job(C,rec['job']['job_id']);done=verified_completion(admission,allow_pending_checkpoint=True)
 assert done is not None
+from infinity_grid.preservation import terminal_completion_proof
+assert terminal_completion_proof(C,done)
+assert done['completion_sha256']==json.loads((B/'NATIVE_RESULT.json').read_text())['completion_sha256']
 c=rec['job']['execution']['parameters'];payload={k+'_path':str(C/'runtime/intake/artifacts'/(v+'.bin')) for k,v in c['bindings'].items()};payload.update({k+'_sha256':v for k,v in c['bindings'].items()});payload.update(prior_capture_id=c['prior_capture_id'],final_science_sha256=c['final_science_sha256'])
 observed=verify(payload);assert done['result']==observed
 f=next(C.glob('runtime/runs/*/chain/decoder_stage_runtime/*/phases/saved_depth80_verification/state_store.sqlite3'))
