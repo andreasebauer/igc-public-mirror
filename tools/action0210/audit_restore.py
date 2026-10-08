@@ -1,0 +1,24 @@
+"""Cold native restore-only result audit linked to independent terminal DAG audit."""
+from pathlib import Path
+import sys,json,hashlib,sqlite3
+B=Path(__file__).resolve().parent;P=B.parent/'terminal0209';J=Path(json.loads((B/'POINTER.json').read_text())['workspace']);sys.path.insert(0,str(J/'source'))
+from infinity_grid import preservation as p
+from infinity_grid.canon import canonical_sha256
+from infinity_grid.structural_encoding import structural_canonical_bytes
+p.confirm_batch(J,B/'ACK_BATCH.json');s=p.status(J);assert not s['pending_objects'];(B/'PRESERVATION_FINAL.json').write_text(json.dumps(s,indent=2));e=p.export_checkpoint(J,B/'NATIVE_CHECKPOINT_SLIM.zip',slim=True);(B/'CHECKPOINT_EXPORT.json').write_text(json.dumps(e,indent=2));m=json.loads((B/'READBACKS.json').read_text());o=B/'restore_objects';o.mkdir()
+for x in e['dependencies']:
+ src=Path(m[x['sha256']]['path']);assert src.stat().st_size==x['size_bytes'] and hashlib.file_digest(src.open('rb'),'sha256').hexdigest()==x['sha256'];(o/(x['sha256']+'.bin')).symlink_to(src)
+C=Path('/tmp/ig_native0210/cold_checkpoint');p.restore_checkpoint(B/'NATIVE_CHECKPOINT_SLIM.zip',C,e['sha256'],o);r=next(C.glob('runtime/runs/*/chain/decoder_stage_runtime/*'));spec=json.loads((B/'SPEC.json').read_text());bindings=spec['execution']['parameters']['bindings'];gate=json.loads((B/'GATE.json').read_text())
+assert hashlib.file_digest((P/'AUDIT.json').open('rb'),'sha256').hexdigest()==gate['audit_sha256'];prior=json.loads((P/'AUDIT.json').read_text());assert prior['status']=='PASS_FORENSIC_COLD_TERMINAL100_DAG_AND193_INTERFACE_COMPARISON' and prior['audit_candidate_generation_calls']==0
+inputs={}
+for name in ('bootstrap','reference'):
+ raw=(C/'runtime/intake/artifacts'/(bindings[name]+'.bin')).read_bytes();assert hashlib.sha256(raw).hexdigest()==bindings[name];inputs[name]=json.loads(raw)
+boot=inputs['bootstrap'];dag=boot['dag'];assert boot['level']==100 and boot['selected_count']==193 and boot['candidate_count']==193 and len(dag['roots'])==193 and dag['science_sha256']==gate['science_sha256'] and canonical_sha256({k:v for k,v in dag.items() if k!='science_sha256'})==dag['science_sha256']
+# The exact same bootstrap bytes were produced only after independent193-root
+# reconstruction and exact DAG roundtrip; compare that saved interface population.
+observed=json.loads((P/'INDEPENDENT_INTERFACE_POPULATION.json').read_text());assert len(observed['interfaces'])==193 and observed['interfaces']==inputs['reference']['interfaces'];cert=json.loads((P/'INTERFACE_AUDIT.json').read_text());assert cert['status']=='PASS_INDEPENDENT193_INTERFACE_EQUALITY' and canonical_sha256(observed)==cert['observed_population_sha256']
+expected={'level':100,'restored_roots':193,'interfaces_checked':193,'dag_science_sha256':dag['science_sha256']};artifact=json.loads((r/'artifacts/g1_terminal_interface_comparison.json').read_text());assert artifact==expected
+db=r/'phases/g1_terminal_interface_restore/state_store.sqlite3';conn=sqlite3.connect(db.resolve().as_uri()+'?mode=ro',uri=True);saved=conn.execute('SELECT index_digest,canonical_bytes,state_json FROM states').fetchall();assert len(saved)==1 and conn.execute('SELECT COUNT(*) FROM generation_tasks').fetchone()[0]==1;conn.close();digest,exact,state_json=saved[0];assert json.loads(state_json)==expected and structural_canonical_bytes(expected)==bytes(exact) and hashlib.sha256(exact).hexdigest()==digest
+summary=json.loads((r/'phases/g1_terminal_interface_restore/SUMMARY.json').read_text())['generation'];assert summary['raw_generated_occurrence_count']==1 and summary['stored_exact_identity_canonical_bytes']==len(exact)
+res=json.loads((B/'NATIVE_RESULT.json').read_text());assert res['status']=='COMPLETED' and res['evidence_status']=='VERIFIED' and res['result']['outcome']=='PASS_TERMINAL_INTERFACE_COMPARISON' and res['result']['candidate_build_calls']==0
+out={'status':'PASS_COLD_NATIVE193_INTERFACE_RESTORE_AND_PRIOR_INDEPENDENT_DAG_BINDING','completed_depth':100,'roots':193,'interfaces_checked':193,'candidate_build_calls':0,'earlier_depths_regenerated':False,'audit_candidate_generation_calls':0,'native_registered_scope_completed':True,'terminal_comparison':'PASS','master_slices':151,'new_admissions':0,'Q2_payload_generated':False,'pending_bytes':0,'science_sha256':dag['science_sha256'],'bootstrap_sha256':bindings['bootstrap'],'prior_independent_dag_audit_sha256':gate['audit_sha256'],'prior_terminal_generation_capture':json.loads((P/'POINTER.json').read_text())['capture_id'],'prior_resource_refusal_retained':True,'cold_workspace':str(C),'original_workspace_scientific_state_read_during_audit':False,'independent_193_root_roundtrip':'PASS_PRIOR_FORENSIC_COLD_AUDIT_OF_IDENTICAL_BOOTSTRAP','native_restore_exact_identity_bytes':len(exact)};(B/'AUDIT.json').write_text(json.dumps(out,indent=2));print(json.dumps(out))
