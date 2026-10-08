@@ -1,0 +1,12 @@
+"""Gate restore-only registration on verified forensic cold terminal audit."""
+from pathlib import Path
+import json,hashlib,shutil,sys
+B=Path(__file__).resolve().parent;P=B.parent/'terminal0209';sys.path.insert(0,'/tmp/ig_engine0204')
+from infinity_grid.workflow_guard import preflight
+from infinity_grid.result_contracts import normalize
+A=json.loads((P/'AUDIT.json').read_text());M=json.loads((P/'BOOTSTRAP100_META.json').read_text());boot=Path(M['path']);assert A['status']=='PASS_FORENSIC_COLD_TERMINAL100_DAG_AND193_INTERFACE_COMPARISON' and A['native_registered_scope_completed'] is False and boot.stat().st_size==M['bytes'] and hashlib.file_digest(boot.open('rb'),'sha256').hexdigest()==M['sha256']
+S=json.loads((P/'SPEC.json').read_text());S['job_id']='MASTER.G1.EXACT.TERMINAL.RESTORE.0210';S['project_source']=str(B/'project');S['question'].update(stage_id='MASTER:G1:EXACT:TERMINAL:RESTORE:0210',description='Restore-only native193interface comparison from cold-audited compact terminal100; no candidate generation or admission');S['execution']['parameters'].update(bootstrap_science_sha256=M['science_sha256']);S['execution']['parameters']['bindings']['bootstrap']=M['sha256']
+for x in S['inputs']:
+ if x['logical_name']=='bootstrap':x.update(path=str(boot),sha256=M['sha256'])
+normalize(S['output_contract'],S['execution'],S['question']);(B/'SPEC.json').write_text(json.dumps(S,indent=2));(B/'GATE.json').write_text(json.dumps({'status':'PASS_FORENSIC_COLD_AUDITED_BOOTSTRAP100_BYTE_BINDING','science_sha256':M['science_sha256'],'bootstrap_sha256':M['sha256'],'audit_sha256':hashlib.file_digest((P/'AUDIT.json').open('rb'),'sha256').hexdigest(),'interfaces_checked':193,'candidate_generation_calls':0},indent=2))
+(B/'OPERATIONAL_AMENDMENT.json').write_text(json.dumps({'previous_capture_retained':A['cold_workspace'],'previous_stop_reason':A['stop_reason'],'scope':'RESTORE_ONLY_FROM_AUDITED_COMPACT_BOOTSTRAP100','earlier_depths_regenerated':False,'candidate_generation_calls':0,'science_inputs_unchanged':True,'checkpoint_limits_unchanged':True,'engine_unchanged':True,'task_work_budget_seconds':1800,'result_transport_budget_bytes':67108864},indent=2));src=Path('/tmp/ig_preflight0210');shutil.copytree('/tmp/ig_engine0204',src);shutil.copytree(B/'project',src/'project');g=preflight(src,[src/'project/handler.py',src/'project/worker.py']);assert g['status']=='PASS';(B/'PREFLIGHT.json').write_text(json.dumps(g,indent=2));print('PASS restore-only byte gate and transitive preflight')
