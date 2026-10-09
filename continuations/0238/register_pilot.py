@@ -34,7 +34,7 @@ def handler(stage,runtime):
  s['project_source']=str(project.resolve());s['execution']['parameters']['bindings']['cases']=sha(B/'PILOT_CASES.json');s['execution']['parameters']['source_binding']=binding
  for x in s['inputs']:
   if x['logical_name']=='cases':x.update(path=str((B/'PILOT_CASES.json').resolve()),sha256=sha(B/'PILOT_CASES.json'))
- s['output_contract']['claim']='Bounded complete-class strict-public Q2 comparison only; no full historical public observer, admission or G2 promotion'
+ s['output_contract']['claim']='EXECUTION_ONLY'
  s['output_contract']['result_checks']=[dict(pointer='/'+k,equals=v) for k,v in dict(outcome='PASS_COMPLETE_CLASS_Q2_PILOT_V1',cases_checked=62,complete_Q2_classes_checked=31,G1_candidate_generation=0,G2_primary_realizations=62,G2_swap_checks=62,full_historical_public_observer_compared=False,master_slices=152,new_admissions=0,G2_promotion=False).items()]
  (B/'NEXT_SPEC.json').write_text(json.dumps(s,indent=2)+'\n')
  pilot=json.loads((B/'PILOT_CASES.json').read_text());first=pilot['class_keys'][0];dry=[x['ordinal'] for x in pilot['cases'] if x['record']['outcome_science_sha256']==first]

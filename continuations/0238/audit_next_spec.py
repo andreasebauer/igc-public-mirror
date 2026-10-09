@@ -3,10 +3,12 @@ from pathlib import Path
 import json,hashlib,sys
 B=Path(__file__).resolve().parent;sys.path.insert(0,'/tmp/ig_engine0237')
 from infinity_grid.canon import canonical_sha256
+from infinity_grid.result_contracts import normalize
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  p=json.loads((B/'NEXT_PREREGISTRATION.json').read_text());s=json.loads((B/'NEXT_SPEC.json').read_text());c=json.loads((B/'PILOT_CASES.json').read_text());g=json.loads((B/'NEXT_PREFLIGHT.json').read_text())
  assert 'output_checks' not in s and s['output_contract']['schema_id']=='IG_DECODER_RESULT_CONTRACT_V1'
+ normalized=normalize(s['output_contract'],s['execution'],s['question']);assert normalized['claim']=='EXECUTION_ONLY' and normalized['declared_outcomes']==['PASS_COMPLETE_CLASS_Q2_PILOT_V1']
  for n,h in p['source_sha256'].items():
   path=Path('/tmp/ig_engine0237/infinity_grid')/n.split('/',1)[1] if n.startswith('engine/') else B/n
   assert sha(path)==h,n
