@@ -1,0 +1,324 @@
+[
+  {
+    "path": "PREREGISTRATION.json",
+    "mode": "100644",
+    "sha256": "ca9e3b70743a66b93f60300b5b3dc3ab1c6c0278b30465e1e7a9f68ead413256",
+    "git_blob_sha": "853827157c841176f8780740069938084c10bfe0",
+    "bytes": 886
+  },
+  {
+    "path": "SOURCE_MANIFEST.json",
+    "mode": "100644",
+    "sha256": "a2ba9e3fb9728db79f0dcd713473b3e0dc57ddf986eb03de708adc8efc84409c",
+    "git_blob_sha": "3172dc18951fa1231cd63c96ec425d1acdab3fbd",
+    "bytes": 574963
+  },
+  {
+    "path": "operational/continuous_observer.py",
+    "mode": "100644",
+    "sha256": "f04c97003c32aeb7e1a259eb47d1ee5da402400a7e62092ded04959eff7cfde7",
+    "git_blob_sha": "3331aa1f42b4979af4ea3c7cc7294b595dbc89d5",
+    "bytes": 13844
+  },
+  {
+    "path": "operational/continuous_worker.py",
+    "mode": "100644",
+    "sha256": "4de8f02f190d24dc27ae1e0374c38a236beb8f92ff662b0581a4cad28ce13c2b",
+    "git_blob_sha": "eedf60647343f2c16110763dbd991c53803fac2f",
+    "bytes": 11539
+  },
+  {
+    "path": "operational/exact_parent_reader.py",
+    "mode": "100644",
+    "sha256": "dae2b8a1f17444d19ec6e2395e6ebdfb8cb3ed8e8b1a28fd9a1f70858f4f78be",
+    "git_blob_sha": "321f76733931a58889c7bc078e4d3728b745d08e",
+    "bytes": 6020
+  },
+  {
+    "path": "operational/p0_control.py",
+    "mode": "100644",
+    "sha256": "405b2f15674f69720ec66ebd957689ef09716b1c04963b427c6662521f77510c",
+    "git_blob_sha": "454884d0c95b165200eec5ccd0db401fa96b7fce",
+    "bytes": 12853
+  },
+  {
+    "path": "operators/bootstrap_empty.py",
+    "mode": "100644",
+    "sha256": "5f7ca37e2cb35fe043ee6bb2d846b476c85e6b62f0e19cff8899dd2dfbac35cd",
+    "git_blob_sha": "896f3aa30535776ccc5a92df07a70554f0a10647",
+    "bytes": 253
+  },
+  {
+    "path": "overlay_tools/restore_candidate.py",
+    "mode": "100644",
+    "sha256": "ca38c905cdd424c11ff1d16df6b9e1fe920b36aa5d27f162689d4c37f0dad6ad",
+    "git_blob_sha": "9543c16898caa71f35e6bbdfa4a5de86b9ac71a8",
+    "bytes": 2284
+  },
+  {
+    "path": "source/infinity_grid/_representative_qualification_cases.py",
+    "mode": "100644",
+    "sha256": "63c68fbb73fd54b1a1e6a07e654eb9bb967c22689c3c80e9b97e97d6a35a1b6e",
+    "git_blob_sha": "a7af8b7eb8fc0c2f2acfc208e6e77a39a6b829b3",
+    "bytes": 7745
+  },
+  {
+    "path": "source/infinity_grid/_version.py",
+    "mode": "100644",
+    "sha256": "064ae4c0ab9d9cc22f103780273d0b091b4cd47f8ffa838ca8f1994d004dbe88",
+    "git_blob_sha": "a4fd39657334d168f2f9f6f4a916b517d46f96f3",
+    "bytes": 33
+  },
+  {
+    "path": "source/infinity_grid/exact_tree_relation_kernel.py",
+    "mode": "100644",
+    "sha256": "ffb0ae2776fb303af4745c3ca777da4b8a099a6880d772e2834e5cd46a90dec9",
+    "git_blob_sha": "e8f293e0eb61eb83f6040ca891ba57d4111140b8",
+    "bytes": 58830
+  },
+  {
+    "path": "source/infinity_grid/g4_term_state.py",
+    "mode": "100644",
+    "sha256": "6973ca1d05c1da28d65195b3f5249733e7570abfb3fab1303efff8fd67cc7fba",
+    "git_blob_sha": "c0de0b2d507718b119e69c9f25c70b992f91d530",
+    "bytes": 14478
+  },
+  {
+    "path": "source/infinity_grid/g6_s7_evaluators.py",
+    "mode": "100644",
+    "sha256": "224d282f555d542f3977d4a4953305ccb43c46c70056350e4c31cea07d769816",
+    "git_blob_sha": "758c02398b68743c6556ad1b7e0463940faeeb4d",
+    "bytes": 32926
+  },
+  {
+    "path": "source/infinity_grid/invocation_fixture.py",
+    "mode": "100644",
+    "sha256": "8c341a23646469881e770b0d88e0c7844db9d1e4f500283afa96683e4fea9c3f",
+    "git_blob_sha": "27f70c49adebda0fcf57cc9cdb597d51fa539838",
+    "bytes": 1505
+  },
+  {
+    "path": "source/infinity_grid/isolated_runtime.py",
+    "mode": "100644",
+    "sha256": "b8f9f683626d8fef7c4dd412923b029c2b2c500efca0589bde785ba18d066901",
+    "git_blob_sha": "358875c6cc61434f49395e93783cf2acb005c2c6",
+    "bytes": 4858
+  },
+  {
+    "path": "source/infinity_grid/o7_c1_typed_baseline.py",
+    "mode": "100644",
+    "sha256": "c2a076cf4031843677006dedb9de4cf110473f9bc693c1816567aea715e26f4d",
+    "git_blob_sha": "5889047700f505059359bf5817bca2d33b680dad",
+    "bytes": 10136
+  },
+  {
+    "path": "source/infinity_grid/o7_edge_canonicalization.py",
+    "mode": "100644",
+    "sha256": "84a339a528435c37220af9c09059834b68f4bcf5a9bb0a402e89c6daf9302dad",
+    "git_blob_sha": "d0951ccb1de9bd5db05ca0e8d87ff0d7cbc9deed",
+    "bytes": 11333
+  },
+  {
+    "path": "source/infinity_grid/preservation.py",
+    "mode": "100644",
+    "sha256": "4c6ef74d4a3be2d0fe3669bd30220f51e1ceb59c0a2c4dfce33b29b026839b06",
+    "git_blob_sha": "5d8be389f09b5ad1ffe19ff9251658ab62b6e920",
+    "bytes": 52372
+  },
+  {
+    "path": "source/infinity_grid/project_checkpoint.py",
+    "mode": "100644",
+    "sha256": "1b45dbce33c31e101572b68c5aeb2ea7cabd088b82e5bc44d79c8ec1da6b5cac",
+    "git_blob_sha": "cb2474a2f3687f7aae143724513adccd9809cc7e",
+    "bytes": 7121
+  },
+  {
+    "path": "source/infinity_grid/regime_scanner.py",
+    "mode": "100644",
+    "sha256": "108809dcc3725a9fa5edd5151f3fafe6e73816cac5551409aafa6e6dc884206c",
+    "git_blob_sha": "0d4a617fdfff5d7b21860fbd7d9ba3253969cfc6",
+    "bytes": 55176
+  },
+  {
+    "path": "source/infinity_grid/resources/runtime/V5_BUNDLED_BOOTSTRAP_MANIFEST.json",
+    "mode": "100644",
+    "sha256": "6a205e5d39a3acd7261b23caaf06997d41cc65ebd1329b1766c143f5dacf78b5",
+    "git_blob_sha": "0e5bcef8c749d02a378c7ca2ac9d46943a9d2fac",
+    "bytes": 880256
+  },
+  {
+    "path": "source/infinity_grid/resources/v05/p7_fixtures/l15_scout_calibration_port.py",
+    "mode": "100644",
+    "sha256": "42674969fd829f9d41f7a1cc3c4beb6bdf9d769cf8da2b1f91f089d3129920d6",
+    "git_blob_sha": "3b2c5266135a8d12a03ad1ff80673f638d5830e3",
+    "bytes": 12317
+  },
+  {
+    "path": "source/infinity_grid/result_contracts.py",
+    "mode": "100644",
+    "sha256": "ccf1192865d0e35d4c91a15e7299afee7702da911dd14f018ccc81d0171aed07",
+    "git_blob_sha": "4eaccbac14eaa3a5c6e896d1b789addce9d6ac54",
+    "bytes": 14022
+  },
+  {
+    "path": "source/infinity_grid/run_operations.py",
+    "mode": "100644",
+    "sha256": "febab9102313e323d5c47a12ce1acf827c689e2e103b166d8fa81975e84f316c",
+    "git_blob_sha": "d3fcff6d0be359bdbab8190838b046220935d690",
+    "bytes": 91383
+  },
+  {
+    "path": "source/infinity_grid/run_plan_v2.py",
+    "mode": "100644",
+    "sha256": "91554f6278c0de08623d3b0910ffc8f0fe347b0f3e2cede0892705d07889a2c9",
+    "git_blob_sha": "afc42c2bae9ca9feb53d50786843295be17b42e8",
+    "bytes": 53195
+  },
+  {
+    "path": "source/infinity_grid/uplift_campaign.py",
+    "mode": "100644",
+    "sha256": "15d8e1eb8d637b8a1b2abe48cd3d141745dfa28e14fce05d60d3a190732acc5c",
+    "git_blob_sha": "c87c51fce1bab57549d4f70f19014755fb06731b",
+    "bytes": 167813
+  },
+  {
+    "path": "source/infinity_grid/uplift_g4_s0.py",
+    "mode": "100644",
+    "sha256": "130913a7945f26e3d74c82613cf565791d698859860b3e8195b0d5a642900e82",
+    "git_blob_sha": "a2fd7a147c13003adacc4bc302c760f6e6794781",
+    "bytes": 18218
+  },
+  {
+    "path": "source/infinity_grid/uplift_structural.py",
+    "mode": "100644",
+    "sha256": "d759a1e39e36c404dc305e56678130361875532ac4b0254c7c32265ab074f1e5",
+    "git_blob_sha": "8a8a99f40fa202cc7c590349291933da628a19fa",
+    "bytes": 43219
+  },
+  {
+    "path": "source/infinity_grid/v05.py",
+    "mode": "100644",
+    "sha256": "c4624b52633b6a0d696aee18a90d2970662420d0829e71f4fa4f7cf9f27aef1c",
+    "git_blob_sha": "5fc9fa713bad3f271241abd4f23320e8e95d64a9",
+    "bytes": 28111
+  },
+  {
+    "path": "source/infinity_grid/v05_c6_recovery.py",
+    "mode": "100644",
+    "sha256": "fbf0c155656bbf6bb926c8743c9a04da70afb38e997eee2badf17f12cc11fa25",
+    "git_blob_sha": "42ecb2ff3f307a58fdff232332c140304cc73618",
+    "bytes": 32729
+  },
+  {
+    "path": "source/infinity_grid/v05_controller_event_loop.py",
+    "mode": "100644",
+    "sha256": "44cb00672d8862d4cff90ab1664a647b2b7577192b9779d80bce452d5f996790",
+    "git_blob_sha": "7a00c5732f29fd3b87ebd42b34e226b291f7f4c0",
+    "bytes": 90784
+  },
+  {
+    "path": "source/qualification/PROFILE.json",
+    "mode": "100644",
+    "sha256": "69f8098cd71a1d7a03bcf6a4df5a4f19ef065e99256408b6c28a3a323bcd1acd",
+    "git_blob_sha": "12e4e6283d0daab1b5845c021aaa80d1ee98ae0d",
+    "bytes": 19554
+  },
+  {
+    "path": "source/qualification/p0_ops/continuous_observer.py",
+    "mode": "100644",
+    "sha256": "f04c97003c32aeb7e1a259eb47d1ee5da402400a7e62092ded04959eff7cfde7",
+    "git_blob_sha": "3331aa1f42b4979af4ea3c7cc7294b595dbc89d5",
+    "bytes": 13844
+  },
+  {
+    "path": "source/qualification/p0_ops/continuous_worker.py",
+    "mode": "100644",
+    "sha256": "4de8f02f190d24dc27ae1e0374c38a236beb8f92ff662b0581a4cad28ce13c2b",
+    "git_blob_sha": "eedf60647343f2c16110763dbd991c53803fac2f",
+    "bytes": 11539
+  },
+  {
+    "path": "source/qualification/p0_ops/exact_parent_reader.py",
+    "mode": "100644",
+    "sha256": "dae2b8a1f17444d19ec6e2395e6ebdfb8cb3ed8e8b1a28fd9a1f70858f4f78be",
+    "git_blob_sha": "321f76733931a58889c7bc078e4d3728b745d08e",
+    "bytes": 6020
+  },
+  {
+    "path": "source/qualification/p0_ops/p0_control.py",
+    "mode": "100644",
+    "sha256": "405b2f15674f69720ec66ebd957689ef09716b1c04963b427c6662521f77510c",
+    "git_blob_sha": "454884d0c95b165200eec5ccd0db401fa96b7fce",
+    "bytes": 12853
+  },
+  {
+    "path": "source/tests/test_p0_checkpoint_confirmation.py",
+    "mode": "100644",
+    "sha256": "566bbca6bd0abde1be3c1e2a60b61cfe6a8380e1b024d28fe29fa7fcdec6fd07",
+    "git_blob_sha": "90d09e490a0eea36b381742a37668d904264db99",
+    "bytes": 5174
+  },
+  {
+    "path": "source/tests/test_p0_control.py",
+    "mode": "100644",
+    "sha256": "36f43af7c84d2c3035cf21d34e5599ca234f4f39c501354fa3bf597a52657d7a",
+    "git_blob_sha": "03002b549d8e15ad8769f903015670269340567d",
+    "bytes": 12511
+  },
+  {
+    "path": "source/tests/test_p0_global_identity.py",
+    "mode": "100644",
+    "sha256": "ed4ae1242da2a95bfd42c5e972f08525fb758049cd76ad1e934b02ed6491bc75",
+    "git_blob_sha": "d3aae7b4e7e3b6c2ffb2b4cb3df272973c764002",
+    "bytes": 7635
+  },
+  {
+    "path": "source/tests/test_p0_project_evidence.py",
+    "mode": "100644",
+    "sha256": "6547251ffd574c264a7aefc0beae1115d4df6ca7a44d67a7c3f09fb4ec5cd909",
+    "git_blob_sha": "5cb470efbfd25b8973fb1bf0e3f35e72ffb28e09",
+    "bytes": 5696
+  },
+  {
+    "path": "source/tests/test_p0_runtime.py",
+    "mode": "100644",
+    "sha256": "5f5d93deb71334de3cbbdf9d5170966cf7bc22a4b72c120f4a808b6b5719780d",
+    "git_blob_sha": "45307bc9d5d084e2f61e6fe0ecfa1d7e705293d1",
+    "bytes": 2687
+  },
+  {
+    "path": "source/tests/test_paused_checkpoint_recovery.py",
+    "mode": "100644",
+    "sha256": "5e5d1471f23670df6ed1656f5d938299a7d03f4b6316540b48723cae854e874f",
+    "git_blob_sha": "7cbe4ee7dadade6bb4cde7a353befa844270384a",
+    "bytes": 6538
+  },
+  {
+    "path": "source/tools/bootstrap_p0_runtime.py",
+    "mode": "100644",
+    "sha256": "0aed58d38551b84374bb5aab73941ccc4c537fe6db17be55901f532fd219c5a9",
+    "git_blob_sha": "e8472eb112f3491864a3b12db6935d465ea82b59",
+    "bytes": 4746
+  },
+  {
+    "path": "source/tools/step1_affected_profile_validation.py",
+    "mode": "100644",
+    "sha256": "9dc19908dc81f73869340a0f950c4e458bfb51b08cab372bbd7be0235435931f",
+    "git_blob_sha": "b17589e43d01c81ab907f567cba8c0d27eebb259",
+    "bytes": 4747
+  },
+  {
+    "path": "source/tools/step1_guard_validation.py",
+    "mode": "100644",
+    "sha256": "0bbc38b7f6764bcf3c19a5cf689cf9cb1f6b3d75273246c59c92be9b548c5265",
+    "git_blob_sha": "bdb9dc164294f453790d1a78aec9acf3ad6285a7",
+    "bytes": 5378
+  },
+  {
+    "path": "source/tools/step1_native_identity_validation.py",
+    "mode": "100644",
+    "sha256": "6bb488887e57259cdb03dff952316256213ea11f0d939f65134ad6f3d6f55e5f",
+    "git_blob_sha": "4b2b61e68c0e96d85139933e866e181ff2aeb0ed",
+    "bytes": 8794
+  }
+]

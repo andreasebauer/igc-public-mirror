@@ -1,0 +1,18 @@
+{
+  "schema": "IG_DEV156_READ_ONLY_RESTORE_PREREGISTRATION_V1",
+  "restorer_source_sha256": "1d51905e3943bfde75c84fd44f04e34ae5b56db9d370726ab2aa07e01e5047ad",
+  "restorer_package_sha256": "ff504e6e513b42653ded1a03b22a26432aeed07def4289ae8d14e36ea7270ae3",
+  "probe_sha256": "69e92627c5fbaaed8e6af9543fca63b744bf3fa04f5d248a98bb525eb9b8677d",
+  "archive_sha256": "a97126d2d8bc473f5f2a1804be3cdb80a86bbc77bd4080f6f869d7f062c178a8",
+  "captured_source_unchanged": true,
+  "new_workload_dispatches": 0,
+  "acceptance": [
+    "Every checkpoint-bound file and mode exact",
+    "Prior restore provenance unchanged",
+    "Current administrative provenance separate",
+    "Full project and completion capsule exact",
+    "Administrative reuse of saved dev155 completion with dev156 loaded source; no fresh workload"
+  ],
+  "stop": "First unexplained mismatch",
+  "independent_host_rc": false
+}
