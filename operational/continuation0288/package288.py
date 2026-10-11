@@ -21,7 +21,7 @@ for idx in range(6,9):
  s=json.loads(p.read_text())
  for inp in s['inputs']:
   if inp['logical_name'] in ['cases','observer_expected']:
-   a=pathlib.Path(inp['path']);files['next_inputs/'+a.name]=a
+   a=pathlib.Path(inp['path']);files[str(a.relative_to(W))]=a
 files[report.name]=report
 manifest={name:{'sha256':sha(p),'bytes':p.stat().st_size} for name,p in files.items()}
 out=O/'IG_MASTER152_G2_OBSERVER_CONTINUATION0288_HANDOFF_2026-10-11.zip'
