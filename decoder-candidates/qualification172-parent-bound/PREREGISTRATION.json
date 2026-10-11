@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    "tests/test_decoder06_changes.py",
+    "tests/test_p0_checkpoint_confirmation.py",
+    "tests/test_p0_project_evidence.py",
+    "tests/test_decoder06_results_preservation.py",
+    "tests/test_decoder06_transport.py",
+    "tests/test_decoder06_shared_authority.py",
+    "tests/test_decoder06_portable_registry.py",
+    "tests/test_decoder061_combined_contract.py",
+    "tests/test_v05_controller_process_handler_routing.py",
+    "tests/test_v05_controller_namespace_portability.py",
+    "tests/test_p0_global_identity.py",
+    "tests/test_p0_runtime.py",
+    "tests/test_decoder06_capture.py",
+    "tests/test_decoder06_invocation.py",
+    "tests/test_decoder06_project_stage.py"
+  ],
+  "package_sha256": "be372e1dc9aea9b6a2258ad895aa0334e35aea4f309c6263fd866898d81d0c9c",
+  "parent_fixture": {
+    "administrative_runtime": "Python3.13.5 pinned; historical code loaded only for export; original execution used Python3.12",
+    "completion_sha256": "8ae589222a98b1cac948b9bddf933be9d21ee09f5925e37c67212c64c207daed",
+    "drive_file_id": "1dgpnNbEipiuEmTOktmderv3x-vZdweWL",
+    "export": {
+      "drive_save_confirmed": false,
+      "path": "/workspace/scratch/967ad17a1538/successor171/step2_parent_snapshot.zip",
+      "sha256": "5594762a231498e6ce50efbef86c8f8843bdabada403068d891e6f605243a296",
+      "status": "EXPORTED_LOCAL"
+    },
+    "no_execution": true,
+    "original_bundle_sha256": "429283c339fa5525459572e7a5456f114e7bbcacff792beb052e746a3a0c49e6",
+    "raw_readback_exact": true,
+    "sha256": "5594762a231498e6ce50efbef86c8f8843bdabada403068d891e6f605243a296",
+    "size_bytes": 11268114
+  },
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 4294967296,
+    "start_method": "fork",
+    "workers": 1,
+    "workspace_budget_bytes": 536870912
+  },
+  "schema": "IG_P0_NATIVE_CAPTURE_VALIDATION_V1",
+  "scope": "Same-host captured validation only; full RC and independent host open",
+  "scripts": {
+    "admit.py": "d5d6157697ffe39b6a150c31cf8e2156e75d4c4b63aa1d8dd9e8d06616c907ff",
+    "checkpoint_tools.py": "595644dfe4c37188b37a9f1aa099fbe574a20bfa3373b63a034d8621147ed304",
+    "prepare.py": "e538fe5f5bc01519cb28024c0c4682f5858448ace43967a3c232e8c24424a94e",
+    "provider_readback.py": "4b6ccc7bf180514942467a5a116ec7cc4f4a49a12f1d8367bef70932316046c4",
+    "reuse_cold.py": "8e8ccdf5c73439fa17ddc3b1fc8d3e98932cf132e99fea0a4b4d446b70e90db0",
+    "run.py": "b1129e41e496712ccd3e94c5e0e761f81a400379b2b6503fd2aabcd2aa05c788"
+  },
+  "source_sha256": "929b40c32006fff71cf9073072d75af55946eef468dc038b3a7aef514727044a",
+  "stop": "First nonzero selector boundary; retain evidence; no promotion"
+}
