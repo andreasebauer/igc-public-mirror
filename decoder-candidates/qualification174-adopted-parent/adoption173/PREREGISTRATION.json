@@ -1,0 +1,33 @@
+{
+  "parent": {
+    "administrative_runtime": "Python3.13.5 pinned; historical code loaded only for export; original execution used Python3.12",
+    "completion_sha256": "8ae589222a98b1cac948b9bddf933be9d21ee09f5925e37c67212c64c207daed",
+    "drive_file_id": "1dgpnNbEipiuEmTOktmderv3x-vZdweWL",
+    "export": {
+      "drive_save_confirmed": false,
+      "path": "/workspace/scratch/967ad17a1538/successor171/step2_parent_snapshot.zip",
+      "sha256": "5594762a231498e6ce50efbef86c8f8843bdabada403068d891e6f605243a296",
+      "status": "EXPORTED_LOCAL"
+    },
+    "no_execution": true,
+    "original_bundle_sha256": "429283c339fa5525459572e7a5456f114e7bbcacff792beb052e746a3a0c49e6",
+    "raw_readback_exact": true,
+    "sha256": "5594762a231498e6ce50efbef86c8f8843bdabada403068d891e6f605243a296",
+    "size_bytes": 11268114
+  },
+  "schema": "IG_LEGACY_PARENT_PROJECT_ADOPTION_V1",
+  "script_sha256": "f8c5eb18619a1851a7b5bd67a550f70e4223de95f5f1cec4d0a00cc7eaf9eb80",
+  "source": [
+    "929b40c32006fff71cf9073072d75af55946eef468dc038b3a7aef514727044a",
+    "be372e1dc9aea9b6a2258ad895aa0334e35aea4f309c6263fd866898d81d0c9c"
+  ],
+  "steps": [
+    "restore verified parent working copy",
+    "initialize project with exact historical parent source",
+    "adopt restored copy",
+    "save/readback pending baseline and binding roles",
+    "export full project and cold restore",
+    "verify original completion and bytes without execution"
+  ],
+  "stop": "First mismatch; no legacy dispatch or release promotion"
+}
