@@ -10770,6 +10770,22 @@
       "bytes": 33,
       "sha256": "fed27aa25ae206af865267f4bc972335fb8e3df77f20dfde9465651b370094b7"
     },
+    "qualification/p0_ops/continuous_observer.py": {
+      "bytes": 13536,
+      "sha256": "8d36783527b6bac48045f3f737abba77e1403b86436ee2bd6bcc9d98b4ed488b"
+    },
+    "qualification/p0_ops/continuous_worker.py": {
+      "bytes": 11467,
+      "sha256": "d0ac062e6f961ca962ab6cb974a693f96ee701be0bbd2b9b9d3c12d72511212b"
+    },
+    "qualification/p0_ops/exact_parent_reader.py": {
+      "bytes": 6020,
+      "sha256": "dae2b8a1f17444d19ec6e2395e6ebdfb8cb3ed8e8b1a28fd9a1f70858f4f78be"
+    },
+    "qualification/p0_ops/p0_control.py": {
+      "bytes": 9986,
+      "sha256": "b2eac176462652542e670e2486060d4b07a4b1f05c6b1291e55a0703e000a306"
+    },
     "qualification/requirements-linux-py312.txt": {
       "bytes": 1414,
       "sha256": "4b393512b57f87ce20f560dfa1d2a66ffa2396e8f33520fb395dbd6c2fb39b91"
@@ -11923,8 +11939,8 @@
       "sha256": "1482f439e4045943360c6f8d46e12a0a717145a3fab5d3fe1db6b85a10fcc297"
     },
     "tests/test_p0_control.py": {
-      "bytes": 12498,
-      "sha256": "e71541a5cf9ad06b80db581f3f4a6eb024e25ee99ff6c2b50f3cd6627e9fb3c3"
+      "bytes": 12511,
+      "sha256": "36f43af7c84d2c3035cf21d34e5599ca234f4f39c501354fa3bf597a52657d7a"
     },
     "tests/test_p0_global_identity.py": {
       "bytes": 7635,
@@ -12416,6 +12432,10 @@
     "infinity_grid/v05.py",
     "infinity_grid/v05_c6_recovery.py",
     "qualification/PROFILE.json",
+    "qualification/p0_ops/continuous_observer.py",
+    "qualification/p0_ops/continuous_worker.py",
+    "qualification/p0_ops/exact_parent_reader.py",
+    "qualification/p0_ops/p0_control.py",
     "tests/test_p0_control.py",
     "tests/test_p0_global_identity.py",
     "tests/test_p0_runtime.py",
@@ -12424,5 +12444,5 @@
     "tools/step1_guard_validation.py",
     "tools/step1_native_identity_validation.py"
   ],
-  "candidate_file_inventory_sha256": "fd191c0704e205d75e9c70882a713da635093471fafd8a8a3d4857281666e87a"
+  "candidate_file_inventory_sha256": "dfbcf366b2a1a28bee4067f1ec91d5aee6f9daecd230c104bb919a39f67dad2d"
 }

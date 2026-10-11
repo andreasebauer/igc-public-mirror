@@ -9,7 +9,7 @@ import sys
 
 import pytest
 
-OPS = Path(__file__).resolve().parents[2] / 'operational'
+OPS = Path(__file__).resolve().parents[1] / 'qualification' / 'p0_ops'
 sys.path.insert(0, str(OPS))
 import p0_control as control
 
