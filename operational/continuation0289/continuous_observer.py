@@ -8,6 +8,8 @@ def exact(rows):
 reg=read(Q/'PREREGISTRATION.json')
 action=sys.argv[1]
 if action=='setup':
+ if (O/'HANDOFF_REQUEST.json').exists():
+  write(O/'HANDOFF_SEALED.json',{'status':'OLD_CONTROLLER_STOPPED_AT_SAVED_BOUNDARY','time':datetime.datetime.now(datetime.timezone.utc).isoformat()});raise SystemExit('CONTROLLER_HANDOFF_AT_SAVED_BOUNDARY')
  s=read(W/'CURRENT_STATUS.json');old=int(s['latest_checkpoint']);start=int(s['official_observer_next_chunk']);assert start<114 and not s.get('observer_batch_in_flight')
  P=W/f'continuation{old:04d}';L=read(P/'EARNED_LEDGER.json');assert L['status']=='EARNED_NATIVE_COLD_AND_EXACT_SAVED' and L['next_chunk_index']==start
  for r in L['save_receipts']:assert sha(r['path'])==r['sha256']
