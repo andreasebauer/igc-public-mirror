@@ -1,0 +1,31 @@
+{
+  "schema": "IG_P0_BOUNDED_PROJECT_EVIDENCE_PREREG_V2",
+  "status": "ENGINEERING_ONLY_NOT_RELEASED",
+  "prior_commit": "f5c82fb07b53daf74840f71bb1893d355baa7ba1",
+  "prior_inventory_sha256": "74acc7c84e4c50f9bdc4807e0b0372ea730bce67c23a3270e0ef0824878f3be5",
+  "candidate_version": "0.8.0.dev154+lib",
+  "protocol": "IG_PROJECT_DELTA_V2",
+  "activation": "Explicit newly captured preservation.project_evidence_externalization=1. Defaults remain 0 for historical captures.",
+  "design": "Exact original baseline remains a native dependency. Metadata excludes capsule-referenced evidence even if present in that baseline. Metadata and evidence bounds and complete reconstructed project hash are enforced.",
+  "fixture_source": "/tmp/ig_p0_native_recovery_20261011_r4/restored/coordination",
+  "expected_fixture_raw_bytes": 111825091,
+  "expected_project_limit": 33554432,
+  "stopping_rule": "Official saved-failure probe stops at first mismatch and preserves result. Unit tests may iterate on implementation.",
+  "non_actions": [
+    "No frozen capture modification",
+    "No scientific execution",
+    "No live-controller takeover",
+    "No release promotion"
+  ],
+  "acceptance": [
+    "Exact full project hash after external evidence hydration",
+    "Legacy protocol/default policy unchanged",
+    "All external bytes assigned native save role",
+    "Missing or forged evidence rejected before restore publication",
+    "Metadata and evidence raw bounds enforced separately; aggregate commit bound includes evidence",
+    "New native capture export/cold restore preserves full project and source identity"
+  ],
+  "official_probe": "Exact saved failure plus newly captured native V2 checkpoint whose baseline already contains actual historical completion evidence; provider ID interruption, native ACK receipt interruption, exact export and cold closure.",
+  "revision_reason": "Cover capsules already present in the captured baseline. V2 externalizes only capsule-referenced objects, including baseline objects; the native baseline role retains the exact complete original ZIP. Delta uses an exactly projected baseline; cold restore retains all original files.",
+  "candidate_inventory_sha256": "3d1dea44e8ae831d54ea1cae60cb132a83d6fcdd0e32fbb3b87df75ad263905c"
+}

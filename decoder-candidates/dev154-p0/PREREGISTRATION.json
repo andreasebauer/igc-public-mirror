@@ -1,0 +1,31 @@
+{
+  "schema": "IG_08LIB_P0_DEV154_PREREGISTRATION_V2",
+  "status": "ENGINEERING_ONLY_NO_SCIENTIFIC_ADMISSION",
+  "baseline_engineering_tree_sha256": "1c5463628e79659f171c53e4a340c9bf2e365e09a0fb0beeb0c3fdb1934fe361",
+  "baseline_source_archive_sha256": "be3c5a0649e64ba0672953bfe4d2bc0d1dc2dbe55bd27980584f6a3a3172c23a",
+  "baseline_github_commit": "eacfe50f2e8b4007cf86c3b064c18287ab4b3550",
+  "immutable_science": "Master152 and cp0289 plus all frozen captures unchanged",
+  "identity_contract": {
+    "owners": "Existing ordered parent-slot contract; equal-color equal-base owner swaps retain existing semantics",
+    "nested_bags": "Unordered children at each bag depth",
+    "sites": "Seven typed port/free pairs",
+    "edges": "Undirected typed occurrence gadgets preserve endpoint correspondence and parallel multiplicity",
+    "global_key": "Complete colored-incidence canonical graph plus ordered parent-slot contract; actual semantic colors retained"
+  },
+  "gates": [
+    "Independent positive relabelings / negative resource and incidence witnesses",
+    "Existing fixed-context witness/automorphism checks unchanged",
+    "Production construction identity schema versioned",
+    "Ordinary and optimized invalid save/admission refusal",
+    "Fault-boundary restart/save/activation tests with mocked provider and temporary state",
+    "Bundled executable modes and exact pinned runtime file set; tampering rejected"
+  ],
+  "non_actions": [
+    "No scientific population rerun",
+    "No rewrite of frozen historical source",
+    "No release promotion"
+  ],
+  "candidate_version": "0.8.0.dev154+lib",
+  "prior_candidate_commit": "f5c82fb07b53daf74840f71bb1893d355baa7ba1",
+  "repair_scope": "Opt-in V2 checkpoint metadata/evidence split. Exact complete project baseline remains pinned, including preexisting completion capsules. External evidence gets distinct ACK role, bounded raw closure, exact full project cold reconstruction. Legacy default protocol unchanged."
+}

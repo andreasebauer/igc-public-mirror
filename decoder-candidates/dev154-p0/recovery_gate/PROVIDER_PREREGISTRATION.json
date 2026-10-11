@@ -1,0 +1,18 @@
+{
+  "schema": "IG_P0_LIVE_PROVIDER_PREREG_V2",
+  "source_inventory_sha256": "3d1dea44e8ae831d54ea1cae60cb132a83d6fcdd0e32fbb3b87df75ad263905c",
+  "capture_id": "8e198cd094f197fefafec96a685d909ae000c76d3c6fe4defa86b6bc736cf883",
+  "rules": [
+    "Persist SaveJournal upload intent before each real Drive upload",
+    "One real upload per physical object; retain returned canonical ID",
+    "Fetch raw provider bytes and verify exact content",
+    "Reconcile intent against successful upload response, then inject interruption after durable ID before final readback verification",
+    "Restart SaveJournal with upload callback forbidden; require exact verified receipts",
+    "Interrupt native batch receipt publication after first receipt; retry same batch preserving existing receipt bytes",
+    "Require genuine native PRESERVED and empty obligations",
+    "Repeat exact export and cold restore; verify historical capsule and full project hashes"
+  ],
+  "stopping_rule": "Stop at first mismatch; retain journal and receipts; never blindly repeat provider write",
+  "excluded": "No simulated receipt IDs, no actual provider-wide outage claim, no scientific dispatch",
+  "reuse_rule": "Reuse only V1 provider IDs whose actual raw bytes exactly equal a current physical object; no duplicate upload for unchanged evidence."
+}
