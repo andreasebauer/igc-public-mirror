@@ -1,0 +1,14 @@
+08lib P0 identity impact inventory — dev156 source, engineering only.
+
+Run the frozen script with the pinned V5 runtime:
+python-bundled-host map_retained.py --registration PREREGISTRATION.json
+
+Restore the exact dev156 source overlay over the dev151 source baseline before execution. Restore the two registered archive inputs from that source tree and the registered retained audit probes. Rewrite workspace paths in a separately versioned registration if restoring to a different directory; do not change the frozen original. Validate every file against its registered byte size and SHA256 before running. The native engine is loaded without the candidate bind_engine override so historical V1 is measured explicitly. The candidate global identity and exact old V2 implementation are separate modules.
+
+Scope: 205 selected O7 profiles, 205 immutable survivor occurrences (duplicates are retained as occurrences), 128 O7xO6 and 64 O7xO7 C1 closure cases. Five collision/relabeling controls are outside the retained census. Native controls have original historical engine metadata; synthetic controls have no V1 keys.
+
+Preserved diagnostics explain harness corrections: v1 ordered resource comparison rejected a lawful identical-owner swap; v2 tried to call the historical engine on a synthetic parent lacking base_p2k. Neither correction changed decoder science or frozen input bytes. The final registration binds the corrected script.
+
+Global population migration remains open. Retained equality or zero detected splits does not recover candidates discarded before historical deduplication. Historical V1 aliases and global V2 aliases must remain schema-qualified; an alias mapping can be many-to-many. No migration, admission, promotion, generation, or live controller transition is authorized by these outputs.
+
+Candidate source and runtime recovery pointers are in SOURCE_RESTORE_POINTERS.json, taken from the verified previous step. Code is distributed separately from the data/evidence handoff.

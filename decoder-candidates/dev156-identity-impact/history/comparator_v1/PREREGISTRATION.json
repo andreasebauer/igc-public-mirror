@@ -1,0 +1,65 @@
+{
+  "schema": "IG_IDENTITY_IMPACT_REGISTRATION_V1",
+  "scope": "All 205 saved selected profiles, 205 immutable survivor occurrences, 128 O7xO6 and 64 O7xO7 saved C1 cases; 5 retained/relabelled collision controls. No population generation.",
+  "candidate_source": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source",
+  "candidate_version": "0.8.0.dev156+lib",
+  "candidate_source_manifest_sha256": "a2ba9e3fb9728db79f0dcd713473b3e0dc57ddf986eb03de708adc8efc84409c",
+  "v2_module": "/workspace/scratch/ce3ab574e2a0/audit_inputs/dev151/infinity_grid/o7_edge_canonicalization.py",
+  "original_archive": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source/infinity_grid/resources/replay/O7_C1_TYPED_ORIGINAL_MINIMAL.zip",
+  "material_archive": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source/infinity_grid/resources/decoder/O7_MATERIAL_ROOT_cb6f48641eb9.zip",
+  "synthetic_probe": "/workspace/scratch/ce3ab574e2a0/audit_outputs/ACTIVE_ENGINE_IDENTITY_PROBE.json",
+  "native_probe": "/workspace/scratch/ce3ab574e2a0/audit_outputs/ACTIVE_ENGINE_NATIVE_PARENT_PROBE.json",
+  "expected_retained_occurrences": 602,
+  "script_sha256": "231a23448b7bfaf5558563b87984390101f9a509ccaa89232074fb6fb8317941",
+  "inputs": [
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source/infinity_grid/o7_edge_canonicalization.py",
+      "bytes": 11333,
+      "sha256": "84a339a528435c37220af9c09059834b68f4bcf5a9bb0a402e89c6daf9302dad"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/audit_inputs/dev151/infinity_grid/o7_edge_canonicalization.py",
+      "bytes": 9366,
+      "sha256": "7454826053c17d2e7e747531ff766fb6e5b6bb116951acd4d8b1544c39c3fd06"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source/infinity_grid/resources/replay/O7_C1_TYPED_ORIGINAL_MINIMAL.zip",
+      "bytes": 101346,
+      "sha256": "08df93f3b23f71bf33d14a033b7d1117c4cdb3c4ca10cb39ac85ef1b3a485dfd"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/p0_paused_execution_gate/restore_candidate/source/infinity_grid/resources/decoder/O7_MATERIAL_ROOT_cb6f48641eb9.zip",
+      "bytes": 533342,
+      "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/audit_outputs/ACTIVE_ENGINE_IDENTITY_PROBE.json",
+      "bytes": 9593,
+      "sha256": "eee06dfd22609271b245a0aaaadf7c5ee2c7d2f623044a24dd6f0ff546d63755"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/audit_outputs/ACTIVE_ENGINE_NATIVE_PARENT_PROBE.json",
+      "bytes": 1678,
+      "sha256": "adc4770eff845be45a85792c784e77f2e74eb730c4a1f972ae88fb75eeb5c449"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/audit_inputs/current_master/continuation0285/PREREGISTRATION.json",
+      "bytes": 37852,
+      "sha256": "e20d186d3f21226a573bf71a4ebb92af0168711c4a5cc2a9ba6ecde126359d7d"
+    },
+    {
+      "path": "/workspace/scratch/ce3ab574e2a0/audit_inputs/current_master/continuation0289/EARNED_LEDGER.json",
+      "bytes": 8188,
+      "sha256": "c6962640a89912d7aa78cc31ef8d4cc54ca0ea5481479ac75f328cf185271b37"
+    }
+  ],
+  "workers": 1,
+  "memory_budget_bytes": 4294967296,
+  "overall_deadline": null,
+  "stopping_rule": "Stop on first input, alias, fixed-context, historical reference, resource projection, witness, independent-isomorphism or scope mismatch. Do not mutate or migrate saved science.",
+  "limitations": [
+    "Selected retained panel only; global historical/Q2/observer population still requires exact construction inputs and dependency mapping.",
+    "No recovery of candidates discarded before historical deduplication.",
+    "Schema change alone is not evidence for rerunning J3."
+  ]
+}
