@@ -1,0 +1,44 @@
+{
+  "acceptance": [
+    "Actual provider raw readbacks before native admission",
+    "PAUSED attempt with no completion after first abort",
+    "Exact cold restore of committed rows and runtime bytes/modes",
+    "Restart executes six missing tasks; two prior rows unchanged",
+    "Publication retries never dispatch workload",
+    "Completion and capsule hash unchanged on final reuse"
+  ],
+  "candidate_version": "0.8.0.dev155+lib",
+  "expected_missing_on_restart": 6,
+  "faults": [
+    "NATIVE_ABORT_AFTER_TWO_DURABLE_TASK_COMMITS",
+    "PREPARED_COMPLETION_BEFORE_TERMINAL_CHECKPOINT",
+    "COMPLETED_FILE_AFTER_TERMINAL_CHECKPOINT_BEFORE_CLAIM"
+  ],
+  "independent_host_rc": false,
+  "live_controller_changed": false,
+  "package_sha256": "13ff706b72880544e698bf6a51b2f757db0cae86f5dc058e4ec52af2b8dc004a",
+  "pause_after_commits": 2,
+  "prior_refusal": "dev154 automatic paused checkpoint missed final PAUSED claim; prior bytes retained",
+  "registration_revision": 3,
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 4294967296,
+    "minimum_free_disk_bytes": 10737418240,
+    "workers": 1,
+    "workspace_budget_bytes": 268435456
+  },
+  "runtime_binding_sha256": "c49606a6913bee7fa0ccf257ec246f479bd2c5fb271e356a1a0b58852454a4b1",
+  "schema": "IG_P0_PAUSED_NATIVE_ENGINEERING_GATE_V1",
+  "scope": "Engineering fixture only; no master admission or scientific claim",
+  "scripts": {
+    "checkpoint_tools.py": "09d012f36cb931fa5af5b566a46d4bc3e53b574f684bc5fe3f7286596402e29b",
+    "prepare.py": "7d72792ac221f103d8627a7fad0552b642320dbc6dd88fd1b3fd59659e096f02",
+    "project/fixture.py": "89aeaf1f8034536e0351a8cca2798ced8801d9c1f72b0b978488a6a53a4c6320",
+    "provider_readback.py": "4b6ccc7bf180514942467a5a116ec7cc4f4a49a12f1d8367bef70932316046c4",
+    "run_probe.py": "f9b867ef874c053cb6d74c8787bc4a6e76e01a39daf6b012d471d8850592d286"
+  },
+  "source_sha256": "ef63f912a2fd6b6242c445a5f1e200a676913aec52388c859b40556a860737ed",
+  "start_method": "spawn",
+  "stop": "First unexplained mismatch; retain evidence and do not promote",
+  "tasks": 8
+}
