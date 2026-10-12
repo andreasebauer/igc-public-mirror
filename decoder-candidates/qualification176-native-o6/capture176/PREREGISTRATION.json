@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    "tests/test_p0_global_identity.py",
+    "tests/test_decoder06_project_stage.py"
+  ],
+  "package_sha256": "be372e1dc9aea9b6a2258ad895aa0334e35aea4f309c6263fd866898d81d0c9c",
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 4294967296,
+    "start_method": "fork",
+    "workers": 1,
+    "workspace_budget_bytes": 536870912
+  },
+  "schema": "IG_P0_NATIVE_CAPTURE_VALIDATION_V1",
+  "scope": "Same-host captured validation only; full RC and independent host open",
+  "scripts": {
+    "admit.py": "d5d6157697ffe39b6a150c31cf8e2156e75d4c4b63aa1d8dd9e8d06616c907ff",
+    "checkpoint_tools.py": "595644dfe4c37188b37a9f1aa099fbe574a20bfa3373b63a034d8621147ed304",
+    "prepare.py": "960719f1754d76d2ecb7d78a5fc2c0b20188e315e26e6e40ed951084ddb5a8c5",
+    "provider_readback.py": "4b6ccc7bf180514942467a5a116ec7cc4f4a49a12f1d8367bef70932316046c4",
+    "run.py": "b1129e41e496712ccd3e94c5e0e761f81a400379b2b6503fd2aabcd2aa05c788"
+  },
+  "source_sha256": "2a01a45eff7003f8f8842ab39f011f4268fccd19cef2e714e1aff7ad322df9a5",
+  "stop": "First nonzero selector boundary; retain evidence; no promotion"
+}
