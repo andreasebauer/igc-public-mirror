@@ -1,0 +1,222 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "integrity": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "max_target_level": {
+            "type": "integer"
+          },
+          "operational": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "operator_stop": {
+            "type": "boolean"
+          },
+          "parent_eligible": {
+            "type": "boolean"
+          },
+          "scientific": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "target_level": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "expected",
+          "id",
+          "integrity",
+          "max_target_level",
+          "operational",
+          "operator_stop",
+          "parent_eligible",
+          "scientific",
+          "target_level"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registered_recognition_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "trigger_cases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "classification": {
+            "additionalProperties": false,
+            "properties": {
+              "current_level_escalated_for_review": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "depth_status": {
+                "type": "string"
+              },
+              "observed_or_new": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "persistent": {
+                "items": {},
+                "type": "array"
+              },
+              "unresolved": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "current_level_escalated_for_review",
+              "observed_or_new",
+              "persistent",
+              "unresolved"
+            ],
+            "type": "object"
+          },
+          "expected_absent": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "expected_contains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "type": "string"
+          },
+          "metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "distinct_fiber_pairs": {
+                "type": "integer"
+              },
+              "distinct_fiber_pairs_both_realized": {
+                "type": "integer"
+              },
+              "lawful": {
+                "type": "integer"
+              },
+              "selected_max_parent_count": {
+                "type": "integer"
+              },
+              "selected_union": {
+                "type": "integer"
+              },
+              "unique_candidates": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "lawful",
+              "selected_union",
+              "unique_candidates"
+            ],
+            "type": "object"
+          },
+          "parent": {
+            "additionalProperties": false,
+            "properties": {
+              "escalated": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "max_parent_count": {
+                "type": "integer"
+              },
+              "persistent": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "required": [
+              "max_parent_count",
+              "persistent"
+            ],
+            "type": "object"
+          },
+          "spectroscope": {
+            "additionalProperties": false,
+            "properties": {
+              "recognition_summary": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "recognition_summary"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "classification",
+          "id",
+          "metrics",
+          "parent",
+          "spectroscope"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision_cases",
+    "registered_recognition_tokens",
+    "schema_id",
+    "spec_sha256",
+    "trigger_cases"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

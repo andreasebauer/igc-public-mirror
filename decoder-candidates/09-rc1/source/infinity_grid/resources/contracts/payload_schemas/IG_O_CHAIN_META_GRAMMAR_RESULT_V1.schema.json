@@ -1,0 +1,225 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_CHAIN_META_GRAMMAR_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "P0_normalized_grammar_plateau": {
+          "additionalProperties": false,
+          "properties": {
+            "authority_note": {
+              "type": "string"
+            },
+            "levels": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "normalized_grammar_sha256": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "authority_note",
+            "levels",
+            "normalized_grammar_sha256",
+            "status"
+          ],
+          "type": "object"
+        },
+        "P1_generic_recursive_transport": {
+          "additionalProperties": false,
+          "properties": {
+            "machine_status": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "machine_status",
+            "scope",
+            "status"
+          ],
+          "type": "object"
+        },
+        "P2_material_instances": {
+          "additionalProperties": false,
+          "properties": {
+            "O7": {
+              "type": "string"
+            },
+            "O8": {
+              "type": "string"
+            },
+            "O9": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "O7",
+            "O8",
+            "O9",
+            "status"
+          ],
+          "type": "object"
+        },
+        "P3_carrier_type_fixed_point": {
+          "additionalProperties": false,
+          "properties": {
+            "GRRL_C10": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "GRRL_C10",
+            "status"
+          ],
+          "type": "object"
+        },
+        "P4_depth_independent_service_quotient": {
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "type": "object"
+        },
+        "P5_meta_composition_substitution": {
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "type": "object"
+        },
+        "P6_meta_full_abstraction_minimality": {
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "P0_normalized_grammar_plateau",
+        "P1_generic_recursive_transport",
+        "P2_material_instances",
+        "P3_carrier_type_fixed_point",
+        "P4_depth_independent_service_quotient",
+        "P5_meta_composition_substitution",
+        "P6_meta_full_abstraction_minimality"
+      ],
+      "type": "object"
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "normalized_grammar_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "O4": {
+          "type": "string"
+        },
+        "O5": {
+          "type": "string"
+        },
+        "O6": {
+          "type": "string"
+        },
+        "O7": {
+          "type": "string"
+        },
+        "O8": {
+          "type": "string"
+        },
+        "O9": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O4",
+        "O5",
+        "O6",
+        "O7",
+        "O8",
+        "O9"
+      ],
+      "type": "object"
+    },
+    "raised_O_group_status": {
+      "type": "string"
+    },
+    "regime_name": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_CHAIN_META_GRAMMAR_RESULT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "classification",
+    "date",
+    "gates",
+    "interpretation",
+    "nonclaims",
+    "normalized_grammar_hashes",
+    "raised_O_group_status",
+    "regime_name",
+    "schema",
+    "science_sha256",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_CHAIN_META_GRAMMAR_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

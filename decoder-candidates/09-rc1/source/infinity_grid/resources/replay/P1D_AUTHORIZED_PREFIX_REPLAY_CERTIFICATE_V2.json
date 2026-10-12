@@ -1,0 +1,75 @@
+{
+  "schema_id": "IG_P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V2",
+  "status": "QUALIFIED_REPRODUCTION_WAITING_AT_GLOBAL",
+  "decoder_version": "0.8.0.dev44+lib",
+  "underlying_replay_decoder_version": "0.8.0.dev42+lib",
+  "authorized_replay_through_layer": "G8",
+  "next_wait_layer": "GLOBAL",
+  "fail_closed": true,
+  "science_executed_in_correction": false,
+  "result_language_policy": {
+    "success_term": "REPRODUCED",
+    "forbidden_unqualified_terms": [
+      "CONFIRMED",
+      "INDEPENDENTLY_CONFIRMED",
+      "MATCH"
+    ],
+    "meaning": "Agreement with pinned expected evidence under the declared evidence mode and scope."
+  },
+  "underlying_replay": {
+    "formal_foundation": {
+      "result": "REPRODUCED",
+      "stages": 8,
+      "byte_identical_files": 10
+    },
+    "finite_l2": {
+      "result": "REPRODUCED",
+      "registered_checks": 9,
+      "completed_checks": 9,
+      "bridge_truth_table_cases": 16777216
+    },
+    "o1_o7": {
+      "result": "REPRODUCED",
+      "registered_targets": 10,
+      "completed_targets": 10,
+      "registered_obligations": 36,
+      "completed_obligations": 36
+    },
+    "g6_named_executors": {
+      "result": "QUALIFIED_REPRODUCTION",
+      "tests_passed": 22,
+      "independent_confirmation": false
+    },
+    "g1_g8_source_integrity": {
+      "result": "REPRODUCED_SOURCE_INTEGRITY",
+      "assertion_mappings": 32,
+      "independent_confirmation": false
+    }
+  },
+  "active_known_qualifications": [
+    {
+      "qualification_id": "IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1",
+      "required_result_language": "QUALIFIED_REPRODUCTION_IN_SAMPLE",
+      "replay_effect": "CONTINUE_WITH_QUALIFICATION",
+      "note": "The G6 FEX1/S7 A30 relationship is in-sample; the unrelated L2/J3 oracle A30 is not affected."
+    },
+    {
+      "qualification_id": "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1",
+      "required_result_language": "REPRODUCED_DOCUMENTARY_CLOSEOUT_WITH_UNRESOLVED_PROVENANCE_QUALIFICATION",
+      "replay_effect": "SOURCE_INTEGRITY_MAY_CONTINUE_RECEIPT_BASED_REUSE_MUST_STOP",
+      "note": "The reported exact receipt/file pair is not present and is not claimed reconciled."
+    },
+    {
+      "qualification_id": "IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1",
+      "required_result_language": "REPRODUCED_NEGATIVE_INCOMPLETE_OUTCOME",
+      "replay_effect": "CONTINUE_TO_RECORDED_FRONTIER_THEN_STOP_UNAUDITED",
+      "note": "CAP37 zero-data remains an incomplete negative frontier, not completion."
+    }
+  ],
+  "nonclaims": [
+    "No result is independently confirmed by this certificate.",
+    "No known qualification was resolved by wording changes.",
+    "No GLOBAL/Components assertion was executed or authorized.",
+    "The shared release pointer was not advanced."
+  ]
+}

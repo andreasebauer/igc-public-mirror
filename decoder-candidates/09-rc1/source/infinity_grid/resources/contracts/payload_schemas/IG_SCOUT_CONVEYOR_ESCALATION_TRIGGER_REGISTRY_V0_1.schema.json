@@ -1,0 +1,112 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evaluation_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "integrity_triggers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "condition",
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "limit_rule": {
+      "type": "string"
+    },
+    "non_triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operational_triggers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "condition",
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1",
+      "type": "string"
+    },
+    "scientific_triggers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "condition",
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evaluation_order",
+    "integrity_triggers",
+    "limit_rule",
+    "non_triggers",
+    "operational_triggers",
+    "schema_id",
+    "scientific_triggers",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

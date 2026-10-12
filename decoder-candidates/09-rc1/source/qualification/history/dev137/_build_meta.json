@@ -1,0 +1,19 @@
+{
+  "schema_id": "IG_DECODER_BUILD_META_V1",
+  "version_source": "infinity_grid._version.__version__",
+  "version_api": "infinity_grid.build_meta",
+  "target_release": "0.8lib",
+  "engineering_attempt": "DEV137_A20_PROFILE_RECONCILIATION",
+  "parent_release": "0.8.0.dev136+lib",
+  "parent_source_archive_sha256": "a91db5235d4e00330e6a493629e0dbee2d808c75a13aed1599bcc53b8937a9ac",
+  "historical_metadata": "qualification/history/dev136/_build_meta.json",
+  "status": "UNQUALIFIED_CANDIDATE",
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "pending": [
+    "V4 runtime acquisition/dependency closure/hash lock",
+    "New candidate fixture bindings",
+    "Reviewed native collection and full qualification"
+  ],
+  "scope": "Qualification requirements and package pin reconciliation only; no historical PASS inherited"
+}

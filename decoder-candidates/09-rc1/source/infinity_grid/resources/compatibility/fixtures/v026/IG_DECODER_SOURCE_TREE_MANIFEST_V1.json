@@ -1,0 +1,1721 @@
+{
+  "decoder_version": "0.26.0",
+  "files": [
+    {
+      "path": ".pytest_cache/.gitignore",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "size_bytes": 37
+    },
+    {
+      "path": ".pytest_cache/CACHEDIR.TAG",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "size_bytes": 191
+    },
+    {
+      "path": ".pytest_cache/README.md",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "size_bytes": 302
+    },
+    {
+      "path": ".pytest_cache/v/cache/nodeids",
+      "sha256": "b3c776b72b6ce8f4ac690a47716c8f6718ced400de935a4655c619a386fee5e7",
+      "size_bytes": 1776
+    },
+    {
+      "path": "README.txt",
+      "sha256": "a2c35f3069168a0e2c6931ad66afdca9eac7d78dbdd17bff508f6f52c722ed09",
+      "size_bytes": 2686
+    },
+    {
+      "path": "build/lib/infinity_grid/__init__.py",
+      "sha256": "9dc905747477de3165124d375baeabe8bae74534a0eff16c050c448640c24b2a",
+      "size_bytes": 460
+    },
+    {
+      "path": "build/lib/infinity_grid/__main__.py",
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "size_bytes": 47
+    },
+    {
+      "path": "build/lib/infinity_grid/_build_meta.json",
+      "sha256": "7c607449006f46ad4d647534cad2918788044008f4280c0f27c52658deaca582",
+      "size_bytes": 469
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/__init__.py",
+      "sha256": "912a5bcd3c8ce0628512d5959dcaff283305e65e90f4646a4713d6ff898805e2",
+      "size_bytes": 111
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/base_l2.py",
+      "sha256": "cb6c9772b3b9b3b2f5cabf66047a1cc09ad2b8836c002f51700a6d67fe2a0f16",
+      "size_bytes": 5993
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/oscout_phase0.py",
+      "sha256": "0e474b5b610aed4a0be97146c99b8c82995172ffc8e8b4f1569e2e557967d896",
+      "size_bytes": 2660
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/scout_l15.py",
+      "sha256": "b641a9797ef5ccf7527dcb862a4942552ed870613c88c407e2b01c943e33b592",
+      "size_bytes": 9474
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/scout_l16.py",
+      "sha256": "73b21f043686255e7c29fced58c62062ed47db66b75ea524e90845815ce58fca",
+      "size_bytes": 32198
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/scout_l16_forward.py",
+      "sha256": "4bbbe7bc21aab91511353b7f3ec8862fda1469648c64afefd7b77ade977f7eb9",
+      "size_bytes": 32198
+    },
+    {
+      "path": "build/lib/infinity_grid/adapters/scout_level.py",
+      "sha256": "7a91171bac000329b81ca7ff425aa6c1087e180f1c0ef783c63cb69efe57644c",
+      "size_bytes": 26300
+    },
+    {
+      "path": "build/lib/infinity_grid/canon.py",
+      "sha256": "3222f6ab54a94c9816ba06ce75d5473d2e72368cb8e3b1076417f7ce641ed0a9",
+      "size_bytes": 1137
+    },
+    {
+      "path": "build/lib/infinity_grid/catalog.py",
+      "sha256": "c324f686ccaf87ea41c511a4dc7b55c5cf2cbfc7bc70bf72361d934c6015354a",
+      "size_bytes": 8862
+    },
+    {
+      "path": "build/lib/infinity_grid/checkpoints.py",
+      "sha256": "1463276a81edbf2ac5c1b745cc3f486f95a704d58da7d74d31570d26c7910422",
+      "size_bytes": 7152
+    },
+    {
+      "path": "build/lib/infinity_grid/claims.py",
+      "sha256": "7dfc7d007fa830ec06adfe4ceea0ee44e4a422ade67f51400218bae63ccadb0f",
+      "size_bytes": 2502
+    },
+    {
+      "path": "build/lib/infinity_grid/cli.py",
+      "sha256": "896ed0e62c708d6a5c869fddaf92e5406e8a60cec07d12dceea5524c6fc6f5fd",
+      "size_bytes": 34454
+    },
+    {
+      "path": "build/lib/infinity_grid/controller.py",
+      "sha256": "261f5121f45b62439045360c664fb626339997515dd3016246dec13d14efab38",
+      "size_bytes": 11404
+    },
+    {
+      "path": "build/lib/infinity_grid/conveyor.py",
+      "sha256": "ffac8c3e05360a8fb4e0195b80e07694916d8f9c6b02498c7cddfdab0beb5105",
+      "size_bytes": 53696
+    },
+    {
+      "path": "build/lib/infinity_grid/conveyor_chunks.py",
+      "sha256": "5dbe5a96d863d25175aa2b82b2f4c2d7c5ddf5a5594b27d292bffff51fc58a75",
+      "size_bytes": 9517
+    },
+    {
+      "path": "build/lib/infinity_grid/datasets.py",
+      "sha256": "ded2899da11610635963bf7055a55d90a3c7f36e0bfcff6e9f46f0329c6594b5",
+      "size_bytes": 3463
+    },
+    {
+      "path": "build/lib/infinity_grid/decoder/__init__.py",
+      "sha256": "00d6f5cefad43d939268856a788d5c9c90b4907424f7c16ce9b00af8058a0ddd",
+      "size_bytes": 744
+    },
+    {
+      "path": "build/lib/infinity_grid/doctor.py",
+      "sha256": "3401982fe120112059c945ef6861803d73f59679c24d4ab7b7405586a7eb8731",
+      "size_bytes": 4933
+    },
+    {
+      "path": "build/lib/infinity_grid/firewall.py",
+      "sha256": "2e930439724ac402565faecc9bab7ab01cf25333593be5278c56ee9bf7979c7e",
+      "size_bytes": 4778
+    },
+    {
+      "path": "build/lib/infinity_grid/frontier.py",
+      "sha256": "0bdc15a9676654623f2fea24fab22a19517b44cb99e201adb2ea76a4c166475e",
+      "size_bytes": 47320
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_adapters.py",
+      "sha256": "b39d07dd78856a5c8202dc8804055ef22838acffdcc55bf9b5e3cf43023d688a",
+      "size_bytes": 14444
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_backbone.py",
+      "sha256": "4029fcaad7381c499ab8b69d89c3aaad8b4ed1d3209ffce6eb1a1a40f97447f1",
+      "size_bytes": 9979
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_doctor.py",
+      "sha256": "d62753793dc7a492a1976041f27258711d615aa0eca21476d577debc02c8871f",
+      "size_bytes": 1201
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_export.py",
+      "sha256": "a77884d98a7f0457c836f48c833d18e1a6fef0c218187cc288c720e70cefdd45",
+      "size_bytes": 15494
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_gc.py",
+      "sha256": "0c11a78ba96c7c76f8c5e26066b6e4a3058c0c3001da707de1e7fd689dea377d",
+      "size_bytes": 1296
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_replay.py",
+      "sha256": "78a01c29955ccaac2ce775acd96d3a109c63732f198d287b037eae99c1d1568c",
+      "size_bytes": 29882
+    },
+    {
+      "path": "build/lib/infinity_grid/graph_store.py",
+      "sha256": "f14df7260f4c50af94e1db8586593aacd75f7cef55e757737f596f13e20b46f7",
+      "size_bytes": 35576
+    },
+    {
+      "path": "build/lib/infinity_grid/hashing.py",
+      "sha256": "745e6a2c7209dd8dce612c9606b5ca24b5fe769ad89accb2f79fa9286f11a77e",
+      "size_bytes": 853
+    },
+    {
+      "path": "build/lib/infinity_grid/jumpstart.py",
+      "sha256": "eddf77b119a66331e5366cae6b36393b185737abbecf38118a334341c40c6cf0",
+      "size_bytes": 24487
+    },
+    {
+      "path": "build/lib/infinity_grid/lifecycle.py",
+      "sha256": "85cb4ca21dd8f76a0d10a2c7c31551e195ba203d3d198e4a0b51396d8bd3ce3e",
+      "size_bytes": 3268
+    },
+    {
+      "path": "build/lib/infinity_grid/migration.py",
+      "sha256": "7f7bc76345d74b4ca16a51bae08747c21f260cadfdc5f0a4fdaa38dda336732b",
+      "size_bytes": 835
+    },
+    {
+      "path": "build/lib/infinity_grid/paths.py",
+      "sha256": "d762e509e032817696dba36a225dc9f1b1a54441ace9821d29190577f96cb9e6",
+      "size_bytes": 1113
+    },
+    {
+      "path": "build/lib/infinity_grid/planning.py",
+      "sha256": "946d6b7e7fd6802185443256089a810a31eb44da3de929e541c0f23e186550e0",
+      "size_bytes": 1527
+    },
+    {
+      "path": "build/lib/infinity_grid/pregeometry.py",
+      "sha256": "285921d9f49bf9c1bc89b33964ac40b83db6b0c5d63551bd0f560555eb3ffbdc",
+      "size_bytes": 18099
+    },
+    {
+      "path": "build/lib/infinity_grid/protocols.py",
+      "sha256": "947fa5b80b877ed4d72ba880ba4a828285029605cb7513b663c78fe2a20b51c1",
+      "size_bytes": 8576
+    },
+    {
+      "path": "build/lib/infinity_grid/records.py",
+      "sha256": "c1e6cc0e6ef60ee0a650c659ec82c45220853631302c8b2117709db4175137ef",
+      "size_bytes": 2776
+    },
+    {
+      "path": "build/lib/infinity_grid/regime_raise_audit.py",
+      "sha256": "8ddbe757fcb64a4dd60d162ec67b587530fadc7cb7741de62ec151bc7cb90992",
+      "size_bytes": 16390
+    },
+    {
+      "path": "build/lib/infinity_grid/regime_scanner.py",
+      "sha256": "de6eec039754cded5228d137936e92d5c241b28a65562563aa1565f379255a89",
+      "size_bytes": 52652
+    },
+    {
+      "path": "build/lib/infinity_grid/regime_scanner_validation.py",
+      "sha256": "df0c1bf8e1741126c88203f0f0ca6547895555359fd7e9747834249ec10b36dd",
+      "size_bytes": 11987
+    },
+    {
+      "path": "build/lib/infinity_grid/releases.py",
+      "sha256": "bd2029b5d5cda65012e45e854ac00136bb148c73bda46f2194db457bdc775c8b",
+      "size_bytes": 13011
+    },
+    {
+      "path": "build/lib/infinity_grid/replay_contracts.py",
+      "sha256": "0f7e62a147fdcdc0628a1f2aeda1bc7bf3a4f3675ffa77495b42e01298217739",
+      "size_bytes": 7413
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "sha256": "9c318598601e2a2886ddaa9c1a72c2600dab1bd43121a6e065267121f24b41ae",
+      "size_bytes": 11756
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_v0.1.json",
+      "sha256": "219720d59217a9fae3f1f7c1eddb6dcc668dffd10756dbec633fa1f712004c76",
+      "size_bytes": 1405
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_v0.1.json",
+      "sha256": "88f471181322bf9ce91664e4c1e664b05c301712cac86c34f41a348b7f4b0fb6",
+      "size_bytes": 2257
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHARTER_v0.1.json",
+      "sha256": "f46e39bb90dd61e9d16840cae29faf6c295571d3d5ad527549439988c449d4ef",
+      "size_bytes": 2673
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_v0.1.json",
+      "sha256": "673cc61c129aa7e4fbafc8ae03e7e08ba99e5a9c6730f0aaca0f223e6429c0de",
+      "size_bytes": 1291
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHUNKED_GENERATION_v0.1.json",
+      "sha256": "cfb0340da66f978f6b80fca368748925042e7ad362498f3460d9a26a205bd9de",
+      "size_bytes": 1386
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CLI_CONTRACT_v0.1.json",
+      "sha256": "a8e54a039485814fd4aa65b73ea1dbf1b0a9fbbd44d750279aae8c32370d1da5",
+      "size_bytes": 1885
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_v0.1.json",
+      "sha256": "553ebe0c61850a7f2ad0ab6852c511daca81f08270f6f299b94187b34c795acc",
+      "size_bytes": 5528
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_v0.1.json",
+      "sha256": "9c4cb97174bc635823899bbc064ed500b5772e13f4316603263bfc4d25aa7bf3",
+      "size_bytes": 1056
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_FAILURE_MATRIX_v0.1.json",
+      "sha256": "13f7ede980aef4e59ef8ddb882da3e3ca560503d7ace89386ac52971b4c14c85",
+      "size_bytes": 1732
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_GENERIC_OBSERVER_v0.1.json",
+      "sha256": "ad8b243d4b018b9ca558a036c1c02c936d105ef6852d8b0fdc058f40929de043",
+      "size_bytes": 560
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "cf57e5aae170e865f60298e31e02b063231495f0147b9a2d18b54bc6a2c3bf1c",
+      "size_bytes": 4015
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_v0.1.json",
+      "sha256": "d45481a83d32962af9abdc2dd6113fd624733ce195fd0d1ae5220501888378e8",
+      "size_bytes": 1291
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_v0.1.json",
+      "sha256": "6413affdf050be42e803cee407e0d7b810619acc3a465a38f6f610bdd5bfbf9f",
+      "size_bytes": 2110
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_PARENT_ELIGIBILITY_v0.1.json",
+      "sha256": "54665e9ed6a6905e24316de530946f78548ad870d7ea51dc4727369f99b1d26c",
+      "size_bytes": 2083
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_v0.1.json",
+      "sha256": "a9d1b63b365c50e343136e45a6b23360d8f7973ee0f5cb474b8772b891e466ca",
+      "size_bytes": 8982
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_v0.1.json",
+      "sha256": "7bfcba0b1175e2cddc8bb676e6f8e855c47f40239953347b66ae169b3b1e8709",
+      "size_bytes": 1341
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_v0.1.json",
+      "sha256": "ec87fa269db7e0d9b362f156747fc12267a291a5c63906057f8268c56b4d7db0",
+      "size_bytes": 869
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_SELECTION_RULES_v0.1.json",
+      "sha256": "d3b26955c353d20e0a3e7e1757b3f5b6586ffb94286ac2dbc46fa664994ac4ee",
+      "size_bytes": 2171
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_STATE_MACHINE_v0.1.json",
+      "sha256": "04f8fd687d8e88343cfd88e86311dfc9d88d9e1487178b10e500a56fe6243538",
+      "size_bytes": 2106
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/conveyor/SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_v0.1.json",
+      "sha256": "6f48a68192bab6b4c993b6c2a60e271ffbb959b17c6d95d8fb11597fbaad0b19",
+      "size_bytes": 2321
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/ALGEBRA_DECODER_CHARTER_v0.1.json",
+      "sha256": "0d34cc133e2a81a11960efdd79e9a872efc8ba270cdfa4d813cbdfa726b4c9b6",
+      "size_bytes": 1996
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/ALGEBRA_DECODER_CLI_CONTRACT_v0.1.json",
+      "sha256": "edea64ac69ba5d7df91851b2fe74177078937d018a98bf0321d41aa9f9b88e8c",
+      "size_bytes": 1769
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/DEPENDENCY_RESOLUTION_POLICY_v0.1.json",
+      "sha256": "85c4e635589a53c67eeea7962d822ccd3c8e2239d510f9599575a67b7c493a58",
+      "size_bytes": 1040
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/EMERGENT_READ_FUNCTION_REGISTRY_v0.1.json",
+      "sha256": "fd96953615027ea3189b5aec8f0c9c2b470cb60401e5c9522cdacbc0facd3acc",
+      "size_bytes": 1668
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/EVIDENCE_GRAPH_SPEC_v0.1.json",
+      "sha256": "14f9fcd06793755ac3c8b50c8097553e7489a572188ddd4e398549dc2c766dc0",
+      "size_bytes": 987
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GENERIC_JUMPSTART_RUNTIME_SPEC_v0.1.json",
+      "sha256": "f909fa8d172b4e1482f5316100fdf4d06c5f529003b563fc049067355ca49561",
+      "size_bytes": 1536
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GRAPH_CATALOGUE_EXTENSION_SPEC_v0.1.json",
+      "sha256": "afef737b18146c7b0259f9f0efaa06f952266e0358140e2688350c68c75e5b33",
+      "size_bytes": 1489
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GRAPH_EDGE_REGISTRY_v0.1.json",
+      "sha256": "b1f7ab8d116df91faf38d904d4640cb4cc575aa33ca4b4368c3cbca9c7cdc015",
+      "size_bytes": 2092
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GRAPH_EXPORT_IMPORT_SPEC_v0.1.json",
+      "sha256": "c21ec67c1b99af38f27ba0e7d72d2a930cacfd3e3340332abab0892c3d4042e9",
+      "size_bytes": 931
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GRAPH_GARBAGE_COLLECTION_POLICY_v0.1.json",
+      "sha256": "439986adcd2b1b6bf030b264dd763be60bcd60553894aaff1dea5e803b1d1256",
+      "size_bytes": 1020
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/GRRL_APPLICATION_GATE_RECONCILED_v0.1.json",
+      "sha256": "0be1f76ccb70b0fd3a6143f1767b4465aee10e902ed9bec5ef2077175d7d792a",
+      "size_bytes": 3067
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/JUMPSTART_PROFILE_SCHEMA_v0.1.json",
+      "sha256": "fa800167f3287d9bd348a7527341a86c50fce81fc654614229e3b8edb32b48fb",
+      "size_bytes": 931
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/MINIMUM_PRESERVATION_SET_SPEC_v0.1.json",
+      "sha256": "14316de8d6b28b801f1044887597f86e9354ebc995b4c945437923dfd542717a",
+      "size_bytes": 1290
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O10_PLUS_TARGETED_PROBE_MATRIX_v1.json",
+      "sha256": "c9eeaa2347bf729c3d581a2ae689544ce10dc4343a09e7ab8c95a28cd83d9e33",
+      "size_bytes": 4526
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O12_O13_GROUP_RAISE_AUDIT_SPEC_v1.json",
+      "sha256": "4433eae08ac4d133edcb626321051997220009f5256931bd49a6da4197c97597",
+      "size_bytes": 3236
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O7_RECONSTRUCTION_CASE_STUDY_v0.1.json",
+      "sha256": "9da8a95069575052cd046cf85c0b89ff80323d6b64c94dee2dcfe27d7586442e",
+      "size_bytes": 1691
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O8_BP0_FROZEN_SPEC_v0.1.json",
+      "sha256": "c4e74d329215d78d284a1df84f2a42ce4349e690cdc735d9fa37c1e4619bc355",
+      "size_bytes": 1927
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O8_THEOREM_ACCELERATED_GRADUATION_SPEC_v0.1.json",
+      "sha256": "9f793b5ca8abbfe7308b6056da3630485e87bfb451bee90c7d313c5b0a80228a",
+      "size_bytes": 3137
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O9_BP0_FROZEN_SPEC_v0.1.json",
+      "sha256": "6eeb355d85aa443b44de8b4dca0231d65759c7da020e71d69ebf5030aaf461b3",
+      "size_bytes": 1457
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_CHAIN_META_GRAMMAR_SPEC_v1.json",
+      "sha256": "4966cfe5324030b50ee14e84e2ea7f4a59ea7d8f0b7cfd81cdd5993a7ec74aca",
+      "size_bytes": 2729
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_FRONTIER_AUTO_ADVANCE_POLICY_v0.1.json",
+      "sha256": "cbd8425fb5fe951485ad3bae6af7493acd606b6edae0260dcd5f5cbff66a8969",
+      "size_bytes": 1652
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_FRONTIER_MINIMAL_RETENTION_POLICY_v0.1.json",
+      "sha256": "807f7c5a3f2212e38ce9f6320b5be3431e46a8337c47b256d20a3a48324295f4",
+      "size_bytes": 1025
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_FRONTIER_PROTOCOL_v0.1.json",
+      "sha256": "e19a0cbc6dae607aa61272677b12b1d8e56940c6f4edcf7e9349dcbac9b3b5a2",
+      "size_bytes": 3401
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "sha256": "25756d570d3407947e34442591c7facc2c72346c93e9fd87c8b40000fed3141b",
+      "size_bytes": 12340
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1_1_ARCHIVED.json",
+      "sha256": "96eccd08598a8226deadda7093300153baa75d7c75d121bf9778bd60a01b3a0d",
+      "size_bytes": 11476
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_v1.json",
+      "sha256": "8ceadd790db3d57430f65e94750ff01a858a18c87873c8b64c0a570c83f62620",
+      "size_bytes": 3681
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_REGIME_EARNED_LAW_REGISTRY_v1.json",
+      "sha256": "f5323a6e2149b8fdac0f24a5a1f34fb7dc42f6d01970b807635af5b27018822b",
+      "size_bytes": 4756
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428",
+      "size_bytes": 60119
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/PHASE1_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "7701aaa84740173f40363e52a79fdce9392c48087717ef859e391624cb418b10",
+      "size_bytes": 6723
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "6e99e285352f24a9f1c95a61e0048a873221b4641fac6b092aad797ee65a8e32",
+      "size_bytes": 1102
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/PREGEOMETRY_SCOUT_SPEC_v1.json",
+      "sha256": "dd752158ae10ad73996053bed23112947d29dfc96370c58b16b9b979c8c00368",
+      "size_bytes": 4784
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_v1.json",
+      "sha256": "6b193481c2286556a08f71f2a34e5f9d445bc8186ec6c926add840e90bb40cf0",
+      "size_bytes": 749
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/REPLAY_CONTRACT_SCHEMA_v1.json",
+      "sha256": "bf4d4621beaa521f60ff724c481ddc666843e31e6529f0889edec020b1be54bd",
+      "size_bytes": 2015
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/REPLAY_RECIPE_SCHEMA_v0.1.json",
+      "sha256": "2a1cc3d6a18cc4cd1e1542eaded0fcf1b51645bc4c349782b10e1973fccc1153",
+      "size_bytes": 1618
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/REPRO_GRAPH_NODE_MODEL_v0.1.json",
+      "sha256": "493402a52813193a4f71a271f32cfd843b7b03037291951b09f449bc4f4b96ff",
+      "size_bytes": 2358
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/RETENTION_AND_RECONSTRUCTION_POLICY_v0.1.json",
+      "sha256": "c0fdd164636f972099b8a0dd36ac9f4747fcad5dab3843c8576708e2bc167c42",
+      "size_bytes": 1711
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/decoder/SCIENTIFIC_TEST_REGISTRY_v1.json",
+      "sha256": "8b7a7131c6deb3fb4fa4fef9b0160adda4815128c41e1915d48b34765487b69f",
+      "size_bytes": 21284
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/BASE_REPLAY.json",
+      "sha256": "c1359d4614edecf488b0532a86b29e3f423083af57d5e52312cfe6ab91fe4e31",
+      "size_bytes": 1600
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/LEVEL_SCANNER.json",
+      "sha256": "8b8e5f9df12011fa2e559744b9e5edd19e922c2e9c619196c89f306fc88d1d87",
+      "size_bytes": 1378
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/OFORMAL.json",
+      "sha256": "bc8a63c7a2b1331497039a6b429881b7533dd0a4a2059af259b3194d53969a93",
+      "size_bytes": 1657
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/OSCOUT.json",
+      "sha256": "f3878aa0591c66d28bc6ebd7698ce91ac8e21df8ca4321bba073b74092cd56d4",
+      "size_bytes": 4459
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/RUNTIME_SELFTEST.json",
+      "sha256": "696dee0da3a50f036c2de08658a2d04bfe5e6996f39b7ad2c39bbb20b89e48f6",
+      "size_bytes": 1713
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/SCOUT.json",
+      "sha256": "c15d62c80d69d629e2116afe05cdbcf390ca7ed5a8e793b895b464c689502df5",
+      "size_bytes": 2543
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/SCOUT_v0.18.3_L16_FORWARD.json",
+      "sha256": "63f44e289767fca07b1027225c712c7ed573a47248a564f0bf6b0ced769a7e10",
+      "size_bytes": 7778
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/SCOUT_v0.18_L16.json",
+      "sha256": "c30b786cd063a2812eae49671f3fa72505f1d9d574924e4c88e9b86d6c868b69",
+      "size_bytes": 7459
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/SCOUT_v0.19.0_CONVEYOR_GENERIC.json",
+      "sha256": "3fee2a893b874d5503d99a77189eee1cbe87314ce8fdba00441c6fecc4e97a66",
+      "size_bytes": 10250
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/protocols/SPECTROSCOPE.json",
+      "sha256": "b7064fef2e445da83a40abef344d39162a367ffcff1f61b05fcd3b14ff52a164",
+      "size_bytes": 1746
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/schemas/CLAIM_RECORD_SCHEMA_v0.17.json",
+      "sha256": "15251cd712198cebf025fdd39a10bafb0506fd686e56912a80264d15ea7476b5",
+      "size_bytes": 1754
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/schemas/PROTOCOL_DESCRIPTOR_SCHEMA_v0.17.json",
+      "sha256": "eccf7c04eba4b4369d202403996fb3b60b4985145c8c3f06c13b933c11a80c00",
+      "size_bytes": 1278
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/schemas/STAGE_CHECKPOINT_SCHEMA_v0.17.json",
+      "sha256": "207da9a847d8da2a15c5892ccf11ad21dde939753bb594918a1bc0e90f62e51c",
+      "size_bytes": 1756
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/schemas/UNIVERSAL_RUN_RECORD_SCHEMA_v0.17.json",
+      "sha256": "0780d8a8d32323548f3d1824a8b9fb68fea92e8532c53c392760c6597d75a4ce",
+      "size_bytes": 2321
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/FROZEN_EXECUTION_PLAN.json",
+      "sha256": "0d5ac913a401d58dc15f5ffeab4e8737c8adca4f84b318230e5ff48d626209a0",
+      "size_bytes": 7205
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_GOLDEN_COMMITMENTS_v1.0.json",
+      "sha256": "6d445900fd4f33bab342d6ecf615fa6ae2982c632ec44142dd0aa9b8d26938cb",
+      "size_bytes": 1973
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_LEGACY_BASELINE_COST_COMPAT_v1.0.json",
+      "sha256": "f670274cc474ba18aa6efbae20ffd20a23d89a20420da9c0610db7b97c9c4bfd",
+      "size_bytes": 606
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_EVIDENCE_AND_CLAIM_BOUNDARY_v1.0.json",
+      "sha256": "61c3f735f0a7588b8d2f4417cf7e5aa9e0005acbe341da3bf58143adbbdefc53",
+      "size_bytes": 1584
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_OBSERVER_AND_METRIC_SPEC_v1.0.json",
+      "sha256": "253b82b37563ce2404972ee63bca32cade5590d2c3bd2bc15168d4ee399cb358",
+      "size_bytes": 2174
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_RUN_PACKET_v1.0.json",
+      "sha256": "3d95fab42fbb608af65b873dee4caa4afbb141fbada3382f16813950ef4293ff",
+      "size_bytes": 2211
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_SELECTION_AND_STOPPING_RULES_v1.0.json",
+      "sha256": "6fd7948db78157987476fe8c9b22d06f1e1c6926f514af45ca3c75db3915681c",
+      "size_bytes": 2178
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_AUDIT_REFERENCE_v1.1.json",
+      "sha256": "f4e37030397ef720b783c4ad18dd0eb8a06e3e22d25fb8abad0f09962a4f4554",
+      "size_bytes": 2280
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_EVIDENCE_AND_CLAIM_BOUNDARY_v1.1.json",
+      "sha256": "7360013a0b48bc428ff6b259c9c7de699f85766d1c9b2815d84742c618bd31be",
+      "size_bytes": 905
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_OBSERVER_METRIC_SPEC_v1.1.json",
+      "sha256": "abe91933456a48799d6917f74d02df72158e3eada14aa5ad2697a5c4c8a02a31",
+      "size_bytes": 1458
+    },
+    {
+      "path": "build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_SELECTION_RULES_v1.1.json",
+      "sha256": "eafd65d0df65b3f7abded8c4ed709f890c3514dcf82f0f79833c8712f6e5cefc",
+      "size_bytes": 1110
+    },
+    {
+      "path": "build/lib/infinity_grid/resources.py",
+      "sha256": "97b2786099e17f0e75139c4a1406d261873c7c62d8c943089c81277592a0e7a8",
+      "size_bytes": 476
+    },
+    {
+      "path": "build/lib/infinity_grid/safety.py",
+      "sha256": "81cdfe3023b0b3b3a612cfd25b5ecd0c107aa486af32de4e44c570efdad42e4b",
+      "size_bytes": 1936
+    },
+    {
+      "path": "build/lib/infinity_grid/schema.py",
+      "sha256": "0eb7fdc76b4e013897de1647cf178665df243ce34ccd4eb891b99a7b4a027d15",
+      "size_bytes": 1969
+    },
+    {
+      "path": "build/lib/infinity_grid/scientific_tests.py",
+      "sha256": "6994f3bf6c2bc33f1f25d1e77144338b84f1fb03a913314e1540e611ba58004c",
+      "size_bytes": 6032
+    },
+    {
+      "path": "build/lib/infinity_grid/spectroscope.py",
+      "sha256": "80fd77fd01889943e932a32ceab937409e47f8af5b91c979521eb1a6951fb505",
+      "size_bytes": 8809
+    },
+    {
+      "path": "build/lib/infinity_grid/store.py",
+      "sha256": "781dcc0bc9fe86406a63af653da51c1a7d73a94dd6de43a40a8f65868db84f18",
+      "size_bytes": 5459
+    },
+    {
+      "path": "build/lib/infinity_grid/verification.py",
+      "sha256": "6b0e640f91def2c2978506741c463548afc4189b4285825ac19bc27f2578d2d0",
+      "size_bytes": 6895
+    },
+    {
+      "path": "dist/infinity_grid_algebra_decoder-0.26.0-py3-none-any.whl",
+      "sha256": "f514b26c8701a7ad66c4f5bdcc6fa7bfe231bf26a25fcba952f9c4b90b683f3e",
+      "size_bytes": 301200
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "97f9f5e419cc0819f064ea5415ed3ef7cb34d25d833fb3a30eb12d27be661968",
+      "size_bytes": 610
+    },
+    {
+      "path": "src/infinity_grid/__init__.py",
+      "sha256": "9dc905747477de3165124d375baeabe8bae74534a0eff16c050c448640c24b2a",
+      "size_bytes": 460
+    },
+    {
+      "path": "src/infinity_grid/__main__.py",
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+      "size_bytes": 47
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "fa2eca73c3029c45b71471c525dda9e510dda97389a710f836d06b1e83d1978d",
+      "size_bytes": 1038
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/canon.cpython-313.pyc",
+      "sha256": "6e1432029a2029ae2ff66fa9edb54c8948a9b0b1fb13911589b629ba81e659d2",
+      "size_bytes": 2813
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/catalog.cpython-313.pyc",
+      "sha256": "cbff91bb6d80b3b6e1a291c2338de405ee7bf382d21d6a3ef30b63cc418962d3",
+      "size_bytes": 16218
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/checkpoints.cpython-313.pyc",
+      "sha256": "db42966238de8bb68c7ec009ee65a4d7f2cbf3170d1b223489a2387e65d25fab",
+      "size_bytes": 13701
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/claims.cpython-313.pyc",
+      "sha256": "32cfd7d8456fd6722ebffc455a378f80b8e15097c1699597b27701b54a43608b",
+      "size_bytes": 4344
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/cli.cpython-313.pyc",
+      "sha256": "c22c10a64df7a6e612e0afce08722edbbc6023ea75696c64530ba46501a6682f",
+      "size_bytes": 52056
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/controller.cpython-313.pyc",
+      "sha256": "44bac009609952a7768a538095233842ea51aa27ab792de9cae419941ceb09b4",
+      "size_bytes": 20854
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/conveyor.cpython-313.pyc",
+      "sha256": "eb7fb033592306995e0b6c9a2402e03c774334d4d2e5de760cce9aa33060e67b",
+      "size_bytes": 64192
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/conveyor_chunks.cpython-313.pyc",
+      "sha256": "567077760699b428b6b94714e60b3a7a075fa301e0eae98cb718a96e6df47036",
+      "size_bytes": 16538
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/datasets.cpython-313.pyc",
+      "sha256": "6dfb06491220591d1f820ad04bf1a5a9386f2562a57b48ad7ff0c5cc3c546915",
+      "size_bytes": 6634
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/doctor.cpython-313.pyc",
+      "sha256": "6efc7c7897479fad4212e9f6bcd7da38a9e5819c73db9ac969380ee46377fcdd",
+      "size_bytes": 9486
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/firewall.cpython-313.pyc",
+      "sha256": "ef049a4b096890ae02504d12e202d2a632816d1005ab6a92bbff96c39dfd8511",
+      "size_bytes": 7665
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/frontier.cpython-313.pyc",
+      "sha256": "fdaeff3d2e8b3d11f0f5783f86df34eec8a451f2e2d02ca867adf57f2bc23163",
+      "size_bytes": 72925
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_adapters.cpython-313.pyc",
+      "sha256": "187518f909e7c7c19b5b7b11c3f03b279487677fefe00722b2cedf6b8d9baa89",
+      "size_bytes": 17114
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_doctor.cpython-313.pyc",
+      "sha256": "a25dbe44969e7321aa524afb17e9838be01e71f65ac12182c1345dac6869fbe2",
+      "size_bytes": 1952
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_export.cpython-313.pyc",
+      "sha256": "648bf6ad70c786d380fab877f308d3da425809f979684715c03709d037a070db",
+      "size_bytes": 23279
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_gc.cpython-313.pyc",
+      "sha256": "7a793136c660a917c68fd39aa359b1a3967f395a1ea842aaf872a50102e7887c",
+      "size_bytes": 1897
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_replay.cpython-313.pyc",
+      "sha256": "a25af44a2d82f92e58b4189218c67ca2e3ef21b82b781d36290fcbd5980deeed",
+      "size_bytes": 40849
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/graph_store.cpython-313.pyc",
+      "sha256": "d24264ab8e0cea2d9c1809fa8ff08405db433952b100eec349af069dbf750872",
+      "size_bytes": 44755
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/hashing.cpython-313.pyc",
+      "sha256": "6db09f280c168a3a581566bef8ef4c667899fe5c042e188bd0541ed100f6f531",
+      "size_bytes": 2846
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/jumpstart.cpython-313.pyc",
+      "sha256": "5a1903f6b17029aad115190665c926d8444a52b685f67452ca5199f6790168e9",
+      "size_bytes": 35330
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/lifecycle.cpython-313.pyc",
+      "sha256": "fb4e2ca6e4614ba68430016c8793f98182dc7e5855bb6e91383c4ec653ffdd32",
+      "size_bytes": 6042
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/paths.cpython-313.pyc",
+      "sha256": "78b026ca0d0a7c0a29207b01d92eafd6d5eb392f423ff0d4ec13beb4b04e8931",
+      "size_bytes": 3163
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/planning.cpython-313.pyc",
+      "sha256": "3d6b884387ce3054120f21b9d9c4126d44c9b88ccd22f28cce3b50eab88dbdc9",
+      "size_bytes": 2114
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/pregeometry.cpython-313.pyc",
+      "sha256": "ebbe52da99be8bc36eb1120a0f675cf0d237c3f3711eb81082d1906d5a70d0f8",
+      "size_bytes": 21357
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/protocols.cpython-313.pyc",
+      "sha256": "c99f5e75eed5b5f1637f5d0478c8e264035412944b965afb5bf0714b5411916e",
+      "size_bytes": 14096
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/records.cpython-313.pyc",
+      "sha256": "0cea9984c75741055663b4a37fe83ea8cfb28862e551f33da9fc38bc0ee7c2ff",
+      "size_bytes": 5295
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/regime_scanner.cpython-313.pyc",
+      "sha256": "38c46e451693673583c1f5b6330e3baa7500217cf479e9e08a9c0efb9bf6b3a9",
+      "size_bytes": 92272
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/regime_scanner_validation.cpython-313.pyc",
+      "sha256": "bed990e70bf25499bffeb600c5769964be99c3025294c77c0961f7c4cd740755",
+      "size_bytes": 20395
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/releases.cpython-313.pyc",
+      "sha256": "e17a4cf2c93f96b541609e713c09bc2eec793c0179e8dffac749587ed91b57d8",
+      "size_bytes": 21568
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/replay_contracts.cpython-313.pyc",
+      "sha256": "952e4fd3709fb5969649634e3df36379313956361f5e493b04dabdc43ce9c6b2",
+      "size_bytes": 10472
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/resources.cpython-313.pyc",
+      "sha256": "64c2e11cf4a8073e0133bb25ccad41eb9824b2f6531ff648fee3625485cd68ae",
+      "size_bytes": 1379
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/safety.cpython-313.pyc",
+      "sha256": "bb4a7249cc492a9c1d6461129a1d092d364d576dd83d2a4177f49095dca77ce4",
+      "size_bytes": 3591
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/schema.cpython-313.pyc",
+      "sha256": "0446ae14131ed41bbaffc709c333fb88c11ce4b18205aa59566ede76474bdc33",
+      "size_bytes": 3961
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/scientific_tests.cpython-313.pyc",
+      "sha256": "2e3fc1105e4340585348a8f648a551f3ee1d1a96ead8e011d97e9fcea0b6dd92",
+      "size_bytes": 9863
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/spectroscope.cpython-313.pyc",
+      "sha256": "1b93dab60ff5b67535a2db9f7c7509efcac5bc5d90b7948d07e02500bec13c4b",
+      "size_bytes": 21151
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/store.cpython-313.pyc",
+      "sha256": "0e61cd7a40eb6dc98219f93ca9f806f991167b193a89930e428e19b859f97110",
+      "size_bytes": 9849
+    },
+    {
+      "path": "src/infinity_grid/__pycache__/verification.cpython-313.pyc",
+      "sha256": "aece2ea9f832aa6ddcd59feb0378d6565ca01b50ffae5fdaf8fd3345704deb22",
+      "size_bytes": 11557
+    },
+    {
+      "path": "src/infinity_grid/_build_meta.json",
+      "sha256": "7c607449006f46ad4d647534cad2918788044008f4280c0f27c52658deaca582",
+      "size_bytes": 469
+    },
+    {
+      "path": "src/infinity_grid/adapters/__init__.py",
+      "sha256": "912a5bcd3c8ce0628512d5959dcaff283305e65e90f4646a4713d6ff898805e2",
+      "size_bytes": 111
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/__init__.cpython-313.pyc",
+      "sha256": "4d0d837cffd75b76902af432d55df36f002be60b2829c78d4432034f507afcff",
+      "size_bytes": 382
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/base_l2.cpython-313.pyc",
+      "sha256": "911fb7e5167c68e4becc8ab5bf7466b322be1fe2d28d022af4705fc9b5dcdce5",
+      "size_bytes": 14249
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/oscout_phase0.cpython-313.pyc",
+      "sha256": "f37f61393f71962876a833196cee08d00f7eb6fdd1dbc3b72ab390171f7ed147",
+      "size_bytes": 4445
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/scout_l15.cpython-313.pyc",
+      "sha256": "f9364bf3f0ce32ef731998076995b360a19dd7778c156cd42fbeb80b98bd4504",
+      "size_bytes": 14468
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/scout_l16.cpython-313.pyc",
+      "sha256": "2eebdc4bf16bd93d252eae3103a554819bc53e04736c03adaeec4cf02bf6fa5f",
+      "size_bytes": 39182
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/scout_l16_forward.cpython-313.pyc",
+      "sha256": "399ec44c736fe5b9146b2b54ad7b7a54f46a389a2967cfdabd79e028e3134df7",
+      "size_bytes": 43893
+    },
+    {
+      "path": "src/infinity_grid/adapters/__pycache__/scout_level.cpython-313.pyc",
+      "sha256": "0728bc40dc28d48cb43722048b9584090e2c299113b5f429256ddd566fe1f9fa",
+      "size_bytes": 35328
+    },
+    {
+      "path": "src/infinity_grid/adapters/base_l2.py",
+      "sha256": "cb6c9772b3b9b3b2f5cabf66047a1cc09ad2b8836c002f51700a6d67fe2a0f16",
+      "size_bytes": 5993
+    },
+    {
+      "path": "src/infinity_grid/adapters/oscout_phase0.py",
+      "sha256": "0e474b5b610aed4a0be97146c99b8c82995172ffc8e8b4f1569e2e557967d896",
+      "size_bytes": 2660
+    },
+    {
+      "path": "src/infinity_grid/adapters/scout_l15.py",
+      "sha256": "b641a9797ef5ccf7527dcb862a4942552ed870613c88c407e2b01c943e33b592",
+      "size_bytes": 9474
+    },
+    {
+      "path": "src/infinity_grid/adapters/scout_l16.py",
+      "sha256": "73b21f043686255e7c29fced58c62062ed47db66b75ea524e90845815ce58fca",
+      "size_bytes": 32198
+    },
+    {
+      "path": "src/infinity_grid/adapters/scout_l16_forward.py",
+      "sha256": "4bbbe7bc21aab91511353b7f3ec8862fda1469648c64afefd7b77ade977f7eb9",
+      "size_bytes": 32198
+    },
+    {
+      "path": "src/infinity_grid/adapters/scout_level.py",
+      "sha256": "7a91171bac000329b81ca7ff425aa6c1087e180f1c0ef783c63cb69efe57644c",
+      "size_bytes": 26300
+    },
+    {
+      "path": "src/infinity_grid/canon.py",
+      "sha256": "3222f6ab54a94c9816ba06ce75d5473d2e72368cb8e3b1076417f7ce641ed0a9",
+      "size_bytes": 1137
+    },
+    {
+      "path": "src/infinity_grid/catalog.py",
+      "sha256": "c324f686ccaf87ea41c511a4dc7b55c5cf2cbfc7bc70bf72361d934c6015354a",
+      "size_bytes": 8862
+    },
+    {
+      "path": "src/infinity_grid/checkpoints.py",
+      "sha256": "1463276a81edbf2ac5c1b745cc3f486f95a704d58da7d74d31570d26c7910422",
+      "size_bytes": 7152
+    },
+    {
+      "path": "src/infinity_grid/claims.py",
+      "sha256": "7dfc7d007fa830ec06adfe4ceea0ee44e4a422ade67f51400218bae63ccadb0f",
+      "size_bytes": 2502
+    },
+    {
+      "path": "src/infinity_grid/cli.py",
+      "sha256": "896ed0e62c708d6a5c869fddaf92e5406e8a60cec07d12dceea5524c6fc6f5fd",
+      "size_bytes": 34454
+    },
+    {
+      "path": "src/infinity_grid/controller.py",
+      "sha256": "261f5121f45b62439045360c664fb626339997515dd3016246dec13d14efab38",
+      "size_bytes": 11404
+    },
+    {
+      "path": "src/infinity_grid/conveyor.py",
+      "sha256": "ffac8c3e05360a8fb4e0195b80e07694916d8f9c6b02498c7cddfdab0beb5105",
+      "size_bytes": 53696
+    },
+    {
+      "path": "src/infinity_grid/conveyor_chunks.py",
+      "sha256": "5dbe5a96d863d25175aa2b82b2f4c2d7c5ddf5a5594b27d292bffff51fc58a75",
+      "size_bytes": 9517
+    },
+    {
+      "path": "src/infinity_grid/datasets.py",
+      "sha256": "ded2899da11610635963bf7055a55d90a3c7f36e0bfcff6e9f46f0329c6594b5",
+      "size_bytes": 3463
+    },
+    {
+      "path": "src/infinity_grid/decoder/__init__.py",
+      "sha256": "00d6f5cefad43d939268856a788d5c9c90b4907424f7c16ce9b00af8058a0ddd",
+      "size_bytes": 744
+    },
+    {
+      "path": "src/infinity_grid/doctor.py",
+      "sha256": "3401982fe120112059c945ef6861803d73f59679c24d4ab7b7405586a7eb8731",
+      "size_bytes": 4933
+    },
+    {
+      "path": "src/infinity_grid/firewall.py",
+      "sha256": "2e930439724ac402565faecc9bab7ab01cf25333593be5278c56ee9bf7979c7e",
+      "size_bytes": 4778
+    },
+    {
+      "path": "src/infinity_grid/frontier.py",
+      "sha256": "0bdc15a9676654623f2fea24fab22a19517b44cb99e201adb2ea76a4c166475e",
+      "size_bytes": 47320
+    },
+    {
+      "path": "src/infinity_grid/graph_adapters.py",
+      "sha256": "b39d07dd78856a5c8202dc8804055ef22838acffdcc55bf9b5e3cf43023d688a",
+      "size_bytes": 14444
+    },
+    {
+      "path": "src/infinity_grid/graph_backbone.py",
+      "sha256": "4029fcaad7381c499ab8b69d89c3aaad8b4ed1d3209ffce6eb1a1a40f97447f1",
+      "size_bytes": 9979
+    },
+    {
+      "path": "src/infinity_grid/graph_doctor.py",
+      "sha256": "d62753793dc7a492a1976041f27258711d615aa0eca21476d577debc02c8871f",
+      "size_bytes": 1201
+    },
+    {
+      "path": "src/infinity_grid/graph_export.py",
+      "sha256": "a77884d98a7f0457c836f48c833d18e1a6fef0c218187cc288c720e70cefdd45",
+      "size_bytes": 15494
+    },
+    {
+      "path": "src/infinity_grid/graph_gc.py",
+      "sha256": "0c11a78ba96c7c76f8c5e26066b6e4a3058c0c3001da707de1e7fd689dea377d",
+      "size_bytes": 1296
+    },
+    {
+      "path": "src/infinity_grid/graph_replay.py",
+      "sha256": "78a01c29955ccaac2ce775acd96d3a109c63732f198d287b037eae99c1d1568c",
+      "size_bytes": 29882
+    },
+    {
+      "path": "src/infinity_grid/graph_store.py",
+      "sha256": "f14df7260f4c50af94e1db8586593aacd75f7cef55e757737f596f13e20b46f7",
+      "size_bytes": 35576
+    },
+    {
+      "path": "src/infinity_grid/hashing.py",
+      "sha256": "745e6a2c7209dd8dce612c9606b5ca24b5fe769ad89accb2f79fa9286f11a77e",
+      "size_bytes": 853
+    },
+    {
+      "path": "src/infinity_grid/jumpstart.py",
+      "sha256": "eddf77b119a66331e5366cae6b36393b185737abbecf38118a334341c40c6cf0",
+      "size_bytes": 24487
+    },
+    {
+      "path": "src/infinity_grid/lifecycle.py",
+      "sha256": "85cb4ca21dd8f76a0d10a2c7c31551e195ba203d3d198e4a0b51396d8bd3ce3e",
+      "size_bytes": 3268
+    },
+    {
+      "path": "src/infinity_grid/migration.py",
+      "sha256": "7f7bc76345d74b4ca16a51bae08747c21f260cadfdc5f0a4fdaa38dda336732b",
+      "size_bytes": 835
+    },
+    {
+      "path": "src/infinity_grid/paths.py",
+      "sha256": "d762e509e032817696dba36a225dc9f1b1a54441ace9821d29190577f96cb9e6",
+      "size_bytes": 1113
+    },
+    {
+      "path": "src/infinity_grid/planning.py",
+      "sha256": "946d6b7e7fd6802185443256089a810a31eb44da3de929e541c0f23e186550e0",
+      "size_bytes": 1527
+    },
+    {
+      "path": "src/infinity_grid/pregeometry.py",
+      "sha256": "285921d9f49bf9c1bc89b33964ac40b83db6b0c5d63551bd0f560555eb3ffbdc",
+      "size_bytes": 18099
+    },
+    {
+      "path": "src/infinity_grid/protocols.py",
+      "sha256": "947fa5b80b877ed4d72ba880ba4a828285029605cb7513b663c78fe2a20b51c1",
+      "size_bytes": 8576
+    },
+    {
+      "path": "src/infinity_grid/records.py",
+      "sha256": "c1e6cc0e6ef60ee0a650c659ec82c45220853631302c8b2117709db4175137ef",
+      "size_bytes": 2776
+    },
+    {
+      "path": "src/infinity_grid/regime_raise_audit.py",
+      "sha256": "8ddbe757fcb64a4dd60d162ec67b587530fadc7cb7741de62ec151bc7cb90992",
+      "size_bytes": 16390
+    },
+    {
+      "path": "src/infinity_grid/regime_scanner.py",
+      "sha256": "de6eec039754cded5228d137936e92d5c241b28a65562563aa1565f379255a89",
+      "size_bytes": 52652
+    },
+    {
+      "path": "src/infinity_grid/regime_scanner_validation.py",
+      "sha256": "df0c1bf8e1741126c88203f0f0ca6547895555359fd7e9747834249ec10b36dd",
+      "size_bytes": 11987
+    },
+    {
+      "path": "src/infinity_grid/releases.py",
+      "sha256": "bd2029b5d5cda65012e45e854ac00136bb148c73bda46f2194db457bdc775c8b",
+      "size_bytes": 13011
+    },
+    {
+      "path": "src/infinity_grid/replay_contracts.py",
+      "sha256": "0f7e62a147fdcdc0628a1f2aeda1bc7bf3a4f3675ffa77495b42e01298217739",
+      "size_bytes": 7413
+    },
+    {
+      "path": "src/infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "sha256": "9c318598601e2a2886ddaa9c1a72c2600dab1bd43121a6e065267121f24b41ae",
+      "size_bytes": 11756
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_v0.1.json",
+      "sha256": "219720d59217a9fae3f1f7c1eddb6dcc668dffd10756dbec633fa1f712004c76",
+      "size_bytes": 1405
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_v0.1.json",
+      "sha256": "88f471181322bf9ce91664e4c1e664b05c301712cac86c34f41a348b7f4b0fb6",
+      "size_bytes": 2257
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHARTER_v0.1.json",
+      "sha256": "f46e39bb90dd61e9d16840cae29faf6c295571d3d5ad527549439988c449d4ef",
+      "size_bytes": 2673
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_v0.1.json",
+      "sha256": "673cc61c129aa7e4fbafc8ae03e7e08ba99e5a9c6730f0aaca0f223e6429c0de",
+      "size_bytes": 1291
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHUNKED_GENERATION_v0.1.json",
+      "sha256": "cfb0340da66f978f6b80fca368748925042e7ad362498f3460d9a26a205bd9de",
+      "size_bytes": 1386
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CLI_CONTRACT_v0.1.json",
+      "sha256": "a8e54a039485814fd4aa65b73ea1dbf1b0a9fbbd44d750279aae8c32370d1da5",
+      "size_bytes": 1885
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_v0.1.json",
+      "sha256": "553ebe0c61850a7f2ad0ab6852c511daca81f08270f6f299b94187b34c795acc",
+      "size_bytes": 5528
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_v0.1.json",
+      "sha256": "9c4cb97174bc635823899bbc064ed500b5772e13f4316603263bfc4d25aa7bf3",
+      "size_bytes": 1056
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_FAILURE_MATRIX_v0.1.json",
+      "sha256": "13f7ede980aef4e59ef8ddb882da3e3ca560503d7ace89386ac52971b4c14c85",
+      "size_bytes": 1732
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_GENERIC_OBSERVER_v0.1.json",
+      "sha256": "ad8b243d4b018b9ca558a036c1c02c936d105ef6852d8b0fdc058f40929de043",
+      "size_bytes": 560
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "cf57e5aae170e865f60298e31e02b063231495f0147b9a2d18b54bc6a2c3bf1c",
+      "size_bytes": 4015
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_v0.1.json",
+      "sha256": "d45481a83d32962af9abdc2dd6113fd624733ce195fd0d1ae5220501888378e8",
+      "size_bytes": 1291
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_v0.1.json",
+      "sha256": "6413affdf050be42e803cee407e0d7b810619acc3a465a38f6f610bdd5bfbf9f",
+      "size_bytes": 2110
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_PARENT_ELIGIBILITY_v0.1.json",
+      "sha256": "54665e9ed6a6905e24316de530946f78548ad870d7ea51dc4727369f99b1d26c",
+      "size_bytes": 2083
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_v0.1.json",
+      "sha256": "a9d1b63b365c50e343136e45a6b23360d8f7973ee0f5cb474b8772b891e466ca",
+      "size_bytes": 8982
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_v0.1.json",
+      "sha256": "7bfcba0b1175e2cddc8bb676e6f8e855c47f40239953347b66ae169b3b1e8709",
+      "size_bytes": 1341
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_v0.1.json",
+      "sha256": "ec87fa269db7e0d9b362f156747fc12267a291a5c63906057f8268c56b4d7db0",
+      "size_bytes": 869
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_SELECTION_RULES_v0.1.json",
+      "sha256": "d3b26955c353d20e0a3e7e1757b3f5b6586ffb94286ac2dbc46fa664994ac4ee",
+      "size_bytes": 2171
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_STATE_MACHINE_v0.1.json",
+      "sha256": "04f8fd687d8e88343cfd88e86311dfc9d88d9e1487178b10e500a56fe6243538",
+      "size_bytes": 2106
+    },
+    {
+      "path": "src/infinity_grid/resources/conveyor/SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_v0.1.json",
+      "sha256": "6f48a68192bab6b4c993b6c2a60e271ffbb959b17c6d95d8fb11597fbaad0b19",
+      "size_bytes": 2321
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/ALGEBRA_DECODER_CHARTER_v0.1.json",
+      "sha256": "0d34cc133e2a81a11960efdd79e9a872efc8ba270cdfa4d813cbdfa726b4c9b6",
+      "size_bytes": 1996
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/ALGEBRA_DECODER_CLI_CONTRACT_v0.1.json",
+      "sha256": "edea64ac69ba5d7df91851b2fe74177078937d018a98bf0321d41aa9f9b88e8c",
+      "size_bytes": 1769
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/DEPENDENCY_RESOLUTION_POLICY_v0.1.json",
+      "sha256": "85c4e635589a53c67eeea7962d822ccd3c8e2239d510f9599575a67b7c493a58",
+      "size_bytes": 1040
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/EMERGENT_READ_FUNCTION_REGISTRY_v0.1.json",
+      "sha256": "fd96953615027ea3189b5aec8f0c9c2b470cb60401e5c9522cdacbc0facd3acc",
+      "size_bytes": 1668
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/EVIDENCE_GRAPH_SPEC_v0.1.json",
+      "sha256": "14f9fcd06793755ac3c8b50c8097553e7489a572188ddd4e398549dc2c766dc0",
+      "size_bytes": 987
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GENERIC_JUMPSTART_RUNTIME_SPEC_v0.1.json",
+      "sha256": "f909fa8d172b4e1482f5316100fdf4d06c5f529003b563fc049067355ca49561",
+      "size_bytes": 1536
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GRAPH_CATALOGUE_EXTENSION_SPEC_v0.1.json",
+      "sha256": "afef737b18146c7b0259f9f0efaa06f952266e0358140e2688350c68c75e5b33",
+      "size_bytes": 1489
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GRAPH_EDGE_REGISTRY_v0.1.json",
+      "sha256": "b1f7ab8d116df91faf38d904d4640cb4cc575aa33ca4b4368c3cbca9c7cdc015",
+      "size_bytes": 2092
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GRAPH_EXPORT_IMPORT_SPEC_v0.1.json",
+      "sha256": "c21ec67c1b99af38f27ba0e7d72d2a930cacfd3e3340332abab0892c3d4042e9",
+      "size_bytes": 931
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GRAPH_GARBAGE_COLLECTION_POLICY_v0.1.json",
+      "sha256": "439986adcd2b1b6bf030b264dd763be60bcd60553894aaff1dea5e803b1d1256",
+      "size_bytes": 1020
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/GRRL_APPLICATION_GATE_RECONCILED_v0.1.json",
+      "sha256": "0be1f76ccb70b0fd3a6143f1767b4465aee10e902ed9bec5ef2077175d7d792a",
+      "size_bytes": 3067
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/JUMPSTART_PROFILE_SCHEMA_v0.1.json",
+      "sha256": "fa800167f3287d9bd348a7527341a86c50fce81fc654614229e3b8edb32b48fb",
+      "size_bytes": 931
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/MINIMUM_PRESERVATION_SET_SPEC_v0.1.json",
+      "sha256": "14316de8d6b28b801f1044887597f86e9354ebc995b4c945437923dfd542717a",
+      "size_bytes": 1290
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O10_PLUS_TARGETED_PROBE_MATRIX_v1.json",
+      "sha256": "c9eeaa2347bf729c3d581a2ae689544ce10dc4343a09e7ab8c95a28cd83d9e33",
+      "size_bytes": 4526
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O12_O13_GROUP_RAISE_AUDIT_SPEC_v1.json",
+      "sha256": "4433eae08ac4d133edcb626321051997220009f5256931bd49a6da4197c97597",
+      "size_bytes": 3236
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O7_RECONSTRUCTION_CASE_STUDY_v0.1.json",
+      "sha256": "9da8a95069575052cd046cf85c0b89ff80323d6b64c94dee2dcfe27d7586442e",
+      "size_bytes": 1691
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O8_BP0_FROZEN_SPEC_v0.1.json",
+      "sha256": "c4e74d329215d78d284a1df84f2a42ce4349e690cdc735d9fa37c1e4619bc355",
+      "size_bytes": 1927
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O8_THEOREM_ACCELERATED_GRADUATION_SPEC_v0.1.json",
+      "sha256": "9f793b5ca8abbfe7308b6056da3630485e87bfb451bee90c7d313c5b0a80228a",
+      "size_bytes": 3137
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O9_BP0_FROZEN_SPEC_v0.1.json",
+      "sha256": "6eeb355d85aa443b44de8b4dca0231d65759c7da020e71d69ebf5030aaf461b3",
+      "size_bytes": 1457
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_CHAIN_META_GRAMMAR_SPEC_v1.json",
+      "sha256": "4966cfe5324030b50ee14e84e2ea7f4a59ea7d8f0b7cfd81cdd5993a7ec74aca",
+      "size_bytes": 2729
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_FRONTIER_AUTO_ADVANCE_POLICY_v0.1.json",
+      "sha256": "cbd8425fb5fe951485ad3bae6af7493acd606b6edae0260dcd5f5cbff66a8969",
+      "size_bytes": 1652
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_FRONTIER_MINIMAL_RETENTION_POLICY_v0.1.json",
+      "sha256": "807f7c5a3f2212e38ce9f6320b5be3431e46a8337c47b256d20a3a48324295f4",
+      "size_bytes": 1025
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_FRONTIER_PROTOCOL_v0.1.json",
+      "sha256": "e19a0cbc6dae607aa61272677b12b1d8e56940c6f4edcf7e9349dcbac9b3b5a2",
+      "size_bytes": 3401
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "sha256": "25756d570d3407947e34442591c7facc2c72346c93e9fd87c8b40000fed3141b",
+      "size_bytes": 12340
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1_1_ARCHIVED.json",
+      "sha256": "96eccd08598a8226deadda7093300153baa75d7c75d121bf9778bd60a01b3a0d",
+      "size_bytes": 11476
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_v1.json",
+      "sha256": "8ceadd790db3d57430f65e94750ff01a858a18c87873c8b64c0a570c83f62620",
+      "size_bytes": 3681
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_REGIME_EARNED_LAW_REGISTRY_v1.json",
+      "sha256": "f5323a6e2149b8fdac0f24a5a1f34fb7dc42f6d01970b807635af5b27018822b",
+      "size_bytes": 4756
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428",
+      "size_bytes": 60119
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/PHASE1_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "7701aaa84740173f40363e52a79fdce9392c48087717ef859e391624cb418b10",
+      "size_bytes": 6723
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_v0.1.json",
+      "sha256": "6e99e285352f24a9f1c95a61e0048a873221b4641fac6b092aad797ee65a8e32",
+      "size_bytes": 1102
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/PREGEOMETRY_SCOUT_SPEC_v1.json",
+      "sha256": "dd752158ae10ad73996053bed23112947d29dfc96370c58b16b9b979c8c00368",
+      "size_bytes": 4784
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_v1.json",
+      "sha256": "6b193481c2286556a08f71f2a34e5f9d445bc8186ec6c926add840e90bb40cf0",
+      "size_bytes": 749
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/REPLAY_CONTRACT_SCHEMA_v1.json",
+      "sha256": "bf4d4621beaa521f60ff724c481ddc666843e31e6529f0889edec020b1be54bd",
+      "size_bytes": 2015
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/REPLAY_RECIPE_SCHEMA_v0.1.json",
+      "sha256": "2a1cc3d6a18cc4cd1e1542eaded0fcf1b51645bc4c349782b10e1973fccc1153",
+      "size_bytes": 1618
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/REPRO_GRAPH_NODE_MODEL_v0.1.json",
+      "sha256": "493402a52813193a4f71a271f32cfd843b7b03037291951b09f449bc4f4b96ff",
+      "size_bytes": 2358
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/RETENTION_AND_RECONSTRUCTION_POLICY_v0.1.json",
+      "sha256": "c0fdd164636f972099b8a0dd36ac9f4747fcad5dab3843c8576708e2bc167c42",
+      "size_bytes": 1711
+    },
+    {
+      "path": "src/infinity_grid/resources/decoder/SCIENTIFIC_TEST_REGISTRY_v1.json",
+      "sha256": "8b7a7131c6deb3fb4fa4fef9b0160adda4815128c41e1915d48b34765487b69f",
+      "size_bytes": 21284
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/BASE_REPLAY.json",
+      "sha256": "c1359d4614edecf488b0532a86b29e3f423083af57d5e52312cfe6ab91fe4e31",
+      "size_bytes": 1600
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/LEVEL_SCANNER.json",
+      "sha256": "8b8e5f9df12011fa2e559744b9e5edd19e922c2e9c619196c89f306fc88d1d87",
+      "size_bytes": 1378
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/OFORMAL.json",
+      "sha256": "bc8a63c7a2b1331497039a6b429881b7533dd0a4a2059af259b3194d53969a93",
+      "size_bytes": 1657
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/OSCOUT.json",
+      "sha256": "f3878aa0591c66d28bc6ebd7698ce91ac8e21df8ca4321bba073b74092cd56d4",
+      "size_bytes": 4459
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/RUNTIME_SELFTEST.json",
+      "sha256": "696dee0da3a50f036c2de08658a2d04bfe5e6996f39b7ad2c39bbb20b89e48f6",
+      "size_bytes": 1713
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/SCOUT.json",
+      "sha256": "c15d62c80d69d629e2116afe05cdbcf390ca7ed5a8e793b895b464c689502df5",
+      "size_bytes": 2543
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/SCOUT_v0.18.3_L16_FORWARD.json",
+      "sha256": "63f44e289767fca07b1027225c712c7ed573a47248a564f0bf6b0ced769a7e10",
+      "size_bytes": 7778
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/SCOUT_v0.18_L16.json",
+      "sha256": "c30b786cd063a2812eae49671f3fa72505f1d9d574924e4c88e9b86d6c868b69",
+      "size_bytes": 7459
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/SCOUT_v0.19.0_CONVEYOR_GENERIC.json",
+      "sha256": "3fee2a893b874d5503d99a77189eee1cbe87314ce8fdba00441c6fecc4e97a66",
+      "size_bytes": 10250
+    },
+    {
+      "path": "src/infinity_grid/resources/protocols/SPECTROSCOPE.json",
+      "sha256": "b7064fef2e445da83a40abef344d39162a367ffcff1f61b05fcd3b14ff52a164",
+      "size_bytes": 1746
+    },
+    {
+      "path": "src/infinity_grid/resources/schemas/CLAIM_RECORD_SCHEMA_v0.17.json",
+      "sha256": "15251cd712198cebf025fdd39a10bafb0506fd686e56912a80264d15ea7476b5",
+      "size_bytes": 1754
+    },
+    {
+      "path": "src/infinity_grid/resources/schemas/PROTOCOL_DESCRIPTOR_SCHEMA_v0.17.json",
+      "sha256": "eccf7c04eba4b4369d202403996fb3b60b4985145c8c3f06c13b933c11a80c00",
+      "size_bytes": 1278
+    },
+    {
+      "path": "src/infinity_grid/resources/schemas/STAGE_CHECKPOINT_SCHEMA_v0.17.json",
+      "sha256": "207da9a847d8da2a15c5892ccf11ad21dde939753bb594918a1bc0e90f62e51c",
+      "size_bytes": 1756
+    },
+    {
+      "path": "src/infinity_grid/resources/schemas/UNIVERSAL_RUN_RECORD_SCHEMA_v0.17.json",
+      "sha256": "0780d8a8d32323548f3d1824a8b9fb68fea92e8532c53c392760c6597d75a4ce",
+      "size_bytes": 2321
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/FROZEN_EXECUTION_PLAN.json",
+      "sha256": "0d5ac913a401d58dc15f5ffeab4e8737c8adca4f84b318230e5ff48d626209a0",
+      "size_bytes": 7205
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_GOLDEN_COMMITMENTS_v1.0.json",
+      "sha256": "6d445900fd4f33bab342d6ecf615fa6ae2982c632ec44142dd0aa9b8d26938cb",
+      "size_bytes": 1973
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_LEGACY_BASELINE_COST_COMPAT_v1.0.json",
+      "sha256": "f670274cc474ba18aa6efbae20ffd20a23d89a20420da9c0610db7b97c9c4bfd",
+      "size_bytes": 606
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_SCOUT_EVIDENCE_AND_CLAIM_BOUNDARY_v1.0.json",
+      "sha256": "61c3f735f0a7588b8d2f4417cf7e5aa9e0005acbe341da3bf58143adbbdefc53",
+      "size_bytes": 1584
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_SCOUT_OBSERVER_AND_METRIC_SPEC_v1.0.json",
+      "sha256": "253b82b37563ce2404972ee63bca32cade5590d2c3bd2bc15168d4ee399cb358",
+      "size_bytes": 2174
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_SCOUT_RUN_PACKET_v1.0.json",
+      "sha256": "3d95fab42fbb608af65b873dee4caa4afbb141fbada3382f16813950ef4293ff",
+      "size_bytes": 2211
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16/L16_SCOUT_SELECTION_AND_STOPPING_RULES_v1.0.json",
+      "sha256": "6fd7948db78157987476fe8c9b22d06f1e1c6926f514af45ca3c75db3915681c",
+      "size_bytes": 2178
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16_forward/L16_FORWARD_AUDIT_REFERENCE_v1.1.json",
+      "sha256": "f4e37030397ef720b783c4ad18dd0eb8a06e3e22d25fb8abad0f09962a4f4554",
+      "size_bytes": 2280
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16_forward/L16_FORWARD_EVIDENCE_AND_CLAIM_BOUNDARY_v1.1.json",
+      "sha256": "7360013a0b48bc428ff6b259c9c7de699f85766d1c9b2815d84742c618bd31be",
+      "size_bytes": 905
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16_forward/L16_FORWARD_OBSERVER_METRIC_SPEC_v1.1.json",
+      "sha256": "abe91933456a48799d6917f74d02df72158e3eada14aa5ad2697a5c4c8a02a31",
+      "size_bytes": 1458
+    },
+    {
+      "path": "src/infinity_grid/resources/scout_l16_forward/L16_FORWARD_SELECTION_RULES_v1.1.json",
+      "sha256": "eafd65d0df65b3f7abded8c4ed709f890c3514dcf82f0f79833c8712f6e5cefc",
+      "size_bytes": 1110
+    },
+    {
+      "path": "src/infinity_grid/resources.py",
+      "sha256": "97b2786099e17f0e75139c4a1406d261873c7c62d8c943089c81277592a0e7a8",
+      "size_bytes": 476
+    },
+    {
+      "path": "src/infinity_grid/safety.py",
+      "sha256": "81cdfe3023b0b3b3a612cfd25b5ecd0c107aa486af32de4e44c570efdad42e4b",
+      "size_bytes": 1936
+    },
+    {
+      "path": "src/infinity_grid/schema.py",
+      "sha256": "0eb7fdc76b4e013897de1647cf178665df243ce34ccd4eb891b99a7b4a027d15",
+      "size_bytes": 1969
+    },
+    {
+      "path": "src/infinity_grid/scientific_tests.py",
+      "sha256": "6994f3bf6c2bc33f1f25d1e77144338b84f1fb03a913314e1540e611ba58004c",
+      "size_bytes": 6032
+    },
+    {
+      "path": "src/infinity_grid/spectroscope.py",
+      "sha256": "80fd77fd01889943e932a32ceab937409e47f8af5b91c979521eb1a6951fb505",
+      "size_bytes": 8809
+    },
+    {
+      "path": "src/infinity_grid/store.py",
+      "sha256": "781dcc0bc9fe86406a63af653da51c1a7d73a94dd6de43a40a8f65868db84f18",
+      "size_bytes": 5459
+    },
+    {
+      "path": "src/infinity_grid/verification.py",
+      "sha256": "6b0e640f91def2c2978506741c463548afc4189b4285825ac19bc27f2578d2d0",
+      "size_bytes": 6895
+    },
+    {
+      "path": "src/infinity_grid_algebra_decoder.egg-info/PKG-INFO",
+      "sha256": "d3a8683f015a16c868baa5f81408cbdcb6a3df8060d04e4403a99e674dd5d861",
+      "size_bytes": 264
+    },
+    {
+      "path": "src/infinity_grid_algebra_decoder.egg-info/SOURCES.txt",
+      "sha256": "ff9e65cf1e83b130bfada18033d6a787018e439ef3fa41f66bf2bcb934b0befc",
+      "size_bytes": 8442
+    },
+    {
+      "path": "src/infinity_grid_algebra_decoder.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_bytes": 1
+    },
+    {
+      "path": "src/infinity_grid_algebra_decoder.egg-info/entry_points.txt",
+      "sha256": "d306531b6580d55e9a5660ca353a63d46d7c687e139c7785503cf4879b455f92",
+      "size_bytes": 77
+    },
+    {
+      "path": "src/infinity_grid_algebra_decoder.egg-info/top_level.txt",
+      "sha256": "0ec3e3bddb581f8b6245700e74411fadc9e05f594d2a074cb65d3ee8109891e1",
+      "size_bytes": 14
+    },
+    {
+      "path": "tests/__pycache__/test_o_regime_scanner.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "ebcf6396ded8eff62117024f0b864ff444d27972218cf2d269e268fcf2a1cefe",
+      "size_bytes": 10678
+    },
+    {
+      "path": "tests/__pycache__/test_phase4_generic_runtime.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "077453dcbfb990d582daf471b5786e4347e7307937997f070d417266b0497293",
+      "size_bytes": 12027
+    },
+    {
+      "path": "tests/__pycache__/test_phase7_frontier.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "d34fc36eefe43b244c33b9e29e1fa597f7f9c69d863502b7b6f4eabe36864999",
+      "size_bytes": 4247
+    },
+    {
+      "path": "tests/__pycache__/test_phase_b_pregeometry.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "7a3c05cb1ca2c72e107f8545bcea2bbebfea4134dd60167eb3bc37f580fb8c62",
+      "size_bytes": 8951
+    },
+    {
+      "path": "tests/__pycache__/test_recovery_v7_registry.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "6f13da471e4433095ac8f15c4da052bde5f3a99678de3835a9c357d5204542c3",
+      "size_bytes": 5016
+    },
+    {
+      "path": "tests/__pycache__/test_replay_contracts.cpython-313-pytest-9.0.2.pyc",
+      "sha256": "0f7feef6da5784e2ebba9b1332665ca389696a3581ef7b9784fdaeb5b90f649c",
+      "size_bytes": 10685
+    },
+    {
+      "path": "tests/test_o_regime_scanner.py",
+      "sha256": "2e5f299118c9251eae0da7ec9004a7ef7641173f29515f38431a9b6e5d66d0c9",
+      "size_bytes": 2768
+    },
+    {
+      "path": "tests/test_phase4_generic_runtime.py",
+      "sha256": "b72788c3c9cb88fb4c47f49dfbcc122216d2b95dd20f087431bc842de9e0f845",
+      "size_bytes": 6531
+    },
+    {
+      "path": "tests/test_phase7_frontier.py",
+      "sha256": "47544afd46d686e55a6a5ab5056f1c0c2b95ff1f987ae67a5039afb152f83272",
+      "size_bytes": 863
+    },
+    {
+      "path": "tests/test_phase_b_pregeometry.py",
+      "sha256": "37ae29bbf9483bf478dc5c281fb6eb1b7cd6c65e17ebbe5afe1a837b4d45a571",
+      "size_bytes": 4544
+    },
+    {
+      "path": "tests/test_recovery_v7_registry.py",
+      "sha256": "715c355a1fca3c2f9d49f73e029c4f6c25725f77e8c4909eadeadda2bb0884da",
+      "size_bytes": 1256
+    },
+    {
+      "path": "tests/test_replay_contracts.py",
+      "sha256": "1205c56b873d0ff2d2edbfd029e0046f3df563a1fad9f6e3e8d61a7bfeb71ca3",
+      "size_bytes": 5612
+    },
+    {
+      "path": "tools/migrate_p4_alias_integrity.py",
+      "sha256": "c29d2e3dd3d0cc0c33fcb007201ab5f8fabeb8cf0059b45cc2dd7c164d63f82f",
+      "size_bytes": 3828
+    },
+    {
+      "path": "tools/migrate_p8_smoke_process_group.py",
+      "sha256": "20e8bcdf76ba478e517b14fa6be8c65f73246d55d13d5bf74581edc9e45db9fc",
+      "size_bytes": 1780
+    },
+    {
+      "path": "tools/migrate_replay_contracts_p3.py",
+      "sha256": "1c25fc1f5691a26dd6132f28e8e071b769e714ba0f1dbbb4ff35da8cfaa0c137",
+      "size_bytes": 15723
+    },
+    {
+      "path": "tools/register_recovery_v7_exact_recipes.py",
+      "sha256": "0026aeadb97657c48bdb8fb5f6d597b42ed96a3ad1e58a69e4bf27341452fa7c",
+      "size_bytes": 6317
+    },
+    {
+      "path": "tools/run_exact_clean_rebuild.py",
+      "sha256": "34bababae56cd7b5a6b59f5cd0e548435fdeb9a990618413848ae37d9a08d69f",
+      "size_bytes": 2240
+    },
+    {
+      "path": "tools/run_smoke_chunk.py",
+      "sha256": "73e101a62d1162eb4b77fec6d3bd7f61dc575d46e46cb83aba9d417c75208994",
+      "size_bytes": 1917
+    }
+  ],
+  "schema": "IG_DECODER_SOURCE_TREE_MANIFEST_V1"
+}

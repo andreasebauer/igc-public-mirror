@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "changes": {
+      "items": {},
+      "type": "array"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "current_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "previous_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_O_NATIVE_SEMANTICS_COMPARISON_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "changes",
+    "classification",
+    "current_science_sha256",
+    "previous_science_sha256",
+    "schema_id"
+  ],
+  "type": "object"
+}

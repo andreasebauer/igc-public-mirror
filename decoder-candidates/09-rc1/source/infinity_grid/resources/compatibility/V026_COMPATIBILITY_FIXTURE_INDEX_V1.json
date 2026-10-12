@@ -1,0 +1,900 @@
+{
+  "fixtures": {
+    "IG_ALGEBRA_DECODER_CHARTER_V0_1": {
+      "canonical_sha256": "a5e98211760c2e87e1b661ed00fc9ae283cb08f9cb4740e5385804da2a1c00c7",
+      "file_sha256": "0d34cc133e2a81a11960efdd79e9a872efc8ba270cdfa4d813cbdfa726b4c9b6",
+      "fixture_path": "fixtures/v026/IG_ALGEBRA_DECODER_CHARTER_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/ALGEBRA_DECODER_CHARTER_v0.1.json",
+      "size_bytes": 1996
+    },
+    "IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1": {
+      "canonical_sha256": "2a3b139f29846b6da00ec003720c3cb8bc907d7f347dddbb357b15bc505bd2d2",
+      "file_sha256": "edea64ac69ba5d7df91851b2fe74177078937d018a98bf0321d41aa9f9b88e8c",
+      "fixture_path": "fixtures/v026/IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/ALGEBRA_DECODER_CLI_CONTRACT_v0.1.json",
+      "size_bytes": 1769
+    },
+    "IG_ARTIFACT_ENVELOPE_V1": {
+      "canonical_sha256": "8836030127a578e2965a7976ce266d77d7f55e87d27e9610091bdc481838b176",
+      "file_sha256": "3bf926386c137edad487316fa727518c6947280c76a8112cb12aff7840644ecc",
+      "fixture_path": "fixtures/v026/IG_ARTIFACT_ENVELOPE_V1.json",
+      "origin": "Gate1 legacy-migration envelope proof",
+      "size_bytes": 1882
+    },
+    "IG_ARTIFACT_RECORD_V0_17": {
+      "canonical_sha256": "fc919c6c9d35ef2edf3c0466f852002f79a909b274d422697d493924654214dc",
+      "file_sha256": "7647bb101fb2befa58784e421e212189068dbafca6b85b4298daa9841fe88047",
+      "fixture_path": "fixtures/v026/IG_ARTIFACT_RECORD_V0_17.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/artifacts/00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612.json",
+      "size_bytes": 364
+    },
+    "IG_BUILD_META_V0_25_0": {
+      "canonical_sha256": "043706d6dde133e728cba8c6282970ee8b2497a52304ab0d93d52151d10a3d0c",
+      "file_sha256": "7c607449006f46ad4d647534cad2918788044008f4280c0f27c52658deaca582",
+      "fixture_path": "fixtures/v026/IG_BUILD_META_V0_25_0.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/_build_meta.json",
+      "size_bytes": 469
+    },
+    "IG_CLEAN_COMPLETE_FILE_MANIFEST_V1": {
+      "canonical_sha256": "5b43c0229586ddeb4d8539709b7aa728667823aa18a7a4f1028d7c1a920f04a7",
+      "file_sha256": "9c7f5a658aa3e82f135c472e5b6436097bf8027c9bdfbd1845f510f681c74963",
+      "fixture_path": "fixtures/v026/IG_CLEAN_COMPLETE_FILE_MANIFEST_V1.json",
+      "origin": "v0.26.0/07_PROVENANCE/FILE_MANIFEST.json",
+      "size_bytes": 434152
+    },
+    "IG_DECODER_BASELINE_IDENTITY_V1": {
+      "canonical_sha256": "2e9b9617fb0b134662109bd9122a2ade54b733ef05871f57f0fa9c85a8baa64a",
+      "file_sha256": "997de78d0e64f6cc8ed9b2dbc9257b0425a01ad736c615471b5e4e8d044257f6",
+      "fixture_path": "fixtures/v026/IG_DECODER_BASELINE_IDENTITY_V1.json",
+      "origin": "resources/contracts/BASELINE_V026_IDENTITY.json",
+      "size_bytes": 343
+    },
+    "IG_DECODER_CLEAN_COMPLETE_ACCEPTANCE_V1": {
+      "canonical_sha256": "32d8bb99e66c17d50f5d40213ad35e654759c12dbb327c2b4393ca88d7edce1c",
+      "file_sha256": "30b45856c197cfc3dfae45395d63ebcfcffbeb172ae4758c40a7b7d81b66c1ce",
+      "fixture_path": "fixtures/v026/IG_DECODER_CLEAN_COMPLETE_ACCEPTANCE_V1.json",
+      "origin": "v0.26.0/05_ACCEPTANCE/ACCEPTANCE_SUMMARY.json",
+      "size_bytes": 462
+    },
+    "IG_DECODER_CURRENT_STATE_V1": {
+      "canonical_sha256": "666bb35a1aaca01023dc128950fb41139c826be1ec2c506bfcc5aad21d0a2661",
+      "file_sha256": "a9c9e53fe4eb70c6b0faf7c56a13ad2eff38866e8e46229b7b5b64e01f4035f4",
+      "fixture_path": "fixtures/v026/IG_DECODER_CURRENT_STATE_V1.json",
+      "origin": "Infinity_Grid_Algebra_Decoder_v0.26.1_GATE1_MACHINE_CONTRACTS_2026-08-31/02_MACHINE_STATE/CURRENT_STATE.json",
+      "size_bytes": 4955
+    },
+    "IG_DECODER_CURRENT_STATE_V2": {
+      "canonical_sha256": "9a45a8796c2aebc9201c29feaf55a4ce47daaa2879933aaef7575a893593fdbd",
+      "file_sha256": "2dd60dc980b383370497ea7d04f1544e25fc7acb7db0ad383a554da3c7f68c2c",
+      "fixture_path": "fixtures/v026/IG_DECODER_CURRENT_STATE_V2.json",
+      "origin": "Gate2 authoritative CURRENT_STATE.json",
+      "size_bytes": 5405
+    },
+    "IG_DECODER_FAILURE_RECORD_V1": {
+      "canonical_sha256": "7194e6d9ed5102d48f6d82671bc811b34930d81fda4ed9273748660b159abd14",
+      "file_sha256": "51866e13afa63af31e5af6f3335f93c0ba5b1c58412c99f23b6d1bad830d8e99",
+      "fixture_path": "fixtures/v026/IG_DECODER_FAILURE_RECORD_V1.json",
+      "origin": "MIG001_SYNTHETIC_CONTRACT_FIXTURE",
+      "size_bytes": 259
+    },
+    "IG_DECODER_MIGRATION_REPORT_V1": {
+      "canonical_sha256": "da3134c425df2ba3ec5684a1a63580c4b5ffb7fffc3c72f25d514f8381dd5485",
+      "file_sha256": "ed7d80defc6a5ba5db3d70aedff69327e5895be0f37d0d8633cd5e5b0f8ecbe6",
+      "fixture_path": "fixtures/v026/IG_DECODER_MIGRATION_REPORT_V1.json",
+      "origin": "Infinity_Grid_Algebra_Decoder_v0.26.1_GATE1_MACHINE_CONTRACTS_2026-08-31/03_GATE1_EVIDENCE/V026_JSON_MIGRATION_REPORT.json",
+      "size_bytes": 493664
+    },
+    "IG_DECODER_O7_CASE_STUDY_V0_1": {
+      "canonical_sha256": "e9754a49c9eaa78c4c9982c5cc75a067d5b8b27fac1d9b9bf1bed7aa134589a9",
+      "file_sha256": "9da8a95069575052cd046cf85c0b89ff80323d6b64c94dee2dcfe27d7586442e",
+      "fixture_path": "fixtures/v026/IG_DECODER_O7_CASE_STUDY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O7_RECONSTRUCTION_CASE_STUDY_v0.1.json",
+      "size_bytes": 1691
+    },
+    "IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1": {
+      "canonical_sha256": "946a23ee9b99569f80dfc6b73f628aec8282ef36acf7ef1b6b0ee9648c05cbd5",
+      "file_sha256": "7701aaa84740173f40363e52a79fdce9392c48087717ef859e391624cb418b10",
+      "fixture_path": "fixtures/v026/IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/PHASE1_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "size_bytes": 6723
+    },
+    "IG_DECODER_RELEASE_IDENTITY_V1": {
+      "canonical_sha256": "1036a33297ab4f720ac62a86a4eafabcf805a82fc584f5c3117a3bd25896abe2",
+      "file_sha256": "b41f9b5581cf615e7dbb378f77cf6901a9f81423337ab37edb82efe2209a0cc7",
+      "fixture_path": "fixtures/v026/IG_DECODER_RELEASE_IDENTITY_V1.json",
+      "origin": "Infinity_Grid_Algebra_Decoder_v0.26.1_GATE1_MACHINE_CONTRACTS_2026-08-31/03_GATE1_EVIDENCE/RELEASE_IDENTITY.json",
+      "size_bytes": 581
+    },
+    "IG_DECODER_SOURCE_TREE_MANIFEST_V1": {
+      "canonical_sha256": "bca6304ddea58d3bd3630222aacbffdbc3251cd6668cb97bc1d98f79926eb9f2",
+      "file_sha256": "ee79a81679ba02f2fc5e95d884d8d3615da76368d56f5ea7ae792e29605b6972",
+      "fixture_path": "fixtures/v026/IG_DECODER_SOURCE_TREE_MANIFEST_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/SOURCE_TREE_MANIFEST.json",
+      "size_bytes": 68408
+    },
+    "IG_DECODER_STATE_RECONCILIATION_RESULT_V1": {
+      "canonical_sha256": "8f5b2d59fe55e60e64df48de6b7839e5e10fa0031e27804d317a01db0f6e4d81",
+      "file_sha256": "9c02bed0345b889f57ee112fc101afdd65faa42d45824cc30dd924c8b9b11abf",
+      "fixture_path": "fixtures/v026/IG_DECODER_STATE_RECONCILIATION_RESULT_V1.json",
+      "origin": "Infinity_Grid_Algebra_Decoder_v0.26.1_GATE1_MACHINE_CONTRACTS_2026-08-31/03_GATE1_EVIDENCE/STATE_RECONCILIATION_RESULT.json",
+      "size_bytes": 611
+    },
+    "IG_DEPENDENCY_RESOLUTION_POLICY_V0_1": {
+      "canonical_sha256": "1b970f29420e6fa729a09450c7b4875a454cdf5593c5e70bb52d432f5eb1cba9",
+      "file_sha256": "85c4e635589a53c67eeea7962d822ccd3c8e2239d510f9599575a67b7c493a58",
+      "fixture_path": "fixtures/v026/IG_DEPENDENCY_RESOLUTION_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/DEPENDENCY_RESOLUTION_POLICY_v0.1.json",
+      "size_bytes": 1040
+    },
+    "IG_EMERGENT_READ_FUNCTION_REGISTRY_V0_1": {
+      "canonical_sha256": "16377f870463386e52b7412424c22de56e481ba5dc64b1beec94e6883db2e4af",
+      "file_sha256": "fd96953615027ea3189b5aec8f0c9c2b470cb60401e5c9522cdacbc0facd3acc",
+      "fixture_path": "fixtures/v026/IG_EMERGENT_READ_FUNCTION_REGISTRY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/EMERGENT_READ_FUNCTION_REGISTRY_v0.1.json",
+      "size_bytes": 1668
+    },
+    "IG_EVIDENCE_GRAPH_SPEC_V0_1": {
+      "canonical_sha256": "bf7e950167bca9d936e18dc4d61713a2136a18c1468e6a2ed0eaad12908b2c22",
+      "file_sha256": "14f9fcd06793755ac3c8b50c8097553e7489a572188ddd4e398549dc2c766dc0",
+      "fixture_path": "fixtures/v026/IG_EVIDENCE_GRAPH_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/EVIDENCE_GRAPH_SPEC_v0.1.json",
+      "size_bytes": 987
+    },
+    "IG_EXECUTION_PLAN_V0_17": {
+      "canonical_sha256": "c46c1c8fedae3618ed4e3b2097eb0699c19da941f2e107566579569b0b9cd655",
+      "file_sha256": "0d5ac913a401d58dc15f5ffeab4e8737c8adca4f84b318230e5ff48d626209a0",
+      "fixture_path": "fixtures/v026/IG_EXECUTION_PLAN_V0_17.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/FROZEN_EXECUTION_PLAN.json",
+      "size_bytes": 7205
+    },
+    "IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1": {
+      "canonical_sha256": "1621aa5f07fde704cd67d4267ee6988277ab77fc37ffe58f86dc13289ef61f96",
+      "file_sha256": "f909fa8d172b4e1482f5316100fdf4d06c5f529003b563fc049067355ca49561",
+      "fixture_path": "fixtures/v026/IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GENERIC_JUMPSTART_RUNTIME_SPEC_v0.1.json",
+      "size_bytes": 1536
+    },
+    "IG_GRAPH_ALIAS_V0_1": {
+      "canonical_sha256": "14c9ee22ed648cbf186a8f95dc2a2c1071fb24577b88bd1b31f07376f51ff8af",
+      "file_sha256": "28dc72f2dbd7d75629c631070de4aee44b16c963416685445542875c2eb1ed97",
+      "fixture_path": "fixtures/v026/IG_GRAPH_ALIAS_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/aliases/008a51d9c8b1db13add2cf9d31829c4d029bd50eee9faa31a52afac087265755.json",
+      "size_bytes": 353
+    },
+    "IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1": {
+      "canonical_sha256": "f6d617feaf4d86c5bcafea8778ed43e809a7fa7c2d5eb9a36ca9bc56e0664175",
+      "file_sha256": "afef737b18146c7b0259f9f0efaa06f952266e0358140e2688350c68c75e5b33",
+      "fixture_path": "fixtures/v026/IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GRAPH_CATALOGUE_EXTENSION_SPEC_v0.1.json",
+      "size_bytes": 1489
+    },
+    "IG_GRAPH_EDGE_REGISTRY_V0_1": {
+      "canonical_sha256": "321f169c85cfd8fa1567472782f8b4bf937e0ae16e94a9fc7f3b6aa266d61806",
+      "file_sha256": "b1f7ab8d116df91faf38d904d4640cb4cc575aa33ca4b4368c3cbca9c7cdc015",
+      "fixture_path": "fixtures/v026/IG_GRAPH_EDGE_REGISTRY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GRAPH_EDGE_REGISTRY_v0.1.json",
+      "size_bytes": 2092
+    },
+    "IG_GRAPH_EDGE_V0_1": {
+      "canonical_sha256": "2c3580aa7569bdd09c6665bf9ac2a982eec78629edef1a1af7747c7efe151f0a",
+      "file_sha256": "e0ce0b49055fdf30728adf1b6a9991740e4ae7f252cf3b9d9df62adf0fda387a",
+      "fixture_path": "fixtures/v026/IG_GRAPH_EDGE_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/edges/01093062ab1f4182971cd2f4c5ca325f3679918dc48644cd84846cd427940546.json",
+      "size_bytes": 493
+    },
+    "IG_GRAPH_EXPORT_IMPORT_SPEC_V0_1": {
+      "canonical_sha256": "e8eacee0ad0909370000440dd9bc418956468700937e2eb8f22f1d2085a02ff8",
+      "file_sha256": "c21ec67c1b99af38f27ba0e7d72d2a930cacfd3e3340332abab0892c3d4042e9",
+      "fixture_path": "fixtures/v026/IG_GRAPH_EXPORT_IMPORT_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GRAPH_EXPORT_IMPORT_SPEC_v0.1.json",
+      "size_bytes": 931
+    },
+    "IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1": {
+      "canonical_sha256": "22b06faf1ec431238837ff6415bba67e2f0ee6f8d99e0bcb334be2de1d9b18d7",
+      "file_sha256": "439986adcd2b1b6bf030b264dd763be60bcd60553894aaff1dea5e803b1d1256",
+      "fixture_path": "fixtures/v026/IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GRAPH_GARBAGE_COLLECTION_POLICY_v0.1.json",
+      "size_bytes": 1020
+    },
+    "IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1": {
+      "canonical_sha256": "81fe94531bc274cab2e8bea96dd6e12e5a073786f9f3d1cdfa157ecb7d838d8c",
+      "file_sha256": "0be1f76ccb70b0fd3a6143f1767b4465aee10e902ed9bec5ef2077175d7d792a",
+      "fixture_path": "fixtures/v026/IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/GRRL_APPLICATION_GATE_RECONCILED_v0.1.json",
+      "size_bytes": 3067
+    },
+    "IG_JUMPSTART_PLAN_V0_1": {
+      "canonical_sha256": "caf14f1c7a7fe45d61e9e3a60fd332136c0eb22021a0fe02f0b8a91054102c79",
+      "file_sha256": "d255b756864ca01740aea029f11e13ad78a89981de6deb0644fd69dc669a79ad",
+      "fixture_path": "fixtures/v026/IG_JUMPSTART_PLAN_V0_1.json",
+      "origin": "v0.26.0/05_ACCEPTANCE/PLAN_O7.json",
+      "size_bytes": 1852
+    },
+    "IG_JUMPSTART_PROFILE_SCHEMA_V0_1": {
+      "canonical_sha256": "dbb5c84c9ee46458f28ebf8999058b78d27ae5a5969bc0f0363d98e3447d9a9a",
+      "file_sha256": "fa800167f3287d9bd348a7527341a86c50fce81fc654614229e3b8edb32b48fb",
+      "fixture_path": "fixtures/v026/IG_JUMPSTART_PROFILE_SCHEMA_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/JUMPSTART_PROFILE_SCHEMA_v0.1.json",
+      "size_bytes": 931
+    },
+    "IG_JUMPSTART_PROFILE_V0_1": {
+      "canonical_sha256": "d9a40d1beecaef91b5e84b78b64a6f982918ec7677e215d8d25967386212f062",
+      "file_sha256": "1e9612e013812d94f96a7bf0637222bb46a27ff13207e27660375b68672365d3",
+      "fixture_path": "fixtures/v026/IG_JUMPSTART_PROFILE_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/jumpstart_profiles/06f60a23aefe7e5a5eead785d805b6cb42f63da51265cf902e3f1b5ec0e2f054.json",
+      "size_bytes": 1294
+    },
+    "IG_L16_FORWARD_AUDIT_REFERENCE_V1_1": {
+      "canonical_sha256": "d57e47c37ac04eef745e67ff39aecf48ca523b2b15df82387c1da2308f84f225",
+      "file_sha256": "f4e37030397ef720b783c4ad18dd0eb8a06e3e22d25fb8abad0f09962a4f4554",
+      "fixture_path": "fixtures/v026/IG_L16_FORWARD_AUDIT_REFERENCE_V1_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_AUDIT_REFERENCE_v1.1.json",
+      "size_bytes": 2280
+    },
+    "IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1": {
+      "canonical_sha256": "c9443871d4f15eddcbb264fe82f85ee15c20dd74431728320d7cf237ecd87cc5",
+      "file_sha256": "7360013a0b48bc428ff6b259c9c7de699f85766d1c9b2815d84742c618bd31be",
+      "fixture_path": "fixtures/v026/IG_L16_FORWARD_EVIDENCE_CLAIM_BOUNDARY_V1_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_EVIDENCE_AND_CLAIM_BOUNDARY_v1.1.json",
+      "size_bytes": 905
+    },
+    "IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1": {
+      "canonical_sha256": "ed968faafb69996080d91cf41ee47a885aa4dee6fdd8c078e5b26f819233bee6",
+      "file_sha256": "abe91933456a48799d6917f74d02df72158e3eada14aa5ad2697a5c4c8a02a31",
+      "fixture_path": "fixtures/v026/IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_OBSERVER_METRIC_SPEC_v1.1.json",
+      "size_bytes": 1458
+    },
+    "IG_L16_FORWARD_SELECTION_RULES_V1_1": {
+      "canonical_sha256": "06538bfb9908b5d5b755e4f6bf65e75a4114282e9fefe901991fe5334848594b",
+      "file_sha256": "eafd65d0df65b3f7abded8c4ed709f890c3514dcf82f0f79833c8712f6e5cefc",
+      "fixture_path": "fixtures/v026/IG_L16_FORWARD_SELECTION_RULES_V1_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16_forward/L16_FORWARD_SELECTION_RULES_v1.1.json",
+      "size_bytes": 1110
+    },
+    "IG_L16_LEGACY_BASELINE_COST_COMPAT_V1": {
+      "canonical_sha256": "71ec38b4624013161e52044f9a6e293dcdecaedebc63ae4b7ba7f3dc8a4e7328",
+      "file_sha256": "f670274cc474ba18aa6efbae20ffd20a23d89a20420da9c0610db7b97c9c4bfd",
+      "fixture_path": "fixtures/v026/IG_L16_LEGACY_BASELINE_COST_COMPAT_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_LEGACY_BASELINE_COST_COMPAT_v1.0.json",
+      "size_bytes": 606
+    },
+    "IG_L16_SCOUT_EVIDENCE_CLAIM_BOUNDARY_V1": {
+      "canonical_sha256": "a58bf97d8c5f11337532d6b404cd4a44eaa43d7667f40e51ac7033964ca12647",
+      "file_sha256": "61c3f735f0a7588b8d2f4417cf7e5aa9e0005acbe341da3bf58143adbbdefc53",
+      "fixture_path": "fixtures/v026/IG_L16_SCOUT_EVIDENCE_CLAIM_BOUNDARY_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_EVIDENCE_AND_CLAIM_BOUNDARY_v1.0.json",
+      "size_bytes": 1584
+    },
+    "IG_L16_SCOUT_GOLDEN_COMMITMENTS_V1": {
+      "canonical_sha256": "98425be13db3fa2305a612e7082e7755c6b1e2addad4b78812d2cc3c0fff534e",
+      "file_sha256": "6d445900fd4f33bab342d6ecf615fa6ae2982c632ec44142dd0aa9b8d26938cb",
+      "fixture_path": "fixtures/v026/IG_L16_SCOUT_GOLDEN_COMMITMENTS_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_GOLDEN_COMMITMENTS_v1.0.json",
+      "size_bytes": 1973
+    },
+    "IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1": {
+      "canonical_sha256": "548bb009748c356f05a6138d6d94ad754210b05f3aa9b2ac6353dc2b618469bb",
+      "file_sha256": "253b82b37563ce2404972ee63bca32cade5590d2c3bd2bc15168d4ee399cb358",
+      "fixture_path": "fixtures/v026/IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_OBSERVER_AND_METRIC_SPEC_v1.0.json",
+      "size_bytes": 2174
+    },
+    "IG_L16_SCOUT_RUN_PACKET_V1": {
+      "canonical_sha256": "00146e22343a9517e0a9e4f1309af7d819683c3102cd79e78c6c8df207fbf8d9",
+      "file_sha256": "3d95fab42fbb608af65b873dee4caa4afbb141fbada3382f16813950ef4293ff",
+      "fixture_path": "fixtures/v026/IG_L16_SCOUT_RUN_PACKET_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_RUN_PACKET_v1.0.json",
+      "size_bytes": 2211
+    },
+    "IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1": {
+      "canonical_sha256": "ed976a7ef78e6b241ef95fd2effd42d1e49bc06158b12ac7aaa416e35ef6e702",
+      "file_sha256": "6fd7948db78157987476fe8c9b22d06f1e1c6926f514af45ca3c75db3915681c",
+      "fixture_path": "fixtures/v026/IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/scout_l16/L16_SCOUT_SELECTION_AND_STOPPING_RULES_v1.0.json",
+      "size_bytes": 2178
+    },
+    "IG_LEGACY_DOCTOR_RESULT_V0_26": {
+      "canonical_sha256": "50f822145cad2cf9879e95726b0cc5a98ae470525ce526b43a0e9afab46a3df3",
+      "file_sha256": "24d3c7272a5024ac4c6a2f30709728a70992fac1ac11c3f4a4e8107d89487e2d",
+      "fixture_path": "fixtures/v026/IG_LEGACY_DOCTOR_RESULT_V0_26.json",
+      "origin": "v0.26.0/05_ACCEPTANCE/DOCTOR.json [Gate1 exact-digest schema injection fixture]",
+      "size_bytes": 412
+    },
+    "IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26": {
+      "canonical_sha256": "8e904cd90720b09b73c3f8b066e985115b0eee5fd8719d91b2dd2ebd0dec35d2",
+      "file_sha256": "8a0e288efffb4ca19b57ea23b7e92bbbfbbbde605706f678ec2a73abdaef5189",
+      "fixture_path": "fixtures/v026/IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/GRAPH_REGISTRATION_RESULT.json [Gate1 exact-digest schema injection fixture]",
+      "size_bytes": 876
+    },
+    "IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26": {
+      "canonical_sha256": "2821bfda4d83bf0d1f7c62d98d2166ac45b7083529ff3550d97cd3dcb4729051",
+      "file_sha256": "99b22d77b6439a37d70705fd8f957a5517e5751689e04cebe249addce9a2a566",
+      "fixture_path": "fixtures/v026/IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26.json",
+      "origin": "v0.26.0/05_ACCEPTANCE/PHASE_B_RUNTIME_PATCH_APPLY.json [Gate1 exact-digest schema injection fixture]",
+      "size_bytes": 268
+    },
+    "IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26": {
+      "canonical_sha256": "2b5d4a9fe1337804f89ff1d809f2a27b1b63ae6dc9e1e84ec45234727b7dbba6",
+      "file_sha256": "417624f9069d023f197b30c1f9506df1c5afcaf8fc42fef40af54d0258687bc1",
+      "fixture_path": "fixtures/v026/IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26.json",
+      "origin": "v0.26.0/05_ACCEPTANCE/SCANNER_IMPORT_SMOKE.json [Gate1 exact-digest schema injection fixture]",
+      "size_bytes": 126
+    },
+    "IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26": {
+      "canonical_sha256": "885ebd32bf166e80beb58acf69cbd27f29837add0eca38b843e602ae37c23b05",
+      "file_sha256": "3ca85b14425f8a8faf6936e91f628fbd9e2e0d67202aee82973e53fd59c2e864",
+      "fixture_path": "fixtures/v026/IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/SOURCE_REGISTRATION_RESULT.json [Gate1 exact-digest schema injection fixture]",
+      "size_bytes": 461
+    },
+    "IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1": {
+      "canonical_sha256": "9cd49b40a38f407583607b16535380323fc53e87d87c1255eb09cfad85daeb35",
+      "file_sha256": "14316de8d6b28b801f1044887597f86e9354ebc995b4c945437923dfd542717a",
+      "fixture_path": "fixtures/v026/IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/MINIMUM_PRESERVATION_SET_SPEC_v0.1.json",
+      "size_bytes": 1290
+    },
+    "IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1": {
+      "canonical_sha256": "24de324f34163eca99929a2787623369d37830ebe0314aa27b66c481c522463e",
+      "file_sha256": "c9eeaa2347bf729c3d581a2ae689544ce10dc4343a09e7ab8c95a28cd83d9e33",
+      "fixture_path": "fixtures/v026/IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O10_PLUS_TARGETED_PROBE_MATRIX_v1.json",
+      "size_bytes": 4526
+    },
+    "IG_O12_O13_AUDIT_PANEL_MEMBERSHIP_V1": {
+      "canonical_sha256": "b6801a2a937c5a15927e27d752652d63ec989c1d8b6de020f0a26d7b3969905a",
+      "file_sha256": "320e3e4b4550747fe4653fbde92afa6868acc3ea79038b6b68081b21c553253c",
+      "fixture_path": "fixtures/v026/IG_O12_O13_AUDIT_PANEL_MEMBERSHIP_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/03_RESULTS/O12_O13_TARGETED_RAISE_AUDIT/O12_O13_GROUP_RAISE_AUDIT_PANEL_MEMBERSHIP.json",
+      "size_bytes": 3312
+    },
+    "IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1": {
+      "canonical_sha256": "5bb0b30a8620d1a0e31b2209c2df6cf079b60202191e044d5047b5989a5c01f7",
+      "file_sha256": "a9ccfc042444ae5cd3ef5a97da087b1bc0da42024663f216120fe08830c3441b",
+      "fixture_path": "fixtures/v026/IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/03_RESULTS/O12_O13_TARGETED_RAISE_AUDIT/O12_O13_GROUP_RAISE_AUDIT_RESULT.json",
+      "size_bytes": 17580
+    },
+    "IG_O12_O13_GROUP_RAISE_AUDIT_SPEC_V1": {
+      "canonical_sha256": "b6a53f5bd2adbf9557546c285afe4f5a057dc794af42a677a181189f5be00e74",
+      "file_sha256": "4433eae08ac4d133edcb626321051997220009f5256931bd49a6da4197c97597",
+      "fixture_path": "fixtures/v026/IG_O12_O13_GROUP_RAISE_AUDIT_SPEC_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O12_O13_GROUP_RAISE_AUDIT_SPEC_v1.json",
+      "size_bytes": 3236
+    },
+    "IG_O8_BP0_FROZEN_SPEC_V0_1": {
+      "canonical_sha256": "ffd28f6ce41d43944275542a7989b5226984b17f61fb479467176051ba89680e",
+      "file_sha256": "c4e74d329215d78d284a1df84f2a42ce4349e690cdc735d9fa37c1e4619bc355",
+      "fixture_path": "fixtures/v026/IG_O8_BP0_FROZEN_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O8_BP0_FROZEN_SPEC_v0.1.json",
+      "size_bytes": 1927
+    },
+    "IG_O8_THEOREM_ACCELERATED_GRADUATION_SPEC_V0_1": {
+      "canonical_sha256": "5b62f0c31761b8d5416034bdeaff76665b4c3ad1401d5839d82d82e53d2179b1",
+      "file_sha256": "9f793b5ca8abbfe7308b6056da3630485e87bfb451bee90c7d313c5b0a80228a",
+      "fixture_path": "fixtures/v026/IG_O8_THEOREM_ACCELERATED_GRADUATION_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O8_THEOREM_ACCELERATED_GRADUATION_SPEC_v0.1.json",
+      "size_bytes": 3137
+    },
+    "IG_O9_BP0_FROZEN_SPEC_V0_1": {
+      "canonical_sha256": "aeb1a121ff2e1d63fbd8b1cf27d8cee737afac9e947715251860f3c94b3f3fd1",
+      "file_sha256": "6eeb355d85aa443b44de8b4dca0231d65759c7da020e71d69ebf5030aaf461b3",
+      "fixture_path": "fixtures/v026/IG_O9_BP0_FROZEN_SPEC_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O9_BP0_FROZEN_SPEC_v0.1.json",
+      "size_bytes": 1457
+    },
+    "IG_O_CHAIN_META_GRAMMAR_RESULT_V1": {
+      "canonical_sha256": "97f80f4d993887d758185e83e973f9a817364decafdb4ac5b56b350a0dd1a4de",
+      "file_sha256": "d7e5eaee1db53049db8f819696bdb081ba4f75c98941ded0fbd5928434e322a1",
+      "fixture_path": "fixtures/v026/IG_O_CHAIN_META_GRAMMAR_RESULT_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/O_CHAIN_META_GRAMMAR_RESULT.json",
+      "size_bytes": 2914
+    },
+    "IG_O_CHAIN_META_GRAMMAR_SPEC_V1": {
+      "canonical_sha256": "1cfcaf01ecb7e6aa6a6dcaa058bb95f25431c1ff6e4df0365ae4b54db141236f",
+      "file_sha256": "4966cfe5324030b50ee14e84e2ea7f4a59ea7d8f0b7cfd81cdd5993a7ec74aca",
+      "fixture_path": "fixtures/v026/IG_O_CHAIN_META_GRAMMAR_SPEC_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_CHAIN_META_GRAMMAR_SPEC_v1.json",
+      "size_bytes": 2729
+    },
+    "IG_O_FRONTIER_AUTO_ADVANCE_POLICY_V0_1": {
+      "canonical_sha256": "82acf091b277b0bc156ce4fe179bff19ee93906909113eb97d0a64b0348df81f",
+      "file_sha256": "cbd8425fb5fe951485ad3bae6af7493acd606b6edae0260dcd5f5cbff66a8969",
+      "fixture_path": "fixtures/v026/IG_O_FRONTIER_AUTO_ADVANCE_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_FRONTIER_AUTO_ADVANCE_POLICY_v0.1.json",
+      "size_bytes": 1652
+    },
+    "IG_O_FRONTIER_MINIMAL_RETENTION_POLICY_V0_1": {
+      "canonical_sha256": "00ec499ba35707400657023ccaa11cbdea2112ff7f7d9d0fae29ca6ed98f34fd",
+      "file_sha256": "807f7c5a3f2212e38ce9f6320b5be3431e46a8337c47b256d20a3a48324295f4",
+      "fixture_path": "fixtures/v026/IG_O_FRONTIER_MINIMAL_RETENTION_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_FRONTIER_MINIMAL_RETENTION_POLICY_v0.1.json",
+      "size_bytes": 1025
+    },
+    "IG_O_FRONTIER_PROTOCOL_V0_1": {
+      "canonical_sha256": "ccf117c4edf4e46d23342804bdd556bbf763d87450c0e177177621acdb9629a2",
+      "file_sha256": "e19a0cbc6dae607aa61272677b12b1d8e56940c6f4edcf7e9349dcbac9b3b5a2",
+      "fixture_path": "fixtures/v026/IG_O_FRONTIER_PROTOCOL_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_FRONTIER_PROTOCOL_v0.1.json",
+      "size_bytes": 3401
+    },
+    "IG_O_REGIME_ADAPTIVE_SCANNER_RESULT_V1": {
+      "canonical_sha256": "26a6564ffa17fa93a889c286be13bcf2cc5edff0dae5eb08a4d5d8dd48769b4a",
+      "file_sha256": "5ab3dd6a3558484469b7be19c5f15f659182ef119b8b9b1fd1c85491140c2c09",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_ADAPTIVE_SCANNER_RESULT_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_ADAPTIVE_SCANNER_RESULT.json",
+      "size_bytes": 97328
+    },
+    "IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_1": {
+      "canonical_sha256": "e71426f652f893b034ccb4b2e896c9ffc4225ab45f3d2f2f096303686c361b40",
+      "file_sha256": "9c318598601e2a2886ddaa9c1a72c2600dab1bd43121a6e065267121f24b41ae",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "size_bytes": 11756
+    },
+    "IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2": {
+      "canonical_sha256": "4adeae47ed9f7d2b23d4a7333ba56cf12409391bf9cdac7baf66c59e9b51ff3f",
+      "file_sha256": "25756d570d3407947e34442591c7facc2c72346c93e9fd87c8b40000fed3141b",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "size_bytes": 12340
+    },
+    "IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT_V1": {
+      "canonical_sha256": "b273e28d979cc5afdf1a04e3ce24b6c75c09bd51b9f9f0da4426cf1c736df65d",
+      "file_sha256": "98543af022d89afd9745d42748973ad3fb065bb1c8dfb88b1c4b093f0990efab",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/03_RESULTS/DEPTH_ERASING_VALIDATION/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT.json",
+      "size_bytes": 9208
+    },
+    "IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_V1": {
+      "canonical_sha256": "df4a38573772a36ba374c608e7821aa8179801133d6941bb6d4c877e4fef472c",
+      "file_sha256": "8ceadd790db3d57430f65e94750ff01a858a18c87873c8b64c0a570c83f62620",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_v1.json",
+      "size_bytes": 3681
+    },
+    "IG_O_REGIME_EARNED_LAW_REGISTRY_V1": {
+      "canonical_sha256": "3d756c82f1589f1384b8903ddf9775744687c1ed8a56df038b20f71ad18b2459",
+      "file_sha256": "f5323a6e2149b8fdac0f24a5a1f34fb7dc42f6d01970b807635af5b27018822b",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_EARNED_LAW_REGISTRY_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_REGIME_EARNED_LAW_REGISTRY_v1.json",
+      "size_bytes": 4756
+    },
+    "IG_O_REGIME_LEVEL_SERIES_V1": {
+      "canonical_sha256": "89e8772412ed577ddb0540f0540663117d325b0801379110985540e366b17f48",
+      "file_sha256": "2ec3e2aa90e8a60e26ae9fd90914839824c4510eb83ee4db8ef3274e940b927b",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_LEVEL_SERIES_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_LEVEL_SERIES.json",
+      "size_bytes": 8716
+    },
+    "IG_O_REGIME_MOTIF_LIBRARY_V1": {
+      "canonical_sha256": "8573017283fcad9ba0c38b3bf2d7ecaa04cf6f058176afaaabe50537b80d9ffc",
+      "file_sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_MOTIF_LIBRARY_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "size_bytes": 60119
+    },
+    "IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST": {
+      "canonical_sha256": "aa12b22a79f13a5f4a49e34b65aca0fd0faa6aa9fad15c76153f22f863a9cd68",
+      "file_sha256": "77ea196db1fe038adb5030ba47d133840d05426650c846740f39cba722af210a",
+      "fixture_path": "fixtures/v026/IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/05_PROVENANCE/FILE_MANIFEST_FINAL.json",
+      "size_bytes": 4220
+    },
+    "IG_PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_V0_1": {
+      "canonical_sha256": "fd1c0580186c81f91122b752a09cb603927d1e641444d6eb26259f0b2f03107f",
+      "file_sha256": "6e99e285352f24a9f1c95a61e0048a873221b4641fac6b092aad797ee65a8e32",
+      "fixture_path": "fixtures/v026/IG_PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_v0.1.json",
+      "size_bytes": 1102
+    },
+    "IG_PHASE_B_PARENT_PINS_V1": {
+      "canonical_sha256": "b2d5756c1f5c92d052c9dd28406b113ef5ecd3e91f3379d966e0b32d607f2b2e",
+      "file_sha256": "d13f01f79995165f36a8454551a21867b1463a7b65ee679d96f735602872d160",
+      "fixture_path": "fixtures/v026/IG_PHASE_B_PARENT_PINS_V1.json",
+      "origin": "v0.26.0/06_LINEAGE/PHASE_B_PARENT_PINS.json",
+      "size_bytes": 896
+    },
+    "IG_PHASE_B_RUNTIME_DELTA_INDEX_V1": {
+      "canonical_sha256": "3e0a9117c161ddcb56c93ddf42065dc96dd5a71bc71455efe7b2afc5ec9b3cae",
+      "file_sha256": "9d306bcd942e83d0db3ef085ccbb9f453cd74b295b585c78252f78860f2f37ba",
+      "fixture_path": "fixtures/v026/IG_PHASE_B_RUNTIME_DELTA_INDEX_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/RUNTIME_DELTA_INDEX.json",
+      "size_bytes": 1969
+    },
+    "IG_PHASE_B_SOURCE_PINS_V1": {
+      "canonical_sha256": "957f02ab7866367708bf7cc7efac406332a43138dc8a436cae3d56f27c3654ed",
+      "file_sha256": "1b747158a58244c4a3b89655404ab266bfa9236478895dbb7b614a6561438a96",
+      "fixture_path": "fixtures/v026/IG_PHASE_B_SOURCE_PINS_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/SOURCE_PINS.json",
+      "size_bytes": 2605
+    },
+    "IG_PREGEOMETRY_SCOUT_RESULT_V1": {
+      "canonical_sha256": "c2675f02b2f2de7d48d50b048abfcc6cc87b6e4e2be5237acd3402e05200f086",
+      "file_sha256": "a414c6b3e25f7d2cdc5d6fab323fa94d7c3b2931ab1dc87315e0a00c2dcc71f4",
+      "fixture_path": "fixtures/v026/IG_PREGEOMETRY_SCOUT_RESULT_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/PREGEOMETRY_SCOUT_RESULT.json",
+      "size_bytes": 6386
+    },
+    "IG_PREGEOMETRY_SCOUT_SPEC_V1": {
+      "canonical_sha256": "581c779fc4eeea6dc7c02f9b2e12284bcbccd1d93b14013a5256233c5bb964e8",
+      "file_sha256": "dd752158ae10ad73996053bed23112947d29dfc96370c58b16b9b979c8c00368",
+      "fixture_path": "fixtures/v026/IG_PREGEOMETRY_SCOUT_SPEC_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/PREGEOMETRY_SCOUT_SPEC_v1.json",
+      "size_bytes": 4784
+    },
+    "IG_PROTOCOL_DESCRIPTOR_V0_17": {
+      "canonical_sha256": "02e6d3249bfb198533d036836c9a530897dfea5bc94d0722183266aff56e9fc5",
+      "file_sha256": "c1359d4614edecf488b0532a86b29e3f423083af57d5e52312cfe6ab91fe4e31",
+      "fixture_path": "fixtures/v026/IG_PROTOCOL_DESCRIPTOR_V0_17.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/protocols/BASE_REPLAY.json",
+      "size_bytes": 1600
+    },
+    "IG_RECONSTRUCTION_PROOF_V0_1": {
+      "canonical_sha256": "0127e8e9cd0a842844527e9399972c375e5e34db84669bd6856e6bc060c4f0b0",
+      "file_sha256": "7c9c936f7a0c17750cb8c5d33e3f95d55f0d1ea30e76cfb0f38a5ce52cb36f32",
+      "fixture_path": "fixtures/v026/IG_RECONSTRUCTION_PROOF_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/reconstruction_proofs/32836aa603425f3de55be2771443b4a7d2a9fded8eeb87a812933c43284bddd8.json",
+      "size_bytes": 1969
+    },
+    "IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1": {
+      "canonical_sha256": "0f4ca85444422bc1ff5643c5bfd3d00df1f71e9e2b971d8e6acd3ba265d54504",
+      "file_sha256": "6b193481c2286556a08f71f2a34e5f9d445bc8186ec6c926add840e90bb40cf0",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/RECOVERY_V7_ARCHIVE_REPLAY_PROTOCOL_v1.json",
+      "size_bytes": 749
+    },
+    "IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1": {
+      "canonical_sha256": "fc61d2c8f8df6bab86d4aa2387adb885a804480f52d1e7574f193a9f9a7b353d",
+      "file_sha256": "16c6bbd24cc6c212e916b54ec6717b1e12ffcbbbd085f318d624cad42aa7033a",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/REPLAY_CONTRACT_REGISTRY_RESULT.json",
+      "size_bytes": 28875
+    },
+    "IG_RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY_V1": {
+      "canonical_sha256": "da3c0c7dbcdee2c3855e390e08f057d74918d0d4d1790d82d7c2c6f36acdc088",
+      "file_sha256": "248a56fb7ae1c4265ec7f6a76d34a9609b56067d8d19fb0edfd4ac4ab70a529d",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/RECOVERY_V7_P4_ALIAS_PROFILE_INTEGRITY.json",
+      "size_bytes": 402
+    },
+    "IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1": {
+      "canonical_sha256": "2cd90e2d689c76dc625d91bd8da4de104db4dbcda114ad4991a7abb305c5bb95",
+      "file_sha256": "3fbf1f1abe8f6d7215c1ded26b16b8503e32a606b2e46964ebe8cdc067ce0e41",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY.json",
+      "size_bytes": 3292
+    },
+    "IG_RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT_V1": {
+      "canonical_sha256": "5b40d4877443adc56abf3b1281e58dd13e5bd2b9d653e91fd89333e580cb1737",
+      "file_sha256": "0dec8ff9209e0adc5a86c6e4a303edc8e971d6fbc1d4700d9f802bb7e50daf3d",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT.json",
+      "size_bytes": 21480
+    },
+    "IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1": {
+      "canonical_sha256": "997f831fdcb9052517c096418e48ab31900d8b3f69e27c3d4192e368538d7b12",
+      "file_sha256": "73ff2c967aba7271d45d7405dcd9fa3b48a1dec8746938fb75f569fd78e92ee9",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE.json",
+      "size_bytes": 5363
+    },
+    "IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1": {
+      "canonical_sha256": "524d7273fdd2b6dad5ce65dcabce1bafc95b8f8c1a7192fa154007c040628002",
+      "file_sha256": "a5f99e951817e842e23f8c91274aa8fe4a664645a3f7c92e7238f5d2d5c8286c",
+      "fixture_path": "fixtures/v026/IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION.json",
+      "size_bytes": 1331
+    },
+    "IG_REPLAY_CONTRACTS_REQUIRED_V1": {
+      "canonical_sha256": "b01998888ddd2869051314c1332da4dbd8384d311137a28cc25ac1103620c0f5",
+      "file_sha256": "65de2d29571423ba65de45839d1a02a9a72254886106e90b1618bd035778ebfe",
+      "fixture_path": "fixtures/v026/IG_REPLAY_CONTRACTS_REQUIRED_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/REPLAY_CONTRACTS_REQUIRED.json",
+      "size_bytes": 119
+    },
+    "IG_REPLAY_CONTRACT_SCHEMA_V1": {
+      "canonical_sha256": "94a5f33943bf85c5a98da41bec956ed04040ad5e95d0ab3cc31661efa1ee1352",
+      "file_sha256": "bf4d4621beaa521f60ff724c481ddc666843e31e6529f0889edec020b1be54bd",
+      "fixture_path": "fixtures/v026/IG_REPLAY_CONTRACT_SCHEMA_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/REPLAY_CONTRACT_SCHEMA_v1.json",
+      "size_bytes": 2015
+    },
+    "IG_REPLAY_CONTRACT_V1": {
+      "canonical_sha256": "4c7a1891add441dc5f43ebca4e5d659cbbb912b90ddecf86dc75fd4900b19800",
+      "file_sha256": "e8006147995e15e894d3e8e8801342e2f181831e3fb3fa79654b687a543aab7d",
+      "fixture_path": "fixtures/v026/IG_REPLAY_CONTRACT_V1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/replay_contracts/00168b0820d8da2f837702a92096e2ef96727c5bc5a858d5e129b0d1ba958941.json",
+      "size_bytes": 888
+    },
+    "IG_REPLAY_RECIPE_SCHEMA_V0_1": {
+      "canonical_sha256": "2d3cbb34e5f789b4ad4eba4aa642d0a92fc2a69850010e560b1b704e101d0275",
+      "file_sha256": "2a1cc3d6a18cc4cd1e1542eaded0fcf1b51645bc4c349782b10e1973fccc1153",
+      "fixture_path": "fixtures/v026/IG_REPLAY_RECIPE_SCHEMA_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/REPLAY_RECIPE_SCHEMA_v0.1.json",
+      "size_bytes": 1618
+    },
+    "IG_REPLAY_RECIPE_V0_1": {
+      "canonical_sha256": "c8cbed6a0dd13bdfaa92f15590e11cace85787fe2449f42a4afabbbba29ed19f",
+      "file_sha256": "e04f47458b43c944da110f367b04afb347e29a317f5c960f85bf921bfa799a91",
+      "fixture_path": "fixtures/v026/IG_REPLAY_RECIPE_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/recipes/03e09684f6c39fc70da551c9475dfbaebc99c339a803a4b5adaa987a83ef61d8.json",
+      "size_bytes": 2898
+    },
+    "IG_REPRO_GRAPH_NODE_MODEL_V0_1": {
+      "canonical_sha256": "1cb501ee76697dc8175d2773796348dabcb316d9f9cdb70b985139846417c891",
+      "file_sha256": "493402a52813193a4f71a271f32cfd843b7b03037291951b09f449bc4f4b96ff",
+      "fixture_path": "fixtures/v026/IG_REPRO_GRAPH_NODE_MODEL_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/REPRO_GRAPH_NODE_MODEL_v0.1.json",
+      "size_bytes": 2358
+    },
+    "IG_REPRO_GRAPH_NODE_V0_1": {
+      "canonical_sha256": "11144242a56b5e7145d1e69472dba5086b07c207728b4217edadbeeec2c77379",
+      "file_sha256": "e532479c6ef1ef0218ddbb1e8990b6b734dc3349d73f491a70b0b1bb6fe489d0",
+      "fixture_path": "fixtures/v026/IG_REPRO_GRAPH_NODE_V0_1.json",
+      "origin": "v0.26.0/02_PROGRAMME_RUNTIME/runtime_root/store/graph/nodes/03fdd91e4598968ae5f37b76ebc7104afa3655a1e1278c5b31f7df44520b3511.json",
+      "size_bytes": 701
+    },
+    "IG_RESCUE_MANIFEST_V1": {
+      "canonical_sha256": "2e17d8ad2aff45ead5564705e696dbba753174bd9ae8d4f0c8ac43b2919f0973",
+      "file_sha256": "c22d95f25630623e3d0490b8fcff0dd8e57ebf237d735b45d39224798ac127c7",
+      "fixture_path": "fixtures/v026/IG_RESCUE_MANIFEST_V1.json",
+      "origin": "v0.26.0/03_O_REGIME_SCANNER/FINAL_CLOSEOUT/05_PROVENANCE/FILE_MANIFEST.json",
+      "size_bytes": 2902
+    },
+    "IG_RETENTION_RECONSTRUCTION_POLICY_V0_1": {
+      "canonical_sha256": "881663bf752e29dc6a2c50d6bec6aef3956530b8d91946da379f7ee6d9e8816d",
+      "file_sha256": "c0fdd164636f972099b8a0dd36ac9f4747fcad5dab3843c8576708e2bc167c42",
+      "fixture_path": "fixtures/v026/IG_RETENTION_RECONSTRUCTION_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/RETENTION_AND_RECONSTRUCTION_POLICY_v0.1.json",
+      "size_bytes": 1711
+    },
+    "IG_SCIENTIFIC_TEST_REGISTRY_V1": {
+      "canonical_sha256": "3ac49fc25d49a796a0df4645913896c1c2d35d39da4b2b602a69f695c1e5acf5",
+      "file_sha256": "8b7a7131c6deb3fb4fa4fef9b0160adda4815128c41e1915d48b34765487b69f",
+      "fixture_path": "fixtures/v026/IG_SCIENTIFIC_TEST_REGISTRY_V1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/decoder/SCIENTIFIC_TEST_REGISTRY_v1.json",
+      "size_bytes": 21284
+    },
+    "IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1": {
+      "canonical_sha256": "4cbd498efe08028cc1886060af26bab20a8774059ee86d10c75a80ff5dea3dd8",
+      "file_sha256": "219720d59217a9fae3f1f7c1eddb6dcc668dffd10756dbec633fa1f712004c76",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_v0.1.json",
+      "size_bytes": 1405
+    },
+    "IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1": {
+      "canonical_sha256": "0d7a9737ab3bbcaaed22f2dc16801400e3934b62110e18ba13016f1088b95bc3",
+      "file_sha256": "88f471181322bf9ce91664e4c1e664b05c301712cac86c34f41a348b7f4b0fb6",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_v0.1.json",
+      "size_bytes": 2257
+    },
+    "IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1": {
+      "canonical_sha256": "1a188c91f9652a06c618ca104b78bbbaedb48f9b8a51c316e29d3c6d8db58d4e",
+      "file_sha256": "673cc61c129aa7e4fbafc8ae03e7e08ba99e5a9c6730f0aaca0f223e6429c0de",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHECKPOINT_RESUME_POLICY_v0.1.json",
+      "size_bytes": 1291
+    },
+    "IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1": {
+      "canonical_sha256": "c051beb707fa74472b05f4a22203d4d28f82d730ed694e03ccfbbf3a3cd9beaa",
+      "file_sha256": "cfb0340da66f978f6b80fca368748925042e7ad362498f3460d9a26a205bd9de",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHUNKED_GENERATION_v0.1.json",
+      "size_bytes": 1386
+    },
+    "IG_SCOUT_CONVEYOR_CLI_CONTRACT_V0_1": {
+      "canonical_sha256": "0f02df1211097e2efabd5c43d26935fb4a215f6f33bc9a91e70b285c6f5b1143",
+      "file_sha256": "a8e54a039485814fd4aa65b73ea1dbf1b0a9fbbd44d750279aae8c32370d1da5",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_CLI_CONTRACT_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CLI_CONTRACT_v0.1.json",
+      "size_bytes": 1885
+    },
+    "IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1": {
+      "canonical_sha256": "fdeb08ef25d6a28adce318a1af5bb3f130adeac88bc9ed1fe940ef58115becd4",
+      "file_sha256": "553ebe0c61850a7f2ad0ab6852c511daca81f08270f6f299b94187b34c795acc",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_ESCALATION_TRIGGER_REGISTRY_v0.1.json",
+      "size_bytes": 5528
+    },
+    "IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1": {
+      "canonical_sha256": "76a90f37860a5215d1376fdbb7db911e1d544f46301b2f9b2bb04c6eee0a6f29",
+      "file_sha256": "9c4cb97174bc635823899bbc064ed500b5772e13f4316603263bfc4d25aa7bf3",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_v0.1.json",
+      "size_bytes": 1056
+    },
+    "IG_SCOUT_CONVEYOR_FAILURE_MATRIX_V0_1": {
+      "canonical_sha256": "00c392c90f723b52b25c97473502342fd0a12fb2fed091f6a6f1180438e1662a",
+      "file_sha256": "13f7ede980aef4e59ef8ddb882da3e3ca560503d7ace89386ac52971b4c14c85",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_FAILURE_MATRIX_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_FAILURE_MATRIX_v0.1.json",
+      "size_bytes": 1732
+    },
+    "IG_SCOUT_CONVEYOR_GENERIC_OBSERVER_V0_1": {
+      "canonical_sha256": "f8189017de9348df21c751cf3ac4a34b0286ccc25a4710a89464cb31bc4dbe4a",
+      "file_sha256": "ad8b243d4b018b9ca558a036c1c02c936d105ef6852d8b0fdc058f40929de043",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_GENERIC_OBSERVER_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_GENERIC_OBSERVER_v0.1.json",
+      "size_bytes": 560
+    },
+    "IG_SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_V0_1": {
+      "canonical_sha256": "1b067bc3bbdab4744cac1180f94a2199b42dcc61cd717bb52da1e5af7aef462a",
+      "file_sha256": "cf57e5aae170e865f60298e31e02b063231495f0147b9a2d18b54bc6a2c3bf1c",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_IMPLEMENTATION_ACCEPTANCE_GATES_v0.1.json",
+      "size_bytes": 4015
+    },
+    "IG_SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_V0_1": {
+      "canonical_sha256": "109d21e57415b0688a76af73bed9a029bec16995d51ad8c537b477b71df54ab2",
+      "file_sha256": "d45481a83d32962af9abdc2dd6113fd624733ce195fd0d1ae5220501888378e8",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_v0.1.json",
+      "size_bytes": 1291
+    },
+    "IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1": {
+      "canonical_sha256": "1523ee1f0ceeef0113da61c557f6ea25a5039daee332a0115192f9f3bb12ab07",
+      "file_sha256": "6413affdf050be42e803cee407e0d7b810619acc3a465a38f6f610bdd5bfbf9f",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_v0.1.json",
+      "size_bytes": 2110
+    },
+    "IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1": {
+      "canonical_sha256": "c78d9548c9930e4d06ccc21055daa16a2b8080903c617df30653b781124e404e",
+      "file_sha256": "54665e9ed6a6905e24316de530946f78548ad870d7ea51dc4727369f99b1d26c",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_PARENT_ELIGIBILITY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_PARENT_ELIGIBILITY_v0.1.json",
+      "size_bytes": 2083
+    },
+    "IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1": {
+      "canonical_sha256": "33545b84a6ffdd41904868aa569f8a7d7e73e2a6b7c0dbc8a1544e64b41e1860",
+      "file_sha256": "a9d1b63b365c50e343136e45a6b23360d8f7973ee0f5cb474b8772b891e466ca",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_REFERENCE_TEST_VECTORS_v0.1.json",
+      "size_bytes": 8982
+    },
+    "IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1": {
+      "canonical_sha256": "153ae87eb4d0d4899675122454b054c96b14b5e583b6e2075a8e21b47402e029",
+      "file_sha256": "7bfcba0b1175e2cddc8bb676e6f8e855c47f40239953347b66ae169b3b1e8709",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_v0.1.json",
+      "size_bytes": 1341
+    },
+    "IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1": {
+      "canonical_sha256": "3d2c6a28786eec8aac58aeb54a7647a66a78e549b5cb8768b0d785c186af72cc",
+      "file_sha256": "ec87fa269db7e0d9b362f156747fc12267a291a5c63906057f8268c56b4d7db0",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_v0.1.json",
+      "size_bytes": 869
+    },
+    "IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1": {
+      "canonical_sha256": "e21cfc09a0ad363ed5951924ef7100684abafed9aa20c3fb3ef76cd242353d1d",
+      "file_sha256": "d3b26955c353d20e0a3e7e1757b3f5b6586ffb94286ac2dbc46fa664994ac4ee",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_SELECTION_RULES_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_SELECTION_RULES_v0.1.json",
+      "size_bytes": 2171
+    },
+    "IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1": {
+      "canonical_sha256": "e3282dd6a9c19d64e5d394becf25cdb7d8e119344d4cf0bcc5a2d5255dfae373",
+      "file_sha256": "04f8fd687d8e88343cfd88e86311dfc9d88d9e1487178b10e500a56fe6243538",
+      "fixture_path": "fixtures/v026/IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_STATE_MACHINE_v0.1.json",
+      "size_bytes": 2106
+    },
+    "IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1": {
+      "canonical_sha256": "676e011584e8b60a923b3cbe5781191d15ee1123bd47b29c40c4218f9adff0bf",
+      "file_sha256": "6f48a68192bab6b4c993b6c2a60e271ffbb959b17c6d95d8fb11597fbaad0b19",
+      "fixture_path": "fixtures/v026/IG_SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_GENERIC_LEVEL_PROTOCOL_TEMPLATE_v0.1.json",
+      "size_bytes": 2321
+    },
+    "IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1": {
+      "canonical_sha256": "bbb22f067a77affc3f5d9da42dcb2bee91548286b4fb7ab35b95c12b62c0c747",
+      "file_sha256": "f46e39bb90dd61e9d16840cae29faf6c295571d3d5ad527549439988c449d4ef",
+      "fixture_path": "fixtures/v026/IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1.json",
+      "origin": "v0.26.0/01_DECODER_SOURCE/build/lib/infinity_grid/resources/conveyor/SCOUT_CONVEYOR_CHARTER_v0.1.json",
+      "size_bytes": 2673
+    },
+    "IG_V026_CALIBRATION_RECORD_INDEX_V1": {
+      "canonical_sha256": "d09a624ca3658fd1768d52d3f315c6e1af731ea77c03a413c570503dac0ef1cf",
+      "file_sha256": "4960a86f78917eb36eb7ccb6e5a56d1c5b048f0ee16a486b3d2ae9c969647513",
+      "fixture_path": "fixtures/v026/IG_V026_CALIBRATION_RECORD_INDEX_V1.json",
+      "origin": "Gate2 embedded oracle/CALIBRATION_RECORD_INDEX.json",
+      "size_bytes": 2339
+    },
+    "IG_V026_DETERMINISM_MATRIX_V1": {
+      "canonical_sha256": "59c364cc968f87a93561f2e728083bae54ee4941e60a0ddc85752474a0a074cb",
+      "file_sha256": "ca3c9c24096ee28d458a4c5865857a6b662014775aa8ea2b9e2edd1e1adc44ff",
+      "fixture_path": "fixtures/v026/IG_V026_DETERMINISM_MATRIX_V1.json",
+      "origin": "Gate2 embedded oracle/DETERMINISM_MATRIX_RESULT.json",
+      "size_bytes": 3245
+    },
+    "IG_V026_L2_ORACLE_INDEX_V1": {
+      "canonical_sha256": "269b6483c3a0bb9b346123db259f41bcc3858f680de3d0b39b8f7968a4d071e5",
+      "file_sha256": "16b1f656c19b449c530bd2ea9f887fb0ee816fb85c8e29e2dca5783c3c5e7b28",
+      "fixture_path": "fixtures/v026/IG_V026_L2_ORACLE_INDEX_V1.json",
+      "origin": "Gate2 embedded oracle/L2_ORACLE_INDEX.json",
+      "size_bytes": 5173
+    },
+    "IG_V026_O1_O7_PRIMARY_ORACLE_V1": {
+      "canonical_sha256": "16bb722b96f96ccf3715444b9d68531f221b9be945c3c64f1ec5a4ab2c8f9347",
+      "file_sha256": "b07883261ca71c5b04314dc93366f8b79e10166c3b90814bc7edef5ff95d166d",
+      "fixture_path": "fixtures/v026/IG_V026_O1_O7_PRIMARY_ORACLE_V1.json",
+      "origin": "Gate2 embedded oracle/O1_O7_PRIMARY_ORACLE.json",
+      "size_bytes": 4694
+    },
+    "IG_V026_REPLAY_MANIFEST_ORACLE_V1": {
+      "canonical_sha256": "f78615689527cc941b34e7b4fb05084c7ce0223ce9bf4e0d4c5b4e4606f112dc",
+      "file_sha256": "a206bc11b765933c8f0e01b81f6d532fdf0a81daafe57c057af5a86ab3d28719",
+      "fixture_path": "fixtures/v026/IG_V026_REPLAY_MANIFEST_ORACLE_V1.json",
+      "origin": "Gate2 embedded oracle/REPLAY_MANIFEST_ORACLE.json",
+      "size_bytes": 18695
+    },
+    "IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1": {
+      "canonical_sha256": "cb3e230812f4cc2d5b2b3ef0050a5d21f98328abc0f8dff57df8f631e9ba2d82",
+      "file_sha256": "266e933df3b4e5e21463a696fbd4c9811d4b4e71b1d583a5b58c6b057f6829a8",
+      "fixture_path": "fixtures/v026/IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1.json",
+      "origin": "Gate2 embedded oracle/V026_SCIENTIFIC_ORACLE_MANIFEST.json",
+      "size_bytes": 17646
+    },
+    "IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1": {
+      "canonical_sha256": "08d1db7d0a9207c2f4e28a986ee75beb69c8d097c4be8c96189dfd137e0b4e5a",
+      "file_sha256": "982fe9f57668bf63d903161e5adc3d70fb82d8ff94e1b5746b59e15c9e85f9fe",
+      "fixture_path": "fixtures/v026/IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1.json",
+      "origin": "Gate2 embedded oracle/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "size_bytes": 30574
+    }
+  },
+  "index_sha256": "d33fa135195c9735df397ec1534f5b03f223b20198858452e89733ac775ec68f",
+  "malformed": [
+    {
+      "file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixture_path": "fixtures/v026/MALFORMED_01.json",
+      "historical_path": "05_ACCEPTANCE/PREGEOMETRY_API_SMOKE.json",
+      "size_bytes": 0
+    },
+    {
+      "file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fixture_path": "fixtures/v026/MALFORMED_02.json",
+      "historical_path": "05_ACCEPTANCE/PREGEOMETRY_SMOKE.json",
+      "size_bytes": 0
+    }
+  ],
+  "schema_id": "IG_V026_COMPATIBILITY_FIXTURE_INDEX_V1",
+  "status": "PASS",
+  "unschematized": [
+    {
+      "fixture_path": "fixtures/v026/UNVERSIONED_01.json",
+      "historical_path": "03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/GRAPH_REGISTRATION_RESULT.json",
+      "pre_migration_payload_sha256": "848ec1b0de4407b2a0bf944b96731c683f7cb5bac5ca0feba59d91bf72645500",
+      "target_schema_id": "IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26"
+    },
+    {
+      "fixture_path": "fixtures/v026/UNVERSIONED_02.json",
+      "historical_path": "03_O_REGIME_SCANNER/PREGEOMETRY_PHASE_B/SOURCE_REGISTRATION_RESULT.json",
+      "pre_migration_payload_sha256": "97bc6a001c30b58cd952f86771e0f696432b70257ae5a8fcc0bdb05a2cfe9871",
+      "target_schema_id": "IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26"
+    },
+    {
+      "fixture_path": "fixtures/v026/UNVERSIONED_03.json",
+      "historical_path": "05_ACCEPTANCE/DOCTOR.json",
+      "pre_migration_payload_sha256": "1570fda2d4d2122a2e25b44625c859666580048886ec58d5c771e69f92bc83a3",
+      "target_schema_id": "IG_LEGACY_DOCTOR_RESULT_V0_26"
+    },
+    {
+      "fixture_path": "fixtures/v026/UNVERSIONED_04.json",
+      "historical_path": "05_ACCEPTANCE/PHASE_B_RUNTIME_PATCH_APPLY.json",
+      "pre_migration_payload_sha256": "e090688a507c3c5191fcee7ee120383beb24d57c332b7fbe4a7a8d3ece0d386a",
+      "target_schema_id": "IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26"
+    },
+    {
+      "fixture_path": "fixtures/v026/UNVERSIONED_05.json",
+      "historical_path": "05_ACCEPTANCE/SCANNER_IMPORT_SMOKE.json",
+      "pre_migration_payload_sha256": "d9aa110c785edd7ac984165773dd3ad5db0a5f79d88dacdd2db589d936d96b3d",
+      "target_schema_id": "IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26"
+    }
+  ]
+}

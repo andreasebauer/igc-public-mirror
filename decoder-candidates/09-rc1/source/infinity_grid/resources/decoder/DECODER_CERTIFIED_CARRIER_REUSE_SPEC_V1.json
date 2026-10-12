@@ -1,0 +1,48 @@
+{
+  "acceptance_tests": [
+    "test_certified_carrier_vs_full_reconstruction_equivalence",
+    "test_fail_closed_on_carrier_identity_mismatch",
+    "test_carrier_input_mode_recorded_and_not_science"
+  ],
+  "admission_rule": "Every required identity field must equal the current frozen consumer contract and certification_status must equal CERTIFIED_PASS.",
+  "artifact_schema": "CERTIFIED_CARRIER_SET_V1",
+  "cold_replay_initial_policy": "Until certified-carrier/full-reconstruction equivalence is separately certified, cold replay defaults to FULL_RECONSTRUCTION.",
+  "date": "2026-09-04",
+  "equivalence_requirement": "Normalized exact carrier payload, construction digest, public-state digest, and all downstream stable scientific observations must be byte-identical between certified replay and full reconstruction.",
+  "input_modes": [
+    "FULL_RECONSTRUCTION",
+    "CERTIFIED_REPLAY_ARTIFACT"
+  ],
+  "mismatch_rule": "REJECT_CERTIFIED_CARRIER_REUSE_AND_FAIL_CLOSED_OR_FALL_BACK_TO_FULL_RECONSTRUCTION_AS_DECLARED_BY_THE_REGISTERED_EXPERIMENT",
+  "purpose": "Allow registered experiments to consume an already-certified exact carrier artifact instead of reconstructing the full lower-stage population when, and only when, all frozen identity gates match.",
+  "registered_experiment_semantics_changed": false,
+  "release_target": "0.30.30",
+  "required_carrier_fields": [
+    "carrier_id",
+    "public_state",
+    "public_state_sha256",
+    "exact_carrier_payload",
+    "construction_digest",
+    "source_sha256",
+    "registry_sha256",
+    "authority_science_sha256",
+    "producer_experiment_id",
+    "certification_status"
+  ],
+  "required_identity_tuple": [
+    "source_sha256",
+    "registry_sha256",
+    "producer_experiment_id",
+    "authority_stage",
+    "authority_science_sha256",
+    "carrier_construction_digest",
+    "carrier_public_state_digest"
+  ],
+  "schema_id": "IG_DECODER_CERTIFIED_CARRIER_REUSE_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "83bc400ef9d3dcb31a770048c88c78f48d29a680e73bb9df229ed97f04fd873f",
+  "scientific_semantics_changed": false,
+  "scope": "EXECUTION_INFRASTRUCTURE_ONLY",
+  "stable_science_payload_changed": false,
+  "status": "IMPLEMENTED_EQUIVALENCE_GATED"
+}

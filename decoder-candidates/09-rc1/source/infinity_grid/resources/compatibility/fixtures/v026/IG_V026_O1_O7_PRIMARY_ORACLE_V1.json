@@ -1,0 +1,90 @@
+{
+  "levels": [
+    {
+      "expected_science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "level": "O1",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "profile_id": "O1_JUMPSTART_V1",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "science_status": "MATURE_NODE_ALGEBRA_EARNED",
+      "status": "PASS",
+      "status_probe": "PHASE5_JUMPSTART_VERIFICATION.json",
+      "target_alias": "ig:test/O1",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+    },
+    {
+      "expected_science_sha256": null,
+      "level": "O2",
+      "probe_file_sha256": "fb3a9d2829651260da068b79c1f342a5020f51ebf23121a7d857fbd914356fa4",
+      "profile_id": "O2_CERTIFICATE_REPLAY_V1",
+      "science_sha256": "d138de3c6c906be3ab453c225ecce2e3fff5d3e4f91d220ed681ef5253a86bbb",
+      "science_status": "O2_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V1_9",
+      "status": "PASS",
+      "status_probe": "06_RESULTS/O2_CERTIFICATE_VERIFICATION_RESULT.json",
+      "target_alias": "ig:test/O2",
+      "target_node_id": "result:sha256:0f05e9f95b153547c34ad2bc48851e5faeea456f388cda813e8831ad5b538cbc"
+    },
+    {
+      "expected_science_sha256": "92b5f72bdc1244292667383c326ca4f09f5752a86a94062802fd46c2c6c3053d",
+      "level": "O3",
+      "probe_file_sha256": "55626201ae657ced654d9c7c026fb45ee979801ccfd842bdc0b866b84cd14878",
+      "profile_id": "O3_JUMPSTART_V1",
+      "science_sha256": "92b5f72bdc1244292667383c326ca4f09f5752a86a94062802fd46c2c6c3053d",
+      "science_status": "O3_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V1_3",
+      "status": "PASS",
+      "status_probe": "PHASE5_JUMPSTART_VERIFICATION.json",
+      "target_alias": "ig:test/O3",
+      "target_node_id": "result:sha256:00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612"
+    },
+    {
+      "expected_science_sha256": null,
+      "level": "O4",
+      "probe_file_sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+      "profile_id": "O4_PHASE6_V1",
+      "science_sha256": "ae3e2bb4b1cd29bd49c948d282f909e1c8adde85da15b8d1b6320a47294a2baf",
+      "science_status": "O4_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_4_PHASE2",
+      "status": "O4_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_4_PHASE2",
+      "status_probe": "03_RESULTS/O4_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "target_alias": "ig:test/O4",
+      "target_node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    {
+      "expected_science_sha256": null,
+      "level": "O5",
+      "probe_file_sha256": "421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b",
+      "profile_id": "O5_PHASE6_V1",
+      "science_sha256": "505c3deea7f987421d2c432086f7b65f0ef3072bdbd90eeaf1d8e8481689d166",
+      "science_status": "O5_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_5_PHASE2",
+      "status": "O5_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_5_PHASE2",
+      "status_probe": "03_RESULTS/O5_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "target_alias": "ig:test/O5",
+      "target_node_id": "result:sha256:421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b"
+    },
+    {
+      "expected_science_sha256": null,
+      "level": "O6",
+      "probe_file_sha256": "4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f",
+      "profile_id": "O6_PHASE6_V1",
+      "science_sha256": "7b9e3ec0fbabcdb0fa46c2d5d153ac186cdd2d2343275a407e82b6fd14d9da37",
+      "science_status": "O6_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_6_PHASE2",
+      "status": "O6_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_6_PHASE2",
+      "status_probe": "03_RESULTS/O6_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "target_alias": "ig:test/O6",
+      "target_node_id": "result:sha256:4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f"
+    },
+    {
+      "expected_science_sha256": null,
+      "level": "O7",
+      "probe_file_sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+      "profile_id": "O7_GRADUATED_PHASE7_V1",
+      "science_sha256": "a3e0bed91b9e68edd4d7c9f508587d6801f9651b0485c6ce40e8ca284ffc2d90",
+      "science_status": "O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_7_PHASE2",
+      "status": "O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V2_7_PHASE2",
+      "status_probe": "authority/O7_GRADUATION_RESULT.json",
+      "target_alias": "ig:test/O7",
+      "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+    }
+  ],
+  "schema_id": "IG_V026_O1_O7_PRIMARY_ORACLE_V1",
+  "status": "PASS"
+}

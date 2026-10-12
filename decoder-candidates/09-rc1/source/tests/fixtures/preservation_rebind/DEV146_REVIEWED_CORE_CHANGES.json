@@ -1,0 +1,23 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Reviewed successor for cleanup and paused recovery only. Full RC unqualified. Historical pins unchanged.",
+  "review_baseline_commit": "fdb54a9",
+  "review_record": "decoder-admin/evidence/V71/CORE_REVIEW.txt",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "20804c65e82d18ac6bce2f0c5dbb1c9f9b081a3797e34952b541700405621e4e",
+      "reviewed_sha256": "d864fcd4b704f1c3ede6b2676bd08f8cb3ab9db89a43315a33aaea6fb9af55f1",
+      "reason": "Retain final refusal before paused checkpoint; V62/V64 exact recovery evidence."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "de9026e5d4f2cd77264e968a21c1b4c4f8a82bb7129803ea8c0e699a52ff9c62",
+      "reviewed_sha256": "3d3365f7e9c142e69cb0730db14ede994f303e2f47a5d6a6fc321e598e4741ce",
+      "reason": "Capture and validate ordinary rwx mode map; mode-only dedup and explicit legacy scope; V62/V64 recovery tests."
+    },
+    "infinity_grid/v05_validation_runtime.py": {
+      "previous_reviewed_sha256": "737f13ec8d73dcfde2a90c101870e7f93972e9865c788a42836d996993f731dd",
+      "reviewed_sha256": "40ea3248ae740209ceff2964acd5f23003e67b592cb319a4ea29684b5226279a",
+      "reason": "Owned worker/selector cancellation and mandatory cleanup acknowledgments; V62/V63/V64 bounded evidence."
+    }
+  }
+}

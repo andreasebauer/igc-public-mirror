@@ -1,0 +1,216 @@
+{
+  "change_id": "IG.M2.DEV4.ADOPTION.V6",
+  "changed_files": [
+    {
+      "after_sha256": "df1ec98ece7526a12193eb54c1b19182bdacbe322d6d43589deca3ee21a32066",
+      "before_sha256": "a82a7255191429f5b607211b0af55a6398bb61cfb298d18b20937bb324157176",
+      "change": "MODIFIED",
+      "path": "DECODER_06_CAPTURE_GUIDE.txt"
+    },
+    {
+      "after_sha256": "284151da934b498ccc2fc8795e48657fb18e6e9d4b205c88bf2e54c840c271e0",
+      "before_sha256": "69d401bbc9f220714bf8436b36c1a3e45721c060e8642f675e0b88410f256d38",
+      "change": "MODIFIED",
+      "path": "DECODER_06_INVOCATION_GUIDE.txt"
+    },
+    {
+      "after_sha256": "fd881defe152d66ec8e7274d9af8f8516d35d5c9e39e5b923773cdaf4377a0e0",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "G01_G02_INTEGRATION_READ_FIRST.txt"
+    },
+    {
+      "after_sha256": "42a9de2c4eab05a89039f309adad62618439118e6cbe794127fa943e39e1c142",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "PROJECT_STAGE_READ_FIRST.txt"
+    },
+    {
+      "after_sha256": "ee62501c1486505ff62282f1ab36b604fee247e12abbf1aced0889d2caac10cd",
+      "before_sha256": "87ff8f8a9fc94f423cccff6bf3fc9a6d34da37d0dc792a65c5fb21604f285fa5",
+      "change": "MODIFIED",
+      "path": "SAVE_TRANSPORT_READ_FIRST.txt"
+    },
+    {
+      "after_sha256": "b0a4a0e6c510bf383d2c1b598bda24d27bf8a0819ea574fbf43cccb0aa8e69f3",
+      "before_sha256": "dfd77654a937749c68fe8c8f0fbe7545d94795beae99550262375e648d38204a",
+      "change": "MODIFIED",
+      "path": "infinity_grid/_build_meta.json"
+    },
+    {
+      "after_sha256": "3649fecfa19347b6ab5f570f57dcadc3b077294ce3f21d42391bc66f640a1da0",
+      "before_sha256": "732d892111a858f500a19f2ca2ee706d1b7210592d4b5f9eae3d6ca11bf3715c",
+      "change": "MODIFIED",
+      "path": "infinity_grid/_version.py"
+    },
+    {
+      "after_sha256": "adda9294948bc82cd4e5669f2d96c2568a715a1b485d8288b1ee6079a59ff707",
+      "before_sha256": "9c7d57e981f152059f90bb13bb2d2b5caabf9cad545dd0a796c628ed41c4a92d",
+      "change": "MODIFIED",
+      "path": "infinity_grid/portable_registry.py"
+    },
+    {
+      "after_sha256": "4b011a926f6a17ef2a4c35ba6d3110f91771e8478ff4054aa2ec4fec1bfd95fc",
+      "before_sha256": "cc01e0de842d797b4d5e8131edc998b0d649f32ea8864798a45498e024e31743",
+      "change": "MODIFIED",
+      "path": "infinity_grid/preservation.py"
+    },
+    {
+      "after_sha256": "b145cc2fd7bc8d2fb1c4a46778a01032cd69aebe1bd1ea640099876d2f8bda17",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "infinity_grid/project_stage.py"
+    },
+    {
+      "after_sha256": "ea91230fc5f9bb8da59e27e83fcef21706c305e35571ace4f3bb6a7d3bac4bd6",
+      "before_sha256": "9b1d1699f367d8cf7307565573e56624fc96b056d8e3903414c7216bffd6e691",
+      "change": "MODIFIED",
+      "path": "infinity_grid/submission.py"
+    },
+    {
+      "after_sha256": "1d756cb35e863efa4972432785164b5222753fa74f832a8672257ce4c585eb8d",
+      "before_sha256": "323f84f70928094c9e1b6df88b73f1abe3e0c2dff37ed341645d37a61eefe14d",
+      "change": "MODIFIED",
+      "path": "infinity_grid/v05_controller_event_loop.py"
+    },
+    {
+      "after_sha256": "aa3897d641aaff9fedc05d4ea2922e2a5dc6816cd45f442331d4b9b0b4803474",
+      "before_sha256": "31795f892173c59b78f58c047614cf4e67ab9bf044d7405257cd20dba89aedb1",
+      "change": "MODIFIED",
+      "path": "infinity_grid/v05_stage_runtime.py"
+    },
+    {
+      "after_sha256": "462f1df3ef3898018a224a7d7487a7161d1db2bc00bd3b3e5790b30b2b38274c",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/fixtures/legacy_adoption_objects.zip"
+    },
+    {
+      "after_sha256": "a63ba44ddd0bd485262414694e10a77fd996209d1c5c9923ba6bee28482c49c5",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/fixtures/repair7r_completed_state.zip"
+    },
+    {
+      "after_sha256": "1376521b7b7ceeb12ba5ee346f7ed4676399ee3f3c6c10b5e13090264691e2fb",
+      "before_sha256": "c8ca25bbfab27b787390528ff345cb7c248190435bf259de4f932bf02f68b374",
+      "change": "MODIFIED",
+      "path": "tests/test_decoder06_portable_registry.py"
+    },
+    {
+      "after_sha256": "f20b870acbd2b84159ffc2cc5cd39c91df0bedbf08d54b21f4583a4b8180ccca",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_decoder06_project_stage.py"
+    },
+    {
+      "after_sha256": "29a1ef5c300bd346a79f41128072ad787e86e97b59a27ecf67153925ffc1c331",
+      "before_sha256": "ddc49fcfc300e86675947d65923db32b7efec791f91a117359d91e26d6ed658e",
+      "change": "MODIFIED",
+      "path": "tests/test_decoder06_results_preservation.py"
+    },
+    {
+      "after_sha256": "d32713c3dc11dd4266ca918036278c601f2ff105edf2e5e1bcf2c6665682673e",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_legacy_capture_receipts.py"
+    },
+    {
+      "after_sha256": "9db2dae07da37d4e0c9a011a51e0a7eca707492c40a307e7a450d307b3b3230c",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_repair7r_reuse_evidence.py"
+    },
+    {
+      "after_sha256": "4e00ed5869d230247fcad320ad7dfa77e0bfd86c64561eafa16968058cabcce6",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_repair7r_sqlite_lifecycle.py"
+    }
+  ],
+  "package_sha256": "4017b0312c4774bbb7fc5278cff02492c364888f4ec8ba2b4d65dab8a4c6fdbb",
+  "parent": {
+    "completion_sha256": "ced6ba8aee20e6d94936d264ad92d43142d9d1649706b99cb7379b454c3eeaa4",
+    "package_sha256": "85d2b9072d99bdca0b0f030892dbda1d243837732c53b96e9801c68282215a5f",
+    "source_object": {
+      "object_name": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db.zip",
+      "role": "change_parent_source",
+      "sha256": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db",
+      "size_bytes": 3823200
+    },
+    "source_sha256": "f2414ea473b95065828df1237e7ae72e52511246926f810522c8ac16685e159c",
+    "version": "0.6.1.dev8"
+  },
+  "record_sha256": "8e3b18395db3e2b5155b32bc37a196b4ae6d31042103a71505f8c95a8a84efe0",
+  "requirements": {
+    "nodes": [
+      "tests/test_decoder06_project_stage.py::test_project_stage_executes_from_exact_captured_source",
+      "tests/test_decoder06_project_stage.py::test_project_callable_requires_exact_source_and_module_binding",
+      "tests/test_decoder06_project_stage.py::test_unbound_or_outside_project_callable_refuses",
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_policy_is_explicit_and_legacy_default_is_preserved"
+    ],
+    "statement": "Verify unchanged dev4 captured project-STAGE route using its three frozen engineering tests and explicit no-deadline policy parsing. These 4 engineering checks are not the M2 synthetic or archived-row qualification."
+  },
+  "requirements_change": null,
+  "schema_id": "IG_DECODER_CHANGE_REVISION_V1",
+  "session_sha256": "819b3fbba5a3aa262a1395d12ea2aaa9bf5aaf25822fe92fa96cd9af5dc8d2b2",
+  "source_object": {
+    "object_name": "2dab5fbdaade8c6cde70880424e2972295dc8b8ac4572976581cada4a7552704.zip",
+    "role": "candidate_source",
+    "sha256": "2dab5fbdaade8c6cde70880424e2972295dc8b8ac4572976581cada4a7552704",
+    "size_bytes": 14636312
+  },
+  "source_sha256": "c420d8659f282f7f1ae183c9699b34d35b46d18f0f3d293e46d16a4347da8e88",
+  "test_code_change_reason": "Adopt the exact separately qualified immutable dev4 archive authorized by Stack V6. Source and test changes are inherited byte-for-byte from the engineering owner candidate, not an in-chat patch. Four prospective engineering nodes exercise the supported project route and explicit deadline policy; M2 reviewed mathematical code is not involved.",
+  "test_code_changes": [
+    {
+      "after_sha256": "462f1df3ef3898018a224a7d7487a7161d1db2bc00bd3b3e5790b30b2b38274c",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/fixtures/legacy_adoption_objects.zip"
+    },
+    {
+      "after_sha256": "a63ba44ddd0bd485262414694e10a77fd996209d1c5c9923ba6bee28482c49c5",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/fixtures/repair7r_completed_state.zip"
+    },
+    {
+      "after_sha256": "1376521b7b7ceeb12ba5ee346f7ed4676399ee3f3c6c10b5e13090264691e2fb",
+      "before_sha256": "c8ca25bbfab27b787390528ff345cb7c248190435bf259de4f932bf02f68b374",
+      "change": "MODIFIED",
+      "path": "tests/test_decoder06_portable_registry.py"
+    },
+    {
+      "after_sha256": "f20b870acbd2b84159ffc2cc5cd39c91df0bedbf08d54b21f4583a4b8180ccca",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_decoder06_project_stage.py"
+    },
+    {
+      "after_sha256": "29a1ef5c300bd346a79f41128072ad787e86e97b59a27ecf67153925ffc1c331",
+      "before_sha256": "ddc49fcfc300e86675947d65923db32b7efec791f91a117359d91e26d6ed658e",
+      "change": "MODIFIED",
+      "path": "tests/test_decoder06_results_preservation.py"
+    },
+    {
+      "after_sha256": "d32713c3dc11dd4266ca918036278c601f2ff105edf2e5e1bcf2c6665682673e",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_legacy_capture_receipts.py"
+    },
+    {
+      "after_sha256": "9db2dae07da37d4e0c9a011a51e0a7eca707492c40a307e7a450d307b3b3230c",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_repair7r_reuse_evidence.py"
+    },
+    {
+      "after_sha256": "4e00ed5869d230247fcad320ad7dfa77e0bfd86c64561eafa16968058cabcce6",
+      "before_sha256": null,
+      "change": "ADDED",
+      "path": "tests/test_repair7r_sqlite_lifecycle.py"
+    }
+  ],
+  "version": "0.6.2.dev4"
+}

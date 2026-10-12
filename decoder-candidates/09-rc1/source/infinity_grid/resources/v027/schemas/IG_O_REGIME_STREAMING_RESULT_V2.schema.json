@@ -1,0 +1,295 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "elapsed_seconds": {
+      "type": "number"
+    },
+    "frontier_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "full_support_certified": {
+      "type": "boolean"
+    },
+    "growth_bounds_at_through": {
+      "additionalProperties": false,
+      "properties": {
+        "leaf_count_max": {
+          "type": "integer"
+        },
+        "leaf_count_min": {
+          "type": "integer"
+        },
+        "max_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "min_total_free_by_type": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "relation_count_max": {
+          "type": "integer"
+        },
+        "relation_count_min": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "leaf_count_max",
+        "leaf_count_min",
+        "max_total_free_by_type",
+        "min_total_free_by_type",
+        "relation_count_max",
+        "relation_count_min"
+      ],
+      "type": "object"
+    },
+    "last_delta_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "levels_computed_count": {
+      "type": "integer"
+    },
+    "levels_computed_this_invocation": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "next": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operational_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_STREAMING_RESULT_V2",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "scientific_interpretation": {
+      "type": "string"
+    },
+    "spec_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "static_recipe_baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "diversity": {
+          "additionalProperties": false,
+          "properties": {
+            "edge_count_hist": {
+              "additionalProperties": false,
+              "properties": {
+                "10": {
+                  "type": "integer"
+                },
+                "11": {
+                  "type": "integer"
+                },
+                "12": {
+                  "type": "integer"
+                },
+                "13": {
+                  "type": "integer"
+                },
+                "14": {
+                  "type": "integer"
+                },
+                "15": {
+                  "type": "integer"
+                },
+                "3": {
+                  "type": "integer"
+                },
+                "4": {
+                  "type": "integer"
+                },
+                "5": {
+                  "type": "integer"
+                },
+                "6": {
+                  "type": "integer"
+                },
+                "7": {
+                  "type": "integer"
+                },
+                "8": {
+                  "type": "integer"
+                },
+                "9": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "type": "object"
+            },
+            "organizational_classes": {
+              "type": "integer"
+            },
+            "owner_count_hist": {
+              "additionalProperties": false,
+              "properties": {
+                "4": {
+                  "type": "integer"
+                },
+                "5": {
+                  "type": "integer"
+                },
+                "6": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "4",
+                "5",
+                "6"
+              ],
+              "type": "object"
+            },
+            "topology_classes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "edge_count_hist",
+            "organizational_classes",
+            "owner_count_hist",
+            "topology_classes"
+          ],
+          "type": "object"
+        },
+        "lane_hashes": {
+          "additionalProperties": false,
+          "properties": {
+            "branching": {
+              "type": "string"
+            },
+            "lineage": {
+              "type": "string"
+            },
+            "symmetry": {
+              "type": "string"
+            },
+            "topology_services": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "branching",
+            "lineage",
+            "symmetry",
+            "topology_services"
+          ],
+          "type": "object"
+        },
+        "recipe_catalogue_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "recipe_count": {
+          "type": "integer"
+        },
+        "static_signature_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "diversity",
+        "lane_hashes",
+        "recipe_catalogue_sha256",
+        "recipe_count",
+        "static_signature_sha256"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stop": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "through": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "classification",
+        "reason",
+        "through"
+      ],
+      "type": "object"
+    },
+    "through": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "classification",
+    "date",
+    "elapsed_seconds",
+    "frontier_science_sha256",
+    "full_support_certified",
+    "growth_bounds_at_through",
+    "last_delta_science_sha256",
+    "levels_computed_count",
+    "levels_computed_this_invocation",
+    "next",
+    "nonclaims",
+    "operational_record_sha256",
+    "schema",
+    "science_sha256",
+    "scientific_interpretation",
+    "spec_sha256",
+    "static_recipe_baseline",
+    "status",
+    "stop",
+    "through"
+  ],
+  "type": "object"
+}

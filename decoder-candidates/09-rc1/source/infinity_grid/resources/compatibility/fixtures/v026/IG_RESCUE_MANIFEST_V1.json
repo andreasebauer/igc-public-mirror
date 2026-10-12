@@ -1,0 +1,80 @@
+{
+  "files": [
+    {
+      "bytes": 1314,
+      "path": "00_READ_FIRST/START_HERE.txt",
+      "sha256": "34ef04baa27f5e62efe5e4ab7d3d30851b8a86814991e1d7564ad891abe7ce77"
+    },
+    {
+      "bytes": 34454,
+      "path": "01_DECODER_SCANNER_SOURCE/cli.py",
+      "sha256": "896ed0e62c708d6a5c869fddaf92e5406e8a60cec07d12dceea5524c6fc6f5fd"
+    },
+    {
+      "bytes": 53364,
+      "path": "01_DECODER_SCANNER_SOURCE/regime_scanner.py",
+      "sha256": "95503a1a5b672ee83fb7baa1c27bd1d4e850ca8e54d705781dc9d132dabebe02"
+    },
+    {
+      "bytes": 11987,
+      "path": "01_DECODER_SCANNER_SOURCE/regime_scanner_validation.py",
+      "sha256": "df0c1bf8e1741126c88203f0f0ca6547895555359fd7e9747834249ec10b36dd"
+    },
+    {
+      "bytes": 11476,
+      "path": "02_SPECS/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "sha256": "96eccd08598a8226deadda7093300153baa75d7c75d121bf9778bd60a01b3a0d"
+    },
+    {
+      "bytes": 3681,
+      "path": "02_SPECS/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_v1.json",
+      "sha256": "8ceadd790db3d57430f65e94750ff01a858a18c87873c8b64c0a570c83f62620"
+    },
+    {
+      "bytes": 2175,
+      "path": "02_SPECS/O_REGIME_EARNED_LAW_REGISTRY_v1.json",
+      "sha256": "0680ea394e694bc64a65f49c183f98f378d5636309100f8b04a3055581fbed8f"
+    },
+    {
+      "bytes": 60119,
+      "path": "02_SPECS/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428"
+    },
+    {
+      "bytes": 97328,
+      "path": "03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_ADAPTIVE_SCANNER_RESULT.json",
+      "sha256": "5ab3dd6a3558484469b7be19c5f15f659182ef119b8b9b1fd1c85491140c2c09"
+    },
+    {
+      "bytes": 8716,
+      "path": "03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_LEVEL_SERIES.json",
+      "sha256": "2ec3e2aa90e8a60e26ae9fd90914839824c4510eb83ee4db8ef3274e940b927b"
+    },
+    {
+      "bytes": 9208,
+      "path": "03_RESULTS/DEPTH_ERASING_VALIDATION/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT.json",
+      "sha256": "98543af022d89afd9745d42748973ad3fb065bb1c8dfb88b1c4b093f0990efab"
+    },
+    {
+      "bytes": 67520,
+      "path": "03_RESULTS/OFFICIAL_V1_1/O_REGIME_ADAPTIVE_SCANNER_RESULT.json",
+      "sha256": "152cf369ea9d8e20dccf066b1a318b7d44bb08bc6124099ab772695310b83110"
+    },
+    {
+      "bytes": 6332,
+      "path": "03_RESULTS/OFFICIAL_V1_1/O_REGIME_LEVEL_SERIES.json",
+      "sha256": "086f14d44c34a2d0e30b4d250dd2e322c1095657b7b705cc491b53ac64a16177"
+    },
+    {
+      "bytes": 2394,
+      "path": "04_TESTS/test_o_regime_scanner.py",
+      "sha256": "39f925e6b6878cda4f841c3287473170b8f7a1052ae804d36c9710c38825c0c9"
+    },
+    {
+      "bytes": 31954,
+      "path": "05_PROVENANCE/Infinity_Grid_O_REGIME_SCANNER_v1_WORKING_CHECKPOINT_2026-08-30.zip",
+      "sha256": "6036a7b1c7cf530f5be2c962b90e03b3d2ab6276ed2cdb8759edc6800028cc1d"
+    }
+  ],
+  "schema": "IG_RESCUE_MANIFEST_V1"
+}

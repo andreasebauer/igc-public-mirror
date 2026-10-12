@@ -1,0 +1,148 @@
+{
+  "schema_id": "IG_H1_H13_SEMANTIC_CLASSIFICATION_SPOT_CHECK_V1",
+  "decoder_version": "0.8.0.dev48+lib",
+  "date": "2026-09-22",
+  "status": "PASS_NO_RECLASSIFICATION",
+  "science_executed": false,
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "classification_policy": {
+    "S": "STRUCTURE_OBJECTS_AND_INTRINSIC_PROPERTIES",
+    "R": "RELATIONS_WITHIN_ONE_LAYER",
+    "C": "COMPONENTS_AND_TYPED_CROSS_LAYER_INTERFACES",
+    "F": "FALSIFICATION_AND_FREE_SCIENTIFIC_PROBES",
+    "precedence_rule": "Classify the assertion's dominant scientific subject, not its historical label or the method used to verify it. Secondary semantics are recorded but do not create duplicate bindings."
+  },
+  "source_identity": {
+    "original_nested_bundle": {
+      "name": "Infinity_Grid_OFormal_GRRL_Accelerator_v1_PHASE_F0_F3_COMPLETE_2026-08-29.zip",
+      "sha256": "378735121aa83e64f62a4d773f5cde26581b33c4157a9e6a7b64d3793dc58fd8"
+    },
+    "theorem_spec": {
+      "ref": "p1c_historical_sources/GRRL_THEOREM_SPEC_v1.json",
+      "sha256": "45f3e6c187db650379b0e01ba4f0f08799310d30912cd0d1f6fb91336d9a7f99",
+      "matches_original_bundle": true
+    },
+    "o7_instantiation": {
+      "ref": "p1c_historical_sources/O7_GRRL_INSTANTIATION_RESULT.json",
+      "sha256": "a6250559080bf6c82baf6cb21e70e4f844fb3de4fe288a0c56dbe2d77b79425c",
+      "matches_original_bundle": true
+    },
+    "paper_proof_sha256": "85e5efae35c3255672515c0ea17c9f87de01c60b3eced381a44b6cc4da59e9d8",
+    "lemma_ledger_sha256": "e28c100b6e77e6c31cea2a5d06780481fe9c460bdebcbb36685ead51e9b9a4ad",
+    "o7_premise_gate_sha256": "3f75d5df150af5cc92c207989977d6427da44379bdba1a10893359e92f34d1f9",
+    "h1_h13_evidence_ledger_sha256": "3384966a0733f3791383dbd4d09cf0eec0e2028cd4c7e51e90d7fa7c9e4d3b92"
+  },
+  "classifications": [
+    {
+      "hypothesis": "H1",
+      "series": "C",
+      "dominant_semantics": "Parent certification and transition factorisation through q_n form the typed parent-to-lift quotient interface.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H2",
+      "series": "S",
+      "dominant_semantics": "Finiteness, anonymity, hierarchical isomorphism and occurrence multiplicity define intrinsic carrier equality.",
+      "borderline_adjudication": "Although q_n is named, the assertion defines the owner-occurrence structure transported by equality; it does not specify a producer/consumer boundary.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H3",
+      "series": "S",
+      "dominant_semantics": "The finite nontrivial connected lift carrier is an intrinsic structure definition.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H4",
+      "series": "R",
+      "dominant_semantics": "The rule defines what a new outer relation joins and consumes within the lift layer.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H5",
+      "series": "S",
+      "dominant_semantics": "Exact sitewise retained resource state is part of the carrier's intrinsic data.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H6",
+      "series": "C",
+      "dominant_semantics": "Inherited rank-lift transport, ownership preservation and q_n factorisation define an action interface across parent and lift representations.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H7",
+      "series": "R",
+      "dominant_semantics": "The primary subject is inherited relation-add at its declared within-hierarchy scope.",
+      "borderline_adjudication": "Factorisation through q_n is a required compatibility qualifier, but the assertion's operation and scope are relational; H6 separately covers the non-relational inherited-action interface case.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H8",
+      "series": "R",
+      "dominant_semantics": "The assertion specifies the legal read contract for outer relation addition.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H9",
+      "series": "C",
+      "dominant_semantics": "q-visible write confinement and exclusion of hidden reads define observer sufficiency and information hiding.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H10",
+      "series": "R",
+      "dominant_semantics": "Monotone pairwise restrictions define the admitted relation semantics.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H11",
+      "series": "S",
+      "dominant_semantics": "Counter-valued alternatives and representative-free labels define the intrinsic multiplicity-bearing transition structure.",
+      "borderline_adjudication": "Counter/Set changes are reopen conditions, but H11 positively defines the frozen structural semantics rather than a falsification campaign or cross-layer adapter.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H12",
+      "series": "C",
+      "dominant_semantics": "Equivariant relabelling and representative-independent canonicalisation establish quotient-interface well-definedness.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "hypothesis": "H13",
+      "series": "C",
+      "dominant_semantics": "The assertion defines the same-level composition boundary and the typed condition for starting the next O-level.",
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "expected_series_map": {
+    "H1": "C",
+    "H2": "S",
+    "H3": "S",
+    "H4": "R",
+    "H5": "S",
+    "H6": "C",
+    "H7": "R",
+    "H8": "R",
+    "H9": "C",
+    "H10": "R",
+    "H11": "S",
+    "H12": "C",
+    "H13": "C"
+  },
+  "classification_changes": [],
+  "f_series_note": "No H1-H13 premise is itself a falsification or free-probe assertion. Executable premise checks and negative reopen conditions do not change the premise's semantic lane.",
+  "o7_result_boundary": {
+    "all_hypotheses_reported_pass": true,
+    "meaning": "Historical frozen O6-to-O7 premise evidence is reproduced as a recorded PASS; this spot-check validates classification semantics only.",
+    "nonclaims": [
+      "independent confirmation of the historical PASS results",
+      "O7 graduation by this review",
+      "global transition closure",
+      "observer-independent minimality",
+      "persistence to O8 or an infinite tower"
+    ]
+  },
+  "conclusion": "All 13 dev40 classifications are semantically supported by the exact frozen theorem text and its proof/evidence roles. No replay mapping, authorization, scientific result or shared pointer changes."
+}

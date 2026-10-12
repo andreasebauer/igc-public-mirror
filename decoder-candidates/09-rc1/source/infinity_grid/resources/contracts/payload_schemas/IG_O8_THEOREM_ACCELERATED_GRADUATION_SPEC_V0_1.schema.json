@@ -1,0 +1,176 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O8_THEOREM_ACCELERATED_GRADUATION_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bp0_authority": {
+      "additionalProperties": false,
+      "properties": {
+        "required_outcome": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "required_outcome",
+        "science_sha256"
+      ],
+      "type": "object"
+    },
+    "candidate_exact_carrier": {
+      "type": "string"
+    },
+    "candidate_skin": {
+      "type": "string"
+    },
+    "data_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "broad_census": {
+          "type": "integer"
+        },
+        "existence_witnesses_reused": {
+          "type": "integer"
+        },
+        "heavy_C1_C5_cases": {
+          "type": "integer"
+        },
+        "new_heavy_cases": {
+          "type": "integer"
+        },
+        "topology_twins_reused": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "broad_census",
+        "existence_witnesses_reused",
+        "heavy_C1_C5_cases",
+        "new_heavy_cases",
+        "topology_twins_reused"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "frozen_action_basis": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generic_theorem_authority_status": {
+      "type": "string"
+    },
+    "graduation_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "G1": {
+          "type": "string"
+        },
+        "G2": {
+          "type": "string"
+        },
+        "G3": {
+          "type": "string"
+        },
+        "G4": {
+          "type": "string"
+        },
+        "G5": {
+          "type": "string"
+        },
+        "G6": {
+          "type": "string"
+        },
+        "G7": {
+          "type": "string"
+        },
+        "G8": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8"
+      ],
+      "type": "object"
+    },
+    "negative_outcome": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parent_authority": {
+      "additionalProperties": false,
+      "properties": {
+        "required_status": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "required_status",
+        "science_sha256"
+      ],
+      "type": "object"
+    },
+    "positive_outcome": {
+      "type": "string"
+    },
+    "program": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O8_THEOREM_ACCELERATED_GRADUATION_SPEC_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "successor_semantics": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "bp0_authority",
+    "candidate_exact_carrier",
+    "candidate_skin",
+    "data_budget",
+    "date",
+    "frozen_action_basis",
+    "generic_theorem_authority_status",
+    "graduation_gates",
+    "negative_outcome",
+    "nonclaims",
+    "parent_authority",
+    "positive_outcome",
+    "program",
+    "question",
+    "schema",
+    "status",
+    "successor_semantics"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O8_THEOREM_ACCELERATED_GRADUATION_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

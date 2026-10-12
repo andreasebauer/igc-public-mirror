@@ -1,0 +1,167 @@
+{
+  "chain_id": "g6-s1-repair-r1-2026-09-07",
+  "commit_sha256": "411444399f52c8d88d068ae476f841afbba8a0c01635afc12bc7503ab70a5811",
+  "committed_utc": "2026-09-06T21:48:04.090150+00:00",
+  "outcome": "PASS_ROOTED_OWNER_RESPONSE_BAG_EXPANDED_UNIVERSE",
+  "question_sha256": "a7a157576d336933d945e41036636417093cf82570758170f1f4487d74df60d3",
+  "registration_sha256": "a3056fdda592832ef4cc03385e3ca2db663d07a15e12879019384a97fd558dfe",
+  "result": {
+    "authority": {
+      "descriptor_review_audit_sha256": "7b08f4b0f987eab14fec762d342685f5343bcb2a60912188c4d64da811e7bac8",
+      "s0_commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+      "s1_commit_sha256": "d384733310698e2540642bc535c6650cea620573ec35156aa59403f51b215a8d",
+      "s1_science_sha256": "53cb0bb7c79614dfac2ad2c7bf75a25ef3c8ec022ab5921ab7c018a878f3c210"
+    },
+    "candidate_ladder_attempts": [
+      {
+        "basis_replay": {
+          "first_separator": null,
+          "refined_pair_fibre_count": 496,
+          "separator_count": 0
+        },
+        "candidate_id": "C1_RHO01",
+        "expanded_test": {
+          "continuation_contexts_checked": 2,
+          "continuation_contexts_planned": 2079232,
+          "first_conflict": {
+            "candidate": "C1_RHO01",
+            "operator": [
+              0,
+              0
+            ],
+            "outcome_count_a": 16,
+            "outcome_count_b": 16,
+            "position": "LEFT",
+            "probe_ref": "D2_BROOM",
+            "public_key": [
+              true,
+              [
+                14700330589768706136642496304913044122457272062602287235343015886790140806602,
+                647229220937036760847008712152869862222603766954907065339013388887196030240,
+                522672179563873199029243975719178420132208447809226658681907141901321259600,
+                159447089232934080777506511036643421953344792140996720044784415802926272280,
+                355208988411548439092674231223647114909198803564329599077815405726136248880,
+                85514233628340078112366266484127987566551074217595233310537544972902216800,
+                6724422093582163567307097861100668695690586128049074192060451843004110636720
+              ],
+              [
+                [
+                  "C",
+                  10
+                ]
+              ]
+            ],
+            "read_value_repr": "12",
+            "representative_a": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ()))))),))),))),))),)))))",
+            "representative_b": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())))))))))))))"
+          },
+          "index_sha256": "8dc131541ae2a0e4669cc0ea270f0cf7c5d0089cd701798f953c4a350dda13d6",
+          "multi_class_count": 287,
+          "refined_class_count": 328,
+          "status": "CONFLICT",
+          "universe_count": 4520
+        }
+      },
+      {
+        "basis_replay": {
+          "first_separator": null,
+          "refined_pair_fibre_count": 496,
+          "separator_count": 0
+        },
+        "candidate_id": "C2_TYPED_OWNER_ORBITS",
+        "expanded_test": {
+          "continuation_contexts_checked": 2,
+          "continuation_contexts_planned": 2079232,
+          "first_conflict": {
+            "candidate": "C2_TYPED_OWNER_ORBITS",
+            "operator": [
+              0,
+              0
+            ],
+            "outcome_count_a": 40,
+            "outcome_count_b": 40,
+            "position": "LEFT",
+            "probe_ref": "D2_BROOM",
+            "public_key": [
+              true,
+              [
+                14700330589768706136642496304913044122457272062602287235343015886790140806602,
+                647229220937036760847008712152869862222603766954907065339013388887196030240,
+                522672179563873199029243975719178420132208447809226658681907141901321259600,
+                159447089232934080777506511036643421953344792140996720044784415802926272280,
+                355208988411548439092674231223647114909198803564329599077815405726136248880,
+                85514233628340078112366266484127987566551074217595233310537544972902216800,
+                6724422093582163567307097861100668695690586128049074192060451843004110636720
+              ],
+              [
+                [
+                  "C",
+                  10
+                ]
+              ]
+            ],
+            "read_value_repr": "(10, 10, 10, 10, 10, 10, 10)",
+            "representative_a": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),))), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),))),))),)))))",
+            "representative_b": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),))),))),))),)))))"
+          },
+          "index_sha256": "6b8d1f41321f6e72c6b58979edc33e2c61e2135794ee2105d70bf7ff33369467",
+          "multi_class_count": 287,
+          "refined_class_count": 328,
+          "status": "CONFLICT",
+          "universe_count": 4520
+        }
+      },
+      {
+        "basis_replay": {
+          "first_separator": null,
+          "refined_pair_fibre_count": 496,
+          "separator_count": 0
+        },
+        "candidate_id": "C3_ROOTED_OWNER_RESPONSE_BAG",
+        "expanded_test": {
+          "continuation_contexts_checked": 0,
+          "continuation_contexts_planned": 0,
+          "first_conflict": null,
+          "index_sha256": "400a37460f0338e53606bc901a761b6058f69b09718370e762d8270c663bf0e5",
+          "multi_class_count": 0,
+          "refined_class_count": 4520,
+          "status": "PASS",
+          "universe_count": 4520
+        },
+        "independent_verification": {
+          "candidate": "C3_ROOTED_OWNER_RESPONSE_BAG",
+          "first_failure": null,
+          "sample_count": 128,
+          "status": "PASS"
+        }
+      }
+    ],
+    "exact_s1_child_universe_count": 4520,
+    "exact_s1_child_universe_sha256": "2c1ffee315adada202ec472acb06f9fef9871ebbb273075b0dd0ef2a7d523f30",
+    "g6_graduated": false,
+    "hidden_topology_promoted": false,
+    "next_authorized": "G6:S2_REPAIRED_REGISTRATION_DESIGN",
+    "nonclaims": [
+      "NO_GLOBAL_G6_MINIMALITY",
+      "NO_GLOBAL_RHO01_SUFFICIENCY",
+      "NO_TOPOLOGY_PROMOTION",
+      "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+      "NO_G6_GRADUATION",
+      "NO_AUTOMATIC_RESUME_OF_OLD_S2"
+    ],
+    "outcome": "PASS_ROOTED_OWNER_RESPONSE_BAG_EXPANDED_UNIVERSE",
+    "promotion": false,
+    "public_descriptor_promoted": false,
+    "question_sha256": "a7a157576d336933d945e41036636417093cf82570758170f1f4487d74df60d3",
+    "schema_id": "IG_G6_S1_REPAIR_RESULT_V1",
+    "science_sha256": "20d53753244fd41506d139adb93be046667fa45a631abc7bbcaaa9f141615930",
+    "selected_candidate": "C3_ROOTED_OWNER_RESPONSE_BAG",
+    "stage_id": "G6:S1R",
+    "status": "PASS"
+  },
+  "result_sha256": "3290c270af450038502b0ba243651f1ae8d8f07d7bf75abb774a38466fb41cbf",
+  "run_record_sha256": "fe6736fcdb0f5e74b34dbaa571889c5c904445658f34b384fe8542baeab84047",
+  "schema_id": "IG_DECODER_V05_SCIENTIFIC_CHAIN_STAGE_COMMIT_V1",
+  "series": "S",
+  "stage_id": "G6:S1R"
+}

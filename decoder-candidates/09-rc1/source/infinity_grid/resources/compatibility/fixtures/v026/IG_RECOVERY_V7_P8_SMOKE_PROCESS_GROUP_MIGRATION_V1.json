@@ -1,0 +1,28 @@
+{
+  "new_source_sha256": "b8950d3786c278df92b0fe03d17343d08f5856e43d98746ef20d588ea0b86461",
+  "removed_count": 4,
+  "schema_id": "IG_RECOVERY_V7_P8_SMOKE_PROCESS_GROUP_MIGRATION_V1",
+  "status": "PASS",
+  "superseded_recipes_removed": [
+    {
+      "recipe_id": "RECOVERY_V7_O6_EXACT_ARCHIVE_REPLAY",
+      "recipe_sha256": "52fc7031cf9395809ab789f961e05521263cb995d7ca29e4c0e677983bab3d27",
+      "source_snapshot_ref": "source:sha256:3872f70fe755739a99d65b2a7dc2abcf0eb1b9ad8fb65500a145abed076a0cde"
+    },
+    {
+      "recipe_id": "RECOVERY_V7_O7_EXACT_ARCHIVE_REPLAY",
+      "recipe_sha256": "9d51c09396c09bed6753f57a22d891d0b96a9c8489c009f03facd1268554252a",
+      "source_snapshot_ref": "source:sha256:3872f70fe755739a99d65b2a7dc2abcf0eb1b9ad8fb65500a145abed076a0cde"
+    },
+    {
+      "recipe_id": "RECOVERY_V7_O4_EXACT_ARCHIVE_REPLAY",
+      "recipe_sha256": "07e916f12423f7cf7888c95ec1fe4490226f6cc0a3a7db741628fb50f7232e01",
+      "source_snapshot_ref": "source:sha256:3872f70fe755739a99d65b2a7dc2abcf0eb1b9ad8fb65500a145abed076a0cde"
+    },
+    {
+      "recipe_id": "RECOVERY_V7_O1_EXACT_ARCHIVE_REPLAY",
+      "recipe_sha256": "b3a467b7057338cd4446dffda65dc6d234885b3acba682322392084fe195e77f",
+      "source_snapshot_ref": "source:sha256:3872f70fe755739a99d65b2a7dc2abcf0eb1b9ad8fb65500a145abed076a0cde"
+    }
+  ]
+}

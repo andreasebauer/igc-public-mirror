@@ -1,0 +1,44 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "default_mode": {
+      "type": "string"
+    },
+    "delete_preconditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "never_delete": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1",
+      "type": "string"
+    },
+    "transaction": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "default_mode",
+    "delete_preconditions",
+    "never_delete",
+    "schema_id",
+    "transaction",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

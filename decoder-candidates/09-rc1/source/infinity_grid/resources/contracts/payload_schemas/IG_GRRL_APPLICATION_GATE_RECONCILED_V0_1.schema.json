@@ -1,0 +1,89 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "core_obligations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "date": {
+      "type": "string"
+    },
+    "evidence_rule": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "reconciled_hidden_field_rule": {
+      "type": "string"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "structural_grammar": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "core_obligations",
+    "date",
+    "evidence_rule",
+    "purpose",
+    "reconciled_hidden_field_rule",
+    "reopen_conditions",
+    "schema",
+    "status",
+    "structural_grammar"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

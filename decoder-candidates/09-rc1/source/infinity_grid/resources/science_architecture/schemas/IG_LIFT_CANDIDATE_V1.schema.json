@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "lift_candidate_id": {
+      "type": "string"
+    },
+    "plateau_certificate_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "proposed_action_language_ref": {
+      "type": "string"
+    },
+    "proposed_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "proposed_entity_class": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_identity_rule": {
+          "type": "string"
+        },
+        "entity_class_id": {
+          "type": "string"
+        },
+        "representation_schema_ref": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_class_id",
+        "representation_schema_ref",
+        "canonical_identity_rule"
+      ],
+      "type": "object"
+    },
+    "required_audits": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_LIFT_CANDIDATE_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "source_entity_class_ref": {
+      "type": "string"
+    },
+    "source_regime_ref": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "UNDER_AUDIT",
+        "REJECTED",
+        "CERTIFIED"
+      ]
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "lift_candidate_id",
+    "source_entity_class_ref",
+    "source_regime_ref",
+    "plateau_certificate_refs",
+    "proposed_entity_class",
+    "proposed_action_language_ref",
+    "proposed_capabilities",
+    "required_audits",
+    "status"
+  ],
+  "title": "IG Decoder Lift Candidate V1",
+  "type": "object"
+}

@@ -1,0 +1,84 @@
+{
+  "$id": "ig://schema/stage-checkpoint/v0.17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "attempt": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "code_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "created_utc": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "environment_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "input_artifacts": {
+      "type": "array"
+    },
+    "output_artifacts": {
+      "type": "array"
+    },
+    "plan_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "resource_usage": {
+      "type": "object"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_STAGE_CHECKPOINT_V0_17"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "COMPLETE_VALID",
+        "FAILED",
+        "CORRUPT"
+      ]
+    }
+  },
+  "required": [
+    "schema_id",
+    "run_id",
+    "stage_id",
+    "attempt",
+    "status",
+    "plan_sha256",
+    "code_sha256",
+    "environment_sha256",
+    "input_artifacts",
+    "output_artifacts",
+    "dependencies",
+    "resource_usage",
+    "created_utc"
+  ],
+  "semantics": {
+    "attempt_records_immutable": true,
+    "current_pointer_atomic": true,
+    "duplicate_controller": "REFUSE",
+    "mismatch_action": "FAIL_CLOSED",
+    "reuse_requires": [
+      "plan hash match",
+      "code hash match",
+      "environment hash match",
+      "input hash match",
+      "all output blob verifications PASS"
+    ],
+    "stale_lock_recovery": "EXPLICIT_AUDITED_COMMAND_ONLY"
+  },
+  "title": "Infinity Grid Stage Checkpoint v0.17",
+  "type": "object"
+}

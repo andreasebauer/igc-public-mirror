@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "depth_end": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "depth_start": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "entity_class_ref": {
+      "type": "string"
+    },
+    "finding_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "grammar_status": {
+      "type": "string"
+    },
+    "maturation_id": {
+      "type": "string"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "novelty_events": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "regime_ref": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_MATURATION_RECORD_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "test_pack_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unresolved_findings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "maturation_id",
+    "entity_class_ref",
+    "regime_ref",
+    "depth_start",
+    "depth_end",
+    "test_pack_refs",
+    "finding_refs",
+    "novelty_events",
+    "unresolved_findings",
+    "grammar_status",
+    "notes"
+  ],
+  "title": "IG Decoder Maturation Record V1",
+  "type": "object"
+}

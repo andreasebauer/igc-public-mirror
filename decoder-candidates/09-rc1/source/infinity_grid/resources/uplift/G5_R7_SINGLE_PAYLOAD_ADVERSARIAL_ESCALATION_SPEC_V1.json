@@ -1,0 +1,141 @@
+{
+  "authority": {
+    "g5_r6_closeout_sha256": "79e72fbf6029df7854ec79a53fd52f1c59c1ccd32bc3fc210c4f7063a393ac53",
+    "g5_r6_independent_verification_sha256": "ea6a464f822df1a07b4dd5b8da63b2def9c884060ef5e3a6017f98811ff2ec6b",
+    "g5_r6_primary_science_sha256": "3b5dcc947b778ef805c902382ca0832f0071a90cfe368c4b8cc24deb3f2620cc",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r6_single_payload_bounded_separation": true
+  },
+  "cost_control": {
+    "expected_runtime_class": "LOW_TO_MODERATE_MINUTES",
+    "scientific_collision_does_not_abort_remaining_registered_panel": "FALSE; BOTH PANELS COMPLETE FOR COVERAGE UNLESS RUNTIME INTEGRITY FAILS",
+    "stop_after_registered_panels": true,
+    "stop_on_first_integrity_failure": true,
+    "workers": 4
+  },
+  "date": "2026-09-06",
+  "design_history": {
+    "engineering_only_checks_allowed_before_run": [
+      "COMPILEALL",
+      "SPEC_HASH",
+      "REGISTRY_HASH",
+      "SOURCE_IDENTITY",
+      "AUTHORITY_IDENTITY",
+      "TASK_PARTITION_COVERAGE"
+    ],
+    "prefreeze_r7_science_probe_performed": false,
+    "r6_domains_reused_as_science": false
+  },
+  "endpoint_typed_panel": {
+    "color_filter": "MIXED_ONLY_AT_LEAST_ONE_C_AND_ONE_D",
+    "edge_assignment_filter": "EXACTLY_TWO_NON_00_EDGES_AND_THREE_00_EDGES",
+    "edge_operator_subset": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "freshness": "N6_ENDPOINT_TYPED_PANEL_NOT_USED_IN_R5_R6_OFFICIAL_EVIDENCE_OR_PREFREEZE_R7_SCIENCE",
+    "n": 6,
+    "parallel_partition": "PUBLIC_Q_SAFE_BY_AGGREGATE_ENDPOINT_RESERVATION_VECTOR; EACH_VECTOR_BELONGS_TO_EXACTLY_ONE_TASK",
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "fresh_primary_panel": {
+    "color_filter": "MIXED_ONLY_AT_LEAST_ONE_C_AND_ONE_D",
+    "existing_parent_edge_operator": [
+      0,
+      0
+    ],
+    "freshness": "N10_NOT_USED_IN_R5_R6_OFFICIAL_EVIDENCE_OR_PREFREEZE_R7_SCIENCE",
+    "n": 10,
+    "parallel_partition": "PUBLIC_Q_SAFE_BY_C_COUNT_GROUPS; EACH_C_COUNT_BELONGS_TO_EXACTLY_ONE_TASK",
+    "resource_policy": "KEEP_ONLY_PUBLIC_READ_LEGAL_PARENTS_THEN_DEDUP_BY_EXACT_CANON",
+    "underlying_shapes": "ALL_UNLABELLED_TREES",
+    "vertex_H_palette": [
+      "C",
+      "D"
+    ]
+  },
+  "next_authorized_stage": "G5_POST_R7_CLOSEOUT_REVIEW_AFTER_HUMAN_REVIEW",
+  "nonclaims": [
+    "NO_GLOBAL_SINGLE_PAYLOAD_MINIMALITY",
+    "NO_ALL_FINITE_CARRIER_SINGLE_PAYLOAD_SEPARATION",
+    "NO_GLOBAL_HIDDEN_STATE_MINIMALITY",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_EXACT_HIDDEN_CANON_PROMOTION_TO_PUBLIC_STATE",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "observer": {
+    "O1": "DEDUPLICATED_EXACT_UNROOTED_CHILD_CANON_SET_FOR_THE_SINGLE_PAYLOAD",
+    "Q": "EXACT_PUBLIC_CAPS7_PLUS_H_CLASS_BAG",
+    "empty_child_relation": "PRESERVED_AS_EMPTY_SET",
+    "hash_policy": "HASHES_ARE_AUDIT_HANDLES/BUCKETS_ONLY; STRUCTURAL TUPLE EQUALITY DECIDES SCIENCE",
+    "parent_identity": "EXACT_UNROOTED_ENDPOINT_TYPED_DECORATED_TREE_CANON",
+    "single_payload": {
+      "directed_operator": [
+        0,
+        0
+      ],
+      "new_H_class": "C"
+    },
+    "sufficiency_predicate": "WITHIN_EQUAL_Q_FIBER, EQUAL_SINGLE_PAYLOAD_CHILD_RELATION_IMPLIES_EQUAL_EXACT_PARENT_CANON"
+  },
+  "outcome_rules": {
+    "COLLISION": "If distinct exact parents in one Q fiber have the same C/(0,0) exact child relation, preserve the first lexicographic structural witness and earn bounded single-payload insufficiency on the R7 scope.",
+    "INJECTIVE": "If the C/(0,0) child relation is injective within every equal-Q fiber on both fresh panels, earn deeper bounded single-payload separation only; do not promote it to a global theorem."
+  },
+  "parallel_execution": {
+    "cross_partition_collision_safety": "PARTITIONS ARE BY PUBLIC-Q DEFINING INVARIANTS; NO Q FIBER IS SPLIT ACROSS TASKS",
+    "decoder_owned_execute_tasks": true,
+    "endpoint_partition_count": 3,
+    "primary_partition_count": 5,
+    "requested_workers": 4
+  },
+  "pass_classifications": {
+    "collision": "G5_R7_SINGLE_C00_COLLISION_WITNESS_EARNED_ON_LARGER_FRESH_SCOPE_NO_PROMOTION_POST_R7_CLOSEOUT_REVIEW_AUTHORIZED",
+    "injective": "G5_R7_SINGLE_C00_SEPARATION_SURVIVES_LARGER_FRESH_ADVERSARIAL_SCOPE_NO_GLOBAL_THEOREM_NO_PROMOTION_POST_R7_CLOSEOUT_REVIEW_AUTHORIZED"
+  },
+  "promotion": false,
+  "question": "After R6 found that the single ordinary marker-free payload C/(0,0) separates exact hidden parents on its frozen n=9 and endpoint-typed n=5 scopes, does the same one-payload exact child relation remain injective within equal public CAPS7 + H-class bag fibers on two larger fresh adversarial domains, or does the first exact collision appear?",
+  "schema_id": "IG_G5_R7_SINGLE_PAYLOAD_ADVERSARIAL_ESCALATION_SPEC_V1",
+  "science_sha256": "2508e682d51aabcbe44312f02193e65242dab557ece28d0e16ffa7948c7d8e8b",
+  "stage": "G5:R7",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stops": [
+    "R6_AUTHORITY_MISMATCH",
+    "SPEC_HASH_MISMATCH",
+    "TASK_PARTITION_COVERAGE_FAILURE",
+    "STRUCTURAL_EQUALITY_INTEGRITY_FAILURE",
+    "UNREGISTERED_OPERATOR_OR_H_CLASS",
+    "COLD_REPLAY_MISMATCH",
+    "INDEPENDENT_VERIFICATION_FAILURE",
+    "RESOURCE_OR_RUNTIME_INTEGRITY_FAILURE"
+  ]
+}

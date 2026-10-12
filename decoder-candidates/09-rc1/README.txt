@@ -1,0 +1,1 @@
+Decoder0.9.0rc1 integrated implementation candidate. Revised Step1 only;not final release. Full runtime/inputs and capture-save obligations are in the saved candidate handoff. Native qualification,full release suite and portability remain revised Step2. Scientific data remains paused. Read candidate pins and limit register before use.

@@ -1,0 +1,69 @@
+parameter: Shared memory ceiling
+evidence: Observed cgroup memory.max;currently8589934592bytes
+effect: Rechecked by admission and live polling;aggregate process RSS is conservatively summed;shared cgroup usage reported separately
+handling: Stop at committed safe boundary if effective aggregate budget exceeded;unavailable controller RSS is an error
+
+parameter: CPU worker availability
+evidence: Observed cpu.max800000/100000,affinity and CPU count;currently8core-equivalents
+effect: Requests and override may reduce capacity,never enlarge hardware quota;namespace-safe shared leases
+handling: Wait for lease;no default lease deadline;release after execution;PID/starttick detect dead/recycled owners
+
+parameter: workers=4,window_rows=16384,batch_size=16
+evidence: Scheduling/window tuning for frozen652366descriptor domain;synthetic16384row storage19.1MB/~96MiB RSS
+effect: No coverage cap;all595534missing descriptors enumerate into37windows;last partial window exact
+handling: Adjust tuning by measurement;native window footprint remains Step2 gate
+
+parameter: In-flight shards=2 per worker,1 task per bulk shard
+evidence: Scheduler working-set tuning;bounded payload frames;native18480-task run demonstrated four-worker scheduling
+effect: Limits in-flight buffers,not total work;producer drains completed work and submits remaining
+handling: Every task must publish exactly once;worker death/out-of-order covered operationally in Step2
+
+parameter: Hierarchy cache1context and witness cache1object
+evidence: Local bounded cache policies;full byte/context equality;320kernel parity;syntheticstream hash unchanged
+effect: Eviction changes speed only;no data deleted;PID/source module lifetime separates workers
+handling: Rebuild/revalidate after context change,restart,eviction or compressed-byte change
+
+parameter: Checkpoint interval30s,poll0.25s,wait0.01s
+evidence: Checkpoint and responsiveness cadence,not scientific stopping rules
+effect: No automatic job deadline under new policy
+handling: Operator callbacks finish saving before advancing windows;interval tuning may change without scientific byte change
+
+parameter: Checkpoint max_* execution blockers
+evidence: No demonstrated necessity for old32MiB project/state file,64shards,1024retained checkpoints,512MiB backlog/age limits
+effect: Explicit rolling_unbounded_execution=1 sets inherited max_* toNone;finite legacy contracts remain recorded;no disk floor
+handling: File-backed checkpoint assembly and measured windowing;actual ENOSPC leaves committed SQLite tasks intact;preserve and resume after capacity recovery
+
+parameter: New workspace byte ceiling
+evidence: Old128/256MiB budgets had no full-window evidence
+effect: Removed in new no-deadline captures by explicit workspace_budget_bytes=None
+handling: Measure actual footprint,report storage usage,handle ENOSPC;native full-window verification in Step2
+
+parameter: Drive104857600byte transfer ceiling
+evidence: Observed provider/tool refusal from earlier actual upload attempts
+effect: Transfer-only;source changes now permit parts up to actual ceiling instead of arbitrary48000000byte bound
+handling: Verified split transfer/reassembly;no scientific coverage truncated
+
+parameter: 1MiB read/copy buffer,SQLite backup256pages
+evidence: Bounded working buffers using standard file/SQLite APIs
+effect: Stream loops cover complete content;neither changes logical rows
+handling: Adjust buffers if needed;digest/byte/mode checks unchanged
+
+parameter: SQLite busy timeout5s
+evidence: Single-writer protocol with short administrative lock waits;transaction retry/resume preserves commits
+effect: Lock-contention error,not job lifetime;duplicate writers refused independently
+handling: Preserve current state;retry missing work after lock owner resolves
+
+parameter: Native ACK batch1024obligations/256objects/2MiB metadata,512MiB grouping target
+evidence: Operator protocol packet grouping;qualified native184102roles/30objects plus synthetic batch tests;bulkwindow metadata is bounded by prepared batches
+effect: Repeat drains until no obligations;new rolling policy removes512MiB total-readback refusal and allows one oversized object in a plan;stream raw validation
+handling: No object skipped;oversized metadata requires smaller packet groups;required gates are actual exact provider readback and role-bound ACK
+
+parameter: Legacy64-shard stage-manifest format
+evidence: Existing closed-format compatibility validation only;new mapping.sqlite3 never uses it
+effect: Not a limit on newbulk domain;legacy source/captures kept immutable
+handling: Old captures retain oldformat;new production uses database storage and rolling receipt reducer
+
+parameter: Historical scientific question bounds and fixture domains
+evidence: Source registrations/preregistrations define their historical question and evidence scopes
+effect: Do not silently enlarge or relabel historical results;not universal new bulk resource caps
+handling: Require a versioned new question for scientific scope changes;present cutover keeps frozen652366descriptor domain

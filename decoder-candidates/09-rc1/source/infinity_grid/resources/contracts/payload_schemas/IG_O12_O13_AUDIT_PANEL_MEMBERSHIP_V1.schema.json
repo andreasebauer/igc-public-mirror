@@ -1,0 +1,69 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O12_O13_AUDIT_PANEL_MEMBERSHIP_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rows": {
+      "additionalProperties": false,
+      "properties": {
+        "10": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "11": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "12": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "13": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "8": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "9": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "8",
+        "9"
+      ],
+      "type": "object"
+    },
+    "schema": {
+      "const": "IG_O12_O13_AUDIT_PANEL_MEMBERSHIP_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rows",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O12_O13_AUDIT_PANEL_MEMBERSHIP_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

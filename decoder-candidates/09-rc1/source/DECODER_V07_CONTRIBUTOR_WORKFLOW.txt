@@ -1,0 +1,52 @@
+DECODER v0.7 — HOW A CHAT CHANGES CODE
+
+PURPOSE
+Any chat that knows a bounded Decoder problem may create and qualify an
+isolated candidate. Routine candidate work does not require an owner token or
+human authorization. Controls exist to prevent hidden overwrites and
+contradictory merges, not to stop repairs.
+
+REQUIRED RECORD
+Every candidate records:
+  1. exact parent source SHA-256;
+  2. exact candidate source SHA-256 and version;
+  3. changed files;
+  4. affected contract names;
+  5. focused/common test outcomes;
+  6. bounded reason and immutable candidate ID.
+
+NORMAL WORKFLOW
+  1. Copy the exact accepted parent; never edit the parent archive.
+  2. Make the bounded repair in a new development version.
+  3. Run focused tests first, then relevant common regressions.
+  4. Use infinity_grid.candidate_workflow.make_candidate and save_candidate.
+  5. A project may use select_task_local after all recorded tests pass.
+  6. Save source, patch, tests, manifest and raw-readback evidence.
+
+MERGING
+Use candidate_workflow.merge_plan with the immutable candidate IDs.
+Different files and different declared contracts are mergeable. The command
+refuses when candidates change the same file, the same contract, or different
+parents. Reconcile that exact overlap in a new candidate; do not overwrite
+either input candidate.
+
+AUTHORIZATION BOUNDARY
+No extra authorization: isolated branch, code edit, focused tests, evidence
+saving, task-local selection of a fully passing candidate.
+Separate explicit decision: promotion to the shared Decoder pointer.
+Human authorization remains required only for an actual sensitive runtime
+exception, not for ordinary code ownership.
+
+SAVING
+Upload ordinary evidence sequentially and verify raw readback SHA-256. If an
+object is too large, keep its bytes unchanged and transport it as ordered
+16 MiB parts, then 8 MiB or 4 MiB parts if necessary. Save the part manifest,
+raw-download all parts, reconstruct, and verify the original size and SHA-256.
+
+NEVER
+- modify a qualified parent in place;
+- claim a test ran when it did not;
+- treat a task-local selection as a shared release;
+- weaken role-bound receipts, origin checks, source binding, recovery, or
+  preservation rules to make a repair easier;
+- rerun scientific work merely to qualify an engineering change.

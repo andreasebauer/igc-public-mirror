@@ -1,0 +1,201 @@
+{
+  "descriptor_sha256": "a1900aa01cad738a4f380013d9bc2d88fac9f8f6122f3ac3629a6548b21d8708",
+  "evidence": {
+    "authority": "RECONNAISSANCE_ONLY",
+    "disposition": "OBSERVED",
+    "origin": "DIRECT_EXECUTION",
+    "protocol_label": "SCOUT_OBSERVED",
+    "scope": "BOUNDED_PREREGISTERED"
+  },
+  "input_datasets": [
+    {
+      "dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+      "logical_role": "SCOUT_L16_FROZEN_INPUT_V1"
+    }
+  ],
+  "input_flags": {
+    "bounded_preregistered": true,
+    "observer_frozen": true,
+    "parent_certified": true,
+    "population_complete": false,
+    "selection_sealed_before_relation_analysis": true,
+    "separate_lineage": true,
+    "spectroscope_non_feedback": true
+  },
+  "observer": {
+    "comparison_rules": {
+      "absence": "Never population-wide.",
+      "absolute_within_panel_counts": "EXACT",
+      "cross_level_count_or_fraction_comparison": "DIAGNOSTIC_ONLY_DIFFERENT_BOUNDED_ROOT_SCOPES",
+      "deep_ancestry": "UNRESOLVED_DEPTH_SCOPE; no new ancestry census.",
+      "directional_change": "May license bounded EXPANDS/REFINES/REORGANIZES only with the bounded qualifier.",
+      "existence_persistence": "May license PERSISTS within the two bounded panels."
+    },
+    "observed_families": [
+      "R_PARENT_FIBER",
+      "R_SHARED_SUPPORT",
+      "R_FIBER_INCLUSION",
+      "R_PARTIAL_CLOSURE",
+      "R_REFINEMENT_INDIVIDUATION",
+      "R_LOCAL_DEPTH_REORGANIZATION",
+      "R_SCOUT_UNCLASSIFIED"
+    ],
+    "observer_id": "SCOUT_L16_SHALLOW_RELATIONAL_V1",
+    "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820",
+    "schema_id": "IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+    "science_projection": {
+      "baseline": "remove cost only",
+      "host_paths_timestamps_resource_fields": "not scientific",
+      "selected_relation": "complete canonical JSON object",
+      "spectroscope": "remove cost only",
+      "wide": "remove cost only"
+    },
+    "scope": {
+      "historical_scope_replay": true,
+      "population_complete": false,
+      "primitive_sha256": "eff6d9ad96fa2a69bce437fcea03249c0b25f19b56d1c99e0902e298ddda6fec",
+      "root_count": 1089,
+      "root_sha256": "a1b54f2ee2841f029e9bb5b222f8c2b559bd0d8377c6522f59968488bea3a1f3",
+      "source_level": 15,
+      "target_level": 16
+    },
+    "spectroscope_metrics": [
+      "incidence components and abstract cycle rank (recognition only)",
+      "stable refinement classes and singleton counts",
+      "exact parent-fiber inclusion pairs, covers, height and width",
+      "formal pair closure",
+      "observed-fiber intersection/union realization"
+    ],
+    "wide_metrics": [
+      "attempts",
+      "lawful",
+      "global_unique_L16_candidates",
+      "multi_parent_candidates",
+      "max_bounded_parent_count",
+      "selected_union",
+      "relation_edges",
+      "selected_multi_parent",
+      "selected_parent_histogram",
+      "distinct_exact_parent_fibers",
+      "shared_parent_pair_count",
+      "shared_parent_multiplicity_histogram"
+    ]
+  },
+  "plan_sha256": "55685fdff6b6f2d56be5340163884196eb2d4c0de3f9ddb44f9136fb569fdc09",
+  "protocol_id": "SCOUT",
+  "protocol_label": "SCOUT_OBSERVED",
+  "protocol_version": "0.18",
+  "question": {
+    "input_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+    "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820",
+    "primary_question": "Generate and classify the exact bounded L16 Scout structure from the pinned 1,089 L15 roots under one frozen primitive attachment, then compare declared science projections with the historical L16 commitment.",
+    "protocol_id": "SCOUT",
+    "protocol_label": "SCOUT_OBSERVED",
+    "question_id": "L16_SCOUT_BOUNDED_HISTORICAL_SCOPE_V1",
+    "scope_guard": "Bounded historical root scope only; not complete L15 population.",
+    "stopping_rules": {
+      "complete_exact_bounded_generation": true,
+      "fail_closed": true,
+      "no_adaptive_lane_extension": true,
+      "no_deep_ancestry_search": true,
+      "no_population_census": true,
+      "spectroscope_after_seal_only": true,
+      "spectroscope_cannot_feedback": true,
+      "stop_after_terminal_golden_verification": true
+    },
+    "subject": {
+      "hierarchy": "L",
+      "historical_scope_replay": true,
+      "level": 16,
+      "live_generation": true,
+      "population_complete": false,
+      "root_count": 1089,
+      "source_level": 15
+    }
+  },
+  "question_sha256": "dc352cf2d76c5e8b317fb349d6edd357c034ad893afa0e2dfdc791d6d8f68bc5",
+  "requested_claims": [],
+  "run_id": "run-scout-l16-frozen-b4377ba9e34eefac",
+  "schema_id": "IG_EXECUTION_PLAN_V0_17",
+  "stages": [
+    {
+      "depends_on": [],
+      "params": {
+        "fixture_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+        "primitive_sha256": "eff6d9ad96fa2a69bce437fcea03249c0b25f19b56d1c99e0902e298ddda6fec",
+        "root_count": 1089,
+        "root_sha256": "a1b54f2ee2841f029e9bb5b222f8c2b559bd0d8377c6522f59968488bea3a1f3"
+      },
+      "runner": "adapter.scout_l16.preflight",
+      "stage_id": "preflight"
+    },
+    {
+      "depends_on": [
+        "preflight"
+      ],
+      "params": {
+        "fixture_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+        "lane_ids": [
+          "D",
+          "B",
+          "S",
+          "O",
+          "L"
+        ],
+        "per_lane": 256,
+        "selection_rules_sha256": "6a69ffc31ddf396a54c95142169a7e2a01b0153ba9c2d3d45e397177bbaa8499",
+        "source_level": 15,
+        "target_level": 16
+      },
+      "runner": "adapter.scout_l16.wide",
+      "stage_id": "wide"
+    },
+    {
+      "depends_on": [
+        "wide"
+      ],
+      "params": {
+        "cannot_feedback": true,
+        "fixture_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+        "recognition_only": true
+      },
+      "runner": "adapter.scout_l16.spectroscope",
+      "stage_id": "spectroscope"
+    },
+    {
+      "depends_on": [
+        "wide",
+        "spectroscope"
+      ],
+      "params": {
+        "baseline_level": 15,
+        "claim_boundary_sha256": "917f3bbe3cbd3dd2d4c5a3fb4d5047502b1693d92c5b7cb95d15808453d05c75",
+        "fixture_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+        "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820"
+      },
+      "runner": "adapter.scout_l16.classify",
+      "stage_id": "classify"
+    },
+    {
+      "depends_on": [
+        "classify"
+      ],
+      "params": {
+        "fixture_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+        "golden_commitment_sha256": "7ef85b13a3b2f12e6bf2bba148076d00282a8d3855e790a58ad1cd588d9b993d",
+        "projection_version": "L16_SCOUT_SCIENCE_PROJECTION_V1"
+      },
+      "runner": "adapter.scout_l16.verify",
+      "stage_id": "verify"
+    }
+  ],
+  "subject": {
+    "hierarchy": "L",
+    "historical_scope_replay": true,
+    "level": 16,
+    "live_generation": true,
+    "population_complete": false,
+    "root_count": 1089,
+    "source_level": 15
+  }
+}

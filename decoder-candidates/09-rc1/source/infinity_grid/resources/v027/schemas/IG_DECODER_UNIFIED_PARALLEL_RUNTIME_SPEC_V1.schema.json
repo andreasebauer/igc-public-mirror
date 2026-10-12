@@ -1,0 +1,118 @@
+{
+  "const": {
+    "acceptance_gates": [
+      "No multiprocessing import remains in new scientific modules outside infinity_grid.execution and frozen historical replay assets.",
+      "All migrated lanes pass 1-worker vs N-worker normalized science-hash equality.",
+      "Checkpointed parallel chunk execution resumes only missing work.",
+      "Two concurrent Decoder runs obey one host CPU budget.",
+      "Nested BLAS/OpenMP/process oversubscription test passes.",
+      "Worker crash and duplicate/missing task tests fail closed.",
+      "macOS-safe serial/spawn-compatible behavior is documented and tested where feasible."
+    ],
+    "architecture": {
+      "backends": [
+        "SERIAL",
+        "LOCAL_PROCESS_POOL"
+      ],
+      "future_optional_backends": [
+        "REMOTE_PROCESS_WORKER on Hetzner without changing TaskSpec semantics"
+      ],
+      "no_nested_pools": true,
+      "owner": "infinity_grid.execution (Decoder core)",
+      "rule": "scientific modules declare deterministic tasks and canonical merge; only Decoder execution core owns multiprocessing/process pools"
+    },
+    "checkpointing": {
+      "base": "reuse existing ChunkCheckpointStore semantics",
+      "concurrent_claims": "must be atomic and process-safe before enabling multiple workers on the same checkpoint directory",
+      "corruption": "fail closed, never silently recompute a mismatching checkpoint in an official run",
+      "resume": "verified completed tasks/chunks are reused; only missing work runs"
+    },
+    "date": "2026-08-30",
+    "migration": {
+      "phase_1": "implement infinity_grid.execution + unit tests; no scientific adapter changes",
+      "phase_2": "parallelize existing conveyor wide_chunked via unified backend and prove serial equality",
+      "phase_3": "replace exact_carrier_parallel direct Pool calls with backend calls; keep API compatibility shim",
+      "phase_4": "expose O7 historical weighted-sharding strategy through an adapter; do not rewrite historical replay source",
+      "phase_5": "add global CPU leases/status and integrate with detached controller",
+      "phase_6": "Hetzner portability/throughput benchmark"
+    },
+    "nonclaims": [
+      "This is execution architecture only. It earns no algebra/O-level theorem and changes no observer, action law, panel, stopping rule or scientific claim."
+    ],
+    "purpose": "Provide one Decoder-owned multicore execution service for every deterministic parallel-safe scientific workload without changing scientific semantics.",
+    "resource_contract": {
+      "host_budget": "one runtime-wide CPU lease pool; concurrent runs share the same budget",
+      "memory_per_worker_estimate": "optional but scheduler-visible",
+      "native_threads_per_worker": 1,
+      "nested_worker_depth": "workers may not create child process pools",
+      "oversubscription": "forbidden unless explicitly execution-only override is recorded",
+      "requested_workers": "integer or AUTO",
+      "reserve_cores": "policy, not scientific code; may be zero on dedicated host or nonzero on interactive host"
+    },
+    "scheduler_strategies": {
+      "CHECKPOINTED_CHUNKS": "use existing ChunkCheckpointStore; compute only missing verified chunks; canonical merge afterward",
+      "COST_WEIGHTED_SHARDS": "port the O7 v0.2.3 deterministic weight/shard idea; target more shards than workers to reduce long-tail imbalance",
+      "ORDERED_MAP": "uniform independent tasks"
+    },
+    "schema": "IG_DECODER_UNIFIED_PARALLEL_RUNTIME_SPEC_V1",
+    "science_firewall": {
+      "completion_order_not_science": true,
+      "execution_metadata_excluded_from_science_hash": [
+        "worker_count",
+        "worker_pids",
+        "backend",
+        "start_method",
+        "wall_seconds",
+        "cpu_seconds",
+        "task_schedule"
+      ],
+      "required_equivalence_tests": [
+        "workers=1 vs workers=2 normalized science hash",
+        "workers=1 vs workers=AUTO normalized science hash",
+        "different deterministic chunk/shard granularities give identical normalized science output"
+      ],
+      "selection_after_merge": "all scientific capping, farthest selection, witness choice and final hashing occur only after canonical collection unless formally proved distributive",
+      "worker_count_not_science": true
+    },
+    "start_method_contract": {
+      "large_readonly_data": "use worker initializer/shared read-only state/materialized file references rather than scientific globals where portability requires it",
+      "linux_default": "forkserver or safe fresh-process fork after validation; exact policy chosen once in implementation",
+      "macos_default": "spawn/forkserver compatible path required for portability; fork-only scientific APIs are deprecated",
+      "selection": "runtime-owned"
+    },
+    "status": "AUDIT_DERIVED_SPEC_NOT_YET_IMPLEMENTED",
+    "task_contract": {
+      "failure": "missing/duplicate task, worker exception, stale binding or corrupt checkpoint fails closed",
+      "merge": "caller-supplied canonical deterministic merge or ordered task-id collection",
+      "required": [
+        "task_id",
+        "task_kind",
+        "binding_sha256",
+        "payload_ref_or_payload",
+        "cost_weight",
+        "checkpoint_policy"
+      ],
+      "task_id": "deterministic and independent of scheduling",
+      "worker_output": "pure result keyed by task_id; worker PID/timing are execution metadata only"
+    },
+    "telemetry": {
+      "execution_only": true,
+      "fields": [
+        "stage",
+        "task_kind",
+        "completed_tasks",
+        "total_tasks",
+        "completed_weight",
+        "total_weight",
+        "workers_active",
+        "throughput",
+        "wall_seconds",
+        "ETA",
+        "per_worker_completed_weight",
+        "IPC_merge_seconds"
+      ],
+      "frequency_seconds": "configurable execution-only"
+    }
+  },
+  "type": "object"
+}

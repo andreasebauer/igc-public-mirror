@@ -1,0 +1,54 @@
+{
+  "authority": {
+    "g4_r3_closeout_science_sha256": "729b55780c9e7f26666354bc89cfe1bcb574069940ad0575eee466e5a9ecdac4",
+    "g4_r3_primary_science_sha256": "9db7c02df78fa1028973c2db33d9641b707999a861647951d18306a0d9a7fad3",
+    "g4_r3_replay_science_sha256": "51a488e69d6d05adb28a7ff58416d723c9704b576d6c623279078db7dcbb2d81",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG"
+  },
+  "bounded_scope": {
+    "action": "ONE_NEW_G3_UNIT_LEAF_GRAFT_WITH_FIXED_NEW_H_CLASS_0_AND_EDGE_GRADE_0",
+    "decorations": "EXHAUSTIVE_BINARY_VERTEX_H_CLASS_AND_BINARY_EDGE_GRADE_ASSIGNMENTS",
+    "edge_grade_palette_size": 2,
+    "h_class_palette_size": 2,
+    "max_parent_g3_units": 5,
+    "underlying_shapes": "ALL_UNLABELLED_TREES_THROUGH_N5"
+  },
+  "candidate_ladder": [
+    "R2_PLUS_ROOT_H_CLASS",
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_1",
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_2",
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_3",
+    "R2_PLUS_DECORATED_MESSAGE_DEPTH_4"
+  ],
+  "cost_control": {
+    "full_decorated_tree_canon_in_science_loop": false,
+    "lower_layer_rematerialization": false,
+    "max_parent_g3_units": 5,
+    "new_parallel_science_kernels": 0,
+    "owner_frontier_enumeration": false
+  },
+  "nonclaims": [
+    "NO_ALL_RANKS_COMPLETENESS",
+    "NO_MINIMALITY_BEYOND_FROZEN_LADDER",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_RAW_H_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_G5_LAUNCH"
+  ],
+  "pass_classification": "G4_R4_REBASE_DECORATION_AWARE_DEPTH4_MESSAGE_ACTION_READ_EARNED_ON_REGISTERED_BINARY_DECORATED_SCOPE_R5_REBASE_DESIGN_AUTHORIZED",
+  "pass_requirements": [
+    "AUTHORITY_CHAIN_EXACT",
+    "PRIMARY_AND_COLD_EXACT_MATCH",
+    "EARLIER_CANDIDATE_FAILURE_RECORDED",
+    "SELECTED_READ_PREDICTIVE_ON_FULL_REGISTERED_BINARY_DECORATED_SCOPE",
+    "STRICT_ACTION_COMPRESSION_OBSERVED"
+  ],
+  "promotion": false,
+  "question": "What is the first bounded decoration-aware refinement of the certified R2 topology action read that restores exact one-leaf predictive closure after the R3 H-class and edge-grade counterexamples?",
+  "schema_id": "IG_G4_R4_REBASE_DECORATION_AWARE_PREDICTIVE_READ_SPEC_V1",
+  "science_sha256": "d48ef4ef334b44ce1ed291b34b8c781f3653fb6c4fe9e8bdf83d078e4a747678",
+  "selected_read_name": "R2_PLUS_DECORATED_MESSAGE_DEPTH_4_ACTION_BAG",
+  "stage_ref": "G4:R4.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

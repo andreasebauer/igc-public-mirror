@@ -1,0 +1,85 @@
+{
+  "authority": {
+    "g1_units_per_g2_seed": 4,
+    "g2_r0_incidence_tree_theorem_science_sha256": "71deb6bb8673260dbccc7a44e6a3de92581a3e30615c2dca3b0c9b12671ce7c5",
+    "g2_r0_science_sha256": "64d503d6c9680df893618b84c16f45af7592ae124ed6bd758b21e1f83110ff2f",
+    "g3_graduation_certificate_science_sha256": "56d33f5412b4b41a2250e08c47f611abd5912a5b5fc002821ce48f1a428a81b3",
+    "g3_s0_science_sha256": "42832d682c1e0175f6f7c02eff6047f9ba8bf2a165c6017d8f4776166e766199",
+    "s0_exact_g2_unit_count": 6
+  },
+  "date": "2026-09-03",
+  "exact_growth_probe": {
+    "construction": "Homogeneous sequential G3 one-cross growth from one deterministically selected certified S0 G2 unit using one outcome-blind maximum-headroom frozen bridge operator; retain complete exact relation-valued branches.",
+    "hard_exact_state_cap_per_rank": 200000,
+    "max_g2_units": 4,
+    "measure": [
+      "coarse G2-unit incidence tree",
+      "flattened G1 incidence tree",
+      "G2_INTERNAL/G3_CROSS edge grades",
+      "CAPS7",
+      "diameter",
+      "radius",
+      "degree sequence",
+      "articulations",
+      "bridges",
+      "shell profiles",
+      "unlabelled topology"
+    ],
+    "selection": "seed is lexicographically smallest certified S0 G2 carrier ref; operator maximizes endpoint CAPS7 headroom before topology outcomes"
+  },
+  "gates": {
+    "authority": "certified G3 graduation PASS/R0 unlocked plus certified S0 exact G2-unit corpus and G2:R0 tree theorem",
+    "coarse_tree_invariant": "every exact tested G3 carrier contracts to a connected G2-unit tree with m=n-1 beta=0 and every G3 edge a bridge",
+    "fine_tree_invariant": "every exact tested carrier flattens to a connected G1-unit tree with G2-internal and G3-cross edge grades",
+    "no_promotion": "R0 cannot change G3 graduation, CAPS7, routing semantics, topology visibility, or launch G4",
+    "shape_certificate": "all unlabelled coarse tree shapes through seven G2 units are enumerated and structurally realisable under the frozen repeated operator",
+    "topology_separation": "at least one exact pair has equal CAPS7 and equal typed G3 bridge multiset but nonisomorphic coarse G2-unit trees"
+  },
+  "nonclaims": [
+    "NO_PHYSICAL_SPACE",
+    "NO_SPACETIME",
+    "NO_DIMENSION",
+    "NO_CONTINUUM",
+    "NO_METRIC_EMBEDDING",
+    "NO_CAUSAL_SPEED",
+    "NO_TIME",
+    "NO_TOPOLOGY_PROMOTION_TO_G3_STATE",
+    "NO_CAPS7_MINIMALITY_CHANGE",
+    "NO_RAW_RELATION_ASSOCIATIVITY",
+    "NO_G4_GRADUATION"
+  ],
+  "observer": {
+    "firewall": "EXACT_HIERARCHICAL_TOPOLOGY_READ_IS_NONPROMOTING_RECONNAISSANCE_ONLY_AND_IS_NOT_ADDED_TO_G3_ACTION_SEMANTICS",
+    "name": "G3_R0_EXACT_HIERARCHICAL_INCIDENCE_RECON_OBSERVER_V1",
+    "reads": [
+      "recursive G3 child ownership solely to identify graduated G2-unit incidence endpoints",
+      "typed G3 cross-bridge incidence",
+      "certified G2 internal G1-unit incidence for fine flattening",
+      "CAPS7 only for public-state comparison"
+    ]
+  },
+  "outcomes": {
+    "fail": "G3_R0_REVIEW_REQUIRED_NO_PROMOTION",
+    "null": "CAPS7_ERASES_ALL_TESTED_INTRINSIC_HIERARCHICAL_TOPOLOGY_AT_G3_R0_SCOPE",
+    "pass": "INTRINSIC_G3_TWO_SCALE_GRADED_TREE_PREGEOMETRY_PRESENT_CAPS7_TOPOLOGY_BLIND"
+  },
+  "question": "After certified G3 graduation, what intrinsic incidence hierarchy exists behind the CAPS7 quotient in finite recursive G3 composites built from graduated G2 units, and does CAPS7 determine that hierarchy?",
+  "schema_id": "IG_G3_R0_STRUCTURAL_RECON_SPEC_V1",
+  "science_sha256": "24317e57b812651f11198b144866c3499e127552348a7ec694f0dd1d3dc986ed",
+  "shape_census": {
+    "expected_unlabelled_tree_counts_n1_to_nmax": [
+      1,
+      1,
+      1,
+      2,
+      3,
+      6,
+      11
+    ],
+    "headroom_gate": "chosen seed/operator must support every degree <=6 without exhausting either frozen endpoint type",
+    "max_g2_units": 7,
+    "method": "exhaustive Pr\u00fcfer enumeration modulo unlabelled tree canonical form plus structural leaf-addition realisability certificate; no n>4 exact G3 relation frontier materialization"
+  },
+  "stage_ref": "G3:R0",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

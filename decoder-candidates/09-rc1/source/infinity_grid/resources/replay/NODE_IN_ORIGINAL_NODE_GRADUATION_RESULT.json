@@ -1,0 +1,442 @@
+{
+  "NG0_integrity": {
+    "observed_exact_S15": 22885,
+    "observed_role_count": 64,
+    "primitive_count": 9,
+    "primitive_hash_failures": [],
+    "record_hash_failures": [],
+    "status": "PASS"
+  },
+  "NG1_exact_representation": {
+    "T_atom_count": 9,
+    "T_atoms": [
+      0,
+      5,
+      290,
+      1518,
+      1524,
+      1761,
+      3255,
+      3269,
+      24232
+    ],
+    "atom_failures": [],
+    "counter_coordinate_collisions": [],
+    "field_failures": [],
+    "fixed_fields": {
+      "L": 15,
+      "score": 1,
+      "stay": 0
+    },
+    "port_atom_count": 7,
+    "port_atoms": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        10,
+        0
+      ]
+    ],
+    "reconstruction_failures": [],
+    "statement": "Modulo the already-audited anonymous-port and destination-token isomorphism used by the Scout canonical boundary representation, the fixed fields plus the 7 P/M multiplicities and 9 T-atom multiplicities reconstruct the complete mature boundary exactly.",
+    "status": "PASS_EXACT_COORDINATES"
+  },
+  "NG2_generated_size_invariant": {
+    "composition_invariant_failures": [],
+    "consequence": "A generated mature node always has at least three exposed ports. The empty-support element of the earlier 128 abstract support closure is therefore not realizable by any finite J3-generated exact object.",
+    "observed_invariant_failures": [],
+    "primitive_base_T": 1,
+    "primitive_base_ports": 3,
+    "status": "PASS_GENERATED_SIZE_INVARIANT",
+    "theorem": "For a finite object built from n J3 primitives and n-1 single bridges, ports=3n-2(n-1)=n+2 while T concatenation gives |T|=n. Hence #ports=|T|+2. If A and B each satisfy it, then #ports(A*B)=pA+pB-2=(TA+2)+(TB+2)-2=TA+TB+2=|T_out|+2."
+  },
+  "NG3_exact_mature_macro_closure": {
+    "closure_failures": [],
+    "counter_formula": "p_out = p_A + p_B - e_a - e_b ; T_out_counts = T_A_counts + T_B_counts",
+    "counter_vs_exact_mismatches": [],
+    "regression_exact_cases": 43008,
+    "regression_panel_states": 64,
+    "scope": "Arbitrary lawful mature-mature single-bridge composition; full multiplicities and T preserved exactly, not merely support roles.",
+    "status": "PASS_EXACT_MATURE_MACRO_CLOSURE",
+    "theorem": "Let A,B be generated mature records with L=15,s=1,stay=0. For any lawful selected port types a,b, L_out=15 OR 15=15; s_out=min(1,1)=1; stay_out=0 AND 0=0. The two selected P/M entries are subtracted from the input multiplicity vectors and all other entries are retained; no new P/M atom is created. T_out is concatenation, so its 9-atom count vector is the sum of the two input vectors and no new T atom is created. Thus the exact output is another generated mature record in the same 16-counter grammar."
+  },
+  "NG4_finite_control": {
+    "ordered_bridge_type_pairs": 31,
+    "ordered_compatible_pairs": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          24
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          24
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          1,
+          24
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          1,
+          24
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ]
+    ],
+    "statement": "The mature binary compositor is controlled by a fixed seven-channel alphabet and 31 ordered compatible selected-type pairs. Exact state values are unbounded integer counters, but no new descriptor or atom is required.",
+    "status": "PASS_FINITE_CONTROL",
+    "unordered_bridge_type_pairs": 18
+  },
+  "NG5_relation_substitution_lift": {
+    "premises": [
+      "Boundary Closure",
+      "Bridge Sufficiency",
+      "Output Sufficiency / Equivariance",
+      "Finite-Context Quotient Stability",
+      "Selection Congruence",
+      "Recursive Constructor Completeness"
+    ],
+    "selection_note": "Relations containing only mature records have score 1 throughout mature-mature composition, so weakest-link selection cannot eject an output from M.",
+    "statement": "Because M is closed under the same audited boundary compositor, all finite mature-node internal composition contexts inherit the canonical finite-algebra substitution theorem: replacing a generated mature microscopic composite by its complete boundary relation changes no later bridge behavior or selected output relation, modulo interface isomorphism.",
+    "status": "PASS_INHERITED_EXACT_SUBSTITUTION"
+  },
+  "NG6_local_reusability": {
+    "guardrail": "This earns an internal algebraic node TYPE only. Ordinary composition merges two inputs into one macro; it is not yet an inter-node edge law that preserves two distinct node instances.",
+    "instance_independence": "Any two independently instantiated copies of a mature boundary state obey the same bridge and counter-composition law.",
+    "membership": "Generated S15 boundary interface: L=15,s=1,stay=0. The 7/9 alphabets are inherited globally from the frozen J3 constructor.",
+    "operation_inputs": "Only the two declared boundary states and selected port types; no level, ancestry, construction history, global position, geometry, or privileged origin.",
+    "status": "PASS_LOCAL_REUSABLE_NODE_TYPE"
+  },
+  "audit": "Infinity Grid Mature Node Graduation Audit",
+  "graduated_definition": {
+    "definition": "The generated S15 partial subalgebra of exact boundary-interface isomorphism classes: L=15,s=1,stay=0, represented exactly by seven P/M multiplicity counters and nine destination-atom counters, with #ports=|T|+2 for every finite J3-generated member.",
+    "internal_operation": "lawful single-bridge composition inherited from the frozen compositor",
+    "name": "Mature algebraic node type M",
+    "nature": "finite-control counter algebra; not a finite-state object",
+    "not_included": [
+      "actual instantiation",
+      "infinite actual multiplicity",
+      "persistent inter-node edge",
+      "geometry",
+      "dimension",
+      "time",
+      "ignition",
+      "psi-like transport"
+    ]
+  },
+  "overall_status": "MATURE_NODE_ALGEBRA_EARNED",
+  "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e"
+}
