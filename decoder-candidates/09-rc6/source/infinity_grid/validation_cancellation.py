@@ -1,0 +1,166 @@
+"""Worker-owned cancellation and controller cleanup acknowledgment.
+
+Only the dedicated, single-threaded validation worker may install this scope.
+Its caller must enable subreaper ownership and supply descendant reaping.
+No mounted /proc identifiers, system-wide signalling, or workload retries.
+"""
+import os
+import signal
+import subprocess
+import json
+import time
+
+
+class ValidationCancelled(RuntimeError):
+    pass
+
+
+class WorkerCancellation:
+    def __init__(self):
+        self.owner = os.getpid()
+        self.requested = False
+        self.previous = None
+
+    def _request(self, signum, frame):
+        # Do not raise asynchronously: Popen may still be constructing its
+        # process handle. The next safe check owns a fully constructed handle.
+        self.requested = True
+
+    def __enter__(self):
+        self.previous = signal.signal(signal.SIGTERM, self._request)
+        return self
+
+    def __exit__(self, *unused):
+        signal.signal(signal.SIGTERM, self.previous)
+
+    def check(self):
+        if os.getpid() != self.owner:
+            raise RuntimeError('CANCELLATION_OWNER_CHANGED')
+        if self.requested:
+            raise ValidationCancelled('VALIDATION_CANCELLED')
+
+    def communicate(self, command, *, cwd, env, reap_descendants):
+        """Return output only after normal EOF; cancellation never publishes it.
+
+        start_new_session creates a group owned by the returned Popen PID in
+        the caller's namespace. Retain the group leader until shutdown, then
+        wait for adopted descendants before allowing the worker to exit.
+        Descendants that deliberately leave the group are NOT claimed covered;
+        reap_descendants must report non-quiescence rather than grant success.
+        """
+        self.check()
+        proc = subprocess.Popen(command, cwd=cwd, env=env,
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT,
+                                start_new_session=True)
+        try:
+            while True:
+                self.check()
+                try:
+                    raw, _ = proc.communicate(timeout=0.1)
+                    break
+                except subprocess.TimeoutExpired:
+                    continue
+            self.check()
+        except BaseException as original:
+            errors = []
+            # A completed communicate already reaped the leader. Do not use
+            # its numeric PID as a process-group identity after that point.
+            if proc.returncode is None:
+                try:
+                    os.killpg(proc.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                except OSError as exc:
+                    errors.append(repr(exc))
+                try:
+                    proc.wait(timeout=5)
+                except BaseException as exc:
+                    errors.append(repr(exc))
+            if proc.stdout is not None:
+                proc.stdout.close()
+            try:
+                reap_descendants()
+            except BaseException as exc:
+                errors.append(repr(exc))
+            if errors:
+                raise RuntimeError('VALIDATION_CLEANUP_UNCONFIRMED:' +
+                                   ';'.join(errors)) from original
+            raise
+        return subprocess.CompletedProcess(command, proc.returncode, raw), raw
+
+
+def cancel_workers(pending, *, timeout_seconds=12):
+    """Cancel/reap only our unreaped direct children, then verify their replies.
+
+    pending uses the native worker tuple (index, read-fd, nodes, log-path).
+    Entries are removed immediately after reaping so no second cleanup can
+    accidentally address a reused PID. Unknown ownership fails closed.
+    """
+    buffers = {pid: bytearray() for pid in pending}
+    errors = []
+    statuses = {}
+    for pid, (_, fd, _, _) in list(pending.items()):
+        os.set_blocking(fd, False)
+        try:
+            got, status = os.waitpid(pid, os.WNOHANG)
+        except ChildProcessError:
+            pending.pop(pid)
+            os.close(fd)
+            errors.append('NOT_OWNED_CHILD:' + str(pid))
+            continue
+        if got:
+            statuses[pid] = status
+        else:
+            # A direct child not yet reaped cannot have its PID reused.
+            try:
+                os.kill(pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+    deadline = time.monotonic() + timeout_seconds
+    while pending:
+        for pid, (_, fd, _, _) in list(pending.items()):
+            try:
+                chunk = os.read(fd, 4096)
+                buffers[pid].extend(chunk)
+            except BlockingIOError:
+                pass
+            if len(buffers[pid]) > 65536:
+                raise RuntimeError('VALIDATION_CLEANUP_REPLY_TOO_LARGE')
+            if pid not in statuses:
+                got, status = os.waitpid(pid, os.WNOHANG)
+                if not got:
+                    continue
+                statuses[pid] = status
+            # Child has exited; the worker pipe is non-inheritable across exec.
+            try:
+                while True:
+                    chunk = os.read(fd, 4096)
+                    if not chunk:
+                        break
+                    buffers[pid].extend(chunk)
+                    if len(buffers[pid]) > 65536:
+                        raise RuntimeError('VALIDATION_CLEANUP_REPLY_TOO_LARGE')
+            except BlockingIOError:
+                errors.append('CLEANUP_PIPE_STILL_OPEN:' + str(pid))
+            finally:
+                pending.pop(pid)
+                os.close(fd)
+            try:
+                reply = json.loads(buffers[pid])
+                if not isinstance(reply, dict):
+                    raise ValueError('ACK_NOT_OBJECT')
+                if reply.get('cleanup_quiescent') is not True:
+                    raise ValueError('ACK_MISSING')
+                if not os.WIFEXITED(statuses[pid]) or os.WEXITSTATUS(statuses[pid]) != 0:
+                    raise ValueError('WORKER_EXIT_FAILED')
+            except (ValueError, TypeError) as exc:
+                errors.append(str(pid) + ':' + str(exc))
+        if pending:
+            if time.monotonic() >= deadline:
+                # Do not silently discard the owning supervisor. The caller
+                # must retain this as unconfirmed cleanup, never as a pass.
+                raise RuntimeError('VALIDATION_CLEANUP_TIMEOUT:' + str(sorted(pending)))
+            time.sleep(.01)
+    if errors:
+        raise RuntimeError('VALIDATION_CLEANUP_UNCONFIRMED:' + ';'.join(errors))

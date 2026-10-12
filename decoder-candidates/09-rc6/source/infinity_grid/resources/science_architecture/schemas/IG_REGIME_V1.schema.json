@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_lift_target_policy": {
+      "type": "string"
+    },
+    "closure_assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "depth_coordinate": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "origin": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "semantic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "origin",
+        "semantic"
+      ],
+      "type": "object"
+    },
+    "development_law": {
+      "additionalProperties": false,
+      "properties": {
+        "action_language_ref": {
+          "type": "string"
+        },
+        "constructor_ref": {
+          "type": "string"
+        },
+        "law_id": {
+          "type": "string"
+        },
+        "multiplicity_mode": {
+          "enum": [
+            "SET",
+            "MULTISET",
+            "COUNTER",
+            "DECLARED_OTHER"
+          ]
+        },
+        "relation_valued": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "law_id",
+        "version",
+        "constructor_ref",
+        "action_language_ref",
+        "multiplicity_mode",
+        "relation_valued"
+      ],
+      "type": "object"
+    },
+    "exposed_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "historical_depth_alias_rule": {
+      "type": "string"
+    },
+    "ignition": {
+      "additionalProperties": false,
+      "properties": {
+        "coordinate": {
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "version": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "version"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinate",
+        "status",
+        "evidence_refs"
+      ],
+      "type": "object"
+    },
+    "input_entity_class_ref": {
+      "type": "string"
+    },
+    "law_authority_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "observer_ref": {
+      "type": "string"
+    },
+    "primitive_semantics_sentinel_ref": {
+      "type": "string"
+    },
+    "regime_boundary_sentinel_ref": {
+      "type": "string"
+    },
+    "regime_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_REGIME_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "regime_id",
+    "version",
+    "status",
+    "input_entity_class_ref",
+    "ignition",
+    "depth_coordinate",
+    "development_law",
+    "observer_ref",
+    "closure_assumptions",
+    "law_authority_refs",
+    "exposed_capabilities",
+    "primitive_semantics_sentinel_ref",
+    "regime_boundary_sentinel_ref",
+    "allowed_lift_target_policy",
+    "reopen_conditions",
+    "historical_depth_alias_rule"
+  ],
+  "title": "IG Decoder Regime Protocol V1",
+  "type": "object"
+}

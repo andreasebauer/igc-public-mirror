@@ -1,0 +1,142 @@
+{
+  "adapter_id": "v05.science.g3-repaired-r3",
+  "budgets": {
+    "max_cases": 64,
+    "max_steps": 7
+  },
+  "continuation": {
+    "of_registration_sha256": null,
+    "version": 0
+  },
+  "promotion_policy": {
+    "authority_effect": "NONE_P6",
+    "graduation_authorized": false,
+    "graduation_requested": false
+  },
+  "question": {
+    "scope": "G3_ACCEPTED_S0_S6_HISTORY_TRANSPORT",
+    "stage_rows": [
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_BASELINE_UNIT_INTERFACE_FROZEN_CAPS7_ONLY_TOPOLOGY_COLLISION_CORPUS_EARNED_S1_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S0",
+          "reference_status": "PASS",
+          "spec_sha256": "b6899f588161c997d37161818e92fa78013f34454d3992d1217efafe15aacea0",
+          "stage": "S0"
+        },
+        "registered_alternatives": [
+          "G3_BASELINE_UNIT_INTERFACE_FROZEN_CAPS7_ONLY_TOPOLOGY_COLLISION_CORPUS_EARNED_S1_UNLOCKED"
+        ],
+        "stage": "S0"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_TOPOLOGY_NOT_READ_ON_REGISTERED_PAIR_CONTEXT_BASIS_CAPS7_SURVIVES_S2_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S1",
+          "reference_status": "PASS",
+          "spec_sha256": "b5c00a2cf5de79800ed95df10d12313cef72300d4f3b5e291bb015b80c299feb",
+          "stage": "S1"
+        },
+        "registered_alternatives": [
+          "G3_TOPOLOGY_NOT_READ_ON_REGISTERED_PAIR_CONTEXT_BASIS_CAPS7_SURVIVES_S2_UNLOCKED"
+        ],
+        "stage": "S1"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_CAPS7_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ_S3_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S2",
+          "reference_status": "PASS",
+          "spec_sha256": "02610d9c5d0fa1d147bbe98eb68b8706ba762439faa78ba09ecde03c58a6b704",
+          "stage": "S2"
+        },
+        "registered_alternatives": [
+          "G3_CAPS7_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ_S3_UNLOCKED"
+        ],
+        "stage": "S2"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_CAPS7_S2_SCOPE_S4_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S3",
+          "reference_status": "PASS",
+          "spec_sha256": "8c0b0ff60bf036276b12254048bb35c286f5db343af5623c466e515f1b845bee",
+          "stage": "S3"
+        },
+        "registered_alternatives": [
+          "G3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_CAPS7_S2_SCOPE_S4_UNLOCKED"
+        ],
+        "stage": "S3"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_ONE_STEP_RELATION_VALUED_COMPOSITION_CLOSURE_ON_FROZEN_P3_CAPS7_SCOPE_S5_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S4",
+          "reference_status": "PASS",
+          "spec_sha256": "f905dc5781977cf1d38b2f6fe8e3a25eedb4b4ac30f463ef822685faf8e1565e",
+          "stage": "S4"
+        },
+        "registered_alternatives": [
+          "G3_ONE_STEP_RELATION_VALUED_COMPOSITION_CLOSURE_ON_FROZEN_P3_CAPS7_SCOPE_S5_UNLOCKED"
+        ],
+        "stage": "S4"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_CAPS7_FINITE_READ_WRITE_DESCRIPTOR_EARNED_ON_FROZEN_RELATION_VALUED_GRAMMAR_S6_UNLOCKED",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S5",
+          "reference_status": "PASS",
+          "spec_sha256": "dffdd0bd3d0f77ef5f4397b6dae8ac9ab3f5cd82f83cecb96ef3c62b67c9703e",
+          "stage": "S5"
+        },
+        "registered_alternatives": [
+          "G3_CAPS7_FINITE_READ_WRITE_DESCRIPTOR_EARNED_ON_FROZEN_RELATION_VALUED_GRAMMAR_S6_UNLOCKED"
+        ],
+        "stage": "S5"
+      },
+      {
+        "capability_id": "p6.history.reference",
+        "parameters": {
+          "classification": "G3_CAPS7_RECURSIVE_RELATION_CLOSURE_EARNED_GRADUATION_CANDIDATE_AWAITING_COLD_REPLAY",
+          "expected_adapter_family": "G3_CORRECTED",
+          "historical_stage_ref": "G3:S6",
+          "reference_status": "PASS",
+          "spec_sha256": "6968b56d0fa15a7f3e87f60220408ebe436b8a8e08094709056ed9f99b905f0e",
+          "stage": "S6"
+        },
+        "registered_alternatives": [
+          "G3_CAPS7_RECURSIVE_RELATION_CLOSURE_EARNED_GRADUATION_CANDIDATE_AWAITING_COLD_REPLAY"
+        ],
+        "stage": "S6"
+      }
+    ]
+  },
+  "registration_id": "p6-g3-s-history-v1",
+  "registration_sha256": "bbfa3887886095b3886daca9300255daeb99575634002cbc2858f3a3cb5708ed",
+  "schema_id": "IG_DECODER_V05_WORKFLOW_REGISTRATION_V1",
+  "status": "ACTIVE_CANDIDATE",
+  "stop_rules": {
+    "budget_exhausted": "STOP",
+    "changed_assumptions": "STOP",
+    "falsification": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "unmet_proof_obligations": "STOP"
+  },
+  "subject": {
+    "scope": "G3_ACCEPTED_S0_S6_HISTORY_TRANSPORT"
+  },
+  "workflow_kind": "STRUCTURAL_S0_S6",
+  "workflow_mode": "LAW_TRANSPORT"
+}

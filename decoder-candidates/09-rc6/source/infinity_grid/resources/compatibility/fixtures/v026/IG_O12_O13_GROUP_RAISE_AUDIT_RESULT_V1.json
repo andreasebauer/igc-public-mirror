@@ -1,0 +1,546 @@
+{
+  "build_meta": {
+    "10": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    },
+    "11": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    },
+    "12": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    },
+    "13": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    },
+    "8": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    },
+    "9": {
+      "build_failures": 0,
+      "candidates": 193,
+      "twin_constructed": true
+    }
+  },
+  "classification": "O12_O13_RAISE_CANDIDATE_REJECTED_AS_EXPLORATORY_PANEL_SELECTION_ARTIFACT",
+  "date": "2026-08-30",
+  "default_panel_recipe_membership": {
+    "10": [
+      "HET|HET:5:20",
+      "HET|HET:5:6",
+      "HET|HET:6:138",
+      "HET|HET:6:90",
+      "HOM|HOM:4:0",
+      "HOM|HOM:4:1",
+      "HOM|HOM:4:4",
+      "HOM|HOM:5:13",
+      "HOM|HOM:5:25",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:106",
+      "HOM|HOM:6:109",
+      "HOM|HOM:6:121",
+      "HOM|HOM:6:136",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:29",
+      "HOM|HOM:6:32",
+      "HOM|HOM:6:45",
+      "HOM|HOM:6:46",
+      "HOM|HOM:6:50",
+      "MIX|MIX:4:0",
+      "MIX|MIX:4:5",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ],
+    "11": [
+      "HET|HET:5:15",
+      "HET|HET:5:26",
+      "HET|HET:5:6",
+      "HET|HET:6:138",
+      "HET|HET:6:36",
+      "HOM|HOM:4:0",
+      "HOM|HOM:4:1",
+      "HOM|HOM:5:13",
+      "HOM|HOM:5:20",
+      "HOM|HOM:5:6",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:121",
+      "HOM|HOM:6:131",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:32",
+      "HOM|HOM:6:35",
+      "HOM|HOM:6:45",
+      "HOM|HOM:6:75",
+      "HOM|HOM:6:92",
+      "HOM|HOM:6:95",
+      "MIX|MIX:4:3",
+      "MIX|MIX:4:5",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ],
+    "12": [
+      "HET|HET:4:5",
+      "HET|HET:5:15",
+      "HET|HET:5:26",
+      "HET|HET:5:6",
+      "HET|HET:6:108",
+      "HET|HET:6:138",
+      "HET|HET:6:30",
+      "HET|HET:6:60",
+      "HOM|HOM:4:0",
+      "HOM|HOM:4:4",
+      "HOM|HOM:5:13",
+      "HOM|HOM:5:20",
+      "HOM|HOM:5:6",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:105",
+      "HOM|HOM:6:109",
+      "HOM|HOM:6:135",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:32",
+      "HOM|HOM:6:45",
+      "HOM|HOM:6:47",
+      "MIX|MIX:4:1",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ],
+    "13": [
+      "HET|HET:4:5",
+      "HET|HET:5:15",
+      "HET|HET:5:26",
+      "HET|HET:5:6",
+      "HET|HET:6:108",
+      "HET|HET:6:138",
+      "HET|HET:6:30",
+      "HET|HET:6:60",
+      "HOM|HOM:4:0",
+      "HOM|HOM:4:4",
+      "HOM|HOM:5:13",
+      "HOM|HOM:5:20",
+      "HOM|HOM:5:6",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:105",
+      "HOM|HOM:6:109",
+      "HOM|HOM:6:135",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:32",
+      "HOM|HOM:6:45",
+      "HOM|HOM:6:47",
+      "MIX|MIX:4:1",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ],
+    "8": [
+      "HET|HET:4:0",
+      "HET|HET:4:5",
+      "HET|HET:5:13",
+      "HET|HET:5:19",
+      "HET|HET:5:26",
+      "HET|HET:5:6",
+      "HET|HET:5:8",
+      "HET|HET:6:108",
+      "HET|HET:6:138",
+      "HET|HET:6:36",
+      "HET|HET:6:78",
+      "HOM|HOM:4:1",
+      "HOM|HOM:4:5",
+      "HOM|HOM:5:16",
+      "HOM|HOM:5:26",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:112",
+      "HOM|HOM:6:137",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:50",
+      "HOM|HOM:6:63",
+      "MIX|MIX:4:3",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ],
+    "9": [
+      "HET|HET:4:3",
+      "HET|HET:5:13",
+      "HET|HET:5:23",
+      "HET|HET:5:6",
+      "HET|HET:5:8",
+      "HET|HET:6:132",
+      "HET|HET:6:138",
+      "HET|HET:6:60",
+      "HOM|HOM:4:1",
+      "HOM|HOM:4:5",
+      "HOM|HOM:5:15",
+      "HOM|HOM:5:26",
+      "HOM|HOM:5:6",
+      "HOM|HOM:5:8",
+      "HOM|HOM:6:27",
+      "HOM|HOM:6:29",
+      "HOM|HOM:6:32",
+      "HOM|HOM:6:45",
+      "HOM|HOM:6:50",
+      "HOM|HOM:6:95",
+      "MIX|MIX:4:1",
+      "MIX|MIX:4:5",
+      "TWIN|TWIN:A",
+      "TWIN|TWIN:B"
+    ]
+  },
+  "exact_mechanism": {
+    "implementation_dependencies": [
+      "_action_aggregate uses owner support booleans plus typed top edges for action-orbit/service organization",
+      "_factor_fiber uses top edges plus support colors",
+      "_graph_basic uses only the top graph",
+      "service identity excludes Counter magnitude"
+    ],
+    "statement": "Under full seven-type endpoint support and the frozen top-level motif/type schedule, the audited normalized branching/symmetry/lineage/topology-service observables factor through the recipe's typed top graph and support pattern; Counter magnitude and nested depth are excluded by the frozen observer.",
+    "verified_hypotheses": {
+      "fixed_common_recipe_set": true,
+      "full_support_O11_O13": true,
+      "zero_per_recipe_mismatch": true
+    }
+  },
+  "gates": {
+    "A1_reproduce_candidate": {
+      "levels": {
+        "10": {
+          "expected": "a8839830ab80320151e6f3e12697c4c7aa59ed5030c485cc58e643ab994ef3f2",
+          "observed": "a8839830ab80320151e6f3e12697c4c7aa59ed5030c485cc58e643ab994ef3f2",
+          "pass": true
+        },
+        "11": {
+          "expected": "fff91a0918cb12b618d7d95ed5d9bc69ca4d65b4a644dbc347ddbadf00b4d78a",
+          "observed": "fff91a0918cb12b618d7d95ed5d9bc69ca4d65b4a644dbc347ddbadf00b4d78a",
+          "pass": true
+        },
+        "12": {
+          "expected": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+          "observed": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+          "pass": true
+        },
+        "13": {
+          "expected": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+          "observed": "b21a3596e53161fee9a0660bf8a2f0d004f89e5ebe0c6265981c5455691a5951",
+          "pass": true
+        },
+        "7": {
+          "expected": "e19019a26469b2ec68804384e5774fb04d3633e523caf52f19c68f72eee7d462",
+          "observed": "e19019a26469b2ec68804384e5774fb04d3633e523caf52f19c68f72eee7d462",
+          "pass": true
+        },
+        "8": {
+          "expected": "8728de928e606240f9a01e435844488e9f8c4ef7c7c5297da2299582c76d11fd",
+          "observed": "8728de928e606240f9a01e435844488e9f8c4ef7c7c5297da2299582c76d11fd",
+          "pass": true
+        },
+        "9": {
+          "expected": "ca939a198b24b5b342d99fc03e9e0f0f7f401c927f362d94463b04532a34ef0d",
+          "observed": "ca939a198b24b5b342d99fc03e9e0f0f7f401c927f362d94463b04532a34ef0d",
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "A2_full_support": {
+      "failure_count": 0,
+      "failures": [],
+      "pass": true
+    },
+    "A3_recipe_invariance": {
+      "common_recipes": 193,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true,
+      "pool_sizes": {
+        "11": 193,
+        "12": 193,
+        "13": 193
+      }
+    },
+    "A4_matched_panels": {
+      "LEX24_recipe_ids": [
+        "HET|HET:4:0",
+        "HET|HET:4:1",
+        "HET|HET:4:2",
+        "HET|HET:4:3",
+        "HET|HET:4:4",
+        "HET|HET:4:5",
+        "HET|HET:5:10",
+        "HET|HET:5:11",
+        "HET|HET:5:12",
+        "HET|HET:5:13",
+        "HET|HET:5:14",
+        "HET|HET:5:15",
+        "HET|HET:5:16",
+        "HET|HET:5:17",
+        "HET|HET:5:18",
+        "HET|HET:5:19",
+        "HET|HET:5:20",
+        "HET|HET:5:21",
+        "HET|HET:5:22",
+        "HET|HET:5:23",
+        "HET|HET:5:24",
+        "HET|HET:5:25",
+        "HET|HET:5:26",
+        "HET|HET:5:6"
+      ],
+      "STRAT24_recipe_ids": [
+        "HET|HET:4:0",
+        "HET|HET:5:10",
+        "HET|HET:6:102",
+        "HOM|HOM:4:0",
+        "HOM|HOM:5:10",
+        "HOM|HOM:6:100",
+        "MIX|MIX:4:0",
+        "TWIN|TWIN:A",
+        "HET|HET:4:1",
+        "HET|HET:5:11",
+        "HET|HET:6:108",
+        "HOM|HOM:4:1",
+        "HOM|HOM:5:11",
+        "HOM|HOM:6:101",
+        "MIX|MIX:4:1",
+        "TWIN|TWIN:B",
+        "HET|HET:4:2",
+        "HET|HET:5:12",
+        "HET|HET:6:114",
+        "HOM|HOM:4:2",
+        "HOM|HOM:5:12",
+        "HOM|HOM:6:102",
+        "MIX|MIX:4:2",
+        "HET|HET:4:3"
+      ],
+      "panels": {
+        "FULL_POOL": {
+          "lanes": {
+            "branching": {
+              "hashes": [
+                "fefa9911886385df08d6fc48a2474ce460037a70547821c3ddb060edc259224f",
+                "fefa9911886385df08d6fc48a2474ce460037a70547821c3ddb060edc259224f",
+                "fefa9911886385df08d6fc48a2474ce460037a70547821c3ddb060edc259224f"
+              ],
+              "stable": true
+            },
+            "lineage": {
+              "hashes": [
+                "1e3aecfdfe4f98ead4b66a18db7a1c1b981db85bf81473c0056345090a85c05f",
+                "1e3aecfdfe4f98ead4b66a18db7a1c1b981db85bf81473c0056345090a85c05f",
+                "1e3aecfdfe4f98ead4b66a18db7a1c1b981db85bf81473c0056345090a85c05f"
+              ],
+              "stable": true
+            },
+            "symmetry": {
+              "hashes": [
+                "3050e1b9a978bc71635962acde66747271b1db13a6e655fa981a2f0c98752907",
+                "3050e1b9a978bc71635962acde66747271b1db13a6e655fa981a2f0c98752907",
+                "3050e1b9a978bc71635962acde66747271b1db13a6e655fa981a2f0c98752907"
+              ],
+              "stable": true
+            },
+            "topology_services": {
+              "hashes": [
+                "d3cf1bb646a602ea97e89e46c1c57294fa5909f3efb11d582f15b1df14c4be2e",
+                "d3cf1bb646a602ea97e89e46c1c57294fa5909f3efb11d582f15b1df14c4be2e",
+                "d3cf1bb646a602ea97e89e46c1c57294fa5909f3efb11d582f15b1df14c4be2e"
+              ],
+              "stable": true
+            }
+          },
+          "normalized_signature_sha256": [
+            "ea1f2b0bfd32edea2e6257b55dca33e4a2d02af40b3140a5da702140d94149f9",
+            "ea1f2b0bfd32edea2e6257b55dca33e4a2d02af40b3140a5da702140d94149f9",
+            "ea1f2b0bfd32edea2e6257b55dca33e4a2d02af40b3140a5da702140d94149f9"
+          ],
+          "states": [
+            193,
+            193,
+            193
+          ]
+        },
+        "LEX24": {
+          "lanes": {
+            "branching": {
+              "hashes": [
+                "316c8661a965c4bd9150d65ea6c65f288ef240a7b26287b0a8c4a0191609ab80",
+                "316c8661a965c4bd9150d65ea6c65f288ef240a7b26287b0a8c4a0191609ab80",
+                "316c8661a965c4bd9150d65ea6c65f288ef240a7b26287b0a8c4a0191609ab80"
+              ],
+              "stable": true
+            },
+            "lineage": {
+              "hashes": [
+                "caa4e3fc29508fdab0b1598095eda5bd3bce189e7c108d46bff0bf4b7829c615",
+                "caa4e3fc29508fdab0b1598095eda5bd3bce189e7c108d46bff0bf4b7829c615",
+                "caa4e3fc29508fdab0b1598095eda5bd3bce189e7c108d46bff0bf4b7829c615"
+              ],
+              "stable": true
+            },
+            "symmetry": {
+              "hashes": [
+                "01827d55d7030bee939b1ba708e3a74055bc17538ef7dee6218186f1fd57ff98",
+                "01827d55d7030bee939b1ba708e3a74055bc17538ef7dee6218186f1fd57ff98",
+                "01827d55d7030bee939b1ba708e3a74055bc17538ef7dee6218186f1fd57ff98"
+              ],
+              "stable": true
+            },
+            "topology_services": {
+              "hashes": [
+                "1617d5b5e3e58a10872736dc5a7c465785eabbc07e7a625563348a2e5b5269db",
+                "1617d5b5e3e58a10872736dc5a7c465785eabbc07e7a625563348a2e5b5269db",
+                "1617d5b5e3e58a10872736dc5a7c465785eabbc07e7a625563348a2e5b5269db"
+              ],
+              "stable": true
+            }
+          },
+          "normalized_signature_sha256": [
+            "e849498f3451189a7ad6df5eb356f09164312fab72e24bb4708f9b733b7319ea",
+            "e849498f3451189a7ad6df5eb356f09164312fab72e24bb4708f9b733b7319ea",
+            "e849498f3451189a7ad6df5eb356f09164312fab72e24bb4708f9b733b7319ea"
+          ],
+          "states": [
+            24,
+            24,
+            24
+          ]
+        },
+        "STRAT24": {
+          "lanes": {
+            "branching": {
+              "hashes": [
+                "c776401f9085fbc2c20a02b29ccd8d64abe71fe064db0229ef297bc91bffbfeb",
+                "c776401f9085fbc2c20a02b29ccd8d64abe71fe064db0229ef297bc91bffbfeb",
+                "c776401f9085fbc2c20a02b29ccd8d64abe71fe064db0229ef297bc91bffbfeb"
+              ],
+              "stable": true
+            },
+            "lineage": {
+              "hashes": [
+                "b1116175a69f6d3b49b9f01fb0b06ade2a94698c16d8d841c97ed5b1f96c40a0",
+                "b1116175a69f6d3b49b9f01fb0b06ade2a94698c16d8d841c97ed5b1f96c40a0",
+                "b1116175a69f6d3b49b9f01fb0b06ade2a94698c16d8d841c97ed5b1f96c40a0"
+              ],
+              "stable": true
+            },
+            "symmetry": {
+              "hashes": [
+                "6d9ba0bbc3c1b91ad88b9c50e138fd2cd4dcb81d39d328832ab3524993df1e27",
+                "6d9ba0bbc3c1b91ad88b9c50e138fd2cd4dcb81d39d328832ab3524993df1e27",
+                "6d9ba0bbc3c1b91ad88b9c50e138fd2cd4dcb81d39d328832ab3524993df1e27"
+              ],
+              "stable": true
+            },
+            "topology_services": {
+              "hashes": [
+                "61e72bfb5260a27551495036e3c839cfc73394893aa1ce70e255519c79b9ce08",
+                "61e72bfb5260a27551495036e3c839cfc73394893aa1ce70e255519c79b9ce08",
+                "61e72bfb5260a27551495036e3c839cfc73394893aa1ce70e255519c79b9ce08"
+              ],
+              "stable": true
+            }
+          },
+          "normalized_signature_sha256": [
+            "578aa73d4419f52401cbedde09375e7e3031bacc89f43c347f7a33f39bca2301",
+            "578aa73d4419f52401cbedde09375e7e3031bacc89f43c347f7a33f39bca2301",
+            "578aa73d4419f52401cbedde09375e7e3031bacc89f43c347f7a33f39bca2301"
+          ],
+          "states": [
+            24,
+            24,
+            24
+          ]
+        }
+      },
+      "pass": true
+    },
+    "A5_selection_causality": {
+      "changed_O11_to_O12": [
+        "symmetry",
+        "lineage",
+        "topology_services"
+      ],
+      "default_lane_hashes": {
+        "branching": [
+          "e2490cd157695917001492ba384d988efeff9e1349c3d1303c7e10fa2de9c1c0",
+          "e2490cd157695917001492ba384d988efeff9e1349c3d1303c7e10fa2de9c1c0",
+          "e2490cd157695917001492ba384d988efeff9e1349c3d1303c7e10fa2de9c1c0"
+        ],
+        "lineage": [
+          "5805251b5f12754c60538c869632c324e137bda123e9477f966718472ffdd315",
+          "f55275fc9771f30038288ff7ff494d2ab9fac162a841f2d1eb2dd1308c8d1928",
+          "f55275fc9771f30038288ff7ff494d2ab9fac162a841f2d1eb2dd1308c8d1928"
+        ],
+        "symmetry": [
+          "f9321e594a271d0baae1e3bd509af9a83d366b9517034c8de7636ecca2b7b222",
+          "6d9ba0bbc3c1b91ad88b9c50e138fd2cd4dcb81d39d328832ab3524993df1e27",
+          "6d9ba0bbc3c1b91ad88b9c50e138fd2cd4dcb81d39d328832ab3524993df1e27"
+        ],
+        "topology_services": [
+          "207cca5b5b5b4c659be2fa47a6349e4aa5cc4e2c3b0e17e040a6bde95c35b634",
+          "8f92529ce47bec1e1e268403d3ae7768c1c850aa3c02d04612414cfd94e6db79",
+          "8f92529ce47bec1e1e268403d3ae7768c1c850aa3c02d04612414cfd94e6db79"
+        ]
+      },
+      "membership": {
+        "O11_O12_jaccard": 0.4117647058823529,
+        "O11_only": [
+          "HET|HET:6:36",
+          "HOM|HOM:4:1",
+          "HOM|HOM:6:121",
+          "HOM|HOM:6:131",
+          "HOM|HOM:6:35",
+          "HOM|HOM:6:75",
+          "HOM|HOM:6:92",
+          "HOM|HOM:6:95",
+          "MIX|MIX:4:3",
+          "MIX|MIX:4:5"
+        ],
+        "O12_O13_jaccard": 1.0,
+        "O12_equals_O13_recipe_set": true,
+        "O12_only_vs_O11": [
+          "HET|HET:4:5",
+          "HET|HET:6:108",
+          "HET|HET:6:30",
+          "HET|HET:6:60",
+          "HOM|HOM:4:4",
+          "HOM|HOM:6:105",
+          "HOM|HOM:6:109",
+          "HOM|HOM:6:135",
+          "HOM|HOM:6:47",
+          "MIX|MIX:4:1"
+        ],
+        "O12_only_vs_O13": [],
+        "O13_only_vs_O12": []
+      },
+      "pass": true,
+      "persisted_O12_to_O13": [
+        "branching",
+        "symmetry",
+        "lineage",
+        "topology_services"
+      ]
+    },
+    "A6_raise_criterion": {
+      "candidate_survives": false,
+      "depth_dependent_lanes": [],
+      "pass": true
+    }
+  },
+  "next": "PATCH_SCANNER_STRUCTURAL_SHOCK_PROMOTION_TO_REQUIRE_MATCHED_LONGITUDINAL_EVIDENCE; then resume O-regime scouting from O13 rather than promoting O12.",
+  "nonclaims": [
+    "No physical geometry, dimension, time or propagation claim.",
+    "No historical O10+ graduation claim.",
+    "No infinite O-tower claim.",
+    "No global fixed-point or raised carrier claim from observer-relative scanner invariance alone."
+  ],
+  "schema": "IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1",
+  "science_sha256": "bb72e245aa1549db41c9aaf5dfccc735aafefb469666084f2cfee9accb2593f1",
+  "scientific_interpretation": "The O12/O13 structural-shock signal is not depth-intrinsic in the frozen scanner observer. Every common exact construction recipe has byte-identical normalized branching, symmetry, lineage and topology-service signatures at O11/O12/O13; two independent frozen recipe-matched panels and the complete 193-recipe pool are likewise stable. The official default farthest-point beam changes recipe membership between O11 and O12 and then stabilizes, which exactly explains the aggregate medians/histograms that triggered the raise candidate.",
+  "source_candidate_science_sha256": "b3468f899ce13fa0c397cfd69e1c98828815e7ef7661cd05ea689a5315e129f9",
+  "spec_sha256": "b6a53f5bd2adbf9557546c285afe4f5a057dc794af42a677a181189f5be00e74",
+  "status": "PASS"
+}

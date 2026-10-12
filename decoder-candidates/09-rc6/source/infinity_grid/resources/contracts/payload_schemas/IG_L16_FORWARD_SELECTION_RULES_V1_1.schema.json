@@ -1,0 +1,97 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_FORWARD_SELECTION_RULES_V1_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "D_lane": {
+      "additionalProperties": false,
+      "properties": {
+        "binary_float_in_ordering_key": {
+          "type": "boolean"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "feature_vector": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "implementation": {
+          "type": "string"
+        },
+        "initial_seed": {
+          "type": "string"
+        },
+        "normalization": {
+          "type": "string"
+        },
+        "tie_direction_after_seed": {
+          "type": "string"
+        },
+        "tolerance_pseudo_ties": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "binary_float_in_ordering_key",
+        "distance",
+        "feature_vector",
+        "implementation",
+        "initial_seed",
+        "normalization",
+        "tie_direction_after_seed",
+        "tolerance_pseudo_ties"
+      ],
+      "type": "object"
+    },
+    "lane_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "no_outcome_feedback": {
+      "type": "boolean"
+    },
+    "other_lanes": {
+      "type": "string"
+    },
+    "per_lane": {
+      "type": "integer"
+    },
+    "root_count": {
+      "type": "integer"
+    },
+    "rules_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_FORWARD_SELECTION_RULES_V1_1",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "selection_sealed_before_relation_analysis": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "D_lane",
+    "lane_order",
+    "no_outcome_feedback",
+    "other_lanes",
+    "per_lane",
+    "root_count",
+    "rules_sha256",
+    "schema_id",
+    "scope",
+    "selection_sealed_before_relation_analysis"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_FORWARD_SELECTION_RULES_V1_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

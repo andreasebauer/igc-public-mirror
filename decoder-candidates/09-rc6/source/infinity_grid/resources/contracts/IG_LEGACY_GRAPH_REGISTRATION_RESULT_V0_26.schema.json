@@ -1,0 +1,56 @@
+{
+  "$id": "ig://schema/ig_legacy_graph_registration_result_v0_26",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_sha256": {
+      "type": "string"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "profile_sha256": {
+      "type": "string"
+    },
+    "result_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "seed_artifact_node_id": {
+      "type": "string"
+    },
+    "seed_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    },
+    "tree_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_sha256",
+    "profile_id",
+    "profile_sha256",
+    "result_sha256",
+    "schema_id",
+    "science_sha256",
+    "seed_artifact_node_id",
+    "seed_sha256",
+    "status",
+    "target_node_id",
+    "tree_sha256"
+  ],
+  "title": "IG_LEGACY_GRAPH_REGISTRATION_RESULT_V0_26",
+  "type": "object"
+}

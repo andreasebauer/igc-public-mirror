@@ -1,0 +1,106 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "registry_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_premise_science_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "impact": {
+            "additionalProperties": false,
+            "properties": {
+              "changes": {
+                "items": {},
+                "type": "array"
+              },
+              "classification": {
+                "type": "string"
+              },
+              "schema_id": {
+                "const": "IG_THEOREM_PREMISE_IMPACT_RESULT_V1",
+                "type": "string"
+              }
+            },
+            "required": [
+              "changes",
+              "classification",
+              "schema_id"
+            ],
+            "type": "object"
+          },
+          "registered_scope": {
+            "type": "string"
+          },
+          "registry_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "reopen_triggers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "schema_id": {
+            "const": "IG_THEOREM_PREMISE_VERIFICATION_RESULT_V1",
+            "type": "string"
+          },
+          "science_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "theorem_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "current_premise_science_sha256",
+          "impact",
+          "registered_scope",
+          "registry_sha256",
+          "reopen_triggers",
+          "schema_id",
+          "science_sha256",
+          "status",
+          "theorem_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_THEOREM_PREMISE_REGISTRY_VERIFICATION_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "stale_theorems": {
+      "items": {},
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_sha256",
+    "results",
+    "schema_id",
+    "science_sha256",
+    "stale_theorems",
+    "status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,51 @@
+{
+  "schema_id": "IG_P5_C0_HISTORICAL_QUALIFICATION_V1",
+  "date": "2026-09-22",
+  "decoder_version": "0.8.0.dev54+lib",
+  "status": "PASS_IMPLEMENTATION_AND_HARNESS__CAPTURE_REQUIRED",
+  "p5_implementation_complete": true,
+  "p5_plan_acceptance_complete": false,
+  "recorded_controller_attempt_executed": false,
+  "blocker": "CAPTURE_REQUIRED",
+  "focused_qualification": {
+    "result": "PASS",
+    "passed": 6,
+    "failed": 0,
+    "scope": "P5 frontier import, exact C0 bindings, automatic continuation, mismatch stop, cold restore, tamper rejection and profile pins"
+  },
+  "replay_regression": {
+    "result": "PASS",
+    "passed": 76,
+    "failed": 0,
+    "scope": "P1-P5 replay compiler, runner, reference-data and layer-executor regression"
+  },
+  "implementation_pins": [
+    {"ref": "infinity_grid/replay_c0_historical_executor.py", "sha256": "754548f2a33fe08f6a097f87b1ee69b7f3c3a67f7c81f586146f81060ab3b2e6"},
+    {"ref": "infinity_grid/replay_frontier_import.py", "sha256": "f5991f018479e51a7bc1ad5a2a29d39756aaf6fe96f5f4feb930d61dc699a853"},
+    {"ref": "infinity_grid/v05_stage_runtime.py", "sha256": "0ae838919b906e8e3fed7dcceec4f3b61e0fcf7f573c56ac4de09d9c9c6194be"},
+    {"ref": "infinity_grid/resources/replay/P5_C0_HISTORICAL_REGISTRATION_PROFILE_V1.json", "sha256": "77827082191bb4524ac0f564de56b226782fa3a925d1842f9321d33f9989572d"},
+    {"ref": "infinity_grid/resources/replay/P4_CAPTURED_STATE_OBJECT_84B659_V1.zip", "sha256": "84b659ed7289f736dd54d8b292ebb1f48ae04b48fbde039081c67d8ac15bfef5"}
+  ],
+  "captured_p4_binding": {
+    "capture_id": "b986261d8e1087c406c59d63e31402703abbb629d97013c53ac67681d65f70c5",
+    "completion_sha256": "1a11e16ceff7f24568af0efde240b4a16db44b9fe46ab8b83e264bfec8c2ecfb",
+    "result_sha256": "b645cad7cb9b596c0bd6e62e1ae43c0a9148f986f0b8a65debf8c9108c57ab10",
+    "checkpoint_sha256": "70448998f014562361e4d449f977e477fae6a0357b1fe1ad6af2c23f48c1871b",
+    "frontier_record_sha256": "e377598a426a0c8f8ccdc052e11ec58d5b298d877ad516a9d5ffecd9e4df9f26"
+  },
+  "boundary": {
+    "imported_completed_layer": "L0",
+    "bound_layer": "C0_HISTORICAL",
+    "next_layer": "L2J3",
+    "fresh_empty_root_science_node_count": 0,
+    "science_authority_effect": "NONE"
+  },
+  "nonclaims": [
+    "Harness execution is not a recorded Decoder controller attempt.",
+    "C0 reproduction does not independently confirm scientific correctness.",
+    "The C0 authorization is USER_BLANKET_REPLAY_AUTHORIZATION_ONLY, not a per-layer audit report.",
+    "No L2J3 or later handler is bound by P5.",
+    "P5 is not complete until a new captured controller attempt reaches the C0_HISTORICAL frontier."
+  ],
+  "next_step": "Capture dev54, register the P5 profile, execute one recorded controller attempt, preserve the terminal checkpoint, and verify cold restoration."
+}

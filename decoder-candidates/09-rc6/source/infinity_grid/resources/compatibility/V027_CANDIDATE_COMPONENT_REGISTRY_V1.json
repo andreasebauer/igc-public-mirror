@@ -1,0 +1,328 @@
+{
+  "components": [
+    {
+      "component_id": "layered-packaging-v1",
+      "decision": "ALREADY_SUPERSEDED_BY_GATE1_GATE2_RELEASE_DISCIPLINE",
+      "promotion": "DO_NOT_REAPPLY_OLD_PATCH"
+    },
+    {
+      "component_id": "machine-context-v1",
+      "decision": "SUPERSEDED_BY_CURRENT_STATE_V3",
+      "promotion": "PROVENANCE_ONLY_DO_NOT_RESTORE_SPLIT_AUTHORITY"
+    },
+    {
+      "component_id": "exact-carrier-unblinding-v1",
+      "decision": "CANDIDATE_FOR_DEL001_AFTER_ARC_DET",
+      "promotion": "REQUIRES_CONTRACT_AND_ORACLE_DIFFERENTIAL"
+    },
+    {
+      "component_id": "exact-carrier-parallel-v1",
+      "decision": "DO_NOT_PROMOTE_STANDALONE",
+      "promotion": "INVARIANTS_TESTS_MAY_TRANSFER_TO_UNIFIED_EXECUTION"
+    },
+    {
+      "component_id": "unified-execution-v1",
+      "decision": "CANDIDATE_FOR_GATE3_ARC_THEN_DEL001",
+      "promotion": "REQUIRES_SERIAL_PARALLEL_EQUIVALENCE_AND_NO_CORE_SEMANTIC_DELTA"
+    },
+    {
+      "component_id": "exact-carrier-theorem-acceleration-v1",
+      "decision": "CANDIDATE_FOR_DEL001",
+      "promotion": "REQUIRES_THEOREM_PREMISE_REGISTRY_NATIVE_SEMANTICS_SENTINEL_AND_ORACLE_DIFFERENTIAL"
+    },
+    {
+      "component_id": "o-regime-streaming-v2",
+      "decision": "CANDIDATE_FOR_DEL001",
+      "promotion": "FIXED_GRAMMAR_TRANSPORT_ONLY_UNTIL_NATIVE_SEMANTICS_SENTINEL_EXISTS"
+    },
+    {
+      "component_id": "performance-and-calibration-evidence",
+      "decision": "READ_ONLY_EVIDENCE",
+      "promotion": "NEVER_MERGE_AS_EXECUTABLE_SEMANTICS"
+    }
+  ],
+  "files": [
+    {
+      "path": "02_CURRENT_CODE/BASE_RELEASE_SET.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_RELEASE_SET_V1",
+      "sha256": "19555a90bb04fea48a128c2cb60918bddd1d422377181805136f9119bd6f5497",
+      "size_bytes": 773
+    },
+    {
+      "path": "02_CURRENT_CODE/CURRENT_RELEASE_SET.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_RELEASE_SET_V1",
+      "sha256": "770e9f94f8688d9ccbe71d76ad04a0480c70a0d7bfd09ec2b60c25b9f9c70df0",
+      "size_bytes": 930
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_CODE/infinity_grid/cli.py",
+      "sha256": "ed72270b43052ce0669748753aeda2f118da97c2927506ed8d530e5d76903b3c",
+      "size_bytes": 35494
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_CODE/infinity_grid/regime_streaming.py",
+      "sha256": "99b71bade840f7d0a7dc535f60390408f7f6e22037bd16e695cdefe270d77225",
+      "size_bytes": 32430
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_CODE/infinity_grid/resources/decoder/O7_STREAMING_SEED_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_O7_SEED_V2",
+      "sha256": "634a7c08413eb5b340a3ca6947f894f364840eb805cbabb656f985abe5b87842",
+      "size_bytes": 3567
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_CODE/infinity_grid/resources/decoder/O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2",
+      "sha256": "17238a2141a02be4519d1db38841205592ee7e88e871b79f197f26f06c1dda6f",
+      "size_bytes": 6944
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_CODE/infinity_grid/resources/decoder/O_REGIME_STREAMING_RECIPE_BASELINE_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2",
+      "sha256": "a86e32be3d32c5b306c6b4a3b67303d87ed456f28d55730a6120516aee991965",
+      "size_bytes": 3259
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_SPECS/O7_STREAMING_SEED_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_O7_SEED_V2",
+      "sha256": "634a7c08413eb5b340a3ca6947f894f364840eb805cbabb656f985abe5b87842",
+      "size_bytes": 3567
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_SPECS/O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2",
+      "sha256": "17238a2141a02be4519d1db38841205592ee7e88e871b79f197f26f06c1dda6f",
+      "size_bytes": 6944
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_SPECS/O_REGIME_STREAMING_RECIPE_BASELINE_v2.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2",
+      "sha256": "a86e32be3d32c5b306c6b4a3b67303d87ed456f28d55730a6120516aee991965",
+      "size_bytes": 3259
+    },
+    {
+      "path": "02_CURRENT_CODE/O_REGIME_STREAMING_v2_START_HERE.txt",
+      "sha256": "6ddcf3a2ea70a405cccd1ccbd011a475cb8261bbe6e915d5eacf0cc8e3c95a24",
+      "size_bytes": 1522
+    },
+    {
+      "path": "02_CURRENT_CODE/REGISTRY_CURRENT.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_CURRENT_RELEASE_SET_V1",
+      "sha256": "3d41ac89f974a44f8f3efd9b345e31244d74a81117501f5cf4c9faafb4a404a3",
+      "size_bytes": 147
+    },
+    {
+      "path": "02_CURRENT_CODE/STREAMING_V2_VERIFICATION.json",
+      "runtime_contract_status": "UNVERSIONED_CANDIDATE",
+      "schema_id": null,
+      "sha256": "c3566d6c318d4c2c59d5f593afc12043bc69e896edb90b0c8955544436568dfc",
+      "size_bytes": 52655
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_SOURCE/exact_carrier_acceleration.py",
+      "sha256": "ca8cfc76e579f7883cb899596158b0a2ac2f777d8a509486b4f070431e6fab0d",
+      "size_bytes": 16856
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_SOURCE/exact_carrier_unblinding.py",
+      "sha256": "bbb2281da9485a0727a5361f85a8c414ea6b1e728f9fdc944b4e0d5425ef195f",
+      "size_bytes": 42788
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_SOURCE/execution.py",
+      "sha256": "34423ee09baf8ab06c9314192c9fd82bb74b775e394911b4a9175e30c23e8ce3",
+      "size_bytes": 20091
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_SPEC/GRRL_APPLICATION_GATE_RECONCILED_v0.1.json",
+      "runtime_contract_status": "EXISTING_V026_CONTRACT",
+      "schema_id": "IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1",
+      "sha256": "0be1f76ccb70b0fd3a6143f1767b4465aee10e902ed9bec5ef2077175d7d792a",
+      "size_bytes": 3067
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_SPEC/O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_v1.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_V1",
+      "sha256": "b2e0d3e3f9ca3cbd2b6ffe3315fc94b930d0ff2bdddb7d0813231c2f68e2541f",
+      "size_bytes": 4163
+    },
+    {
+      "path": "02_CURRENT_CODE/THEOREM_ACCELERATION_v1_START_HERE.txt",
+      "sha256": "80e622f1607f59311c007aad2240258ec75ca752a37a3f666e82e697dc1a82a0",
+      "size_bytes": 2178
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_IMPLEMENTATION_STATUS.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_UNIFIED_EXECUTION_V1_RESCUE_STATUS",
+      "sha256": "463e4328e99d92792995a99e9f8af3441039872b7222e536a3af33ab2c475bf5",
+      "size_bytes": 892
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SOURCE/conveyor_chunks.py",
+      "sha256": "d6ad867565bde894eaec7f6572730679802d7c0bee7ee51133742f6714d222ed",
+      "size_bytes": 14245
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SOURCE/exact_carrier_parallel.py",
+      "sha256": "e94004f0dfe27b4483430191923cd970e9b6bd5995b371b23fc8532c19d57dcf",
+      "size_bytes": 11845
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SOURCE/exact_carrier_unblinding.py",
+      "sha256": "83864bddf6b32e4324a1f4c1de2bf439644498df67307ba86271b2506921bb5a",
+      "size_bytes": 33318
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SOURCE/execution.py",
+      "sha256": "34423ee09baf8ab06c9314192c9fd82bb74b775e394911b4a9175e30c23e8ce3",
+      "size_bytes": 20091
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SPEC/MULTICORE_ARCHITECTURE_AUDIT_v1.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_MULTICORE_ARCHITECTURE_AUDIT_V1",
+      "sha256": "57400129f59690e907299e61b3f7bef9138b37ffdf263a870838ffaaf9f126e8",
+      "size_bytes": 6654
+    },
+    {
+      "path": "02_CURRENT_CODE/UNIFIED_EXECUTION_v1_SPEC/UNIFIED_PARALLEL_RUNTIME_SPEC_v1.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_DECODER_UNIFIED_PARALLEL_RUNTIME_SPEC_V1",
+      "sha256": "8bdc37adde4a17c3d48d5e85ae9d4ae42b941c683da6c4e168131add24c6dcb2",
+      "size_bytes": 5630
+    },
+    {
+      "path": "03_SCIENCE/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "runtime_contract_status": "EXISTING_V026_CONTRACT",
+      "schema_id": "IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2",
+      "sha256": "25756d570d3407947e34442591c7facc2c72346c93e9fd87c8b40000fed3141b",
+      "size_bytes": 12340
+    },
+    {
+      "path": "03_SCIENCE/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "runtime_contract_status": "EXISTING_V026_CONTRACT",
+      "schema_id": "IG_O_REGIME_MOTIF_LIBRARY_V1",
+      "sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428",
+      "size_bytes": 60119
+    },
+    {
+      "path": "03_SCIENCE/O_REGIME_PERFORMANCE_AUDIT.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_PERFORMANCE_AUDIT_V2",
+      "sha256": "5841ee17061578502bbbb7f964e0666343431e42bc058d7ce6140cd64f36549a",
+      "size_bytes": 7278
+    },
+    {
+      "path": "03_SCIENCE/O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_v2_DRAFT.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2_DRAFT",
+      "sha256": "c35606cbe2174eefca680d9f2058d457dd90cfd3061f8d636e4b49d7c12b75cf",
+      "size_bytes": 1513
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/CALIBRATION_STATUS.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_EXACT_CARRIER_FAST_CALIBRATION_STATUS_V1",
+      "sha256": "5e93bfb9fcd6ab24e121030cece94c8dfec06d4d7b921f675b807a9cf212f482",
+      "size_bytes": 242
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/O7_FIXED_EXACT_SENTINEL_RESULT.json",
+      "runtime_contract_status": "UNVERSIONED_CANDIDATE",
+      "schema_id": null,
+      "sha256": "9206eb26b61d5209c11a19dae5d027b9bc75d0074973243ee49e4f558d77daa8",
+      "size_bytes": 755
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/O8_THEOREM_REPLAY_RESULT.json",
+      "runtime_contract_status": "UNVERSIONED_CANDIDATE",
+      "schema_id": null,
+      "sha256": "302fc40954a7cbc2f6e1b7ba75258559baaac309cb37dd74073fb6225b4efed9",
+      "size_bytes": 313
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/O9_THEOREM_REPEAT_REPLAY_RESULT.json",
+      "runtime_contract_status": "UNVERSIONED_CANDIDATE",
+      "schema_id": null,
+      "sha256": "177c6e6496b393b8e32b2ade667310c76f2820fbef571c335ee8308288011041",
+      "size_bytes": 393
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/O_EXACT_CARRIER_FAST_CALIBRATION_RESULT.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_EXACT_CARRIER_THEOREM_ACCELERATED_CALIBRATION_RESULT_V1",
+      "sha256": "649594f6c2630665b5ff4cc8f31bc1bd52a542f523538f9e16be16253a6a09bf",
+      "size_bytes": 2971
+    },
+    {
+      "path": "03_SCIENCE/THEOREM_ACCELERATION_CALIBRATION/THEOREM_AUTHORITY_AUDIT.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1",
+      "sha256": "eee18c379d81a55d22b97976c66144f61311f3f21dfc24e1e77648c8f59459d9",
+      "size_bytes": 2063
+    },
+    {
+      "path": "03_SCIENCE/graph_microbench.json",
+      "runtime_contract_status": "UNVERSIONED_CANDIDATE",
+      "schema_id": null,
+      "sha256": "6863306a7a4cf4d8e77b764b5749867ff646769a0f31283adccc17257bbbfc48",
+      "size_bytes": 305
+    },
+    {
+      "path": "04_ACTIVE_RUNS/BLIND_O14_O59_CONTROLLER_LOG_TAIL.txt",
+      "sha256": "963191be6570aa12f5ab848550921368d3171bd188da33a172fcc6f8b65a07ad",
+      "size_bytes": 22022
+    },
+    {
+      "path": "04_ACTIVE_RUNS/BLIND_O14_O59_RUN_STATE.json",
+      "runtime_contract_status": "NEW_V027_CONTRACT_REQUIRED",
+      "schema_id": "IG_O_REGIME_BACKGROUND_RUN_STATE_V1",
+      "sha256": "154ed077a6e3f04fc2e4c64dbc2e032ff3582f8652f90c5561a31666852bed63",
+      "size_bytes": 232
+    },
+    {
+      "path": "04_ACTIVE_RUNS/BLIND_O14_O59_START_HERE.txt",
+      "sha256": "4528c141885ed7fa85de974b88ebb2e0317358f5f4131ec6c279dab42afce52f",
+      "size_bytes": 372
+    },
+    {
+      "path": "04_ACTIVE_RUNS/LIVE_PROCESS_SNAPSHOT.txt",
+      "sha256": "5ed796b8cdeaee36d92b9be43b6efc94f1bb7ac2f6dfc1318707f5baf99d2d83",
+      "size_bytes": 510
+    }
+  ],
+  "registry_sha256": "43ed59ff9a24a2cfb9831669be67a22f7fe8bff754d779eff5a3ff5c00595aee",
+  "schema_decisions": {
+    "IG_DECODER_CURRENT_RELEASE_SET_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_DECODER_MULTICORE_ARCHITECTURE_AUDIT_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_DECODER_RELEASE_SET_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_DECODER_UNIFIED_EXECUTION_V1_RESCUE_STATUS": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_DECODER_UNIFIED_PARALLEL_RUNTIME_SPEC_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_EXACT_CARRIER_FAST_CALIBRATION_STATUS_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_EXACT_CARRIER_THEOREM_ACCELERATED_CALIBRATION_RESULT_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_GRRL_APPLICATION_GATE_RECONCILED_V0_1": "EXISTING_V026_CONTRACT_READ_ONLY_UNTIL_DEL001",
+    "IG_O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_ADAPTIVE_SCANNER_SPEC_V1_2": "EXISTING_V026_CONTRACT_READ_ONLY_UNTIL_DEL001",
+    "IG_O_REGIME_BACKGROUND_RUN_STATE_V1": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_MOTIF_LIBRARY_V1": "EXISTING_V026_CONTRACT_READ_ONLY_UNTIL_DEL001",
+    "IG_O_REGIME_PERFORMANCE_AUDIT_V2": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2_DRAFT": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_STREAMING_O7_SEED_V2": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED",
+    "IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2": "REJECT_RUNTIME_UNTIL_V027_CONTRACT_DEFINED"
+  },
+  "schema_id": "IG_V027_CANDIDATE_COMPONENT_REGISTRY_V1",
+  "status": "FROZEN_INPUTS_NOT_PROMOTED"
+}

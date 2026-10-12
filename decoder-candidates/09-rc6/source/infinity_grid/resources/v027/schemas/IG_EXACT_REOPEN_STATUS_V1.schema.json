@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "native_semantics_status": {
+      "type": "string"
+    },
+    "reopen_required": {
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "IG_EXACT_REOPEN_STATUS_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "scientific_rule": {
+      "type": "string"
+    },
+    "theorem_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "native_semantics_status",
+    "reopen_required",
+    "schema_id",
+    "science_sha256",
+    "scientific_rule",
+    "theorem_status"
+  ],
+  "type": "object"
+}

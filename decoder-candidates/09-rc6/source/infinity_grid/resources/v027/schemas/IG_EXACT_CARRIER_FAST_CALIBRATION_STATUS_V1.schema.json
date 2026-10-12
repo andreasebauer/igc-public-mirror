@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "result_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_EXACT_CARRIER_FAST_CALIBRATION_STATUS_V1",
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "updated_unix": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "result_science_sha256",
+    "schema",
+    "stage",
+    "status",
+    "updated_unix"
+  ],
+  "type": "object"
+}

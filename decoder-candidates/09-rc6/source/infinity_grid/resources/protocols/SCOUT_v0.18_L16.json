@@ -1,0 +1,258 @@
+{
+  "acceptance_gates": [
+    "all parent/source/input hashes pass",
+    "root count is exactly 1089",
+    "all bounded roots are processed exactly once in canonical order",
+    "five lanes are sealed before relation analysis",
+    "Spectroscope receives only the sealed relation and cannot feed back",
+    "wide/selected-relation/Spectroscope/baseline/classification projections match the frozen commitments",
+    "evidence remains SCOUT_OBSERVED / RECONNAISSANCE_ONLY"
+  ],
+  "allowed_protocol_labels": [
+    "SCOUT_OBSERVED"
+  ],
+  "descriptor_sha256": "a1900aa01cad738a4f380013d9bc2d88fac9f8f6122f3ac3629a6548b21d8708",
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "OBSERVED",
+        "RECONNAISSANCE_ONLY",
+        "SCOUT_OBSERVED"
+      ]
+    ],
+    "max_authority": "RECONNAISSANCE_ONLY"
+  },
+  "forbidden_claims": [
+    "first occurrence",
+    "c_proved",
+    "population-wide negative",
+    "mechanism promotion",
+    "geometry promotion",
+    "physical topology promotion",
+    "transition level",
+    "graduated"
+  ],
+  "input_contract": {
+    "bounded_preregistered": true,
+    "exact_root_and_primitive_hashes_required": true,
+    "parent_certificate_required_for_live": true,
+    "population_completeness": false,
+    "separate_lineage_required": true
+  },
+  "observer_contract": {
+    "must_be_explicit": true,
+    "observer_freeze_before_generation": true,
+    "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820"
+  },
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "bounded_preregistered",
+        "parent_certified",
+        "separate_lineage",
+        "observer_frozen",
+        "selection_sealed_before_relation_analysis",
+        "spectroscope_non_feedback",
+        "population_complete"
+      ],
+      "allowed_protocol_labels": [
+        "SCOUT_OBSERVED"
+      ],
+      "profile_id": "l16_historical_scope_direct_replay_frozen_v1",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count"
+          ],
+          "runner": "adapter.scout_l16.preflight",
+          "stage_id": "preflight"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256"
+          ],
+          "depends_on": [
+            "preflight"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256"
+          ],
+          "runner": "adapter.scout_l16.wide",
+          "stage_id": "wide"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "depends_on": [
+            "wide"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "runner": "adapter.scout_l16.spectroscope",
+          "stage_id": "spectroscope"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "baseline_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [
+            "wide",
+            "spectroscope"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "baseline_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "runner": "adapter.scout_l16.classify",
+          "stage_id": "classify"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "golden_commitment_sha256",
+            "projection_version"
+          ],
+          "depends_on": [
+            "classify"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "golden_commitment_sha256",
+            "projection_version"
+          ],
+          "runner": "adapter.scout_l16.verify",
+          "stage_id": "verify"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "L",
+        "historical_scope_replay": true,
+        "level": 16,
+        "live_generation": true,
+        "source_level": 15
+      }
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "golden_unavailable_until_terminal_verify": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "SCOUT",
+  "purpose": "Bounded non-authoritative L-level roadmap reconnaissance; L16 historical-scope direct replay and current unified-runtime integration.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [
+    {
+      "role": "runtime_parent_closeout",
+      "sha256": "109476351119f032b1a4ad50dfeccdf6c439c93a96e983383be3603239df799b"
+    },
+    {
+      "role": "v0.16_reference",
+      "sha256": "857ad43eb4c124a34ef05aa2af76188b2db0e36ffb770403482a349746924498"
+    },
+    {
+      "role": "historical_l16_scope",
+      "sha256": "371f89061c6646c1da2773302b08231f9d108373654e6c2f5f191f852e389d6f"
+    },
+    {
+      "role": "input_dataset",
+      "sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda"
+    },
+    {
+      "role": "observer",
+      "sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820"
+    },
+    {
+      "role": "selection_and_stopping_rules",
+      "sha256": "6a69ffc31ddf396a54c95142169a7e2a01b0153ba9c2d3d45e397177bbaa8499"
+    },
+    {
+      "role": "claim_boundary",
+      "sha256": "917f3bbe3cbd3dd2d4c5a3fb4d5047502b1693d92c5b7cb95d15808453d05c75"
+    },
+    {
+      "role": "golden_commitment",
+      "sha256": "7ef85b13a3b2f12e6bf2bba148076d00282a8d3855e790a58ad1cd588d9b993d"
+    }
+  ],
+  "stage_dag": [
+    {
+      "depends_on": [],
+      "id": "preflight",
+      "purpose": "verify runtime, input dataset, root/primitive identity and frozen packet"
+    },
+    {
+      "depends_on": [
+        "preflight"
+      ],
+      "id": "wide",
+      "purpose": "complete bounded one-step generation, lane seal and exact relation construction"
+    },
+    {
+      "depends_on": [
+        "wide"
+      ],
+      "id": "spectroscope",
+      "purpose": "downstream cheap recognition only; no feedback"
+    },
+    {
+      "depends_on": [
+        "wide",
+        "spectroscope"
+      ],
+      "id": "classify",
+      "purpose": "L15 comparison and Scout genealogy/maturation classification"
+    },
+    {
+      "depends_on": [
+        "classify"
+      ],
+      "id": "verify",
+      "purpose": "terminal science-projection comparison and release gate"
+    }
+  ],
+  "stopping_rules": {
+    "complete_exact_bounded_generation": true,
+    "fail_closed": true,
+    "no_adaptive_lane_extension": true,
+    "no_deep_ancestry_search": true,
+    "no_population_census": true,
+    "spectroscope_after_seal_only": true,
+    "spectroscope_cannot_feedback": true,
+    "stop_after_terminal_golden_verification": true
+  },
+  "version": "0.18"
+}

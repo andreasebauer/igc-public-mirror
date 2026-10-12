@@ -1,0 +1,128 @@
+{
+  "baseline_version": "0.26.3",
+  "canonical_vectors": [
+    {
+      "canonical_text": "null",
+      "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "value": null
+    },
+    {
+      "canonical_text": "true",
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "value": true
+    },
+    {
+      "canonical_text": "0",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "value": 0
+    },
+    {
+      "canonical_text": "-7",
+      "sha256": "a770d3270c9dcdedf12ed9fd70444f7c8a95c26cae3cae9bd867499090a2f14b",
+      "value": -7
+    },
+    {
+      "canonical_text": "1.25",
+      "sha256": "004a9e0878ff83e6b91f50d50dad439d2065c6cbb0d20f1f328b2fd75e085d6a",
+      "value": 1.25
+    },
+    {
+      "canonical_text": "\"Åβ\"",
+      "sha256": "87b014cbcc1c542d1b72662b89cb5af1a797fb7b44820025481b542d33b1f35c",
+      "value": "Åβ"
+    },
+    {
+      "canonical_text": "[3,2,1]",
+      "sha256": "30c8681f9b840aceee56b737f3b126ae67ec4eb71d2881db831f86014fba016d",
+      "value": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "canonical_text": "{\"a\":[2,1],\"z\":1}",
+      "sha256": "d9428d145fb55faf5808417309afba0e0e2c33cf73adc25fe8fc19ff7532de0a",
+      "value": {
+        "a": [
+          2,
+          1
+        ],
+        "z": 1
+      }
+    },
+    {
+      "canonical_text": "[1,2,{\"b\":3}]",
+      "sha256": "2c0794e9baba3433d749b76b88542f58e4b61431a2825bb3a4bb6441af7d9c61",
+      "value": [
+        1,
+        2,
+        {
+          "b": 3
+        }
+      ]
+    }
+  ],
+  "generation_chunk_summary": {
+    "attempts": 36,
+    "child_count": 14,
+    "child_sha256s": [
+      "0afe2db8e0a10dd2838d702f3b851eae6b0881a2308e49afde68ab34a6eb8c4c",
+      "13be792de70b6de8fd8c0547036638ec9392cf86e454fbb2dab506d9897f82f9",
+      "38833e5d479a08701503d4d3d18e2b39b4f6a83cc5972ad2d8673099daf2c214",
+      "3fd27f234597ccdb584dd68e9f27e88bfe2ee8f340fa098513e270d0232d8646",
+      "54bd87a94ea5bf829709ed11daff690fd27f1180f06c3e060c0e8f3ea2f595e8",
+      "645af86b061e3f5e45fb218185100d9fe895e2c83aad0e6808aba4ce8b6f0b2b",
+      "7611bde81e14f266a71db04b52e862b570e4dfe590bcf4335618cb97aee1d151",
+      "8149551c15ab055a6090c02196b0aeeffb4be6f8dade044311820c787430f104",
+      "86da8625f3bfc19e1b0c8967ffd7b29d4f68ad65ad0a7d63ca2dc32f23326a62",
+      "9dbc6483867b9ce34f310d3925c01bbd2695e7fc6459e7a85f562cb3f0cfd22a",
+      "a8fb10387f3545ce18d63823e74666f088b95a5afa66190f3c5bb9e050af14bb",
+      "ab88b1797c5d55664d3d0b43772a2915e0bb6d0b5ae8e66c1c56857df09b3554",
+      "b1f033d49d572ed81ab542e885bfc61f286be978ac857899a40578821aa22de2",
+      "cd267ebae9a8fc86f74b4aa3626ffb245108a360a95d93129a11fc7eb577ea8c"
+    ],
+    "lawful": 16
+  },
+  "oracle_sha256": "8fdcccd3071d66ae26e87e704ed9b135fb183dcd7a4830ee45c15622aca4c47d",
+  "record_sha256": [
+    "f680b79aca11c7aad33c486fa2c43ead6d9befa566de0929906ca07e90d3efd0",
+    "2bbc416a864c37134c22d6c3267a1f1c295517130d3ae69e970eb8dfd3f79047",
+    "6be827e6f3ec02543dde63bba883a6ba90fa588bd427a7db7b5cdd0a8a8679ea"
+  ],
+  "records": [
+    "(1, ((1, 0), (4, 1), (8, 0)), 2, (1, 3), 1)",
+    "(2, ((1, 4), (4, 0), (16, 0)), 1, (7,), 1)",
+    "(4, ((2, 8), (8, 0), (32, 2)), 2, (2, 5), 0)"
+  ],
+  "representative_compositions": [
+    {
+      "bridge": false,
+      "i": 0,
+      "j": 0,
+      "result": null,
+      "sa": 1,
+      "sb": 1,
+      "sha256": null
+    },
+    {
+      "bridge": true,
+      "i": 0,
+      "j": 1,
+      "result": "(3, ((1, 4), (4, 1), (8, 0), (16, 0)), 1, (1, 3, 7), 1)",
+      "sa": 0,
+      "sb": 1,
+      "sha256": "8149551c15ab055a6090c02196b0aeeffb4be6f8dade044311820c787430f104"
+    },
+    {
+      "bridge": true,
+      "i": 2,
+      "j": 2,
+      "result": "(4, ((2, 8), (2, 8), (32, 2), (32, 2)), 2, (2, 2, 5, 5), 0)",
+      "sa": 1,
+      "sb": 1,
+      "sha256": "cd91f105228093372008d2563f31ab014f07b02d8276819e8eac227c93c53c1e"
+    }
+  ],
+  "schema_id": "IG_ARC001_EXTRACTION_ORACLE_V1"
+}

@@ -1,0 +1,88 @@
+{
+  "date": "2026-09-04",
+  "nonclaims": [
+    "NO_G4_GRADUATION",
+    "NO_DESCRIPTOR_PROMOTION",
+    "NO_MINIMALITY",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "ordered_tiers": [
+    {
+      "eligible_for_promotion": false,
+      "name": "PUBLIC_BASELINE",
+      "public": true,
+      "reads": [
+        "CAPS7"
+      ],
+      "tier": 0
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Historical G4 Tier-1 candidate; deliberately challenged by a same-Tier1/different-H n=9 pair.",
+      "name": "OLD_TIER1_SCALAR_TREE_SUMMARIES",
+      "public": false,
+      "reads": [
+        "MAX_DEGREE",
+        "LEAF_COUNT",
+        "DIAMETER",
+        "RADIUS",
+        "ARTICULATION_COUNT",
+        "WIENER_INDEX"
+      ],
+      "tier": 1
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Old G3 structural read, known globally incomplete after the R18 shell break; retained only as a diagnostic rung.",
+      "name": "SHELL_PROFILE_MULTISET",
+      "public": false,
+      "reads": [
+        "SHELL_PROFILE_MULTISET"
+      ],
+      "tier": 2
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Correlation-preserving support component from the repaired G3 hidden state; not sufficient without shell information in G3 finite challenges.",
+      "name": "PAIRED_SUPPORT_LOAD_DISTANCE_SIGNATURE_MULTISET",
+      "public": false,
+      "reads": [
+        "PAIRED_SUPPORT_LOAD_DISTANCE_SIGNATURE_MULTISET"
+      ],
+      "tier": 3
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Certified G3:R3 repaired hidden state with binary graft algebra; nonpublic unless later G4 sufficiency earns a quotient.",
+      "name": "REPAIRED_HIDDEN_STATE_H",
+      "public": false,
+      "reads": [
+        "SHELL_PROFILE_MULTISET",
+        "PAIRED_SUPPORT_LOAD_DISTANCE_SIGNATURE_MULTISET"
+      ],
+      "tier": 4
+    },
+    {
+      "eligible_for_promotion": true,
+      "meaning": "Diagnostic ceiling only.",
+      "name": "FULL_HIDDEN_TREE_CANON",
+      "public": false,
+      "reads": [
+        "FULL_TREE_CANON"
+      ],
+      "tier": 5
+    }
+  ],
+  "principle": "Operational G4 separation comes first. Hidden reads are diagnostics only. S1.REBASE may identify candidate tiers but cannot promote one; S2.REBASE must test complete observer sufficiency.",
+  "schema_id": "IG_G4_REBASE_CHALLENGE_READ_TIERS_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "9682e3f55090f1366802aaee917dcea5d140e58356ea3664c2bb4c3ba9249196",
+  "selection_rule": [
+    "NO_HIDDEN_READ_PROMOTION_IN_S1_REBASE",
+    "SAME_OLD_TIER1_N9_PAIR_MUST_BE_INCLUDED",
+    "TEST_TIERS_IN_ORDER",
+    "S2_REBASE_MUST_TEST_COMPLETE_OBSERVER_SUFFICIENCY",
+    "CONSTRUCTION_DIGEST_OWNER_ID_ANCESTRY_RAW_PROVENANCE_NEVER_ELIGIBLE"
+  ],
+  "status": "FROZEN_BEFORE_G4_S1_REBASE_EXECUTION"
+}

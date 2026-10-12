@@ -1,0 +1,59 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_ALGEBRA_DECODER_CHARTER_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "core_principles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "non_goals": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_ALGEBRA_DECODER_CHARTER_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "subsystems": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "user_facing_system": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "core_principles",
+    "name",
+    "non_goals",
+    "purpose",
+    "schema_id",
+    "status",
+    "subsystems",
+    "user_facing_system",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_ALGEBRA_DECODER_CHARTER_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

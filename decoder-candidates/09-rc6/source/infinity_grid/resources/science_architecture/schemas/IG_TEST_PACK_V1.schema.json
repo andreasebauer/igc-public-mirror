@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "dependency_edges": {
+      "items": {
+        "items": false,
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "feedback_mode": {
+      "const": "RECOGNITION_ONLY"
+    },
+    "members": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "test_ref": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "test_ref",
+          "required"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "pack_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_TEST_PACK_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "shared_projection_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stopping_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "pack_id",
+    "version",
+    "status",
+    "purpose",
+    "members",
+    "dependency_edges",
+    "shared_projection_refs",
+    "stopping_rules",
+    "claim_ceiling",
+    "feedback_mode",
+    "notes"
+  ],
+  "title": "IG Decoder Test Pack Protocol V1",
+  "type": "object"
+}

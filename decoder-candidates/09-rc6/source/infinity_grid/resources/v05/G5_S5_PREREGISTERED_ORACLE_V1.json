@@ -1,0 +1,33 @@
+{
+  "allowed_s5_alternatives": [
+    "G5_S5_CAPS7_PLUS_H_CLASS_BAG_FINITE_READ_WRITE_STATE_EARNED_S6_DESIGN_REVIEW",
+    "G5_S5_FINITE_READ_WRITE_STATE_NOT_CERTIFIED"
+  ],
+  "allowed_s5_outcomes": [
+    "PASS",
+    "REVIEW_REQUIRED"
+  ],
+  "required_H_class_alphabet_count": 4,
+  "required_authority_effect": "NONE_P6",
+  "required_candidate_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+  "required_directed_operator_count": 31,
+  "required_failure_count": 0,
+  "required_g4_changed": false,
+  "required_g5_finite_read_write_law_earned": true,
+  "required_g5_finite_state_descriptor_earned": true,
+  "required_g5_graduated": false,
+  "required_post_s5_stop": "G5_S6_PREREGISTRATION_REQUIRED",
+  "required_s1_pair_write_checks": 496,
+  "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+  "required_s2_public_pair_keys": 124,
+  "required_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+  "required_s3_stage_science_sha256": "bc5e8b743e043840ebc6d3146533f460faf3ee5d58dcdaa4b3b3e5a01441de15",
+  "required_s4_classification": "G5_S4_ONE_STEP_COMPOSITION_CLOSURE_ON_FROZEN_RECURSIVE_P3_SCOPE_S5_DESIGN_REVIEW",
+  "required_s4_recursive_write_checks": 7688,
+  "required_s4_stage_science_sha256": "64a23285f0e15e699166f4f610e23398abc67aac0b8b755913d3d5462f770de3",
+  "schema_id": "IG_G5_S5_PREREGISTERED_ORACLE_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "d549922cc1c76ecc278d40a0447502bd641c5d00aa45772a801f25e4c3898ab1",
+  "spec_science_sha256": "2af286ec3507ef8ea528bfc5aae03aa2d0fa74af264567ef684ec61823a90191",
+  "stage_ref": "G5:S5"
+}

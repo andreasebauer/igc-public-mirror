@@ -1,0 +1,28 @@
+{
+  "$id": "ig://schema/ig_legacy_scanner_import_smoke_v0_26",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "regime_scanner": {
+      "type": "boolean"
+    },
+    "schema_id": {
+      "const": "IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "validation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "regime_scanner",
+    "schema_id",
+    "status",
+    "validation"
+  ],
+  "title": "IG_LEGACY_SCANNER_IMPORT_SMOKE_V0_26",
+  "type": "object"
+}

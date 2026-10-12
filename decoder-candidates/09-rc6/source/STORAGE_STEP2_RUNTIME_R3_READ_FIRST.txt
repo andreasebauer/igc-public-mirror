@@ -1,0 +1,13 @@
+STORAGE STEP 2 / R3 FIXED-RUNTIME QUALIFICATION CANDIDATE
+28 September 2026
+Candidate dev91+lib changes only version, this note, and fixed-runtime test fixtures.
+The existing dev90 storage implementation and all 47 original tests are unchanged.
+New capture required: fixed SQLite 3.51.3, new isolated environment, exact build and
+package artifacts. REQUIRE_REVIEWED_WAL_BUILD is mandatory, not the engineering
+exception. This remains a bounded VALIDATION job, not scientific production.
+Run tests/test_storage_step2.py plus tests/test_storage_fixed_runtime.py natively.
+Every case must pass, no skips; retain errors/failed attempts. Stop on failure.
+Never reuse old environment qualification as this new job's evidence.
+No claims about full-release acceptance, larger-than-RAM performance or repairing
+historic crashes. Legacy read consumer migration and canonical collection binding
+remain open. Native checkpoint machinery remains unchanged in this candidate.

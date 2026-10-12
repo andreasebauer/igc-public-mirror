@@ -1,0 +1,215 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "command_prefix": {
+      "type": "string"
+    },
+    "commands": {
+      "additionalProperties": false,
+      "properties": {
+        "depends": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "doctor": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "export": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "gc": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "graph": {
+          "additionalProperties": false,
+          "properties": {
+            "examples": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "mutates_science": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "examples",
+            "mutates_science"
+          ],
+          "type": "object"
+        },
+        "import": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "replay": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "resolve": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "roots": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        },
+        "why": {
+          "additionalProperties": false,
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "purpose"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "depends",
+        "doctor",
+        "export",
+        "gc",
+        "graph",
+        "import",
+        "replay",
+        "resolve",
+        "roots",
+        "why"
+      ],
+      "type": "object"
+    },
+    "phase0_restrictions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "command_prefix",
+    "commands",
+    "phase0_restrictions",
+    "schema_id",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

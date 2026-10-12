@@ -1,0 +1,127 @@
+{
+  "authority": {
+    "G6:S0": {
+      "commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+      "outcome": "PASS_INTERFACE_AND_BASIS_FROZEN",
+      "science_sha256": "5fadf5d30fa7eec0243c421d309a6e9f872fd76ac86b76321c46f72879aff2e5"
+    },
+    "G6:S1": {
+      "commit_sha256": "d384733310698e2540642bc535c6650cea620573ec35156aa59403f51b215a8d",
+      "outcome": "SEPARATOR_FOUND",
+      "science_sha256": "53cb0bb7c79614dfac2ad2c7bf75a25ef3c8ec022ab5921ab7c018a878f3c210"
+    },
+    "G6:S1R": {
+      "candidate_multi_class_count": 0,
+      "candidate_refined_class_count": 4520,
+      "commit_sha256": "411444399f52c8d88d068ae476f841afbba8a0c01635afc12bc7503ab70a5811",
+      "exact_s1_child_universe_count": 4520,
+      "exact_s1_child_universe_sha256": "2c1ffee315adada202ec472acb06f9fef9871ebbb273075b0dd0ef2a7d523f30",
+      "outcome": "PASS_ROOTED_OWNER_RESPONSE_BAG_EXPANDED_UNIVERSE",
+      "science_sha256": "20d53753244fd41506d139adb93be046667fa45a631abc7bbcaaa9f141615930",
+      "selected_candidate": "C3_ROOTED_OWNER_RESPONSE_BAG"
+    }
+  },
+  "candidate_input": {
+    "candidate_id": "C3_ROOTED_OWNER_RESPONSE_BAG",
+    "interpretation": "For each endpoint type, multiplicity bag of exact rooted owner canons. S1R showed this is sufficient on the frozen S1 universe, but because rooted canons retain complete exact structure it is not treated as a minimal or public G6 descriptor.",
+    "promotion": false,
+    "role": "CERTIFIED_EXACT_STATE_UPPER_BOUND_AND_UNIVERSE_BINDING_ONLY"
+  },
+  "context_ladder": [
+    {
+      "contexts": [
+        {
+          "operator": [
+            0,
+            0
+          ],
+          "position": "LEFT",
+          "probe_ref": "D2_PATH"
+        }
+      ],
+      "level": "L1_FIRST_CONTEXT",
+      "rule": "Frozen lineage context: reuse the certified D2_PATH probe from the S1R candidate ladder, use frozen operator (0,0), and place the tested parent in LEFT position. This context is fixed before S2R execution."
+    },
+    {
+      "contexts": "D2_PATH x all 31 frozen operators x both LEFT/RIGHT positions; includes L1.",
+      "expected_total_contexts": 62,
+      "level": "L2_SINGLE_PROBE_FULL_OPERATOR"
+    },
+    {
+      "contexts": "all four frozen S0 probes x all 31 frozen operators x both LEFT/RIGHT positions; includes L2.",
+      "expected_total_contexts": 248,
+      "level": "L3_FULL_ONE_STEP_OBSERVER"
+    }
+  ],
+  "date": "2026-09-07",
+  "decoder_release": "v0.5 / 0.50",
+  "evidence_contract": [
+    "exact authority bindings",
+    "regenerated universe count and structural SHA",
+    "registered context order and ladder sizes",
+    "per-level class count, multi-class count, maximum class size, states evaluated and relation evaluations",
+    "first surviving non-singleton witness after each nonterminal level",
+    "complete structural quotient membership if L3 remains nontrivial",
+    "independent verification report",
+    "runtime/workers and durable evidence hashes"
+  ],
+  "frozen_question": "On the complete 4,520-state exact G6:S1 child universe, with C3 used only as the certified exact-state upper bound, what is the exact one-more-composition behavior kernel under the registered ordinary continuation observer? Does the first deterministic ordinary context already separate all exact states, are more registered contexts required, or does a nontrivial full one-step quotient remain?",
+  "independent_verification": {
+    "method": "Independent manual cross-edge construction plus independent unrooted canon recomputes every context used by the selected ladder for the deterministic sample and requires exact structural signature equality with the primary implementation.",
+    "required": true,
+    "sample_rule": "128 exact S1 states with lexicographically smallest SHA-256 of exact structural canon; hashes only select the deterministic sample.",
+    "sample_size": 128
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G6_MINIMALITY",
+    "NO_GLOBAL_C3_NECESSITY",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_G6_GRADUATION",
+    "NO_AUTOMATIC_RESUME_OF_OLD_S3"
+  ],
+  "promotion_constraints": [
+    "No S2R result promotes C3 or any hidden topology/canon to the G6 public descriptor.",
+    "No S2R result graduates G6.",
+    "A discrete kernel is a scoped necessity/separation result on the frozen 4,520-state universe, not a global theorem.",
+    "A nontrivial L3 quotient is candidate-only input for a newly frozen repaired S3 registration.",
+    "The old unrepaired G6:S2/G6:S3 chain is not resumed automatically.",
+    "G5 authority remains unchanged."
+  ],
+  "purpose": "Repair G6:S2 after S1 proved the inherited G5 quotient insufficient and S1R earned C3_ROOTED_OWNER_RESPONSE_BAG as an exact-state upper-bound candidate on the complete S1 child universe.",
+  "question_sha256": "ae73d240f2fb80e92d43e635e6e0ae83e59d61c79efdd3523ba8dbfdc17e3d76",
+  "registered_outcomes": [
+    "PASS_DISCRETE_KERNEL_L1",
+    "PASS_DISCRETE_KERNEL_L2",
+    "PASS_DISCRETE_KERNEL_L3",
+    "PASS_NONTRIVIAL_FULL_ONE_STEP_QUOTIENT",
+    "BUDGET_INSUFFICIENT",
+    "INDEPENDENT_VERIFICATION_FAILED"
+  ],
+  "resource_budget": {
+    "max_independent_relation_evaluations": 40000,
+    "max_primary_relation_evaluations": 1200000,
+    "wall_seconds": 10800,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_S2_REPAIRED_PREREGISTRATION_V1",
+  "stage_id": "G6:S2R",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "regenerated S1 universe does not match certified S1R universe",
+    "changed scientific assumptions or unregistered context required",
+    "registered science budget exhausted",
+    "independent verification failure",
+    "first ladder level with a discrete kernel",
+    "completion of full L3 observer with a nontrivial quotient"
+  ],
+  "test_protocol": {
+    "candidate_binding": "Bind to the certified G6:S1R C3 result on exactly that universe. C3 is not promoted and need not be recomputed as a scientific decision in S2R.",
+    "decision_equality": "Full canonical structural tuples only. SHA-256 may index evidence and select deterministic samples but never decides scientific equality.",
+    "full_quotient_rule": "If L3 still contains non-singleton classes, those classes are the exact full registered one-step behavior quotient on the frozen universe and must be preserved structurally.",
+    "monotonicity_rule": "If a subset of the registered observer is injective, every superset observer is injective; therefore S2R may stop at the first ladder level whose classes are all singleton.",
+    "partition_refinement": "Start with all exact states unresolved. At each ladder level, evaluate only states still in non-singleton classes, append the newly registered continuation contexts, and split classes by full structural exact relation signatures.",
+    "universe": "Regenerate all exact S1 children from the frozen S0 basis and all 31 operators; deduplicate by full exact unrooted structural canon; require exact count and universe SHA from G6:S1R."
+  }
+}

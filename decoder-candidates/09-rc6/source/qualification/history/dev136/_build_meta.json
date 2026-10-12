@@ -1,0 +1,50 @@
+{
+  "engineering_attempt": "DEV136_A12_DATABASE_SIDECAR_COMPARISON",
+  "historical_metadata": "resources/history/BUILD_META_BEFORE_06.json",
+  "parent_branches": [
+    {
+      "case_count": 72,
+      "completion_sha256": "e4825d2dfd312d2b4a413f7ee45c6cbe45f55d518f46f80e63e40c1acb06c98a",
+      "engine_archive_sha256": "ac5303fe0aca6cd34b4a1218db726d28c78be041ff214d06f3694b400c9f7392",
+      "export_path": "recovery/CATALOG_NATIVE_CHECKPOINT.zip",
+      "export_sha256": "cd0db5f2f367d9154b3de17d867c56abd23ce55b2dc75c0bff2c5f223c67dd74",
+      "job_id": "STORAGE.STEP2.R3.CATALOGUE.MIGRATION",
+      "name": "catalogue_dev91",
+      "runtime": "engineering",
+      "runtime_binding_sha256": "a3a45741360b8565e3b12fefec9dd84f44b5df02a47bb200864a351d60ac1324",
+      "source_sha256": "5e60f334bbe263b5211b0a044cb9e1fbbb36259f5f1e9a625a2544afdc0d97f9",
+      "validation_raw_sha256": "703c9c4e007981efc6c146aed932e6212257c69fca3726552b7d3f06e32a6ece"
+    },
+    {
+      "case_count": 56,
+      "completion_sha256": "f9f8e2e81c5c87a54b9876eeb18d9f5e62f16912f57e4be04f432a7bc2a39002",
+      "engine_archive_sha256": "c7ddc13fe242194a9f4c21028d2d08b865241ab273d68658aea21496f29e2026",
+      "export_path": "recovery/FIXED_NATIVE_CHECKPOINT.zip",
+      "export_sha256": "7eade3ada62382315ec2fcbd4ad4412b1388f0dcf9d16c14c32f782c813bea10",
+      "job_id": "STORAGE.STEP2.R3.FIXED_RUNTIME",
+      "name": "fixed_runtime_dev91",
+      "runtime": "fixed",
+      "runtime_binding_sha256": "706c30bca4cfc120456165a19d193345436be55bb76c2b3c7e7937d0ed4a9e2e",
+      "source_sha256": "e624e8cd7f6387a40fe04d08c4e6412ffae1f41de69b9a8efd427dd41ac79305",
+      "validation_raw_sha256": "991026bc89cb0013a0c960c9ebc6d031a53eab6b47ead6b76b431c9fdc9c2574"
+    }
+  ],
+  "parent_release": "0.8.0.dev135+lib",
+  "parent_source_archive_sha256": "63de1a49b4c6ea32be22552c376c9829425361dc2d19bad69b96c225f50d8287",
+  "parent_source_sha256": "b5fb52c3a372a8563aef9cafb98ed0d52597cd2a832c2cd5aa28569d1fd8fbb6",
+  "pending": [
+    "Three registered paired-file comparisons; production functions unchanged; no repair qualification"
+  ],
+  "schema_id": "IG_DECODER_BUILD_META_V1",
+  "science_authority_effect": "NONE",
+  "scope": "A08 explicit content admission and bounded science contract conformance; no scientific qualification authority",
+  "shared_pointer_advanced": false,
+  "status": "STORAGE_STEP2_UNQUALIFIED_CANDIDATE",
+  "target_release": "0.8lib",
+  "version_api": "infinity_grid.build_meta",
+  "version_source": "infinity_grid._version.__version__",
+  "parent_source": "950b68743b177cdd88af32a1738cbc44d72746ff533f9882e0ffdff04ae4420f",
+  "parent_archive": "dab407845c9bab4977326e520b3db4c03f0a6332caacd7126437c703d944f591",
+  "parent_qualification": "REJECTED: 565 PASS / 1 FAIL; SCRIPT outcome admission conflict",
+  "parent_completion_sha256": "f29e8bd8482c411c6ec726124ac8a1d8a9c26e6edad1ca9cb4d3e17310f659ae"
+}

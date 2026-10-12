@@ -1,0 +1,58 @@
+DECODER 0.6 — SUPPORTED INVOCATION
+Development revision: read ig-decoder --version. Target release remains 0.6.0.
+
+Use ig-decoder capture STORE SPEC.json, complete pending-saves and confirm-save,
+then ig-decoder run WORKSPACE JOB_ID. Saved completion is verified and reused.
+The public runner creates the exact RUNNING attempt before granting runtime
+authority. Registration inspection remains read-only. A helper or client may
+submit the same native request; it receives no new execution capability.
+
+Serial SCRIPT: keep the source and helpers together in project_source. main,
+temporary files, shutil and pure memoization are supported. Scripts run in a
+controller-created child without inherited root execution authority.
+
+Parallel/resumable STAGE: keep evaluator functions pure and call the supplied
+runtime.run_structural_partition or runtime.run_content_indexed_generation.
+Use runtime.publish_json for durable stage artifacts. The existing shared task
+service continues to own scheduling, exact task state and reuse.
+
+Project-owned STAGE callables use project.module:function refs. They must live
+in the captured project_source and are resolved only from that exact source-
+bound workspace. They receive no private Decoder kernel-service view. Do not
+copy them into infinity_grid or edit the fixed built-in registry. Read
+PROJECT_STAGE_READ_FIRST.txt before preparing this route.
+
+Source and helper preflight targets execution infrastructure, not broad imports
+or ordinary function names. Python process auditing also checks private process
+launches resolved dynamically in scripts and evaluator calls. Handler scheduling
+is allowed only through the native shared task service. These supported-route
+checks do not confine arbitrary native code or unrestricted terminal activity.
+Same-user editable Python cannot establish a separate access-control boundary.
+The separately owned shared authority remains Step5.
+
+Refusals contain status, reason_code, operation_attempted, preserved_artifact_ids,
+unmet_checks, next_supported_operation, required_arguments and retry_is_safe.
+null arguments are decisions still needed, never invented scientific choices.
+Refused submitted source remains in its capture objects; runtime/refusals retains
+the refusal. Script runtime refusals are also retained in SCRIPT_RESULT.json.
+Changing source means capture a new revision and save its new objects.
+
+Deep engine changes: retain the known-working ig-decoder-recover entrypoint.
+Use the Step3 change open/capture-revision/test/diff/prepare-activation/activate/
+rollback operations. No controller replacement or external test wrapper is needed.
+
+Command compatibility:
+ig, igref, ig-decoder, ig-registered-service, python -m infinity_grid and
+python -m infinity_grid.controller all enter the same native controller.
+infinity_grid.cli:main and python -m infinity_grid.v05_controller_event_loop
+are forwarding compatibility entrypoints. Historical CLI execution is refused.
+ig-lockdown and ig-execution-status retain historical diagnostic formats; they
+cannot create an unbound root execution context. v05_* internal names and schema
+IDs denote retained compatibility implementations/formats, not package versions.
+
+Explicit supersession: the historical test
+test_registration_not_supervisor_credentials_opens_scope remains byte-identical
+for provenance. Step4 test_public_scope_refuses_and_has_working_run_instruction
+replaces its authorization expectation. Existing saved completion evidence is
+unchanged. This focused repair does not assert that every old historical test
+has migrated; final integration and active-version classification remain Step8.

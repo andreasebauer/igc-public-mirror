@@ -1,0 +1,54 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "frontier_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "last_completed_level": {
+      "type": "integer"
+    },
+    "last_delta_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "next_level": {
+      "type": "integer"
+    },
+    "operational_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_STREAMING_RUN_STATE_V2",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "updated_unix": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "frontier_science_sha256",
+    "last_completed_level",
+    "last_delta_science_sha256",
+    "next_level",
+    "operational_record_sha256",
+    "schema",
+    "science_sha256",
+    "spec_sha256",
+    "status",
+    "updated_unix"
+  ],
+  "type": "object"
+}

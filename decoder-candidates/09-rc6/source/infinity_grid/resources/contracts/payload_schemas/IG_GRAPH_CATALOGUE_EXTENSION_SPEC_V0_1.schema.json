@@ -1,0 +1,88 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "existing_tables_preserved": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "migration": {
+      "type": "string"
+    },
+    "new_tables_proposed": {
+      "additionalProperties": false,
+      "properties": {
+        "aliases": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "gc_journal": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "graph_edges": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "graph_nodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "recipes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reconstruction_proofs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "aliases",
+        "gc_journal",
+        "graph_edges",
+        "graph_nodes",
+        "recipes",
+        "reconstruction_proofs"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1",
+      "type": "string"
+    },
+    "truth_model": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "existing_tables_preserved",
+    "migration",
+    "new_tables_proposed",
+    "schema_id",
+    "truth_model",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_GRAPH_CATALOGUE_EXTENSION_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

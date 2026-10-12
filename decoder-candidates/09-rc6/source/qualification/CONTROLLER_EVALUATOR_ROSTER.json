@@ -1,0 +1,324 @@
+{
+  "schema_id": "IG_CONTROLLER_EVALUATOR_ROSTER_V1",
+  "evaluator_count": 26,
+  "registry_source_sha256": "8d020a9bd3c2a63e472e5f7603f453538a21c69928d7c76e595ee0e5127a1b7e",
+  "evaluator_specs": [
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.step3_l2_producer:evaluate",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:exact_one_step_relation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:g6_s1_universe_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:g6_s3_axis_a_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:g6_s3_axis_b_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:g6_s3_higher_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_controller_evaluators:g6_s3_l1_legacy_signature_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_public_state_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "PUBLIC_READ"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_ordinary_branch_count_component_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION_PROFILE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_depth2_outer_prefix_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION",
+        "EXACT_RELATION_PROFILE",
+        "EXACT_RELATION_PROFILE_BATCH",
+        "EXACT_RELATION_PROFILE_FAMILY"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_depth2_outer_children_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_depth2_child_profile_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION_PROFILE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s7_evaluators:s7_ordinary_branch_relation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "PUBLIC_READ",
+        "EXACT_RELATION",
+        "EXACT_RELATION_PROFILE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s8_evaluators:s8_recursive_outer_component_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "PUBLIC_READ",
+        "EXACT_RELATION",
+        "EXACT_RELATION_PROFILE",
+        "EXACT_RELATION_PROFILE_FAMILY"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s8_evaluators:s8_s7_class_recursive_prefix_comparator_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "PUBLIC_READ",
+        "EXACT_RELATION",
+        "EXACT_RELATION_PROFILE",
+        "EXACT_RELATION_PROFILE_FAMILY"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s8_evaluators:s8_recursive_ordinary_signature_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "PUBLIC_READ",
+        "EXACT_RELATION",
+        "EXACT_RELATION_PROFILE",
+        "EXACT_RELATION_PROFILE_FAMILY"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s8_evaluators:s8_v3_relation_generation_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s8_evaluators:s8_v3_profile_extension_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "AUTHORITY_BASIS",
+        "EXACT_RELATION_PROFILE_BATCH"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s5r_crw_evaluators:observer_inversion_descriptor_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "OBSERVER_Q",
+        "OBSERVER_DECODE",
+        "ATTACHMENT_RESPONSE_DESCRIPTOR"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s5r_crw_evaluators:observer_state_write_law_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "EXACT_RELATION",
+        "OBSERVER_Q",
+        "OBSERVER_WRITE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s6r_evaluators:recursive_closure_holdout_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "EXACT_RELATION",
+        "OBSERVER_Q",
+        "OBSERVER_DECODE",
+        "OBSERVER_WRITE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s6r_evaluators:l2_common_parent_uniqueness_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "OBSERVER_Q",
+        "OBSERVER_DECODE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s6r_evaluators:l2_sibling_q_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "OBSERVER_Q"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_s6r_evaluators:recursive_closure_independent_evaluator",
+      "role": "REFERENCE_ORACLE",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "EXACT_RELATION",
+        "OBSERVER_Q",
+        "LEGACY_OBSERVER_DECODE_ORACLE"
+      ],
+      "reference_oracle_for": [
+        "LEGACY_OBSERVER_DECODE_ORACLE"
+      ],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_marker_evaluators:marker_write_holdout_evaluator",
+      "role": "PRIMARY",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "EXACT_RELATION",
+        "MARKER_Q",
+        "MARKER_DECODE",
+        "MARKER_WRITE"
+      ],
+      "reference_oracle_for": [],
+      "legacy_semantic_source_sha256": null
+    },
+    {
+      "schema_id": "IG_DECODER_EVALUATOR_SPEC_V1",
+      "ref": "infinity_grid.g6_marker_evaluators:marker_write_independent_evaluator",
+      "role": "REFERENCE_ORACLE",
+      "allowed_kernel_services": [
+        "EXACT_IDENTITY",
+        "EXACT_RELATION",
+        "MARKER_Q",
+        "LEGACY_MARKER_DECODE_ORACLE"
+      ],
+      "reference_oracle_for": [
+        "LEGACY_MARKER_DECODE_ORACLE"
+      ],
+      "legacy_semantic_source_sha256": null
+    }
+  ],
+  "service_free_evaluators": [
+    "infinity_grid.step3_l2_producer:evaluate"
+  ],
+  "review_basis": "Retain all25 G6 service-bound evaluators and the explicitly registered pure finite L2 input composer. Its empty service set grants no kernel capability. Full semantic audit and no-exemption rules remain mandatory."
+}

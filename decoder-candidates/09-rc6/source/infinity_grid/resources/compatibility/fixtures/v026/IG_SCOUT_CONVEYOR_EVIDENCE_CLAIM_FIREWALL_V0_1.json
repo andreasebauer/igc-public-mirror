@@ -1,0 +1,34 @@
+{
+  "claim_records_per_level": 0,
+  "forbidden_terms_in_machine_claims": [
+    "C-PROVED",
+    "GRADUATED",
+    "FIRST_OCCURRENCE",
+    "POPULATION_COMPLETE",
+    "MECHANISM_PROVED",
+    "GEOMETRY_PROVED",
+    "PHYSICAL_TOPOLOGY_PROVED"
+  ],
+  "parent_inheritance": {
+    "inherits_authority_above_reconnaissance": false,
+    "inherits_exact_bounded_input": true,
+    "inherits_first_occurrence": false,
+    "inherits_population_completeness": false
+  },
+  "schema_id": "IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1",
+  "spec_sha256": "2fb690da6d452a8033e847044363fa8e089dc5b88113ef0e3906c38088d69c48",
+  "spectroscope": {
+    "cannot_change_selection": true,
+    "cannot_feedback": true,
+    "cannot_promote_geometry_topology_or_mechanism": true,
+    "recognition_only": true
+  },
+  "trigger_output_type": "ESCALATION_NOTICE_NOT_CLAIM",
+  "universal_tuple": {
+    "authority": "RECONNAISSANCE_ONLY",
+    "completeness": "BOUNDED_PREREGISTERED",
+    "execution": "DIRECT_EXECUTION",
+    "protocol_label": "SCOUT_OBSERVED",
+    "status": "OBSERVED"
+  }
+}

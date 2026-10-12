@@ -1,0 +1,95 @@
+{
+  "as_of_utc": "2026-08-30T23:10:13.972047+00:00",
+  "authority_class": "CURRENT_CONTEXT",
+  "canonical_code": {
+    "baseline_decoder_version": "0.26.0",
+    "gate1_contract_release": {
+      "baseline_release": {
+        "archive_sha256": "0412a490488c785f2c7846e953f9316a4d2ccfd9b12cc5d72327c6440eb4b45f",
+        "decoder_version": "0.26.0",
+        "source_sha256": "71d13cec323def599e0489a41068bba75d4569ae4b104234c66f2a51383c1369"
+      },
+      "package_version": "0.26.1",
+      "release_id": "INFINITY_GRID_ALGEBRA_DECODER_V0_26_1_GATE1_MACHINE_CONTRACTS",
+      "semantic_delta": "NONE",
+      "source_sha256": "bada049f4e26ac3165ec4aadba3d7d258ac5e4fbfd84befa128b82b6807a5f39"
+    },
+    "next_semantic_target": "0.27.0",
+    "semantic_delta_from_v0_26": "NONE"
+  },
+  "gate_status": {
+    "gate_0_baseline_freeze": "COMPLETE",
+    "gate_1_machine_contracts": "COMPLETE",
+    "gate_2_v0_26_oracle": "NEXT",
+    "v0_27_semantic_integration": "BLOCKED_UNTIL_LATER_GATES"
+  },
+  "hard_rules": [
+    "Do not rerun the old brute-force exact-carrier O7-O9 calibration.",
+    "Do not promote synthetic O10+ depths to graduated O-levels.",
+    "Do not resurrect O12/O13 raise candidate; it was rejected by matched-panel audit.",
+    "Do not invent hidden reads or new behavior. Natural-read experiment must detect a change in actual boundary/action semantics.",
+    "Old theory/cosmology docs are analogy only, not premises/evidence.",
+    "Use Decoder/machine-readable context as authority; chats are fallback provenance only.",
+    "For fixed grammar, use theorem acceleration and streaming descriptor transport; exact materialization is reopen-triggered only.",
+    "No synthetic O-level scout construction implies graduation.",
+    "No exploratory panel shock implies a regime raise; promotion requires the repaired matched-longitudinal criteria and targeted audit.",
+    "Rejected candidates remain rejected unless a new preregistered test with new evidence reopens them.",
+    "Observer-relative quotient theorems reopen when admitted actions read information excluded by the frozen quotient.",
+    "Do not invent missing historical exact carrier information; fail closed and request archived evidence when necessary.",
+    "A running process may be monitored operationally, but its scientific result remains RUNNING_UNINTERPRETED until completion and interpretation.",
+    "When Decoder and an older prose document disagree on current status, Decoder current context wins; the older document remains historical in its original scope."
+  ],
+  "legacy_state_reconciliation": {
+    "conflicts": [
+      {
+        "field": "blind_control.last_completed_level",
+        "newer_handoff": 57,
+        "older_work_status": 51,
+        "resolution": "HANDOFF_CURRENT_PREFERRED_AS_LATER_EXPLICIT_HANDOFF_SNAPSHOT"
+      }
+    ],
+    "rule": "CURRENT_STATE.json is authoritative after Gate 1; legacy files remain immutable provenance snapshots.",
+    "superseded_authority_files": [
+      "INDEX.json",
+      "BOOTSTRAP_CURRENT.json",
+      "WORK_STATUS.json",
+      "HANDOFF_CURRENT.json"
+    ]
+  },
+  "operational_snapshot": {
+    "active_runs": {
+      "blind_control_O14_to_O59": {
+        "current_level": 58,
+        "last_completed_level": 57,
+        "recap_level": 59,
+        "schema": "IG_O_REGIME_BACKGROUND_RUN_STATE_V1",
+        "start_level": 14,
+        "status": "RUNNING",
+        "stop_reason": null,
+        "updated_unix": 1788074604.645328
+      },
+      "old_bruteforce_exact_carrier_calibration": {
+        "status": "STOPPED_INCONCLUSIVE_DO_NOT_RESTART_SAME_ALGORITHM"
+      }
+    },
+    "freshness": "HISTORICAL_SNAPSHOT_REQUIRES_LIVE_REFRESH",
+    "rule": "Do not infer present process liveness or scientific conclusions from this historical snapshot. Refresh from declared runtime source before operational action.",
+    "source": "HANDOFF_CURRENT.json"
+  },
+  "purpose": "Single authoritative machine-readable Decoder state. Legacy split context files are inputs/provenance only after this file exists.",
+  "schema_id": "IG_DECODER_CURRENT_STATE_V1",
+  "science_status": {
+    "O10_plus_scanner": "SYNTHETIC_SCOUT_ONLY_NOT_GRADUATED",
+    "O12_O13_raise": "REJECTED_AS_EXPLORATORY_PANEL_SELECTION_ARTIFACT",
+    "O7": "FULL_AUDITED_GRADUATED_ANCHOR",
+    "O8": "THEOREM_ACCELERATED_GRADUATED",
+    "O9": "EXISTENCE_GRRL_REPEAT_SENTINEL_NOT_GRADUATED",
+    "earned_law": "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1",
+    "fast_exact_carrier_calibration": "O7 exact sentinel PASS; O8 theorem transport PASS; O9 theorem repeat PASS; broad censuses 0; about 4.4 s",
+    "generic_fixed_grammar_rule": "If lift/action/read-set/observer/multiplicity contract is unchanged, factorisation is transported by theorem; exact census is reopen-only.",
+    "geometry": "NOT_EARNED",
+    "natural_hidden_read": "NOT_EARNED"
+  },
+  "state_sha256": "315911d58db633d81e49f4bd4be9e9b6bf6ca5275b8e8fdd3c23dd382dff4dc6",
+  "state_version": "1.0.0"
+}

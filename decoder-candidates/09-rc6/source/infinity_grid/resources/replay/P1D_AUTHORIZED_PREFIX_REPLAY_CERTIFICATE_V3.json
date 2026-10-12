@@ -1,0 +1,45 @@
+{
+  "schema_id": "IG_P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V3",
+  "status": "QUALIFIED_EVIDENCE_REPRODUCTION_WAITING_AT_GLOBAL",
+  "decoder_version": "0.8.0.dev45+lib",
+  "underlying_replay_decoder_version": "0.8.0.dev42+lib",
+  "authorized_replay_through_layer": "G8",
+  "next_wait_layer": "GLOBAL",
+  "fail_closed": true,
+  "science_executed_in_correction": false,
+  "result_language": "REPRODUCED",
+  "execution_class_counts": {
+    "assertions": {
+      "FRESH_RECOMPUTE": 12,
+      "VERIFIED_RESTORED_BLOCK": 14,
+      "SOURCE_INTEGRITY_ONLY": 55,
+      "HISTORICAL_RESULT_ONLY": 40
+    },
+    "effective_scientific_nodes": {
+      "FRESH_RECOMPUTE": 3,
+      "VERIFIED_RESTORED_BLOCK": 1,
+      "SOURCE_INTEGRITY_ONLY": 43,
+      "HISTORICAL_RESULT_ONLY": 17
+    },
+    "mixed_class_nodes": 6
+  },
+  "empty_root_science_coverage": {
+    "status": "FULL_EMPTY_ROOT_REPLAY_NOT_ACHIEVED",
+    "pre_global_scientific_nodes": 60,
+    "pre_global_empty_root_counting_nodes": 3,
+    "pre_global_empty_root_fraction": "3/60",
+    "complete_pre_global_empty_root_layers": []
+  },
+  "interpretation": "The completed dev42 work is a qualified evidence replay through G8. It is not the full empty-root regeneration of every mapped scientific assertion described by the original end-boss plan.",
+  "active_known_qualification_ids": [
+    "IGKQ/G6/FEX1_S7_A30_IN_SAMPLE/V1",
+    "IGKQ/G7/RECEIPT_HASH_DISCREPANCY/V1",
+    "IGKQ/G8/CAP37_ZERO_DATA_FRONTIER/V1"
+  ],
+  "nonclaims": [
+    "Restored, embedded, documentary, theorem and historical-result checks do not count as freshly generated empty-root science.",
+    "A mixed node does not count unless every mapped assertion is FRESH_RECOMPUTE.",
+    "No GLOBAL/Components assertion was executed or authorized.",
+    "The shared release pointer was not advanced."
+  ]
+}

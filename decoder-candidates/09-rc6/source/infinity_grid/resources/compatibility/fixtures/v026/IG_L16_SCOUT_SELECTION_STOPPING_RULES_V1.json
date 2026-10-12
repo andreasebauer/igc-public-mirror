@@ -1,0 +1,50 @@
+{
+  "generation": {
+    "bridge_and_output_semantics": "frozen finite algebra; anonymous-interface canonicalization",
+    "deduplication": "canonical L16 record SHA-256",
+    "enumeration": "every source x every primitive record x every selected source port x every selected primitive port",
+    "must_complete_all_bounded_roots": true,
+    "operation": "one frozen primitive attachment"
+  },
+  "rules_sha256": "6a69ffc31ddf396a54c95142169a7e2a01b0153ba9c2d3d45e397177bbaa8499",
+  "schema_id": "IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1",
+  "selection": {
+    "B": "descending bounded parent count, then witness count, then SHA-256",
+    "D": "greedy farthest-point over the frozen pre-outcome record vector; initial/tie break by SHA-256",
+    "L": "first SHA-ordered child per SHA-ordered L15 source where available, then SHA-order fill",
+    "O": "descending repeated-port pair score, then bounded parent count, witness count, SHA-256",
+    "S": "ascending distinct exposed port-type count, then maximum port-type multiplicity, then SHA-256",
+    "lane_order": [
+      "D",
+      "B",
+      "S",
+      "O",
+      "L"
+    ],
+    "no_outcome_feedback": true,
+    "per_lane_max": 256,
+    "seal_before_relation_analysis": true,
+    "selected_union": "deduplicated union of all five sealed lanes, sorted by SHA-256"
+  },
+  "source_scope": "Exactly the 1,089 records in the pinned L15 selected relation; no additions or replacement roots.",
+  "spectroscope": {
+    "cannot_change_selection_or_generation": true,
+    "expensive_optional_modules": "DISABLED",
+    "recognition_only": true,
+    "runs_after_selection_seal": true
+  },
+  "stage_order": [
+    "preflight",
+    "wide",
+    "spectroscope",
+    "classify",
+    "verify"
+  ],
+  "stopping_rules": [
+    "Stop after complete one-step generation over all 1,089 roots.",
+    "Stop after deterministic five-lane sealing and bounded relation analysis.",
+    "Stop after cheap Spectroscope, comparison/classification, and golden verification.",
+    "No adaptive lane extension, panel growth, census, or deep ancestry search.",
+    "Fail closed on any hash, premise, output, checkpoint, or golden science-projection mismatch."
+  ]
+}

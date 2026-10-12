@@ -1,0 +1,17 @@
+{
+  "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+  "contract_sha256": "00168b0820d8da2f837702a92096e2ef96727c5bc5a858d5e129b0d1ba958941",
+  "does_not_recompute": "The scientific level/campaign result beyond the verified checkpoint.",
+  "historical_identity": "CHECKPOINT_NATIVE",
+  "legacy_resume_semantics": "SCOUT_CHECKPOINT_PREFLIGHT",
+  "limitations": [
+    "Preflight/readiness only; a successful smoke is not a science rerun."
+  ],
+  "profile_id": "SCOUT_L21_CHECKPOINT_V1",
+  "profile_sha256": "56bc85b54afb11a2cdf77fa9417411a15de1ba53e907a9c9346604f2092e7138",
+  "recomputes": "Integrity/readiness verification of the retained checkpoint or parent capsule.",
+  "replay_class": "CHECKPOINT_PREFLIGHT",
+  "schema_id": "IG_REPLAY_CONTRACT_V1",
+  "target_alias": "ig:test/L21",
+  "target_node_id": "result:sha256:2fc383fb3c544cbb9fc7cccce31726c273f5751b41fc547cec6a8a800c588e3c"
+}

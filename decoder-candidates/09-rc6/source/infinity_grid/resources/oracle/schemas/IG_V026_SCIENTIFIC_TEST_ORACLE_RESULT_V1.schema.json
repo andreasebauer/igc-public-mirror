@@ -1,0 +1,128 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failures": {
+      "items": {},
+      "type": "array"
+    },
+    "registry_sha256": {
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_note": {
+            "type": "string"
+          },
+          "evidence_canonical_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "evidence_file_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "evidence_relative_path": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expected": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "json_pointer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "level": {
+            "type": "string"
+          },
+          "observed": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parent_target_alias": {
+            "type": "string"
+          },
+          "replay_mode": {
+            "type": "string"
+          },
+          "replay_semantics": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          },
+          "test_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authority_note",
+          "evidence_canonical_sha256",
+          "evidence_file_sha256",
+          "evidence_relative_path",
+          "expected",
+          "json_pointer",
+          "level",
+          "observed",
+          "parent_target_alias",
+          "replay_mode",
+          "replay_semantics",
+          "status",
+          "target_node_id",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tests_failed": {
+      "type": "integer"
+    },
+    "tests_passed": {
+      "type": "integer"
+    },
+    "tests_total": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "failures",
+    "registry_sha256",
+    "results",
+    "schema_id",
+    "status",
+    "tests_failed",
+    "tests_passed",
+    "tests_total"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

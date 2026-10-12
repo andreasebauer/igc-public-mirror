@@ -1,0 +1,87 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_expected_claims": {
+      "type": "integer"
+    },
+    "catalog_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "current_parent_pointer": {
+      "type": "string"
+    },
+    "environment_reproduction": {
+      "additionalProperties": false,
+      "properties": {
+        "clean_install_at_chain_closeout": {
+          "type": "boolean"
+        },
+        "clean_install_at_chain_start": {
+          "type": "boolean"
+        },
+        "clean_install_at_source_change": {
+          "type": "boolean"
+        },
+        "per_level_same_environment_byte_replay": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "clean_install_at_chain_closeout",
+        "clean_install_at_chain_start",
+        "clean_install_at_source_change",
+        "per_level_same_environment_byte_replay"
+      ],
+      "type": "object"
+    },
+    "history_copy_policy": {
+      "type": "string"
+    },
+    "per_level_outputs": {
+      "additionalProperties": false,
+      "properties": {
+        "compact_run_release": {
+          "type": "string"
+        },
+        "forward_parent_capsule": {
+          "type": "string"
+        },
+        "full_standalone_run_release": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "compact_run_release",
+        "forward_parent_capsule",
+        "full_standalone_run_release"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "catalog_expected_claims",
+    "catalog_order",
+    "current_parent_pointer",
+    "environment_reproduction",
+    "history_copy_policy",
+    "per_level_outputs",
+    "schema_id",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_RELEASE_CATALOG_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_regime_law_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "active_test_pack_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "available_test_pack_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "current_entity_class_ref": {
+      "type": "string"
+    },
+    "current_regime_ref": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "frontier_id": {
+      "type": "string"
+    },
+    "latest_verified_regime_depth": {
+      "type": [
+        "integer",
+        "string",
+        "null"
+      ]
+    },
+    "lift_state": {
+      "type": "string"
+    },
+    "next_admissible_scientific_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "open_finding_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "plateau_state": {
+      "type": "string"
+    },
+    "rule": {
+      "const": "SCIENTIFIC_FRONTIER_IS_SEPARATE_FROM_SOFTWARE_RELEASE_STATE"
+    },
+    "schema_id": {
+      "const": "IG_RESEARCH_FRONTIER_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "software_release_state_ref": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "frontier_id",
+    "status",
+    "current_entity_class_ref",
+    "current_regime_ref",
+    "latest_verified_regime_depth",
+    "active_regime_law_refs",
+    "active_test_pack_refs",
+    "available_test_pack_refs",
+    "open_finding_refs",
+    "plateau_state",
+    "lift_state",
+    "next_admissible_scientific_actions",
+    "evidence_refs",
+    "software_release_state_ref",
+    "rule"
+  ],
+  "title": "IG Decoder Research Frontier V1",
+  "type": "object"
+}
