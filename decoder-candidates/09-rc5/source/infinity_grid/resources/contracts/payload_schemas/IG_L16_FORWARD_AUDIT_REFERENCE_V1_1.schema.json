@@ -1,0 +1,348 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_FORWARD_AUDIT_REFERENCE_V1_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_counterfactual_selected_relation_canonical_sha256": {
+      "type": "string"
+    },
+    "expected_exact_union_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "distinct_exact_parent_fibers": {
+          "type": "integer"
+        },
+        "relation_edges": {
+          "type": "integer"
+        },
+        "selected_max_parent_count": {
+          "type": "integer"
+        },
+        "selected_multi_parent": {
+          "type": "integer"
+        },
+        "selected_parent_histogram": {
+          "additionalProperties": false,
+          "properties": {
+            "1": {
+              "type": "integer"
+            },
+            "10": {
+              "type": "integer"
+            },
+            "11": {
+              "type": "integer"
+            },
+            "12": {
+              "type": "integer"
+            },
+            "13": {
+              "type": "integer"
+            },
+            "14": {
+              "type": "integer"
+            },
+            "15": {
+              "type": "integer"
+            },
+            "16": {
+              "type": "integer"
+            },
+            "2": {
+              "type": "integer"
+            },
+            "3": {
+              "type": "integer"
+            },
+            "4": {
+              "type": "integer"
+            },
+            "5": {
+              "type": "integer"
+            },
+            "6": {
+              "type": "integer"
+            },
+            "7": {
+              "type": "integer"
+            },
+            "8": {
+              "type": "integer"
+            },
+            "9": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "1",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "type": "object"
+        },
+        "selected_union": {
+          "type": "integer"
+        },
+        "shared_parent_multiplicity_histogram": {
+          "additionalProperties": false,
+          "properties": {
+            "1": {
+              "type": "integer"
+            },
+            "10": {
+              "type": "integer"
+            },
+            "2": {
+              "type": "integer"
+            },
+            "3": {
+              "type": "integer"
+            },
+            "4": {
+              "type": "integer"
+            },
+            "5": {
+              "type": "integer"
+            },
+            "6": {
+              "type": "integer"
+            },
+            "7": {
+              "type": "integer"
+            },
+            "8": {
+              "type": "integer"
+            },
+            "9": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "1",
+            "10",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "type": "object"
+        },
+        "shared_parent_pair_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "distinct_exact_parent_fibers",
+        "relation_edges",
+        "selected_max_parent_count",
+        "selected_multi_parent",
+        "selected_parent_histogram",
+        "selected_union",
+        "shared_parent_multiplicity_histogram",
+        "shared_parent_pair_count"
+      ],
+      "type": "object"
+    },
+    "expected_spectroscope_core": {
+      "additionalProperties": false,
+      "properties": {
+        "closure_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "both_realized": {
+              "type": "integer"
+            },
+            "intersection_realized": {
+              "type": "integer"
+            },
+            "overlapping_distinct_fiber_pairs": {
+              "type": "integer"
+            },
+            "union_realized": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "both_realized",
+            "intersection_realized",
+            "overlapping_distinct_fiber_pairs",
+            "union_realized"
+          ],
+          "type": "object"
+        },
+        "incidence_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "abstract_cycle_rank": {
+              "type": "integer"
+            },
+            "components": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "abstract_cycle_rank",
+            "components"
+          ],
+          "type": "object"
+        },
+        "incomparable_closure": {
+          "additionalProperties": false,
+          "properties": {
+            "both_realized": {
+              "type": "integer"
+            },
+            "intersection_realized": {
+              "type": "integer"
+            },
+            "pairs": {
+              "type": "integer"
+            },
+            "union_realized": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "both_realized",
+            "intersection_realized",
+            "pairs",
+            "union_realized"
+          ],
+          "type": "object"
+        },
+        "order_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "cover_relations": {
+              "type": "integer"
+            },
+            "distinct_right_parent_fibers": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "strict_inclusion_pairs": {
+              "type": "integer"
+            },
+            "width": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cover_relations",
+            "distinct_right_parent_fibers",
+            "height",
+            "strict_inclusion_pairs",
+            "width"
+          ],
+          "type": "object"
+        },
+        "refinement_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "left_singletons": {
+              "type": "integer"
+            },
+            "right_singletons": {
+              "type": "integer"
+            },
+            "stable_left_classes": {
+              "type": "integer"
+            },
+            "stable_right_classes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "left_singletons",
+            "right_singletons",
+            "stable_left_classes",
+            "stable_right_classes"
+          ],
+          "type": "object"
+        },
+        "scope": {
+          "additionalProperties": false,
+          "properties": {
+            "incidences": {
+              "type": "integer"
+            },
+            "left_nodes": {
+              "type": "integer"
+            },
+            "right_nodes": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "incidences",
+            "left_nodes",
+            "right_nodes"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "closure_summary",
+        "incidence_summary",
+        "incomparable_closure",
+        "order_summary",
+        "refinement_summary",
+        "scope"
+      ],
+      "type": "object"
+    },
+    "expected_summary": {
+      "type": "string"
+    },
+    "historical_l16_closeout_sha256": {
+      "type": "string"
+    },
+    "reference_sha256": {
+      "type": "string"
+    },
+    "reference_use": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_FORWARD_AUDIT_REFERENCE_V1_1",
+      "type": "string"
+    },
+    "source_pro_audit_science_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_counterfactual_selected_relation_canonical_sha256",
+    "expected_exact_union_metrics",
+    "expected_spectroscope_core",
+    "expected_summary",
+    "historical_l16_closeout_sha256",
+    "reference_sha256",
+    "reference_use",
+    "schema_id",
+    "source_pro_audit_science_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_FORWARD_AUDIT_REFERENCE_V1_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

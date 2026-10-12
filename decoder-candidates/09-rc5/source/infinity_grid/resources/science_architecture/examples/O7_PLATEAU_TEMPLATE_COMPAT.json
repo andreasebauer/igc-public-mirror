@@ -1,0 +1,34 @@
+{
+  "complexity_growth_guard": "Exact construction depth and at least one declared interior-complexity diagnostic must strictly increase so stabilization is not caused by frozen generation.",
+  "depth_window": {
+    "end": "d",
+    "start": "d-W+1",
+    "width": 4
+  },
+  "entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "evidence_refs": [
+    {
+      "id": "O_REGIME_ADAPTIVE_SCANNER_SPEC_v1",
+      "role": "compatibility source",
+      "scope": "legacy plateau rule",
+      "version": "1"
+    }
+  ],
+  "nonclaim": "NOT_ETERNAL_CLOSURE_AND_NOT_AUTOMATIC_LIFT",
+  "observer_or_test_pack_ref": "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0",
+  "outstanding_counterexamples": [],
+  "persistence_rule": "The stabilized signature must persist for all depths in the declared W=4 window under identical frozen Test/TestPack versions.",
+  "plateau_id": "IG_O7_REGIME_PLATEAU_TEMPLATE_COMPAT",
+  "regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "reopen_conditions": [
+    "TestPack membership/version changes",
+    "observer/projection changes",
+    "Regime grammar changes",
+    "new counterexample appears"
+  ],
+  "schema_id": "IG_PLATEAU_CERTIFICATE_V1",
+  "schema_version": "1.0.0",
+  "scope_class": "RECONNAISSANCE",
+  "stabilization_definition": "Four consecutive completed post-calibration development depths with byte-identical normalized full Test-Pack/scanner signatures after the last qualifying structural-shock family.",
+  "status": "EXAMPLE_TEMPLATE"
+}

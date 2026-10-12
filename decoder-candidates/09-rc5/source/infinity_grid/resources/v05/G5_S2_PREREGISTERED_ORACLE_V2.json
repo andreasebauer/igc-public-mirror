@@ -1,0 +1,32 @@
+{
+  "allowed_s2_alternatives": [
+    "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+    "G5_S2_PAIR_OBSERVER_QUOTIENT_NOT_CERTIFIED",
+    "G5_S2_AUTHORITY_OR_QUOTIENT_FAILURE"
+  ],
+  "allowed_s2_outcomes": [
+    "PASS",
+    "REVIEW_REQUIRED",
+    "BLOCKED"
+  ],
+  "g4_changed": false,
+  "g5_composition_law_earned": false,
+  "g5_public_descriptor_promoted": false,
+  "graduated": false,
+  "required_authority_effect": "NONE_P6",
+  "required_historical_s2_classification": "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+  "required_historical_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+  "required_minimal_added_read": "NONE",
+  "required_post_s2_stop": "G5_S3_PREREGISTRATION_REQUIRED",
+  "required_public_carrier_partition_equals_target_behavior_kernel": true,
+  "required_public_pair_context_key_count": 124,
+  "required_representative_conflict_count": 0,
+  "required_s1_repair_primary_science_sha256": "57afc3b84d5c102af3c11c00ce34861f102065db3d6edff26354dcc5cb9b9456",
+  "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+  "required_s1_stage_science_sha256": "179e68f524a03063798d421b941d6b7b52f38f598c624ee437e3ed55c9161f84",
+  "s3_execution_authorized": false,
+  "schema_id": "IG_G5_S2_PREREGISTERED_ORACLE_V2",
+  "science_sha256": "8ced5c747e4813bdbb04d3273547bc69c2e26c898200fc5b976bc83c1fa3cad3",
+  "spec_science_sha256": "d64e15ba04556e65ba971d85b2b7145c583fdc12189c2e472d9aaef8434c29b7",
+  "stage": "G5:S2_REPAIR_RECERTIFICATION"
+}

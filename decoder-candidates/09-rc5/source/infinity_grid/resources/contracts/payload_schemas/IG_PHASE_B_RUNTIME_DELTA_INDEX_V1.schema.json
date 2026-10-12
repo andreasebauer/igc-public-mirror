@@ -1,0 +1,41 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_PHASE_B_RUNTIME_DELTA_INDEX_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "changed_files": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "new_files": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "removed_files": {
+      "items": {},
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_PHASE_B_RUNTIME_DELTA_INDEX_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "changed_files",
+    "new_files",
+    "removed_files",
+    "schema",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_PHASE_B_RUNTIME_DELTA_INDEX_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

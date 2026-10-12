@@ -1,0 +1,44 @@
+{
+  "schema_id": "IG_P4_L0_PILOT_RUNTIME_HARNESS_RESULT_V1",
+  "automatic": {
+    "outcome": "L0_PILOT_COMPLETE",
+    "root_run_id": "P4-L0-AUTOMATIC",
+    "manifest_dag_sha256": "e53f9637b0e1fec6f1b4ee76d98fbf70e98ed4c6268afab8666eff71786043ab",
+    "runner_state_sha256": "e8ce4551eac338464564c4fcd15f43ab195d3baff04408671958c96a9d65ee35",
+    "completed_node_ids": [
+      "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+      "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+      "IG/L0/C/ASSERTION_MAPPED_INTERFACES",
+      "IG/L0/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "IG/L0/GATE/CERTIFY"
+    ],
+    "science_executed": false,
+    "reference_manifest_sha256": "c47a70f5ccd43fb9c62904f899461a7ebe92b5ec2e3b6841628757d2a2993ef2",
+    "reference_record_count": 20,
+    "source_integrity_nodes_executed": 4,
+    "fresh_empty_root_science_node_count": 0,
+    "frontier_record_sha256": "2af0204269bbc6a5f29cf8f465e72623984585576a7422c6c7435f71fdaffcc8"
+  },
+  "automatic_next_node_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+  "injected": {
+    "outcome": "WAITING_FOR_EXTERNAL_AUDIT",
+    "root_run_id": "P4-L0-INJECTED",
+    "runner_state_sha256": "5dbdde2a9f37cdb2fd4fe207ca24c8c2dbde9c27bd8452ceb13c556f78081a66",
+    "completed_node_ids": [
+      "IG/L0/S/ASSERTION_MAPPED_STRUCTURE"
+    ],
+    "science_executed": false,
+    "reference_manifest_sha256": "864698d6610884dd27326f0c77204b9a5f290b0511f869af0ae450d922ee7d28",
+    "reference_record_count": 11,
+    "source_integrity_nodes_executed": 1,
+    "fresh_empty_root_science_node_count": 0,
+    "frontier_record_sha256": "c86443527dd1673cb9ee91ff6614edae1210b42a41b5ed4884d9481dc60a0c49"
+  },
+  "injected_stop": {
+    "node_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+    "outcome": "RESULT_MISMATCH",
+    "capsule_sha256": "5372da496c0e36f45042bc6921ffdec4413371826ff9d933a32c903f967501bb"
+  },
+  "execution_boundary": "RUNTIME_QUALIFICATION_HARNESS_NOT_RECORDED_CONTROLLER_ATTEMPT",
+  "result_sha256": "0ce20661980c16b23e242f7c9040117e3a6e58f0d7780bdfcb759a2089befbe8"
+}

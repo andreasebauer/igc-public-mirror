@@ -1,0 +1,76 @@
+{
+  "$id": "ig://schema/artifact-envelope/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapters": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adapter_id": {"minLength": 1, "type": "string"},
+          "version": {"minLength": 1, "type": "string"}
+        },
+        "required": ["adapter_id", "version"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "canonicalizer": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {"const": "IG_CANONICAL_JSON_V1"},
+        "version": {"const": "1.0.0"}
+      },
+      "required": ["id", "version"],
+      "type": "object"
+    },
+    "content_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "decoder_release": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_release": {"type": ["object", "null"]},
+        "package_version": {"minLength": 1, "type": "string"},
+        "release_id": {"minLength": 1, "type": "string"},
+        "semantic_delta": {"type": "string"},
+        "source_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+      },
+      "required": ["package_version", "release_id", "source_sha256", "baseline_release", "semantic_delta"],
+      "type": "object"
+    },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "role": {"minLength": 1, "type": "string"},
+          "sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+          "size_bytes": {"minimum": 0, "type": "integer"}
+        },
+        "required": ["role", "sha256"],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "envelope_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "envelope_version": {"const": "1.0.0"},
+    "operational_metadata": {"type": "object"},
+    "payload": {"type": "object"},
+    "payload_schema_id": {"minLength": 1, "type": "string"},
+    "payload_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "schema_id": {"const": "IG_ARTIFACT_ENVELOPE_V1"},
+    "semantic_profile": {
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {"minLength": 1, "type": "string"},
+        "version": {"minLength": 1, "type": "string"}
+      },
+      "required": ["profile_id", "version"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_id", "envelope_version", "payload_schema_id", "payload", "payload_sha256",
+    "decoder_release", "semantic_profile", "canonicalizer", "adapters", "dependencies",
+    "operational_metadata", "content_sha256", "envelope_sha256"
+  ],
+  "type": "object"
+}

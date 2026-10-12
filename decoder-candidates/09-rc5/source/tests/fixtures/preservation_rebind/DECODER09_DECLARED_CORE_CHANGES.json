@@ -1,0 +1,27 @@
+{
+  "schema": "IG_DECODER09_DECLARED_CORE_SUCCESSOR_V1",
+  "qualification_status": "PENDING_FULL_RELEASE_QUALIFICATION",
+  "change_record": "DECODER09_CORE_BOUNDARIES.txt",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "44cb00672d8862d4cff90ab1664a647b2b7577192b9779d80bce452d5f996790",
+      "candidate_sha256": "bd93d8e9328dab8bbf00ca13e2af85dead8eefc4c2257b7c7aef1a6974cad920",
+      "reason": "Expose scaled checkpoint evidence and validated native bulk scheduling while retaining registered admission and terminal completion binding."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "4c6ef74d4a3be2d0fe3669bd30220f51e1ceb59c0a2c4dfce33b29b026839b06",
+      "candidate_sha256": "0411789d0c8a522c30c37f1409305af3d65cca4a3dd3b22205b974b0be0a53c4",
+      "reason": "Support explicit unbounded workspace budgets, checkpoint manifests and exact saved evidence closure; bounded budgets remain checked."
+    },
+    "infinity_grid/result_contracts.py": {
+      "previous_reviewed_sha256": "ccf1192865d0e35d4c91a15e7299afee7702da911dd14f018ccc81d0171aed07",
+      "candidate_sha256": "1e82611a582af47309a5bb5ab750035d845ca86beceac22a1aca991287697b4c",
+      "reason": "Declare rolling unbounded execution preservation policy with explicit validation and no automatic deadline."
+    },
+    "infinity_grid/v05_validation_runtime.py": {
+      "previous_reviewed_sha256": "40ea3248ae740209ceff2964acd5f23003e67b592cb319a4ea29684b5226279a",
+      "candidate_sha256": "9d30917eabc9a857eecfe36e31b2e264da7fd2d6572b2415bb3129a5da5ff809",
+      "reason": "Own and cancel validation descendants; verify selector finalization, stop after nonpass selectors and preserve native save-wave boundaries."
+    }
+  }
+}

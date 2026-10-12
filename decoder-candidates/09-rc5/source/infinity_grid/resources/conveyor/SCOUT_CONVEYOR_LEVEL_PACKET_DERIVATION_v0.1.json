@@ -1,0 +1,37 @@
+{
+  "derived_packet_fields": {
+    "evidence": [
+      "DIRECT_EXECUTION",
+      "BOUNDED_PREREGISTERED",
+      "OBSERVED",
+      "RECONNAISSANCE_ONLY",
+      "SCOUT_OBSERVED"
+    ],
+    "packet_id": "scout-l{target_level}-{first16(packet_seed_sha256)}",
+    "packet_seed_sha256": "SHA256(canonical chain_plan_sha256, parent_certificate_sha256, target_level)",
+    "question": "generic question template with source/target substitutions",
+    "root_count": "selected_object_count from parent certificate",
+    "root_sha256": "selected relation file SHA-256 from parent certificate",
+    "run_id": "run-scout-l{target_level}-chain-{first12(chain_plan_sha256)}-{first16(packet_seed_sha256)}",
+    "source_level": "parent_level",
+    "target_level": "parent_level + 1"
+  },
+  "deterministic_inputs": [
+    "chain_plan_sha256",
+    "parent_certificate_sha256",
+    "parent_selected_relation_sha256",
+    "parent_level",
+    "target_level = parent_level + 1",
+    "runtime and environment identities",
+    "primitive dataset identity",
+    "generic protocol template identity",
+    "selection/observer/evidence/trigger/state-machine identities"
+  ],
+  "failure_rule": "Any derivation disagreement is an integrity failure and terminates the chain fail-closed.",
+  "golden_rule": "For genuinely new levels, no historical golden is available to generation, selection, Spectroscope or classification. Any later comparison material is terminal-only and cannot alter results.",
+  "no_manual_freeze_per_level": "A human does not redefine each child packet. The one frozen chain policy deterministically derives it.",
+  "packet_freeze_rule": "Write packet, question and execution plan atomically; canonical-hash all three; verify by a second independent derivation before any child run directory is created.",
+  "precondition": "The parent certificate is ELIGIBLE_AUTO_PARENT or is the frozen L16 bootstrap certificate explicitly accepted by this Phase-0 specification.",
+  "schema_id": "IG_SCOUT_CONVEYOR_LEVEL_PACKET_DERIVATION_V0_1",
+  "spec_sha256": "9f6c2d1b7e476bc1740df1b54bc3d3090b0e99971b292c3f1e6cfa21d683bd66"
+}

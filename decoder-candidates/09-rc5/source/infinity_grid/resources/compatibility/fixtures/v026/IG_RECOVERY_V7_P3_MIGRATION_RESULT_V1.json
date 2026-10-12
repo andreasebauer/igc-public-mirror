@@ -1,0 +1,641 @@
+{
+  "authority_class_distribution": {
+    "BOUNDED_SCIENTIFIC_EVIDENCE": 15,
+    "CANONICAL_SCIENCE_AUTHORITY": 6,
+    "CERTIFIED_AUTHORITY": 18,
+    "CHECKPOINT_STATE_EVIDENCE": 51,
+    "HISTORICAL_CAMPAIGN_EVIDENCE": 1,
+    "ORCHESTRATION_CONTROL_EVIDENCE": 1,
+    "RECONSTRUCTED_SCIENCE": 1,
+    "RECOVERED_CERTIFIED_AUTHORITY": 5
+  },
+  "changed_resume_semantics": [
+    {
+      "new_profile_sha256": "fe2759467899f2071cf4dc9562329399c3ccd4c92eae91ca989d2c81082b121f",
+      "old_profile_sha256": "43b773009c5ac30b0b1636ee69395e6041c0a57454b63fbf2a7726f12438e123",
+      "profile_id": "PHASE8_O8_JUMPSTART",
+      "resume_semantics": "THEOREM_ACCELERATED_GRADUATION_REPLAY"
+    },
+    {
+      "new_profile_sha256": "2a7b2ade3842128a203b1fc4ab381b525425c9ce3151e8554fa8d052b7ee2b0e",
+      "old_profile_sha256": "5fa36c749fb2495b50da02008fff7102dd26de1ef7197d6e00f48593731cc31b",
+      "profile_id": "PHASE8_O_FRONTIER_AUTO_JUMPSTART",
+      "resume_semantics": "FIXED_GRAMMAR_FRONTIER_AUTO_ADVANCE"
+    },
+    {
+      "new_profile_sha256": "b89eeeb273a295c0627f8d6078e93b25d87dc881ce857ccf65eeefebdee9f8f0",
+      "old_profile_sha256": "9b1385b2985804aeac1f78bcb6c66194ae4a9831a299d813f0bc8c6820601c4a",
+      "profile_id": "PHASE8_O9_BP0_JUMPSTART",
+      "resume_semantics": "MINIMAL_EXISTENCE_GRAMMAR_READ_REPRESENTATION_SENTINEL"
+    }
+  ],
+  "contracts": 98,
+  "coverage": {
+    "contracts": 98,
+    "failures": [],
+    "profiles": 98,
+    "rows": [
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "DRA_V2_REOPEN_L14_L38_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:cbf33f91f0649843d30eefe4c8d5baf738ccd7f22b4d4f67eae861f7e3690df9"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "FF22_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:b9f35f44bd38ccf8d7ee96b4410493659ea5ed4fb4bc8b1a9af070c144afa029"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "FF23_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:c3f9eccc44c466283a842c19561e832f5c757ead8b115087b9f4290296081f25"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "H_SCOUT3_CLOSURE_BEFORE_GEOMETRIZATION_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:cc21a19a2a0c14812ee9f611d1f581c4f321d7fcb976abc1f33ce53540bac8df"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L10_PHASE5_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:584eafebc07f1a1c9c63565818280c1d3dc766d41dafdd5eab57143c4657c714"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L11_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:018d952c2c980f027fc93273b9c96deb2651a30ff529dd69c8f75e48986c9c80"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L12_PHASE5_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:52c58fefc19a4578819568d9161f86ff3e799d46d6822c0b06eb928a2be58771"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L13_PHASE5_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:d3aeb7859ee880ec1879a13bbdf00beddd22a8d77a58c872e24405e7bc0801bb"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "L14_A3_RESUME_PHASE5_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:73e7efaf12c36080ffa5e7ae6e8ac5f5cf18eb2b3b658ae7da99c76410d8b5ce"
+      },
+      {
+        "authority_class": "RECOVERED_CERTIFIED_AUTHORITY",
+        "profile_id": "L14_FINAL_PHASE6R_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:c7f0d0639a4a83c0c4732a8d758ae866104d253277a8b08c7fc0867772439f58"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L2_JUMPSTART_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:f03a0137a18bfddfbefe41712ea639964be378297424c33cd0e0d7c3a5de2504"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L5_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:e0443addcd580ccf097e3dc105dab2a6a72d52a7ca8cb3c11f132ed0f1a944a9"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L6_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:1099a227ed50f811d518b7a118679d560651bff6236671dc882866d4612b22b0"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L7_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:c8c92b2868683d261b9db2e6df76a8bb28ea4ee8c205618f054b6b8eb516805b"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L8_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:3f0e000efdf32f10ef878fbfe8d33f7ac59cfe3e4520c27be8e715298e202f55"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "L9_FINAL_CERT_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:3348abad65215d14066c068c9aaefbae86b42af7561acacfe181c8f9c4c43367"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L45_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:b3581c79bf92c28e1eb35ee13cb4e3892f9a7e3d1bc618cad0434e37a41173b2"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L46_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:12bd6c0c5834102cc853ad25810f83bd755ceac65d5f3f9cdb57dafd43ca9ec2"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L47_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:e36a7df00243b530097c74622730a428447028aad07ce6ac3a84970ec2dcd310"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L48_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:3960c2114d96d37f1a70ae7a8b7e39d208c96cb309ada9f97a44e5ea3903f6cd"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L49_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:54ced018f14f26543e6957fa9146e221f69f77c3c6e3ac42b250e510818f1e3a"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L50_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:0d380fdd4b79cc5ab971263d91aa671ab0cab9a39ed277e86aa4ec71af3ae6bf"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L51_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:c29c75433ad35fa3bf34f4efd14dd90e7ba75dce591a222a7f683ae6e7081e4d"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L52_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:a3b8e5187a96a15520bb15b6e8670bdb8ccc02372d058045a5d11786d7616353"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L53_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:fc7c074ae00e94df2052e1e54284b3cbf6f6a7a8a9ee2030640b9a87c169bb74"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L54_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:6b479ff7e2a9927f6339346924a1db9f9574354742a0f02f19dd83e5e5957021"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L55_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:f11a3fe600f9f1a807ff3d4de03b4a2a65fc00ce0d2890fb66a8abe44e2d4f34"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L56_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:56cffbfc74d0713411eb4cc0d03950266088ee72ebbcb17ae17140ad61783349"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L57_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:c34f606927e76fa059d071de433431e8e01fd8011cd859daf9fd5c6907e1f237"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L58_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:9b0b1eaee3183fa1c4ea5ad79dce912faf3e5dedab0b203abab18c82957cee53"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L59_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:b71166fe2c9b2fd773b0ae88ca61f38b79cb51e5a1e15379ab90bfdf61753859"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L60_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:04a3a93cbb93cf8d565323556bb41b70166d55b98837aeec23eba55513083cd7"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L61_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:ebd5bba1f08f5257e347ff879f9fbf56f801506658208ce6bcfcc64adf52e84d"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L62_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:94badf7f7f8cd7a451e95c5930e2bd26e150f7077a7758f792b4be69ac068c23"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L63_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:d96cd789edc8ddef7c405bf39bab1a63ad3f1d00f85a266585e0e1a637725bd9"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "NODE_SCOUT_L64_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:fef30960e9964b528d1c4692f6fbe9e9e6d1843e10d1a3ab8062bbad52d524c3"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "O123_V1_2_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:65776d122c5723fc9edab4288530ca2f462125b118da30be7aab70eb1ea90c7c"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "O1_JUMPSTART_V1",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "O2_CERTIFICATE_REPLAY_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:0f05e9f95b153547c34ad2bc48851e5faeea456f388cda813e8831ad5b538cbc"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "O3_JUMPSTART_V1",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "O4_PHASE6_V1",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+      },
+      {
+        "authority_class": "RECONSTRUCTED_SCIENCE",
+        "profile_id": "O5_PHASE6_V1",
+        "replay_class": "SCIENTIFIC_RECONSTRUCTION",
+        "target_node_id": "result:sha256:421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "O6_PHASE6_V1",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "O7_ADAPTER_PHASE7_V1",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:0157fe6aec6657e6f35ca32b6fdc41921dba9bac9a771b0cc3308cd025c11d1f"
+      },
+      {
+        "authority_class": "HISTORICAL_CAMPAIGN_EVIDENCE",
+        "profile_id": "O7_COMPACT_REPLAY_V1",
+        "replay_class": "FULL_HISTORICAL_CAMPAIGN",
+        "target_node_id": "result:sha256:97ae4ba155fc8af9bd85ad8ee1f96a67e305c3192f08ffc7d9447c650ec523d6"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "O7_GRADUATED_PHASE7_V1",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "O7_POST_STRUCTURAL_PHASE7_V1",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:f52190c75af6674d80f653be254ec9b60c5c044061dfbd78f0cc18c6055ab764"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "O7_PREREG_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:165fb628c4fcab684302b1daa1ed8a079ab49c9b68f2f1124b2b02b335ade204"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "O7_SHADOW_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:2e85bcaa875b700532bd7e0a272981478b4d7958b85ec2fc14556816289cd101"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "O7_TOPOLOGY_READ_PHASE7_V1",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:77b1f081b181b2eaa5dc910a280de8a8c767403a50db45ab51fec698d608c99d"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "O8_BP0_PHASE7_V1",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:a42a5c9ae6b01ecbb30e00ce7b95c7763696591e089a1b67275f904ec8bac9f7"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "OSCOUT_SELF_TEST_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:9375aa0e1f05a50959085ceb068490cee5018d093c22939813b228bc4937f110"
+      },
+      {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "profile_id": "PHASE8_O8_JUMPSTART",
+        "replay_class": "RERUN_GRADUATION_AUDIT",
+        "target_node_id": "result:sha256:d28d44d1f023bca45d285c34cb3936fb924435c15fd71cd4eebe2b9409200bf1"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "PHASE8_O9_BP0_JUMPSTART",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:3ad7d078ac51f60bfc38a5c14dbf08019326aab1ed28be9c0cb37d99fbfc3c01"
+      },
+      {
+        "authority_class": "ORCHESTRATION_CONTROL_EVIDENCE",
+        "profile_id": "PHASE8_O_FRONTIER_AUTO_JUMPSTART",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT",
+        "target_node_id": "result:sha256:85241a4c2d402ed80af23cadb4d83733d11536d17755b69ad45528391db78ee5"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_CLOSURE_ISLANDS_L30_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:32e43a99637cddec196a6894cdfb03da8576e853f2af980636281b1a07800b26"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L15_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:22d6752e2377522f7cf2949a356ca43f8068c87816f3e3557eda70206d087b86"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L16_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:2e848c5c9c37181b8ebb1006fcec2288b930a74155b28819df840c8073fc7a06"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L17_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:4811772165db28d9096282586167c7af10927db29d587ef95a0b672a7914ffd9"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L18_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:c7746f5f64a31185e2a322c0626ea7c3def76b087cf014656567f2a2d9b7662b"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L19_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:63aa1e7cfd5695ed2600b1072dde2e114bbacafbe5261f6a4abea99f319362fe"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L20_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:1c6e125536014e3798e425961044ddd35914525275efc1a385a55e3cf00151d4"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L21_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:2fc383fb3c544cbb9fc7cccce31726c273f5751b41fc547cec6a8a800c588e3c"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L22_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:3e243afa6517140d987c19536196853d60ac7f08242729946bbd83d1a41f47aa"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L23_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:6b56fc7d5dc373e297a9e61da9c42256ac0fdaae9cf4ab126b44ae5c88650afa"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L24_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:ea80aae8e4d7ec4c5cd1aea87f569f19d4091bb933ef24f792c752ab13246a44"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L25_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:a56671d2b55de10880c6f5c9cd4e3ee8ed96333f775fc783c627ae68cd83f228"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L26_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:cfd7dc2394c95606ae1e49f5921196801aff8339fa37f469512f1183f59be6f8"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L27_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:9cf4418cb87d8c5f5cc5cae5378ee1f65a6cd40eeca243a00f01f11946e67b62"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L28_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:69b462673ac26fb1a5ad94ae63db1e556c1cd7c1a5b1d9a5ba49815931280910"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L29_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:af74095dc871d615114a56639cbae5615c5d8280030e951edc6944eff317ef49"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L30_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:485c7720577f208f9021f9a6b3583c000d96f23108d4a4e658576935db537b96"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L31_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:1efee9bd277cb0dd9d87b3cbc3f68f5ced2e08639eb1b0b0827d1d99a0d7636a"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L31_COLLECTIVE_ORGANIZATION_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:cfbc4dae99202fdc7875f954bf54bc13cd693dd23f9165e85e78a59b8e07feb6"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L31_COMPOSITION_MICROSCOPE_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:beb48a5dcd0d3e793f629d69a509efb3a9427772f17280ff1b1004aa8d10f5e9"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L32_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:ba1115cdd56a3fc645edd2c7903811b763a8d2a31932c5187fde292da4dec1a8"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L32_CLOSURE_MOTIF_REGISTRY_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:022be364fbadfcdc6424f470ef0f5d740b8a3789610ca596283b45896b1ee35d"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L32_JOIN_MICROSCOPE_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:30dfa7cc8ed8fcb265293389e6c163c59609dcaffc84631dfcf4ed5e984c759b"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L33_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:9f123aaff291a36b70567a1e0eb122540cacc57cd79cf3c35031465fd78c07bc"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L34_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:549266d76eb22ca0c0b69016bc80dc3c8e0fa8ef38d7f2d8ffb8d7e412544bb1"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L35_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:5a8bea23dca3bdb78a0fd9e864698092f5f6d67ce634705ca17ee38c71af6acb"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L35_JOIN_MICROSCOPE_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:1de1011cfcd900f084f86e3162f19c989423ad0febe8717910d4c203b32da9b3"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L36_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:6c99cb4db172a69e7ad713a6588055bff5a5f420ebd1762ec9c9a0c456045b7f"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L37_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:8ece1d46d1cd91ad069a7f50f43d969c8d8452d86cd438034a88ff79c29582ff"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L38_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:8a520d8aec5679e1d735a5832f08d262c864ce283d757a172666e020fa1907e4"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "SCOUT_L38_JOIN_MICROSCOPE_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:83841e75b746573e1f73dffae056456a811fbae7973fe7d629eec658a3657f83"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L39_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:a96d5b206fc9a9a02ea8f27928b2e432f33f1a7cac2f158c10bab0d915ff858b"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L40_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:66e314de829bda4475baf941a95b7d73972bf5d4accc8c2358a9f0b4454956a0"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L41_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:c4d4bfc606d2b70f0c3f98f9e41cc5ac19c8f6eefd9a14e4ca2b68256b36bd2a"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L42_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:9a615b17786bedd7559acd88b9a4df2f8f1dfcb12206456527690a78a788acf9"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L43_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:5f6ba48d61d6a95d9926ae2ea39a484234b9229163152693382d44d48ad5293f"
+      },
+      {
+        "authority_class": "CHECKPOINT_STATE_EVIDENCE",
+        "profile_id": "SCOUT_L44_CHECKPOINT_V1",
+        "replay_class": "CHECKPOINT_PREFLIGHT",
+        "target_node_id": "result:sha256:a4d29fe6d51f39479803fabeb9fcebec6627a7f3ce61aae4468af6445d1b8978"
+      },
+      {
+        "authority_class": "RECOVERED_CERTIFIED_AUTHORITY",
+        "profile_id": "T0R_PHASE6R_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:28b07d576831020d995652f20e41dda90a5ea0dcf2a745bd43b5c876dfa00399"
+      },
+      {
+        "authority_class": "RECOVERED_CERTIFIED_AUTHORITY",
+        "profile_id": "T0U_PHASE6R_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:1b909e3a4f75f7e9a309ee6b0e2c1778d53469a4ed60685f1c34cac7b09e368e"
+      },
+      {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "profile_id": "T0W_BRANCH_LIFT_DRA_V2_PLAN_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:38b59914a733dd79e7afbaab577b4c4a74f9a643ec2e1d14b3b730a5970b6d71"
+      },
+      {
+        "authority_class": "RECOVERED_CERTIFIED_AUTHORITY",
+        "profile_id": "T0W_PHASE6R_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:624dfad65a568c9a9bb278f02986da8185b51b7712c2223d55efadc40b5416f5"
+      },
+      {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "profile_id": "T0X_PHASE6_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:5c4c591cb4a83111f9f884ec7d1cfd9ddfb27a503204107a7962260f576097af"
+      },
+      {
+        "authority_class": "RECOVERED_CERTIFIED_AUTHORITY",
+        "profile_id": "T2_PHASE6R_V1",
+        "replay_class": "VERIFY_AUTHORITY",
+        "target_node_id": "result:sha256:8de10c0f47a9769f353b8ceb4a8aa9265b705c7a319bbb902f7dd0c553584956"
+      }
+    ],
+    "schema_id": "IG_REPLAY_CONTRACT_REGISTRY_V1",
+    "status": "PASS"
+  },
+  "profiles": 98,
+  "replay_class_distribution": {
+    "CHECKPOINT_PREFLIGHT": 51,
+    "FULL_HISTORICAL_CAMPAIGN": 1,
+    "REPLAY_BOUNDED_EXPERIMENT": 6,
+    "RERUN_GRADUATION_AUDIT": 6,
+    "SCIENTIFIC_RECONSTRUCTION": 1,
+    "VERIFY_AUTHORITY": 33
+  },
+  "schema_id": "IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1",
+  "status": "PASS"
+}

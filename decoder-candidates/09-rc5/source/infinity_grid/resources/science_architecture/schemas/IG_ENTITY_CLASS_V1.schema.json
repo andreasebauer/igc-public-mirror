@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_provider_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capability_provider_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "entity_class_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "historical_aliases": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "meaning": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "representation": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_identity": {
+          "additionalProperties": false,
+          "properties": {
+            "canonicalizer_ref": {
+              "type": "string"
+            },
+            "equivalence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "equivalence",
+            "canonicalizer_ref"
+          ],
+          "type": "object"
+        },
+        "exactness": {
+          "enum": [
+            "EXACT",
+            "CERTIFIED_ABSTRACT",
+            "SOURCE_SCOPED_CERTIFIED"
+          ]
+        },
+        "schema_ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_ref",
+        "exactness",
+        "canonical_identity"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_ENTITY_CLASS_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "substitution_scope": {
+      "additionalProperties": false,
+      "properties": {
+        "context_language_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "EXACT_CONTEXT_SUBSTITUTION",
+            "OBSERVER_RELATIVE_CONGRUENCE",
+            "SOURCE_SCOPED_CERTIFIED",
+            "BASE_PRIMITIVE"
+          ]
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "observer_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "entity_class_id",
+    "version",
+    "status",
+    "meaning",
+    "representation",
+    "action_provider_ref",
+    "capability_provider_refs",
+    "authority_refs",
+    "substitution_scope",
+    "reopen_conditions"
+  ],
+  "title": "IG Decoder EntityClass Protocol V1",
+  "type": "object"
+}

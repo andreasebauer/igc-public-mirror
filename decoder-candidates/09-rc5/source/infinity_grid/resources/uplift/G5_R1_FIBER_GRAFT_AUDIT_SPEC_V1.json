@@ -1,0 +1,114 @@
+{
+  "authority": {
+    "g5_r0_closeout_sha256": "ddb4fe11c3fe32432c5eb7ebc439db3d079ee4ad067c07571fee917880fa407a",
+    "g5_r0_independent_verification_sha256": "7cd9d06292352e3e09304e172277a7228a0c0803dab19e58777edb1b9b8b4e4e",
+    "g5_r0_primary_science_sha256": "e9067d6eb099276db10f94335478850b1321424347e228ac3da1bc8217e6e6e6",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r0_classification": "G5_R0_GLOBAL_HIDDEN_TREE_STRUCTURE_PRESENT_PUBLIC_DESCRIPTOR_TOPOLOGY_BLIND_NO_PROMOTION"
+  },
+  "bounded_shape_census": {
+    "expected_unlabelled_tree_counts_n1_to_nmax": [
+      1,
+      1,
+      1,
+      2,
+      3,
+      6,
+      11,
+      23,
+      47,
+      106,
+      235,
+      551
+    ],
+    "homogeneous_H_class": "C",
+    "max_hidden_vertices": 12,
+    "method": "UNLABELLED_TREE_SHAPE_LEAF_ATTACHMENT_CLOSURE",
+    "purpose": "Measure hidden topology/future-graft diversity on a homogeneous legal slice without owner-frontier materialization.",
+    "repeated_operator": [
+      0,
+      0
+    ]
+  },
+  "candidate_read_policy": {
+    "compact_read_search": "DEFER_TO_G5_R2",
+    "exact_reference_read": "ENDPOINT_TYPED_DECORATED_TREE_CANON",
+    "minimality_claim": false,
+    "no_read_promotion_in_r1": true
+  },
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "max_hidden_vertices": 12,
+    "max_unlabelled_tree_shapes": 1000,
+    "owner_frontier_full_enumeration": false,
+    "requested_workers": 1
+  },
+  "date": "2026-09-06",
+  "fiber_definition": {
+    "base_coordinates": [
+      "CAPS7",
+      "H_CLASS_BAG"
+    ],
+    "fiber_type": "FINITE_COMBINATORIAL_SET_FIBER",
+    "hidden_coordinates": [
+      "H_CLASS_LABELED_TREE_INCIDENCE",
+      "ENDPOINT_TYPED_EDGE_OPERATOR_LABELS",
+      "LAWFUL_ATTACHMENT_OWNER_CHOICES"
+    ],
+    "not_claimed": [
+      "ALGEBRAIC_VARIETY",
+      "SCHEME",
+      "STACK",
+      "MANIFOLD",
+      "PHYSICAL_CONFIGURATION_SPACE"
+    ]
+  },
+  "hidden_composition_law": {
+    "name": "RELATION_VALUED_ENDPOINT_TYPED_DECORATED_TREE_GRAFTING",
+    "public_shadow": "C_ab((f,m),(g,n))=(f+g-e_a-e_b,m+n)",
+    "rule": "For exact hidden representatives T,U and admitted directed operator (a,b), form every lawful output obtained by choosing one owner vertex of T with free type-a capacity and one owner vertex of U with free type-b capacity, taking disjoint union, and adding exactly one endpoint-typed cross edge. Deduplicate only by exact endpoint-typed decorated-tree isomorphism.",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "nonclaims": [
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_DESCRIPTOR_MINIMALITY",
+    "NO_COMPACT_HIDDEN_READ_PROMOTION",
+    "NO_RAW_RELATION_CARDINALITY_THEOREM",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "outcomes": {
+    "pass": "G5_R1_FINITE_COMBINATORIAL_FIBER_AND_RELATION_VALUED_ENDPOINT_TYPED_TREE_GRAFTING_LAW_EARNED_R2_DESIGN_AUTHORIZED",
+    "review": "G5_R1_REVIEW_REQUIRED_NO_PROMOTION"
+  },
+  "promotion": false,
+  "question": "What finite hidden combinatorial fiber and exact relation-valued decorated-tree grafting law sit above the graduated G5 public descriptor CAPS7 + H-class bag, given certified R0 topology blindness?",
+  "relation_valued_witness": {
+    "new_H_class": "C",
+    "operator": [
+      0,
+      0
+    ],
+    "parent_shape": "4_VERTEX_PATH",
+    "required": "At least two lawful owner choices from one exact parent must produce nonisomorphic exact children with the same graduated public output."
+  },
+  "schema_id": "IG_G5_R1_FIBER_GRAFT_AUDIT_SPEC_V1",
+  "science_sha256": "3a4d069dc14ed587eab6bcb8f90d45949ba837b7482f02d922cdd78c1a9cd3ab",
+  "stage": "G5:R1",
+  "stop_rules": [
+    "R0_AUTHORITY_MISMATCH",
+    "R0_FIREWALL_MISMATCH",
+    "TREE_PREFIX_MISMATCH",
+    "TREE_CENSUS_MISMATCH",
+    "FIBER_WITNESS_FAILURE",
+    "RELATION_VALUED_GRAFT_WITNESS_FAILURE",
+    "PUBLIC_SHADOW_MISMATCH",
+    "FROZEN_OPERATOR_BASIS_MISMATCH"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,73 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_FRONTIER_AUTO_ADVANCE_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_principle": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "resume_rule": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O_FRONTIER_AUTO_ADVANCE_POLICY_V0_1",
+      "type": "string"
+    },
+    "sequence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "theorem_redundancy_stop": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "type": "string"
+        },
+        "does_not_claim": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "classification",
+        "does_not_claim",
+        "reason",
+        "trigger"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "data_principle",
+    "date",
+    "purpose",
+    "resume_rule",
+    "schema",
+    "sequence",
+    "status",
+    "theorem_redundancy_stop"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_FRONTIER_AUTO_ADVANCE_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,52 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_MOTIF_LIBRARY_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "motifs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "edges": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "m": {
+            "type": "integer"
+          },
+          "n": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "edges",
+          "m",
+          "n"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_MOTIF_LIBRARY_V1",
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "motifs",
+    "schema",
+    "source"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_MOTIF_LIBRARY_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

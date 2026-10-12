@@ -1,0 +1,18 @@
+{
+  "schema_id": "IG_DECODER_BUILD_META_V1",
+  "version_source": "infinity_grid._version.__version__",
+  "version_api": "infinity_grid.build_meta",
+  "target_release": "0.8lib",
+  "engineering_attempt": "DEV149_PRE_MASTER_STEP2",
+  "parent_release": "0.8.0.dev148+lib",
+  "parent_source_sha256": "933ed6ccf4866bd26e07027f07e365d6ddc055e109786fb1082cab6490e977a7",
+  "status": "UNQUALIFIED_CANDIDATE",
+  "science_authority_effect": "NONE",
+  "shared_pointer_advanced": false,
+  "scope": "Bounded execution supervision, linear receipt indexing, batch metadata transactions and streamed/sharded checkpoints",
+  "pending": [
+    "Step 3 fresh producer/master exporter",
+    "Full RC",
+    "Independent-host recovery"
+  ]
+}

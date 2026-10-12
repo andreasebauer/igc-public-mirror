@@ -1,0 +1,32 @@
+{
+  "$id": "ig://schema/ig_legacy_phase_b_runtime_patch_apply_v0_26",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "applied_files": {
+      "type": "integer"
+    },
+    "decoder_version": {
+      "type": "string"
+    },
+    "runtime_root": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "applied_files",
+    "decoder_version",
+    "runtime_root",
+    "schema_id",
+    "status"
+  ],
+  "title": "IG_LEGACY_PHASE_B_RUNTIME_PATCH_APPLY_V0_26",
+  "type": "object"
+}

@@ -1,0 +1,54 @@
+DECODER 0.6 — RECORDED ENGINE CHANGES
+The current version is read from infinity_grid/_version.py.
+
+Keep one verified working Decoder outside the source copy you are editing.
+Use its ig-decoder change commands (or python -m infinity_grid.recovery).
+Recovery offers the same engineering operations; it is not a scientific runner.
+
+1. open STORE REQUEST.json
+   Request schema IG_DECODER_CHANGE_OPEN_V1: change_id, parent_workspace,
+   purpose, requirements {statement,nodes}, exact environment and resources.
+   Parent workspace must have verified saved source and a passing completion.
+2. Edit anywhere in a separate candidate source copy, including controller,
+   registry, requirements and recovery itself.
+3. capture-revision STORE CHANGE_ID CANDIDATE [--requirements FILE --reason TEXT]
+   Decoder freezes the revision, calculates the diff, binds the checks and
+   registers a native engineering job. Identical latest bytes reuse a revision.
+   Requirement or test-source changes need a recorded reason. Failed evidence
+   and old expectations remain attached to their original revision.
+4. Save the pending objects. Use ordinary pending-saves and confirm-save on
+   the returned workspace; the existing explicit Drive readback gate applies.
+5. test STORE CHANGE_ID REVISION_ID
+   The retained Decoder runs frozen candidate tests through its own existing
+   validation scheduler. A candidate controller need not import successfully.
+   Failure is a saved result; edit, capture and test a new revision.
+6. diff STORE CHANGE_ID REVISION_ID
+   Inspect exact parent/candidate hashes, text changes and changed requirements.
+7. prepare-activation STORE CHANGE_ID REVISION_ID
+   Requires the exact passing controller completion and matching evidence.
+   Save its evidence object, then use:
+   confirm-save STORE OBJECT_NAME READBACK_FILE DRIVE_FILE_ID
+8. activate STORE CHANGE_ID PREPARED_SHA256
+   Rechecks tests, saved evidence and current parent before changing the local
+   development pointer. Running work keeps its original source snapshot.
+9. rollback STORE EXPECTED_CURRENT_SHA256 REASON
+   Restores the previous source identity while retaining both pointer records.
+   A rollback advances the local epoch; it never erases a failed or newer run.
+
+CURRENT_LOCAL.json records one store's development and rollback sequence.
+Portable project history carries release and work bindings across saved imports.
+Conflicting imported heads require an explicit, recorded reconciliation that
+retains all branches. Neither mechanism is a distributed lock or a filesystem
+access control against unrestricted same-user Python.
+Saving uses explicit connector readbacks. V1 acknowledges a direct raw download;
+V2 acknowledges exact reconstruction from a saved transport manifest and parts.
+See SAVE_TRANSPORT_READ_FIRST.txt. No unattended Drive transport is configured.
+
+Updating recovery: retain the previous complete saved Decoder, capture the new
+recovery source as an ordinary revision, validate it and its installed version,
+and keep the previous package for rollback. Never edit the only working copy.
+
+Version meanings: product version from _version.py; source hashes identify exact
+revisions. Historical filenames and receipts retain their original versions.
+Use ig-decoder or python -m infinity_grid.controller. Historical internal module
+names remain compatibility implementation details.

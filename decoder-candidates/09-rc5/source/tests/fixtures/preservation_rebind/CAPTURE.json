@@ -1,0 +1,224 @@
+{
+  "capture_id": "27cfad529020e830fa3a987822ac56e5514f8fbf32f57a0199eedbb555b746cc",
+  "decoder_version": "0.6.1.dev8",
+  "environment": {
+    "artifacts": [
+      {
+        "logical_name": "installed_runtime",
+        "sha256": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715"
+      }
+    ],
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "pytest",
+        "imports": [
+          "_pytest",
+          "pytest"
+        ],
+        "version": "9.0.2"
+      },
+      {
+        "distribution": "cryptography",
+        "imports": [
+          "cryptography"
+        ],
+        "version": "46.0.4"
+      },
+      {
+        "distribution": "cffi",
+        "imports": [
+          "cffi",
+          "_cffi_backend"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "distribution": "pycparser",
+        "imports": [
+          "pycparser"
+        ],
+        "version": "3.0"
+      },
+      {
+        "distribution": "iniconfig",
+        "imports": [
+          "iniconfig"
+        ],
+        "version": "2.3.0"
+      },
+      {
+        "distribution": "packaging",
+        "imports": [
+          "packaging"
+        ],
+        "version": "25.0"
+      },
+      {
+        "distribution": "pluggy",
+        "imports": [
+          "pluggy"
+        ],
+        "version": "1.6.0"
+      },
+      {
+        "distribution": "Pygments",
+        "imports": [
+          "pygments"
+        ],
+        "version": "2.20.0"
+      }
+    ]
+  },
+  "execution_scope": "REGISTERED_WORKSPACE; frozen checks enforced; descriptive legacy contracts are execution-only",
+  "job": {
+    "execution": {
+      "evaluator_refs": [],
+      "handler_ref": "infinity_grid.change_validation:validate_revision",
+      "kind": "STAGE",
+      "parameters": {
+        "revision_id": "8e3b18395db3e2b5155b32bc37a196b4ae6d31042103a71505f8c95a8a84efe0",
+        "wall_seconds_max": null,
+        "workers": 2
+      }
+    },
+    "input_artifacts": [
+      {
+        "logical_name": "candidate_source",
+        "sha256": "2dab5fbdaade8c6cde70880424e2972295dc8b8ac4572976581cada4a7552704"
+      },
+      {
+        "logical_name": "change_revision",
+        "sha256": "4c864485aba37d19a1607325fd092e8bd203a34288b395aa227ecca61fd22573"
+      },
+      {
+        "logical_name": "change_session",
+        "sha256": "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18"
+      },
+      {
+        "logical_name": "change_parent_source",
+        "sha256": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db"
+      },
+      {
+        "logical_name": "installed_runtime",
+        "sha256": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715"
+      },
+      {
+        "logical_name": "submission_contract",
+        "sha256": "7ebe5032163f56e84da7e1e333587779ab22dc1e2d63a7328bfe8d4e568da037"
+      }
+    ],
+    "job_id": "CHANGE.8e3b18395db3e2b5155b32bc",
+    "question": {
+      "description": "Verify unchanged dev4 captured project-STAGE route using its three frozen engineering tests and explicit no-deadline policy parsing. These 4 engineering checks are not the M2 synthetic or archived-row qualification.",
+      "outcomes": [
+        "PASS",
+        "FAIL"
+      ],
+      "stage_id": "DECODER:ENGINEERING",
+      "stopping_rule": "Run only the frozen validation nodes once; retain failure and permit a new revision."
+    },
+    "registration_sha256": "9fdc665098ae5805a2751e821038aae01b36062314ed564f95c6e5bc65da2459",
+    "resources": {
+      "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+      "memory_budget_bytes": 1073741824,
+      "start_method": "fork",
+      "wall_seconds_max": null,
+      "workers": 2,
+      "workspace_budget_bytes": 8589934592
+    },
+    "schema_id": "IG_DECODER_WORKSPACE_JOB_V1",
+    "source_sha256": "f2414ea473b95065828df1237e7ae72e52511246926f810522c8ac16685e159c"
+  },
+  "objects": [
+    {
+      "object_name": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db.zip",
+      "role": "engine_source",
+      "sha256": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db",
+      "size_bytes": 3823200
+    },
+    {
+      "object_name": "2dab5fbdaade8c6cde70880424e2972295dc8b8ac4572976581cada4a7552704.bin",
+      "role": "input:candidate_source",
+      "sha256": "2dab5fbdaade8c6cde70880424e2972295dc8b8ac4572976581cada4a7552704",
+      "size_bytes": 14636312
+    },
+    {
+      "object_name": "4c864485aba37d19a1607325fd092e8bd203a34288b395aa227ecca61fd22573.bin",
+      "role": "input:change_revision",
+      "sha256": "4c864485aba37d19a1607325fd092e8bd203a34288b395aa227ecca61fd22573",
+      "size_bytes": 9502
+    },
+    {
+      "object_name": "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18.bin",
+      "role": "input:change_session",
+      "sha256": "413a475b928da674366782c7b41f108eefe4c24a8c473305bf4ef8af0f6b0e18",
+      "size_bytes": 3633
+    },
+    {
+      "object_name": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db.bin",
+      "role": "input:change_parent_source",
+      "sha256": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db",
+      "size_bytes": 3823200
+    },
+    {
+      "object_name": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715.bin",
+      "role": "input:installed_runtime",
+      "sha256": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715",
+      "size_bytes": 6425630
+    },
+    {
+      "object_name": "7ebe5032163f56e84da7e1e333587779ab22dc1e2d63a7328bfe8d4e568da037.bin",
+      "role": "input:submission_contract",
+      "sha256": "7ebe5032163f56e84da7e1e333587779ab22dc1e2d63a7328bfe8d4e568da037",
+      "size_bytes": 3645
+    }
+  ],
+  "output_contract": {
+    "acceptance": "Retained controller completion and matching logs; candidate flags are not evidence.",
+    "requirements": {
+      "nodes": [
+        "tests/test_decoder06_project_stage.py::test_project_stage_executes_from_exact_captured_source",
+        "tests/test_decoder06_project_stage.py::test_project_callable_requires_exact_source_and_module_binding",
+        "tests/test_decoder06_project_stage.py::test_unbound_or_outside_project_callable_refuses",
+        "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_policy_is_explicit_and_legacy_default_is_preserved"
+      ],
+      "statement": "Verify unchanged dev4 captured project-STAGE route using its three frozen engineering tests and explicit no-deadline policy parsing. These 4 engineering checks are not the M2 synthetic or archived-row qualification."
+    },
+    "revision_id": "8e3b18395db3e2b5155b32bc37a196b4ae6d31042103a71505f8c95a8a84efe0"
+  },
+  "repeat_id": null,
+  "result_contract": {
+    "claim": "VALIDATION",
+    "legacy_description": {
+      "acceptance": "Retained controller completion and matching logs; candidate flags are not evidence.",
+      "requirements": {
+        "nodes": [
+          "tests/test_decoder06_project_stage.py::test_project_stage_executes_from_exact_captured_source",
+          "tests/test_decoder06_project_stage.py::test_project_callable_requires_exact_source_and_module_binding",
+          "tests/test_decoder06_project_stage.py::test_unbound_or_outside_project_callable_refuses",
+          "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_policy_is_explicit_and_legacy_default_is_preserved"
+        ],
+        "statement": "Verify unchanged dev4 captured project-STAGE route using its three frozen engineering tests and explicit no-deadline policy parsing. These 4 engineering checks are not the M2 synthetic or archived-row qualification."
+      },
+      "revision_id": "8e3b18395db3e2b5155b32bc37a196b4ae6d31042103a71505f8c95a8a84efe0"
+    },
+    "prerequisites": [],
+    "preservation": {},
+    "required_artifacts": [],
+    "result_checks": [
+      {
+        "equals": "PASS",
+        "pointer": "/outcome"
+      }
+    ],
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1"
+  },
+  "save_policy": "EXPLICIT_GOOGLE_DRIVE_CONNECTOR_READBACK_REQUIRED",
+  "schema_id": "IG_DECODER_CAPTURE_V1",
+  "workspace": {
+    "package_sha256": "85d2b9072d99bdca0b0f030892dbda1d243837732c53b96e9801c68282215a5f",
+    "schema_id": "IG_DECODER_WORKSPACE_V1",
+    "source_sha256": "f2414ea473b95065828df1237e7ae72e52511246926f810522c8ac16685e159c"
+  }
+}

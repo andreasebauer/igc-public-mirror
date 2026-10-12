@@ -1,0 +1,119 @@
+{
+  "checks": [
+    "v11 status retained",
+    "O1 status unchanged",
+    "O2 status unchanged",
+    "O3 status unchanged",
+    "O1 science hash unchanged",
+    "O2 science hash unchanged",
+    "O3 science hash unchanged",
+    "reconciliation hash unchanged",
+    "component coverage unchanged",
+    "zero reconciliation mismatches",
+    "FF2.2 test replay status",
+    "FF2.2 18 tests",
+    "Obs0 five bridge classes",
+    "Obs0 automorphism group order 4",
+    "Obs1 25474 exact occurrences",
+    "Obs1 A4 classes 3240",
+    "Obs1 immediate classes 2864",
+    "Obs2 lower bound 2865",
+    "Obs3 historical quotient not computed",
+    "Obs4 exact boundary full abstraction",
+    "observer namespace has five labels",
+    "carrier O3 still distinct namespace",
+    "carrier O4 still phase0 next",
+    "O4 packet field S4 exact carrier population",
+    "O4 packet field Gamma4 unary generator/context set",
+    "O4 packet field delta4 exact transition and explicit undefined cases",
+    "O4 packet field O4_terminal observer",
+    "O4 packet field Y4 output space",
+    "O4 lower quotient reopen rule present",
+    "old theory excluded in register",
+    "no packaged IGC_Theory",
+    "no packaged Fibonacci Grid",
+    "no packaged Fractal Cycles",
+    "no packaged conceptdocs"
+  ],
+  "checks_passed": 34,
+  "compatibility_status": "FORMAL_O1_O2_O3_HIERARCHY_RECONCILED_V1_2_FF22_COMPATIBLE",
+  "ff22_bridge_classes": 5,
+  "ff22_in11_immediate_classes": 2864,
+  "ff22_obs2_class_lower_bound": 2865,
+  "ff22_theorem_shape_tests": 18,
+  "science_payload": {
+    "O4_phase0_observer_packet": {
+      "lower_quotient_reopen_rule": "reopen Q or R3 if any O4 operation reads a distinction hidden by that quotient",
+      "required": [
+        "S4 exact carrier population",
+        "Gamma4 unary generator/context set",
+        "delta4 exact transition and explicit undefined cases",
+        "O4_terminal observer",
+        "Y4 output space",
+        "identity-context convention",
+        "multiplicity convention if operationally visible"
+      ],
+      "separator_rule": "retain shortest distinguishing context for failed finite-packet merges when available"
+    },
+    "observer_exact_results": {
+      "Obs0": {
+        "automorphism_group": "C2 x C2",
+        "class_count": 5,
+        "scope": "frozen mature endpoint alphabet; selected-endpoint bridge acceptance only"
+      },
+      "Obs1": {
+        "A4_classes": 3240,
+        "exact_carrier_occurrences": 25474,
+        "immediate_enabledness_classes": 2864,
+        "population": "IN11 d78-d109",
+        "status": "A4 sufficient but not minimal for immediate enabledness"
+      },
+      "Obs2": {
+        "class_count_lower_bound_on_same_A4_carrier": 2865,
+        "global_count": "not promoted without complete frozen successor table",
+        "status": "strictly finer than Obs1 on supplied exact witness"
+      },
+      "Obs3": {
+        "required_packet": [
+          "finite exact carrier",
+          "frozen unary context-generator set",
+          "totalized transition table",
+          "frozen observer"
+        ],
+        "status": "algorithm/theorem complete; historical global quotient not computed"
+      },
+      "Obs4": {
+        "proof": "finite-context congruence + identity context",
+        "status": "fully abstract and minimal up to quotient isomorphism"
+      }
+    },
+    "observer_namespace": {
+      "compatibility_notation": {
+        "Obs0": "selected-endpoint bridge acceptance",
+        "Obs1": "current enabled one-step moves",
+        "Obs2": "one-step successor boundary relation",
+        "Obs3": "arbitrary finite future move observation",
+        "Obs4": "exact canonical boundary relation"
+      },
+      "rule": "In O-chain documents use Obs0-Obs4 (typeset mathsf{Obs}_k) for observer levels and O1-O4 only for carrier levels.",
+      "source_warning": "Formal Foundation v2.2 source labels O0-O4 are observer levels and collide numerically with carrier O1-O4."
+    },
+    "status": "FORMAL_O1_O2_O3_HIERARCHY_RECONCILED_V1_2_FF22_COMPATIBLE",
+    "v11_reconciliation_sha256": "ac921e03cc17839999e74bbe0a0af7354899665b529786f741fd32376b0ec469",
+    "v1_2_change_log": [
+      "Close exact-boundary full abstraction/minimality for Obs4 with identity context.",
+      "Import finite observer-packet partition-refinement theorem and shortest separator protocol.",
+      "Rename FF2.2 source observer labels O0-O4 to Obs0-Obs4 inside O-chain work to prevent collision with carrier levels.",
+      "Record exact 7-to-5 mature bridge quotient for Obs0.",
+      "Record IN11 A4 3240-to-2864 immediate-enabledness reduction for Obs1.",
+      "Record exact witness that Obs1 immediate enabledness is not transition-congruent and Obs2 has at least 2865 classes on the same A4 carrier.",
+      "Clarify that observer Obs3 historical global quotient is open pending a complete finite packet; this does not alter graduated carrier O3.",
+      "Make an observer packet mandatory in carrier-O4 Phase 0 before any sufficiency/minimality claim.",
+      "Leave all v1.1 O-level science hashes, grade formulas, graduation statuses and phase boundary unchanged."
+    ]
+  },
+  "status": "PASS",
+  "v11_connected_o3_components": 4927,
+  "v11_reconciliation_science_sha256": "ac921e03cc17839999e74bbe0a0af7354899665b529786f741fd32376b0ec469",
+  "v1_2_compatibility_science_sha256": "8ad52f385b997e97771befde98c67400d5a22b60559c4433796ffbadaada5464"
+}

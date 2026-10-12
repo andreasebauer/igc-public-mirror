@@ -1,0 +1,103 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_FRONTIER_PROTOCOL_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "default_stop": {
+      "type": "string"
+    },
+    "escalation_triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "operational_read_definition": {
+      "additionalProperties": false,
+      "properties": {
+        "exclude": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "formal": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "exclude",
+        "formal"
+      ],
+      "type": "object"
+    },
+    "per_level_sequence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "read_ladder": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "meaning": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "meaning",
+          "name",
+          "rank"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_FRONTIER_PROTOCOL_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "default_stop",
+    "escalation_triggers",
+    "nonclaims",
+    "operational_read_definition",
+    "per_level_sequence",
+    "principle",
+    "purpose",
+    "read_ladder",
+    "schema",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_FRONTIER_PROTOCOL_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

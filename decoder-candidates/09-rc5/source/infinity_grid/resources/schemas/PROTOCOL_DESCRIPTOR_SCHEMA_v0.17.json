@@ -1,0 +1,66 @@
+{
+  "$id": "ig://schema/protocol-descriptor/v0.17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_gates": {
+      "type": "array"
+    },
+    "allowed_protocol_labels": {
+      "type": "array"
+    },
+    "forbidden_claims": {
+      "type": "array"
+    },
+    "input_contract": {
+      "type": "object"
+    },
+    "observer_contract": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "planner_contract": {
+      "type": "object"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_PROTOCOL_DESCRIPTOR_V0_17"
+    },
+    "source_pins": {
+      "type": "array"
+    },
+    "stage_dag": {
+      "type": "array"
+    },
+    "stopping_rules": {
+      "type": "object"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "protocol_id",
+    "version",
+    "purpose",
+    "input_contract",
+    "observer_contract",
+    "planner_contract",
+    "stage_dag",
+    "stopping_rules",
+    "allowed_protocol_labels",
+    "forbidden_claims",
+    "acceptance_gates",
+    "source_pins"
+  ],
+  "title": "Infinity Grid Protocol Descriptor v0.17",
+  "type": "object"
+}

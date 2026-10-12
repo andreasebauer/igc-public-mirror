@@ -1,0 +1,182 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_PREGEOMETRY_SCOUT_SPEC_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authoritative_basis": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "date": {
+      "type": "string"
+    },
+    "forbidden_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "geometry_precondition_candidates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lanes": {
+      "additionalProperties": false,
+      "properties": {
+        "A_primitive_read_break": {
+          "additionalProperties": false,
+          "properties": {
+            "fixed_GRRL_implication": {
+              "type": "string"
+            },
+            "positive_gate": {
+              "type": "string"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fixed_GRRL_implication",
+            "positive_gate",
+            "question"
+          ],
+          "type": "object"
+        },
+        "B_collective_service": {
+          "additionalProperties": false,
+          "properties": {
+            "note": {
+              "type": "string"
+            },
+            "positive_gate": {
+              "type": "string"
+            },
+            "question": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "note",
+            "positive_gate",
+            "question"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "A_primitive_read_break",
+        "B_collective_service"
+      ],
+      "type": "object"
+    },
+    "method_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "principles": {
+      "additionalProperties": false,
+      "properties": {
+        "broad_census_default": {
+          "type": "boolean"
+        },
+        "discovery_order": {
+          "type": "string"
+        },
+        "local_sufficiency_mandatory": {
+          "type": "boolean"
+        },
+        "negative_results_first_class": {
+          "type": "boolean"
+        },
+        "relation_priority": {
+          "type": "string"
+        },
+        "spectroscope_can_steer_discovery": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "broad_census_default",
+        "discovery_order",
+        "local_sufficiency_mandatory",
+        "negative_results_first_class",
+        "relation_priority",
+        "spectroscope_can_steer_discovery"
+      ],
+      "type": "object"
+    },
+    "promotion_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "behavioral_service": {
+          "type": "string"
+        },
+        "descriptor_only": {
+          "type": "string"
+        },
+        "geometry": {
+          "type": "string"
+        },
+        "geometry_candidate": {
+          "type": "string"
+        },
+        "local_sufficiency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "behavioral_service",
+        "descriptor_only",
+        "geometry",
+        "geometry_candidate",
+        "local_sufficiency"
+      ],
+      "type": "object"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_PREGEOMETRY_SCOUT_SPEC_V1",
+      "type": "string"
+    },
+    "source_exclusions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "stopping_rule": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authoritative_basis",
+    "date",
+    "forbidden_claims",
+    "geometry_precondition_candidates",
+    "lanes",
+    "method_order",
+    "principles",
+    "promotion_rules",
+    "purpose",
+    "schema",
+    "source_exclusions",
+    "status",
+    "stopping_rule"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_PREGEOMETRY_SCOUT_SPEC_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

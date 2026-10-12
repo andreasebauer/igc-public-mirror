@@ -1,0 +1,32 @@
+{
+  "authority": "RECONNAISSANCE_ONLY",
+  "claim_boundary_sha256": "917f3bbe3cbd3dd2d4c5a3fb4d5047502b1693d92c5b7cb95d15808453d05c75",
+  "date": "2026-08-28",
+  "evidence_label": "SCOUT_OBSERVED",
+  "execution_class": "HISTORICAL_SCOPE_DIRECT_REPLAY_AND_CURRENT_UNIFIED_RUNTIME_INTEGRATION",
+  "golden_commitment_sha256": "7ef85b13a3b2f12e6bf2bba148076d00282a8d3855e790a58ad1cd588d9b993d",
+  "input_dataset_sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda",
+  "next_action": "Implement the exact adapter/profile in a new runtime source identity, rerun all v0.17.1 regressions, then execute this immutable plan without changing question, inputs, observer, lanes, thresholds, depth or stopping rules.",
+  "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820",
+  "packet_sha256": "c6b11df47aabb0834e9828e03d0a75112a33184b4d42cad6a2a81c4290a674b6",
+  "packet_status": "FROZEN_READY_FOR_IMPLEMENTATION_NOT_EXECUTED",
+  "packet_version": "1.0",
+  "plan_sha256": "55685fdff6b6f2d56be5340163884196eb2d4c0de3f9ddb44f9136fb569fdc09",
+  "population_complete": false,
+  "protocol_descriptor_sha256": "a1900aa01cad738a4f380013d9bc2d88fac9f8f6122f3ac3629a6548b21d8708",
+  "question_sha256": "dc352cf2d76c5e8b317fb349d6edd357c034ad893afa0e2dfdc791d6d8f68bc5",
+  "run_id": "run-scout-l16-frozen-b4377ba9e34eefac",
+  "runtime_parent": {
+    "capability": "GRADUATED_SCIENCE",
+    "closeout_bundle_sha256": "109476351119f032b1a4ad50dfeccdf6c439c93a96e983383be3603239df799b",
+    "graduation_sha256": "f5a94647f40fb7e3bcc8e19e98ff454644c37f5ea61348492d4430455c9e4a25",
+    "new_science_enabled": true,
+    "publication_deployment_note": "Off-host restore drill remains publication-only deferred and does not block this run.",
+    "source_sha256": "c9533cc04283d1b21f464dc403205a6127ab07e47bbb0a574168120f829afd4f",
+    "version": "0.17.1",
+    "wheel_sha256": "6914e490701f96fcd4bc17575cc9696d9ffa747f4c85e3f84ca13cbd3911bdea  infinity_grid_unified_runtime-0.17.1-py3-none-any.whl"
+  },
+  "schema_id": "IG_L16_SCOUT_RUN_PACKET_V1",
+  "science_executed_during_freeze": false,
+  "selection_rules_sha256": "6a69ffc31ddf396a54c95142169a7e2a01b0153ba9c2d3d45e397177bbaa8499"
+}

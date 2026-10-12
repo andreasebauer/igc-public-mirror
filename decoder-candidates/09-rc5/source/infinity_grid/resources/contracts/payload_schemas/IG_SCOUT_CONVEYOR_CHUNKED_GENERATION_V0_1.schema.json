@@ -1,0 +1,99 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_rule": {
+      "type": "string"
+    },
+    "chunk_outputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deterministic_partition": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "type": "string"
+        },
+        "chunking": {
+          "type": "string"
+        },
+        "sort_parent_objects": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "chunking",
+        "sort_parent_objects"
+      ],
+      "type": "object"
+    },
+    "merge": {
+      "additionalProperties": false,
+      "properties": {
+        "child_deduplication": {
+          "type": "string"
+        },
+        "must_be_independent_of_chunk_size": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "string"
+        },
+        "parent_fiber": {
+          "type": "string"
+        },
+        "witness_count": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "child_deduplication",
+        "must_be_independent_of_chunk_size",
+        "order",
+        "parent_fiber",
+        "witness_count"
+      ],
+      "type": "object"
+    },
+    "no_early_selection": {
+      "type": "boolean"
+    },
+    "no_feedback": {
+      "type": "boolean"
+    },
+    "reference_gate": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1",
+      "type": "string"
+    },
+    "semantics": {
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoint_rule",
+    "chunk_outputs",
+    "deterministic_partition",
+    "merge",
+    "no_early_selection",
+    "no_feedback",
+    "reference_gate",
+    "schema_id",
+    "semantics",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,89 @@
+INFINITY GRID DECODER 0.8lib — P2B REGISTERED REPLAY ROOT
+DEV50 CANDIDATE — 2026-09-22
+
+DISPOSITION
+PASS_P2B_REGISTERED_ROOT_INTEGRATION
+P2_IMPLEMENTATION_COMPLETE
+NO_SCIENCE_EXECUTED
+NO_AUTHORITY_CHANGE
+SHARED_POINTER_UNCHANGED
+FULL_R02_STILL_NOT_COMPLETE
+
+1. RESULT
+
+The P2A replay state machine is now integrated as one registered STAGE root:
+
+  job:     DECODER.REPLAY.L0_TO_G8.ROOT
+  stage:   REPLAY:L0_TO_G8:ROOT
+  handler: infinity_grid.replay_root_job:replay_root_job_handler
+
+The handler is the only replay-root entry in the controller-process allowlist.
+It is orchestration-only and delegates durable state ownership to the existing
+Decoder StageScienceRuntime. General scientific handlers remain outside that
+allowlist and cannot use the controller exemption.
+
+2. REGISTERED BRAKE AND RESUME
+
+The root initializes one empty dataset identity, verifies the compiled V9 DAG,
+and schedules the first canonical node. Because P2 does not yet bind real node
+executors, it publishes an exact status and raises a registered resumable pause:
+
+  WAITING_FOR_NODE_EXECUTOR_BINDING
+  IG/L0/S/ASSERTION_MAPPED_STRUCTURE
+
+The pause does not create a terminal completion. A later registered attempt
+loads and verifies the same runner state and reopens the same node without
+reinitializing the root. State, manifest or registration tampering fails closed.
+
+3. NO-WRAPPER / AUTHORITY BOUNDARY
+
+Direct handler invocation is rejected outside a live recorded controller
+attempt. The job uses the existing registered STAGE protocol, C6/origin guard,
+runtime permit, output-root binding and preservation path. No external wrapper,
+private scheduler, alternate runtime permit or scientific authority was added.
+
+The replay authorization remains exactly through G8. GLOBAL remains the next
+wait layer and is not authorized.
+
+4. QUALIFICATION
+
+Focused controller/root suite:
+
+  26 passed, 0 failed
+
+P1 and replay regression:
+
+  89 passed, 0 failed
+
+Portable R02 core under its declared no-deadline policy:
+
+  340 passed, 1 skipped, 0 failed
+
+The controller's frozen reviewed hash detected this intentional integration and
+was updated with the exact new hash and rationale. Full R02 is still not claimed:
+the same 22 named nonportable fixture/tooling/version requirements remain open.
+
+5. ARTIFACTS
+
+infinity_grid/replay_root_job.py
+infinity_grid/replay_dag_runner.py
+infinity_grid/resources/replay/P2B_REPLAY_ROOT_REGISTRATION_PROFILE_V1.json
+infinity_grid/resources/replay/P2B_REGISTERED_REPLAY_ROOT_QUALIFICATION_V1.json
+tests/test_p2b_registered_replay_root.py
+qualification_evidence/P2B_REGISTERED_REPLAY_ROOT_JUNIT.xml
+qualification_evidence/P2B_P1_REPLAY_REGRESSION_JUNIT.xml
+qualification_evidence/P2B_REGISTERED_REPLAY_ROOT_TEST_RESULT.txt
+
+6. NONCLAIMS
+
+No L0-through-G8 scientific node ran. No node executor is bound. The profile is
+schema-admitted and controller-routed, but no saved production root capture was
+executed. That capture waits for P3's unified data contract and P4's L0 pilot.
+No independent confirmation, full-R02 completion, GLOBAL authorization or
+shared-pointer advance is claimed.
+
+7. NEXT STEP
+
+P3: define the unified reference-data contract for canonical objects,
+mechanisms, graduations, SRCF evidence, negatives, authorizations, dependency
+links, generation recipes, comparisons and certified resume frontiers.

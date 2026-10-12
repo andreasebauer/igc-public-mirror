@@ -1,0 +1,242 @@
+{
+  "non_promoted_candidate_classes": [
+    "IG_DECODER_CURRENT_RELEASE_SET_V1",
+    "IG_DECODER_UNIFIED_EXECUTION_V1_RESCUE_STATUS",
+    "IG_DECODER_MULTICORE_ARCHITECTURE_AUDIT_V1",
+    "IG_O_REGIME_PERFORMANCE_AUDIT_V2",
+    "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2_DRAFT"
+  ],
+  "payload_schemas": {
+    "IG_DECODER_CPU_LEASES_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/CPU_LEASES.json",
+      "fixture_sha256": "78482f70f1e3a9247832d41db349242a7d32ac6cf34a8fe7f6821f5c208505b9",
+      "schema_path": "schemas/IG_DECODER_CPU_LEASES_V1.schema.json",
+      "schema_sha256": "200176845f580d8d2ff9e7463b67696161624589e9bc0ae3d80f5459cf059f36"
+    },
+    "IG_DECODER_CURRENT_STATE_V5": {
+      "decision": "NATIVE_STRICT",
+      "fixture": null,
+      "fixture_sha256": null,
+      "note": "LIVE_STATE_WRITTEN_OUTSIDE_PACKAGE_AFTER_SOURCE_IDENTITY_FREEZE",
+      "schema_path": "schemas/IG_DECODER_CURRENT_STATE_V5.schema.json",
+      "schema_sha256": "3f83fe46de5377e49746c8db59df3f8729c6a9f770679dbf63ffb4e2066015cb"
+    },
+    "IG_DECODER_UNIFIED_PARALLEL_RUNTIME_SPEC_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/UNIFIED_PARALLEL_RUNTIME_SPEC_v1.json",
+      "fixture_sha256": "f3a8c4a0cfa5948505ae1846029a0f0c37c6d453566676569ac04c2f23b484c7",
+      "schema_path": "schemas/IG_DECODER_UNIFIED_PARALLEL_RUNTIME_SPEC_V1.schema.json",
+      "schema_sha256": "bb84d2dd6f1c663d18590ac809f0e93b31b80175c0c7022f3b62a997bc7b75fe"
+    },
+    "IG_EXACT_CARRIER_FACTORISATION_TRANSPORT_CERTIFICATE_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/FACTORISATION_TRANSPORT_CERTIFICATE.json",
+      "fixture_sha256": "f492d6bd761b3b2444e9e5c99901a70088fcc20670c2434fe91526a69b400d93",
+      "schema_path": "schemas/IG_EXACT_CARRIER_FACTORISATION_TRANSPORT_CERTIFICATE_V1.schema.json",
+      "schema_sha256": "9394d4ea8747c20afa2c0f1710d64b6775677c9119951393216f9ffd63e8c607"
+    },
+    "IG_EXACT_CARRIER_FAST_CALIBRATION_STATUS_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/CALIBRATION_STATUS.json",
+      "fixture_sha256": "92795f1f2b699d455091dcf9e3d74e3ecd0e904e6f62a2ed05b43577fbcaa122",
+      "schema_path": "schemas/IG_EXACT_CARRIER_FAST_CALIBRATION_STATUS_V1.schema.json",
+      "schema_sha256": "be5430ff318004c678106ad06bb7654e7bb3964b6d40da790b84174baecb9d55"
+    },
+    "IG_EXACT_CARRIER_THEOREM_ACCELERATED_CALIBRATION_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_ACCELERATED_CALIBRATION_RESULT.json",
+      "fixture_sha256": "6a1d0661c89a9a5c48e5fe66fe00136c33f48efe36e28aaadd02799bc3f70bdc",
+      "schema_path": "schemas/IG_EXACT_CARRIER_THEOREM_ACCELERATED_CALIBRATION_RESULT_V1.schema.json",
+      "schema_sha256": "5e8da5cfcb2432e879f0d06ae673ff609b995d3367edc8124c1d09c1e1666465"
+    },
+    "IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_AUTHORITY_AUDIT.json",
+      "fixture_sha256": "febfefc1a6ddf5a6863cf803b3995911cf3c00b0eeeee7e9e6bee244ead80f00",
+      "schema_path": "schemas/IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1.schema.json",
+      "schema_sha256": "cc56d7444f0b50795bf8f0dfe345673916188e58e24650f23222d522860eeb7c"
+    },
+    "IG_EXACT_REOPEN_STATUS_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/EXACT_REOPEN_STATUS.json",
+      "fixture_sha256": "8b457b98641e32ea727a6d4158ba145ad09886012221f8cf5a140f4be14d59d3",
+      "schema_path": "schemas/IG_EXACT_REOPEN_STATUS_V1.schema.json",
+      "schema_sha256": "1aba9b1afa2362f861bcaa7078ea1e3ce4666f9d73ada0c339ab11c6eb2ed16e"
+    },
+    "IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT.json",
+      "fixture_sha256": "71d8bdbf914a357b2f28942a1ec67d591fdd2ada0fe9c1dcb2de99f0c8a69842",
+      "schema_path": "schemas/IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V2.schema.json",
+      "schema_sha256": "ba309db8a2fe65b9fd72502a006d4f2b00476fbf4e345a2f89e69db24163566a"
+    },
+    "IG_LEGACY_BLIND_READ_TRACE_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/LEGACY_BLIND_READ_TRACE.json",
+      "fixture_sha256": "9ca81d8ddd1350e5c23062ba03047cdc359462e6a667f27e0c2082934f67dc9a",
+      "schema_path": "schemas/IG_LEGACY_BLIND_READ_TRACE_V1.schema.json",
+      "schema_sha256": "576075d262983ce6a471dd7497b834c0bc6f4cf324898e5704999f1a7d9c5fa0"
+    },
+    "IG_O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_v1.json",
+      "fixture_sha256": "bb631a008e4bb928320547d106b998d337becdce1fef37fedb25b772aa97349b",
+      "schema_path": "schemas/IG_O_EXACT_CARRIER_THEOREM_ACCELERATION_SPEC_V1.schema.json",
+      "schema_sha256": "c37cc6115d5846c4d910f8dcd78cdc6bfde733652a6c9a90791c21635eb4d5c1"
+    },
+    "IG_O_EXACT_CARRIER_UNBLINDING_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": null,
+      "fixture_sha256": null,
+      "note": "NO_LOCAL_FIXTURE_PHASE8_BYTES_INTENTIONALLY_ABSENT",
+      "schema_path": "schemas/IG_O_EXACT_CARRIER_UNBLINDING_RESULT_V1.schema.json",
+      "schema_sha256": "b843a4995d86826330ec7b04faca05cae003acb059e0ba04963283931a43fbb9"
+    },
+    "IG_O_EXACT_CARRIER_UNBLINDING_SPEC_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_EXACT_CARRIER_UNBLINDING_SPEC_v1.json",
+      "fixture_sha256": "f456fd096d251a0afeadd6e07b6fe815e3a4c603a664ac7ebd2269dbe7be0ddf",
+      "schema_path": "schemas/IG_O_EXACT_CARRIER_UNBLINDING_SPEC_V1.schema.json",
+      "schema_sha256": "fe8862b2157b80e6956cc711bf9489b9017ac29ab047ab7a652b3d1430f99c54"
+    },
+    "IG_O_NATIVE_ACTION_REGISTRY_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_NATIVE_ACTION_REGISTRY_V1.json",
+      "fixture_sha256": "3173ef765c63057df4320908d0509fd9fe3930b8f6583883e07a438dfcd5631c",
+      "schema_path": "schemas/IG_O_NATIVE_ACTION_REGISTRY_V1.schema.json",
+      "schema_sha256": "5dda8f9c4fdcb9224393af74f25ac3352e68deccfe1a43c4c4e0308d819c24de"
+    },
+    "IG_O_NATIVE_SEMANTICS_BASELINE_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_NATIVE_SEMANTICS_BASELINE_V1.json",
+      "fixture_sha256": "b5cd0b4bea7a52934b7acfca31d012137ba856b75de148631316cd2835b042e3",
+      "schema_path": "schemas/IG_O_NATIVE_SEMANTICS_BASELINE_V1.schema.json",
+      "schema_sha256": "3e14d342e94f60a9a3678b8b16ced0e20ddc41a8aa4b0a8d0ed6a85424a96adb"
+    },
+    "IG_O_NATIVE_SEMANTICS_COMPARISON_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/NATIVE_SEMANTICS_COMPARISON.json",
+      "fixture_sha256": "6bf942bfec77e4715dccf79d30cd3da0652da93620ad9e1204318303a6339f7f",
+      "schema_path": "schemas/IG_O_NATIVE_SEMANTICS_COMPARISON_V1.schema.json",
+      "schema_sha256": "ec74f4df2f127df24fb57e6fb6218166d70cc759173b84ab9d783cc7384c3455"
+    },
+    "IG_O_NATIVE_SEMANTICS_SENTINEL_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/NATIVE_SEMANTICS_SENTINEL_RESULT.json",
+      "fixture_sha256": "56ebbb39df7fd714e04ed55c6e253963378925170670a1423f0cc232cde4b0d1",
+      "schema_path": "schemas/IG_O_NATIVE_SEMANTICS_SENTINEL_RESULT_V1.schema.json",
+      "schema_sha256": "884a0ea5bd3430afb1dc4a570e363d9fed66b169c7ffb39fccc9c885591e56ba"
+    },
+    "IG_O_NATIVE_SEMANTICS_SNAPSHOT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/NATIVE_SEMANTICS_SNAPSHOT.json",
+      "fixture_sha256": "7296f0e3b783469d674fffa10793371e7af48fc490c93f2a67fce38cbd72da25",
+      "schema_path": "schemas/IG_O_NATIVE_SEMANTICS_SNAPSHOT_V1.schema.json",
+      "schema_sha256": "d8e5d18fda474da00ec0738800eda9af13fabb29452b522c6b17d6b51aa48609"
+    },
+    "IG_O_REGIME_AUTHORITY_PACK_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_REGIME_AUTHORITY_PACK_V1.json",
+      "fixture_sha256": "e08d50ca5d164b47c1179e7212507f4e316b47f8f9bbd0397ead89404083d0b8",
+      "schema_path": "schemas/IG_O_REGIME_AUTHORITY_PACK_V1.schema.json",
+      "schema_sha256": "371474c91f7f0087095b117ff20b2e0cc0ef312c65dde4458985d2d493c43f2c"
+    },
+    "IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_v2.json",
+      "fixture_sha256": "88a6bccd65d37e73f183f91af108d44ed31aa6b9730ebf8833e3600fe4ab2de5",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_V2.schema.json",
+      "schema_sha256": "00d9e99c3131c043d88ff6f12cf9c1c38ef6e8cbedd960092daca7cef4c8d63c"
+    },
+    "IG_O_REGIME_STREAMING_FRONTIER_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/CURRENT_FRONTIER.json",
+      "fixture_sha256": "c323237c2b31d439a59ee9da23feb9351c90611ad6d90803a2ab7c1df2db9212",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_FRONTIER_V2.schema.json",
+      "schema_sha256": "89ecaac215a377cc477b4c15dfa0540b5edc35ffb5a39a6e8921c3890e2aeafb"
+    },
+    "IG_O_REGIME_STREAMING_LEVEL_DELTA_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O00010.json",
+      "fixture_sha256": "5306e850d24fcad91b788c87f0fafbfd011adb81ade127a5beaef244fbbf95ea",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_LEVEL_DELTA_V2.schema.json",
+      "schema_sha256": "a9b620ea8768ec76bd763c305d6b9ac698c4b607fc5693fcb59687ae06f7edb7"
+    },
+    "IG_O_REGIME_STREAMING_O7_SEED_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O7_STREAMING_SEED_v2.json",
+      "fixture_sha256": "482af7f9cc9218768519f7a159fa6b6108b172ba448a8465dee4401a7ceb3e3a",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_O7_SEED_V2.schema.json",
+      "schema_sha256": "48c8c56976f64350bf5571db072815a3d727cca566bcf6643365b6c5fc7d970a"
+    },
+    "IG_O_REGIME_STREAMING_RESULT_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_REGIME_STREAMING_RESULT.json",
+      "fixture_sha256": "cea0a12b8f11c224c047af64df9fa4855318df815750d354a330a52f64d33dd7",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_RESULT_V2.schema.json",
+      "schema_sha256": "9fdccd54f297bdddba27eff0c1228a24c79ce218fc22e1b96cd4c9a5ab5b79be"
+    },
+    "IG_O_REGIME_STREAMING_RUN_STATE_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/RUN_STATE.json",
+      "fixture_sha256": "5a62dd087077ba3f20ff845aa4a5721ec90ae5e7be26757dc18fd1dd326f54e1",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_RUN_STATE_V2.schema.json",
+      "schema_sha256": "02f26e2051d674df66dc2a84a93766c48ea36f36c1c5ab189ca29d46b435c939"
+    },
+    "IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_REGIME_STREAMING_RECIPE_BASELINE_v2.json",
+      "fixture_sha256": "b1375b365f68ffa95651fad015c0cfd304fea47c9553347d535f80f69f4a5fa0",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2.schema.json",
+      "schema_sha256": "8a4a18b6b1aec04ec29f7cc5b54e7578765ae1b40e02709faf0ff9d847c65235"
+    },
+    "IG_O_REGIME_STREAMING_STATUS_V2": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/O_REGIME_STREAMING_STATUS.json",
+      "fixture_sha256": "a4afd6e2e06bc84d0bbd5d3f86f0856f867c80a0fe78d2ff72b4f4243d87c54d",
+      "schema_path": "schemas/IG_O_REGIME_STREAMING_STATUS_V2.schema.json",
+      "schema_sha256": "b80d6de492ce16ff700b9ec7b0445d529dcaace0fa99f8cac7bfb7f8865493ca"
+    },
+    "IG_THEOREM_PREMISE_IMPACT_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_PREMISE_IMPACT_RESULT.json",
+      "fixture_sha256": "06fd5e5f8bc595ddf1df9e87d41ca804c2ba9ca6cfacb099af143a7b33e093af",
+      "schema_path": "schemas/IG_THEOREM_PREMISE_IMPACT_RESULT_V1.schema.json",
+      "schema_sha256": "06b1ead9a2a7d3fa84f3f483c63035fbb97d846759481d4dd4d5a880d8e3d5f5"
+    },
+    "IG_THEOREM_PREMISE_REGISTRY_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_PREMISE_REGISTRY_V1.json",
+      "fixture_sha256": "42bb90653996a62a70ef88f1e0f28dfd1465ff9aff1b80c9fda7e487630cc81c",
+      "schema_path": "schemas/IG_THEOREM_PREMISE_REGISTRY_V1.schema.json",
+      "schema_sha256": "9d0d2ecc3dc2f3a61cce77c6c81e646dab5bbc6d6cdd89ee39591b78c43a9b04"
+    },
+    "IG_THEOREM_PREMISE_REGISTRY_VERIFICATION_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_PREMISE_REGISTRY_VERIFICATION.json",
+      "fixture_sha256": "bdcac414c57fee1d1d186151ebdcf5a466b46ea46cce0bc85674aa5fc132e195",
+      "schema_path": "schemas/IG_THEOREM_PREMISE_REGISTRY_VERIFICATION_V1.schema.json",
+      "schema_sha256": "31b76401cc2159f0342bb8af7492ea0efc7d6ad05c558ab19ef5a75921b49263"
+    },
+    "IG_THEOREM_PREMISE_SNAPSHOT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_PREMISE_SNAPSHOT.json",
+      "fixture_sha256": "e009580ccf917a2a1f6bf812b90b16c53a8aa6afe27f5dfa7f4fa30b9985d93c",
+      "schema_path": "schemas/IG_THEOREM_PREMISE_SNAPSHOT_V1.schema.json",
+      "schema_sha256": "db67446c53c4fb7422b0158eee18e0004304c8c5e4e6e8306869c64617f62da4"
+    },
+    "IG_THEOREM_PREMISE_VERIFICATION_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "fixtures/THEOREM_PREMISE_VERIFICATION_RESULT.json",
+      "fixture_sha256": "0e708e5daf8578c837248304cc7a70463d503b9e9c29d9962d903e1e5d5a6c88",
+      "schema_path": "schemas/IG_THEOREM_PREMISE_VERIFICATION_RESULT_V1.schema.json",
+      "schema_sha256": "71e09ba147d3e65cb1373a5ee2570809eb490ee2121ac80aa4ead79667e12890"
+    }
+  },
+  "purpose": "Strict v0.27 contracts for DEL-001 promoted semantic/runtime objects. Historical MIG-001 blocks remain historical facts; only the explicitly listed schemas are promoted here.",
+  "registry_sha256": "c8d57892e4cb74d26ef369241d4c7ed65f9c423446b927b59dca3bce6de3d6bf",
+  "schema_id": "IG_V027_NATIVE_CONTRACT_REGISTRY_V1",
+  "status": "DEL001_PROMOTED_RUNTIME_CONTRACTS",
+  "version": "1.0.0"
+}

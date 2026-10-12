@@ -1,0 +1,18 @@
+DEV140 REVIEWED INCIDENT DIAGNOSTIC / CORE PINS — UNQUALIFIED
+
+V32 appends six core review pins after V28 exact-baseline diff review. Historical
+pin records remain unchanged. Pins record reviewed source boundaries, not native
+behavioral qualification or independent audit.
+The incident lifecycle fixture now binds V31 observed IDs/counts while explicitly
+retaining claimed counts and discrepancies. Healthy synthetic/live-WAL positives
+still require 96 rows. No historical rejected run or incident archive changed.
+V31 dev139 forensic comparison: 3 PASS/0 FAIL, saved/restored, zero pending.
+That result is historical evidence, not dev140 qualification.
+
+Profile: 168 test files (165 functional). CPython 3.13.5 pinned fresh V4 required;
+verify exact source/runtime bytes, modes and file sets before/after dispatch.
+Next native gates: incident lifecycle and core-chain; V26 runtime boundaries;
+V27 batch negative/retry and real wave/long-selector integration. Preserve first
+failure; no retries or implicit reruns of old passed nodes.
+See decoder-admin/evidence/V26_TARGETED_PROTOCOL.txt and V27_ACK_AND_WAVE_PROTOCOL.txt.
+Five dev137 fixtures remain historical. Full RC and all 23 items remain OPEN.

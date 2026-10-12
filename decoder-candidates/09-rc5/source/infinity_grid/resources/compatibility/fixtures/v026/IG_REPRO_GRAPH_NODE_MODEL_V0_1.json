@@ -1,0 +1,89 @@
+{
+  "forbidden_identity_fields": [
+    "absolute_path",
+    "hostname",
+    "temporary_directory",
+    "chat_id",
+    "wall_clock_duration",
+    "process_id"
+  ],
+  "mandatory_common_fields": [
+    "node_id",
+    "node_type",
+    "schema_version",
+    "status",
+    "created_utc",
+    "retention_class",
+    "semantic_role",
+    "content_refs",
+    "producer_ref",
+    "provenance_refs"
+  ],
+  "node_identity": "node_id = canonical_sha256({node_type, schema_version, semantic_identity_payload}) unless the node wraps a raw artifact, in which case artifact sha256 is primary content identity.",
+  "node_types": {
+    "ARTIFACT": {
+      "examples": [
+        "source archive",
+        "dataset shard",
+        "result JSON",
+        "wheel",
+        "PDF"
+      ],
+      "identity": "sha256 bytes"
+    },
+    "CLAIM": {
+      "identity": "claim_id + immutable version"
+    },
+    "DATASET": {
+      "examples": [
+        "canonical carrier",
+        "selected relation",
+        "fixture set"
+      ],
+      "identity": "canonical dataset manifest hash"
+    },
+    "ENVIRONMENT": {
+      "identity": "canonical environment lock/runtime manifest hash"
+    },
+    "EXTERNAL_ROOT": {
+      "examples": [
+        "authoritative input not reproducible inside IG"
+      ],
+      "identity": "content hash plus declared origin/role"
+    },
+    "PROTOCOL": {
+      "identity": "descriptor sha256 + protocol id/version"
+    },
+    "QUESTION": {
+      "identity": "canonical question hash"
+    },
+    "RECIPE": {
+      "identity": "canonical recipe hash"
+    },
+    "RELEASE": {
+      "identity": "release manifest hash/archive hash"
+    },
+    "RESULT": {
+      "identity": "canonical result projection hash and/or artifact hashes"
+    },
+    "REVIEW_DECISION": {
+      "identity": "canonical signed/frozen decision hash"
+    },
+    "RUN": {
+      "identity": "immutable run-core hash + run_id metadata",
+      "note": "run record may contain mutable lifecycle mirrors but immutable core is graph identity input"
+    },
+    "SOURCE_SNAPSHOT": {
+      "examples": [
+        "runtime source",
+        "historical runner source"
+      ],
+      "identity": "canonical source-tree manifest hash"
+    },
+    "STAGE": {
+      "identity": "run identity + stage spec + exact dependency bindings"
+    }
+  },
+  "schema_id": "IG_REPRO_GRAPH_NODE_MODEL_V0_1",
+  "version": "0.1"
+}

@@ -1,0 +1,96 @@
+{
+  "$id": "ig://schema/ig_legacy_doctor_result_v0_26",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base": {
+      "additionalProperties": false,
+      "properties": {
+        "checks": {
+          "additionalProperties": false,
+          "properties": {
+            "artifacts": {
+              "type": "boolean"
+            },
+            "catalogue": {
+              "type": "boolean"
+            },
+            "claims": {
+              "type": "boolean"
+            },
+            "datasets": {
+              "type": "boolean"
+            },
+            "directories": {
+              "type": "boolean"
+            },
+            "protocols": {
+              "type": "boolean"
+            },
+            "releases": {
+              "type": "boolean"
+            },
+            "runs": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "artifacts",
+            "catalogue",
+            "claims",
+            "datasets",
+            "directories",
+            "protocols",
+            "releases",
+            "runs"
+          ],
+          "type": "object"
+        },
+        "counts": {
+          "additionalProperties": false,
+          "properties": {
+            "artifacts": {
+              "type": "integer"
+            },
+            "protocols": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "artifacts",
+            "protocols"
+          ],
+          "type": "object"
+        },
+        "failures": {
+          "items": {},
+          "type": "array"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "counts",
+        "failures",
+        "status"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_LEGACY_DOCTOR_RESULT_V0_26",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "base",
+    "schema_id",
+    "status"
+  ],
+  "title": "IG_LEGACY_DOCTOR_RESULT_V0_26",
+  "type": "object"
+}

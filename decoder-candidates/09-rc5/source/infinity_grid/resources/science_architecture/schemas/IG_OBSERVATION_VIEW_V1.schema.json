@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_bindings": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "provider_ref": {
+            "type": "string"
+          },
+          "science_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider_ref",
+          "artifact_ref",
+          "science_sha256"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "entity_class_ref": {
+      "type": "string"
+    },
+    "entity_instance_ref": {
+      "type": "string"
+    },
+    "hidden_reads_forbidden": {
+      "const": true
+    },
+    "regime_depth": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "regime_ref": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_OBSERVATION_VIEW_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "source_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "test_ref": {
+      "type": "string"
+    },
+    "view_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "view_id",
+    "entity_instance_ref",
+    "entity_class_ref",
+    "regime_ref",
+    "regime_depth",
+    "test_ref",
+    "capability_bindings",
+    "source_science_sha256",
+    "hidden_reads_forbidden"
+  ],
+  "title": "IG Decoder ObservationView V1",
+  "type": "object"
+}

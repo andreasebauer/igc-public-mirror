@@ -1,0 +1,67 @@
+{
+  "authority": {
+    "g4_r0_closeout_science_sha256": "24e59ec2805e1d8fb76c7c16a7ffb6206e5598f182bb5e2bb01e275d5426983a",
+    "g4_r0_primary_science_sha256": "2a2c175c467d766cae40ad25a9a61e765f19c0a44029d75f19ec5cc6d6126ac3",
+    "g4_r0_replay_science_sha256": "18a5713473d2de079824558a3643ae9a0ea50839aa429604a3ce40e6e993d4ff",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG"
+  },
+  "bounded_shape_census": {
+    "max_g3_units": 12,
+    "method": "UNLABELLED_TREE_SHAPE_LEAF_ATTACHMENT_CLOSURE",
+    "purpose": "Document size and continuation structure of the homogeneous H-class slice without owner-frontier enumeration."
+  },
+  "candidate_read_policy": {
+    "exact_reference_read": "H_COLORED_EDGE_GRADED_TREE_CANON",
+    "minimality_claim": false,
+    "r2_task": "Search for a compact predictive quotient/action read; do not promote in R1.",
+    "shell_only_status": "DIAGNOSTIC_ONLY_KNOWN_UNSAFE_FOR_GLOBAL_COMPLETENESS_BY_G3_R18_LINEAGE"
+  },
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "max_unlabelled_tree_shapes": 1000,
+    "new_parallel_science_kernels": 0,
+    "owner_frontier_enumeration": false
+  },
+  "fiber_definition": {
+    "base_coordinates": [
+      "CAPS7",
+      "H_CLASS_BAG"
+    ],
+    "fiber_type": "FINITE_COMBINATORIAL_SET_FIBER",
+    "hidden_coordinates": [
+      "COARSE_G3_UNIT_TREE_TOPOLOGY",
+      "G4_CROSS_EDGE_OPERATOR_LABELS",
+      "OWNER_ENDPOINT_CHOICES",
+      "FLATTENED_G2_EDGE_GRADED_TREE"
+    ],
+    "not_claimed": [
+      "ALGEBRAIC_VARIETY",
+      "SCHEME",
+      "STACK",
+      "MANIFOLD"
+    ]
+  },
+  "hidden_composition_law": {
+    "name": "RELATION_VALUED_DECORATED_TREE_GRAFTING",
+    "public_shadow": "C_ab((f,m),(g,n))=(f+g-e_a-e_b,m+n)",
+    "rule": "Given hidden representatives T and U and directed bridge operator (a,b), return every lawful tree formed by adding exactly one G4_CROSS edge between one eligible owner vertex of T and one eligible owner vertex of U. Vertex H-class labels are inherited; the new edge carries its frozen operator type."
+  },
+  "nonclaims": [
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_RAW_H_PROMOTION",
+    "NO_DESCRIPTOR_MINIMALITY",
+    "NO_SHELL_ONLY_GLOBAL_COMPLETENESS",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC_EMBEDDING",
+    "NO_TIME",
+    "NO_G5_LAUNCH"
+  ],
+  "pass_classification": "G4_R1_REBASE_FINITE_COMBINATORIAL_FIBER_AND_RELATION_VALUED_DECORATED_TREE_GRAFTING_LAW_EARNED_R2_REBASE_DESIGN_AUTHORIZED",
+  "promotion": false,
+  "question": "What finite hidden combinatorial fiber and relation-valued grafting law sit above the regraduated G4 public descriptor CAPS7_PLUS_H_CLASS_BAG, given the certified R0 same-descriptor path/star witness?",
+  "schema_id": "IG_G4_R1_REBASE_FIBER_GRAFT_AUDIT_SPEC_V1",
+  "science_sha256": "1b927fd7464a379a76120bb85b3f1abdc80bd36b1100bde139a81f4198d3c834",
+  "stage_ref": "G4:R1.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

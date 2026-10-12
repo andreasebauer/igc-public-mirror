@@ -1,0 +1,59 @@
+{
+  "authority": {
+    "caps7_source": "G2:S5 primary PASS finite read/write descriptor",
+    "does_not_require_G2_graduation": true,
+    "operator_source": "G2:S4 certified 31-operator relation-valued recursive realization basis"
+  },
+  "date": "2026-09-03",
+  "epistemic_note": "This is a requested post-S5 analytic translation audit motivated by the observed additive CAPS7 composition law. It is not a blind discovery test and has no promotion authority.",
+  "experiment_id": "G2:S5.TORIC_AUDIT",
+  "frozen_calculations": [
+    "31x7 directed consumption matrix and 18-column unique capacity-monomial quotient",
+    "exact matrix rank, kernel ranks, image-lattice index and Smith invariant factors using determinant witnesses",
+    "polyhedral cone and affine semigroup characterization",
+    "constructive saturation/normality proof plus finite exact crosscheck through bridge degree 8",
+    "Hilbert/Ehrhart function, h-star polynomial, projective degree and dimension",
+    "Gorenstein translate criterion and index/codegree",
+    "toric ideal degree-one orientation relations and minimal unique-presentation quadratic generators",
+    "resource-type automorphism group",
+    "exact standard algebraic-geometry substructures: second Veronese core, cubic-scroll section, free projective-cone direction"
+  ],
+  "hard_firewalls": [
+    "NO_CHANGE_TO_G1_OR_G2_TRANSITION_SEMANTICS",
+    "NO_CHANGE_TO_31_OPERATOR_BASIS",
+    "NO_CHANGE_TO_CAPS7",
+    "NO_G2_GRADUATION_EFFECT",
+    "NO_G2_R_AXIS_UNLOCK_EFFECT",
+    "NO_PHYSICAL_GEOMETRY_OR_SPACETIME_CLAIM",
+    "NO_OPERATOR_ORIENTATION_EQUIVALENCE_CLAIM_OUTSIDE_THIS_TORIC_OBSERVER",
+    "NO_POSTHOC_MODIFICATION_OF_TORIC_MAP_AFTER_EXECUTION"
+  ],
+  "observer": {
+    "forgets": [
+      "operator orientation when a!=b",
+      "exact owner branch",
+      "raw skin",
+      "construction identity",
+      "topology",
+      "ancestry"
+    ],
+    "map": "directed operator a>b -> e_a+e_b in N^7 -> monomial x_a x_b",
+    "name": "G2_CAPS7_BRIDGE_RESOURCE_CONSUMPTION_TORIC_OBSERVER_V1",
+    "retains": [
+      "endpoint type pair through its capacity-consumption vector",
+      "integer semigroup addition"
+    ]
+  },
+  "outcome_categories": [
+    "TORIC_STRUCTURE_EXACTLY_IDENTIFIED",
+    "TORIC_STRUCTURE_PARTIALLY_IDENTIFIED_REVIEW_REQUIRED",
+    "CAPS7_RESOURCE_MAP_NOT_CLOSED_AS_EXPECTED"
+  ],
+  "pass_effect": "record exact toric invariants and known algebraic-geometry identifications only; no structural-ladder status changes",
+  "question": "What exact affine/projective toric structure is induced when each of the frozen 31 directed G2 bridge operators is mapped to its CAPS7 resource-consumption monomial x_a x_b?",
+  "schema_id": "IG_G2_TORIC_STRUCTURE_AUDIT_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "78bcba06c071249a235ae3e05b44fcee1665bf037cb5b9caca83304ebcecdddf",
+  "stage_ref": "G2:S5",
+  "status": "FROZEN_NONPROMOTING_ANALYTIC_AUDIT_BEFORE_REGISTERED_EXECUTION"
+}

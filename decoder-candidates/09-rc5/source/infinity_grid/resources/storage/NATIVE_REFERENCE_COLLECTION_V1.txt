@@ -1,0 +1,22 @@
+REFERENCE_RECORD_REFS_JSONL_V1 / bounded engineering profile
+A separately registered format under IG_STORAGE_COLLECTION_KEY_PROFILE_V1.
+Each canonical UTF-8 JSONL row is exactly a ReferenceRecordRef triple: original
+record_id, original semantic record_sha256, raw content_ref. Each referenced
+blob is strictly decoded and verified using the original IGRD verifier; its
+raw bytes are never reformatted. Keys are canonical JSON [record_id] encoded
+as UTF-8 hex, ASCII ordered. Only reference_records / SET / schema
+IG_REPLAY_REFERENCE_RECORD_V1 is supported. The page purpose describes this
+collection envelope, not an invented purpose field on the native records.
+Original record authority, evidence and scope are retained without promotion.
+Both entry lines and referenced records are bounded by max_record_bytes.
+Blob reads consume the shared per-pass byte budget; every provider return is
+independently checked for exact length and hash. Index profile
+LEGACY_REFERENCE_RECORD_V1 stores original raw bytes under the same native-ID
+key. Full iterator exhaustion is required before success. Index building is
+an explicit two-pass writer; each pass has its declared budget. A failed pass
+cannot publish a completed index. This profile does not establish dependency
+closure, bind a production ReleaseRoot/IndexDescriptor, or authorize science.
+The generic release closure adapter has not yet been extended to traverse this
+new collection profile; it fails closed rather than claiming full acceptance.
+The frozen storage schema is unchanged; this is an additive interpretation
+profile, not a rewrite of legacy IGRD records or a new scientific ID system.

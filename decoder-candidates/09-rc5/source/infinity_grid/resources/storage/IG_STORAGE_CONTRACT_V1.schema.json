@@ -1,0 +1,1728 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "description": "One independent decode unit; no prior compressed block needed. Codec dictionaries are explicit dependencies.",
+      "properties": {
+        "codec_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "decoded_content": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "decoded_offset": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "ordinal": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_BLOCK_V1"
+        },
+        "stored_content": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "ordinal",
+        "decoded_offset",
+        "decoded_content",
+        "stored_content",
+        "codec_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "CollectionPage": {
+      "additionalProperties": false,
+      "description": "Depth 0 contains SHARD entries; higher depth PAGE entries. Bounds and totals are cross-record checks, not proof by JSON Schema.",
+      "properties": {
+        "collection_kind": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "depth": {
+          "maximum": 65535,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/PageEntry"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "first_key": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "key_definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "last_key": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "record_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "record_schema_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_COLLECTIONPAGE_V1"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "collection_kind",
+        "record_schema_id",
+        "key_definition_ref",
+        "depth",
+        "first_key",
+        "last_key",
+        "record_count",
+        "entries",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "CollectionRef": {
+      "additionalProperties": false,
+      "description": "Bounded immutable page-tree root; row_count counts physical records, not scientific population.",
+      "properties": {
+        "cardinality_semantics": {
+          "enum": [
+            "SET",
+            "MULTISET",
+            "ORDERED",
+            "OCCURRENCE_LOG"
+          ],
+          "type": "string"
+        },
+        "key_definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "record_schema_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "root": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "row_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root",
+        "record_schema_id",
+        "row_count",
+        "key_definition_ref",
+        "cardinality_semantics"
+      ],
+      "type": "object"
+    },
+    "ContentRef": {
+      "additionalProperties": false,
+      "description": "SHA-256 and exact length of stored raw bytes; neither value is a scientific object ID.",
+      "properties": {
+        "sha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "size_bytes": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "description": "Coverage is scoped. Complete declared panel is not an unbounded census; attempts never inflate distinct coverage.",
+      "properties": {
+        "comparison_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "counting_unit": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "distinct_tested_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "domain_definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "domain_kind": {
+          "enum": [
+            "EXHAUSTIVE_DECLARED_DOMAIN",
+            "BOUNDED_PANEL",
+            "SAMPLED",
+            "NOT_EVALUATED"
+          ],
+          "type": "string"
+        },
+        "expected_count": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "failed_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "nonclaims": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "not_run_count": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin_mode": {
+          "enum": [
+            "FRESH_RECOMPUTE",
+            "VERIFIED_RESTORED_BLOCK",
+            "SOURCE_INTEGRITY_ONLY",
+            "HISTORICAL_RESULT_ONLY",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "REPRODUCED",
+            "DISCREPANCY",
+            "OPEN",
+            "NEGATIVE_REPRODUCED",
+            "NOT_EVALUATED"
+          ],
+          "type": "string"
+        },
+        "passed_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "raw_attempt_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_COVERAGE_V1"
+        },
+        "science_execution": {
+          "enum": [
+            "NONE",
+            "EXECUTED"
+          ],
+          "type": "string"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "skipped_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "scope",
+        "origin_mode",
+        "science_execution",
+        "domain_kind",
+        "domain_definition_ref",
+        "counting_unit",
+        "expected_count",
+        "distinct_tested_count",
+        "raw_attempt_count",
+        "passed_count",
+        "failed_count",
+        "skipped_count",
+        "not_run_count",
+        "outcome",
+        "comparison_ref",
+        "nonclaims",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Endpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "OBJECT",
+            "OCCURRENCE"
+          ],
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/NativeRef"
+        }
+      },
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "ExactRational": {
+      "additionalProperties": false,
+      "description": "Semantic validator must require gcd=1; zero value is represented as 0/1.",
+      "properties": {
+        "denominator": {
+          "pattern": "^[1-9][0-9]*(?![\\s\\S])",
+          "type": "string"
+        },
+        "numerator": {
+          "pattern": "^(0|-?[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "type": "object"
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "extension_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "payload_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "required_to_interpret": {
+          "type": "boolean"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "extension_id",
+        "version",
+        "required_to_interpret",
+        "definition_ref",
+        "payload_ref"
+      ],
+      "type": "object"
+    },
+    "IdentityProfile": {
+      "additionalProperties": false,
+      "description": "Binding to an existing source ID rule. This contract never renumbers native IDs.",
+      "properties": {
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "identity_policy": {
+          "const": "PRESERVE_NATIVE_VALUE_AND_DECLARED_SCOPE"
+        },
+        "interpretation_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "native_id_field": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "native_scope_fields": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "profile_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_IDENTITYPROFILE_V1"
+        },
+        "source_archive_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "source_member": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_member_sha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "profile_name",
+        "native_id_field",
+        "native_scope_fields",
+        "source_member",
+        "source_member_sha256",
+        "source_archive_ref",
+        "interpretation_ref",
+        "identity_policy",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Incidence": {
+      "additionalProperties": false,
+      "description": "Repeated endpoints are retained with distinct native incidences/slots; maps refer to the frozen interface frames.",
+      "properties": {
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "direction": {
+          "enum": [
+            "INPUT",
+            "OUTPUT",
+            "CONTEXT",
+            "UNDIRECTED"
+          ],
+          "type": "string"
+        },
+        "endpoint": {
+          "$ref": "#/$defs/Endpoint"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "incidence_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "multiplicity": {
+          "pattern": "^[1-9][0-9]*(?![\\s\\S])",
+          "type": "string"
+        },
+        "port_map_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "relation_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_INCIDENCE_V1"
+        },
+        "slot": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "incidence_ref",
+        "relation_ref",
+        "endpoint",
+        "slot",
+        "role",
+        "direction",
+        "multiplicity",
+        "port_map_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "IndexDescriptor": {
+      "additionalProperties": false,
+      "description": "Rebuild elsewhere, validate then switch; no index may silently change canonical content or authority.",
+      "properties": {
+        "authority": {
+          "const": "REBUILDABLE_PROJECTION"
+        },
+        "builder_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "index_content_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "index_schema_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "release_root": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_INDEXDESCRIPTOR_V1"
+        },
+        "source_collections": {
+          "items": {
+            "$ref": "#/$defs/ContentRef"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "validation_report_ref": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "release_root",
+        "index_content_ref",
+        "index_schema_ref",
+        "builder_ref",
+        "source_collections",
+        "validation_report_ref",
+        "authority",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Layer": {
+      "additionalProperties": false,
+      "description": "Uses existing S/R/C/F lanes; external audit and gate records are not inferred from run status.",
+      "properties": {
+        "audit_record_refs": {
+          "items": {
+            "$ref": "#/$defs/ReferenceRecordRef"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "coverage_state": {
+          "enum": [
+            "NOT_STARTED",
+            "PARTIAL",
+            "COMPLETE_DECLARED_SCOPE"
+          ],
+          "type": "string"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "gate_record_refs": {
+          "items": {
+            "$ref": "#/$defs/ReferenceRecordRef"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "lane_evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "C": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "F": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "R": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "S": {
+              "$ref": "#/$defs/CollectionRef"
+            }
+          },
+          "required": [
+            "S",
+            "R",
+            "C",
+            "F"
+          ],
+          "type": "object"
+        },
+        "layer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "layer_release_root": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nonclaims": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_LAYER_V1"
+        },
+        "scope_definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "layer",
+        "scope_definition_ref",
+        "layer_release_root",
+        "lane_evidence",
+        "audit_record_refs",
+        "gate_record_refs",
+        "coverage_state",
+        "nonclaims",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Locator": {
+      "additionalProperties": false,
+      "description": "Provider location is replaceable. URLs, credentials and historical local paths are not object identities.",
+      "properties": {
+        "content_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provider_file_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_LOCATOR_V1"
+        },
+        "transport_kind": {
+          "enum": [
+            "RAW_OBJECT",
+            "BOUND_MULTIPART"
+          ],
+          "type": "string"
+        },
+        "transport_manifest_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verification_receipt_ref": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "content_ref",
+        "provider",
+        "provider_file_id",
+        "transport_kind",
+        "transport_manifest_ref",
+        "verification_receipt_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "NativeRef": {
+      "additionalProperties": false,
+      "description": "Preserve native value. Scope and profile qualify a reference; they do not mint a replacement scientific ID.",
+      "properties": {
+        "native_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "scope_ref": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "native_id",
+        "scope_ref",
+        "profile_ref"
+      ],
+      "type": "object"
+    },
+    "Object": {
+      "additionalProperties": false,
+      "description": "Stored exact object binding; canonical_payload_ref addresses a Payload descriptor. Evidence and formation do not enter algebraic equality.",
+      "properties": {
+        "canonical_payload_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "canonicalization_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "carrier_schema_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "equality_contract_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "evidence": {
+          "$ref": "#/$defs/CollectionRef"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "layer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "object_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "reference_record_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReferenceRecordRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_OBJECT_V1"
+        },
+        "structure_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "object_ref",
+        "reference_record_ref",
+        "layer",
+        "carrier_schema_ref",
+        "canonicalization_ref",
+        "equality_contract_ref",
+        "canonical_payload_ref",
+        "structure_ref",
+        "evidence",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Occurrence": {
+      "additionalProperties": false,
+      "description": "One distinct occurrence, never inferred from content hash; parent_occurrence_ref is a context-specific view, not the entire relation model.",
+      "properties": {
+        "context_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "formation_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "object_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "occurrence_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "parent_occurrence_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NativeRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "position_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_OCCURRENCE_V1"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "occurrence_ref",
+        "object_ref",
+        "context_ref",
+        "position_ref",
+        "parent_occurrence_ref",
+        "formation_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "OptionalFieldRef": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "content_ref": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "state": {
+                "const": "PRESENT"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "content_ref": {
+                "$ref": "#/$defs/ContentRef"
+              }
+            }
+          }
+        }
+      ],
+      "description": "PRESENT requires content_ref. Other states require null; required UNKNOWN blocks release.",
+      "properties": {
+        "content_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "explanation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "PRESENT",
+            "NOT_APPLICABLE",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "state",
+        "content_ref",
+        "explanation"
+      ],
+      "type": "object"
+    },
+    "PageEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "content_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "entry_type": {
+          "enum": [
+            "SHARD",
+            "PAGE"
+          ],
+          "type": "string"
+        },
+        "first_key": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_key": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "record_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entry_type",
+        "content_ref",
+        "first_key",
+        "last_key",
+        "record_count"
+      ],
+      "type": "object"
+    },
+    "Payload": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "blocks": {
+                "$ref": "#/$defs/CollectionRef"
+              },
+              "whole_codec_ref": {
+                "type": "null"
+              },
+              "whole_storage_ref": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "representation_kind": {
+                "const": "WHOLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "blocks": {
+                "type": "null"
+              },
+              "whole_codec_ref": {
+                "$ref": "#/$defs/ContentRef"
+              },
+              "whole_storage_ref": {
+                "$ref": "#/$defs/ContentRef"
+              }
+            }
+          }
+        }
+      ],
+      "description": "Lossless representation only. WHOLE has storage+codec; BLOCKS has independently decodable blocks. Repacking does not redefine scientific identity.",
+      "properties": {
+        "blocks": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "canonicalization_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "decoded_content": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "representation_kind": {
+          "enum": [
+            "WHOLE",
+            "BLOCKS"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_PAYLOAD_V1"
+        },
+        "whole_codec_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "whole_storage_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "decoded_content",
+        "canonicalization_ref",
+        "representation_kind",
+        "whole_storage_ref",
+        "whole_codec_ref",
+        "blocks",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "PublicationSeal": {
+      "additionalProperties": false,
+      "description": "Post-root sidecar binds the accepted candidate and decisions; ignored for scientific authority when purpose=SCHEMA_FIXTURE.",
+      "properties": {
+        "acceptance_policy_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "decision_record_refs": {
+          "items": {
+            "$ref": "#/$defs/ReferenceRecordRef"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "release_root": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "result": {
+          "const": "ACCEPTED_DECLARED_SCOPE"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_PUBLICATIONSEAL_V1"
+        },
+        "verification_report_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "verification_scope": {
+          "const": "FULL_REQUIRED_CLOSURE"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "release_root",
+        "verification_report_ref",
+        "acceptance_policy_ref",
+        "decision_record_refs",
+        "verification_scope",
+        "result",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "ReferenceRecordRef": {
+      "additionalProperties": false,
+      "description": "Existing IGRD record ID and existing semantic seal retained; content_ref is the raw-file digest.",
+      "properties": {
+        "content_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "record_id": {
+          "pattern": "^IGRD/[A-Z0-9][A-Z0-9_.-]*(/[A-Z0-9][A-Z0-9_.-]*)+$",
+          "type": "string"
+        },
+        "record_sha256": {
+          "maxLength": 64,
+          "minLength": 64,
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "record_sha256",
+        "content_ref"
+      ],
+      "type": "object"
+    },
+    "Relation": {
+      "additionalProperties": false,
+      "description": "N-ary incidence representation. Counted joint relation, not fabricated pairwise edges.",
+      "properties": {
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "decorations_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "incidence_count": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "incidences": {
+          "$ref": "#/$defs/CollectionRef"
+        },
+        "operator_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "relation_ref": {
+          "$ref": "#/$defs/NativeRef"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_RELATION_V1"
+        },
+        "scope": {
+          "$ref": "#/$defs/Scope"
+        },
+        "type_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "witnesses": {
+          "$ref": "#/$defs/CollectionRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "relation_ref",
+        "type_ref",
+        "scope",
+        "incidences",
+        "incidence_count",
+        "operator_ref",
+        "decorations_ref",
+        "witnesses",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "RelationType": {
+      "additionalProperties": false,
+      "description": "A storage type alone grants no scientific operation. Undefined arity/cycle/observer semantics cannot be used in accepted science.",
+      "properties": {
+        "allowed_arity_max": {
+          "anyOf": [
+            {
+              "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allowed_arity_min": {
+          "pattern": "^(0|[1-9][0-9]*)(?![\\s\\S])",
+          "type": "string"
+        },
+        "cardinality_semantics": {
+          "enum": [
+            "SET",
+            "MULTISET",
+            "ORDERED"
+          ],
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "cycle_policy": {
+          "enum": [
+            "ACYCLIC_REQUIRED",
+            "CYCLES_ALLOWED",
+            "UNSPECIFIED_BLOCKED"
+          ],
+          "type": "string"
+        },
+        "cycle_scope_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "domain": {
+          "enum": [
+            "SCIENTIFIC_STRUCTURE",
+            "PROVENANCE_EVIDENCE"
+          ],
+          "type": "string"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "multiplicity_policy": {
+          "enum": [
+            "UNIT_INCIDENCES",
+            "EXPLICIT_MULTIPLICITY"
+          ],
+          "type": "string"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "role_registry_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_RELATIONTYPE_V1"
+        },
+        "scientific_authority_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ReferenceRecordRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type_name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "type_name",
+        "domain",
+        "definition_ref",
+        "allowed_arity_min",
+        "allowed_arity_max",
+        "cardinality_semantics",
+        "cycle_policy",
+        "cycle_scope_ref",
+        "role_registry_ref",
+        "multiplicity_policy",
+        "scientific_authority_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "ReleaseRoot": {
+      "additionalProperties": false,
+      "description": "Self-ID is excluded: identity is raw canonical bytes' content hash. Root is a candidate until separate publication seal is verified.",
+      "properties": {
+        "acceptance_policy_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "collections": {
+          "additionalProperties": false,
+          "properties": {
+            "coverage": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "incidences": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "objects": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "occurrences": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "reference_records": {
+              "$ref": "#/$defs/CollectionRef"
+            },
+            "relations": {
+              "$ref": "#/$defs/CollectionRef"
+            }
+          },
+          "required": [
+            "objects",
+            "occurrences",
+            "relations",
+            "incidences",
+            "reference_records",
+            "coverage"
+          ],
+          "type": "object"
+        },
+        "contract_freeze_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "environment_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "label": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "layers": {
+          "$ref": "#/$defs/CollectionRef"
+        },
+        "previous_release_root": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "recipe_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "registry_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "required_content_inventory": {
+          "$ref": "#/$defs/CollectionRef"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_RELEASEROOT_V1"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/ContentRef"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "label",
+        "contract_freeze_ref",
+        "source_ref",
+        "environment_ref",
+        "recipe_ref",
+        "registry_ref",
+        "layers",
+        "collections",
+        "required_content_inventory",
+        "acceptance_policy_ref",
+        "previous_release_root",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "RequiredContent": {
+      "additionalProperties": false,
+      "description": "Required dependency inventory entry; inventory pages are structural dependencies and are not self-listed.",
+      "properties": {
+        "content_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "content_role": {
+          "enum": [
+            "CANONICAL_DATA",
+            "NATIVE_REFERENCE_RECORD",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE",
+            "ENVIRONMENT",
+            "RECIPE",
+            "EVIDENCE",
+            "RECONSTRUCTION"
+          ],
+          "type": "string"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "extensions": {
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "interpretation_ref": {
+          "$ref": "#/$defs/OptionalFieldRef"
+        },
+        "purpose": {
+          "enum": [
+            "SCIENCE",
+            "SCHEMA_FIXTURE"
+          ],
+          "type": "string"
+        },
+        "schema_id": {
+          "const": "IG_STORAGE_REQUIREDCONTENT_V1"
+        }
+      },
+      "required": [
+        "schema_id",
+        "contract_version",
+        "purpose",
+        "content_ref",
+        "content_role",
+        "interpretation_ref",
+        "extensions"
+      ],
+      "type": "object"
+    },
+    "Scope": {
+      "additionalProperties": false,
+      "properties": {
+        "definition_ref": {
+          "$ref": "#/$defs/ContentRef"
+        },
+        "lane": {
+          "enum": [
+            "S",
+            "R",
+            "C",
+            "F",
+            "AUDIT",
+            "GATE"
+          ],
+          "type": "string"
+        },
+        "layer": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer",
+        "lane",
+        "definition_ref"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:ig:storage:contract:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Frozen Step-1 structural contract. Cross-record normative rules are in IG_STORAGE_CONTRACT_V1.txt; schema validation alone does not publish or certify a release.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/IdentityProfile"
+    },
+    {
+      "$ref": "#/$defs/Object"
+    },
+    {
+      "$ref": "#/$defs/Occurrence"
+    },
+    {
+      "$ref": "#/$defs/RelationType"
+    },
+    {
+      "$ref": "#/$defs/Relation"
+    },
+    {
+      "$ref": "#/$defs/Incidence"
+    },
+    {
+      "$ref": "#/$defs/Payload"
+    },
+    {
+      "$ref": "#/$defs/Block"
+    },
+    {
+      "$ref": "#/$defs/CollectionPage"
+    },
+    {
+      "$ref": "#/$defs/Coverage"
+    },
+    {
+      "$ref": "#/$defs/ReleaseRoot"
+    },
+    {
+      "$ref": "#/$defs/RequiredContent"
+    },
+    {
+      "$ref": "#/$defs/Layer"
+    },
+    {
+      "$ref": "#/$defs/PublicationSeal"
+    },
+    {
+      "$ref": "#/$defs/IndexDescriptor"
+    },
+    {
+      "$ref": "#/$defs/Locator"
+    }
+  ],
+  "title": "Infinity Grid persistent storage contract v1"
+}

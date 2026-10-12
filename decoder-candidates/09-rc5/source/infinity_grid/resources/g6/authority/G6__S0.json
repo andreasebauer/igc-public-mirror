@@ -1,0 +1,788 @@
+{
+  "chain_id": "g6-s-master-2026-09-06",
+  "commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+  "committed_utc": "2026-09-06T13:20:35.522031+00:00",
+  "outcome": "PASS_INTERFACE_AND_BASIS_FROZEN",
+  "question_sha256": "148d70fbdcd4e07de6399a89a20692999698d806637339278fa68492f7c8d7f0",
+  "registration_sha256": "f785b5b19cde02a1204f4b839ca980d43ebffcdab2d6fdb41abe15591786eeb2",
+  "result": {
+    "basis_carrier_count": 4,
+    "basis_construction": "take every distinct certified base/generator carrier occurring in the G5 S6 recursive proof certificate, deduplicate structurally, and close only the interface labels needed by the frozen 31 directed operators",
+    "basis_rows": [
+      {
+        "H_classes": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "edge_operators": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "exact_canon_repr": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),)))))",
+        "exact_canon_sha256": "e50d415e730ef64a29c932af3be86d1dfb5c4d0b0da0d439f92f31015b8851c2",
+        "n": 5,
+        "public_key": [
+          true,
+          [
+            7350165294884353068321248152456522061228636031301143617671507943395070403302,
+            323614610468518380423504356076434931111301883477453532669506694443598015120,
+            261336089781936599514621987859589210066104223904613329340953570950660629800,
+            79723544616467040388753255518321710976672396070498360022392207901463136140,
+            177604494205774219546337115611823557454599401782164799538907702863068124440,
+            42757116814170039056183133242063993783275537108797616655268772486451108400,
+            3362211046791081783653548930550334347845293064024537096030225921502055318360
+          ],
+          [
+            [
+              "C",
+              5
+            ]
+          ]
+        ],
+        "public_read": {
+          "H_class_bag": {
+            "C": 5
+          },
+          "caps7": [
+            7350165294884353068321248152456522061228636031301143617671507943395070403302,
+            323614610468518380423504356076434931111301883477453532669506694443598015120,
+            261336089781936599514621987859589210066104223904613329340953570950660629800,
+            79723544616467040388753255518321710976672396070498360022392207901463136140,
+            177604494205774219546337115611823557454599401782164799538907702863068124440,
+            42757116814170039056183133242063993783275537108797616655268772486451108400,
+            3362211046791081783653548930550334347845293064024537096030225921502055318360
+          ],
+          "descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+          "legal": true,
+          "schema_id": "IG_DECODER_V05_G4_PUBLIC_READ_V1"
+        },
+        "ref": "D2_BROOM"
+      },
+      {
+        "H_classes": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "edge_operators": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "exact_canon_repr": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),)))))",
+        "exact_canon_sha256": "ab0c53d2343c2fd566b83cf7d9269b343f335f92c881375beaada3aab0226ffd",
+        "n": 5,
+        "public_key": [
+          true,
+          [
+            7350165294884353068321248152456522061228636031301143617671507943395070403302,
+            323614610468518380423504356076434931111301883477453532669506694443598015120,
+            261336089781936599514621987859589210066104223904613329340953570950660629800,
+            79723544616467040388753255518321710976672396070498360022392207901463136140,
+            177604494205774219546337115611823557454599401782164799538907702863068124440,
+            42757116814170039056183133242063993783275537108797616655268772486451108400,
+            3362211046791081783653548930550334347845293064024537096030225921502055318360
+          ],
+          [
+            [
+              "C",
+              5
+            ]
+          ]
+        ],
+        "public_read": {
+          "H_class_bag": {
+            "C": 5
+          },
+          "caps7": [
+            7350165294884353068321248152456522061228636031301143617671507943395070403302,
+            323614610468518380423504356076434931111301883477453532669506694443598015120,
+            261336089781936599514621987859589210066104223904613329340953570950660629800,
+            79723544616467040388753255518321710976672396070498360022392207901463136140,
+            177604494205774219546337115611823557454599401782164799538907702863068124440,
+            42757116814170039056183133242063993783275537108797616655268772486451108400,
+            3362211046791081783653548930550334347845293064024537096030225921502055318360
+          ],
+          "descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+          "legal": true,
+          "schema_id": "IG_DECODER_V05_G4_PUBLIC_READ_V1"
+        },
+        "ref": "D2_PATH"
+      },
+      {
+        "H_classes": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "edge_operators": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        "exact_canon_repr": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),))),)))))",
+        "exact_canon_sha256": "39511c6189d15ecac740f97153911db69d686c8b41b4d9ee534ee94ff6028e48",
+        "n": 7,
+        "public_key": [
+          true,
+          [
+            10290231412838094295649747413439130885720090443821601064740111120753098564622,
+            453060454655925732592906098507008903555822636868434945737309372221037221168,
+            365870525694711239320470783003424894092545913466458661077334999330924881720,
+            111612962463053856544254557725650395367341354498697704031349091062048390596,
+            248646291888083907364871961856552980436439162495030719354470784008295374216,
+            59859963539838054678656386538889591296585751952316663317376281481031551760,
+            4707095465507514497114968502770468086983410289634351934442316290102877445704
+          ],
+          [
+            [
+              "C",
+              7
+            ]
+          ]
+        ],
+        "public_read": {
+          "H_class_bag": {
+            "C": 7
+          },
+          "caps7": [
+            10290231412838094295649747413439130885720090443821601064740111120753098564622,
+            453060454655925732592906098507008903555822636868434945737309372221037221168,
+            365870525694711239320470783003424894092545913466458661077334999330924881720,
+            111612962463053856544254557725650395367341354498697704031349091062048390596,
+            248646291888083907364871961856552980436439162495030719354470784008295374216,
+            59859963539838054678656386538889591296585751952316663317376281481031551760,
+            4707095465507514497114968502770468086983410289634351934442316290102877445704
+          ],
+          "descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+          "legal": true,
+          "schema_id": "IG_DECODER_V05_G4_PUBLIC_READ_V1"
+        },
+        "ref": "D4_BROOM"
+      },
+      {
+        "H_classes": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "edge_operators": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "exact_canon_repr": "('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())), (('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ((('seq', (('int', 0), ('int', 0))), ('V', ('str', '8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4'), ())),))),))),))),)))))",
+        "exact_canon_sha256": "71c6f9c8c314d2485daae45b8f9c46ed845e9d7d8faf612050100567ff3a428e",
+        "n": 7,
+        "public_key": [
+          true,
+          [
+            10290231412838094295649747413439130885720090443821601064740111120753098564622,
+            453060454655925732592906098507008903555822636868434945737309372221037221168,
+            365870525694711239320470783003424894092545913466458661077334999330924881720,
+            111612962463053856544254557725650395367341354498697704031349091062048390596,
+            248646291888083907364871961856552980436439162495030719354470784008295374216,
+            59859963539838054678656386538889591296585751952316663317376281481031551760,
+            4707095465507514497114968502770468086983410289634351934442316290102877445704
+          ],
+          [
+            [
+              "C",
+              7
+            ]
+          ]
+        ],
+        "public_read": {
+          "H_class_bag": {
+            "C": 7
+          },
+          "caps7": [
+            10290231412838094295649747413439130885720090443821601064740111120753098564622,
+            453060454655925732592906098507008903555822636868434945737309372221037221168,
+            365870525694711239320470783003424894092545913466458661077334999330924881720,
+            111612962463053856544254557725650395367341354498697704031349091062048390596,
+            248646291888083907364871961856552980436439162495030719354470784008295374216,
+            59859963539838054678656386538889591296585751952316663317376281481031551760,
+            4707095465507514497114968502770468086983410289634351934442316290102877445704
+          ],
+          "descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+          "legal": true,
+          "schema_id": "IG_DECODER_V05_G4_PUBLIC_READ_V1"
+        },
+        "ref": "D4_PATH"
+      }
+    ],
+    "exact_basis_canon_count": 4,
+    "first_interface_mismatch": null,
+    "g5_authority_changed": false,
+    "g6_graduated": false,
+    "hidden_oracle_role": "EXACT_EQUALITY_AND_RESIDUAL_WITNESS_ONLY",
+    "inherited_public_projection": "CAPS7_PLUS_H_CLASS_BAG",
+    "interface_row_count": 28,
+    "interface_rows": [
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 0,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 1,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 2,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 3,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 4,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 5,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_BROOM",
+        "endpoint_type": 6,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 0,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 1,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 2,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 3,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 4,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 5,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D2_PATH",
+        "endpoint_type": 6,
+        "exact_enabled": true,
+        "exact_owner_count": 5,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 0,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 1,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 2,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 3,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 4,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 5,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_BROOM",
+        "endpoint_type": 6,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 0,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 1,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 2,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 3,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 4,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 5,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      },
+      {
+        "carrier_ref": "D4_PATH",
+        "endpoint_type": 6,
+        "exact_enabled": true,
+        "exact_owner_count": 7,
+        "public_enabled": true
+      }
+    ],
+    "nonclaims": [
+      "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+      "NO_UNREGISTERED_PUBLIC_FIELD_PROMOTION",
+      "NO_POSTHOC_QUESTION_CHANGE"
+    ],
+    "operator_basis": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ]
+    ],
+    "operator_count": 31,
+    "outcome": "PASS_INTERFACE_AND_BASIS_FROZEN",
+    "parent_snapshot_science_sha256": "5ed239253794ceb62074adab64d77cdd5fd8d6dee86a4865574191d747bd8305",
+    "promotion": false,
+    "public_basis_class_count": 2,
+    "public_basis_classes": [
+      {
+        "public_key": [
+          true,
+          [
+            10290231412838094295649747413439130885720090443821601064740111120753098564622,
+            453060454655925732592906098507008903555822636868434945737309372221037221168,
+            365870525694711239320470783003424894092545913466458661077334999330924881720,
+            111612962463053856544254557725650395367341354498697704031349091062048390596,
+            248646291888083907364871961856552980436439162495030719354470784008295374216,
+            59859963539838054678656386538889591296585751952316663317376281481031551760,
+            4707095465507514497114968502770468086983410289634351934442316290102877445704
+          ],
+          [
+            [
+              "C",
+              7
+            ]
+          ]
+        ],
+        "representatives": [
+          "D4_BROOM",
+          "D4_PATH"
+        ]
+      },
+      {
+        "public_key": [
+          true,
+          [
+            7350165294884353068321248152456522061228636031301143617671507943395070403302,
+            323614610468518380423504356076434931111301883477453532669506694443598015120,
+            261336089781936599514621987859589210066104223904613329340953570950660629800,
+            79723544616467040388753255518321710976672396070498360022392207901463136140,
+            177604494205774219546337115611823557454599401782164799538907702863068124440,
+            42757116814170039056183133242063993783275537108797616655268772486451108400,
+            3362211046791081783653548930550334347845293064024537096030225921502055318360
+          ],
+          [
+            [
+              "C",
+              5
+            ]
+          ]
+        ],
+        "representatives": [
+          "D2_BROOM",
+          "D2_PATH"
+        ]
+      }
+    ],
+    "public_exact_interface_mismatch_count": 0,
+    "question_sha256": "148d70fbdcd4e07de6399a89a20692999698d806637339278fa68492f7c8d7f0",
+    "schema_id": "IG_G6_S0_RESULT_V1",
+    "science_sha256": "5fadf5d30fa7eec0243c421d309a6e9f872fd76ac86b76321c46f72879aff2e5",
+    "stage_id": "G6:S0",
+    "status": "PASS"
+  },
+  "result_sha256": "32012482e5f237b148392526baaff5de4837b6f55fd0155c5e1282bc142cdf23",
+  "run_record_sha256": "070101492f1f26b54816b2c012888ce20ba33d6890e9508b2b6a8ac5df6e3746",
+  "schema_id": "IG_DECODER_V05_SCIENTIFIC_CHAIN_STAGE_COMMIT_V1",
+  "series": "S",
+  "stage_id": "G6:S0"
+}
