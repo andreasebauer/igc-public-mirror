@@ -1,0 +1,12 @@
+{
+  "status": "PROPOSED_SUCCESSOR_NOT_A_DISPATCH_SPEC",
+  "workers": 4,
+  "start_method": "spawn",
+  "memory_budget_bytes": 8589934592,
+  "memory_scope": "Shared host aggregate, not per-worker virtual address space",
+  "cpu_scope": "One shared CPU lease for both chats; current host quota8",
+  "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+  "disk_floor_stops_commit": false,
+  "workspace_budget": "Derive from actual remaining output, staging, checkpoint and recovery sizes; no inherited512MiB cap",
+  "scope": "Finite frozen652366 descriptors; preserve committed56832; data-side cutover required"
+}
