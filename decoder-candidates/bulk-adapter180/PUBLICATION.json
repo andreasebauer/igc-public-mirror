@@ -1,0 +1,47 @@
+{
+  "schema": "IG_P0_ADAPTER180_HANDOFF_V1",
+  "status": "BOUNDED_PARITY_RESUME_PASS_FINAL_CLOSURE_OPEN",
+  "native_source_sha256": "194ccffda2be8363c1b0ed5ebe861ae3ea6fb19eac9234133c6d8d3b5e6af03f",
+  "native_package_sha256": "7ebd8784d468e4238428954e11759e618071e2b5a2cca7f45707b1f656a308c4",
+  "canonicalizer_sha256": "84a339a528435c37220af9c09059834b68f4bcf5a9bb0a402e89c6daf9302dad",
+  "raw_handoff_sha256": "9b2824df5eeeced822c12ba582e778bd7fb1007f2ec32efa2c4f90209ebeb75f",
+  "production_cutover": false,
+  "files": {
+    "source/infinity_grid/v05_stage_runtime.py": {
+      "sha256": "0208447398a605a322cb95ddbbce1e0385b7c36b0c559ad1dcc6a3fa416d19f8",
+      "size_bytes": 144088
+    },
+    "project/bulk_adapter.py": {
+      "sha256": "db8e3d80a92a9475c168764202e83e5223c2eb33a5f1f58a773ea4d25155d2ea",
+      "size_bytes": 3612
+    },
+    "project/context.json": {
+      "sha256": "78c58d497e5853a32e7f0f8c5eda747905a9342e27a075500a175bfa84aa1f68",
+      "size_bytes": 17692
+    },
+    "READ_FIRST.txt": {
+      "sha256": "6d338729493f3cb73cddaded81e1dc98dcbb0dce65f648f342bcd1b5d0dfae73",
+      "size_bytes": 5814
+    },
+    "prepare.py": {
+      "sha256": "f8eea3a5448e783a910981e4e64edddd8d155d9ac807f2c3da41904f595bbfac",
+      "size_bytes": 2349
+    },
+    "prepare_samples.py": {
+      "sha256": "4cf880695da98b7373869b0f0716b2ed2a9db04313bfd67d785497082458c88c",
+      "size_bytes": 655
+    },
+    "build_context.py": {
+      "sha256": "dbd70863aab275a874edefc6935454464a7a7c47f6d742b4ec5874fd8aecdd96",
+      "size_bytes": 952
+    },
+    "reader_checks.py": {
+      "sha256": "4dd85b2070a37efd7341b4df295a931ff3fd31d9ef65bb438c6b189f9f2bce57",
+      "size_bytes": 1952
+    },
+    "run.py": {
+      "sha256": "ba21f57227984ff562299ef80ae4b0f9a9dabc76091f90e9412f6819c5eff8d5",
+      "size_bytes": 1204
+    }
+  }
+}
