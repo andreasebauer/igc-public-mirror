@@ -1,0 +1,22 @@
+{
+  "schema": "IG_RESOURCE_POLICY_SUCCESSOR179_V1",
+  "status": "IMPLEMENTED_CANDIDATE_NOT_ACTIVATED_OR_NATIVE_QUALIFIED",
+  "memory_budget_policy": "Host/cgroup-derived aggregate ceiling across coordinator and all workers; shared between chats",
+  "memory_budget_bytes_observed": 8589934592,
+  "memory_limit_per_worker": false,
+  "fixed_four_gib_ceiling": false,
+  "disk_free_target_bytes": 10000000000,
+  "disk_free_target_stops_running_job": false,
+  "disk_admission": "Measured additional durable write/staging requirement; include commit and recovery files, no10GiB assertion",
+  "automatic_global_deadline": null,
+  "automatic_shard_deadline": null,
+  "automatic_cpu_lease_wait_timeout": null,
+  "default_stream_result_bytes_limit": null,
+  "default_generated_occurrence_limit": null,
+  "default_generation_result_bytes_limit": null,
+  "default_phase_task_count_limit": null,
+  "fixed_phase_task_payload_byte_limits": false,
+  "historical_captures_edited": false,
+  "data_job_restarted": false,
+  "full_p0": false
+}
