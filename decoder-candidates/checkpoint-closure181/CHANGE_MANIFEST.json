@@ -1,0 +1,38 @@
+{
+  "schema": "IG_CHECKPOINT_CLOSURE181_SUCCESSOR_V1",
+  "status": "STEP1_QUALIFIED_SAME_HOST",
+  "remaining_decoder_packages": 5,
+  "release09_finalized": false,
+  "source_sha256": "3a0950f695d984cd0184b0ddfac73daed01d1b2a53d167af6d23a2255b3a29ba",
+  "files": {
+    "tests/test_checkpoint_project_closure.py": {
+      "sha256": "c7a9a868afee27aea8e69c33b69cd9a414e5685de4c01249c1804cc518c9c166",
+      "bytes": 3873
+    },
+    "infinity_grid/result_contracts.py": {
+      "sha256": "8603ede483438e2eb66ed4379d7afdbfd69fc7930cd55c305bddbffe50322d74",
+      "bytes": 14298
+    },
+    "infinity_grid/checkpoint_stream.py": {
+      "sha256": "4436fc409153db2936a59d99ec5294dcf5963a5cb565098bc0c4396cbfd2818e",
+      "bytes": 7573
+    },
+    "infinity_grid/v05_controller_event_loop.py": {
+      "sha256": "704f295208864697b5bf16d2978089ae1b52bf7c0c69b5eb9fe19abec55882fb",
+      "bytes": 92039
+    },
+    "infinity_grid/project_checkpoint.py": {
+      "sha256": "c28ac24a86043eda140636717f81587e8bb111e1cc5d3e69669537b9efb23267",
+      "bytes": 7271
+    },
+    "qualification/PROFILE.json": {
+      "sha256": "87674164b940ad5aefeccaaf1035d964a76e840a2c83d42d7d80410c888789fb",
+      "bytes": 20644
+    }
+  },
+  "focused_tests_passed": 49,
+  "native_rows_exact": 320,
+  "final_checkpoint_sha256": "d69a7d62720d3c38053f23fad12305cdf6c88a3ba3c82f2c6f3eeebbc9b887b6",
+  "kernel_unchanged": true,
+  "package_sha256": "62374a4f1d8b9c6c8d72055b8754d3a1191580dffba89ab984bc6f5edd222075"
+}
