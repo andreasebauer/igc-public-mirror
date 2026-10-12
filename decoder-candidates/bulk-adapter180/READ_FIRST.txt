@@ -1,0 +1,85 @@
+INFINITY GRID — P0 DECODER BULK ADAPTER180
+2026-10-12
+
+STATUS: BOUNDED PARITY AND COLD RESUME PASS; FINAL NATIVE CLOSURE OPEN.
+NOT A PRODUCTION CUTOVER, FULL CENSUS, SCIENTIFIC ADOPTION, OR FULL RC.
+Decoder owns adapter/scheduling/caching/recovery. Data chat owns frozen inputs,
+completed rows, independent comparison and scientific adoption. The original
+56,832 committed data rows and stopped worker were neither edited nor restarted.
+Parent checkpoint0303 and Master152 are unchanged. No competing data-side fix.
+
+IMPLEMENTATION
+A source-bound project STAGE replaces test-script exec setup. Pure frozen HET4
+context is reconstructed from pinned baseline fixture, captured with the adapter,
+and initialized once per worker. Canonicalizer remains unchanged; no hierarchy
+kernel caching yet. Four spawn workers run through Decoder's CPU lease/scheduler.
+SQLite task reduction and workspace writer exclusion remain Decoder-owned.
+The new runtime iterator supplies committed exact canonical signature bytes in
+task order, rejecting missing/corrupt bytes. Publication retains full relabeling
+witnesses, not merely witness digests. Sixteen rows per task is a tuning choice.
+
+EVIDENCE
+320 input descriptors: first64 records from frozen blocks0,10,20,30,39, matching
+the data benchmark's sampling plan. Reference uses unchanged successor176
+canonicalizer plus historical HET4 context; the independent data-side verifier
+checks all662 nodes per row. Equality compares exact canonical bytes for every
+output field, including full witness, corrected edges and both identity aliases.
+No hash-only equality claim. No new scientific coverage credit from this sample.
+Native interruption after5 committed tasks retained80 rows. Actual Drive raw
+readbacks were checked against bytes and hashes, all obligations acknowledged,
+then checkpoint restored into a separate directory with exact state/file modes
+and project history. Resume computed only15 missing tasks:240 rows; all5 saved
+payload hashes, result hashes and commit timestamps unchanged. Four spawn workers
+and CPU lease observed. All320 published rows have exact parity and ordinal order.
+Duplicate writer refused WORKSPACE_BUSY. Completion retry returned reused=true.
+Three isolated reader checks passed: ordering; missing bytes; corrupted bytes.
+Worker death, interrupted transport, out-of-order stress, forced ENOSPC, aggregate
+memory admission and a full RC were not newly qualified by this step.
+
+CAPTURE AND FAILURE DISCLOSURE
+The first64MiB workspace registration was refused before science:
+REGISTERED_WORKSPACE_BUDGET:68868830. It omitted captured source/baseline footprint.
+A separate128MiB registration used the measured68.9MB starting footprint plus
+6.0MB full witness outputs, durable copies, seal and checkpoint/recovery margin.
+It is a bounded test contract, not a full-run default or optimal numerical rule.
+The second capture completed, but a NEW post-completion checkpoint was refused:
+CHECKPOINT_TREE_RAW_LIMIT:38842356 against inherited32MiB project-tree policy.
+Existing terminal checkpoint obligations were all saved/ACKed: pending0 bytes.
+Existing terminal export/retry bytes match and its state bytes/modes restore;
+its restored project differs from the post-completion live project:
+COLD_PROJECT_BYTES. Final native closure therefore FAILS/REMAINS OPEN.
+CURRENT_PROJECT_RECOVERY.zip preserves that complete current project separately;
+it is an archival recovery supplement, not a substitute for a native closed
+checkpoint. Do not promote this adapter or imply final cold closure passed.
+The legacy default project_evidence_externalization=0 duplicated full scientific
+evidence in project history. A successor must use/requalify externalized evidence
+and remove/replace the unsupported fixed project limit; do not edit this capture.
+
+RESOURCE POLICY AND EVERY NEW LIMIT
+8GiB (8589934592 bytes) is actual shared cgroup memory.max for all chats/processes.
+CPU quota800000/100000 is8 core-equivalents. Four workers reserves half for this
+sample, not a universal CPU ceiling. Native metadata detected4 through its
+registered CPU budget. No per-worker8GiB promise or RLIMIT_AS4GiB/8GiB wrapper.
+No10GiB free-disk assertion and no automatic global runtime deadline in new scripts.
+16 rows/task and max8 in-flight shards: queue/batch tuning, not a scope truncation.
+320 rows: preregistered qualification scope. Full scientific domain stays652366.
+128MiB workspace: measured sample budget above, NOT adopted for the census.
+4MiB/shard and64 shard references are legacy format caps still inherited. Twenty
+sample shards fit; a full run cannot use this route unchanged. Numeric caps are
+not justified as scientific stopping rules. Versioned transport/rolling capture
+and full-scale storage design must precede cutover.
+32MiB project-tree cap failed this actual workflow; it has no demonstrated reason
+to stop this project and must be repaired in a versioned successor.
+Native reducer RSS metadata reported0; this is unavailable measurement, not zero
+RAM. Do not claim aggregate memory admission passed. Host8GiB ceiling is verified.
+Other inherited caps/defaults are listed individually in included successor179
+READ_FIRST.txt and RESOURCE_POLICY.json. Their retention for legacy compatibility
+does not establish optimal values or authorize a scientific stop.
+
+NEXT P0 WORK
+Repair checkpoint/project evidence policy and qualify exact final cold closure.
+Design census-scale full-witness deduplication/storage and rolling preservation.
+Qualify aggregate memory accounting, death/out-of-order/interrupted-save recovery.
+Then qualify kernel hierarchy caching against exact unchanged-kernel witnesses.
+Return one exact source/runtime-bound adapter to data chat for independent adoption,
+preserving56832 completed rows and resuming only missing descriptors.
