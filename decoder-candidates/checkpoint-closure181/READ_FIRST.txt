@@ -1,0 +1,100 @@
+INFINITY GRID — P0 STEP 1 CHECKPOINT CLOSURE / SUCCESSOR181
+2026-10-12 (Asia/Bangkok)
+
+STATUS: STEP 1 COMPLETE FOR THE QUALIFIED SUCCESSOR.
+Five Decoder work packages remain before release0.9. No production cutover,
+release promotion, full census or independent-host qualification is claimed.
+Data worker remains stopped;56832 completed rows are unchanged.
+
+WHAT CHANGED AND WHY
+The adapter180 contract inherited max_project_raw_bytes=33554432 and did not
+externalize scientific evidence. A fresh final checkpoint failed beyond that
+limit. Its initial terminal checkpoint preceded publication of completed project
+history, so cold project bytes differed from current post-completion history.
+This successor supports max_project_raw_bytes=null as explicit removal of the
+fixed project-tree/metadata cap. New adapter contracts opt into it and into
+project_evidence_externalization=1. No replacement arbitrary project byte limit
+was introduced. The legacy default33554432 remains only for compatibility when
+replaying legacy contracts; historical captures and source bytes were not edited.
+A new explicit completion_project_closure=1 policy retains the original mandatory
+pre-publication terminal checkpoint, then makes a second terminal checkpoint
+AFTER the completed project claim is published. Administrative completion reuse
+also checkpoints its retry record and project history. Repeated identical retry
+state deduplicates. A post-publication checkpoint failure raises rather than
+reporting completed closure; administrative reuse can retry the interrupted
+publication window without dispatching scientific work.
+The validated admission carries the captured result contract. Policy is derived
+from that frozen contract, not an unbound environment switch or live mutation.
+
+SOURCE CHANGES
+infinity_grid/result_contracts.py: optional explicit project bound; new opt-in
+closure policy, legacy defaults retained; boolean/invalid numeric values refused.
+infinity_grid/checkpoint_stream.py: count/check paths with optional numeric bound;
+symlink/path checks remain mandatory when the byte bound is removed.
+infinity_grid/project_checkpoint.py: consistent optional metadata bound in
+prepare, baseline projection and hydrate; exact hash and evidence checks retained.
+infinity_grid/v05_controller_event_loop.py: captured contract in admission;
+post-publication and administrative retry closure checkpoints.
+tests/test_checkpoint_project_closure.py: cap-removal, legacy, ordering, failure,
+and metadata-above-old-limit exact roundtrip checks.
+qualification/PROFILE.json: new test selector and unqualified-successor label.
+Kernel/canonicalization and scientific adapter calculations are unchanged.
+
+QUALIFICATION EVIDENCE
+49 focused local tests passed on pinned Python3.13.5 / SQLite3.51.3 runtime:
+new closure tests; existing project-evidence, completion-publication and terminal
+JSON-equivalence regressions. Expected forged duplicate-ZIP test emits1 warning.
+Native captured STAGE completed320 frozen sample descriptors with4 spawn workers.
+All320 full witnesses/identity aliases/corrected edges exactly match the original
+unchanged-kernel reference. Scientific adoption/coverage remains unclaimed.
+Live completed project was95803259 raw bytes, above the old32MiB blocker.
+Project closure uses IG_PROJECT_DELTA_V2; external evidence raw bytes72521509.
+Post-publication project snapshot hash exactly matched the native checkpoint.
+Two native completion retries reused the same completion, preserved all20 task
+commit hashes/timestamps and did not dispatch another scientific calculation.
+The second retry reused the same checkpoint identity.
+41 physical objects and176 logical save obligations were validated against actual
+raw provider bytes;13 new physical uploads,28 byte-identical saved objects reused.
+All obligations acknowledged: PRESERVED, pending0 bytes.
+Final export repeated byte-identically and restored into a separate directory.
+80 scientific/captured state files and their modes matched exact checkpoint bytes;
+project history matched exact current original project snapshot. No separate
+current-project recovery archive was needed to compensate for failed closure.
+Restored capture retains SAVED status; original completion and completed-work
+capsule verify read-only and are reusable without scientific dispatch.
+
+EXACT BINDINGS
+Native source SHA256:
+3a0950f695d984cd0184b0ddfac73daed01d1b2a53d167af6d23a2255b3a29ba
+Final checkpoint SHA256:
+d69a7d62720d3c38053f23fad12305cdf6c88a3ba3c82f2c6f3eeebbc9b887b6
+Full export SHA256:
+9a735e0392a4e0c1ad75e699c815aae74e1b67ad577dbd5c7247114f7064c31d
+Full export bytes:91839319
+Runtime binding and exact source/package manifest are in the saved capture.
+Pinned V5 runtime manifest SHA256:
+6a205e5d39a3acd7261b23caaf06997d41cc65ebd1329b1766c143f5dacf78b5
+Independent directory is on the SAME HOST, not an independent-host release gate.
+
+LIMITS / SCOPE
+Removed: fixed32MiB project-tree/metadata blocker for explicit new contracts.
+Retained: pre-publication evidence proof, exact hashes/bytes, validated paths,
+single-writer ownership, legacy finite policy compatibility and explicit opt-in.
+The sample registration has128MiB workspace budget based on the measured starting
+footprint plus bounded sample output/recovery copies; NOT a full-census default.
+Shared host memory remains8GiB, CPU quota8 core-equivalents, tested topology4 workers.
+No4GiB address-space wrapper,10GiB disk-stop assertion or automatic global deadline
+was copied into this successor qualification.
+Evidence/state/shard/pending-save and retention caps remain inherited format rules;
+census-scale transport and their justifications are Step2/3 work, not newly passed.
+Reducer RSS accounting and aggregate memory admission remain Step3 work.
+Kernel hierarchy caching remains Step4 work; context initialization is not caching.
+Worker death/out-of-order/interrupted-save integrated tests remain Step5 work.
+Full suite, independent-host requirements and final frozen0.9 release remain Step6.
+Parent checkpoint0303/Master152 and stopped data prefix are untouched.
+
+NEXT
+Step2: complete the production bulk adapter and census-scale full-witness
+storage/rolling preservation. Then resource accounting, kernel caching,
+integrated recovery qualification and final0.9 release. Only after that does
+independent data adoption restart missing work.
