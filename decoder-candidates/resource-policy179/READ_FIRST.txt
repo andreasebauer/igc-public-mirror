@@ -1,0 +1,52 @@
+INFINITY GRID — RESOURCE LIMIT REVIEW AND SUCCESSOR179
+2026-10-12
+
+USER POLICY
+Every imposed limit needs a reason. Remove unmeasured universal computation limits. Raise the total memory budget to the actual host ceiling. A10GB free-space preference is a cleanup/planning target,not a running-job stop condition. User instruction supersedes the earlier data-side10GiB proposal.
+
+ACTUAL MACHINE
+Observed cgroup memory.max8589934592 bytes =8GiB aggregate for both chats and all processes. CPU800000/100000 =8 core-equivalents,9 logical CPUs visible. These are platform limits,not configurable Decoder ceilings. At inspection anon was about97MB and file cache about7.39GB; cgroup usage is not all active heap. File cache is reclaimable. No claim that8GiB is separately available to every worker.
+
+IMPLEMENTED IN A SEPARATE SUCCESSOR,NOT ACTIVATED
+execution.py: default CPU-lease wait timeout600seconds ->None; default streaming shard timeout300seconds ->None; default stream-result8MiB ceiling ->None. Explicit caller limits remain honored. Dead-worker detection and cancellation retained.
+v05_stage_runtime.py: structural/generation default300-second and8MiB limits ->None. Generation default10000-occurrence ceiling removed; explicit positive occurrence/byte bounds allowed without old arbitrary numerical maxima. Fixed phase100000-task,4MiB/task and64MiB/phase rejection caps removed. Explicit max_tasks remains a real registered domain bound.
+runtime_capacity.py derives the memory ceiling from host/cgroup instead of assuming4GiB. Resource template now declares8589934592 bytes for the host aggregate; it is NOT a per-worker8GiB allowance or a live job registration. No8GiB per-process RLIMIT_AS was installed. Coordinator/worker aggregate admission still needs adapter integration and operational qualification before cutover.
+Old captured jobs,source hashes and resource contracts are unchanged. Data worker not edited/restarted. Its10GiB assertions remain in the immutable stopped historical worker; successor policy rejects those assertions. Four focused local pinned-runtime tests passed; no native captured/full RC qualification claimed.
+
+REVIEW OF EVERY PREVIOUSLY IDENTIFIED RESOURCE/TRANSPORT LIMIT ON THESE ROUTES
+
+LIMIT / JUSTIFICATION / DECISION
+8GiB host RAM: actual cgroup capacity; KEEP platform ceiling,shared aggregate.
+8 core-equivalents: actual CPU quota; KEEP shared lease,no double allocation.
+4GiB historical job ceiling: formerly matched smaller host; REMOVE as universal limit; successor total budget8GiB.
+10GiB continuous disk floor: no relation to actual next-write requirement; REMOVE from successor commit policy.10GB is advisory cleanup target. Admit actual additional durable-write/recovery need and handle ENOSPC without inventing completion.
+One serial data worker: historical topology,not scientific requirement; REPLACE with qualified4-spawn-worker adapter first. AUTO/more workers require parity and measured performance; no existing production acceptance from dry benchmark.
+4-workers test profile: qualification topology,not bulk qualification; KEEP isolated from production settings.
+One timing worker: timing reproducibility/isolation; KEEP for timing tests,not bulk mapping.
+4GiB address-space cap in old qualification wrappers: immutable historical qualification contract; DO NOT rewrite old captures. Do not copy it into new production job.8GiB total physical cgroup differs from RLIMIT_AS per process.
+512MiB qualification workspace budget: bounded test-scope registration only; DO NOT use as bulk default. Derive successor workspace from actual output/checkpoint footprint.
+652366 descriptors: frozen scientific domain/end condition; KEEP. Changing it changes question,not hardware policy.
+256-row commits: recoverability/commit overhead tuning; KEEP configurable,not a total row limit. Does not truncate scientific scope.
+16384-row input blocks/40 blocks: immutable input format; KEEP pins. Reader can stream across all blocks.
+300-second streaming timeout: not measured,also counted queue wait; REMOVED default. Explicit timed benchmarks may register measured bounds.
+600-second CPU lease timeout: arbitrary waiting cutoff; REMOVED default. Explicit nonwaiting cancellation remains.
+120-second global run cutoff: NOT PRESENT on registered no-deadline path. Tool foreground yields are not process deadlines.
+60-second nested project TEST timeout: bounds this controlled8-task refusal/route fixture; KEEP test-specific,not a production deadline.
+8MiB streaming result/gen result caps: exact number not workload-derived; REMOVED defaults. Explicit caller bounds supported; production must use bounded queues and aggregate memory admission.
+10000 generated occurrences/task: arbitrary universal ceiling; REMOVED default/max restriction. Explicit domain bounds still checked.
+100000 phase tasks,4MiB/task,64MiB/phase: arbitrary universal stops; REMOVED fixed caps. Finite captured scope and total-memory admission replace these.
+24 tasks/shard,2 in-flight shards/worker,4 target shards/worker: scheduling granularities that bound queued work and amortize dispatch. KEEP configurable tuning parameters; no omitted work,not universal scientific maxima. Benchmark adapter choices before adoption.
+Cache entry/byte caps512/2048/1024 and128/256MiB: eviction preserves answers while bounding retained disposable cache state. KEEP as adjustable cache knobs; benchmark reallocations against total8GiB. These do not cap result/domain size.
+Bulk4MiB/shard,64 refs; preservation4MiB shard,64 state shards: existing bounded checkpoint representation and reader compatibility. RETAIN for legacy save format; larger output must be externalized/partitioned. Exact numerical ceilings are NOT justified as scientific computation limits. Versioned reader/format work is required before claiming arbitrary-size captures; this successor has NOT removed these storage-format caps.
+512MiB pending saves,8 pending commits,3600-second pending age: durable-save backpressure avoids accumulating unsaved evidence; configurable registered policy. KEEP save-pressure mechanism,not elapsed computation timeout. Derive thresholds from actual output/available disk; do not copy unmeasured defaults blindly into adapter.
+192MiB checkpoint,64MiB state,32MiB state file,10000 state files,128MiB source,32MiB project,128MiB external project evidence/10000 files: bounded legacy capture/readback format and transient-memory footprints. KEEP for existing format only,explicitly declare/externalize larger evidence. These have NOT been established as optimal numbers; widening/removing needs streaming reader/transport qualification. They must not silently define scientific scope.
+1024 retained checkpoints/default,4096 format guard: bounded capture inventory and ACK-reader contract. KEEP legacy format restriction; adapter needs rolling capture/export or versioned bounded metadata before a2549-microchunk job. No scientific row limit inferred.
+ACK2MiB manifest,1024 obligations,256 objects,512MiB readback: bounded transfer/ACK batch; batch is split without dropping evidence. KEEP as transport granularity. Verify every role and exact bytes.
+SQLite5-second busy waits: database contention detection/retry policy,not computation timeout. KEEP explicit lock/recovery behavior; no indefinite duplicate writers.
+Single-writer lock,spawn-only SQLite streaming,source/hash equality,full witness comparison,ordered commits: correctness invariants; KEEP. User request does not authorize bypassing evidence or database safety.
+
+OPEN,NOT HIDDEN
+Bulk adapter is not implemented/activated by this policy step. Total-memory admission/backpressure and measured disk staging are required there. Legacy capture format caps remain explicitly documented,with exact values not claimed scientifically optimal. Full resource-limit redesign and full P0 remain OPEN. No native qualification of new source. No claim all constants anywhere in repository have been reviewed; review scope is the execution/save limits identified in the two-chat audit.
+
+NEXT
+Integrate Decoder-owned4-spawn-worker adapter with unchanged canonicalizer first,host-derived aggregate8GiB budget,actual-write disk admission and no default time limits. Preserve56832 committed rows,resume only missing after data-side compatibility/adoption gate. Measure full witness parity and recovery before caching optimization. Do not launch both chats' heavy jobs concurrently without one shared lease.
