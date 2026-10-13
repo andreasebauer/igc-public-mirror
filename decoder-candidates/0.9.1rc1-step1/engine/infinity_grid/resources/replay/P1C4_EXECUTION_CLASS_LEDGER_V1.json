@@ -1,0 +1,1851 @@
+{
+  "assertion_records": [
+    {
+      "assertion_id": "IGAM/C0_HISTORICAL/C/OBSERVER_GATE_INTERFACE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/C0_HISTORICAL/F/EXACT_FAILURES",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/C0_HISTORICAL/R/CERTIFICATE_LADDER",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/C0_HISTORICAL/S/LOCAL_CERTIFICATE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G1/C/PUBLIC_ONE_ENDPOINT_INTERFACE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G1/F/REOPEN_AND_NONCLAIM_BOUNDARY",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G1/R/GRRL_RECURSIVE_FUTURE_CONTROL",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G1/S/O7_TO_G1_EARNED_CARRIER",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/C_G2_RELATION_VALUED_RESERVATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/F_G2_TORIC_STRUCTURE_AUDIT_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/R_G2_R0_STRUCTURAL_RECON_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G2/SPEC/S_G2_TORIC_STRUCTURE_AUDIT_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/C_G3_S0_INTERFACE_EXTRACTION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/F_G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/R_G3_R3_STRUCTURAL_ALGEBRA_REBASE_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G3/SPEC/S_G3_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/C_G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/F_G4_R3_REBASE_DECORATED_SCOPE_CHALLENGE_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/R_G4_R7_REBASE_REALIZABILITY_OBSERVER_QUOTIENT_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G4/SPEC/S_G4_S6_REBASE_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/C_G5_S4_COMPOSITION_CLOSURE_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/F_G5_R5_MARKER_FREE_ONE_STEP_SEPARATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/R_G5_R6_SINGLE_PAYLOAD_MARKER_FREE_SEPARATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G5/SPEC/S_G5_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G6/C/G6_MASTER_CHAIN_DESIGN_TEMPLATE_V1_JSON",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G6/F/TEST_G6_S8_INTRINSIC_DESCRIPTOR_PY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "INDEPENDENT_RECOMPUTATION",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/G6/R/TEST_G6_S6R_GLOBAL_OBSERVER_CONGRUENCE_PY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "INDEPENDENT_RECOMPUTATION",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/G6/S/G6_CHAINING_PROTOCOL_V1_JSON",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G7/C/HANDOFF_CONTRACT",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G7/F/OPEN_NONCLAIMS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G7/R/C9C_C9F_NECESSITY",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G7/S/C9A_C9B_STATE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G8/C/BOUNDED_GRADUATION",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G8/F/CAP37_ZERO_DATA",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G8/R/REDUCTION_COMPANION",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/G8/S/RELATIONAL_COLLECTIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DESIGN_SPECIFICATION",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/C/CROSS_INTERFACE_SCAN",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/F/CONDITIONAL_RULE_REFUSAL",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/R/CORRELATION_FRONTIER",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/S/STEP41_LEAN",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A01",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A02",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A03",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A04",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A05",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A06",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A07",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/GLOBAL/V026_ORACLE/A08",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L0/C/BOUNDARY_INTERFACE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L0/F/LOCAL_COMPOSITOR_NONCLAIMS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "DOCUMENTARY_CLOSEOUT",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L0/R/BRIDGE_LAW",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L0/S/PRIMITIVE_EXACTNESS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A16",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A17",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A18",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A19",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A20",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A21",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A22",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A23",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A24",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A25",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A26",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A27",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A28",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A29",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/L2J3/V026_ORACLE/A30",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/NODE_IN/C/SUBSTITUTION_AND_GRAPH_GRAMMAR",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/NODE_IN/F/KILL_GATES_AND_NONCLAIMS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/NODE_IN/R/EXACT_COUNTER_OPERATION",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "INDEPENDENT_RECOMPUTATION",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/NODE_IN/S/MATURE_NODE_COUNTER_ALGEBRA",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/C/O123_COMPATIBILITY",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/F/DISTRIBUTED_NOT_ATOMIC",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/R/NESTED_RESOURCE_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/REGISTRY/O1_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/REGISTRY/O2_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/REGISTRY/O3_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/V026_ORACLE/A09",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/V026_ORACLE/A10",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O1_O3/V026_ORACLE/A11",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O4_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O5_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O6_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_B1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_B2",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_B3",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_B4",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_C1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_C5",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_EVIDENCE_CHECK",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G2",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G3",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G4",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G5",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G6",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G7",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_G8",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "EMBEDDED_GATE",
+      "execution_class": "VERIFIED_RESTORED_BLOCK"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H1",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H10",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H11",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H12",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H13",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H2",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H3",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H4",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H5",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H6",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H7",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H8",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_H9",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_POST_STRUCTURAL",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_PRIMARY",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/REGISTRY/O7_TOPOLOGY_READ",
+      "counts_toward_empty_root_science_replay": true,
+      "evidence_mode": "DIRECT_TARGET_REPLAY",
+      "execution_class": "FRESH_RECOMPUTE"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/V026_ORACLE/A12",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/V026_ORACLE/A13",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/V026_ORACLE/A14",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/O4_O7/V026_ORACLE/A15",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/SCOUT_HISTORICAL/C/Q_EXTERNAL_INTERFACE",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "THEOREM",
+      "execution_class": "SOURCE_INTEGRITY_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/SCOUT_HISTORICAL/F/OBSERVER_FAILURES",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/SCOUT_HISTORICAL/R/FUTURE_REFINEMENT_AND_COMPOSITION",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    },
+    {
+      "assertion_id": "IGAM/SCOUT_HISTORICAL/S/RECURRENT_RELATIONAL_TYPES",
+      "counts_toward_empty_root_science_replay": false,
+      "evidence_mode": "HISTORICAL_RESULT_ONLY",
+      "execution_class": "HISTORICAL_RESULT_ONLY"
+    }
+  ],
+  "counts": {
+    "assertion_execution_classes": {
+      "FRESH_RECOMPUTE": 12,
+      "HISTORICAL_RESULT_ONLY": 40,
+      "SOURCE_INTEGRITY_ONLY": 55,
+      "VERIFIED_RESTORED_BLOCK": 14
+    },
+    "assertions": 121,
+    "effective_node_execution_classes": {
+      "FRESH_RECOMPUTE": 3,
+      "HISTORICAL_RESULT_ONLY": 17,
+      "SOURCE_INTEGRITY_ONLY": 43,
+      "VERIFIED_RESTORED_BLOCK": 1
+    },
+    "mixed_class_nodes": 6,
+    "scientific_nodes": 64
+  },
+  "empty_root_science_coverage": {
+    "complete_pre_global_empty_root_layers": [],
+    "interpretation": "The authorized evidence replay reaches G8, but the current graph does not represent a complete empty-root regeneration of all mapped science.",
+    "pre_global_empty_root_counting_nodes": 3,
+    "pre_global_empty_root_fraction": "3/60",
+    "pre_global_scientific_nodes": 60,
+    "status": "FULL_EMPTY_ROOT_REPLAY_NOT_ACHIEVED"
+  },
+  "execution_classification_policy": {
+    "classes": [
+      "FRESH_RECOMPUTE",
+      "VERIFIED_RESTORED_BLOCK",
+      "SOURCE_INTEGRITY_ONLY",
+      "HISTORICAL_RESULT_ONLY"
+    ],
+    "empty_root_counting_rule": "A scientific node counts only when every mapped assertion is FRESH_RECOMPUTE.",
+    "empty_root_definition": "The generated-data root starts empty. Source code, specifications and declared immutable input fixtures may be present; restored or historical outputs do not count as freshly generated science.",
+    "evidence_mode_mapping": {
+      "DESIGN_SPECIFICATION": "SOURCE_INTEGRITY_ONLY",
+      "DIRECT_TARGET_REPLAY": "FRESH_RECOMPUTE",
+      "DOCUMENTARY_CLOSEOUT": "SOURCE_INTEGRITY_ONLY",
+      "EMBEDDED_EVIDENCE_CHECK": "VERIFIED_RESTORED_BLOCK",
+      "EMBEDDED_GATE": "VERIFIED_RESTORED_BLOCK",
+      "HISTORICAL_RESULT_ONLY": "HISTORICAL_RESULT_ONLY",
+      "INDEPENDENT_RECOMPUTATION": "FRESH_RECOMPUTE",
+      "THEOREM": "SOURCE_INTEGRITY_ONLY"
+    },
+    "node_effective_class_rule": "Use the least fresh/most historically dependent assertion class present in the node."
+  },
+  "layer_summary": [
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "L0",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1,
+        "SOURCE_INTEGRITY_ONLY": 3
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "C0_HISTORICAL",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "L2J3",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "FRESH_RECOMPUTE": 1,
+        "HISTORICAL_RESULT_ONLY": 3
+      },
+      "empty_root_counting_nodes": 1,
+      "layer": "NODE_IN",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 3,
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "SCOUT_HISTORICAL",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 3,
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "O1_O3",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1,
+        "SOURCE_INTEGRITY_ONLY": 2,
+        "VERIFIED_RESTORED_BLOCK": 1
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "O4_O7",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G1",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G2",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G3",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G4",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G5",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "FRESH_RECOMPUTE": 2,
+        "SOURCE_INTEGRITY_ONLY": 2
+      },
+      "empty_root_counting_nodes": 2,
+      "layer": "G6",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G7",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1,
+        "SOURCE_INTEGRITY_ONLY": 3
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "G8",
+      "scientific_nodes": 4
+    },
+    {
+      "complete_empty_root_science_layer": false,
+      "effective_node_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1,
+        "SOURCE_INTEGRITY_ONLY": 3
+      },
+      "empty_root_counting_nodes": 0,
+      "layer": "GLOBAL",
+      "scientific_nodes": 4
+    }
+  ],
+  "ledger_hash": "9d50382400a4c9529163a367d74d7e0720570a877562e1e89371981a6c9e8784",
+  "node_records": [
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/C0_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "C0_HISTORICAL",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/C0_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "C0_HISTORICAL",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/C0_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "C0_HISTORICAL",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "C0_HISTORICAL",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G1/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G1",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G1/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G1",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G1/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G1",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G1/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G1",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G2/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G2",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G2/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G2",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G2/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G2",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G2/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G2",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G3/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G3",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G3",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G3/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G3",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G3/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G3",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G4/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G4",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G4/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G4",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G4/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G4",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G4/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G4",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G5/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G5",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G5/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G5",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G5/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G5",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G5/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G5",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G6/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G6",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 1
+      },
+      "canonical_id": "IG/G6/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": true,
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE"
+      ],
+      "layer": "G6",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 1
+      },
+      "canonical_id": "IG/G6/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": true,
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE"
+      ],
+      "layer": "G6",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G6/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G6",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G7/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G7",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G7",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G7/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G7",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G7/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G7",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G8/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G8",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "G8",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G8/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G8",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/G8/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "G8",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/GLOBAL/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "GLOBAL",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 8,
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/GLOBAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY",
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "GLOBAL",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/GLOBAL/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "GLOBAL",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/GLOBAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "GLOBAL",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/L0/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "L0",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/L0/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "L0",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "L0",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "L0",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 3
+      },
+      "canonical_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "L2J3",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 8
+      },
+      "canonical_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "L2J3",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 3
+      },
+      "canonical_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "L2J3",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/L2J3/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "L2J3",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/NODE_IN/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "NODE_IN",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/NODE_IN/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "NODE_IN",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 1
+      },
+      "canonical_id": "IG/NODE_IN/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": true,
+      "effective_execution_class": "FRESH_RECOMPUTE",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE"
+      ],
+      "layer": "NODE_IN",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/NODE_IN/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "NODE_IN",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/O1_O3/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "O1_O3",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/O1_O3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "O1_O3",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/O1_O3/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "O1_O3",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 3,
+        "HISTORICAL_RESULT_ONLY": 3
+      },
+      "canonical_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE",
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "O1_O3",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 1,
+        "SOURCE_INTEGRITY_ONLY": 5,
+        "VERIFIED_RESTORED_BLOCK": 9
+      },
+      "canonical_id": "IG/O4_O7/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE",
+        "VERIFIED_RESTORED_BLOCK",
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "O4_O7",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 1,
+        "VERIFIED_RESTORED_BLOCK": 1
+      },
+      "canonical_id": "IG/O4_O7/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "VERIFIED_RESTORED_BLOCK",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE",
+        "VERIFIED_RESTORED_BLOCK"
+      ],
+      "layer": "O4_O7",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 4,
+        "VERIFIED_RESTORED_BLOCK": 2
+      },
+      "canonical_id": "IG/O4_O7/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "VERIFIED_RESTORED_BLOCK",
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "O4_O7",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "FRESH_RECOMPUTE": 4,
+        "HISTORICAL_RESULT_ONLY": 4,
+        "SOURCE_INTEGRITY_ONLY": 4,
+        "VERIFIED_RESTORED_BLOCK": 2
+      },
+      "canonical_id": "IG/O4_O7/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": true,
+      "execution_classes_present": [
+        "FRESH_RECOMPUTE",
+        "VERIFIED_RESTORED_BLOCK",
+        "SOURCE_INTEGRITY_ONLY",
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "O4_O7",
+      "series": "S"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "SOURCE_INTEGRITY_ONLY": 1
+      },
+      "canonical_id": "IG/SCOUT_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "SOURCE_INTEGRITY_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "SOURCE_INTEGRITY_ONLY"
+      ],
+      "layer": "SCOUT_HISTORICAL",
+      "series": "C"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/SCOUT_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "SCOUT_HISTORICAL",
+      "series": "F"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/SCOUT_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "SCOUT_HISTORICAL",
+      "series": "R"
+    },
+    {
+      "assertion_execution_class_counts": {
+        "HISTORICAL_RESULT_ONLY": 1
+      },
+      "canonical_id": "IG/SCOUT_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+      "counts_toward_empty_root_science_replay": false,
+      "effective_execution_class": "HISTORICAL_RESULT_ONLY",
+      "execution_class_is_mixed": false,
+      "execution_classes_present": [
+        "HISTORICAL_RESULT_ONLY"
+      ],
+      "layer": "SCOUT_HISTORICAL",
+      "series": "S"
+    }
+  ],
+  "schema_id": "IG/P1C4/EXECUTION_CLASS_LEDGER/V1",
+  "status": "ALL_ASSERTIONS_AND_SCIENTIFIC_NODES_CLASSIFIED",
+  "version": "1.0"
+}

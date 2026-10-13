@@ -1,0 +1,39 @@
+DEV80 REPLAY INDEX PRESERVATION — BOUNDED ENGINEERING CANDIDATE
+
+User goals: standard libraries where appropriate from the beginning; reproducible,
+typed, trustworthy reference objects and results supporting later tests.
+
+Parent: dev79, source 9516822cd5073d2c9573572d9cf3de6aa2caa52664bb9cdc374c675dd5bd97d0.
+Motivation: Claude P0-7 identifies historical P9 mutable-index reversion.
+Source inspection finds a independently testable stale-writer mechanism in both
+ReplayReferenceDataStore and ReplayDagRunner. The tests preserve exact dev79
+module bytes and assert their old behavior before checking candidate behavior.
+This is a mechanism demonstration, not attribution of the historical incident.
+
+Changes:
+- Python standard-library fcntl advisory locks serialize cooperating local index
+  operations. Busy operations refuse without changing JSON evidence.
+- Reference operations reload the persisted manifest under the lock. They verify
+  retained commits, transaction bindings and record inventory against the index.
+- Runner operations compare their loaded state with the persisted state, refuse
+  stale instances and verify that all retained checkpoints remain indexed.
+- Recovery handles interruption after record publication and after manifest
+  publication, before commit, without duplicating a record.
+- A reverted index or ambiguous interrupted runner acceptance is refused. No
+  evidence is deleted or automatically certified to repair it.
+- Three touched qualification files have their stale exact-version assertion
+  updated to dev80. Other historical tests and their evidence remain unchanged.
+
+Qualification: only exact registered completion and logs establish results.
+Targeted checks include the two dev79 reproductions, candidate stale writers,
+valid-old-index rollback, imported record inventory, interruption recovery,
+lock contention, preserved P9 compatibility, existing runner/reference
+contracts, and the version/authority boundaries. No new science is run.
+
+Limits:
+POSIX cooperating local processes only; no distributed lock or protection against
+an external actor deleting/reverting the entire evidence directory. Imported
+historical objects retain their provenance. These changes do not regenerate them.
+Two store indexes are not a single cross-store transaction. An interrupted runner
+acceptance stops for explicit reconciliation. Historical P9 cause and prior-run
+impact remain open. This is not full-branch qualification or shared promotion.

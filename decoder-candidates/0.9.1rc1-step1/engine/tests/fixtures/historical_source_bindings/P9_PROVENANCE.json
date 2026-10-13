@@ -1,0 +1,21 @@
+{
+  "schema": "IG_RETAINED_HISTORICAL_SOURCE_PINS_V1",
+  "scope": "Original P9 bytes, no current scientific authority",
+  "pins": {
+    "infinity_grid/replay_l2j3_executor.py": {
+      "sha256": "77757a96cdc1db9dbecf18c9bdd4bda8d882c529668459eb66c7c7e44f7bbf5c",
+      "fixture_file": "replay_l2j3_executor.py",
+      "public_mirror_path": "decoder/infinity_grid/replay_l2j3_executor.py"
+    },
+    "infinity_grid/replay_c0_historical_executor.py": {
+      "sha256": "754548f2a33fe08f6a097f87b1ee69b7f3c3a67f7c81f586146f81060ab3b2e6",
+      "fixture_file": "replay_c0_historical_executor.py",
+      "public_mirror_path": "decoder/infinity_grid/replay_c0_historical_executor.py"
+    },
+    "infinity_grid/replay_l0_executor.py": {
+      "sha256": "151905302fb370c0aa2deda154be6d511a14e6d4814675bcafdf5e92279fa6a1",
+      "fixture_file": "replay_l0_executor.py",
+      "public_mirror_path": "decoder/infinity_grid/replay_l0_executor.py"
+    }
+  }
+}

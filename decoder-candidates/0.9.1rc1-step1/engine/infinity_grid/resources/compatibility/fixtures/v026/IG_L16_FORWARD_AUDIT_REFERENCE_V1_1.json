@@ -1,0 +1,83 @@
+{
+  "exact_counterfactual_selected_relation_canonical_sha256": "728a370656e2ba95d9ed1448345edc898b40d48595d94c266d2b3058fc3b6de6",
+  "expected_exact_union_metrics": {
+    "distinct_exact_parent_fibers": 878,
+    "relation_edges": 3645,
+    "selected_max_parent_count": 16,
+    "selected_multi_parent": 671,
+    "selected_parent_histogram": {
+      "1": 296,
+      "10": 10,
+      "11": 3,
+      "12": 3,
+      "13": 3,
+      "14": 1,
+      "15": 1,
+      "16": 1,
+      "2": 174,
+      "3": 100,
+      "4": 71,
+      "5": 35,
+      "6": 41,
+      "7": 117,
+      "8": 75,
+      "9": 36
+    },
+    "selected_union": 967,
+    "shared_parent_multiplicity_histogram": {
+      "1": 4458,
+      "10": 1,
+      "2": 1345,
+      "3": 1266,
+      "4": 321,
+      "5": 112,
+      "6": 75,
+      "7": 14,
+      "8": 5,
+      "9": 1
+    },
+    "shared_parent_pair_count": 7598
+  },
+  "expected_spectroscope_core": {
+    "closure_summary": {
+      "both_realized": 435,
+      "intersection_realized": 886,
+      "overlapping_distinct_fiber_pairs": 7106,
+      "union_realized": 438
+    },
+    "incidence_summary": {
+      "abstract_cycle_rank": 1982,
+      "components": 196
+    },
+    "incomparable_closure": {
+      "both_realized": 0,
+      "intersection_realized": 451,
+      "pairs": 6671,
+      "union_realized": 3
+    },
+    "order_summary": {
+      "cover_relations": 417,
+      "distinct_right_parent_fibers": 878,
+      "height": 3,
+      "strict_inclusion_pairs": 435,
+      "width": 727
+    },
+    "refinement_summary": {
+      "left_singletons": 499,
+      "right_singletons": 625,
+      "stable_left_classes": 582,
+      "stable_right_classes": 676
+    },
+    "scope": {
+      "incidences": 3645,
+      "left_nodes": 892,
+      "right_nodes": 967
+    }
+  },
+  "expected_summary": "PERSISTS + EXPANDS + REORGANIZES (bounded panel only)",
+  "historical_l16_closeout_sha256": "29b4fd076f0ffdb9b557e1afc21128183d6cc2c744c380406c9255a2fe6bbac5",
+  "reference_sha256": "7ede6ed7b4d11110187a0a8cec2492ceed717df9e6fd9da5427de6ebbe85d86b",
+  "reference_use": "TERMINAL_RESEAL_VERIFICATION_ONLY_NOT_HISTORICAL_GOLDEN_AUTHORITY",
+  "schema_id": "IG_L16_FORWARD_AUDIT_REFERENCE_V1_1",
+  "source_pro_audit_science_sha256": "1d8982aff4be4678b9aadef73f6810687c77b5bdc65daba9b591369ff1df2163"
+}

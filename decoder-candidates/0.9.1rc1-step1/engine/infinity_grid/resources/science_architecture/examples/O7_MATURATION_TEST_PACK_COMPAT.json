@@ -1,0 +1,89 @@
+{
+  "claim_ceiling": "RECONNAISSANCE",
+  "dependency_edges": [
+    [
+      "IG_TEST_O7_BRANCHING_COMPAT@1.0.0",
+      "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0"
+    ],
+    [
+      "IG_TEST_O7_SYMMETRY_COMPAT@1.0.0",
+      "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0"
+    ],
+    [
+      "IG_TEST_O7_LINEAGE_COMPAT@1.0.0",
+      "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0"
+    ],
+    [
+      "IG_TEST_O7_TOPOLOGY_SERVICES_COMPAT@1.0.0",
+      "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0"
+    ]
+  ],
+  "feedback_mode": "RECOGNITION_ONLY",
+  "members": [
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_GRAMMAR_GUARD_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_DIVERSITY_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_BRANCHING_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_SYMMETRY_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_OVERLAP_GLUING_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_LINEAGE_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_QUOTIENT_OBSERVER_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_TOPOLOGY_SERVICES_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_OBSTRUCTION_RELIEF_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_SATURATION_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_O7_REPRESENTATION_STABILITY_COMPAT@1.0.0"
+    },
+    {
+      "required": true,
+      "test_ref": "IG_TEST_REGIME_BOUNDARY_SENTINEL_O7_COMPAT@1.0.0"
+    }
+  ],
+  "notes": [
+    "This pack is a compatibility decomposition of existing scanner science, not a new scientific result.",
+    "Individual exact bounded computations may retain stronger local evidence classes but pack-level conclusions remain at the declared ceiling."
+  ],
+  "pack_id": "IG_TEST_PACK_O7_MATURATION_COMPAT",
+  "purpose": "Express the current O-regime adaptive-scanner scientific lanes as independent generic Tests without changing their legacy scientific meaning.",
+  "schema_id": "IG_TEST_PACK_V1",
+  "schema_version": "1.0.0",
+  "shared_projection_refs": [
+    "O7_COMPAT_SHARED_NORMALIZED_PROJECTIONS"
+  ],
+  "status": "COMPATIBILITY_EXAMPLE_NO_NEW_SCIENCE",
+  "stopping_rules": [
+    "Stop/fail closed on PrimitiveSemanticsSentinel or theorem-premise reopen.",
+    "Do not infer Lift from plateau or RegimeBoundarySentinel candidate alone."
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IG Lift Audit Result V1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {"const": "IG_LIFT_AUDIT_RESULT_V1"},
+    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "audit_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status": {"enum": ["PASS", "FAIL"]},
+    "decision": {"enum": ["CERTIFIED_IN_DECLARED_SCOPE", "NOT_READY", "REJECTED"]},
+    "lift_candidate_id": {"type": ["string", "null"]},
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "properties": {
+          "check_id": {"type": "string"},
+          "status": {"enum": ["PASS", "FAIL"]},
+          "detail": {"type": "string"}
+        },
+        "required": ["check_id", "status", "detail"]
+      }
+    },
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "lift_certificate": {"type": ["object", "null"]},
+    "creates_entity_class": {"type": "boolean"},
+    "research_frontier_mutated": {"const": false},
+    "new_scientific_claim": {"type": "boolean"},
+    "nonclaim": {"type": "string"},
+    "science_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "required": ["schema_id", "schema_version", "audit_id", "status", "decision", "lift_candidate_id", "checks", "evidence_refs", "lift_certificate", "creates_entity_class", "research_frontier_mutated", "new_scientific_claim", "nonclaim", "science_sha256"]
+}

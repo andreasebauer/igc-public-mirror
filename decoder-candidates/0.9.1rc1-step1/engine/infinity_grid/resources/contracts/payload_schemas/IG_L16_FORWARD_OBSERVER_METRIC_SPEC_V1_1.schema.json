@@ -1,0 +1,102 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "closure_interpretation": {
+      "additionalProperties": false,
+      "properties": {
+        "comparable_pairs": {
+          "type": "string"
+        },
+        "forbidden_marker": {
+          "type": "string"
+        },
+        "licensed_marker": {
+          "type": "string"
+        },
+        "nontrivial_test": {
+          "type": "string"
+        },
+        "union_marker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "comparable_pairs",
+        "forbidden_marker",
+        "licensed_marker",
+        "nontrivial_test",
+        "union_marker"
+      ],
+      "type": "object"
+    },
+    "observer_id": {
+      "type": "string"
+    },
+    "observer_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1",
+      "type": "string"
+    },
+    "science_projection": {
+      "type": "string"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "population_complete": {
+          "type": "boolean"
+        },
+        "root_count": {
+          "type": "integer"
+        },
+        "source_level": {
+          "type": "integer"
+        },
+        "target_level": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "population_complete",
+        "root_count",
+        "source_level",
+        "target_level"
+      ],
+      "type": "object"
+    },
+    "spectroscope_metrics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "wide_metrics": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "classification",
+    "closure_interpretation",
+    "observer_id",
+    "observer_sha256",
+    "schema_id",
+    "science_projection",
+    "scope",
+    "spectroscope_metrics",
+    "wide_metrics"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_FORWARD_OBSERVER_METRIC_SPEC_V1_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

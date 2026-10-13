@@ -1,0 +1,57 @@
+{
+  "command_prefix": "ig",
+  "commands": {
+    "depends": {
+      "example": "ig depends <target>",
+      "purpose": "explain direct and transitive computation dependencies"
+    },
+    "doctor": {
+      "example": "ig doctor --graph",
+      "purpose": "graph/store/catalogue integrity and reconstructability diagnostics"
+    },
+    "export": {
+      "example": "ig export <target> --mode compact|standalone|publication",
+      "purpose": "graph-closure export"
+    },
+    "gc": {
+      "example": "ig gc --dry-run [--targets ...]",
+      "purpose": "classify deletion candidates; destructive mode disabled until later graduation"
+    },
+    "graph": {
+      "examples": [
+        "ig graph show <node>",
+        "ig graph roots <target>",
+        "ig graph closure <target>"
+      ],
+      "mutates_science": false
+    },
+    "import": {
+      "example": "ig import <bundle>",
+      "purpose": "verified graph/object import"
+    },
+    "replay": {
+      "example": "ig replay <target> [--clean] [--offline]",
+      "purpose": "resolve/rebuild dependencies and reproduce target"
+    },
+    "resolve": {
+      "example": "ig resolve <semantic-alias-or-hash>",
+      "purpose": "show exact dependency resolution without execution"
+    },
+    "roots": {
+      "example": "ig roots <targets...>",
+      "purpose": "compute proposed minimum preservation set"
+    },
+    "why": {
+      "example": "ig why <claim-or-result>",
+      "purpose": "show evidence/review chain and forbidden inferences"
+    }
+  },
+  "phase0_restrictions": [
+    "No destructive gc",
+    "No automatic migration of old folders",
+    "No claim creation by graph commands",
+    "No network dependency implicit in replay"
+  ],
+  "schema_id": "IG_ALGEBRA_DECODER_CLI_CONTRACT_V0_1",
+  "version": "0.1"
+}

@@ -1,0 +1,416 @@
+{
+  "authority": {
+    "historical_g4_forward_use": "BLOCKED_UNTIL_REBASE_COMPLETES",
+    "lower_layer_rematerialization": false,
+    "s0_science_sha256": "41fd656d86fb81440c85e1d4314b226021fea6a6a49d9efaed01d2ef9ce06abe",
+    "s2_closeout_science_sha256": "836053db9efa4fee95cdfe90d38cd3e799e1f99fb6f2af1ce59530fa246d4347",
+    "s2_replay_science_sha256": "e9f3678f92b95e01e8c8b3f67381d976b72f64a343c46fbdd81ce097dab69ab8",
+    "s2_science_sha256": "718be000c9bad0ba1a5fd186316712491a738d7d77f9aaf370456df586c8a626",
+    "schema_id": "IG_G4_S3_REBASE_AUTHORITY_V1",
+    "science_sha256": "dd7e1e85f7a5340300ae8ae0e9a0417a375a3c49f1ea65a582327c509fb9db6e",
+    "spec_science_sha256": "a77fa971b40ee47ba096c37985b340e1e8e098f6d22b10cad5ff9e878dfdc8c6",
+    "status": "PASS"
+  },
+  "candidate_interface": {
+    "candidate": {
+      "name": "REPAIRED_HIDDEN_STATE_H",
+      "tier": 4
+    },
+    "candidate_class_count": 4,
+    "exact_term_count": 4,
+    "rows": [
+      {
+        "H": {
+          "paired_support_load_distance_signature_multiset": [
+            {
+              "support_distance_signature": [
+                1
+              ],
+              "terminal_leaf_load": 1
+            },
+            {
+              "support_distance_signature": [
+                1
+              ],
+              "terminal_leaf_load": 1
+            }
+          ],
+          "shell_profile_multiset": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              1
+            ]
+          ]
+        },
+        "candidate_key_sha256": "0b1b9361f400c0a618d0d706202d7555d09ce49077085aa8a5f1388b6a5d4488",
+        "caps7": [
+          653348026211942494961888724662801960998100980560101654904134039412895146962,
+          28765743152757189370978164984571993876560167420218091792845039506097601344,
+          23229874647283253290188621143074596450320375458187851496973650751169833760,
+          7086537299241514701222511601628596531259768539599854224212640702352278768,
+          15787066151624375070785521387717649551519946825081315514569573587828277728,
+          3800632605704003471660722954850132780735603298559788147135001998795654080,
+          298863204159207269658093238271140830919581605691069964091575637466849361632
+        ],
+        "term_key": "A",
+        "term_ref": "f313c32689363d04d176bef3ae08ecfde61de8d6b7bd1a54661887bc7eadfcf9"
+      },
+      {
+        "H": {
+          "paired_support_load_distance_signature_multiset": [
+            {
+              "support_distance_signature": [],
+              "terminal_leaf_load": 3
+            }
+          ],
+          "shell_profile_multiset": [
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "candidate_key_sha256": "cab7d4e18b086d6a67f149d2447ff7a98e8c445ef0b8a3ce99daddc5db2b5ff3",
+        "caps7": [
+          653348026211942494961888724662801960998100980560101654904134039412895146962,
+          28765743152757189370978164984571993876560167420218091792845039506097601344,
+          23229874647283253290188621143074596450320375458187851496973650751169833760,
+          7086537299241514701222511601628596531259768539599854224212640702352278768,
+          15787066151624375070785521387717649551519946825081315514569573587828277728,
+          3800632605704003471660722954850132780735603298559788147135001998795654080,
+          298863204159207269658093238271140830919581605691069964091575637466849361632
+        ],
+        "term_key": "B",
+        "term_ref": "cb72c4e361acb1f48c92a910df5fccc07d070f457248eecf4ba29c52bf065b4d"
+      },
+      {
+        "H": {
+          "paired_support_load_distance_signature_multiset": [
+            {
+              "support_distance_signature": [
+                1,
+                2
+              ],
+              "terminal_leaf_load": 1
+            },
+            {
+              "support_distance_signature": [
+                2,
+                3
+              ],
+              "terminal_leaf_load": 1
+            },
+            {
+              "support_distance_signature": [
+                1,
+                3
+              ],
+              "terminal_leaf_load": 3
+            }
+          ],
+          "shell_profile_multiset": [
+            [
+              1,
+              1,
+              1,
+              1,
+              2,
+              3
+            ],
+            [
+              1,
+              1,
+              2,
+              4,
+              1
+            ],
+            [
+              1,
+              1,
+              3,
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              3,
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              3,
+              2,
+              1,
+              1
+            ],
+            [
+              1,
+              2,
+              1,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              3,
+              3
+            ],
+            [
+              1,
+              3,
+              4,
+              1
+            ],
+            [
+              1,
+              4,
+              2,
+              1,
+              1
+            ]
+          ]
+        },
+        "candidate_key_sha256": "8fded190706023d8d2bf78f5b86bf7730bfc5c3082c371781bf77977d13d02c4",
+        "caps7": [
+          1470033058976870613664249630491304412245727206260228723534301588679014080662,
+          64722922093703676084700871215286986222260376695490706533901338888719603024,
+          52267217956387319902924397571917842013220844780922665868190714190132125960,
+          15944708923293408077750651103664342195334479214099672004478441580292627228,
+          35520898841154843909267423122364711490919880356432959907781540572613624888,
+          8551423362834007811236626648412798756655107421759523331053754497290221680,
+          672442209358216356730709786110066869569058612804907419206045184300411063672
+        ],
+        "term_key": "C",
+        "term_ref": "2e6d90739b86fa3f85e73ad29cb4868e177b7ee1cdfc9416894b0686ecf42f3e"
+      },
+      {
+        "H": {
+          "paired_support_load_distance_signature_multiset": [
+            {
+              "support_distance_signature": [
+                1,
+                3
+              ],
+              "terminal_leaf_load": 1
+            },
+            {
+              "support_distance_signature": [
+                1,
+                2
+              ],
+              "terminal_leaf_load": 2
+            },
+            {
+              "support_distance_signature": [
+                2,
+                3
+              ],
+              "terminal_leaf_load": 2
+            }
+          ],
+          "shell_profile_multiset": [
+            [
+              1,
+              1,
+              1,
+              3,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              2,
+              1,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              2,
+              1,
+              3,
+              1
+            ],
+            [
+              1,
+              1,
+              3,
+              2,
+              2
+            ],
+            [
+              1,
+              1,
+              3,
+              2,
+              2
+            ],
+            [
+              1,
+              2,
+              3,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              5,
+              1
+            ],
+            [
+              1,
+              3,
+              1,
+              3,
+              1
+            ],
+            [
+              1,
+              4,
+              2,
+              2
+            ]
+          ]
+        },
+        "candidate_key_sha256": "364950e1b6ed3dcbf13269f87b5dad6c8e07541dd676951c3b4d67c453a47635",
+        "caps7": [
+          1470033058976870613664249630491304412245727206260228723534301588679014080662,
+          64722922093703676084700871215286986222260376695490706533901338888719603024,
+          52267217956387319902924397571917842013220844780922665868190714190132125960,
+          15944708923293408077750651103664342195334479214099672004478441580292627228,
+          35520898841154843909267423122364711490919880356432959907781540572613624888,
+          8551423362834007811236626648412798756655107421759523331053754497290221680,
+          672442209358216356730709786110066869569058612804907419206045184300411063672
+        ],
+        "term_key": "D",
+        "term_ref": "6159e8668bc66d57482d9bf2a6c2543b99cb130a16d911c4f558ae788a7a24b4"
+      }
+    ],
+    "schema_id": "IG_G4_S3_REBASE_CANDIDATE_INDEX_V1",
+    "science_sha256": "7a5badd7d24eca7822d6cada0c91aed48ef53c5dd5f00b2ca811446ffdd029f4"
+  },
+  "classification": "G4_S3_REBASE_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_REGISTERED_P3_K3_H_SCOPE_S4_REBASE_UNLOCKED",
+  "cost_control": {
+    "lower_layer_rematerialization": false,
+    "new_science_kernels": 196,
+    "triple_contexts_materialized": false
+  },
+  "execution_metadata": {
+    "lower_layer_rematerialization": false,
+    "new_science_kernels": 196,
+    "parallel_batch": {
+      "backend": "LOCAL_PROCESS_POOL",
+      "completion_order_not_science": true,
+      "cpu_budget_detected": 4,
+      "lease_id": "101e298e676e4e7dbb76d4f20d603676",
+      "lease_workers": 4,
+      "scheduler": "COST_WEIGHTED_SHARDS",
+      "scientific_task_units": 196,
+      "start_method": "fork",
+      "task_count": 196,
+      "wall_seconds": 0.6105655190003745,
+      "worker_count_not_science": true,
+      "workers": 4
+    },
+    "parallel_stage_required": true,
+    "promotion": false,
+    "registered_experiment_id": "G4:S3.REBASE",
+    "runtime_telemetry_not_science": true,
+    "schema_id": "IG_G_UPLIFT_NATIVE_EXECUTION_METADATA_V32",
+    "triple_contexts_materialized": false
+  },
+  "g4_graduated": false,
+  "g4_rebase_complete": false,
+  "g4_s4_rebase_unlocked": true,
+  "hidden_state_promoted": false,
+  "historical_g4_forward_use": "BLOCKED_UNTIL_REBASE_COMPLETES",
+  "local_two_reservation_sufficiency": {
+    "bounded_scope_note": "Exact on the frozen four-term rebase corpus; does not establish unseen-representative global minimality.",
+    "candidate": {
+      "name": "REPAIRED_HIDDEN_STATE_H",
+      "tier": 4
+    },
+    "candidate_class_count": 4,
+    "conflict_examples": [],
+    "continuation_conflict_count": 0,
+    "exact_term_count": 4,
+    "ordered_endpoint_pair_count": 49,
+    "schema_id": "IG_G4_S3_REBASE_H_TWO_RESERVATION_SUFFICIENCY_V1",
+    "science_sha256": "64822ea899c605a90e22d68902720d6fbec53932090dac069c12706e4db1cf5a",
+    "status": "PASS",
+    "task_row_count": 196
+  },
+  "next_authorized_stage": "G4:S4.REBASE",
+  "nonclaims": [
+    "NO_G4_GRADUATION",
+    "NO_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_GLOBAL_MINIMALITY",
+    "NO_FULL_TOPOLOGY_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "public_descriptor_promoted": false,
+  "registry_sha256": "ad7fa5636d2dc4823bd6d62ce4f494b5aaa6f51d55bd2356c2d46e1aca66d61b",
+  "schema_id": "IG_G4_S3_REBASE_HIGHER_ORDER_RESULT_V1",
+  "science_sha256": "95770ab6b9c217a69216286b8f5645d500eb88b72ca08055aa6907b52a063885",
+  "source_sha256": "2ba5652ffb6cd6c2771c47d882bd7217596325ebac35a2ab2e4a654b9718c114",
+  "source_version": "0.30.50",
+  "stage_ref": "G4:S3.REBASE",
+  "status": "PASS",
+  "triple_factorization_coverage": {
+    "candidate_unit_class_count": 4,
+    "directed_operator_count": 31,
+    "factorization_argument": "Every motif vertex has degree <=2. Certified S2.REBASE fixes the pair observer on H; the complete ordered two-reservation continuation is single-valued on each frozen H candidate class. Therefore P3/K3 branch-sensitive compatibility factors through H plus certified pair-edge values, with no additional triple-only hidden read on this registered scope.",
+    "materialized_triple_contexts": false,
+    "ordered_candidate_unit_assignments": 64,
+    "public_context_counts": {
+      "K3_TRIANGLE": 1906624,
+      "P3_CONNECTED_PATH": 61504,
+      "TOTAL": 1968128
+    },
+    "schema_id": "IG_G4_S3_REBASE_TRIPLE_FACTORIZATION_COVERAGE_V1",
+    "science_sha256": "98dffc2a22dafd6486dd2093e194556a909a01c300f1d0c144296f9ed1c5beed",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "authority": {
+    "g2_graduation_certificate_science_sha256": "025713aab599dacbcffe397721d781e5854bc4216245a21bfd70f92c34a8a209",
+    "g2_graduation_classification": "G2_GRADUATED_CAPS7_RECURSIVE_RELATION_GRAMMAR_EARNED_R0_UNLOCKED",
+    "g2_r0_classification": "INTRINSIC_G2_TREE_PREGEOMETRY_PRESENT_CAPS7_AND_TORIC_RESOURCE_GEOMETRY_TOPOLOGY_BLIND",
+    "g2_r0_science_sha256": "64d503d6c9680df893618b84c16f45af7592ae124ed6bd758b21e1f83110ff2f"
+  },
+  "central_question": "When whole graduated G2 composites are used as units in the next uplift, is inherited CAPS7 sufficient, or can an admitted higher-level context distinguish G2 units that share CAPS7 but have different intrinsic G1-unit incidence topology?",
+  "date": "2026-09-03",
+  "execution_rules": [
+    "EVERY_G3_STAGE_MUST_BE_IN_G_UPLIFT_EXPERIMENT_REGISTRY",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE",
+    "COLD_REPLAY_MUST_RERUN_SAME_REGISTERED_DECODER_NATIVE_EXPERIMENT",
+    "LONG_RUNS_DETACHED_BY_DEFAULT",
+    "FAIL_CLOSED_ON_AUTHORITY_OR_HASH_MISMATCH"
+  ],
+  "first_challenge_pair": {
+    "g1_unit_count": 4,
+    "same_caps7": true,
+    "same_toric_bridge_consumption": true,
+    "shared_bridge_operator": [
+      0,
+      0
+    ],
+    "source": "G2:R0 topology-blindness witness",
+    "topology_A": "path-like tree",
+    "topology_A_digest": "0a99eb527b54de95d26deaf8977b2b6745b7ef7ca36dce532205557dafc2d371",
+    "topology_B": "star-like tree",
+    "topology_B_digest": "ce64c8564daa860a1d4db70a4081df050fdf39567efd4e2c5f221ffa795af513"
+  },
+  "g3_unit_definition": "Any complete finite connected graduated G2 construction term, treated atomically at the inherited G2 public interface while retaining exact internal G1-unit incidence only as hidden challenge evidence.",
+  "hard_nonclaims": [
+    "NO_G3_GRADUATION",
+    "NO_TOPOLOGY_PROMOTION_IN_PHASE0_OR_S0",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "initial_public_observer": {
+    "coordinates": 7,
+    "descriptor": "CAPS7",
+    "domain": "N^7",
+    "rule": "Do not promote incidence topology, diameter, shell profile, degree sequence, articulation structure, construction digest, owner witness, or toric coordinates into the G3 public interface before a registered context-read experiment earns them.",
+    "schema": "IG_G2_CAPS7_STATE_V1"
+  },
+  "outcome_partition_for_future_S1": {
+    "REVIEW_REQUIRED": "A distinction appears but cannot be attributed to an allowed public structural read without hidden provenance or post-hoc observer changes.",
+    "TOPOLOGY_NOT_READ": "Every admitted S1 context factors through CAPS7 for the frozen challenge domain.",
+    "TOPOLOGY_READ_EARNED": "At least one preregistered context separates equal-CAPS7 G2 units; isolate the smallest invariant needed before promotion."
+  },
+  "schema_id": "IG_G3_PHASE0_ARCHITECTURE_FREEZE_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "stage_ladder": [
+    {
+      "question": "Freeze complete G2 units, extract inherited CAPS7 public interfaces, and reproduce a same-CAPS7/different-topology challenge corpus without exposing topology.",
+      "stage": "G3:S0"
+    },
+    {
+      "question": "Apply the same admitted whole-unit connection contexts to interface-colliding G2 units and test whether topology is operationally read.",
+      "stage": "G3:S1"
+    },
+    {
+      "question": "If S1 produces distinctions, quotient pair outcomes and identify the minimal relabel-invariant added read; otherwise certify the stronger CAPS7 quotient at the tested pair observer.",
+      "stage": "G3:S2"
+    },
+    {
+      "question": "Test higher-order compatibility/irreducibility after the S2 quotient.",
+      "stage": "G3:S3"
+    },
+    {
+      "question": "Test composition closure of the resulting G3 candidate units.",
+      "stage": "G3:S4"
+    },
+    {
+      "question": "Earn a finite G3 read/write descriptor if one exists.",
+      "stage": "G3:S5"
+    },
+    {
+      "question": "Test recursive closure and graduation; only this gate may authorize G3 graduation.",
+      "stage": "G3:S6"
+    }
+  ],
+  "status": "FROZEN_BEFORE_G3_S0_EXECUTION"
+}

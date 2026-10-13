@@ -1,0 +1,192 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O12_O13_GROUP_RAISE_AUDIT_SPEC_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "O10_plus": {
+          "type": "string"
+        },
+        "O7": {
+          "type": "string"
+        },
+        "O8": {
+          "type": "string"
+        },
+        "O9": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "O10_plus",
+        "O7",
+        "O8",
+        "O9"
+      ],
+      "type": "object"
+    },
+    "candidate_under_audit": {
+      "additionalProperties": false,
+      "properties": {
+        "confirmation_level": {
+          "type": "integer"
+        },
+        "first_level": {
+          "type": "integer"
+        },
+        "reported_families": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "source_science_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "confirmation_level",
+        "first_level",
+        "reported_families",
+        "source_science_sha256"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "A1_reproduce_candidate": {
+          "type": "string"
+        },
+        "A2_full_support": {
+          "type": "string"
+        },
+        "A3_recipe_invariance": {
+          "type": "string"
+        },
+        "A4_matched_panels": {
+          "type": "string"
+        },
+        "A5_selection_causality": {
+          "type": "string"
+        },
+        "A6_raise_criterion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "A1_reproduce_candidate",
+        "A2_full_support",
+        "A3_recipe_invariance",
+        "A4_matched_panels",
+        "A5_selection_causality",
+        "A6_raise_criterion"
+      ],
+      "type": "object"
+    },
+    "matched_panel_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "FULL_POOL": {
+          "type": "string"
+        },
+        "LEX24": {
+          "type": "string"
+        },
+        "STRAT24": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "FULL_POOL",
+        "LEX24",
+        "STRAT24"
+      ],
+      "type": "object"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "outcomes": {
+      "additionalProperties": false,
+      "properties": {
+        "EARN": {
+          "type": "string"
+        },
+        "REJECT": {
+          "type": "string"
+        },
+        "UNRESOLVED": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "EARN",
+        "REJECT",
+        "UNRESOLVED"
+      ],
+      "type": "object"
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_O12_O13_GROUP_RAISE_AUDIT_SPEC_V1",
+      "type": "string"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "excluded_from_raise_identity": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "normalized_lanes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "excluded_from_raise_identity",
+        "normalized_lanes",
+        "note"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "candidate_under_audit",
+    "date",
+    "gates",
+    "matched_panel_rules",
+    "nonclaims",
+    "outcomes",
+    "question",
+    "schema",
+    "scope",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O12_O13_GROUP_RAISE_AUDIT_SPEC_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

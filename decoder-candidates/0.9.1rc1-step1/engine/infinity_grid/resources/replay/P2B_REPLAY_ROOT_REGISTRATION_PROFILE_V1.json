@@ -1,0 +1,56 @@
+{
+  "schema_id": "IG_REPLAY_ROOT_REGISTRATION_PROFILE_V1",
+  "job_id": "DECODER.REPLAY.L0_TO_G8.ROOT",
+  "question": {
+    "stage_id": "REPLAY:L0_TO_G8:ROOT",
+    "description": "Run the authorized L0-through-G8 SRCF replay DAG from an empty dataset root under one Decoder-owned resumable root identity.",
+    "outcomes": [
+      "WAITING_FOR_NODE_EXECUTOR_BINDING",
+      "WAITING_FOR_EXTERNAL_AUDIT",
+      "COMPLETE"
+    ],
+    "stopping_rule": "Pause durably at the first unbound node, discrepancy, missing or ambiguous authority, new claim, nondeterminism, code/data failure, resource exhaustion, or unaudited G8 frontier; never launch GLOBAL without external authority."
+  },
+  "execution": {
+    "kind": "STAGE",
+    "handler_ref": "infinity_grid.replay_root_job:replay_root_job_handler",
+    "evaluator_refs": [],
+    "parameters": {
+      "operation": "SCHEDULE_ONLY_P2B",
+      "manifest_input": "compiled_replay_manifest",
+      "manifest_file_sha256": "9e554c77b18cc6849cbbf9f79d99fd08cc40c8fd35495d76fc65ee3de2159d48",
+      "manifest_dag_sha256": "e53f9637b0e1fec6f1b4ee76d98fbf70e98ed4c6268afab8666eff71786043ab",
+      "dataset_root_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "root_run_id": "L0-G8-REPLAY-ROOT-V1",
+      "authorized_through_layer": "G8",
+      "next_wait_layer": "GLOBAL",
+      "node_executor_bindings": []
+    }
+  },
+  "resources": {
+    "workers": 1,
+    "start_method": "AUTO",
+    "memory_budget_bytes": 1073741824,
+    "workspace_budget_bytes": 1073741824,
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1"
+  },
+  "required_input": {
+    "logical_name": "compiled_replay_manifest",
+    "path": "infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V9.json",
+    "sha256": "9e554c77b18cc6849cbbf9f79d99fd08cc40c8fd35495d76fc65ee3de2159d48"
+  },
+  "result_contract": {
+    "schema_id": "IG_DECODER_RESULT_CONTRACT_V1",
+    "claim": "EXECUTION_ONLY",
+    "required_artifacts": [],
+    "result_checks": [],
+    "prerequisites": [],
+    "preservation": {}
+  },
+  "p2b_boundary": {
+    "node_executors_bound": false,
+    "science_executed": false,
+    "full_r02_complete": false,
+    "global_authorized": false
+  }
+}

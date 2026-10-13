@@ -1,0 +1,47 @@
+{
+  "schema_id": "IG_P8_SCOUT_HISTORICAL_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev57+lib",
+  "date": "2026-09-23",
+  "status": "PASS_FOCUSED_QUALIFICATION_PENDING_CONTROLLER_CAPTURE",
+  "regression": {
+    "replay_tests_passed": 49,
+    "failed": 0,
+    "expected_completed_nodes": 25,
+    "expected_reference_records": 109,
+    "next_node": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+    "fresh_science_nodes_this_stage": 0
+  },
+  "source_hashes": [
+    {
+      "ref": "infinity_grid/replay_scout_historical_executor.py",
+      "sha256": "f22c22b81300e465962f6faba41c4adee3e7195d547abfb6dc824bd43bd4becd"
+    },
+    {
+      "ref": "infinity_grid/replay_p7_frontier_import.py",
+      "sha256": "855a3a080a35d05068ce7da1cc343556159735435b25c5f218d3fa98b30640aa"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "d387584604ffd4067128a641b23b4adc8af5036e807090d9998db195c0a8cf6d"
+    },
+    {
+      "ref": "tests/test_p8_scout_historical.py",
+      "sha256": "a437ac27517d49bcd2e7f682cc6391584c96e8a9423a0a7320aa76e69cba24bf"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P8_SCOUT_HISTORICAL_REGISTRATION_PROFILE_V1.json",
+      "sha256": "d468452f112e9bdf3598c8da29824d3ec9da159c177d8d77ce8b3702f1a6a885"
+    }
+  ],
+  "scope": [
+    "Pinned Scout2B v1.5 and v1.7 plus Scout3 v1.0 reports verified by exact bytes and selected text anchors",
+    "V1.5 C1 is not a fixed point",
+    "V1.7 binary cross edge composition is nonassociative",
+    "Scout3 V1.0 observer interpretation fails despite a passing trajectory"
+  ],
+  "nonclaims": [
+    "No new Scout trajectory or independent science recomputation",
+    "No higher node graduation",
+    "Controller capture and full restore pending"
+  ]
+}

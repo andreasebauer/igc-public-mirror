@@ -1,0 +1,20 @@
+{
+  "direct_execution_routes": "REJECT",
+  "future_hardening": "C6-E2B requires the V3 namespace-aware lease, exact local and procfs parent identities, exact Linux parent command/executable, canonical service root and capsule, accepted child source, and held lifecycle lock before root-context minting.",
+  "namespace_identity_binding": "LOCAL_PPID_PLUS_PROCFS_PPID_NSPID_AND_STARTTIME",
+  "normal_external_request_surfaces": [
+    "passive_request.submit",
+    "passive_cancel.submit"
+  ],
+  "origin_guard_requires_v3_supervisor_identity": true,
+  "passive_context_probe": "DECODER.C6.RECOVERY/C6_CONTEXT_PROBE",
+  "recovery_capsule_schema": "IG_DECODER_C6_RECOVERY_CAPSULE_V2",
+  "recovery_invariant": "Recovery may restore controller availability but cannot select Decoder executable work.",
+  "recovery_payload_fields": [],
+  "root_invariant": "Substantive execution begins only inside the controller event loop after passive-request admission.",
+  "schema_id": "IG_DECODER_C6_PERSISTENT_RECOVERY_RESOURCE_V1",
+  "scientific_effect": "NONE",
+  "status": "CANDIDATE_ORIGIN_HARDENING",
+  "supervisor_lease_schema": "IG_DECODER_C6_SUPERVISOR_LEASE_V3",
+  "supported_recovery_operation": "START_EXACT_ACCEPTED_CONTROLLER_IF_NOT_RUNNING"
+}

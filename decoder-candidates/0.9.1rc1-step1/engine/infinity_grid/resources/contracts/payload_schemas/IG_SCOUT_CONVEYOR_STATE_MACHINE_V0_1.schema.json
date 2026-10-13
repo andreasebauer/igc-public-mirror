@@ -1,0 +1,69 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_log": {
+      "type": "string"
+    },
+    "global_failure_transition": {
+      "type": "string"
+    },
+    "initial": {
+      "type": "string"
+    },
+    "operator_pause_transition": {
+      "type": "string"
+    },
+    "resumable": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "terminal": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "transitions": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_log",
+    "global_failure_transition",
+    "initial",
+    "operator_pause_transition",
+    "resumable",
+    "schema_id",
+    "spec_sha256",
+    "states",
+    "terminal",
+    "transitions"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

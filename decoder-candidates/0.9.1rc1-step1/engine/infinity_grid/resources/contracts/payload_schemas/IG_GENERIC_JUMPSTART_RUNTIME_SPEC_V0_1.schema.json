@@ -1,0 +1,70 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cache_policy": {
+      "type": "string"
+    },
+    "commands": {
+      "additionalProperties": false,
+      "properties": {
+        "launch": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "prepare": {
+          "type": "string"
+        },
+        "smoke": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "launch",
+        "plan",
+        "prepare",
+        "smoke",
+        "status"
+      ],
+      "type": "object"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "integer"
+    },
+    "resolution_policy": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cache_policy",
+    "commands",
+    "goal",
+    "phase",
+    "resolution_policy",
+    "schema_id",
+    "scope"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

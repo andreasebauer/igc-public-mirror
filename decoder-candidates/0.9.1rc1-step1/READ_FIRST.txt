@@ -1,0 +1,9 @@
+Decoder 0.9.1rc1 — step 1 implementation candidate, 13 October 2026.
+104 focused checks PASS; 2 native O6 dependent tests excluded, not relabeled.
+320 reference evaluator rows and 16 cached/uncached signatures exact.
+This is not a release-qualified or scientifically adopted successor.
+Science PAUSED: 56,832 retained rows; 595,534 missing; 37 windows.
+Pass engine/ and adapter/ separately to tools/prepare_bulk_candidate.py.
+Use the exact frozen runtime and CANDIDATE_PINS.json with engine/tools/verify_candidate_source.py.
+Repair steps 2-4 remain: restart/sealing/durability; efficiency/shared resources; native release/transport/cold restore/data-owner acceptance.
+Published 0.9.0 and its original qualification remain unchanged.

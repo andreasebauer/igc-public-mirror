@@ -1,0 +1,58 @@
+{
+  "schema_id": "IG_P7_NODE_IN_QUALIFICATION_V1",
+  "decoder_version": "0.8.0.dev56+lib",
+  "date": "2026-09-23",
+  "status": "PASS_FOCUSED_QUALIFICATION_PENDING_CONTROLLER_CAPTURE",
+  "regression": {
+    "replay_tests_passed": 46,
+    "replay_tests_failed": 0,
+    "fresh_regression_cases": 43008,
+    "counter_vs_exact_mismatches": 0,
+    "next_node": "IG/SCOUT_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+    "fresh_science_node_count": 1
+  },
+  "source_hashes": [
+    {
+      "ref": "infinity_grid/replay_node_in_audit.py",
+      "sha256": "cc8be94113f20e36b2befd8788fc1acb265d4b93d6505f1a30c0829af30647aa"
+    },
+    {
+      "ref": "infinity_grid/replay_node_in_executor.py",
+      "sha256": "44fe6940a538d89cc0ca287571d2885a5ad717ccd28583a6d564402ef90b53d0"
+    },
+    {
+      "ref": "infinity_grid/replay_p6_frontier_import.py",
+      "sha256": "63a5fe4be7c2fc76cfb4fee41ba984865aee5d7ea8086e6384d3b0d3b7e556ba"
+    },
+    {
+      "ref": "infinity_grid/replay_dag_runner.py",
+      "sha256": "a76cec5465495b569a0757957534dc107c3955515cb617e1014d55aaca9f00dd"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "db3efb734350a06ce402dc64942ace30fdbdaba7d758007140ae29c08af3ba86"
+    },
+    {
+      "ref": "infinity_grid/preservation.py",
+      "sha256": "0bd7412c483142ea05027aa7b5c046a5eb9443751b7c9ba373547eb744f59475"
+    },
+    {
+      "ref": "tests/test_p7_node_in.py",
+      "sha256": "d5d3b1fed96da15c66f5228123f9454c31b7a4f65f7df15b81f0c65c0407762b"
+    },
+    {
+      "ref": "tests/test_replay_checkpoint_consistency.py",
+      "sha256": "9ad12b1e851047b9704a1c713464232b8fc57e789639b170ab73aab1bde3c007"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P7_NODE_IN_REGISTRATION_PROFILE_V1.json",
+      "sha256": "9efca8023290cb6d1428a66bd3f07a6040ffc7c6ba9682a0ddefd49de3fe384c"
+    }
+  ],
+  "nonclaims": [
+    "No certified controller attempt or cold-restored full checkpoint yet",
+    "Observed 22,885 records are pinned historical inputs, not regenerated from an empty root",
+    "Inherited substitution theorem is not independently reproved by the bounded regression",
+    "Checkpoint drift root cause remains unknown; mismatched terminal state now blocks checkpoint creation"
+  ]
+}

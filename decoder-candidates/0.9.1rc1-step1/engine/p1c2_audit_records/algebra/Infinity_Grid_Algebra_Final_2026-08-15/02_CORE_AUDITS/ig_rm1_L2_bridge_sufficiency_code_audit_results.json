@@ -1,0 +1,373 @@
+{
+  "canonical_predicate": "((M_A == 0 or (M_A & P_B) != 0) and (M_B == 0 or (M_B & P_A) != 0))",
+  "direct_predicate_non_PM_field_violations": [],
+  "exhaustive_truth_table_checks": 16777216,
+  "files_audited": [
+    "/mnt/data/ig_rm1_L2_step10_ABC_boundary_pilot.py",
+    "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+    "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+    "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network_materialize_chunk.py",
+    "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+    "/mnt/data/ig_rm1_L2_next_probe_external_loop_materialization.py",
+    "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+    "/mnt/data/ig_rm1_L2_next_probe_nested_closure_contraction_order.py",
+    "/mnt/data/ig_rm1_L2_next_probe_macro_macro_closure.py",
+    "/mnt/data/ig_rm1_L2_next_probe_macro_macro_eightport_saturation.py",
+    "/mnt/data/ig_rm1_L2_next_probe_general_arity_locality_and_threeport.py",
+    "/mnt/data/ig_rm1_L2_next_probe_twoport_substitution_chunk.py",
+    "/mnt/data/ig_rm1_L2_next_probe_oneport_substitution_chunk.py"
+  ],
+  "functions_audited": [
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_step10_ABC_boundary_pilot.py",
+      "function": "bridge_ok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "evA",
+        "evB",
+        "slotA",
+        "slotB"
+      ],
+      "source": "def bridge_ok(evA,slotA,evB,slotB):\n    PA,MA=evA[1][slotA]\n    PB,MB=evB[1][slotB]\n    return ((MA==0 or (MA&PB)!=0) and\n            (MB==0 or (MB&PA)!=0))",
+      "subscripts": [
+        "evA[1]",
+        "evA[1][slotA]",
+        "evB[1]",
+        "evB[1][slotB]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "pmok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "x",
+        "y"
+      ],
+      "source": "def pmok(x,y):\n    PA,MA=x; PB,MB=y\n    return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "ext_slot_map",
+        "pmok",
+        "rawslot"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "feasible_core",
+      "names": [
+        "bridge_ok",
+        "core",
+        "core_port_map",
+        "edges",
+        "em",
+        "es",
+        "ext_slot_map",
+        "p",
+        "pmok",
+        "raw",
+        "rawslot",
+        "sm",
+        "tr",
+        "u",
+        "v"
+      ],
+      "source": "def feasible_core(core, es, edges, core_port_map, raw=False, tr=None):\n    sm=ext_slot_map(edges); em={1:es[0],2:es[1],3:es[2]}\n    for u,v in edges:\n        if u==0:\n            p=core_port_map[v]\n            if raw:\n                if not pmok(rawslot(tr,p),em[v][1][sm[v][0]]): return False\n            else:\n                if not bridge_ok(core,p,em[v],sm[v][0]): return False\n    return True",
+      "subscripts": [
+        "core_port_map[v]",
+        "em[v]",
+        "em[v][1]",
+        "em[v][1][sm[v][0]]",
+        "es[0]",
+        "es[1]",
+        "es[2]",
+        "sm[v]",
+        "sm[v][0]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "core_compatible",
+      "names": [
+        "bridge_ok",
+        "core",
+        "env",
+        "i",
+        "j",
+        "s1",
+        "s2"
+      ],
+      "source": "def core_compatible(core,i,j,env):\n    # synthetic event exposes the two correlated interface P/Ms; bridge_ok remains local,\n    # but env membership already enforces E1-E2 correlation.\n    s1=(0,(env[1][0],),0,0,0); s2=(0,(env[1][1],),0,0,0)\n    return bridge_ok(core,i,s1,0) and bridge_ok(core,j,s2,0)",
+      "subscripts": [
+        "env[1]",
+        "env[1][0]",
+        "env[1][1]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "pm_bridge",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "pmA",
+        "pmB"
+      ],
+      "source": "def pm_bridge(pmA, pmB):\n    PA,MA=pmA; PB,MB=pmB\n    return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "int",
+        "pm_bridge"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "feasible_at",
+      "names": [
+        "c",
+        "cp1",
+        "cp2",
+        "cps",
+        "e",
+        "envrel",
+        "ep1",
+        "ep2",
+        "eps",
+        "i",
+        "int",
+        "j",
+        "pm_bridge",
+        "relation",
+        "threshold"
+      ],
+      "source": "def feasible_at(relation, envrel, i,j, threshold):\n    # Exact signature-indexed feasibility. The environment remains JOINT:\n    # each item is a correlated pair (iface1,iface2) that survived E1-E2 internally.\n    cps={(c[1][i],c[1][j]) for c in relation if int(c[2])>=threshold}\n    eps={e[1] for e in envrel if int(e[3])>=threshold}\n    for cp1,cp2 in cps:\n        for ep1,ep2 in eps:\n            if pm_bridge(cp1,ep1) and pm_bridge(cp2,ep2):\n                return True\n    return False",
+      "subscripts": [
+        "c[1]",
+        "c[1][i]",
+        "c[1][j]",
+        "c[2]",
+        "e[1]",
+        "e[3]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network_materialize_chunk.py",
+      "function": "pmok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "pma",
+        "pmb"
+      ],
+      "source": "def pmok(pma,pmb):\n PA,MA=pma; PB,MB=pmb; return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "pmok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "a",
+        "b"
+      ],
+      "source": "def pmok(a,b):\n PA,MA=a; PB,MB=b; return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "bridge_ok"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "compatible",
+      "names": [
+        "bridge_ok",
+        "core",
+        "e1",
+        "e2",
+        "f1",
+        "f2",
+        "i",
+        "j"
+      ],
+      "source": "def compatible(core,i,j,e1,e2):\n f1=(0,(core[1][i],),0,0,0); f2=(0,(core[1][j],),0,0,0)\n return bridge_ok(f1,0,e1,0) and bridge_ok(f2,0,e2,0)",
+      "subscripts": [
+        "core[1]",
+        "core[1][i]",
+        "core[1][j]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_external_loop_materialization.py",
+      "function": "pmok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "pma",
+        "pmb"
+      ],
+      "source": "def pmok(pma,pmb):\n    PA,MA=pma; PB,MB=pmb\n    return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [],
+      "classification": "direct bridge predicate; canonical P/M-only law",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+      "function": "pmok",
+      "names": [
+        "MA",
+        "MB",
+        "PA",
+        "PB",
+        "a",
+        "b"
+      ],
+      "source": "def pmok(a,b):\n    PA,MA=a; PB,MB=b\n    return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "pmok",
+        "rawslot"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+      "function": "compatible_raw_raw",
+      "names": [
+        "e",
+        "pmok",
+        "rawslot",
+        "x",
+        "xd",
+        "xe",
+        "y",
+        "yd",
+        "ye"
+      ],
+      "source": "def compatible_raw_raw(x,y,e):\n    return (pmok(rawslot(x,xd),rawslot(y,yd)) and\n            pmok(rawslot(x,xe),e[1][0]) and\n            pmok(rawslot(y,ye),e[1][1]))",
+      "subscripts": [
+        "e[1]",
+        "e[1][0]",
+        "e[1][1]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "pmok",
+        "rawslot"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+      "function": "compatible_raw_macro",
+      "names": [
+        "bridge_ok",
+        "e",
+        "pmok",
+        "rawslot",
+        "x",
+        "xd",
+        "xe",
+        "y",
+        "yd",
+        "ye"
+      ],
+      "source": "def compatible_raw_macro(x,y,e):\n    return (pmok(rawslot(x,xd),y[1][yd]) and\n            pmok(rawslot(x,xe),e[1][0]) and\n            bridge_ok(y,ye,e,1))",
+      "subscripts": [
+        "e[1]",
+        "e[1][0]",
+        "y[1]",
+        "y[1][yd]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "pmok",
+        "rawslot"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+      "function": "compatible_macro_raw",
+      "names": [
+        "bridge_ok",
+        "e",
+        "pmok",
+        "rawslot",
+        "x",
+        "xd",
+        "xe",
+        "y",
+        "yd",
+        "ye"
+      ],
+      "source": "def compatible_macro_raw(x,y,e):\n    return (pmok(x[1][xd],rawslot(y,yd)) and\n            bridge_ok(x,xe,e,0) and\n            pmok(rawslot(y,ye),e[1][1]))",
+      "subscripts": [
+        "e[1]",
+        "e[1][1]",
+        "x[1]",
+        "x[1][xd]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok"
+      ],
+      "classification": "wrapper combines one or more P/M-only bridge predicates; may also impose graph incidence and score threshold outside bridge admissibility",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_two_macros_shared_context.py",
+      "function": "compatible_macro_macro",
+      "names": [
+        "bridge_ok",
+        "e",
+        "x",
+        "xd",
+        "xe",
+        "y",
+        "yd",
+        "ye"
+      ],
+      "source": "def compatible_macro_macro(x,y,e):\n    return (bridge_ok(x,xd,y,yd) and bridge_ok(x,xe,e,0) and bridge_ok(y,ye,e,1))",
+      "subscripts": []
+    }
+  ],
+  "hidden_identity_token_leaks": [],
+  "lemma": "For the current finite compositor implementation, whether a proposed bridge between exposed slots a,b is admissible is a function only of the two exposed P/M pairs B(x)[a], B(z)[b]. Equal boundary records therefore have identical bridge-admissibility behavior at every corresponding exposed slot.",
+  "mask_domain": "P,M are 6-generator bitmasks; exhaustive domain 0..63 used for each of P_A,M_A,P_B,M_B",
+  "result": "PASS",
+  "scope": "Code-level theorem for current implementation. It does not prove that P/M is the uniquely forced abstract admissibility law, nor that a particular T_X contains every field needed by future output/selection. Those are separate algebra-level/output-sufficiency obligations.",
+  "test": "Bridge Sufficiency Lemma implementation audit"
+}

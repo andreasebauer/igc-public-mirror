@@ -1,0 +1,34 @@
+{
+  "core_invariant": "We may avoid recomputing the same certified object or exact deterministic kernel, but we may never avoid computing any scientific distinction registered by the experiment.",
+  "current_release_rule": "v0.30.30 implements the frozen v0.30.29 execution changes. Scientific G4:S1 semantics remain frozen; optimized defaults are enabled only after equivalence acceptance gates pass.",
+  "date": "2026-09-04",
+  "execution_strategy_changed": true,
+  "implementation_enablement_rule": "G4:S1 exact-kernel default remains acceptance-gated until direct and deduplicated execution match on the frozen corpus; telemetry and relation memoization are execution-only and may run during the audit.",
+  "implementation_state": "IMPLEMENTED__FROZEN_CORPUS_EQUIVALENCE_PENDING",
+  "registered_experiment_semantics_changed": false,
+  "release_target": "0.30.30",
+  "runtime_observability_changed": true,
+  "schema_id": "IG_DECODER_EXECUTION_OPTIMIZATION_CHANGESET_V1",
+  "schema_version": "1.0.0",
+  "science_freeze": [
+    "observer unchanged",
+    "challenge corpus unchanged",
+    "registered task semantics unchanged",
+    "operator basis unchanged",
+    "orientation semantics unchanged",
+    "hidden-read firewall unchanged",
+    "promotion and stopping rules unchanged"
+  ],
+  "science_sha256": "f042e25b17be89dbe1a71799a4ce670188e5d25a55c1ddd3e268706a72bd8acd",
+  "scientific_semantics_changed": false,
+  "scope": "EXECUTION_INFRASTRUCTURE_ONLY",
+  "spec_resources": [
+    "DECODER_RUNTIME_TELEMETRY_SPEC_V1.json",
+    "DECODER_CERTIFIED_CARRIER_REUSE_SPEC_V1.json",
+    "DECODER_KERNEL_DEDUP_EXECUTION_SPEC_V1.json",
+    "DECODER_EXACT_RELATION_MEMOIZATION_SPEC_V1.json"
+  ],
+  "stable_science_payload_changed": false,
+  "status": "IMPLEMENTED_EQUIVALENCE_GATED",
+  "title": "Decoder Execution Telemetry and Exact Kernel Reuse v1"
+}

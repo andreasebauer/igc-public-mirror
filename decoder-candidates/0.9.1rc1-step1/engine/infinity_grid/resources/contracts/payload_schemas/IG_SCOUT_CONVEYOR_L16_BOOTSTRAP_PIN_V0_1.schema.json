@@ -1,0 +1,94 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "L17_executed": {
+      "type": "boolean"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "evidence_label": {
+      "type": "string"
+    },
+    "next_derived_level": {
+      "type": "integer"
+    },
+    "parent_certificate_status": {
+      "type": "string"
+    },
+    "parent_closeout_bundle_sha256": {
+      "type": "string"
+    },
+    "parent_level": {
+      "type": "integer"
+    },
+    "parent_pin_file_sha256": {
+      "type": "string"
+    },
+    "phase0_action": {
+      "type": "string"
+    },
+    "population_complete": {
+      "type": "boolean"
+    },
+    "primitive_sha256": {
+      "type": "string"
+    },
+    "run_core_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_V0_1",
+      "type": "string"
+    },
+    "selected_object_count": {
+      "type": "integer"
+    },
+    "selected_relation_canonical_science_sha256": {
+      "type": "string"
+    },
+    "selected_relation_file_sha256": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "wheel_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "L17_executed",
+    "authority",
+    "evidence_label",
+    "next_derived_level",
+    "parent_certificate_status",
+    "parent_closeout_bundle_sha256",
+    "parent_level",
+    "parent_pin_file_sha256",
+    "phase0_action",
+    "population_complete",
+    "primitive_sha256",
+    "run_core_sha256",
+    "schema_id",
+    "selected_object_count",
+    "selected_relation_canonical_science_sha256",
+    "selected_relation_file_sha256",
+    "source_sha256",
+    "spec_sha256",
+    "status",
+    "wheel_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_L16_BOOTSTRAP_PIN_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

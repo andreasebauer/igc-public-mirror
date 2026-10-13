@@ -1,0 +1,151 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_JUMPSTART_PLAN_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cache_candidates": {
+      "items": {},
+      "type": "array"
+    },
+    "mandatory_edges": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mandatory_nodes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "material_roots": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              },
+              "size_bytes": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "kind",
+              "sha256",
+              "size_bytes"
+            ],
+            "type": "object"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "retention_class": {
+            "type": "string"
+          },
+          "semantic_role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_ref",
+          "node_id",
+          "retention_class",
+          "semantic_role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "plan_sha256": {
+      "type": "string"
+    },
+    "profile_sha256": {
+      "type": "string"
+    },
+    "replay_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_class": {
+          "type": "string"
+        },
+        "contract_sha256": {
+          "type": "string"
+        },
+        "does_not_recompute": {
+          "type": "string"
+        },
+        "historical_identity": {
+          "type": "string"
+        },
+        "legacy_resume_semantics": {
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "recomputes": {
+          "type": "string"
+        },
+        "replay_class": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority_class",
+        "contract_sha256",
+        "does_not_recompute",
+        "historical_identity",
+        "legacy_resume_semantics",
+        "limitations",
+        "recomputes",
+        "replay_class"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_JUMPSTART_PLAN_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    },
+    "target_ref": {
+      "type": "string"
+    },
+    "unresolved": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "cache_candidates",
+    "mandatory_edges",
+    "mandatory_nodes",
+    "material_roots",
+    "plan_sha256",
+    "profile_sha256",
+    "replay_contract",
+    "schema_id",
+    "status",
+    "target_node_id",
+    "target_ref",
+    "unresolved"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_JUMPSTART_PLAN_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

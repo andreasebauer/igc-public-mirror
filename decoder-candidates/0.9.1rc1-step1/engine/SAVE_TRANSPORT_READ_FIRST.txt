@@ -1,0 +1,38 @@
+DECODER 0.6 - EXPLICIT TRANSPORT COPIES
+
+Keep direct raw receipts for objects that fit the available connector.
+For larger objects, native transport pack creates ordered content-addressed
+parts (16 MiB by default; no part above 48,000,000 bytes). RAW_CHUNKS and one
+XZ stream split into XZ_CHUNKS are supported. Pack never marks anything saved.
+
+If a Drive upload fails because a part is too large, do not change the source
+object and do not keep retrying the same oversized part. Repack the immutable
+object at 8 MiB (8388608 bytes), then 4 MiB (4194304 bytes) if needed. Upload
+the smaller parts sequentially. Each new packing has its own ordered manifest;
+only a fully downloaded, reconstructed, full-hash-verified packing may be used.
+
+1. ig-decoder transport pack OBJECT PARTS [--encoding XZ_CHUNKS]
+2. Upload each distinct part to decoder/0.6/objects. Record actual Drive IDs in
+   MAPPING.json as {"part_sha256":"drive_file_id"}. Download the exact parts
+   into a separate directory with each filename equal to its SHA-256.
+3. ig-decoder transport bind PARTS/MANIFEST_DRAFT.json MAPPING.json MANIFEST.json
+4. Save MANIFEST.json to Drive and download its raw bytes.
+5. ig-decoder confirm-transport WORKSPACE OBJECT_SHA MANIFEST_READBACK PARTS_READBACK MANIFEST_DRIVE_ID
+   Or: ig-decoder preserve confirm-transport WORKSPACE OBJECT_SHA MANIFEST_READBACK PARTS_READBACK MANIFEST_DRIVE_ID
+6. ig-decoder transport unpack MANIFEST_READBACK PARTS_READBACK NEW_OBJECT_PATH
+   Native preserve restore then uses that verified decoded object normally.
+
+V2 receipts retain the exact manifest, ordered part identities, original object
+identity and manifest readback hash. They assert object_bytes_verified=true and
+raw_readback_verified=false. They never relabel a compressed copy as a direct
+download of the original Drive object. Existing V1 receipts remain valid.
+An optional original_object_drive_file_id records an earlier separate raw
+upload; its pending direct-readback note is retained. A verified V2 transport
+receipt satisfies the object's preservation requirement in dev19 and later.
+Older readers retain their original interpretation of V1-only acknowledgments.
+
+Corrupt/missing parts, wrong order or object identity, decoded size overflow,
+truncated XZ, concatenated streams and trailing bytes are refused. Decoding is
+streamed with bounded buffers and a 256 MiB XZ memory limit. No network access,
+unattended transport or remote identity authentication is claimed. Actual Drive
+IDs and downloaded bytes remain explicit connector/operator attestations.

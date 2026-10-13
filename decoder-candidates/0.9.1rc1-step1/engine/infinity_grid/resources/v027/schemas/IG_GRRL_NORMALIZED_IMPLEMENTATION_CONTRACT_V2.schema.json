@@ -1,0 +1,125 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_features_present": {
+      "additionalProperties": false,
+      "properties": {
+        "ancestry_provenance_read": {
+          "type": "boolean"
+        },
+        "copying": {
+          "type": "boolean"
+        },
+        "deletion": {
+          "type": "boolean"
+        },
+        "endpoint_replacement": {
+          "type": "boolean"
+        },
+        "feedback": {
+          "type": "boolean"
+        },
+        "hidden_topology_read": {
+          "type": "boolean"
+        },
+        "multiway": {
+          "type": "boolean"
+        },
+        "orientation_order_read": {
+          "type": "boolean"
+        },
+        "retagging": {
+          "type": "boolean"
+        },
+        "rewiring": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ancestry_provenance_read",
+        "copying",
+        "deletion",
+        "endpoint_replacement",
+        "feedback",
+        "hidden_topology_read",
+        "multiway",
+        "orientation_order_read",
+        "retagging",
+        "rewiring"
+      ],
+      "type": "object"
+    },
+    "grrl_application_gate_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hidden_reads": {
+      "items": {},
+      "type": "array"
+    },
+    "native_semantics_baseline_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "native_semantics_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "normalized_grammar_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ownership_scope": {
+      "type": "string"
+    },
+    "rank_lift_effect": {
+      "type": "string"
+    },
+    "read_set": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "relation_arity": {
+      "type": "integer"
+    },
+    "relation_effect": {
+      "type": "string"
+    },
+    "reservation_effect": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V2",
+      "type": "string"
+    },
+    "successor_semantics": {
+      "type": "string"
+    },
+    "writes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "forbidden_features_present",
+    "grrl_application_gate_sha256",
+    "hidden_reads",
+    "native_semantics_baseline_sha256",
+    "native_semantics_science_sha256",
+    "normalized_grammar_sha256",
+    "ownership_scope",
+    "rank_lift_effect",
+    "read_set",
+    "relation_arity",
+    "relation_effect",
+    "reservation_effect",
+    "schema",
+    "successor_semantics",
+    "writes"
+  ],
+  "type": "object"
+}

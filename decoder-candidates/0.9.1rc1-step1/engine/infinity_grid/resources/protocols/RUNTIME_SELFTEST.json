@@ -1,0 +1,82 @@
+{
+  "acceptance_gates": [
+    "never licenses scientific claims"
+  ],
+  "allowed_protocol_labels": [
+    "RUNTIME_SELFTEST_PASS"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "EXACT_BOUNDED",
+        "PASS",
+        "NONE",
+        "RUNTIME_SELFTEST_PASS"
+      ]
+    ],
+    "max_authority": "NONE"
+  },
+  "forbidden_claims": [
+    "earned",
+    "theorem",
+    "graduated",
+    "science"
+  ],
+  "input_contract": {},
+  "observer_contract": null,
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [],
+      "profile_id": "dag",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "audit.stage_a",
+          "stage_id": "A"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [
+            "A"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "audit.stage_b",
+          "stage_id": "B"
+        }
+      ]
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "RUNTIME_SELFTEST",
+  "purpose": "Internal runtime hardening tests only; never scientific evidence.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "A",
+      "purpose": "selftest parent"
+    },
+    {
+      "id": "B",
+      "purpose": "selftest child"
+    }
+  ],
+  "stopping_rules": {
+    "fail_closed": true
+  },
+  "version": "0.17.1"
+}

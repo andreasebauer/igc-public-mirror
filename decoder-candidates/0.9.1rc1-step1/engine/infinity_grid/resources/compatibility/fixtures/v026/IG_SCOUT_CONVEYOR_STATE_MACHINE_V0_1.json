@@ -1,0 +1,94 @@
+{
+  "event_log": "Every state transition is append-only, fsync'd, hash-bound to chain plan and current parent.",
+  "global_failure_transition": "Any nonterminal state -> FAIL_CLOSED on integrity failure.",
+  "initial": "FROZEN",
+  "operator_pause_transition": "Any active nonterminal state -> PAUSED_OPERATOR at a safe checkpoint boundary.",
+  "resumable": [
+    "PAUSED_OPERATOR",
+    "PAUSED_OPERATIONAL"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_STATE_MACHINE_V0_1",
+  "spec_sha256": "8b4efe71916403f2a92e0d2d0528927aec010c1b392c2cea007295b07552168e",
+  "states": [
+    "FROZEN",
+    "CHAIN_PREFLIGHT",
+    "DERIVING_CHILD_PACKET",
+    "CHILD_PACKET_FROZEN",
+    "EXECUTING_LEVEL",
+    "VERIFYING_LEVEL",
+    "BUILDING_PARENT_CANDIDATE",
+    "EVALUATING_TRIGGERS",
+    "ELIGIBLE_AUTO_PARENT",
+    "AUTO_ADVANCE_AUTHORIZED",
+    "PAUSED_OPERATOR",
+    "PAUSED_OPERATIONAL",
+    "PAUSED_SCIENTIFIC",
+    "COMPLETE_LIMIT_REACHED",
+    "COMPLETE_RESOURCE_LIMIT",
+    "FAIL_CLOSED"
+  ],
+  "terminal": [
+    "PAUSED_SCIENTIFIC",
+    "COMPLETE_LIMIT_REACHED",
+    "COMPLETE_RESOURCE_LIMIT",
+    "FAIL_CLOSED"
+  ],
+  "transitions": [
+    [
+      "FROZEN",
+      "CHAIN_PREFLIGHT"
+    ],
+    [
+      "CHAIN_PREFLIGHT",
+      "DERIVING_CHILD_PACKET"
+    ],
+    [
+      "DERIVING_CHILD_PACKET",
+      "CHILD_PACKET_FROZEN"
+    ],
+    [
+      "CHILD_PACKET_FROZEN",
+      "EXECUTING_LEVEL"
+    ],
+    [
+      "EXECUTING_LEVEL",
+      "VERIFYING_LEVEL"
+    ],
+    [
+      "VERIFYING_LEVEL",
+      "BUILDING_PARENT_CANDIDATE"
+    ],
+    [
+      "BUILDING_PARENT_CANDIDATE",
+      "EVALUATING_TRIGGERS"
+    ],
+    [
+      "EVALUATING_TRIGGERS",
+      "ELIGIBLE_AUTO_PARENT"
+    ],
+    [
+      "ELIGIBLE_AUTO_PARENT",
+      "AUTO_ADVANCE_AUTHORIZED"
+    ],
+    [
+      "AUTO_ADVANCE_AUTHORIZED",
+      "DERIVING_CHILD_PACKET"
+    ],
+    [
+      "EVALUATING_TRIGGERS",
+      "PAUSED_SCIENTIFIC"
+    ],
+    [
+      "EVALUATING_TRIGGERS",
+      "PAUSED_OPERATIONAL"
+    ],
+    [
+      "EVALUATING_TRIGGERS",
+      "COMPLETE_LIMIT_REACHED"
+    ],
+    [
+      "EVALUATING_TRIGGERS",
+      "COMPLETE_RESOURCE_LIMIT"
+    ]
+  ]
+}

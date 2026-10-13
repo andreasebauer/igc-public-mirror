@@ -1,0 +1,21 @@
+{
+  "default_mode": "DRY_RUN_ONLY_UNTIL_PHASE3_GRADUATION",
+  "delete_preconditions": [
+    "catalogue rebuilt and graph validation PASS",
+    "candidate node not reachable as irreducible root",
+    "reconstruction plan exists if node is CACHE/CACHE_EXPENSIVE",
+    "at least one independent replay proof for the target preservation closure",
+    "object-store hash verification before and after gc transaction journal"
+  ],
+  "never_delete": [
+    "PINNED nodes",
+    "objects referenced by unresolved/rebuilding transactions",
+    "current certified forward-parent capsules",
+    "frozen protocols/questions/source snapshots needed by certified targets",
+    "evidence/review/claim records",
+    "objects in a standalone publication export unless a separately verified copy exists"
+  ],
+  "schema_id": "IG_GRAPH_GARBAGE_COLLECTION_POLICY_V0_1",
+  "transaction": "mark -> plan -> independent verify -> delete blobs -> rebuild catalogue -> verify targets; on any mismatch stop and retain journal.",
+  "version": "0.1"
+}

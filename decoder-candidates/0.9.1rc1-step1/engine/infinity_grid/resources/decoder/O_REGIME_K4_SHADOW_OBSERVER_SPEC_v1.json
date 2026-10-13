@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-01",
+  "definition": "Number of 4-owner subsets whose six unordered owner pairs are all present in the top-level simple relation support. Parallel edge multiplicity and endpoint/resource type are ignored.",
+  "descriptor_id": "COLLECTIVE_K4_CLOSURE_COUNT_V1",
+  "firewall": {
+    "included_in_lift_gate": false,
+    "included_in_maturation_stabilization_signature": false,
+    "included_in_plateau_gate": false,
+    "included_in_regime_normalized_signature": false,
+    "included_in_resource_read_semantics": false,
+    "included_in_structural_shock_gate": false,
+    "promotion_authorized": false,
+    "research_frontier_mutation_authorized": false
+  },
+  "next_if_pass": "SEEK_INDEPENDENT_HOLDOUT_GENERALIZATION_BEFORE_ANY_EARNED_DESCRIPTOR_PROMOTION",
+  "nonclaims": [
+    "No observer-independent minimality theorem.",
+    "No new O-depth law.",
+    "No resource-state-field promotion.",
+    "No geometry, time, or physics claim.",
+    "No claim that K4 is uniquely minimal among all possible descriptors.",
+    "Validation on the discovery census is an integration/prediction check, not an independent holdout confirmation."
+  ],
+  "prediction_gate": {
+    "required_all_h1_doubletons_split_by_k4": true,
+    "required_h1_classes": 847,
+    "required_h1_doubletons": 6,
+    "required_h1_plus_k4_classes": 853,
+    "required_h1_plus_k4_h2_conflicts": 0,
+    "required_h2_classes": 853,
+    "required_relabel_invariance": true,
+    "scope": "complete frozen n=7 connected unlabeled simple-graph census"
+  },
+  "schema_id": "IG_O_REGIME_K4_SHADOW_OBSERVER_SPEC_V1",
+  "schema_version": "1.0.0",
+  "scientific_role": "Shadow descriptor for the collective topology/service observer only. It is evaluated beside, never inside, current promotion or maturation signatures.",
+  "source_science_sha256": "23edaaafa89e37a7331b7b15e9df551d30bda3fbfeada278ddf5076c3a8568ed",
+  "spec_sha256": "1d03cecef1fe43e2ffe5ecf18a7f2d4a2b22eca8e876c047a71ac3203fbb3600",
+  "status": "FROZEN_SHADOW_NONPROMOTING"
+}

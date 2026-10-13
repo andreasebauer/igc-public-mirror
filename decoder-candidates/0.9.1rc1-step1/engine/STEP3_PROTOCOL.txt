@@ -1,0 +1,21 @@
+STEP 3 — FRESH L2/J3 CASE 5 VALIDATION
+Preregistered scope: ordered classes [3943,3963,3973], first stored representatives.
+Retained upstream table bytes are input, never reported as newly generated L0.
+Generate all J3 events afresh, then all lawful A-B-C paths with both hidden bridges.
+No score maximization before composition. Preserve ordered ports and destinations.
+Expected historical bounded case: 27 events/component, 19,683 distinct records,
+19,683 paths, 243 external port patterns, scores [2,1], one stay record.
+27 tasks, at most 729 occurrences/task, 19,683 total; two spawn workers.
+Task payload/result limits: <=2MiB and 30seconds/work unit. Immutable output shards
+<=4MiB; <=32 state shards; state files <=128MiB, total state <=256MiB, <=4096 files.
+Capture workspace and logical memory budgets: 1GiB each. Peak host RSS not certified.
+Pending checkpoints <=4; pending bytes <=256MiB; commit <=128MiB; retention32.
+Mutable state must resolve below /tmp on the pinned Python3.13.5/SQLite3.51.3 runtime.
+Run in registered controller. Save/download exact bytes before acknowledgement.
+Compare complete typed records against original Step10 functions in isolated process,
+then independent raw-product, resource, bridge, port-permutation and endpoint checks.
+Export nonempty objects, occurrences and typed component/port/bridge incidence.
+Stop on mismatch, missing inputs, budget/save limit, corrupt export or unknown source.
+This is engineering validation, not official master data or full L0-to-G8 freshness.
+Algebra backend: legacy pure-stdlib core; storage: SQLite DELETE/FULL and exact shards.
+Do not imply that installed igraph/SymPy were invoked for this algebra scope.

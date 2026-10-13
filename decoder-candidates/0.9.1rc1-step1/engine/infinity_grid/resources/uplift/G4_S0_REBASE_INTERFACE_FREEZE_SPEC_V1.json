@@ -1,0 +1,150 @@
+{
+  "challenge_corpus": {
+    "lanes": [
+      {
+        "lane_id": "N4_PATH_STAR",
+        "required": "same CAPS7; different topology; different old Tier1 summaries",
+        "source": "certified G3:R1 exact n=4 fiber witness"
+      },
+      {
+        "A_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "B_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            8
+          ]
+        ],
+        "bridge_operator": [
+          0,
+          0
+        ],
+        "lane_id": "N9_TIER1_COLLISION_REPAIRED_H_SPLIT",
+        "old_tier1_value": {
+          "LEAF_COUNT": 5,
+          "MAX_DEGREE": 4,
+          "articulation_count": 4,
+          "diameter": 5,
+          "radius": 3,
+          "wiener_index": 92
+        },
+        "required": "same CAPS7; same old Tier1 summaries; different repaired hidden H",
+        "source": "deterministic G3:R3 tree generator plus graduated homogeneous [0,0] G3 graft construction",
+        "unit_count": 9
+      }
+    ],
+    "lower_layer_rematerialization": "FORBIDDEN",
+    "representation": "CERTIFIED_OR_CONSTRUCTIVELY_VALID_G3_TERMS_WITH_ATOMIC_G2_UNITS_AT_EARNED_CAPS7_INTERFACE"
+  },
+  "corrected_hidden_authority": {
+    "binary_graft_rooted_read": "FULL_ROOTED_SHELL_AND_SUPPORT_DISTANCE_INCIDENCE_V1",
+    "g3_r3_certified_closeout_science_sha256": "35e82f270470151a4e385851d2366c4ad2848f512b5928c73797716b65d73001",
+    "g3_r3_primary_science_sha256": "fa3da2ae712ace9f9b7a63a73dfac7217ee0fbb570472d4ea69f62d25fb968b4",
+    "publicly_promoted": false,
+    "state": "SHELL_PROFILE_MULTISET_PLUS_PAIRED_SUPPORT_LOAD_DISTANCE_SIGNATURE_MULTISET"
+  },
+  "date": "2026-09-04",
+  "fail_effect": "G4 rebase stops fail-closed; historical G4 results remain historical only.",
+  "input_authority": [
+    "certified G3:R1 exact n=4 fiber result",
+    "certified G3:R3 primary result",
+    "exact G3:R3 cold replay comparison",
+    "G3:R3 certified closeout"
+  ],
+  "nonclaims": [
+    "NO_G4_CONTEXT_READ_RESULT_YET",
+    "NO_G4_GRADUATION",
+    "NO_HIDDEN_STATE_PROMOTION",
+    "NO_OLD_TIER1_SUFFICIENCY_ASSUMPTION",
+    "NO_DESCRIPTOR_MINIMALITY",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "outcomes": {
+    "pass": "G4_S0_REBASE_G3_R3_AUTHORITY_FROZEN_CAPS7_PUBLIC_CORRECTED_HIDDEN_CHALLENGE_CORPUS_EARNED_S1_REBASE_UNLOCKED",
+    "review": "G4_S0_REBASE_AUTHORITY_OR_CHALLENGE_CORPUS_FAILURE_S1_REBASE_LOCKED"
+  },
+  "pass_effect": "Unlock G4:S1.REBASE. Historical G4 results remain blocked for forward use until the rebase chain re-earns them.",
+  "pass_gates": [
+    "G3_R1_EXACT_N4_FIBER_IDENTITY",
+    "G3_R3_PRIMARY_PASS_EXACT",
+    "G3_R3_COLD_REPLAY_EXACT",
+    "G3_R3_CERTIFIED_CLOSEOUT",
+    "G3_CAPS7_PUBLIC_GRADUATION_PRESERVED",
+    "REPAIRED_HIDDEN_STATE_NOT_PUBLICLY_PROMOTED",
+    "N4_PATH_STAR_TERM_PAIR_REPRODUCED",
+    "N9_TIER1_COLLISION_PAIR_REPRODUCED",
+    "N9_PAIR_PUBLIC_CAPS7_EQUAL",
+    "N9_PAIR_OLD_TIER1_EQUAL",
+    "N9_PAIR_REPAIRED_H_DIFFERENT",
+    "NO_TOPOLOGY_OR_HIDDEN_H_IN_PUBLIC_INTERFACE",
+    "REUSABLE_TERM_CORPUS_MATERIALIZED",
+    "NO_LOWER_LAYER_REOPEN"
+  ],
+  "public_interface": "CAPS7 only",
+  "question": "Can G4 be restarted from the certified G3:R3 structural authority with CAPS7 still public while freezing a reusable G3 term challenge corpus that contains both the historical n=4 topology split and a new same-old-Tier1/different-repaired-H split?",
+  "schema_id": "IG_G4_S0_REBASE_INTERFACE_FREEZE_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "eed8538c304fe22f7b13de4037217fd26a20f7b4e8f1c3e35a3b24568b4ce175",
+  "stage_ref": "G4:S0.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

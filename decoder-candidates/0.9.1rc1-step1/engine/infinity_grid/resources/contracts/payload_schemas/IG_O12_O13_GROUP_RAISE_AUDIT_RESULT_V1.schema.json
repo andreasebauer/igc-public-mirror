@@ -1,0 +1,1034 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "build_meta": {
+      "additionalProperties": false,
+      "properties": {
+        "10": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        },
+        "11": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        },
+        "12": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        },
+        "13": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        },
+        "8": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        },
+        "9": {
+          "additionalProperties": false,
+          "properties": {
+            "build_failures": {
+              "type": "integer"
+            },
+            "candidates": {
+              "type": "integer"
+            },
+            "twin_constructed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "build_failures",
+            "candidates",
+            "twin_constructed"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "8",
+        "9"
+      ],
+      "type": "object"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "default_panel_recipe_membership": {
+      "additionalProperties": false,
+      "properties": {
+        "10": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "11": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "12": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "13": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "8": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "9": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "8",
+        "9"
+      ],
+      "type": "object"
+    },
+    "exact_mechanism": {
+      "additionalProperties": false,
+      "properties": {
+        "implementation_dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "verified_hypotheses": {
+          "additionalProperties": false,
+          "properties": {
+            "fixed_common_recipe_set": {
+              "type": "boolean"
+            },
+            "full_support_O11_O13": {
+              "type": "boolean"
+            },
+            "zero_per_recipe_mismatch": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "fixed_common_recipe_set",
+            "full_support_O11_O13",
+            "zero_per_recipe_mismatch"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "implementation_dependencies",
+        "statement",
+        "verified_hypotheses"
+      ],
+      "type": "object"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "A1_reproduce_candidate": {
+          "additionalProperties": false,
+          "properties": {
+            "levels": {
+              "additionalProperties": false,
+              "properties": {
+                "10": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "11": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "12": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "13": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "7": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "8": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                },
+                "9": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "expected": {
+                      "type": "string"
+                    },
+                    "observed": {
+                      "type": "string"
+                    },
+                    "pass": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "expected",
+                    "observed",
+                    "pass"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "10",
+                "11",
+                "12",
+                "13",
+                "7",
+                "8",
+                "9"
+              ],
+              "type": "object"
+            },
+            "pass": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "levels",
+            "pass"
+          ],
+          "type": "object"
+        },
+        "A2_full_support": {
+          "additionalProperties": false,
+          "properties": {
+            "failure_count": {
+              "type": "integer"
+            },
+            "failures": {
+              "items": {},
+              "type": "array"
+            },
+            "pass": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "failure_count",
+            "failures",
+            "pass"
+          ],
+          "type": "object"
+        },
+        "A3_recipe_invariance": {
+          "additionalProperties": false,
+          "properties": {
+            "common_recipes": {
+              "type": "integer"
+            },
+            "mismatch_count": {
+              "type": "integer"
+            },
+            "mismatches": {
+              "items": {},
+              "type": "array"
+            },
+            "pass": {
+              "type": "boolean"
+            },
+            "pool_sizes": {
+              "additionalProperties": false,
+              "properties": {
+                "11": {
+                  "type": "integer"
+                },
+                "12": {
+                  "type": "integer"
+                },
+                "13": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "11",
+                "12",
+                "13"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "common_recipes",
+            "mismatch_count",
+            "mismatches",
+            "pass",
+            "pool_sizes"
+          ],
+          "type": "object"
+        },
+        "A4_matched_panels": {
+          "additionalProperties": false,
+          "properties": {
+            "LEX24_recipe_ids": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "STRAT24_recipe_ids": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "panels": {
+              "additionalProperties": false,
+              "properties": {
+                "FULL_POOL": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "lanes": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "branching": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "lineage": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "symmetry": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "topology_services": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "branching",
+                        "lineage",
+                        "symmetry",
+                        "topology_services"
+                      ],
+                      "type": "object"
+                    },
+                    "normalized_signature_sha256": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "states": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "lanes",
+                    "normalized_signature_sha256",
+                    "states"
+                  ],
+                  "type": "object"
+                },
+                "LEX24": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "lanes": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "branching": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "lineage": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "symmetry": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "topology_services": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "branching",
+                        "lineage",
+                        "symmetry",
+                        "topology_services"
+                      ],
+                      "type": "object"
+                    },
+                    "normalized_signature_sha256": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "states": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "lanes",
+                    "normalized_signature_sha256",
+                    "states"
+                  ],
+                  "type": "object"
+                },
+                "STRAT24": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "lanes": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "branching": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "lineage": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "symmetry": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        },
+                        "topology_services": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "hashes": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "stable": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "hashes",
+                            "stable"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "branching",
+                        "lineage",
+                        "symmetry",
+                        "topology_services"
+                      ],
+                      "type": "object"
+                    },
+                    "normalized_signature_sha256": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "states": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "lanes",
+                    "normalized_signature_sha256",
+                    "states"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "FULL_POOL",
+                "LEX24",
+                "STRAT24"
+              ],
+              "type": "object"
+            },
+            "pass": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "LEX24_recipe_ids",
+            "STRAT24_recipe_ids",
+            "panels",
+            "pass"
+          ],
+          "type": "object"
+        },
+        "A5_selection_causality": {
+          "additionalProperties": false,
+          "properties": {
+            "changed_O11_to_O12": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "default_lane_hashes": {
+              "additionalProperties": false,
+              "properties": {
+                "branching": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "lineage": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "symmetry": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "topology_services": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "branching",
+                "lineage",
+                "symmetry",
+                "topology_services"
+              ],
+              "type": "object"
+            },
+            "membership": {
+              "additionalProperties": false,
+              "properties": {
+                "O11_O12_jaccard": {
+                  "type": "number"
+                },
+                "O11_only": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "O12_O13_jaccard": {
+                  "type": "number"
+                },
+                "O12_equals_O13_recipe_set": {
+                  "type": "boolean"
+                },
+                "O12_only_vs_O11": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "O12_only_vs_O13": {
+                  "items": {},
+                  "type": "array"
+                },
+                "O13_only_vs_O12": {
+                  "items": {},
+                  "type": "array"
+                }
+              },
+              "required": [
+                "O11_O12_jaccard",
+                "O11_only",
+                "O12_O13_jaccard",
+                "O12_equals_O13_recipe_set",
+                "O12_only_vs_O11",
+                "O12_only_vs_O13",
+                "O13_only_vs_O12"
+              ],
+              "type": "object"
+            },
+            "pass": {
+              "type": "boolean"
+            },
+            "persisted_O12_to_O13": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "changed_O11_to_O12",
+            "default_lane_hashes",
+            "membership",
+            "pass",
+            "persisted_O12_to_O13"
+          ],
+          "type": "object"
+        },
+        "A6_raise_criterion": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_survives": {
+              "type": "boolean"
+            },
+            "depth_dependent_lanes": {
+              "items": {},
+              "type": "array"
+            },
+            "pass": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "candidate_survives",
+            "depth_dependent_lanes",
+            "pass"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "A1_reproduce_candidate",
+        "A2_full_support",
+        "A3_recipe_invariance",
+        "A4_matched_panels",
+        "A5_selection_causality",
+        "A6_raise_criterion"
+      ],
+      "type": "object"
+    },
+    "next": {
+      "type": "string"
+    },
+    "nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "type": "string"
+    },
+    "scientific_interpretation": {
+      "type": "string"
+    },
+    "source_candidate_science_sha256": {
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "build_meta",
+    "classification",
+    "date",
+    "default_panel_recipe_membership",
+    "exact_mechanism",
+    "gates",
+    "next",
+    "nonclaims",
+    "schema",
+    "science_sha256",
+    "scientific_interpretation",
+    "source_candidate_science_sha256",
+    "spec_sha256",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O12_O13_GROUP_RAISE_AUDIT_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

@@ -1,0 +1,146 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "execution_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "auto_advance": {
+          "type": "boolean"
+        },
+        "claim_generation": {
+          "type": "string"
+        },
+        "fail_closed_on_mismatch": {
+          "type": "boolean"
+        },
+        "resume_verified_work_only": {
+          "type": "boolean"
+        },
+        "spectroscope_non_feedback": {
+          "type": "boolean"
+        },
+        "stop_on_any_integrity_failure": {
+          "type": "boolean"
+        },
+        "stop_on_any_scientific_trigger": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "auto_advance",
+        "claim_generation",
+        "fail_closed_on_mismatch",
+        "resume_verified_work_only",
+        "spectroscope_non_feedback",
+        "stop_on_any_integrity_failure",
+        "stop_on_any_scientific_trigger"
+      ],
+      "type": "object"
+    },
+    "finite_limits_required": {
+      "additionalProperties": false,
+      "properties": {
+        "generation_chunk_parent_count": {
+          "type": "string"
+        },
+        "max_level_attempts": {
+          "type": "string"
+        },
+        "max_level_wall_seconds": {
+          "type": "string"
+        },
+        "max_target_level": {
+          "type": "string"
+        },
+        "max_total_storage_bytes": {
+          "type": "string"
+        },
+        "max_total_wall_seconds": {
+          "type": "string"
+        },
+        "max_unique_candidates": {
+          "type": "string"
+        },
+        "minimum_free_bytes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "generation_chunk_parent_count",
+        "max_level_attempts",
+        "max_level_wall_seconds",
+        "max_target_level",
+        "max_total_storage_bytes",
+        "max_total_wall_seconds",
+        "max_unique_candidates",
+        "minimum_free_bytes"
+      ],
+      "type": "object"
+    },
+    "forbidden": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hash_rule": {
+      "type": "string"
+    },
+    "identifier_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "chain_id": {
+          "type": "string"
+        },
+        "max_target_level": {
+          "type": "string"
+        },
+        "start_level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain_id",
+        "max_target_level",
+        "start_level"
+      ],
+      "type": "object"
+    },
+    "immutable_bindings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "execution_policy",
+    "finite_limits_required",
+    "forbidden",
+    "hash_rule",
+    "identifier_rules",
+    "immutable_bindings",
+    "required_fields",
+    "schema_id",
+    "spec_sha256"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

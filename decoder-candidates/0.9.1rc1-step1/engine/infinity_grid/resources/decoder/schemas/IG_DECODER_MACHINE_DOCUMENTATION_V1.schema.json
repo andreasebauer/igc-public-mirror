@@ -1,0 +1,47 @@
+{
+  "$id": "ig://decoder/documentation/IG_DECODER_MACHINE_DOCUMENTATION_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "authority_order": {
+      "type": "array"
+    },
+    "date": {
+      "type": "string"
+    },
+    "decoder": {
+      "type": "object"
+    },
+    "execution_architecture": {
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_DECODER_MACHINE_DOCUMENTATION_V1"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "scientific_frontier": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "storage_and_handoff": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "date",
+    "status",
+    "decoder",
+    "scientific_frontier",
+    "execution_architecture",
+    "storage_and_handoff",
+    "authority_order"
+  ],
+  "title": "Infinity Grid Decoder machine documentation v1",
+  "type": "object"
+}

@@ -1,0 +1,48 @@
+DECODER 0.6.0 - PORTABLE WORKFLOW RELEASE
+13 September 2026
+
+Release scope: native capture and execution, recorded engine changes, explicit
+result checks, checkpoints and save receipts, portable project histories, and
+rollback with retained evidence. Acceptance is recorded outside this source
+tree in the Step 8 closeout. This file alone does not activate a release.
+
+Start from the accepted source archive and saved current project history in
+decoder/0.6. Install the captured Python 3.12 environment from the saved wheels.
+Use ig-decoder or python -m infinity_grid.controller. For a captured job, load
+that workspace's exact source when invoking run; older jobs retain their actual
+engine and completion identities.
+
+Ordinary scripts and pure helper modules use capture, pending-saves, confirm-save
+and run. Typed output contracts verify declared artifacts and results. A process
+completion alone is not scientific acceptance. Intentional repeats have explicit
+repeat identities. Retain the recorded refusal before correcting a submission.
+
+For large saved objects, see SAVE_TRANSPORT_READ_FIRST.txt. Ordered raw or XZ
+parts and the downloaded manifest are verified natively. Transport-copy receipts
+never claim direct raw-object readback. Explicit Drive IDs remain operator and
+connector attestations; remote identity authentication is not supplied.
+
+Pause at a monitored boundary, save the native outbox, export the checkpoint,
+restore its exact dependencies, then resume. Finished validation node reports
+are retained. Import restored project history back into the current store;
+select a verified completion through project resolve if a paused branch and a
+completed branch conflict. Both branches remain in the history.
+
+Retain a saved working Decoder while changing any source, including controller
+and recovery. Use the recorded change workflow and its native validation gate.
+Keep the previous source and immutable pointer/history records for rollback.
+
+CARRIED STEP 7 RESTRICTIONS
+Geometry SEP1C's archived private pool requires migration to native durable tasks
+before future execution. Its current preflight refusal remains applicable.
+S8 original R8C completion and artifacts are recovered, but the full original
+source is unresolved. The separate RESUME source keeps its own identity.
+A30 repaired V3 evidence applies to its saved repaired source only. The unchanged
+affected relation_profile_family implementation in this release remains outside
+scientific acceptance for that scope. No global provider replacement or new
+automatic denylist is implied. Use the current workflow map and A30 scope record.
+Time DIR1 and policy/discovery reconciliation retain their Step 7 resolutions.
+
+This portable release does not require a hosted server. Project history offers
+local locking and explicit reconciliation, not a distributed execution lock.
+Transport remains explicit; no unattended saving service is configured.

@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-03",
+  "gates": {
+    "authority": "G2 graduation certificate PASS and R0 unlocked",
+    "no_promotion": "R0 cannot change G2 graduation, CAPS7, routing, or launch G3",
+    "nontrivial_distance": "at least one tested carrier has diameter > 1",
+    "topology_separation": "at least one pair has equal CAPS7 and equal typed bridge-consumption multiset but nonisomorphic G1-unit incidence trees",
+    "tree_invariant": "every exact recursive incidence carrier is connected with m=n-1, beta=0 and all edges bridges"
+  },
+  "growth_probe": {
+    "construction": "homogeneous sequential one-cross growth under one outcome-blind high-headroom earned bridge operator; retain complete relation-valued exact branches",
+    "max_g1_units": 7,
+    "measure": [
+      "connectedness",
+      "m=n-1",
+      "cycle rank",
+      "diameter",
+      "radius",
+      "degree sequence",
+      "articulations",
+      "bridges",
+      "shell profiles",
+      "unlabelled tree topology",
+      "CAPS7"
+    ],
+    "selection": "seed/operator chosen before topology outcomes by maximum endpoint headroom"
+  },
+  "nonclaims": [
+    "NO_PHYSICAL_SPACE",
+    "NO_SPACETIME",
+    "NO_DIMENSION",
+    "NO_CONTINUUM",
+    "NO_CAUSAL_SPEED",
+    "NO_TIME",
+    "NO_G3_GRADUATION",
+    "NO_CAPS7_MINIMALITY_CHANGE"
+  ],
+  "observer": {
+    "firewall": "EXACT_TOPOLOGY_READ_IS_NONPROMOTING_RECONNAISSANCE_ONLY_AND_IS_NOT_ADDED_TO_G2_ACTION_SEMANTICS",
+    "name": "G2_R0_EXACT_G1_UNIT_INCIDENCE_RECON_OBSERVER_V1",
+    "reads": [
+      "recursive G2 child ownership solely to identify atomic G1-unit incidence endpoints",
+      "typed G2 bridge incidence",
+      "CAPS7 for comparison"
+    ]
+  },
+  "outcomes": {
+    "fail": "R0_REVIEW_REQUIRED_NO_PROMOTION",
+    "null": "CAPS7_ERASES_ALL_TESTED_INTRINSIC_TOPOLOGY_AT_G2_R0_SCOPE",
+    "pass": "INTRINSIC_G2_TREE_PREGEOMETRY_PRESENT_CAPS7_AND_TORIC_RESOURCE_GEOMETRY_TOPOLOGY_BLIND"
+  },
+  "question": "After certified G2 graduation, what intrinsic G1-unit incidence structure is present in exact recursive G2 composites behind the CAPS7 quotient, and does the toric/resource geometry determine that incidence topology?",
+  "schema_id": "IG_G2_R0_STRUCTURAL_RECON_SPEC_V1",
+  "science_sha256": "40ea7feb8aed210cec3a58202b162cef479cac322066407c5bf67aa3ab942366",
+  "stage_ref": "G2:R0",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

@@ -1,0 +1,403 @@
+{
+  "acceptance_rule": "Every corpus byte hash must match, every JSON canonical hash (where defined) must match, every semantic assertion must match, and incomplete historical records must retain their original authority classification.",
+  "assertions": [
+    {
+      "equals": "PASS",
+      "file": "METADATA/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "pointer": "/status"
+    },
+    {
+      "equals": 36,
+      "file": "METADATA/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "pointer": "/tests_total"
+    },
+    {
+      "equals": 36,
+      "file": "METADATA/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "pointer": "/tests_passed"
+    },
+    {
+      "equals": 0,
+      "file": "METADATA/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "pointer": "/tests_failed"
+    },
+    {
+      "equals": "PASS",
+      "file": "METADATA/DETERMINISM_MATRIX_RESULT.json",
+      "pointer": "/status"
+    },
+    {
+      "equals": 6,
+      "file": "METADATA/DETERMINISM_MATRIX_RESULT.json",
+      "pointer": "/variant_count"
+    },
+    {
+      "equals": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "file": "METADATA/DETERMINISM_MATRIX_RESULT.json",
+      "pointer": "/unique_science_sha256/0"
+    },
+    {
+      "equals": "PASS",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/status"
+    },
+    {
+      "equals": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/0/science_sha256"
+    },
+    {
+      "equals": "d138de3c6c906be3ab453c225ecce2e3fff5d3e4f91d220ed681ef5253a86bbb",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/1/science_sha256"
+    },
+    {
+      "equals": "92b5f72bdc1244292667383c326ca4f09f5752a86a94062802fd46c2c6c3053d",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/2/science_sha256"
+    },
+    {
+      "equals": "ae3e2bb4b1cd29bd49c948d282f909e1c8adde85da15b8d1b6320a47294a2baf",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/3/science_sha256"
+    },
+    {
+      "equals": "505c3deea7f987421d2c432086f7b65f0ef3072bdbd90eeaf1d8e8481689d166",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/4/science_sha256"
+    },
+    {
+      "equals": "7b9e3ec0fbabcdb0fa46c2d5d153ac186cdd2d2343275a407e82b6fd14d9da37",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/5/science_sha256"
+    },
+    {
+      "equals": "a3e0bed91b9e68edd4d7c9f508587d6801f9651b0485c6ce40e8ca284ffc2d90",
+      "file": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "pointer": "/levels/6/science_sha256"
+    },
+    {
+      "equals": "PASS",
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": 120,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/automorphism_context_checks"
+    },
+    {
+      "equals": 15,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "pointer": "/attachment_contexts"
+    },
+    {
+      "equals": "NO_SEPARATING_CONTEXT_FOUND",
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": 833424,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/stage1/admissible_contexts"
+    },
+    {
+      "equals": 3936600,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "pointer": "/stage2/admissible_depth2_contexts"
+    },
+    {
+      "equals": true,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_isomorphism_reverification_all4_results.json",
+      "pointer": "/all_four_pass"
+    },
+    {
+      "equals": true,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "pointer": "/all_exact"
+    },
+    {
+      "equals": 11,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "pointer": "/cases"
+    },
+    {
+      "equals": true,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "pointer": "/all_500_exact_selected_sets_equal_by_relation_congruence"
+    },
+    {
+      "equals": true,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "pointer": "/all_500_independent_maxima_agree"
+    },
+    {
+      "equals": "PASS",
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_recursive_completeness_constructor_audit_results.json",
+      "pointer": "/result"
+    },
+    {
+      "equals": true,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/exact_set_equal"
+    },
+    {
+      "equals": 1966080,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/raw_count"
+    },
+    {
+      "equals": 1966080,
+      "file": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "pointer": "/macro_count"
+    }
+  ],
+  "baseline": {
+    "archive_sha256": "0412a490488c785f2c7846e953f9316a4d2ccfd9b12cc5d72327c6440eb4b45f",
+    "decoder_version": "0.26.0",
+    "executable_source_sha256": "71d13cec323def599e0489a41068bba75d4569ae4b104234c66f2a51383c1369",
+    "gate1_decoder_version": "0.26.1",
+    "gate1_source_sha256": "bada049f4e26ac3165ec4aadba3d7d258ac5e4fbfd84befa128b82b6807a5f39"
+  },
+  "corpus_files": [
+    {
+      "canonical_sha256": null,
+      "path": "CALIBRATION_AND_PERFORMANCE/Infinity_Grid_EXACT_CARRIER_CALIBRATION_O7_O9_RUNNING_RESCUE_2026-08-30.zip",
+      "sha256": "e572fe32508a59e0844e2e8d4b70e658f8c774aef40f115942b3c632f4347bf7",
+      "size_bytes": 4210
+    },
+    {
+      "canonical_sha256": null,
+      "path": "CALIBRATION_AND_PERFORMANCE/Infinity_Grid_EXACT_CARRIER_PERFORMANCE_AUDIT_v1_2026-08-30.zip",
+      "sha256": "6113a7228ec839ce7314ad2925005f3a708cfb2672b2a5d0115c4ee5e06f76ee",
+      "size_bytes": 33207
+    },
+    {
+      "canonical_sha256": null,
+      "path": "CALIBRATION_AND_PERFORMANCE/Infinity_Grid_O_REGIME_PERFORMANCE_AUDIT_v2_2026-08-30.zip",
+      "sha256": "d3f4d48f765ccb7bb75e6cf18f67f5bc3810372d87788f75c726d50c3be96588",
+      "size_bytes": 34361
+    },
+    {
+      "canonical_sha256": "77f984562a9b45cba062d67e8efc38c6fdd9a5828894c9b6ec4854142fad3d9a",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_bijection_independence_results.json",
+      "sha256": "fdc5bcafec7a17655d683ad36934a3721176b83956c4cbd768f5294959915639",
+      "size_bytes": 6891
+    },
+    {
+      "canonical_sha256": "f8f06849bba1a9e68b77317782fb3ecc47cfa7edbe502697d712a8447318b757",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_direct_completeness_kill_test_results.json",
+      "sha256": "6d20f06dbea45c86913be6c009d8f647c6e3900cf34ec3ebc411b6b8ba6f7811",
+      "size_bytes": 1438
+    },
+    {
+      "canonical_sha256": "14e655cf21ab37101f252a97db461472b502e5b5c1a7a5e5c0261a012a4f124d",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_isomorphism_reverification_all4_results.json",
+      "sha256": "5a344c997d610d00acffb277fa2e7b46ca4250fa5c0b4e86e02223ee63457804",
+      "size_bytes": 2898
+    },
+    {
+      "canonical_sha256": "f1e48570b5763c6ff16bd091a992db0151ccd65b16614fecc6405a78f5ccaba8",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_all_small_rooted_contexts_results.json",
+      "sha256": "c06e1ec388b9f4e09ddf9ccce37353f1a17d79ef997272b30c797d0e1f05e3c0",
+      "size_bytes": 11460
+    },
+    {
+      "canonical_sha256": "39ab82487ba001a7e14dcf5a992db2d2715a4d5f60dc724b2f82091e295652a1",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_next_probe_macro_macro_non2_obstruction_results.json",
+      "sha256": "adb4ebb5eaf2d709b76b7b6a3b9a916b6544a3dce0ddc0d28e69e6e3553e7259",
+      "size_bytes": 722474
+    },
+    {
+      "canonical_sha256": "afa45245cf87f4bcb3f373ef6ef55b3349f083f01ca6fd6a23d976f5e8772137",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_recursive_completeness_constructor_audit_results.json",
+      "sha256": "60d631acac0c4ac0d8c4fac9b7463029f4ae1b26ded17c8c11bff5fdada166b5",
+      "size_bytes": 1361
+    },
+    {
+      "canonical_sha256": "5bbbce9f68395d63fe03839b326d0259431f0a56bf40a8f01be0c370c373dff2",
+      "path": "L2_CANONICAL_FINAL/07_RESULTS_SUMMARY/ig_rm1_L2_step19_exact_set_compare_results.json",
+      "sha256": "702c0d879374b578c996e89b258a1761cfb22a8bf96f7b37162301021128c4ac",
+      "size_bytes": 115
+    },
+    {
+      "canonical_sha256": null,
+      "path": "L2_CANONICAL_FINAL/Infinity_Grid_Algebra_Final_2026-08-15.zip",
+      "sha256": "1a65bf05d8df6b8ec64ba42810ddab4b17f858320f78b0d0fcf8b6707f3861d2",
+      "size_bytes": 150581
+    },
+    {
+      "canonical_sha256": "d09a624ca3658fd1768d52d3f315c6e1af731ea77c03a413c570503dac0ef1cf",
+      "path": "METADATA/CALIBRATION_RECORD_INDEX.json",
+      "sha256": "4960a86f78917eb36eb7ccb6e5a56d1c5b048f0ee16a486b3d2ae9c969647513",
+      "size_bytes": 2339
+    },
+    {
+      "canonical_sha256": "59c364cc968f87a93561f2e728083bae54ee4941e60a0ddc85752474a0a074cb",
+      "path": "METADATA/DETERMINISM_MATRIX_RESULT.json",
+      "sha256": "ca3c9c24096ee28d458a4c5865857a6b662014775aa8ea2b9e2edd1e1adc44ff",
+      "size_bytes": 3245
+    },
+    {
+      "canonical_sha256": "269b6483c3a0bb9b346123db259f41bcc3858f680de3d0b39b8f7968a4d071e5",
+      "path": "METADATA/L2_ORACLE_INDEX.json",
+      "sha256": "16b1f656c19b449c530bd2ea9f887fb0ee816fb85c8e29e2dca5783c3c5e7b28",
+      "size_bytes": 5173
+    },
+    {
+      "canonical_sha256": "16bb722b96f96ccf3715444b9d68531f221b9be945c3c64f1ec5a4ab2c8f9347",
+      "path": "METADATA/O1_O7_PRIMARY_ORACLE.json",
+      "sha256": "b07883261ca71c5b04314dc93366f8b79e10166c3b90814bc7edef5ff95d166d",
+      "size_bytes": 4694
+    },
+    {
+      "canonical_sha256": "f78615689527cc941b34e7b4fb05084c7ce0223ce9bf4e0d4c5b4e4606f112dc",
+      "path": "METADATA/REPLAY_MANIFEST_ORACLE.json",
+      "sha256": "a206bc11b765933c8f0e01b81f6d532fdf0a81daafe57c057af5a86ab3d28719",
+      "size_bytes": 18695
+    },
+    {
+      "canonical_sha256": "08d1db7d0a9207c2f4e28a986ee75beb69c8d097c4be8c96189dfd137e0b4e5a",
+      "path": "METADATA/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "sha256": "982fe9f57668bf63d903161e5adc3d70fb82d8ff94e1b5746b59e15c9e85f9fe",
+      "size_bytes": 30574
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O1_MATERIAL_ROOT_c79232ee23c2.zip",
+      "sha256": "c79232ee23c28d7fe5273b66c7c3f9afb447b5e4ccd90500c5d55bdd1743971d",
+      "size_bytes": 1246742
+    },
+    {
+      "canonical_sha256": "52f66a8d7c493c8519b238f63f0b2dd04164ae7d872aa6b965d5e3e8d8e242da",
+      "path": "O1_O7_CAPSULES/O1_O7_CAPSULE_INDEX.json",
+      "sha256": "a46edec65042bdd3f76b445ac5455a5d7db8f7f6faeac6cf8de0187e4a8f5d69",
+      "size_bytes": 1468
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O2_MATERIAL_ROOT_2b422f010e43.zip",
+      "sha256": "2b422f010e436fc462fcdb07119f4e793b2c7f825043d50ea3b7d1e4a0f4398b",
+      "size_bytes": 1588606
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O3_MATERIAL_ROOT_ddffa00b500c.zip",
+      "sha256": "ddffa00b500cae0b632468c0e4a5d8f6a66d1f7dd748547d1dc88e3b6c676a87",
+      "size_bytes": 1367582
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O4_MATERIAL_ROOT_5c2f56a57ff7.zip",
+      "sha256": "5c2f56a57ff7921a7fe480db79d1f5e199e434cba2fc9bc4d48ca55bdf02593b",
+      "size_bytes": 1387204
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O5_MATERIAL_ROOT_3c6b52b9bbb1.zip",
+      "sha256": "3c6b52b9bbb12f34a9768b8045520c9b8a86869a345d2db70a25091f100feed3",
+      "size_bytes": 2982259
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O6_MATERIAL_ROOT_1e0934060973.zip",
+      "sha256": "1e0934060973a98cd4c9d47e7d1e42819ed354291312980586751fba64770545",
+      "size_bytes": 20692136
+    },
+    {
+      "canonical_sha256": null,
+      "path": "O1_O7_CAPSULES/O7_MATERIAL_ROOT_cb6f48641eb9.zip",
+      "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+      "size_bytes": 533342
+    },
+    {
+      "canonical_sha256": "f87d2820e6bfd148311cd910c01bd51ae47afe0482d60b56182da3840f8b9088",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/REPLAY_EVIDENCE_INDEX.json",
+      "sha256": "4e2f1c8a9a08cc5c10623f09a32f30f3ab8f269bd9883cdd83a8d727a19e45b4",
+      "size_bytes": 4116
+    },
+    {
+      "canonical_sha256": "e3031c389cf349dd012ac1a581795d1935be36232952fbed0edc6ce3a003d401",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O1/PHASE5_JUMPSTART_VERIFICATION.json",
+      "sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "size_bytes": 258
+    },
+    {
+      "canonical_sha256": "356911d6261f18077c83dcdb607e741144e3540d299c11e2817e7d712c27dc59",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O2/06_RESULTS/O2_CERTIFICATE_VERIFICATION_RESULT.json",
+      "sha256": "fb3a9d2829651260da068b79c1f342a5020f51ebf23121a7d857fbd914356fa4",
+      "size_bytes": 10521
+    },
+    {
+      "canonical_sha256": "a6a78a46b8dfaf7fb0389334f0cb5d2ee3c47632b41caf1fde3e5b321de8be23",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O3/PHASE5_JUMPSTART_VERIFICATION.json",
+      "sha256": "55626201ae657ced654d9c7c026fb45ee979801ccfd842bdc0b866b84cd14878",
+      "size_bytes": 328
+    },
+    {
+      "canonical_sha256": "b9bbdc5f4e9dbe163b62463e96eebd0de2bc6fb5692211d4c835329979d6e3d2",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O4/03_RESULTS/O4_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+      "size_bytes": 20068
+    },
+    {
+      "canonical_sha256": "ddf7dde6691e0a868899756cfe205375ef23b0198737ce17770b4d59ea062d30",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O5/03_RESULTS/O5_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "sha256": "421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b",
+      "size_bytes": 23813
+    },
+    {
+      "canonical_sha256": "72ec0123da390eded79011fd986d81045a493a14ef8c502a69e1751ff5b03dec",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O6/03_RESULTS/O6_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "sha256": "4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f",
+      "size_bytes": 6358
+    },
+    {
+      "canonical_sha256": "7366d91fe4d118871d0f1f06cc3d3ae2d1090882ea89bad1bd747cb29858ffe7",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7/authority/O7_GRADUATION_RESULT.json",
+      "sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+      "size_bytes": 6411
+    },
+    {
+      "canonical_sha256": "7366d91fe4d118871d0f1f06cc3d3ae2d1090882ea89bad1bd747cb29858ffe7",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7/graduation_compact/02_RESULTS/O7_PHASE2_GRADUATION_AUDIT_RESULT.json",
+      "sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+      "size_bytes": 6411
+    },
+    {
+      "canonical_sha256": "054cbd4720bd6b0d26910a1a7c00fde3094cb5d2e9b341d97e7a713e65845da1",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7_ADAPTER/authority/O7_ADAPTER_AUDIT_RESULT.json",
+      "sha256": "0157fe6aec6657e6f35ca32b6fdc41921dba9bac9a771b0cc3308cd025c11d1f",
+      "size_bytes": 4842
+    },
+    {
+      "canonical_sha256": "e9e75b6d43c79e76c55db18b5e4b0ac6305f1591928cbeaac70cb354d2088050",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7_POST_STRUCTURAL/authority/POST_O7_STRUCTURAL_AUDIT_RECONCILED_RESULT.json",
+      "sha256": "f52190c75af6674d80f653be254ec9b60c5c044061dfbd78f0cc18c6055ab764",
+      "size_bytes": 16117
+    },
+    {
+      "canonical_sha256": "c6c0e0ee32639bd7af6fa4120c1a0494f2b0b946ab83ea3511dcecdc97dd118f",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7_TOPOLOGY_READ/PHASE7_FRONTIER_REPLAY_RESULT.json",
+      "sha256": "a48f0c489d2371c199ddccec6b3531181c925214eb22b9dde3623cfcbec0afbe",
+      "size_bytes": 2485
+    },
+    {
+      "canonical_sha256": "4a38bf3b5c2ceca138d0f624a2f175350281e28d56b5916c265f815caa475d28",
+      "path": "../03_ORACLE_REPLAY_EVIDENCE/ig_test_O7_TOPOLOGY_READ/authority/O7_TOPOLOGY_AWARE_READ_PROBE_RESULT.json",
+      "sha256": "77b1f081b181b2eaa5dc910a280de8a8c767403a50db45ab51fec698d608c99d",
+      "size_bytes": 8535
+    }
+  ],
+  "oracle_sha256": "2f470fd65c008c0180b76d792b5c890789ac1863210a25b495ff04f34491be1c",
+  "oracle_version": "1.0.0",
+  "schema_id": "IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1",
+  "scope": {
+    "calibration": "Historical calibration/performance records preserved exactly; incomplete calibration remains explicitly incomplete.",
+    "determinism": "O1 representative replay across six independent clean variants spanning four PYTHONHASHSEED values, C/C.utf8 locales and normal/optimized Python.",
+    "low_level": "Canonical finite recursive L2 final bundle plus seven selected high-value exhaustive/adversarial result files.",
+    "o_levels": "All 36 registered O1-O7 scientific tests evaluated through ten unique frozen replay targets; exact O1-O7 material-root capsules retained.",
+    "semantic_delta": "NONE"
+  },
+  "status": "PASS"
+}
