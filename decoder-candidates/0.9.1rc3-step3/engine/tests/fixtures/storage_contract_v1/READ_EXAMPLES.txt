@@ -1,0 +1,32 @@
+WORKED EXAMPLE — DOCUMENTATION FIXTURE, NOT SCIENCE
+
+Open positive/Object_S.json and positive/Object_P.json.
+There are two artificial objects, S and P. P uses S twice.
+Occurrence_left.json and Occurrence_right.json retain different occurrences
+and position maps while referring to exactly the same S object.
+Relation.json has three incidences: P, the left use of S, and the right use of S.
+That is one joint synthetic relation, not three inferred pairwise relations.
+
+Payload_Blocks.json stores S in two independently decoded RAW blocks; concatenation
+matches the supplied original bytes exactly. Payload_Whole.json stores P whole.
+Coverage.json shows three distinct toy cases and four attempts, illustrating a retry
+without inflating coverage. The origin is SCHEMA_FIXTURE and science_execution NONE.
+
+ReleaseRoot.json is an artificial layout example. Its contract_freeze_ref and policy
+refer to explicit fixture-only definitions, not the real frozen contract or a real
+scientific acceptance. All hash/length references were computed from supplied bytes.
+The small content/ directory makes the examples self-contained for inspection.
+
+PublicationSeal.json illustrates only field shape. Its SCHEMA_FIXTURE purpose,
+fixture policy and mock decision prohibit production use. No genuine audit,
+graduation, publication, remote save receipt or scientific authority was generated.
+IndexDescriptor.json does not contain a real SQLite index. Locator.json does not
+contain a real Google Drive file ID. These labels are intentional and must not be
+translated into success claims.
+
+The fixture uses small JSON array shards with a pinned toy key/format definition.
+It does not select the production shard size or teach a reader to load large arrays.
+VERIFY_STEP1_PACKAGE.py loads only this tiny example into memory; it is document QA,
+not the scalable native reader/publisher required by the later implementation plan.
+
+DO NOT import these specimens into the canonical stock or record ledger.

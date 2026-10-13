@@ -1,0 +1,540 @@
+{
+  "canonicalization": "The only canon() in the current rooted-context census canonicalizes graph vertex labels before record composition. It does not inspect or rewrite a boundary record.",
+  "conclusion": "PASS: every behavior-affecting path audited between complete relation input and selected relation output is closed over declared boundary-record fields plus graph incidence/slot selection. No microscopic parent identity, raw representative index, class-member index, or undeclared interior field is consulted after a complete boundary record has been formed.",
+  "declared_complete_record_fields": {
+    "0": "L join-label",
+    "1": "ordered correlated boundary P/M slots",
+    "2": "score",
+    "3": "destination handle/tuple T",
+    "4": "stay"
+  },
+  "deduplication": "All current complete-boundary constructors use Python set/frozenset equality on the constructed behavioral tuple. No provenance key is appended.",
+  "functions": [
+    {
+      "calls": [],
+      "classification": "reads only boundary P/M at selected slots",
+      "file": "/mnt/data/ig_rm1_L2_step10_ABC_boundary_pilot.py",
+      "function": "bridge_ok",
+      "source": "def bridge_ok(evA,slotA,evB,slotB):\n    PA,MA=evA[1][slotA]\n    PB,MB=evB[1][slotB]\n    return ((MA==0 or (MA&PB)!=0) and\n            (MB==0 or (MB&PA)!=0))",
+      "subscripts": [
+        "evA[1]",
+        "evA[1][slotA]",
+        "evB[1]",
+        "evB[1][slotB]"
+      ]
+    },
+    {
+      "calls": [
+        "J3",
+        "bridge_ok",
+        "frozenset",
+        "int",
+        "len",
+        "min",
+        "out.add",
+        "set"
+      ],
+      "classification": "reads complete event fields 0..4; outputs union L, retained boundary P/M, min score, concatenated destinations, AND stay; set dedup",
+      "file": "/mnt/data/ig_rm1_L2_step10_ABC_boundary_pilot.py",
+      "function": "composite_AB_boundary",
+      "source": "def composite_AB_boundary(tidA,tidB,rootsA=(0,1,2),rootsB=(0,1,2)):\n    \"\"\"\n    First genuine composite C=A-B.\n\n    rootsA/rootsB order is:\n      slot 0 = hidden internal bridge\n      slots 1,2 = exposed boundary ports\n\n    We enforce ONLY the hidden A-B bridge internally.\n    We do NOT maximize score here: external attachments may later filter events.\n    We keep all internally lawful composite boundary events.\n\n    Boundary record:\n      (L,\n       ((P_A1,M_A1),(P_A2,M_A2),(P_B1,M_B1),(P_B2,M_B2)),\n       score,\n       (T_A,T_B),\n       stay)\n    \"\"\"\n    EA=J3(tidA,*rootsA)\n    EB=J3(tidB,*rootsB)\n    out=set()\n    internal_pairs=0\n\n    for a in EA:\n      for b in EB:\n        if not bridge_ok(a,0,b,0):\n            continue\n        internal_pairs += 1\n        boundary=(a[1][1],a[1][2],b[1][1],b[1][2])\n        out.add((\n            a[0] | b[0],\n            boundary,\n            min(a[2],b[2]),\n            (a[3],b[3]),\n            int(a[4] and b[4]),\n        ))\n    return frozenset(out), internal_pairs, len(EA), len(EB)",
+      "subscripts": [
+        "a[0]",
+        "a[1]",
+        "a[1][1]",
+        "a[1][2]",
+        "a[2]",
+        "a[3]",
+        "a[4]",
+        "b[0]",
+        "b[1]",
+        "b[1][1]",
+        "b[1][2]",
+        "b[2]",
+        "b[3]",
+        "b[4]"
+      ]
+    },
+    {
+      "calls": [
+        "J3",
+        "bridge_ok",
+        "frozenset",
+        "int",
+        "len",
+        "min",
+        "out.add",
+        "set"
+      ],
+      "classification": "same field-closed construction for three objects; no raw path id in output",
+      "file": "/mnt/data/ig_rm1_L2_step10_ABC_boundary_pilot.py",
+      "function": "composite_ABC_boundary",
+      "source": "def composite_ABC_boundary(\n    tidA, tidB, tidC,\n    rootsA=(0,1,2), rootsB=(0,1,2), rootsC=(0,1,2)\n):\n    EA = J3(tidA,*rootsA)\n    EB = J3(tidB,*rootsB)\n    EC = J3(tidC,*rootsC)\n\n    # Factorized exact join through B: for each B event, collect compatible\n    # A events on bridge A0-B0 and C events on bridge B1-C0.\n    out=set()\n    left_compatible=0\n    right_compatible=0\n    joined_paths=0\n\n    for b in EB:\n        LA=[a for a in EA if bridge_ok(a,0,b,0)]\n        LC=[c for c in EC if bridge_ok(b,1,c,0)]\n        left_compatible += len(LA)\n        right_compatible += len(LC)\n\n        for a in LA:\n            for c in LC:\n                joined_paths += 1\n                boundary=(\n                    a[1][1], a[1][2],\n                    b[1][2],\n                    c[1][1], c[1][2],\n                )\n                out.add((\n                    a[0] | b[0] | c[0],\n                    boundary,\n                    min(a[2],b[2],c[2]),\n                    (a[3],b[3],c[3]),\n                    int(a[4] and b[4] and c[4]),\n                ))\n\n    return frozenset(out), {\n        \"J3_A_events\":len(EA),\n        \"J3_B_events\":len(EB),\n        \"J3_C_events\":len(EC),\n        \"left_compatible_event_links\":left_compatible,\n        \"right_compatible_event_links\":right_compatible,\n        \"internally_compatible_three_event_paths\":joined_paths,\n    }",
+      "subscripts": [
+        "a[0]",
+        "a[1]",
+        "a[1][1]",
+        "a[1][2]",
+        "a[2]",
+        "a[3]",
+        "a[4]",
+        "b[0]",
+        "b[1]",
+        "b[1][2]",
+        "b[2]",
+        "b[3]",
+        "b[4]",
+        "c[0]",
+        "c[1]",
+        "c[1][1]",
+        "c[1][2]",
+        "c[2]",
+        "c[3]",
+        "c[4]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "dtup",
+        "enumerate",
+        "frozenset",
+        "int",
+        "min",
+        "out.add",
+        "set",
+        "tuple"
+      ],
+      "classification": "generic binary complete-boundary composition; field-closed on 0..4",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_nested_closure_contraction_order.py",
+      "function": "compose",
+      "source": "def compose(A,sa,B,sb,thr):\n    out=set(); paths=0\n    for a in A:\n        if int(a[2])<thr: continue\n        for b in B:\n            if int(b[2])<thr: continue\n            if not bridge_ok(a,sa,b,sb): continue\n            paths+=1\n            bd=tuple(v for i,v in enumerate(a[1]) if i!=sa)+tuple(v for i,v in enumerate(b[1]) if i!=sb)\n            out.add((a[0]|b[0],bd,min(a[2],b[2]),dtup(a[3])+dtup(b[3]),int(a[4] and b[4])))\n    return frozenset(out),paths",
+      "subscripts": [
+        "a[0]",
+        "a[1]",
+        "a[2]",
+        "a[3]",
+        "a[4]",
+        "b[0]",
+        "b[1]",
+        "b[2]",
+        "b[3]",
+        "b[4]"
+      ]
+    },
+    {
+      "calls": [
+        "builder"
+      ],
+      "classification": "descending score thresholds; delegates feasibility to field-closed builder",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_nested_closure_contraction_order.py",
+      "function": "independent_max",
+      "source": "def independent_max(builder,E1,E2,p):\n    for s in (2,1,0):\n        S,*_=builder(E1,E2,p,s)\n        if S: return s\n    return None",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "frozenset",
+        "int",
+        "min",
+        "out.add",
+        "set"
+      ],
+      "classification": "constructs correlated external relation from complete event fields only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "joint_env",
+      "source": "def joint_env(E1,E2):\n    out=set(); paths=0\n    for e1 in E1:\n        for e2 in E2:\n            if not bridge_ok(e1,1,e2,1): continue\n            paths += 1\n            out.add((e1[0]|e2[0],\n                     (e1[1][0],e2[1][0]),\n                     (e1[1][2],e2[1][2]),\n                     min(e1[2],e2[2]),\n                     (e1[3],e2[3]),\n                     int(e1[4] and e2[4])))\n    return frozenset(out),paths",
+      "subscripts": [
+        "e1[0]",
+        "e1[1]",
+        "e1[1][0]",
+        "e1[1][2]",
+        "e1[2]",
+        "e1[3]",
+        "e1[4]",
+        "e2[0]",
+        "e2[1]",
+        "e2[1][0]",
+        "e2[1][2]",
+        "e2[2]",
+        "e2[3]",
+        "e2[4]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok"
+      ],
+      "classification": "uses boundary P/M only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "core_compatible",
+      "source": "def core_compatible(core,i,j,env):\n    # synthetic event exposes the two correlated interface P/Ms; bridge_ok remains local,\n    # but env membership already enforces E1-E2 correlation.\n    s1=(0,(env[1][0],),0,0,0); s2=(0,(env[1][1],),0,0,0)\n    return bridge_ok(core,i,s1,0) and bridge_ok(core,j,s2,0)",
+      "subscripts": [
+        "env[1]",
+        "env[1][0]",
+        "env[1][1]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "uses P/M pair only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "pm_bridge",
+      "source": "def pm_bridge(pmA, pmB):\n    PA,MA=pmA; PB,MB=pmB\n    return ((MA==0 or (MA&PB)!=0) and (MB==0 or (MB&PA)!=0))",
+      "subscripts": []
+    },
+    {
+      "calls": [
+        "checks.append",
+        "feasible_at",
+        "int",
+        "sorted"
+      ],
+      "classification": "score + field-closed compatibility only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "own_max",
+      "source": "def own_max(relation,envrel,i,j):\n    scores=sorted(({int(c[2]) for c in relation}|{int(e[3]) for e in envrel}), reverse=True)\n    checks=[]\n    for s in scores:\n        ok=feasible_at(relation,envrel,i,j,s); checks.append((s,ok))\n        if ok:return s,checks\n    return None,checks",
+      "subscripts": [
+        "c[2]",
+        "e[3]"
+      ]
+    },
+    {
+      "calls": [
+        "core_compatible",
+        "frozenset",
+        "int",
+        "min",
+        "out.add",
+        "range",
+        "set",
+        "tuple"
+      ],
+      "classification": "complete selected output from relation records + joint environment; no provenance",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_external_network.py",
+      "function": "compose_set",
+      "source": "def compose_set(relation, envrel, i,j, smax):\n    out=set(); compatible=0\n    rem=[k for k in range(5) if k not in (i,j)]\n    cores=[c for c in relation if int(c[2])>=smax]\n    envs=[e for e in envrel if int(e[3])>=smax]\n    for c in cores:\n        for e in envs:\n            if not core_compatible(c,i,j,e): continue\n            compatible += 1\n            out.add((c[0]|e[0],\n                     tuple(c[1][k] for k in rem)+tuple(e[2]),\n                     min(c[2],e[3]),\n                     tuple(c[3])+tuple(e[4]),\n                     int(c[4] and e[5])))\n    return frozenset(out),compatible",
+      "subscripts": [
+        "c[0]",
+        "c[1]",
+        "c[1][k]",
+        "c[2]",
+        "c[3]",
+        "c[4]",
+        "e[0]",
+        "e[2]",
+        "e[3]",
+        "e[4]",
+        "e[5]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok"
+      ],
+      "classification": "boundary P/M only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "compatible",
+      "source": "def compatible(core,i,j,e1,e2):\n f1=(0,(core[1][i],),0,0,0); f2=(0,(core[1][j],),0,0,0)\n return bridge_ok(f1,0,e1,0) and bridge_ok(f2,0,e2,0)",
+      "subscripts": [
+        "core[1]",
+        "core[1][i]",
+        "core[1][j]"
+      ]
+    },
+    {
+      "calls": [
+        "any",
+        "compatible",
+        "extpairs",
+        "int"
+      ],
+      "classification": "score + correlated P/M feasibility only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "ownmax_core",
+      "source": "def ownmax_core(core_records,h1,h2,i,j):\n for thr in (2,1,0):\n  ex=extpairs(h1,h2,thr)\n  for c in core_records:\n   if int(c[2])<thr: continue\n   if any(compatible(c,i,j,e1,e2) for e1,e2 in ex): return thr\n return None",
+      "subscripts": [
+        "c[2]"
+      ]
+    },
+    {
+      "calls": [
+        "int",
+        "min",
+        "range",
+        "tuple"
+      ],
+      "classification": "output from declared fields only; no microscopic parent identity",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "outrec",
+      "source": "def outrec(core,i,j,e1,e2):\n rem=[k for k in range(5) if k not in (i,j)]\n return (core[0]|e1[0]|e2[0],tuple(core[1][k] for k in rem)+(e1[1][2],e2[1][2]),min(core[2],e1[2],e2[2]),tuple(core[3])+(e1[3],e2[3]),int(core[4] and e1[4] and e2[4]))",
+      "subscripts": [
+        "core[0]",
+        "core[1]",
+        "core[1][k]",
+        "core[2]",
+        "core[3]",
+        "core[4]",
+        "e1[0]",
+        "e1[1]",
+        "e1[1][2]",
+        "e1[2]",
+        "e1[3]",
+        "e1[4]",
+        "e2[0]",
+        "e2[1]",
+        "e2[1][2]",
+        "e2[2]",
+        "e2[3]",
+        "e2[4]"
+      ]
+    },
+    {
+      "calls": [
+        "extpairs",
+        "idx.setdefault",
+        "idx.setdefault((e1[1][0], e2[1][0]), []).append"
+      ],
+      "classification": "indexes complete external records by exposed P/M signatures; retains full records as values",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "ext_index",
+      "source": "def ext_index(h1,h2,thr):\n ex=extpairs(h1,h2,thr); idx={}\n for e1,e2 in ex: idx.setdefault((e1[1][0],e2[1][0]),[]).append((e1,e2))\n return ex,idx",
+      "subscripts": [
+        "e1[1]",
+        "e1[1][0]",
+        "e2[1]",
+        "e2[1][0]"
+      ]
+    },
+    {
+      "calls": [
+        "idx.items",
+        "pmok"
+      ],
+      "classification": "P/M compatibility only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "matching_blocks",
+      "source": "def matching_blocks(c,i,j,idx):\n a,b=c[1][i],c[1][j]\n for (x,y),vals in idx.items():\n  if pmok(a,x) and pmok(b,y): yield vals",
+      "subscripts": [
+        "c[1]",
+        "c[1][i]",
+        "c[1][j]"
+      ]
+    },
+    {
+      "calls": [
+        "aggabc",
+        "ext_index",
+        "frozenset",
+        "int",
+        "len",
+        "matching_blocks",
+        "out.add",
+        "outrec",
+        "set"
+      ],
+      "classification": "raw microscopic paths are first mapped to complete core record, then only that record is passed to output construction",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "materialize_raw",
+      "source": "def materialize_raw(h1,h2,i,j,thr):\n ex,idx=ext_index(h1,h2,thr); out=set(); parents=0\n for tr in base:\n  c=aggabc(tr)\n  if int(c[2])<thr: continue\n  for vals in matching_blocks(c,i,j,idx):\n   for e1,e2 in vals: parents+=1; out.add(outrec(c,i,j,e1,e2))\n return frozenset(out),parents,len(ex)",
+      "subscripts": [
+        "c[2]"
+      ]
+    },
+    {
+      "calls": [
+        "ext_index",
+        "frozenset",
+        "int",
+        "len",
+        "matching_blocks",
+        "out.add",
+        "outrec",
+        "set"
+      ],
+      "classification": "same output constructor on complete macro record",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_interacting_score_obstruction.py",
+      "function": "materialize_macro",
+      "source": "def materialize_macro(h1,h2,i,j,thr):\n ex,idx=ext_index(h1,h2,thr); out=set(); parents=0\n for c in TABC:\n  if int(c[2])<thr: continue\n  for vals in matching_blocks(c,i,j,idx):\n   for e1,e2 in vals: parents+=1; out.add(outrec(c,i,j,e1,e2))\n return frozenset(out),parents,len(ex)",
+      "subscripts": [
+        "c[2]"
+      ]
+    },
+    {
+      "calls": [
+        "itertools.permutations",
+        "min",
+        "reps.append",
+        "sorted",
+        "tuple"
+      ],
+      "classification": "ONLY graph-shape canonicalization under external vertex relabeling; reads no boundary record",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "canon",
+      "source": "def canon(edges):\n    # canonical under permutation of external labels 1,2,3; core fixed\n    reps=[]\n    for p in itertools.permutations((1,2,3)):\n        mp={0:0,1:p[0],2:p[1],3:p[2]}\n        ee=tuple(sorted(tuple(sorted((mp[u],mp[v]))) for u,v in edges))\n        reps.append(ee)\n    return min(reps)",
+      "subscripts": [
+        "mp[u]",
+        "mp[v]",
+        "p[0]",
+        "p[1]",
+        "p[2]"
+      ]
+    },
+    {
+      "calls": [
+        "enumerate",
+        "len",
+        "sorted"
+      ],
+      "classification": "graph incidence -> local slot numbering only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "ext_slot_map",
+      "source": "def ext_slot_map(edges):\n    out={1:{},2:{},3:{}}\n    for e in (1,2,3):\n        nbs=sorted(v if u==e else u for u,v in edges if u==e or v==e)\n        assert len(nbs)<=3\n        for slot,nb in enumerate(nbs): out[e][nb]=slot\n    return out",
+      "subscripts": [
+        "out[e]",
+        "out[e][nb]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "ext_slot_map",
+        "out.append"
+      ],
+      "classification": "filters external complete events using bridge_ok only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "ext_joint",
+      "source": "def ext_joint(edges,score):\n    sm=ext_slot_map(edges)\n    Ev=[e for e in E if e[2]>=score]\n    out=[]\n    internal=[(u,v) for u,v in edges if u!=0 and v!=0]\n    for e1 in Ev:\n      for e2 in Ev:\n       for e3 in Ev:\n        es={1:e1,2:e2,3:e3}\n        ok=True\n        for u,v in internal:\n            if not bridge_ok(es[u],sm[u][v],es[v],sm[v][u]): ok=False; break\n        if ok: out.append((e1,e2,e3))\n    return out,sm",
+      "subscripts": [
+        "e[2]",
+        "es[u]",
+        "es[v]",
+        "sm[u]",
+        "sm[u][v]",
+        "sm[v]",
+        "sm[v][u]"
+      ]
+    },
+    {
+      "calls": [
+        "boundary.extend",
+        "core_port_map.values",
+        "ext_slot_map",
+        "int",
+        "min",
+        "range",
+        "set",
+        "sm[eidx].values",
+        "tuple",
+        "zip"
+      ],
+      "classification": "declared complete fields only",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "make_record",
+      "source": "def make_record(core, es, edges, core_port_map):\n    sm=ext_slot_map(edges)\n    used_core=set(core_port_map.values())\n    core_keep=[p for p in range(5) if p not in used_core]\n    boundary=[core[1][p] for p in core_keep]\n    for eidx,e in zip((1,2,3),es):\n        used=set(sm[eidx].values())\n        boundary.extend(e[1][s] for s in range(3) if s not in used)\n    return (core[0]|es[0][0]|es[1][0]|es[2][0],tuple(boundary),min(core[2],es[0][2],es[1][2],es[2][2]),tuple(core[3])+(es[0][3],es[1][3],es[2][3]),int(core[4] and es[0][4] and es[1][4] and es[2][4]))",
+      "subscripts": [
+        "core[0]",
+        "core[1]",
+        "core[1][p]",
+        "core[2]",
+        "core[3]",
+        "core[4]",
+        "e[1]",
+        "e[1][s]",
+        "es[0]",
+        "es[0][0]",
+        "es[0][2]",
+        "es[0][3]",
+        "es[0][4]",
+        "es[1]",
+        "es[1][0]",
+        "es[1][2]",
+        "es[1][3]",
+        "es[1][4]",
+        "es[2]",
+        "es[2][0]",
+        "es[2][2]",
+        "es[2][3]",
+        "es[2][4]",
+        "sm[eidx]"
+      ]
+    },
+    {
+      "calls": [
+        "bridge_ok",
+        "ext_slot_map",
+        "pmok",
+        "rawslot"
+      ],
+      "classification": "boundary P/M compatibility only; raw=True branch obtains a P/M slot from agg(tr), not hidden path metadata",
+      "file": "/mnt/data/ig_rm1_L2_next_probe_all_small_rooted_contexts_chunk.py",
+      "function": "feasible_core",
+      "source": "def feasible_core(core, es, edges, core_port_map, raw=False, tr=None):\n    sm=ext_slot_map(edges); em={1:es[0],2:es[1],3:es[2]}\n    for u,v in edges:\n        if u==0:\n            p=core_port_map[v]\n            if raw:\n                if not pmok(rawslot(tr,p),em[v][1][sm[v][0]]): return False\n            else:\n                if not bridge_ok(core,p,em[v],sm[v][0]): return False\n    return True",
+      "subscripts": [
+        "core_port_map[v]",
+        "em[v]",
+        "em[v][1]",
+        "em[v][1][sm[v][0]]",
+        "es[0]",
+        "es[1]",
+        "es[2]",
+        "sm[v]",
+        "sm[v][0]"
+      ]
+    },
+    {
+      "calls": [],
+      "classification": "boundary P/M only",
+      "file": "/mnt/data/algebra_scripts/ig_rm1_gammaG_nonstar_chain4.py",
+      "function": "compatible",
+      "source": "def compatible(ev_u, slot_u, ev_v, slot_v):\n    Pu,Mu=ev_u[1][slot_u]\n    Pv,Mv=ev_v[1][slot_v]\n    return ((Mu==0 or (Mu&Pv)!=0) and\n            (Mv==0 or (Mv&Pu)!=0))",
+      "subscripts": [
+        "ev_u[1]",
+        "ev_u[1][slot_u]",
+        "ev_v[1]",
+        "ev_v[1][slot_v]"
+      ]
+    },
+    {
+      "calls": [
+        "Ts.append",
+        "adj[u].append",
+        "adj[v].append",
+        "all",
+        "compatible",
+        "frozenset",
+        "len",
+        "max",
+        "outputs.add",
+        "outputs.clear",
+        "range",
+        "rec",
+        "set",
+        "sorted",
+        "tuple"
+      ],
+      "classification": "historical/global graph selector; feasibility uses event P/M, selection uses score/stay, output uses L and destinations. It is not the complete-boundary constructor but has no hidden-field leak.",
+      "file": "/mnt/data/algebra_scripts/ig_rm1_gammaG_nonstar_chain4.py",
+      "function": "compose_graph",
+      "source": "def compose_graph(local_sets, edges):\n    \"\"\"\n    edges: list of (u,slot_u,v,slot_v)\n    Exact simultaneous graph law:\n      all bridges compatible,\n      exclude all-stay,\n      maximize global min local score,\n      retain all ties.\n    \"\"\"\n    n=len(local_sets)\n\n    # adjacency to already assigned vertices during backtracking\n    adj=[[] for _ in range(n)]\n    for u,su,v,sv in edges:\n        adj[u].append((v,su,sv))\n        adj[v].append((u,sv,su))\n\n    max_score=max(max(ev[2] for ev in S) for S in local_sets)\n\n    # scores are small integers; search descending until a feasible event exists\n    all_scores=sorted({ev[2] for S in local_sets for ev in S}, reverse=True)\n\n    best=None\n    outputs=set()\n    completed_paths=0\n\n    # heuristic vertex order: most constrained/highest degree first\n    order=sorted(range(n), key=lambda x:(-len(adj[x]), len(local_sets[x])))\n    assigned=[None]*n\n\n    def rec(pos, threshold):\n        nonlocal completed_paths\n        if pos==len(order):\n            if all(assigned[v][4] for v in range(n)):\n                return\n            completed_paths += 1\n            L=0\n            Ts=[]\n            for v in range(n):\n                L |= assigned[v][0]\n                Ts.append(assigned[v][3])\n            outputs.add((L,threshold,tuple(Ts)))\n            return\n\n        v=order[pos]\n        for ev in local_sets[v]:\n            if ev[2] < threshold:\n                continue\n\n            good=True\n            for nb,sv,snb in adj[v]:\n                if assigned[nb] is not None:\n                    if not compatible(ev,sv,assigned[nb],snb):\n                        good=False\n                        break\n            if not good:\n                continue\n\n            assigned[v]=ev\n            rec(pos+1,threshold)\n            assigned[v]=None\n\n    for s in all_scores:\n        outputs.clear()\n        completed_paths=0\n        rec(0,s)\n        if outputs:\n            best=s\n            return frozenset(outputs),best,completed_paths\n\n    return frozenset(),None,0",
+      "subscripts": [
+        "adj[u]",
+        "adj[v]",
+        "adj[x]",
+        "assigned[nb]",
+        "assigned[v]",
+        "assigned[v][0]",
+        "assigned[v][3]",
+        "assigned[v][4]",
+        "ev[2]",
+        "local_sets[v]",
+        "local_sets[x]",
+        "order[pos]"
+      ]
+    }
+  ],
+  "proof_scope": "This establishes the implementation premise needed for one-step congruence of the current finite relation algebra. It does NOT establish that a particular T_X construction is complete; that is a separate obligation.",
+  "test": "code-path audit for finite boundary-compositor congruence lemma",
+  "tie_resolution": "Current own_max/independent_max paths descend score thresholds and retain the full set at the first feasible threshold; no class-id or path-id tie break appears in the audited paths."
+}

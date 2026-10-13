@@ -1,0 +1,46 @@
+{
+  "automatic_extensions": [
+    "degree/role classes",
+    "multiple independent routes",
+    "articulation/between-ness",
+    "path-choice asymmetry",
+    "orientation/order if first required by action",
+    "local response as function of relational shell"
+  ],
+  "date": "2026-08-29",
+  "functions": [
+    {
+      "definition": "retained E_n adjacency between distinct complete O_(n-1) owners",
+      "id": "outer_adjacency",
+      "starting_rank": "R1_at_O7"
+    },
+    {
+      "definition": "minimum outer-relation path length between owners",
+      "id": "graph_distance_d_n",
+      "starting_rank": "R1_at_O7"
+    },
+    {
+      "definition": "G_v(k)=number of owners at graph distance k from v",
+      "id": "shell_growth",
+      "starting_rank": "R1_at_O7"
+    },
+    {
+      "definition": "m_n-K_(n-1)+1 for connected outer owner graph",
+      "id": "cycle_rank_beta_n",
+      "starting_rank": "R1_at_O7"
+    },
+    {
+      "definition": "1-deg_n(v)/2 with sum=1-beta_n on connected outer graph",
+      "id": "local_euler_defect_kappa_n",
+      "starting_rank": "R1_at_O7"
+    },
+    {
+      "definition": "first ownership level at which two leaf/site occurrences separate",
+      "id": "nested_ownership_separation_rank",
+      "starting_rank": "R0_candidate_at_O7"
+    }
+  ],
+  "promotion_rule": "Promote a function to R3 only with an exact equal-inherited-quotient/different-f separator whose frozen action future differs. Promote to geometry-candidate lane only after an intrinsic structural read is operational; observer-only statistics are insufficient.",
+  "schema": "IG_EMERGENT_READ_FUNCTION_REGISTRY_V0_1",
+  "status": "FROZEN_INITIAL_REGISTRY"
+}

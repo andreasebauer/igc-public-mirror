@@ -1,0 +1,48 @@
+{
+  "schema_id": "IG_DECODER_V05_SCIENTIFIC_CHAIN_CONTRACT_V1",
+  "release_line": "v0.5 / 0.50",
+  "purpose": "Crash-safe chaining of separately frozen scientific stages without adding scientific semantics or automatic authority promotion.",
+  "structural_series": {
+    "order": ["S0", "S1", "S2", "S3", "S4", "S5", "S6"],
+    "policy": "May auto-advance only on exact preregistered outcomes; novelty, changed assumptions, unregistered outcomes and review branches stop fail-closed."
+  },
+  "research_series": {
+    "policy": "Adaptive only inside preregistered branches. R slots are optional; the chain may close early. A new phenomenon outside the branch table requires a new continuation registration and human review.",
+    "default_roles": [
+      "R0 hidden-structure reconnaissance",
+      "R1 exact hidden update/composition law",
+      "R2 candidate smaller/local read and lower-bound test",
+      "R3 generic recursive hidden law/canon when earned",
+      "R4 scoped necessity/minimality",
+      "R5 natural-observer distinguishability",
+      "R6 observer compression",
+      "R7 fresh adversarial escalation/closeout"
+    ]
+  },
+  "authority": {
+    "automatic_promotion": false,
+    "verified_parent_required": true,
+    "graduation": "Explicit review only; a mechanical PASS is never sufficient by itself."
+  },
+  "durability": {
+    "stage_commit": "Append-only, content-addressed, fsync before transition.",
+    "state": "Atomic hash-bound CHAIN_STATE.json.",
+    "events": "Append-only events.jsonl.",
+    "resume": "Reuse only verified stage commits; never rerun a committed stage with a different result.",
+    "external_mirror": "Chain state exposes a pending mirror flag; actual connector upload remains outside the scientific worker."
+  },
+  "execution": {
+    "decoder_plan": "Each prepared stage may invoke the existing guarded Decoder Controller and materialize one declared result artifact.",
+    "prepared_executor": "Test/extension hook for pre-registered stage executors; not a bypass around authority rules.",
+    "workers": "Stage plans retain their own worker leases. Chain default is metadata/policy only and does not parallelize dependent stages."
+  },
+  "stops": [
+    "UNREGISTERED_OUTCOME",
+    "HUMAN_REVIEW_STAGE",
+    "DEPENDENCY_NOT_COMMITTED",
+    "STAGE_BUDGET_EXHAUSTED",
+    "CHAIN_WALL_BUDGET_EXHAUSTED",
+    "EXECUTION_FAILURE",
+    "REGISTERED_REVIEW_BRANCH"
+  ]
+}

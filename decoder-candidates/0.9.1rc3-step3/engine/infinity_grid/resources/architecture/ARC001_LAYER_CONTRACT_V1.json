@@ -1,0 +1,187 @@
+{
+  "arc001_scope_note": "Gate 3 establishes the hard purity boundary and routes science-sensitive exact value transformations through it. Stateful legacy modules remain compatibility facades/orchestrators; deeper performance decomposition is Gate 4, not a semantic change here.",
+  "contract_sha256": "0bc7d4bc0389a2acb8548007ac309bdf2567dac8fe7a7dd33d9cc8548b80c234",
+  "extracted_semantic_routes": [
+    {
+      "core_module": "core/canonical.py",
+      "guarantee": "canonical bytes/digests byte-identical to v0.26",
+      "legacy_module": "canon.py"
+    },
+    {
+      "core_module": "core/l2.py",
+      "guarantee": "J3/bridge/composite/digest functions exact extraction",
+      "legacy_module": "adapters/base_l2.py"
+    },
+    {
+      "core_module": "core/boundary.py",
+      "guarantee": "boundary canonicalization/bridge/composition exact extraction",
+      "legacy_module": "adapters/scout_l16.py"
+    },
+    {
+      "core_module": "core/boundary.py",
+      "guarantee": "generation composition uses same pure boundary functions",
+      "legacy_module": "conveyor_chunks.py"
+    }
+  ],
+  "forbidden_core_calls": [
+    "open",
+    "print",
+    "input",
+    "exec",
+    "eval",
+    "compile",
+    "__import__"
+  ],
+  "forbidden_core_import_roots": [
+    "os",
+    "pathlib",
+    "time",
+    "random",
+    "secrets",
+    "uuid",
+    "subprocess",
+    "multiprocessing",
+    "threading",
+    "socket",
+    "tempfile",
+    "shutil",
+    "resource",
+    "platform",
+    "importlib.resources"
+  ],
+  "forbidden_core_mutable_globals": [
+    "list",
+    "dict",
+    "set",
+    "bytearray"
+  ],
+  "layers": {
+    "adapters": {
+      "may_depend_on": [
+        "contracts",
+        "core"
+      ],
+      "modules": [
+        "adapters/**",
+        "frontier.py",
+        "pregeometry.py",
+        "regime_scanner.py",
+        "regime_scanner_validation.py",
+        "regime_raise_audit.py"
+      ]
+    },
+    "cli_report": {
+      "may_depend_on": [
+        "contracts",
+        "core",
+        "adapters",
+        "planner",
+        "engine",
+        "store",
+        "verify"
+      ],
+      "modules": [
+        "cli.py",
+        "spectroscope.py",
+        "claims.py",
+        "records.py",
+        "graph_adapters.py"
+      ]
+    },
+    "contracts": {
+      "may_depend_on": [
+        "core"
+      ],
+      "modules": [
+        "contracts.py",
+        "schema.py",
+        "errors.py",
+        "compatibility.py",
+        "current_state.py"
+      ]
+    },
+    "core": {
+      "may_depend_on": [],
+      "modules": [
+        "core/**"
+      ]
+    },
+    "engine": {
+      "may_depend_on": [
+        "contracts",
+        "core",
+        "adapters",
+        "planner",
+        "store"
+      ],
+      "modules": [
+        "controller.py",
+        "conveyor.py",
+        "conveyor_chunks.py",
+        "lifecycle.py"
+      ]
+    },
+    "planner": {
+      "may_depend_on": [
+        "contracts",
+        "core",
+        "adapters",
+        "store"
+      ],
+      "modules": [
+        "planning.py",
+        "protocols.py",
+        "jumpstart.py",
+        "graph_backbone.py"
+      ]
+    },
+    "store": {
+      "may_depend_on": [
+        "contracts",
+        "core"
+      ],
+      "modules": [
+        "store.py",
+        "datasets.py",
+        "checkpoints.py",
+        "catalog.py",
+        "graph_store.py",
+        "graph_export.py",
+        "graph_gc.py",
+        "releases.py",
+        "migration.py"
+      ]
+    },
+    "verify": {
+      "may_depend_on": [
+        "contracts",
+        "core",
+        "adapters",
+        "planner",
+        "engine",
+        "store"
+      ],
+      "modules": [
+        "verification.py",
+        "oracle.py",
+        "scientific_tests.py",
+        "doctor.py",
+        "graph_doctor.py",
+        "replay_contracts.py",
+        "graph_replay.py"
+      ]
+    }
+  },
+  "pure_core_modules": [
+    "core/__init__.py",
+    "core/canonical.py",
+    "core/boundary.py",
+    "core/l2.py",
+    "core/invariants.py"
+  ],
+  "pure_core_package": "infinity_grid.core",
+  "schema_id": "IG_DECODER_ARC001_LAYER_CONTRACT_V1",
+  "semantic_delta_from_v026": "NONE",
+  "status": "FROZEN_GATE3_ACCEPTED_CANDIDATE",
+  "version": "1.0.0"
+}

@@ -1,0 +1,102 @@
+{
+  "abstract_read_write_law": {
+    "binary_enabled": "compose_{a,b}(f,g) is defined for an earned operator (a,b) when f_a>0 and g_b>0",
+    "binary_write": "compose_{a,b}(f,g)=f+g-e_a-e_b",
+    "reserve_enabled": "reserve_t(f) is defined iff f_t>0",
+    "reserve_write": "reserve_t(f)=f-e_t"
+  },
+  "authority": {
+    "g3_s4_classification": "G3_ONE_STEP_RELATION_VALUED_COMPOSITION_CLOSURE_ON_FROZEN_P3_CAPS7_SCOPE_S5_UNLOCKED",
+    "g3_s4_science_sha256": "42008499ead600852719f74176fe01c67d203b4b826c930c6ec9fde0ca40dd6b",
+    "required_g3_graduated": false,
+    "required_g3_s4_certification": "CERTIFIED_PASS",
+    "required_g3_s4_science_sha_equal": true,
+    "required_g3_s4_stable_payload_equal": true,
+    "required_g3_s5_unlocked": true,
+    "required_topology_promoted": false
+  },
+  "candidate_descriptor": {
+    "excluded": [
+      "skin",
+      "construction_digest",
+      "children",
+      "owner_witness",
+      "topology",
+      "ancestry",
+      "branch_multiplicity",
+      "exact_relation_cardinality"
+    ],
+    "fields": [
+      "total_free_by_type[0..6]"
+    ],
+    "name": "CAPS7",
+    "schema_id": "IG_G3_CAPS7_READ_WRITE_STATE_V1",
+    "state": "f=(f0,...,f6) in N^7; for a complete exact G3 candidate relation, all exact branches must map to the same f"
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "PASS": "All gates pass. Earn CAPS7 as the finite-coordinate read/write descriptor for the frozen one-step relation-valued G3 candidate grammar and unlock G3:S6 recursive closure/graduation audit only.",
+    "REVIEW_REQUIRED": "Any authority, singleton-CAPS7 relation, resource-write, reserve-factorisation, or hidden-read gate fails. S6 remains locked and no descriptor is promoted post hoc."
+  },
+  "exact_gates": [
+    "S4_CERTIFIED_COLD_REPLAY_AUTHORITY_EXACT_AND_S5_UNLOCKED",
+    "ALL_62_COMPLETE_PAIR_CANDIDATE_RELATIONS_MAP_TO_SINGLE_CAPS7_STATES",
+    "ALL_3844_CERTIFIED_RECURSIVE_P3_RELATIONS_MAP_TO_SINGLE_CAPS7_STATES_AND_OBEY_S4_WRITE_LAW",
+    "ALL_31_ACTUAL_RECURSIVE_OPERATOR_BASIS_ROWS_PASS_RELATION_VALUED_RESERVE_CAPABILITY_WITH_ZERO_CAPS7_WRITE_FAILURES",
+    "IMPLEMENTATION_DESCRIPTOR_AND_ABSTRACT_TRANSITION_READ_SURFACE_EXCLUDES_TOPOLOGY_SKIN_OWNER_AND_CONSTRUCTION_IDENTITY_AS_SELECTORS",
+    "CAPS7_ONE_STEP_G3_FACTORISATION_ARGUMENT_PASS",
+    "INDEPENDENT_COLD_REPLAY_RERUNS_SAME_REGISTERED_G3_S5_EXPERIMENT_AND_MATCHES_STABLE_SCIENCE_PAYLOAD"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE",
+    "S5_CONSUMES_CERTIFIED_S4_EVIDENCE_WITHOUT_REBUILDING_THE_HEAVY_S4_CENSUS",
+    "LONG_FULL_REGRESSION_AND_COLD_REPLAY_DETACHED",
+    "COLD_REPLAY_RERUNS_THE_SAME_REGISTERED_G3_S5_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_REGISTRY_OR_EVIDENCE_SCHEMA_MISMATCH"
+  ],
+  "frozen_evidence_domain": {
+    "s4_exact_base_assignment_coverage": 830304,
+    "s4_factorized_post_recursive_continuation_cases": 5812128,
+    "s4_pair_public_context_keys": 62,
+    "s4_recursive_p3_public_contexts": 3844,
+    "s4_recursive_reserve_operator_basis_rows": 31
+  },
+  "frozen_observer": {
+    "does_not_observe": [
+      "raw exact relation identity",
+      "exact branch multiplicity",
+      "which child supplied an endpoint",
+      "construction identity",
+      "hidden G1-unit incidence topology",
+      "skin",
+      "ancestry"
+    ],
+    "name": "G3_TRANSITION_GRAMMAR_CAPS7_OBSERVER_V1",
+    "reads": [
+      "external reservation enabledness by endpoint type",
+      "frozen 31 typed binary bridge enabledness",
+      "successor CAPS7 state"
+    ]
+  },
+  "g2_relation_spec_sha256": "e1f2f7502ab44c5e79d98abe25d041f2068b545828c9fd8ca778bbdd7f574214",
+  "nonclaims": [
+    "NO_GLOBAL_OR_MINIMAL_G3_DESCRIPTOR_CLAIM",
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE",
+    "NO_PAIR_PLUS_PAIR_G3_CLOSURE",
+    "NO_UNBOUNDED_RECURSIVE_G3_CLOSURE",
+    "NO_TOPOLOGY_ERASURE",
+    "NO_G3_GRADUATION",
+    "NO_PHYSICAL_SPACE_DIMENSION_TIME_SPACETIME_COORDINATES_OR_METRIC"
+  ],
+  "pass_effect": "Unlock G3:S6 design/execution only. No G3 graduation and no topology promotion.",
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "promotion": true,
+  "question": "Does inherited CAPS7 become an exact finite-coordinate read/write quotient state for the frozen one-step relation-valued G3 candidate grammar certified by S4, without reading hidden topology, construction identity, owner witnesses, skins, ancestry, or exact branch multiplicity?",
+  "schema_id": "IG_G3_S5_FINITE_READ_WRITE_DESCRIPTOR_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "dffdd0bd3d0f77ef5f4397b6dae8ac9ab3f5cd82f83cecb96ef3c62b67c9703e",
+  "stage_ref": "G3:S5",
+  "status": "FROZEN_BEFORE_G3_S5_EXECUTION"
+}

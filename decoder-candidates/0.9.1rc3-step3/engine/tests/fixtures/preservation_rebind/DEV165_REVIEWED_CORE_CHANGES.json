@@ -1,0 +1,22 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Current-source scoped review with retained baseline and dev156 overlay evidence; full RC open",
+  "review_record": "tests/fixtures/preservation_rebind/CORE_REVIEW_DEV165.txt",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "11cfe903b6210587d438e36778cf22e20e1aa1c5eddaa720c5bedcb01e49eda5",
+      "reviewed_sha256": "44cb00672d8862d4cff90ab1664a647b2b7577192b9779d80bce452d5f996790",
+      "reason": "Exact retained dev156 overlay; PAUSED project claim exits before refusal retention and checkpoint closure. Native161 demonstrated two preserved commits, 191 missing-only builds, publication retries with no new attempts."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "3527637cee7da39c0dfdf8e575240d183513368e44f1d5e56f06e8dc2f4816e5",
+      "reviewed_sha256": "4c6ef74d4a3be2d0fe3669bd30220f51e1ceb59c0a2c4dfce33b29b026839b06",
+      "reason": "Exact retained dev156 overlay; project evidence dependency externalization and hydration remain hash-bound; repeated restore preserves prior checkpoint-bound provenance and records current administrative provenance separately. Native161 verified exact files/modes and project closure."
+    },
+    "infinity_grid/result_contracts.py": {
+      "previous_reviewed_sha256": "5fd253d4d0d476b633b266e0af84c7b5bfe0fcab40704069efade03b12449dd2",
+      "reviewed_sha256": "ccf1192865d0e35d4c91a15e7299afee7702da911dd14f018ccc81d0171aed07",
+      "reason": "Exact retained dev156 overlay; explicit 0/1 project_evidence_externalization policy plus positive file/byte limits; preserves default disabled path."
+    }
+  }
+}

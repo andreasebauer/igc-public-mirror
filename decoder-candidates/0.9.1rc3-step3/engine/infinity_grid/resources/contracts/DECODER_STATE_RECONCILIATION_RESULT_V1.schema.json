@@ -1,0 +1,15 @@
+{
+  "$id": "ig://schema/decoder-state-reconciliation-result/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conflict_count": {"minimum": 0, "type": "integer"},
+    "conflicts": {"items": {"type": "object"}, "type": "array"},
+    "context_dir": {"type": "string"},
+    "current_state_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "schema_id": {"const": "IG_DECODER_STATE_RECONCILIATION_RESULT_V1"},
+    "status": {"const": "PASS"}
+  },
+  "required": ["schema_id", "status", "context_dir", "conflict_count", "conflicts", "current_state_sha256"],
+  "type": "object"
+}

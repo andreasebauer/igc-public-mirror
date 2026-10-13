@@ -1,0 +1,165 @@
+{
+  "canonical_structural_program": [
+    {
+      "name": "CARRIER_INTERFACE_EXTRACTION",
+      "promotion": false,
+      "question": "What exact public interface does each complete G(k-1) carrier expose to the uplift?",
+      "stage": "S0"
+    },
+    {
+      "name": "PAIR_CONNECTION_CENSUS",
+      "promotion": false,
+      "question": "Which ordered/unordered carrier pairs admit each declared connection attempt and what canonical outcomes result?",
+      "stage": "S1"
+    },
+    {
+      "name": "PAIR_OUTCOME_QUOTIENT",
+      "promotion": false,
+      "question": "What is the minimal relabel-invariant quotient of pair connection outcomes under the declared observer?",
+      "stage": "S2"
+    },
+    {
+      "name": "TRIPLE_COMPATIBILITY_IRREDUCIBILITY",
+      "promotion": false,
+      "question": "Are any joint triple facts not reconstructible from all unary interfaces and pair outcomes?",
+      "stage": "S3"
+    },
+    {
+      "name": "COMPOSITION_CLOSURE",
+      "promotion": false,
+      "question": "Are the resulting higher assemblies closed under the candidate connection/composition grammar?",
+      "stage": "S4"
+    },
+    {
+      "name": "CANDIDATE_Gk_STATE_DESCRIPTOR",
+      "promotion": false,
+      "question": "Is there a finite read/write state sufficient for all admitted higher-level transitions?",
+      "stage": "S5"
+    },
+    {
+      "name": "RECURSIVE_CLOSURE_AND_GRADUATION_AUDIT",
+      "promotion": "GATE_ONLY",
+      "question": "Does the candidate grammar close recursively, survive holdouts, and satisfy every graduation gate?",
+      "stage": "S6"
+    }
+  ],
+  "compatibility": {
+    "g1_science_must_remain_unchanged": true,
+    "legacy_O_labels_must_remain_replayable": true,
+    "phase3_authorized_runtime": {
+      "implementation": "CPython",
+      "runtime_sha256": "95ae2cd51f63b271837064541dc7f47a1eadafb6862b36c3535d3bff077b6019",
+      "version": "3.13.5"
+    },
+    "trusted_parent_decoder": "0.28.8",
+    "trusted_parent_source_sha256": "bda4c3fa8b4345b6f09eba583d696525ceb39263d84128f5769532de264db581",
+    "v0_28_8_resources_must_remain_byte_preserved_except_build_identity_files": true
+  },
+  "contract_id": "IG_G_UPLIFT_ARCHITECTURE_V1",
+  "contract_sha256": "282e49781b3a7f7a2b6e786f5c7611d621b08381751f23f15f5bbafaf6ba8541",
+  "date": "2026-09-02",
+  "graduation_firewall": {
+    "Gk_R_axis_requires_graduation_certificate": true,
+    "candidate_stage_can_graduate": false,
+    "observer_split_alone_is_not_Gk": true,
+    "plateau_alone_is_not_Gk": true,
+    "predictive_signal_alone_is_not_Gk": true,
+    "structural_stage_can_self_promote": false
+  },
+  "graduation_gates": [
+    "PREVIOUS_LAYER_AUTHORITY_PASS",
+    "CANONICAL_INTERFACE_RELABELLING_INVARIANCE",
+    "PAIR_CENSUS_DETERMINISM_AND_REPLAY",
+    "PAIR_QUOTIENT_CONGRUENCE",
+    "TRIPLE_OR_HIGHER_RESIDUAL_ACCOUNTED_FOR",
+    "FINITE_STATE_READ_SUFFICIENCY",
+    "WRITE_TRANSITION_CLOSURE",
+    "RECURSIVE_CLOSURE",
+    "FRESH_HOLDOUT_REPLICATION",
+    "NO_HIDDEN_READ_DEPENDENCE",
+    "FAIL_CLOSED_REVIEW_CLEAR",
+    "INDEPENDENT_COLD_REPLAY"
+  ],
+  "hard_nonclaims": [
+    "NO_G2_GRADUATION",
+    "NO_G2_CONNECTION_LAW_IMPLEMENTED_IN_PHASE0",
+    "NO_NEW_G_SCIENCE",
+    "NO_RETROACTIVE_REINTERPRETATION_OF_HISTORICAL_O0_O7_GRADUATIONS",
+    "NO_PERMISSION_TO_USE_G2_R_AXIS_BEFORE_GRADUATION"
+  ],
+  "legacy_mapping": {
+    "earned_anchor": {
+      "active": "G1",
+      "legacy": "O7",
+      "meaning": "G1 grammar earned at historical O7 graduation"
+    },
+    "historical_only": [
+      "O0",
+      "O1",
+      "O2",
+      "O3",
+      "O4",
+      "O5",
+      "O6",
+      "O7"
+    ],
+    "prior_g2_reconnaissance": [
+      "G2:C0-G2:C103"
+    ],
+    "recursive_depth_rule": {
+      "active_template": "G1:R{n}",
+      "legacy_max": 100,
+      "legacy_min": 8
+    }
+  },
+  "pair_connection_record_required_fields": [
+    "schema_id",
+    "uplift_layer",
+    "stage_ref",
+    "left_carrier_ref",
+    "right_carrier_ref",
+    "left_interface_sha256",
+    "right_interface_sha256",
+    "connection_operator_ref",
+    "legality",
+    "outcome_ref",
+    "outcome_science_sha256",
+    "relabel_invariance_status",
+    "source_authority_sha256"
+  ],
+  "purpose": "Freeze the layer-to-layer organizational uplift semantics before implementing G2 structural experiments.",
+  "schema_id": "IG_G_UPLIFT_ARCHITECTURE_CONTRACT_V1",
+  "schema_version": "1.0.0",
+  "stage_ref_syntax": {
+    "examples": [
+      "G1:R100",
+      "G2:C103",
+      "G2:S0"
+    ],
+    "forbidden_examples": [
+      "G2:R0_without_graduation",
+      "O101_as_active_label"
+    ],
+    "regex": "^G([1-9][0-9]*):([CSR])([0-9]+)$"
+  },
+  "status": "FROZEN_PHASE0_ARCHITECTURE_ONLY",
+  "terminology": {
+    "C": "candidate/reconnaissance experiment stage; never implies graduation",
+    "Gk": "an earned organizational grammar/law at layer k",
+    "R": "recursive application depth of an already graduated G grammar",
+    "S": "canonical structural-uplift derivation stage acting on complete carriers from the previous earned G layer",
+    "legacy_O": "historical discovery/maturation label retained only for provenance"
+  },
+  "triple_irreducibility_rule": {
+    "no_posthoc_threshold_tuning": true,
+    "pairwise_legal_but_jointly_illegal_alone": "candidate signal only until relabel-invariant residual is identified and reproduced",
+    "positive_requires": "two triple instances with identical canonical unary-interface multiset and identical complete canonical pair-outcome data but different canonical joint legality/outcome, OR a formally equivalent residual obstruction not represented in unary+pair data"
+  },
+  "uplift_unit_rule": {
+    "atomicity": "carriers are atomic with respect to the declared previous-layer public interface",
+    "connection_semantics": "connection/composition attempts must be generated only from already-earned previous-layer interface/resource legality",
+    "failed_connections": "must be recorded canonically; failure is scientific data, not discarded",
+    "hidden_internal_reads": "FORBIDDEN unless explicitly preregistered as a nonpromoting observer capability",
+    "source": "complete carriers produced by the immediately previous earned G layer"
+  }
+}

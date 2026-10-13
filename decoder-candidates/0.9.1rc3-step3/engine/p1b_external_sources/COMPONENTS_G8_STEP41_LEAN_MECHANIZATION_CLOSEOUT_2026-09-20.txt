@@ -1,0 +1,65 @@
+INFINITY GRID — COMPONENTS / G8 — STEP41 LEAN MECHANIZATION
+CLOSEOUT — 20 September 2026
+
+STATUS
+Outcome: ABSTRACT_FINITE_ACYCLIC_NEUTRAL_BRIDGE_INTERFACE_THEOREM_MACHINE_CHECKED
+Lean: 4.19.0 (commit 6caaee842e94, Release)
+Repository: andreasebauer/Infinity-Grid-Cosmology
+Base branch: proof/mp4b-b2-20260915
+Base commit: 24d1b556e1127b1a2881b60d29303f28d4047793
+Mechanization branch: proof/components-step41-20260920
+Green head commit: 8bb01e4b59326a7a68a557998aabd56ee1c7f8ff
+GitHub Actions run: 35476399081
+Job: 105986272394
+Conclusion: SUCCESS
+Artifact ID: 10594306552
+Artifact digest: sha256:c6938a2d040161d3afe7be3ac579e8c94daa8d8c5a70089aa22a7e8dd203d407
+Downloaded evidence ZIP SHA-256: c6938a2d040161d3afe7be3ac579e8c94daa8d8c5a70089aa22a7e8dd203d407
+Draft PR: https://github.com/andreasebauer/Infinity-Grid-Cosmology/pull/1
+
+MACHINE-CHECKED CONTENT
+The final Lean source defines the Step41 abstract endpoint/interface model and proves:
+1. runTouches_eq_sub — sequential neutral touches give remaining0(u)-touchCount(u).
+2. touchCount_eq_of_perm — endpoint incidence is invariant under schedule permutation.
+3. finalRemaining_eq — exact local remaining-resource closed form.
+4. finalDeficitRaw_eq_closed — under capacity consistency and admission, final deficit is deficit0(u)+touchCount(u).
+5. interface_exact — sequential raw resource evolution commutes exactly with Q+=(P,F,H,J) projection.
+6. closedFormInterface_perm — closed-form Q+ is invariant under every permutation of the same endpoint-touch schedule.
+7. sequentialInterface_perm — all admitted schedule permutations yield the same projected Q+ state.
+8. fixed_context_congruence — with fixed typed endpoint context, only touch multiplicities affect final Q+.
+9. ComponentTree.edgeCount_eq_vertexCount_sub_one — the recursive finite component network has |E|=|V|-1.
+10. finiteAcyclicNeutralBridgeInterfaceTheorem — for a finite syntactic acyclic ComponentTree with concrete bridge endpoints, an admitted neutral bridge schedule is projected exactly by the closed form, is order-independent, and has the finite-tree edge count.
+
+The ComponentTree link constructor records the two concrete endpoints touched by each bridge; touchSchedule is induced from the finite tree itself. The theorem therefore no longer uses a vacuous status marker.
+
+AUDIT
+Build status: build=0, tee=0.
+Axiom audit: PASS for 10 named theorem declarations.
+Observed axioms: propext, Quot.sound only; both are within the frozen allowlist.
+Forbidden proof placeholders in ComponentsStep41.lean: none of sorry, admit, axiom, unsafe, native_decide.
+The two build messages are linter warnings about automatically included unused section variables; they do not affect compilation or theorem content.
+
+SOURCE HASHES FROM GREEN WORKFLOW
+f676f8f4e74e2fe60911afb31dd1dd124f0105e9eeb768b2c4c4a547b965ef7b  mp4a/IGMarker/ComponentsStep41.lean
+b7eab183a9c25a0819303de4e5960b5a8d18d807cd86b74da96bedecd7b2849b  mp4a/AxiomCheckComponentsStep41.lean
+c93b040b49d487b2310e5d5306788715e20d23658c7b4ae7098a8ee4909c8e51  STEP41_P0_THEOREM_CONTRACT.txt
+b33a16fe41388d0c1af3d0ded601e844f061f920f11be05e04e9288afb9d1485  evidence/STEP41_LEAN_SOURCE.tar
+
+PROVENANCE OF REPAIRS
+Early mechanization attempts were not relabelled as success. The first attempt exposed unsupported/core syntax and finite-enumeration choices; the second isolated one Nat subtraction/count commutativity goal. Those failed evidence archives are retained in this closeout bundle. A later green build established the core theorem algebra, after which the final combined theorem was added and independently rebuilt/audited in run 35476399081.
+
+CRITICAL SCOPE BOUNDARY
+This is a machine-checked ABSTRACT theorem matching the Step41 interface mathematics. It is not, by itself, a machine-checked refinement theorem from the historical G8 Python implementation (including g7_s5.py, join_child, validate_tree/generated-domain recognition, or saved Step37R–40 raw data) into the Lean definitions.
+
+Accordingly the earned two-tier status is:
+- abstract finite acyclic neutral-bridge interface theorem: MACHINE-CHECKED;
+- concrete historical Python/source/data -> Lean-model refinement: OPEN as a separate binding/certificate obligation.
+
+The theorem also does not extend the earned scope to cycles/multiple edges, non-neutral operator pairs, arbitrary interleaving with internal formation/writes, infinite networks, or derivation of the Step28 structured seed.
+
+FILES
+final_source/ contains the exact source tar contents used by the green workflow.
+evidence/ contains the green CI evidence and source tar.
+failed_attempts/ preserves the first two failed compile evidence archives.
+The extracted mathematical Step41 theorem text is included at bundle root.
+

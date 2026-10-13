@@ -1,0 +1,114 @@
+{
+  "const": {
+    "authority_match": {
+      "O12_O13_raise_audit_science_sha256": "bb72e245aa1549db41c9aaf5dfccc735aafefb469666084f2cfee9accb2593f1",
+      "depth_erased_normalized_org_law_science_sha256": "1bbc1b182124e30ab83b49b0d27148b3719f67264859396626809b96f99c685e"
+    },
+    "diversity": {
+      "edge_count_hist": {
+        "10": 19,
+        "11": 10,
+        "12": 6,
+        "13": 2,
+        "14": 1,
+        "15": 2,
+        "3": 6,
+        "4": 12,
+        "5": 22,
+        "6": 28,
+        "7": 30,
+        "8": 30,
+        "9": 25
+      },
+      "organizational_classes": 155,
+      "owner_count_hist": {
+        "4": 18,
+        "5": 42,
+        "6": 133
+      },
+      "topology_classes": 139
+    },
+    "lane_hashes": {
+      "branching": "fefa9911886385df08d6fc48a2474ce460037a70547821c3ddb060edc259224f",
+      "lineage": "1e3aecfdfe4f98ead4b66a18db7a1c1b981db85bf81473c0056345090a85c05f",
+      "symmetry": "3050e1b9a978bc71635962acde66747271b1db13a6e655fa981a2f0c98752907",
+      "topology_services": "d3cf1bb646a602ea97e89e46c1c57294fa5909f3efb11d582f15b1df14c4be2e"
+    },
+    "normalized_lane_payloads": {
+      "branching": {
+        "action_orbits_max": 465,
+        "action_orbits_median": 465,
+        "legal_action_labels_max": 465,
+        "legal_action_labels_median": 465,
+        "service_classes_max": 310,
+        "service_classes_median": 93,
+        "type_pair_support_max": 31,
+        "type_pair_support_min": 31
+      },
+      "lineage": {
+        "bridge_fraction_median": 0.0,
+        "cycle_rank_median": 3,
+        "factor_fiber_max": 15,
+        "factor_fiber_median": 7
+      },
+      "symmetry": {
+        "automorphism_size_max": 2,
+        "automorphism_size_median": 1,
+        "owner_orbits_median": 4
+      },
+      "topology_services": {
+        "access_bottleneck_service_present": true,
+        "articulation_hist": {
+          "0": 93,
+          "1": 58,
+          "2": 30,
+          "3": 11,
+          "4": 1
+        },
+        "beta_hist": {
+          "0": 21,
+          "1": 31,
+          "10": 2,
+          "2": 35,
+          "3": 37,
+          "4": 27,
+          "5": 19,
+          "6": 12,
+          "7": 6,
+          "8": 2,
+          "9": 1
+        },
+        "diameter_hist": {
+          "1": 7,
+          "2": 106,
+          "3": 65,
+          "4": 14,
+          "5": 1
+        },
+        "service_signature_classes": 91
+      }
+    },
+    "obstruction_relief": {
+      "all_bridge_types_supported_everywhere": true,
+      "all_owner_pairs_have_some_action": true,
+      "zero_action_states": 0
+    },
+    "overlap_gluing": {
+      "intersection_realized_fraction": 0.0001079447322970639,
+      "shared_fiber_pairs": 5,
+      "strict_inclusions": 0,
+      "union_realized_fraction": 0.0001079447322970639
+    },
+    "quotient_observer": {
+      "note": "v2 does not use exact resource-skin population counts for promotion; the exact twin/topology separation authority is inherited separately.",
+      "resource_population_materialized": false,
+      "same_resource_topology_hidden_witness": "TWIN_A_TWIN_B_INHERITED_EXACT_AUTHORITY"
+    },
+    "recipe_catalogue_sha256": "af3270c92cca416c524b7f8dac6bc425102fbc634703a242105e7660c972a197",
+    "recipe_count": 193,
+    "resource_sha256": "6c9f302861f32945aacb25bae3567f26034377043a044fab92d7a167e1f8e678",
+    "schema": "IG_O_REGIME_STREAMING_STATIC_RECIPE_BASELINE_V2",
+    "static_signature_sha256": "f65d3828f35b09071b6854398fa851880eed9bf70631b169b643c617c3998b2a"
+  },
+  "type": "object"
+}

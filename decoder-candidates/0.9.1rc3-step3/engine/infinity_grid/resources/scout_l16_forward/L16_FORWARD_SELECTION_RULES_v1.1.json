@@ -1,0 +1,39 @@
+{
+  "D_lane": {
+    "binary_float_in_ordering_key": false,
+    "distance": "EXACT_SQUARED_EUCLIDEAN",
+    "feature_vector": [
+      "port_count",
+      "distinct_port_types",
+      "max_port_multiplicity",
+      "port_multiplicity_square_sum",
+      "destination_count",
+      "distinct_destination_types",
+      "max_destination_multiplicity",
+      "destination_multiplicity_square_sum",
+      "label",
+      "score",
+      "stay"
+    ],
+    "implementation": "INTEGER_COMMON_DENOMINATOR_LCM_OF_RANGE_SQUARES",
+    "initial_seed": "MINIMUM_SHA256",
+    "normalization": "EXACT_RATIONAL_MIN_MAX",
+    "tie_direction_after_seed": "MAXIMUM_SHA256",
+    "tolerance_pseudo_ties": false
+  },
+  "lane_order": [
+    "D",
+    "B",
+    "S",
+    "O",
+    "L"
+  ],
+  "no_outcome_feedback": true,
+  "other_lanes": "UNCHANGED_FROM_HISTORICAL_L16_V1",
+  "per_lane": 256,
+  "root_count": 1089,
+  "rules_sha256": "8fd2b9d647e074e68f048c79c1320a15019dd484f35ce8dc3fdf1b9646b85bd2",
+  "schema_id": "IG_L16_FORWARD_SELECTION_RULES_V1_1",
+  "scope": "BOUNDED_PREREGISTERED",
+  "selection_sealed_before_relation_analysis": true
+}

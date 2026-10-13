@@ -1,0 +1,156 @@
+{
+  "certified_seed_carrier_refs": [
+    "D2_BROOM",
+    "D2_PATH",
+    "D4_BROOM",
+    "D4_PATH"
+  ],
+  "graduated_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+  "graduated_law": {
+    "enabled": "f_a>0 and g_b>0",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR",
+    "state": "D=(f,m) in N^7 x N^4",
+    "write": "D_out=(f+g-e_a-e_b,m+n)"
+  },
+  "notes": [
+    "Snapshot binds only authority needed by frozen G6 S0; exact seed carriers are rebuilt by certified deterministic G5 constructors."
+  ],
+  "operator_basis": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      6,
+      6
+    ]
+  ],
+  "recursive_theorem_consequence": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR_FACTOR_THROUGH_CAPS7_PLUS_H_CLASS_BAG",
+  "schema_id": "IG_G6_PARENT_G5_S6_SEED_AUTHORITY_V1",
+  "science_sha256": "5ed239253794ceb62074adab64d77cdd5fd8d6dee86a4865574191d747bd8305",
+  "seed_carrier_source": "G5_S6_FRESH_HOLDOUT_DEEP_P5_CARRIER_SEQUENCE_UNION",
+  "source_artifacts": {
+    "g5_graduation_decision_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "g5_s6_independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "g5_s6_primary_file_sha256": "3bd7b9e4eb729c13ee730288393ccff341073847cb65b7f00b6fa7eecfedd210",
+    "g5_s6_primary_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b"
+  },
+  "status": "CERTIFIED_PARENT_SNAPSHOT"
+}
+

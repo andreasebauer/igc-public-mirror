@@ -1,0 +1,8 @@
+[console_scripts]
+ig = infinity_grid.controller:main
+ig-decoder = infinity_grid.controller:main
+ig-decoder-recover = infinity_grid.change_sessions:main
+ig-execution-status = infinity_grid.v05_execution_authority:main
+ig-lockdown = infinity_grid.v05_execution_authority:main
+ig-registered-service = infinity_grid.controller:main
+igref = infinity_grid.controller:main

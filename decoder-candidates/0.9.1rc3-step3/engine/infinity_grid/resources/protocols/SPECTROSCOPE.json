@@ -1,0 +1,78 @@
+{
+  "acceptance_gates": [],
+  "allowed_protocol_labels": [
+    "SPECTROSCOPE_RECOGNITION_ONLY"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "EXACT_BOUNDED",
+        "OBSERVED",
+        "RECONNAISSANCE_ONLY",
+        "SPECTROSCOPE_RECOGNITION_ONLY"
+      ]
+    ],
+    "max_authority": "RECONNAISSANCE_ONLY"
+  },
+  "forbidden_claims": [
+    "first occurrence",
+    "c_proved",
+    "mechanism promotion",
+    "geometry promotion",
+    "graduated"
+  ],
+  "input_contract": {
+    "required_flags": {
+      "scanner_closed": true
+    }
+  },
+  "observer_contract": null,
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "scanner_closed"
+      ],
+      "allowed_protocol_labels": [
+        "SPECTROSCOPE_RECOGNITION_ONLY"
+      ],
+      "profile_id": "l15_recognition_reference",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "adapter.scout_l15",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "L",
+        "level": 15
+      }
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "SPECTROSCOPE",
+  "purpose": "Recognition-only analysis of already closed Scanner/Scout relation input.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "recognition",
+      "purpose": "recognition only"
+    }
+  ],
+  "stopping_rules": {
+    "cannot_influence_scanner_input": true,
+    "fail_closed": true
+  },
+  "version": "0.17"
+}

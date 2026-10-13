@@ -1,0 +1,103 @@
+{
+  "authority": {
+    "g3_r0_replay_science_sha256": "d37ee549a296e1ff4b739d33b18e6af61c29e851c5e77678e78725d45ee771d9",
+    "g3_r0_science_sha256": "3a70cd13b3b410f97dc59c260f6cf5e42d851a9982cad484b8763899b7b890bd",
+    "r0_n4_coarse_topology_count": 2,
+    "r0_n4_exact_branch_count": 24576,
+    "r0_n4_fine_topology_count": 196,
+    "r0_n4_public_caps7_count": 1
+  },
+  "candidate_read_audit": {
+    "complexity_tiers": {
+      "ARTICULATION_COUNT": 1,
+      "DEGREE_SEQUENCE": 2,
+      "DEGREE_SEQUENCE_PLUS_WIENER": 3,
+      "DIAMETER": 1,
+      "FULL_TREE_CANON": 5,
+      "LEAF_COUNT": 1,
+      "MAX_DEGREE": 1,
+      "RADIUS": 1,
+      "SHELL_PROFILE_MULTISET": 4,
+      "WIENER_INDEX": 1
+    },
+    "continuation_sufficiency_gate": "Within each parent rank n<=11, equal candidate values must imply the same set of unlabelled child topologies under all one-leaf attachments.",
+    "exact_witness_gate": "Report whether each candidate separates the certified R0 n=4 path/star witness.",
+    "ordered_candidates": [
+      "MAX_DEGREE",
+      "LEAF_COUNT",
+      "DIAMETER",
+      "RADIUS",
+      "ARTICULATION_COUNT",
+      "WIENER_INDEX",
+      "DEGREE_SEQUENCE",
+      "DEGREE_SEQUENCE_PLUS_WIENER",
+      "SHELL_PROFILE_MULTISET",
+      "FULL_TREE_CANON"
+    ],
+    "selection_rule": "Select every candidate in the lowest complexity tier that passes both topology separation through n<=12 and one-step continuation sufficiency through n<=11. If only FULL_TREE_CANON passes, report no compact candidate. Minimality is only within this frozen library/tiering.",
+    "topology_separation_gate": "Within each rank n<=12, equal candidate values must imply equal unlabelled topology canonical form."
+  },
+  "date": "2026-09-03",
+  "fiber_base": {
+    "algebraic_geometry_language": "finite combinatorial fiber/moduli analogy only; no variety, scheme, stack, dimension, or moduli-space structure is assumed",
+    "coarse_stratum": "unlabelled intrinsic G2-unit tree topology",
+    "coordinates": [
+      "G2_UNIT_COUNT",
+      "CAPS7",
+      "G3_TYPED_BRIDGE_CONSUMPTION_VECTOR"
+    ],
+    "exact_fiber_scope": "Use the already-certified R0 n=4 exact relation census; do not rematerialize its 24576 exact branches.",
+    "fine_substratum": "unlabelled flattened G1 tree topology"
+  },
+  "gates": {
+    "authority": "Certified R0 result and exact cold replay comparison must pass and preserve G3 graduation/topology firewall.",
+    "fiber_nontriviality": "The certified n=4 fiber must contain one public/resource base, >1 coarse topology strata, and >1 fine topology substrata.",
+    "no_promotion": "No candidate read can be promoted; G3 graduation is preserved and G4 remains unstarted.",
+    "r0_prefix": "Structural tree generator must reproduce certified R0 tree-shape counts through n=7.",
+    "relation_valued_grafting": "At least one public/resource transition must have more than one intrinsic child topology under leaf attachment."
+  },
+  "nonclaims": [
+    "NO_TOPOLOGY_PROMOTION_TO_G3_STATE",
+    "NO_G4_LAUNCH",
+    "NO_G4_OBSERVER_ASSUMPTION",
+    "NO_PHYSICAL_SPACE",
+    "NO_SPACETIME",
+    "NO_DIMENSION",
+    "NO_CONTINUUM",
+    "NO_METRIC_EMBEDDING",
+    "NO_TIME",
+    "NO_ALGEBRAIC_VARIETY_SCHEME_OR_STACK_CLAIM",
+    "NO_GLOBAL_MINIMALITY_OF_SELECTED_TREE_READ",
+    "NO_EXACT_N_GREATER_THAN_4_G3_RELATION_FRONTIER_MATERIALIZATION",
+    "NO_EXACT_R0_STRATUM_BRANCH_CARDINALITY_RECONSTRUCTION"
+  ],
+  "observer": {
+    "firewall": "R1 is reconnaissance only. Candidate tree reads are not added to G3 public state or action semantics and cannot launch G4.",
+    "name": "G3_R1_FINITE_FIBER_MODULI_RECON_OBSERVER_V1",
+    "reads": [
+      "certified R0 exact n=4 fiber summary and path/star witness",
+      "coarse unlabelled G2-unit tree topology for structural tree-shape certificates",
+      "CAPS7 only as graduated public-state coordinate",
+      "typed G3 bridge-consumption vector as toric/resource degree coordinate",
+      "preregistered intrinsic tree candidate reads solely for non-promoting challenge analysis"
+    ]
+  },
+  "outcomes": {
+    "fail": "G3_R1_REVIEW_REQUIRED_NO_PROMOTION",
+    "null": "G3_R1_FIBER_TRIVIAL_OR_NO_TOPOLOGY_BRANCHING_ON_FROZEN_SCOPE",
+    "pass_compact": "G3_HIDDEN_TREE_MODULI_PRESENT_RELATION_VALUED_FIBER_GRAFTING_COMPACT_TREE_READ_CANDIDATE_EARNED_G4_NOT_STARTED",
+    "pass_no_compact": "G3_HIDDEN_TREE_MODULI_PRESENT_RELATION_VALUED_FIBER_GRAFTING_NO_COMPACT_READ_FOUND_ON_FROZEN_LIBRARY_G4_NOT_STARTED"
+  },
+  "question": "After certified G3:R0, what finite combinatorial fibers of exact hierarchical G3 realizations lie over fixed CAPS7 plus typed bridge-resource data, how does one-cross G3 composition act on those fibers, and what lowest-complexity preregistered intrinsic tree read is sufficient to distinguish topology and its one-step continuation on the frozen structural scope?",
+  "schema_id": "IG_G3_R1_FIBER_MODULI_AUDIT_SPEC_V1",
+  "science_sha256": "47ff71ca324eac6f1af1617e8e9a3527838a23c4538936c34c505f7f25351f21",
+  "shape_transition_census": {
+    "composition_read": "For each topology record the set and attachment-vertex multiplicity of child topologies under one-leaf grafting.",
+    "construction": "Starting from the one-vertex tree, generate every unlabelled tree at rank n+1 by attaching one new leaf at every vertex of every rank-n tree and canonical-deduplicating.",
+    "max_g2_units": 12,
+    "r0_prefix_gate": "Ranks 1..7 must reproduce the certified R0 unlabelled-tree counts exactly before any extension is accepted.",
+    "realisability_gate": "The certified R0 seed and repeated G3 bridge operator must have endpoint headroom for every vertex degree <=11; the one-cross leaf-addition theorem then structurally realizes every generated shape without exact n>4 relation-frontier materialization."
+  },
+  "stage_ref": "G3:R1",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

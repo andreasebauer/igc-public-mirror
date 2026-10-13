@@ -1,0 +1,77 @@
+{
+  "chain_id": "g6-s2-repaired-2026-09-07",
+  "commit_sha256": "98775b0e2e8902a1514aa1340f5f4969c131fa1a857f16602c418983bccbe27e",
+  "committed_utc": "2026-09-06T22:16:58.014672+00:00",
+  "outcome": "PASS_DISCRETE_KERNEL_L1",
+  "question_sha256": "ae73d240f2fb80e92d43e635e6e0ae83e59d61c79efdd3523ba8dbfdc17e3d76",
+  "registration_sha256": "a18321d3429495decd8d24900e820e90e678f646f3a7685a16fa571b7550e14c",
+  "result": {
+    "authority": {
+      "s0_commit_sha256": "ea639554135a408c302192e40166fc109d62c7ec28d4191e731115058332f984",
+      "s1_commit_sha256": "d384733310698e2540642bc535c6650cea620573ec35156aa59403f51b215a8d",
+      "s1r_commit_sha256": "411444399f52c8d88d068ae476f841afbba8a0c01635afc12bc7503ab70a5811",
+      "s1r_science_sha256": "20d53753244fd41506d139adb93be046667fa45a631abc7bbcaaa9f141615930",
+      "selected_candidate": "C3_ROOTED_OWNER_RESPONSE_BAG"
+    },
+    "candidate_input_role": "CERTIFIED_EXACT_STATE_UPPER_BOUND_AND_UNIVERSE_BINDING_ONLY",
+    "candidate_promoted": false,
+    "exact_s1_child_universe_count": 4520,
+    "exact_s1_child_universe_sha256": "2c1ffee315adada202ec472acb06f9fef9871ebbb273075b0dd0ef2a7d523f30",
+    "final_behavior_class_count": 4520,
+    "final_max_class_size": 1,
+    "final_multi_class_count": 0,
+    "full_behavior_quotient_sha256": null,
+    "g6_graduated": false,
+    "hashes_used_for_index_and_sample_only": true,
+    "hidden_topology_promoted": false,
+    "independent_verification": {
+      "contexts_per_state": 1,
+      "first_failure": null,
+      "relation_evaluations_checked": 128,
+      "relation_evaluations_planned": 128,
+      "sample_count": 128,
+      "status": "PASS"
+    },
+    "monotonicity_rule_applied": true,
+    "next_authorized": "G6:S3_REPAIRED_REGISTRATION_DESIGN",
+    "nonclaims": [
+      "NO_GLOBAL_G6_MINIMALITY",
+      "NO_GLOBAL_C3_NECESSITY",
+      "NO_TOPOLOGY_PROMOTION",
+      "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+      "NO_G6_GRADUATION",
+      "NO_AUTOMATIC_RESUME_OF_OLD_S3"
+    ],
+    "outcome": "PASS_DISCRETE_KERNEL_L1",
+    "partition_levels": [
+      {
+        "class_count": 4520,
+        "contexts_added": 1,
+        "contexts_total": 1,
+        "first_surviving_multi_class": null,
+        "level": "L1_FIRST_CONTEXT",
+        "max_class_size": 1,
+        "multi_class_count": 0,
+        "relation_evaluations": 4520,
+        "states_evaluated": 4520
+      }
+    ],
+    "primary_relation_evaluations": 4520,
+    "promotion": false,
+    "public_descriptor_promoted": false,
+    "question_sha256": "ae73d240f2fb80e92d43e635e6e0ae83e59d61c79efdd3523ba8dbfdc17e3d76",
+    "registered_contexts_used": 1,
+    "schema_id": "IG_G6_S2_REPAIRED_RESULT_V1",
+    "science_sha256": "bc3cbcee98d74a82e021d35b831b9bea8a50d7963ea5d785c6de54a2927a4235",
+    "selected_level": "L1_FIRST_CONTEXT",
+    "stage_id": "G6:S2R",
+    "status": "PASS",
+    "structural_equality_used_for_decision": true,
+    "used_contexts_sha256": "4e616ef7f6984bee5c6122832cebd98163c60e77f248f4a685e5b09f5143885a"
+  },
+  "result_sha256": "b894062d1ed79c5cd50d9f9de9c2f7611239dff4b4b205e731345f1ab7ad2378",
+  "run_record_sha256": "4babd2148ab53acb0107fe33b286bad38eea0edbfe031a96486c047fa46295b5",
+  "schema_id": "IG_DECODER_V05_SCIENTIFIC_CHAIN_STAGE_COMMIT_V1",
+  "series": "S",
+  "stage_id": "G6:S2R"
+}

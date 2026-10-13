@@ -1,0 +1,103 @@
+CURRENT ISOLATED REPAIR CANDIDATE: 0.8.0.dev83+lib
+Qualification pending. See qualification/READ_FIRST.txt and PROFILE.json.
+Historical notes below retain their original scope and versions.
+
+CURRENT ISOLATED REPAIR CANDIDATE: 0.8.0.dev82+lib
+Qualification pending; see READ_FIRST_DEV82_PUBLICATION_REPAIR_2026-09-26.txt.
+Prior candidates and historical notes follow.
+
+CURRENT ISOLATED REPAIR CANDIDATE: 0.8.0.dev81+lib
+Qualification pending; see READ_FIRST_DEV81_AUDIT_REPAIR_2026-09-26.txt.
+Prior qualified working candidate and historical notes follow.
+
+CURRENT WORKING CANDIDATE: 0.8.0.dev80+lib
+Parent: dev79 source 9516822cd5073d2c9573572d9cf3de6aa2caa52664bb9cdc374c675dd5bd97d0.
+Bounded change: local replay-index serialization, stale runner refusal, retained-record rollback detection, and reference transaction recovery after manifest publication.
+Qualification is established only by the exact registered completion for this source; this file is not a PASS receipt. See READ_FIRST_DEV80_INDEX_REPAIR_2026-09-24.txt.
+Shared pointer last verified at dev36; no shared promotion is part of this change.
+Main preserved replay frontier: 30 nodes, 133 records, next O4_O7/S. C1 coverage is historical migration comparison, not a fresh L0-to-G8 replay.
+
+HISTORICAL BRANCH NOTES FOLLOW (their version and scope apply to their original stages):
+
+DECODER 0.8lib: isolated development branch, canonical package version 0.8.0.dev21+lib.
+Parent: exact0.7RC0/0.7.0.dev4 archive6ec2a414c7c52eee50e2bc6ae58cc6a55f469961f678041958a2bbb92d65c4ad.
+Complete source copy, including original modules/resources/tests. Shared release is unchanged.
+First real replacement: regime_scanner._automorphisms now dispatches to igraph/BLISS for the qualified typed-support domain. Original exact routine is retained as _automorphisms_legacy. _action_aggregate accepts optional automorphism_backend='legacy'|'igraph_bliss'|'auto'; defaultauto uses BLISS for eligible inputs and legacy elsewhere. graph_library_backend.select_backend and usage expose selection. No fallback on missing library, backend error, or invalid library output. Explicitigraph outside domain refuses.
+Domain:1..6owners,7exact nonnegative integers per owner color,0..5normalized tuple edges, distinct owners,types0..6. List-edge misuse remains outside domain and follows legacy underauto; explicitigraph refuses. This preserves old behavior outside the replacement contract; do not treat malformed private-API input as supported mathematics.
+Canonical state labeling/hashes, construction/resource semantics and all other algorithms remain on their existing paths. This is the first replacement, not migration of every custom routine. Group generators are projected to owners before closure, eliminating duplicate-edge gadget permutations from the returned owner group. Full sorted owner maps retain original API semantics.
+Install dependencies frompyproject.toml; igraph1.0.0 required. The complete pinned wheelkit/runtime manifest accompanies qualification. Run mathematical work only through registered Decoder. All source,origin,receipt and restoration guards remain active.
+Version parsing is narrowly extended to0.8.*(+lib), retaining0.6/0.7 acceptance; malformed labels still reject. This is a declared version compatibility change, not an authority exception. Existing project migrations require proper qualification and publicproject_migration; never edit current-head files. New branch qualification uses supportedcandidate_workflow. Legacy0.7change_sessions cannot parse0.8 versions; use the qualified branch's administrative tooling for later branch work.
+Qualification is external to immutable source. Read the exact-source-bound report and candidate record; the build metadata's pending marker records creation-time state and is not edited after tests. No shared promotion, broad performance claim or universal scientific equivalence is implied.
+
+Dev4: recorded fixture adoption, idempotent artifact-directory setup, and shared scheduler recognition across restored admission and loaded runtime roots. Native module identity and live controller authority checks remain required. Qualification is pending in this immutable source; consult the external exact-source-bound report.
+
+Dev8 adds bounded igraph graph measurements for 1..6 vertices and up to five
+undirected edges, including loops/parallel edges, with exact integer endpoints.
+Original _graph_basic is retained as _graph_basic_legacy; auto uses it outside
+this domain. Explicit backend='igraph' refuses outside; library errors propagate.
+All output fields and disconnected/empty conventions retain legacy meaning.
+Canonical labeling and state identities are unchanged. Qualification is external
+and source-bound; this build is pending until the exact registered run passes.
+
+Dev9 replaces the projected owner-group queue closure inside the existing BLISS
+path with SymPy 1.14.0 PermutationGroup/Schreier-Sims enumeration. The qualified
+automorphism domain is unchanged. Sorted full owner maps, fixed points, the
+720-map limit, and graph/color replay checks remain. The original closure is
+retained for exact comparison; no library-error fallback is added. SymPy is now
+an explicit pinned installation dependency. Qualification remains external and
+exact-source-bound; this immutable build does not claim its tests have passed.
+
+Dev10 hardens validation recording. Each worker retains the phases it actually
+observes, keeps per-phase disk updates for interruption recovery, and writes and
+readback-verifies those observed records before reporting completion. It does
+not infer passes from pytest totals or invent missing phases. This addresses a
+missing final verification step; the cause of dev9's three incomplete records
+has not been established. Scientific/library routines and benchmark thresholds
+are unchanged. Full qualification remains external and exact-source-bound.
+
+Dev11 publishes each closed worker log under a fresh completed name without
+overwriting any prior evidence. The worker verifies published bytes; the parent
+independently checks the reported exact hash and byte count after the worker
+exits, before reducing results. Active output remains separate until closed.
+The existing completion/checkpoint integrity checks remain mandatory. The cause
+of dev10's later 1844-to-96-byte log discrepancy is not established; this closes
+an observed missing parent-readback check, not a claimed unique-cause repair.
+The explicit reviewed core-pin amendment includes validation runtime changes;
+the original historical hash table is unchanged. No scientific/library routine
+or timing gate changes. Qualification is pending and external to this source.
+
+Dev18 is a test-consistency successor to the preserved, rejected dev17 full
+qualification attempt. Production decoder logic is unchanged. It updates the
+two candidate-version assertions, records the already reviewed dev15 changes
+to preservation.py and result_contracts.py in the exact core-pin amendment,
+and corrects the obsolete arithmetic test: the retained historical backlog
+already fits the larger dev15 defaults, while a preservation amendment still
+changes only max_pending_bytes. No failed dev17 result was rewritten or retried.
+Qualification remains pending, external, exact-source-bound, and mandatory
+before any promotion; Decoder 0.7 remains active.
+
+Dev19 is a qualification-protocol successor to the preserved, rejected dev18
+WORKSPACE attempt. Production decoder logic is unchanged. The dev18 attempt is
+not retried or edited: its capture omitted the three prerequisite saved-stage
+fixture bindings and remains preserved as rejected evidence. Dev19 requires a
+fresh preregistration and explicitly binds saved_stage_one, saved_stage_four,
+and saved_stage_outcome by their verified hashes before any WORKSPACE attempt.
+Qualification remains pending, external, exact-source-bound, and mandatory
+before any promotion; Decoder 0.7 remains active.
+
+Dev20 is a qualification-capture successor to the preserved, rejected dev19
+FUNCTIONAL attempt. Production decoder logic is unchanged. The dev19 attempt
+is not retried or edited: its capture omitted the required
+step2_parent_snapshot input, so ten test bodies could not execute. Dev20
+requires that exact previously Drive-verified snapshot, SHA-256
+713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8,
+to be bound before FUNCTIONAL execution. Qualification restarts under the new
+exact source identity. Decoder 0.7 remains active.
+
+Dev21 is a qualification-store successor to the preserved dev20 FOCUSED
+pre-execution refusal. Production decoder logic is unchanged. Before any
+qualification capture, each fresh store must be initialized with portable-
+project coordination and a disposable preflight must verify that the capture
+contains PROJECT_BINDING.json and PROJECT_LOCATION.json. FUNCTIONAL must also
+bind the exact Step2 parent snapshot required by dev20. Qualification restarts
+under the new exact source identity. Decoder 0.7 remains active.

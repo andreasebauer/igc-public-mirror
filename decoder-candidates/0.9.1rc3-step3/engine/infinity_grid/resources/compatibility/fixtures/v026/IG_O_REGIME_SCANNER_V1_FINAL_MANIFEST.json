@@ -1,0 +1,115 @@
+{
+  "schema": "IG_O_REGIME_SCANNER_V1_FINAL_MANIFEST",
+  "files": [
+    {
+      "path": "00_READ_FIRST/START_HERE.txt",
+      "bytes": 1717,
+      "sha256": "8f165c24c3f940a14147aebc5b53c80f523153872071c0dd59aff3e33b904d45"
+    },
+    {
+      "path": "01_DECODER_SCANNER_SOURCE/cli.py",
+      "bytes": 34454,
+      "sha256": "896ed0e62c708d6a5c869fddaf92e5406e8a60cec07d12dceea5524c6fc6f5fd"
+    },
+    {
+      "path": "01_DECODER_SCANNER_SOURCE/regime_scanner.py",
+      "bytes": 52652,
+      "sha256": "de6eec039754cded5228d137936e92d5c241b28a65562563aa1565f379255a89"
+    },
+    {
+      "path": "01_DECODER_SCANNER_SOURCE/regime_scanner_validation.py",
+      "bytes": 11987,
+      "sha256": "df0c1bf8e1741126c88203f0f0ca6547895555359fd7e9747834249ec10b36dd"
+    },
+    {
+      "path": "02_SPECS/O_REGIME_ADAPTIVE_SCANNER_SPEC_v1.json",
+      "bytes": 12340,
+      "sha256": "25756d570d3407947e34442591c7facc2c72346c93e9fd87c8b40000fed3141b"
+    },
+    {
+      "path": "02_SPECS/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_SPEC_v1.json",
+      "bytes": 3681,
+      "sha256": "8ceadd790db3d57430f65e94750ff01a858a18c87873c8b64c0a570c83f62620"
+    },
+    {
+      "path": "02_SPECS/O_REGIME_EARNED_LAW_REGISTRY_v1.json",
+      "bytes": 2175,
+      "sha256": "0680ea394e694bc64a65f49c183f98f378d5636309100f8b04a3055581fbed8f"
+    },
+    {
+      "path": "02_SPECS/O_REGIME_MOTIF_LIBRARY_v1.json",
+      "bytes": 60119,
+      "sha256": "d3934660488d24bbaf5ab6552f26c6253fe6d5abea4c98fe6b05687e79e01428"
+    },
+    {
+      "path": "03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_ADAPTIVE_SCANNER_RESULT.json",
+      "bytes": 97328,
+      "sha256": "5ab3dd6a3558484469b7be19c5f15f659182ef119b8b9b1fd1c85491140c2c09"
+    },
+    {
+      "path": "03_RESULTS/CONTINUATION_AFTER_EARNED_LAW/O_REGIME_LEVEL_SERIES.json",
+      "bytes": 8716,
+      "sha256": "2ec3e2aa90e8a60e26ae9fd90914839824c4510eb83ee4db8ef3274e940b927b"
+    },
+    {
+      "path": "03_RESULTS/DEPTH_ERASING_VALIDATION/O_REGIME_DEPTH_ERASING_SERVICE_VALIDATION_RESULT.json",
+      "bytes": 9208,
+      "sha256": "98543af022d89afd9745d42748973ad3fb065bb1c8dfb88b1c4b093f0990efab"
+    },
+    {
+      "path": "03_RESULTS/FULL_DECODER_PYTEST.log",
+      "bytes": 12337,
+      "sha256": "88b4be93dfbf9fc7c3d5600495181842b53687a2b64fe427b81c406eb653f081"
+    },
+    {
+      "path": "03_RESULTS/FULL_DECODER_PYTEST_WITH_RUNTIME.log",
+      "bytes": 12337,
+      "sha256": "ccedeed15d303a932bfbe5fb5b6c5a850e551a5200bbf61d297937cb99da190d"
+    },
+    {
+      "path": "03_RESULTS/O12_O13_TARGETED_RAISE_AUDIT/O12_O13_GROUP_RAISE_AUDIT_PANEL_MEMBERSHIP.json",
+      "bytes": 3312,
+      "sha256": "320e3e4b4550747fe4653fbde92afa6868acc3ea79038b6b68081b21c553253c"
+    },
+    {
+      "path": "03_RESULTS/O12_O13_TARGETED_RAISE_AUDIT/O12_O13_GROUP_RAISE_AUDIT_RESULT.json",
+      "bytes": 17580,
+      "sha256": "a9ccfc042444ae5cd3ef5a97da087b1bc0da42024663f216120fe08830c3441b"
+    },
+    {
+      "path": "03_RESULTS/O12_O13_TARGETED_RAISE_AUDIT/run_audit.py",
+      "bytes": 514,
+      "sha256": "0cbe97a4cc2bc26ac5fd47f5b918785b80c9b49bbbcd2aa782971264512d0b21"
+    },
+    {
+      "path": "03_RESULTS/OFFICIAL_V1_1/O_REGIME_ADAPTIVE_SCANNER_RESULT.json",
+      "bytes": 67520,
+      "sha256": "152cf369ea9d8e20dccf066b1a318b7d44bb08bc6124099ab772695310b83110"
+    },
+    {
+      "path": "03_RESULTS/OFFICIAL_V1_1/O_REGIME_LEVEL_SERIES.json",
+      "bytes": 6332,
+      "sha256": "086f14d44c34a2d0e30b4d250dd2e322c1095657b7b705cc491b53ac64a16177"
+    },
+    {
+      "path": "03_RESULTS/SCANNER_PATCH_PYTEST.log",
+      "bytes": 98,
+      "sha256": "ebd938888ffaa2af3581cec946b9b58fbc84d3d34af429b416dd4a0ad79f1a12"
+    },
+    {
+      "path": "03_RESULTS/TEST_STATUS.txt",
+      "bytes": 691,
+      "sha256": "3cc2c8290d4f25ffe44b257bac6d290d874e9f23e06c22acc4168f9d1e7d050f"
+    },
+    {
+      "path": "04_TESTS/test_o_regime_scanner.py",
+      "bytes": 2768,
+      "sha256": "2e5f299118c9251eae0da7ec9004a7ef7641173f29515f38431a9b6e5d66d0c9"
+    },
+    {
+      "path": "05_PROVENANCE/Infinity_Grid_O_REGIME_SCANNER_v1_WORKING_CHECKPOINT_2026-08-30.zip",
+      "bytes": 31954,
+      "sha256": "6036a7b1c7cf530f5be2c962b90e03b3d2ab6276ed2cdb8759edc6800028cc1d"
+    }
+  ]
+}

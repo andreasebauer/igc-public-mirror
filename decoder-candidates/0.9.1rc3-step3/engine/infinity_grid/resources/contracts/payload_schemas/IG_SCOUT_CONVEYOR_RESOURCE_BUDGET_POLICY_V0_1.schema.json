@@ -1,0 +1,54 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budgets_are_frozen_before_execution": {
+      "type": "boolean"
+    },
+    "deterministic_chunking": {
+      "type": "boolean"
+    },
+    "memory": {
+      "type": "string"
+    },
+    "minimum_free_space": {
+      "type": "string"
+    },
+    "no_silent_tiering": {
+      "type": "boolean"
+    },
+    "preflight_estimate": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "storage": {
+      "type": "string"
+    },
+    "wall_time": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "budgets_are_frozen_before_execution",
+    "deterministic_chunking",
+    "memory",
+    "minimum_free_space",
+    "no_silent_tiering",
+    "preflight_estimate",
+    "schema_id",
+    "spec_sha256",
+    "storage",
+    "wall_time"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

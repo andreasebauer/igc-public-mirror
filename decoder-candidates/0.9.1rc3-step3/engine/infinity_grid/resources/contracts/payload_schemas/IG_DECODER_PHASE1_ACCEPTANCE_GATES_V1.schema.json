@@ -1,0 +1,50 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "category",
+          "id",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graduation": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "count",
+    "gates",
+    "graduation",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_DECODER_PHASE1_ACCEPTANCE_GATES_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

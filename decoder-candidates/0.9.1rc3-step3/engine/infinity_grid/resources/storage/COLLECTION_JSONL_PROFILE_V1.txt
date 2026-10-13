@@ -1,0 +1,44 @@
+IG STORAGE COLLECTION KEY PROFILE V1 — bounded implementation profile
+
+This supplements, and does not edit, the frozen storage contract schema.
+A CollectionRef.key_definition_ref must bind exact canonical JSON with keys:
+schema_id = IG_STORAGE_COLLECTION_KEY_PROFILE_V1
+format = CANONICAL_STORAGE_JSONL_V1
+key_encoding = CANONICAL_STRING_ARRAY_UTF8_HEX
+order = ASCII_BYTEWISE
+bounds = INCLUSIVE_DISJOINT
+key_fields = array of 1..8 distinct field paths; each path is 1..8 field names.
+
+Each shard is one or more canonical storage-contract records separated by LF,
+including a final LF. No blank lines, BOM, compression or alternate codecs.
+Selected key fields must exist and contain nonempty strings. In declared path
+order, encode their values as a canonical JSON array with IG canonical UTF-8,
+then lowercase hex-encode those bytes. Compare ASCII key bytes lexicographically.
+No locale, Unicode normalization, numerical coercion or scientific identity
+replacement occurs. This encoding is injective for the selected string tuples.
+Key length is bounded to 4096 ASCII bytes. Parent/page/shard key bounds are
+inclusive; adjacent ranges must be strictly disjoint. Distinct meaningful
+occurrences must have distinct keys, even when they share object/payload bytes.
+
+Default and maximum admitted resource envelope per verification pass:
+256 KiB page; 4 MiB shard; 64 KiB record; 64 MiB total fetched content;
+4096 pages; 4096 shards; 100000 records; 1024 entries/page; depth 32.
+The key profile is at most 16 KiB and counts toward total fetched bytes.
+These are engineering limits, not a claim that the operating envelope has
+been measured at maximum scale. Smaller positive integer limits are accepted.
+Each fetch hashes and length-checks bytes before parsing. Raw shard memory is
+bounded to one shard per active leaf. Pages are retained along a depth-bounded
+stack. Full verified output may require more resources in downstream consumers.
+
+collection_records is provisional until fully exhausted. verify_collection
+consumes all records and commits only a final structural report.
+build_collection_index verifies once, then re-verifies during the existing
+explicit staged index build, whose destination is published only on completion.
+A failed staged index is retained for inspection; no existing index is removed.
+
+No dependency closure, payload decoding, NativeRef resolution, release-root
+admission, authority decision or PublicationSeal verification is performed here.
+Caller-supplied release_root remains only the existing projection binding.
+SCHEMA_FIXTURE and SCIENCE purpose must match across page and record envelopes;
+SCIENCE purpose alone grants no authority. Both return NOT_GRANTED acceptance.
+Legacy reference-record and unregistered schemas are refused by this profile.

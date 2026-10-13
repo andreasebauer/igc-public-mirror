@@ -1,0 +1,39 @@
+{
+  "schema_id": "IG_RESEARCH_FRONTIER_V1",
+  "schema_version": "1.0.0",
+  "frontier_id": "IG_RESEARCH_FRONTIER_CURRENT_V1",
+  "status": "AUTHORITATIVE_GENERIC_PROTOCOL_MIGRATION_FRONTIER",
+  "current_entity_class_ref": "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0",
+  "current_regime_ref": "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0",
+  "latest_verified_regime_depth": 13,
+  "active_regime_law_refs": [
+    "O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+    "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1"
+  ],
+  "active_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0"
+  ],
+  "available_test_pack_refs": [
+    "IG_TEST_PACK_O7_MATURATION_COMPAT@1.0.0"
+  ],
+  "open_finding_refs": [],
+  "plateau_state": "NOT_CERTIFIED_UNDER_GENERIC_PROTOCOL_LAYER",
+  "lift_state": "NOT_EARNED_UNDER_GENERIC_PROTOCOL_LAYER",
+  "next_admissible_scientific_actions": [
+    "Freeze and compile RunPlan V2 against this ResearchFrontier.",
+    "Use the O7..O13 compatibility executor only as migration evidence, not new science.",
+    "Extract live capability providers and MaturationAuditor before generic TestPack execution is promoted beyond O13.",
+    "Keep Plateau and Lift as separate future certificates."
+  ],
+  "evidence_refs": [
+    {
+      "id": "O7_GENERIC_PROTOCOL_COMPATIBILITY_EQUIVALENCE",
+      "version": "v0.27.1",
+      "role": "generic protocol migration evidence",
+      "scope": "O7 through O13; no new scientific claim",
+      "sha256": "497b4305d8df5186f8cdc9c4d2c7012cbb4adf65c5c19421f5831b712ac48bd9"
+    }
+  ],
+  "software_release_state_ref": "IG_DECODER_CURRENT_STATE_V5",
+  "rule": "SCIENTIFIC_FRONTIER_IS_SEPARATE_FROM_SOFTWARE_RELEASE_STATE"
+}

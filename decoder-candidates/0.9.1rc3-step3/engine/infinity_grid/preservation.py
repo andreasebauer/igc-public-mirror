@@ -1,0 +1,867 @@
+"""Native checkpoint/outbox bookkeeping; transport is an explicit capability."""
+from contextlib import contextmanager, closing
+from contextvars import ContextVar
+from pathlib import Path
+import argparse
+import hashlib
+import io
+import json
+import os
+import shutil
+import sqlite3
+import tempfile
+import time
+import zipfile
+
+from .canon import canonical_bytes, canonical_sha256, write_json_atomic
+from . import submission as sub
+
+_ACTIVE = ContextVar('decoder_preservation', default=None)
+SCHEMA = 'IG_DECODER_CHECKPOINT_V1'
+
+
+def _zip_files(raw):
+    with zipfile.ZipFile(io.BytesIO(raw)) as z:
+        if len(z.namelist())!=len(set(z.namelist())):raise sub.SubmissionError('CHECKPOINT_DUPLICATE_PATH')
+        for n in z.namelist():sub._relative(n)
+        return {n:z.read(n) for n in z.namelist()}
+
+
+def _project_delta(base,full):
+    old=_zip_files(base);new=_zip_files(full)
+    if any(new.get(k)!=v for k,v in old.items()):raise sub.SubmissionError('PROJECT_BASELINE_NOT_RETAINED')
+    return sub._archive({k:v for k,v in new.items() if k not in old})
+
+
+def _restore_project(base,delta,expected):
+    files=_zip_files(base)
+    for name,raw in _zip_files(delta).items():
+        if name in files and files[name]!=raw:raise sub.SubmissionError('PROJECT_DELTA_OVERWRITE')
+        files[name]=raw
+    raw=sub._archive(files)
+    if sub._sha(raw)!=expected:raise sub.SubmissionError('PROJECT_DELTA_HASH')
+    return raw
+
+
+def _root(workspace): return Path(workspace).resolve() / 'durability/outbox'
+
+
+def _put(workspace, raw):
+    row = sub._put_object(_root(workspace), raw, '.bin', 'checkpoint_object')
+    return {'sha256': row['sha256'], 'size_bytes': row['size_bytes']}
+
+
+def _bytes(workspace, row):
+    path = _root(workspace) / 'objects' / (row['sha256'] + '.bin')
+    if path.is_symlink() or not path.is_file():raise sub.SubmissionError('OUTBOX_OBJECT_MISSING',row['sha256'])
+    raw = path.read_bytes()
+    if sub._sha(raw) != row['sha256'] or len(raw) != row['size_bytes']:
+        raise sub.SubmissionError('OUTBOX_OBJECT_MISMATCH', row['sha256'])
+    return raw
+
+
+def _receipt(workspace, row, *, ambiguous=False):
+    from .save_transport import RECEIPT as TRANSPORT_RECEIPT, valid_receipt as valid_transport_receipt
+    for root in (_root(workspace)/'receipts', Path(workspace)/'durability/receipts'):
+        for p in (root/row['sha256']).glob('*.json'):
+            try: receipt=sub._read(p)
+            except (ValueError,OSError): continue
+            if receipt.get('schema_id')==TRANSPORT_RECEIPT:
+                bound=(receipt.get('obligation_id')==row.get('obligation_id')
+                    and receipt.get('role')==row.get('role')
+                    and receipt.get('logical_name')==row.get('logical_name')
+                    and receipt.get('obligation_scope')=='CHECKPOINT_OUTBOX')
+                legacy_unbound='obligation_id' not in receipt
+                if valid_transport_receipt(receipt,row) and (bound or not ambiguous and legacy_unbound):return receipt
+            if receipt.get('schema_id')=='IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2':
+                if (receipt.get('obligation_id')==row.get('obligation_id')
+                    and receipt.get('role')==row.get('role')
+                    and receipt.get('logical_name')==row.get('logical_name')
+                    and receipt.get('obligation_scope')=='CHECKPOINT_OUTBOX'
+                    and _physical_receipt(p,row)): return receipt
+            if receipt.get('schema_id')=='IG_DECODER_EXPLICIT_SAVE_RECEIPT_V1' and not ambiguous and sub._valid_receipt(p,row):return receipt
+    return None
+
+def _physical_receipt_value(receipt, row):
+    from .save_transport import RECEIPT, valid_receipt, _id
+    if receipt.get('schema_id')==RECEIPT:
+        return valid_receipt(receipt,row)
+    body={k:v for k,v in receipt.items() if k!='receipt_sha256'}
+    return (receipt.get('schema_id') in {'IG_DECODER_EXPLICIT_SAVE_RECEIPT_V1','IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2'}
+        and receipt.get('provider')=='google_drive' and receipt.get('raw_readback_verified') is True
+        and _id(receipt.get('drive_file_id'))
+        and receipt.get('sha256')==row['sha256'] and receipt.get('size_bytes')==row['size_bytes']
+        and canonical_sha256(body)==receipt.get('receipt_sha256'))
+
+
+def _physical_receipt(path, row):
+    """Verify physical durability independent of the logical obligation."""
+    try: receipt=sub._read(path)
+    except (ValueError,OSError): return False
+    return _physical_receipt_value(receipt,row)
+
+
+def _receipt_inventory(workspace, physical):
+    """Call-local verified index: one JSON read per receipt, no stale cache."""
+    from .save_transport import RECEIPT
+    logical={};legacy={};saved=set();reads=0
+    for digest,obj in physical.items():
+        for root in (_root(workspace)/'receipts',Path(workspace)/'durability/receipts'):
+            for path in (root/digest).glob('*.json'):
+                reads+=1
+                try:receipt=sub._read(path)
+                except (ValueError,OSError):continue
+                if not _physical_receipt_value(receipt,obj):continue
+                saved.add(digest)
+                if (receipt.get('schema_id') in {RECEIPT,'IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2'}
+                        and receipt.get('obligation_scope')=='CHECKPOINT_OUTBOX'
+                        and all(isinstance(receipt.get(k),str) for k in ('obligation_id','role','logical_name'))):
+                    key=(digest,receipt.get('obligation_id'),receipt.get('role'),receipt.get('logical_name'))
+                    logical[key]=receipt
+                elif not any(k in receipt for k in ('obligation_id','obligation_scope','role','logical_name')):
+                    legacy[digest]=receipt
+    return logical,legacy,saved,reads
+
+
+def _checkpoint_obligations(checkpoint_sha,row,raw):
+    physical={o['sha256']:o for o in row['objects']}
+    specs=[]
+    for obj in row.get('base_objects',[]): specs.append((obj.get('role','base_object'),obj.get('object_name',obj['sha256']),physical[obj['sha256']]))
+    for role,obj in [('checkpoint_source',row['source']),('checkpoint_project_base',row['project']['base']),
+                     ('checkpoint_project_delta',row['project']['delta']),('checkpoint_state',row['state'])]:
+        specs.append((role,obj['sha256'],physical[obj['sha256']]))
+    if row['project'].get('evidence'):
+        obj=row['project']['evidence']
+        specs.append(('checkpoint_project_evidence',obj['sha256'],physical[obj['sha256']]))
+    for obj in row.get('state_shards',[]):specs.append(('checkpoint_state_shard',obj['path'],physical[obj['sha256']]))
+    specs.append(('checkpoint_manifest',checkpoint_sha,{'sha256':checkpoint_sha,'size_bytes':len(raw)}))
+    out=[]
+    for role,logical,obj in specs:
+        item=dict(obj,role=role,logical_name=logical,obligation_scope='CHECKPOINT_OUTBOX')
+        item['obligation_id']=canonical_sha256({'capture_id':row['capture_id'],'checkpoint_sha256':checkpoint_sha,
+            'scope':'CHECKPOINT_OUTBOX','role':role,'logical_name':logical,'sha256':item['sha256'],'size_bytes':item['size_bytes']})
+        out.append(item)
+    return out
+
+
+def _commits(workspace):
+    rows = {}
+    for f in (_root(workspace)/'commits').glob('*.json'):
+        raw=f.read_bytes();row=sub._read(f)
+        if sub._sha(raw)!=f.stem or row.get('schema_id')!=SCHEMA:
+            raise sub.SubmissionError('CHECKPOINT_MANIFEST_MISMATCH', f.name)
+        rows[f.stem]=(row,raw)
+    for row,_ in rows.values():
+        if row['previous'] is not None and row['previous'] not in rows:
+            raise sub.SubmissionError('CHECKPOINT_PARENT_MISSING', row['previous'])
+    return rows
+
+
+def _inventory(workspace):
+    """Hash-bound checkpoint metadata; payload verification is separate."""
+    rows=_commits(workspace);by_checkpoint={};physical={}
+    for sha,(row,raw) in rows.items():
+        required=_checkpoint_obligations(sha,row,raw)
+        for obj in required:
+            old=physical.get(obj['sha256'])
+            if old is not None and old['size_bytes']!=obj['size_bytes']:
+                raise sub.SubmissionError('OUTBOX_OBJECT_SIZE_CONFLICT')
+            physical[obj['sha256']]=obj
+        by_checkpoint[sha]=required
+    return rows,by_checkpoint,physical
+
+
+def _verified_inventory(workspace):
+    inventory=_inventory(workspace)
+    for obj in inventory[2].values():_bytes(workspace,obj)
+    return inventory
+
+
+def _status_from_inventory(workspace,rows,by_checkpoint,physical,*,verified_count=None):
+    objects={};pending_commits=[]
+    logical,legacy,saved,receipt_reads=_receipt_inventory(workspace,physical)
+    for sha,(row,raw) in rows.items():
+        required=by_checkpoint[sha];counts={}
+        for obj in required:counts[obj['sha256']]=counts.get(obj['sha256'],0)+1
+        unsaved=False
+        for obj in required:
+            key=(obj['sha256'],obj.get('obligation_id'),obj.get('role'),obj.get('logical_name'))
+            if key not in logical and not (counts[obj['sha256']]==1 and obj['sha256'] in legacy):
+                objects.setdefault(obj['obligation_id'],dict(obj,local_object_path=str(_root(workspace)/'objects'/(obj['sha256']+'.bin'))))
+                unsaved=True
+        if unsaved:pending_commits.append({'checkpoint_sha256':sha,'created_unix':row['created_unix'],'reason':row['reason']})
+    for obj in objects.values():
+        note=_root(workspace)/'uploads'/(obj['sha256']+'.json')
+        if note.is_file():obj['drive_file_id']=sub._read(note)['drive_file_id']
+    oldest=min((x['created_unix'] for x in pending_commits),default=None)
+    current=_root(workspace)/'CURRENT.json';pending=list(objects.values())
+    # Physical preservation includes valid multipart receipts, but does not
+    # satisfy another checkpoint role's independent logical obligation.
+    physical_pending={}
+    for digest in {x['sha256'] for x in pending}:
+        obj=physical[digest]
+        if digest not in saved:
+            physical_pending[digest]=obj['size_bytes']
+    return {'status':'SAVE_REQUIRED' if objects else 'PRESERVED' if rows else 'NO_CHECKPOINT',
+            'pending_objects':pending,'pending_bytes':sum(physical_pending.values()),
+            'pending_checkpoints':pending_commits,'oldest_pending_age_seconds':0 if oldest is None else max(0,time.time()-oldest),
+            'latest_checkpoint':sub._read(current)['sha256'] if current.exists() else None,
+            'physical_objects_verified':len(physical) if verified_count is None else verified_count,
+            'receipt_files_read':receipt_reads,'retained_checkpoint_count':len(rows),
+            'transport':'EXPLICIT_CONNECTOR; NO_UNATTENDED_TRANSPORT_CONFIGURED'}
+
+
+def status(workspace):
+    workspace=Path(workspace).resolve()
+    return _status_from_inventory(workspace,*_verified_inventory(workspace))
+
+
+def confirm_batch(workspace,batch):
+    from .preservation_batch import confirm_batch as implementation
+    return implementation(workspace,batch)
+
+
+def note_upload(workspace, digest, drive_id):
+    from .v05_controller_event_loop import _workspace_lock
+    import re
+    with _workspace_lock(_root(workspace)):
+        if not re.fullmatch(r'[A-Za-z0-9_-]{10,200}',drive_id):raise sub.SubmissionError('DRIVE_FILE_ID_REQUIRED')
+        if not any(x['sha256']==digest for x in status(workspace)['pending_objects']):raise sub.SubmissionError('OUTBOX_OBJECT_NOT_PENDING')
+        path=_root(workspace)/'uploads'/(digest+'.json')
+        if path.exists() and sub._read(path)['drive_file_id']!=drive_id:raise sub.SubmissionError('UPLOAD_ALREADY_RECORDED')
+        write_json_atomic(path,{'sha256':digest,'drive_file_id':drive_id,'status':'UPLOADED_READBACK_REQUIRED'})
+    return status(workspace)
+
+
+def confirm(workspace,digest,readback,drive_id,*,role=None,logical_name=None,obligation_id=None):
+    from .v05_controller_event_loop import _workspace_lock
+    import re
+    with _workspace_lock(_root(workspace)):
+        matches=[x for x in status(workspace)['pending_objects'] if x['sha256']==digest]
+        if obligation_id is not None: matches=[x for x in matches if x['obligation_id']==obligation_id]
+        if role is not None: matches=[x for x in matches if x['role']==role]
+        if logical_name is not None: matches=[x for x in matches if x['logical_name']==logical_name]
+        if not matches:
+            obj=_root(workspace)/'objects'/(digest+'.bin')
+            if not obj.is_file():raise sub.SubmissionError('OUTBOX_OBJECT_NOT_REQUIRED')
+            raise sub.SubmissionError('OUTBOX_OBLIGATION_NOT_PENDING')
+        if len(matches)!=1: raise sub.SubmissionError('OUTBOX_OBLIGATION_AMBIGUOUS',digest,'Supply obligation_id; role and logical_name may also be used.')
+        row=matches[0]
+        raw=Path(readback).read_bytes()
+        if sub._sha(raw)!=digest or len(raw)!=row['size_bytes']:raise sub.SubmissionError('SAVE_READBACK_MISMATCH',digest)
+        if not re.fullmatch(r'[A-Za-z0-9_-]{10,200}',drive_id):raise sub.SubmissionError('DRIVE_FILE_ID_REQUIRED')
+        note=_root(workspace)/'uploads'/(digest+'.json')
+        if note.exists() and sub._read(note)['drive_file_id']!=drive_id:raise sub.SubmissionError('SAVE_UPLOAD_ID_MISMATCH')
+        receipt={'schema_id':'IG_DECODER_EXPLICIT_SAVE_RECEIPT_V2','provider':'google_drive','sha256':digest,
+                 'size_bytes':len(raw),'drive_file_id':drive_id,'raw_readback_verified':True,'recorded_ns':time.time_ns(),
+                 'obligation_id':row['obligation_id'],'obligation_scope':'CHECKPOINT_OUTBOX',
+                 'role':row['role'],'logical_name':row['logical_name'],
+                 'scope':'EXPLICIT_CONNECTOR_OPERATOR_ATTESTATION_NOT_REMOTE_AUTHENTICATION'}
+        receipt['receipt_sha256']=canonical_sha256(receipt)
+        write_json_atomic(_root(workspace)/'receipts'/digest/(receipt['receipt_sha256']+'.json'),receipt)
+    return status(workspace)
+
+
+def _base_raw(workspace,obj):
+    workspace=Path(workspace)
+    candidates=[workspace/'durability/base_objects'/obj['object_name'],workspace.parent.parent/'objects'/obj['object_name'],
+                workspace/'runtime/intake/artifacts'/(obj['sha256']+'.bin'),_root(workspace)/'objects'/(obj['sha256']+'.bin')]
+    if obj['role']=='capture_record':candidates.insert(0,workspace/'CAPTURE.json')
+    if obj['role']=='project_binding':candidates.insert(0,workspace/'PROJECT_BINDING.json')
+    for p in candidates:
+        if p.is_file():
+            raw=p.read_bytes()
+            if sub._sha(raw)==obj['sha256'] and len(raw)==obj['size_bytes']:return raw
+    if obj['role'] in ('engine_source','project_source'):
+        tree=sub._tree(workspace/'source')
+        files={n:b for n,b in tree.items() if not n.startswith('project/')} if obj['role']=='engine_source' else {n[8:]:b for n,b in tree.items() if n.startswith('project/')}
+        raw=sub._archive(files)
+        if sub._sha(raw)==obj['sha256']:return raw
+    raise sub.SubmissionError('RECOVERY_DEPENDENCY_MISSING',obj['sha256'],
+        'Fetch this exact saved object into durability/base_objects using its original object_name; retry native snapshot/export.')
+
+
+def confirm_transport(workspace,digest,manifest,parts,drive_id,*,role=None,logical_name=None,obligation_id=None):
+    from .v05_controller_event_loop import _workspace_lock
+    from .save_transport import make_receipt
+    with _workspace_lock(_root(workspace)):
+        try:
+            matches=[x for x in status(workspace)['pending_objects'] if x['sha256']==digest]
+            if obligation_id is not None:matches=[x for x in matches if x['obligation_id']==obligation_id]
+            if role is not None:matches=[x for x in matches if x['role']==role]
+            if logical_name is not None:matches=[x for x in matches if x['logical_name']==logical_name]
+            if not matches:
+                obj=_root(workspace)/'objects'/(digest+'.bin')
+                if not obj.is_file():raise sub.SubmissionError('OUTBOX_OBJECT_NOT_REQUIRED')
+                raise sub.SubmissionError('OUTBOX_OBLIGATION_NOT_PENDING')
+            if len(matches)!=1:
+                raise sub.SubmissionError('OUTBOX_OBLIGATION_AMBIGUOUS',digest,
+                    'Supply obligation_id; role and logical_name may also be used.')
+            row=matches[0]
+            receipt=make_receipt(row,manifest,parts,drive_id)
+            note=_root(workspace)/'uploads'/(digest+'.json')
+            original=receipt['transport']['manifest'].get('original_object_drive_file_id')
+            if original is not None and note.exists() and sub._read(note)['drive_file_id']!=original:
+                raise sub.SubmissionError('SAVE_UPLOAD_ID_MISMATCH')
+            write_json_atomic(_root(workspace)/'receipts'/digest/(receipt['receipt_sha256']+'.json'),receipt)
+        except Exception as exc:
+            sub._failure(_root(workspace),'CONFIRM_TRANSPORT',exc)
+            raise
+    return status(workspace)
+
+
+def _stable_file(path, *, quiescent=False):
+    # Task stores use SQLite backup, never raw-copy a live WAL database.
+    with path.open('rb') as f:prefix=f.read(16)
+    if prefix==b'SQLite format 3\x00' and not quiescent:
+        with tempfile.TemporaryDirectory(prefix='decoder-db-checkpoint-') as temp:
+            dest=Path(temp)/'state.sqlite'
+            with closing(sqlite3.connect(path.as_uri()+'?mode=ro',uri=True,timeout=5)) as src, closing(sqlite3.connect(dest)) as dst:
+                src.backup(dst)
+                if dst.execute('PRAGMA quick_check').fetchone()[0]!='ok':raise sub.SubmissionError('CHECKPOINT_DATABASE_INVALID')
+                dst.commit()
+            return dest.read_bytes()
+    before=path.stat();raw=path.read_bytes();after=path.stat()
+    if (before.st_size,before.st_mtime_ns)!=(after.st_size,after.st_mtime_ns):
+        if path.suffix=='.log' and after.st_size>=before.st_size:return raw[:before.st_size]
+        raise sub.SubmissionError('CHECKPOINT_FILE_CHANGED',str(path))
+    return raw
+
+
+def require_quiescent_task_databases(output_root):
+    """Do not bind transient engine-owned SQLite journals into a completion.
+
+    This is a read-only gate, not forced checkpointing or journal deletion.
+    Ordinary SCRIPT artifacts are outside this engine-owned task-store scope.
+    """
+    from .task_databases import TASK_DATABASE_NAMES
+    output_root=Path(output_root)
+    runtime_root=output_root/'chain/decoder_stage_runtime'
+    for path in runtime_root.rglob('*'):
+        if any(path.name==name+suffix for name in TASK_DATABASE_NAMES
+               for suffix in ('-wal','-shm','-journal')):
+            raise sub.SubmissionError('TASK_DATABASE_NOT_QUIESCENT',str(path.relative_to(output_root)),
+                'Close database handles and resume; retain journals for recovery.')
+    for path in sorted(runtime_root.rglob('*.sqlite3')):
+        if path.name not in TASK_DATABASE_NAMES:
+            continue
+        for suffix in ('-wal','-shm','-journal'):
+            if Path(str(path)+suffix).exists():
+                raise sub.SubmissionError('TASK_DATABASE_NOT_QUIESCENT',
+                    str(path.relative_to(output_root)),
+                    'Close external database readers, then resume this captured request. Do not remove journals.')
+
+
+def _verify_terminal_state_evidence(files):
+    """The exact exported state must retain every byte bound by a completion.
+
+    Native completion authentication remains with verified_completion. This
+    additional check stops snapshot filtering from producing an inconsistent
+    archive even when the live workspace previously matched its completion.
+    """
+    runs={}
+    for name,raw in sorted(files.items()):
+        parts=name.split('/')
+        if len(parts)>=4 and parts[:2] in (['runtime','runs'], ['runtime','sealed']):
+            runs.setdefault('/'.join(parts[:3]),[]).append({
+                'path':'/'.join(parts[3:]),'sha256':sub._sha(raw),'size_bytes':len(raw)})
+    completion_bytes={}
+    for name,raw in files.items():
+        if name.startswith(('runtime/intake/completed/','runtime/intake/prepared_completions/')) and name.endswith('.json'):
+            rid=Path(name).stem
+            if rid in completion_bytes and completion_bytes[rid]!=raw:
+                raise sub.SubmissionError('CHECKPOINT_PREPARED_COMPLETION_MISMATCH',name)
+            completion_bytes[rid]=raw
+            done=json.loads(raw); evidence=done.get('evidence')
+            if 'evidence_protocol' in done or 'evidence_root' in done:
+                from .completion_evidence import PROTOCOL
+                location=done.get('evidence_root', '')
+                valid=(done.get('evidence_protocol')==PROTOCOL
+                       and location.startswith('runtime/sealed/intent-')
+                       and len(location.split('/'))==3
+                       and runs.get(location)==evidence)
+            else:
+                valid=sum(rows==evidence for name,rows in runs.items()
+                          if name.startswith('runtime/runs/'))==1
+            if not evidence or not valid:
+                from .evidence_diagnostics import attach
+                # Legacy records do not identify a root: retain every candidate,
+                # never invent which directory the producer intended.
+                observed = ({done.get('evidence_root', ''): runs.get(done.get('evidence_root', ''), [])}
+                    if 'evidence_protocol' in done or 'evidence_root' in done else
+                    {key: rows for key, rows in runs.items() if key.startswith('runtime/runs/')})
+                raise attach(sub.SubmissionError('CHECKPOINT_COMPLETION_EVIDENCE_MISMATCH',name,
+                    'Preserve the original completion and failed bytes. Do not rewrite completion evidence to fit an archive.'),
+                    phase='CHECKPOINT_STATE_INVENTORY', done=done, completion_path=name,
+                    observed_roots=observed, failed_checks=['terminal_evidence_binding'],
+                    observation='EXACT_IN_MEMORY_CHECKPOINT_BYTES')
+    # The completion lists immutable evidence files, but replay also publishes
+    # two mutable indexes. Require those indexes to agree with the published
+    # terminal status before a checkpoint can carry them into another chat.
+    for name, raw in files.items():
+        if not name.endswith('/artifacts/REPLAY_ROOT_STATUS.json'):
+            continue
+        stage = name.removesuffix('/artifacts/REPLAY_ROOT_STATUS.json')
+        status = json.loads(raw)
+        for suffix, field, self_field in (
+            ('/replay_runner/runner_state.json', 'runner_state_sha256', 'state_sha256'),
+            ('/replay_reference_data/MANIFEST.json', 'reference_manifest_sha256', 'manifest_sha256'),
+        ):
+            current = files.get(stage + suffix)
+            if current is None or json.loads(current).get(self_field) != status.get(field):
+                raise sub.SubmissionError('CHECKPOINT_REPLAY_STATE_STATUS_MISMATCH', stage + suffix,
+                    'Preserve the original bytes and investigate the mutable replay state.')
+
+
+def _state_files(workspace, *, modes=None):
+    from .v05_controller_event_loop import _snapshot_files
+    files={}
+    quiescent=any(any((Path(workspace)/'runtime/intake'/name).glob('*.json'))
+                  for name in ('completed','prepared_completions'))
+    legacy = any('evidence_protocol' not in sub._read(p)
+                 for folder in ('completed','prepared_completions')
+                 for p in (Path(workspace)/'runtime/intake'/folder).glob('*.json'))
+    for p,name in _snapshot_files(workspace):
+        if (name.startswith(('source/','coordination/','runtime/intake/artifacts/','durability/outbox/','durability/base_objects/'))
+            or name=='PROJECT_LOCATION.json' or (name.endswith(('-wal','-shm')) and not name.startswith('runtime/sealed/'))):continue
+        before=p.stat()
+        files[name]=_stable_file(p,quiescent=legacy or name.startswith('runtime/sealed/'))
+        after=p.stat()
+        if (before.st_ino,before.st_mode)!=(after.st_ino,after.st_mode):
+            raise sub.SubmissionError('CHECKPOINT_FILE_MODE_CHANGED',name)
+        if modes is not None:modes[name]=after.st_mode & 0o777
+    if quiescent:_verify_terminal_state_evidence(files)
+    return files
+
+
+def make_checkpoint(workspace,reason,*,terminal=False):
+    """Caller owns the workspace; invoked only at controller safe boundaries."""
+    from .portable_registry import locate,snapshot
+    from .v05_controller_event_loop import _workspace_lock,_source_ids
+    from .immutable_publication import sync_directory
+    workspace=Path(workspace).resolve();rec=sub.capture_record(workspace)
+    from .result_contracts import policy
+    from .checkpoint_stream import bounded_tree,snapshot_state,archive_paths,put_file
+    limits=policy(rec.get('result_contract',{}))
+    bounded_tree(workspace/'source',limits['max_source_raw_bytes'])
+    if _source_ids(workspace/'source')!=(rec['workspace']['source_sha256'],rec['workspace']['package_sha256']):raise sub.SubmissionError('CHECKPOINT_SOURCE_MISMATCH')
+    # Acknowledgments hold only the outbox lock, never workspace ownership.
+    # Wait for their bounded publication instead of aborting the controller.
+    with _workspace_lock(_root(workspace), blocking=True):
+        if limits['max_retained_commits'] is not None and len(_commits(workspace))>=limits['max_retained_commits']:raise sub.SubmissionError('CAPTURE_CHECKPOINT_LIMIT')
+        objects={};base=[];baseline=None;baseline_raw=None
+        for obj in sub.required_objects(workspace):
+            row=_put(workspace,_base_raw(workspace,obj));objects[row['sha256']]=row;base.append(dict(obj))
+            if obj['role']=='project_baseline':baseline=row;baseline_raw=_bytes(workspace,row)
+        source=_put(workspace,sub._archive(sub._tree(workspace/'source')));objects[source['sha256']]=source
+        project_root,_=locate(workspace)
+        if baseline is None:raise sub.SubmissionError('PROJECT_BASELINE_REQUIRED')
+        evidence_payload_bytes=0
+        if limits['project_evidence_externalization']:
+            from .project_checkpoint import prepare,metadata_baseline,SCHEMA as PROJECT_SCHEMA
+            with tempfile.TemporaryDirectory(prefix='ig-project-checkpoint-') as directory:
+                with _workspace_lock(project_root,blocking=True):
+                    closure=prepare(project_root,baseline_raw,limits,directory)
+                project_baseline=metadata_baseline(baseline_raw,closure['evidence_path'].read_bytes(),limits)
+                delta=_put(workspace,_project_delta(project_baseline,closure['metadata']))
+                evidence=put_file(_root(workspace),closure['evidence_path'])
+                evidence_payload_bytes=evidence['size_bytes']
+                objects[evidence['sha256']]=evidence
+            project={'schema_id':PROJECT_SCHEMA,'base':baseline,'delta':delta,'evidence':evidence,
+                     **{k:closure[k] for k in ('full_sha256','metadata_sha256','evidence_raw_bytes','evidence_file_count')}}
+        else:
+            bounded_tree(project_root,limits['max_project_raw_bytes'])
+            full_project=snapshot(project_root)
+            delta=_put(workspace,_project_delta(baseline_raw,full_project))
+            project={'schema_id':'IG_PROJECT_DELTA_V1','base':baseline,'delta':delta,'full_sha256':sub._sha(full_project)}
+        objects[delta['sha256']]=delta
+        with snapshot_state(workspace,limits) as (state_files,state_modes,shards,temp):
+            for obj in rec['objects']:
+                if obj['role'].startswith('input:'):
+                    name='runtime/intake/artifacts/'+obj['sha256']+'.bin'
+                    path=workspace/name
+                    if path.is_symlink():raise sub.SubmissionError('CHECKPOINT_INPUT_SYMLINK',name)
+                    state_modes[name]=path.stat().st_mode & 0o777
+            terminal_completions={Path(name).stem:json.loads(raw)['completion_sha256']
+                for name,raw in state_files.items()
+                if name.startswith(('runtime/intake/completed/','runtime/intake/prepared_completions/'))
+                and name.endswith('.json')} if terminal else {}
+            state_zip=temp/'state.zip';archive_paths(state_files.paths,state_zip)
+            payload_size=evidence_payload_bytes+source['size_bytes']+delta['size_bytes']+state_zip.stat().st_size+sum(r['size_bytes'] for r in shards)
+            if limits['max_commit_bytes'] is not None and payload_size>limits['max_commit_bytes']:raise sub.SubmissionError('CHECKPOINT_SIZE_LIMIT',str(payload_size))
+            state=put_file(_root(workspace),state_zip);objects[state['sha256']]=state
+            state_shards=[]
+            for shard in shards:
+                saved=put_file(_root(workspace),shard['local']);objects[saved['sha256']]=saved
+                state_shards.append(dict(saved,path=shard['path']))
+        pointer_file=_root(workspace)/'CURRENT.json'
+        previous=sub._read(pointer_file)['sha256'] if pointer_file.exists() else None
+        if previous:
+            old=sub._read(_root(workspace)/'commits'/(previous+'.json'))
+            if (old['state']==state and old.get('state_file_modes')==state_modes and old.get('state_shards',[])==state_shards and old['project']==project and old['source']==source
+                    and (not terminal or old.get('terminal') and old.get('terminal_completions')==terminal_completions)):
+                sync_directory(_root(workspace)/'commits')
+                sync_directory(_root(workspace))
+                return status(workspace)
+        row={'schema_id':SCHEMA,'capture_id':rec['capture_id'],'job_id':rec['job']['job_id'],
+             'source_sha256':rec['workspace']['source_sha256'],'created_unix':time.time(),'previous':previous,
+             'reason':reason,'terminal':terminal,'source':source,'project':project,'state':state,'state_file_modes':state_modes,'base_objects':base,
+             'objects':sorted(objects.values(),key=lambda x:x['sha256'])}
+        if state_shards:row['state_shards']=state_shards
+        if terminal:row['terminal_completions']=terminal_completions
+        raw=sub._json_bytes(row);commit=_put(workspace,raw)
+        commit_file=_root(workspace)/'commits'/(commit['sha256']+'.json')
+        commit_file.parent.mkdir(parents=True,exist_ok=True)
+        if not commit_file.exists():
+            # Use the exact bytes whose raw SHA256 is the checkpoint identity.
+            os.link(_root(workspace)/'objects'/(commit['sha256']+'.bin'),commit_file)
+        elif commit_file.read_bytes()!=raw:
+            raise sub.SubmissionError('CHECKPOINT_MANIFEST_MISMATCH',commit_file.name)
+        # The directory entry must survive before its durable pointer can.
+        sync_directory(commit_file.parent)
+        write_json_atomic(pointer_file,{'sha256':commit['sha256']})
+    return status(workspace)
+
+
+COMPLETION_PROTOCOL = 'CHECKPOINT_BEFORE_COMPLETION_V1'
+
+
+def terminal_completion_proof(workspace, done):
+    """Check portable checkpoint identity/binding; absence means unpublished."""
+    if done.get('publication_protocol') is None:
+        return True  # Historical producers retain their original evidence rules.
+    if done.get('publication_protocol') != COMPLETION_PROTOCOL:
+        raise sub.SubmissionError('UNKNOWN_COMPLETION_PUBLICATION_PROTOCOL')
+    workspace=Path(workspace)
+    path=workspace/'runtime/terminal_checkpoints'/(done['request_id']+'.json')
+    restored=workspace/'durability/RESTORED_CHECKPOINT_PROVENANCE.json'
+    latest_restore=_root(workspace)/'RESTORE_PROVENANCE.json'
+    if path.exists():packet=sub._read(path)
+    elif latest_restore.exists():
+        packet=sub._read(latest_restore)
+        if packet.get('checkpoint',{}).get('terminal') is not True:return False
+    elif restored.exists():
+        packet=sub._read(restored)
+        if packet.get('checkpoint',{}).get('terminal') is not True:return False
+    else:return False
+    row=packet.get('checkpoint',{})
+    rec=sub.capture_record(workspace)
+    if (sub._sha(sub._json_bytes(row))!=packet.get('checkpoint_sha256')
+            or row.get('schema_id')!=SCHEMA or row.get('terminal') is not True
+            or row.get('capture_id')!=rec['capture_id']
+            or row.get('source_sha256')!=done['source_sha256']
+            or row.get('job_id')!=rec['job']['job_id']
+            or row.get('terminal_completions',{}).get(done['request_id'])!=done['completion_sha256']):
+        raise sub.SubmissionError('TERMINAL_COMPLETION_CHECKPOINT_MISMATCH')
+    return True
+
+
+def ensure_terminal_completion(workspace, done):
+    """Checkpoint exact finished evidence before publishing a reusable claim."""
+    workspace=Path(workspace)
+    if terminal_completion_proof(workspace,done):
+        return status(workspace)
+    result=make_checkpoint(workspace,'TERMINAL_RESULT',terminal=True)
+    digest=result['latest_checkpoint']
+    row=sub._read(_root(workspace)/'commits'/(digest+'.json'))
+    files=_zip_files(_bytes(workspace,row['state']))
+    for shard in row.get('state_shards',[]):files[shard['path']]=_bytes(workspace,shard)
+    name='runtime/intake/prepared_completions/'+done['request_id']+'.json'
+    if name not in files:name='runtime/intake/completed/'+done['request_id']+'.json'
+    # Compare the existing canonical JSON representation, not Python container
+    # identity: persisted arrays are lists even when the producer used tuples.
+    # Byte equality also keeps bool/int and int/float distinctions that Python
+    # equality would erase. No saved bytes or completion hashes are rewritten.
+    if (canonical_bytes(json.loads(files.get(name,b'null')))!=canonical_bytes(done)
+            or row.get('terminal_completions',{}).get(done['request_id'])!=done['completion_sha256']):
+        raise sub.SubmissionError('TERMINAL_COMPLETION_CHECKPOINT_MISMATCH')
+    _verify_terminal_state_evidence(files)
+    path=workspace/'runtime/terminal_checkpoints'/(done['request_id']+'.json')
+    packet={'checkpoint_sha256':digest,'checkpoint':row}
+    if path.exists() and sub._read(path)!=packet:
+        raise sub.SubmissionError('TERMINAL_COMPLETION_PROOF_COLLISION')
+    write_json_atomic(path,packet)
+    terminal_completion_proof(workspace,done)
+    return result
+
+
+def backlog(workspace,*,reserve=False):
+    from .result_contracts import contract_for,policy
+    limits=policy(contract_for(workspace));s=status(workspace)
+    return _check_backlog(s,limits,reserve=reserve)
+
+
+def _check_backlog(s,limits,*,reserve=False):
+    over=(limits['max_pending_bytes'] is not None and s['pending_bytes']+((limits['max_commit_bytes'] or 0) if reserve else 0)>limits['max_pending_bytes']
+          or limits['max_pending_commits'] is not None and len(s['pending_checkpoints'])>=limits['max_pending_commits']-int(reserve)
+          or limits['max_pending_age_seconds'] is not None and s['oldest_pending_age_seconds']>limits['max_pending_age_seconds']
+          or limits['max_retained_commits'] is not None and s.get('retained_checkpoint_count',0)>=limits['max_retained_commits']-int(reserve))
+    if over:raise sub.SubmissionError('SAVE_BACKLOG_PAUSE',str(s['pending_bytes']),
+         'Use preserve status, upload or read back its exact pending objects, and preserve confirm; then resume the original capture.')
+    return s
+
+
+def drain_plan(workspace):
+    """Bounded operator transport plan; upload/readback remains explicit."""
+    from .preservation_batch import IDENTITY,MAX_OBLIGATIONS,MAX_OBJECTS,MAX_READBACK_BYTES
+    current=status(workspace);objects={};obligations=[];size=0
+    for row in current['pending_objects']:
+        digest=row['sha256'];extra=0 if digest in objects else row['size_bytes']
+        if len(obligations)>=MAX_OBLIGATIONS or (digest not in objects and len(objects)>=MAX_OBJECTS) or objects and size+extra>MAX_READBACK_BYTES:break
+        size+=extra;objects[digest]={'sha256':digest,'size_bytes':row['size_bytes'],'path':row['local_object_path']}
+        obligations.append({k:row[k] for k in IDENTITY})
+    return {'schema_id':'IG_CHECKPOINT_DRAIN_PLAN_V1','capture_id':sub.capture_record(workspace)['capture_id'],
+        'obligations':obligations,'physical_objects':list(objects.values()),'readback_bytes':size,
+        'remaining_obligations':len(current['pending_objects'])-len(obligations),
+        'transport':'OPERATOR_UPLOAD_AND_RAW_READBACK_REQUIRED','unattended_transport_configured':False}
+
+
+@contextmanager
+def session(admission):
+    token=_ACTIVE.set({'workspace':admission['workspace'],'admission':admission,'pid':os.getpid(),'last':time.monotonic(),'last_poll':0,'last_backlog_poll':0})
+    try:yield
+    finally:_ACTIVE.reset(token)
+
+
+def require_validation_drain(admission, pending_saves):
+    from .result_contracts import contract_for,policy
+    if (admission['job']['execution']['kind']=='VALIDATION'
+            and policy(contract_for(admission['workspace']))['validation_wave_selectors']
+            and pending_saves['pending_objects']):
+        raise sub.SubmissionError('VALIDATION_SAVE_DRAIN_REQUIRED',
+            'Acknowledge all prior checkpoint roles before starting the next validation wave.')
+
+
+def validation_wave_limit():
+    active=_ACTIVE.get()
+    if not active or active['pid']!=os.getpid():return 0
+    from .result_contracts import contract_for,policy
+    return policy(contract_for(active['workspace']))['validation_wave_selectors']
+
+
+def safe_point(reason,*,force=False):
+    active=_ACTIVE.get()
+    if not active or active['pid']!=os.getpid():return
+    from .v05_origin_guard import require_controller_execution_origin
+    require_controller_execution_origin('preservation-safe-point')
+    from .result_contracts import contract_for,policy
+    limits=policy(contract_for(active['workspace']))
+    now=time.monotonic()
+    if not force and now-active['last']<limits['interval_seconds']:
+        # Between checkpoints only acknowledgments can reduce this controller's
+        # outbox. Check limits/receipt metadata at a bounded cadence; do not
+        # rehash hundreds of MB on every 20 ms validation heartbeat. Payload
+        # integrity is rechecked before/after checkpoint creation and by status.
+        if now-active['last_backlog_poll']<0.25:return
+        active['last_backlog_poll']=now
+        metadata=_status_from_inventory(active['workspace'],*_inventory(active['workspace']),verified_count=0)
+        _check_backlog(metadata,limits,reserve=True)
+        return
+    backlog(active['workspace'],reserve=True)
+    current=make_checkpoint(active['workspace'],reason)
+    active['last']=time.monotonic()
+    active['last_backlog_poll']=active['last']
+    _check_backlog(current,limits,reserve=True)
+
+
+def check_budget(admission,*,extra_bytes=0):
+    root=Path(admission['workspace']);budget=admission['job']['resources']['workspace_budget_bytes']
+    if budget is None:return
+    total=sum(p.stat().st_size for base in (root/'runtime/runs',root/'runtime/sealed',_root(root)) for p in base.rglob('*') if p.is_file())+extra_bytes
+    if total>budget:raise sub.SubmissionError('REGISTERED_WORKSPACE_BUDGET',str(total))
+
+
+def poll(*,extra_bytes=0):
+    active=_ACTIVE.get()
+    if not active or active['pid']!=os.getpid():return
+    now=time.monotonic()
+    if not extra_bytes and now-active['last_poll']<0.25:return
+    active['last_poll']=now
+    request=Path(active['workspace'])/'runtime/PAUSE_REQUEST.json'
+    ack=Path(active['workspace'])/'runtime/PAUSE_ACK.json'
+    if request.exists():
+        pending=sub._read(request)
+        if not ack.exists() or sub._read(ack)['nonce']!=pending['nonce']:
+            if pending['capture_id']!=sub.capture_record(active['workspace'])['capture_id']:raise sub.SubmissionError('PAUSE_CAPTURE_MISMATCH')
+            write_json_atomic(ack,pending)
+            raise sub.SubmissionError('REQUESTED_PAUSE',pending['reason'],'Drain pending saves and resume the same captured job.')
+    check_budget(active['admission'],extra_bytes=extra_bytes)
+    from .runtime_capacity import process_tree_snapshot
+    try:snapshot=process_tree_snapshot()
+    except (OSError,ValueError,RuntimeError) as exc:
+        raise sub.SubmissionError('REGISTERED_MEMORY_TELEMETRY_UNAVAILABLE',str(exc)) from exc
+    budget=active['admission']['job']['resources']['memory_budget_bytes']
+    if budget is not None and snapshot['accounted_memory_bytes']>budget:
+        raise sub.SubmissionError('REGISTERED_MEMORY_BUDGET',str(snapshot['accounted_memory_bytes']))
+
+
+
+def snapshot_workspace(workspace,reason='EXPLICIT_IDLE_SNAPSHOT'):
+    from .v05_controller_event_loop import _workspace_lock,_workspace_ids
+    root=Path(workspace).resolve()
+    with _workspace_lock(root):
+        _workspace_ids(root)
+        return make_checkpoint(root,reason)
+
+
+def export_checkpoint(workspace,output,*,slim=False):
+    s=status(workspace);sha=s['latest_checkpoint']
+    if not sha:raise sub.SubmissionError('CHECKPOINT_REQUIRED',next_action='Use preserve snapshot WORKSPACE before exporting idle state.')
+    row,raw=_commits(workspace)[sha];target=Path(output).resolve()
+    if target.is_relative_to(Path(workspace).resolve()):raise sub.SubmissionError('EXPORT_MUST_BE_OUTSIDE_WORKSPACE')
+    prior=[{'sha256':key,'previous':r['previous'],'created_unix':r['created_unix'],
+            'receipt':_receipt(workspace,{'sha256':key,'size_bytes':len(b)})} for key,(r,b) in _commits(workspace).items() if key!=sha]
+    packet={'schema_id':'IG_DECODER_CHECKPOINT_EXPORT_V1','checkpoint_sha256':sha,'checkpoint':row,'mode':'SLIM' if slim else 'COMPLETE',
+            'history_scope':'Current restart closure; earlier checkpoint references retained separately.',
+            'prior_checkpoints':prior,'dependencies':[dict(o,receipts=[sub._read(p) for p in
+                sorted((_root(workspace)/'receipts'/o['sha256']).glob('*.json'))]) for o in row['objects']]}
+    files={'CHECKPOINT.json':sub._json_bytes(packet)}
+    if not slim:
+        files.update({'objects/'+o['sha256']:_bytes(workspace,o) for o in row['objects']})
+    target.parent.mkdir(parents=True,exist_ok=True);raw_archive=sub._archive(files);target.write_bytes(raw_archive)
+    return {'status':'EXPORTED_LOCAL','path':str(target),'sha256':sub._sha(raw_archive),'mode':packet['mode'],
+            'dependencies':packet['dependencies'],'drive_save_confirmed':False}
+
+
+def restore_checkpoint(archive,destination,expected_sha,objects=None):
+    raw=Path(archive).read_bytes()
+    if sub._sha(raw)!=expected_sha:raise sub.SubmissionError('RESTORE_ARCHIVE_HASH')
+    with zipfile.ZipFile(io.BytesIO(raw)) as z:
+        names=z.namelist()
+        if len(names)!=len(set(names)):raise sub.SubmissionError('RESTORE_DUPLICATE_PATH')
+        packet=json.loads(z.read('CHECKPOINT.json'));row=packet['checkpoint'];raw_row=sub._json_bytes(row)
+        if packet.get('schema_id')!='IG_DECODER_CHECKPOINT_EXPORT_V1' or row.get('schema_id')!=SCHEMA or sub._sha(raw_row)!=packet['checkpoint_sha256']:
+            raise sub.SubmissionError('CHECKPOINT_MANIFEST_MISMATCH')
+        provided={};missing=[]
+        for obj in row['objects']:
+            name='objects/'+obj['sha256'];content=None
+            if name in names:content=z.read(name)
+            elif objects:
+                for suffix in ('','.bin','.readback'):
+                    f=Path(objects)/(obj['sha256']+suffix)
+                    if f.is_file():content=f.read_bytes();break
+            if content is None:missing.append(obj);continue
+            if sub._sha(content)!=obj['sha256'] or len(content)!=obj['size_bytes']:raise sub.SubmissionError('RESTORE_DEPENDENCY_MISMATCH',obj['sha256'])
+            provided[obj['sha256']]=content
+        if missing:raise sub.SubmissionError('RECOVERY_DEPENDENCIES_UNRESOLVED',json.dumps(missing),
+             'Fetch exact objects using the export dependency receipts, then retry preserve restore with --objects DIRECTORY.')
+        if set(names)-({'CHECKPOINT.json'}|{'objects/'+o['sha256'] for o in row['objects']}):raise sub.SubmissionError('RESTORE_FILE_SET')
+    dest=Path(destination).resolve()
+    if dest.exists():raise sub.SubmissionError('RESTORE_DESTINATION_EXISTS')
+    dest.parent.mkdir(parents=True,exist_ok=True);temp=Path(tempfile.mkdtemp(prefix='.decoder-checkpoint-restore-',dir=dest.parent))
+    def unpack(data,where):
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            if len(z.namelist())!=len(set(z.namelist())):raise sub.SubmissionError('RESTORE_DUPLICATE_PATH')
+            for name in z.namelist():
+                path=where/sub._relative(name);path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(z.read(name))
+    try:
+        unpack(provided[row['source']['sha256']],temp/'source')
+        unpack(provided[row['state']['sha256']],temp)
+        shard_paths=set()
+        for shard in row.get('state_shards',[]):
+            name=shard['path'];rel=sub._relative(name)
+            if (not name.startswith('runtime/') or 'bulk_shards' not in rel.parts
+                    or rel.name!=shard['sha256']+'.bin' or name in shard_paths
+                    or (temp/rel).exists()):raise sub.SubmissionError('RESTORE_SHARD_BINDING',name)
+            raw_shard=provided.get(shard['sha256'])
+            if raw_shard is None or len(raw_shard)!=shard['size_bytes']:raise sub.SubmissionError('RESTORE_SHARD_MISSING',name)
+            path=temp/rel;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw_shard);shard_paths.add(name)
+        project=row['project']
+        from .project_checkpoint import SCHEMA as PROJECT_SCHEMA,hydrate
+        external=project.get('schema_id')==PROJECT_SCHEMA
+        project_baseline=provided[project['base']['sha256']]
+        if external:
+            from .result_contracts import policy
+            from .project_checkpoint import metadata_baseline
+            limits=policy(sub.capture_record(temp).get('result_contract',{}))
+            evidence=project['evidence']
+            if evidence not in row['objects']:raise sub.SubmissionError('PROJECT_EVIDENCE_DEPENDENCY_BINDING')
+            project_baseline=metadata_baseline(project_baseline,provided[evidence['sha256']],limits)
+        project_raw=_restore_project(project_baseline,provided[project['delta']['sha256']],
+                                     project['metadata_sha256'] if external else project['full_sha256'])
+        if external:
+            project_raw=hydrate(project_raw,provided[evidence['sha256']],project,limits)
+        unpack(project_raw,temp/'coordination')
+        # Prior restore provenance can itself be checkpoint-bound evidence.
+        # Retain those original bytes and keep this administrative receipt in
+        # the outbox, which is excluded from state/capsule snapshots.
+        prior_restore=temp/'durability/RESTORED_CHECKPOINT_PROVENANCE.json'
+        if not prior_restore.exists():write_json_atomic(prior_restore,packet)
+        write_json_atomic(_root(temp)/'RESTORE_PROVENANCE.json',packet)
+        rec=sub.capture_record(temp)
+        if rec['capture_id']!=row['capture_id'] or rec['job']['job_id']!=row['job_id']:raise sub.SubmissionError('CHECKPOINT_CAPTURE_BINDING')
+        for obj in row['base_objects']:
+            path=temp/'durability/base_objects'/obj['object_name'];path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(provided[obj['sha256']])
+        for obj in rec['objects']:
+            if obj['role'].startswith('input:'):
+                path=temp/'runtime/intake/artifacts'/(obj['sha256']+'.bin');path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(provided[obj['sha256']])
+        modes=row.get('state_file_modes')
+        if 'state_file_modes' in row:
+            expected=set(_zip_files(provided[row['state']['sha256']]))|shard_paths
+            expected.update('runtime/intake/artifacts/'+obj['sha256']+'.bin'
+                            for obj in rec['objects'] if obj['role'].startswith('input:'))
+            if not isinstance(modes,dict) or set(modes)!=expected:
+                raise sub.SubmissionError('RESTORE_FILE_MODE_SET')
+            for name,mode in modes.items():
+                if type(mode) is not int or not 0 <= mode <= 0o777:
+                    raise sub.SubmissionError('RESTORE_FILE_MODE_INVALID',name)
+                path=temp/sub._relative(name)
+                if path.is_symlink() or not path.is_file():raise sub.SubmissionError('RESTORE_FILE_MODE_PATH',name)
+            for name,mode in modes.items():os.chmod(temp/name,mode)
+        from .v05_controller_event_loop import validate_workspace_job,verified_completion
+        admission=validate_workspace_job(temp,row['job_id'],check_loaded=False)
+        from .portable_registry import events,blob,verify_capsule
+        history=temp/'coordination';es=events(history)
+        for f in (history/'objects').glob('*'):blob(history,f.name)
+        for e in es.values():
+            capsule=e['value'].get('capsule') or e['value'].get('validation')
+            if capsule:verify_capsule(history,capsule)
+        # A paused snapshot may contain finished but unpublished evidence.
+        # Restore it for checkpoint recovery without advertising completion.
+        done=verified_completion(admission,allow_pending_checkpoint=True)
+        if done is not None:terminal_completion_proof(temp,done)
+        os.replace(temp,dest)
+    finally:
+        if temp.exists():shutil.rmtree(temp)
+    return {'status':'RESTORED_NOT_RUNNING','workspace':str(dest),'source_sha256':row['source_sha256'],'checkpoint_sha256':packet['checkpoint_sha256'],
+            'state_file_modes_restored':'state_file_modes' in row,
+            'mode_scope':'CHECKPOINT_STATE_AND_INPUT_FILES' if 'state_file_modes' in row else 'LEGACY_MODES_NOT_RECORDED'}
+
+
+def request_pause(workspace,reason):
+    if not reason.strip():raise sub.SubmissionError('PAUSE_REASON_REQUIRED')
+    root=Path(workspace).resolve();rec=sub.capture_record(root)
+    row={'capture_id':rec['capture_id'],'reason':reason,'nonce':str(time.time_ns())}
+    write_json_atomic(root/'runtime/PAUSE_REQUEST.json',row)
+    return {'status':'PAUSE_REQUESTED','capture_id':rec['capture_id'],'reason':reason,
+            'scope':'Passive request; native controller acknowledges at a monitored safe boundary.'}
+
+
+def main(argv):
+    parser=argparse.ArgumentParser(description='Native checkpoints and explicit save outbox.')
+    cmds=parser.add_subparsers(dest='command',required=True)
+    for name in ('status','snapshot','drain-plan'):
+        p=cmds.add_parser(name);p.add_argument('workspace')
+    p=cmds.add_parser('note-upload');p.add_argument('workspace');p.add_argument('sha256');p.add_argument('drive_id')
+    p=cmds.add_parser('pause');p.add_argument('workspace');p.add_argument('reason')
+    p=cmds.add_parser('confirm');p.add_argument('workspace');p.add_argument('sha256');p.add_argument('readback');p.add_argument('drive_id');p.add_argument('--role');p.add_argument('--logical-name');p.add_argument('--obligation-id')
+    p=cmds.add_parser('confirm-transport');p.add_argument('workspace');p.add_argument('sha256');p.add_argument('manifest');p.add_argument('parts');p.add_argument('drive_id');p.add_argument('--role');p.add_argument('--logical-name');p.add_argument('--obligation-id')
+    p=cmds.add_parser('confirm-batch');p.add_argument('workspace');p.add_argument('batch')
+    p=cmds.add_parser('export');p.add_argument('workspace');p.add_argument('output');p.add_argument('--slim',action='store_true')
+    p=cmds.add_parser('restore');p.add_argument('archive');p.add_argument('destination');p.add_argument('sha256');p.add_argument('--objects')
+    args=parser.parse_args(argv)
+    try:
+        if args.command=='status':result=status(args.workspace)
+        elif args.command=='drain-plan':result=drain_plan(args.workspace)
+        elif args.command=='snapshot':result=snapshot_workspace(args.workspace)
+        elif args.command=='pause':result=request_pause(args.workspace,args.reason)
+        elif args.command=='note-upload':result=note_upload(args.workspace,args.sha256,args.drive_id)
+        elif args.command=='confirm':result=confirm(args.workspace,args.sha256,args.readback,args.drive_id,role=args.role,logical_name=args.logical_name,obligation_id=args.obligation_id)
+        elif args.command=='confirm-transport':result=confirm_transport(args.workspace,args.sha256,args.manifest,args.parts,args.drive_id,role=args.role,logical_name=args.logical_name,obligation_id=args.obligation_id)
+        elif args.command=='confirm-batch':result=confirm_batch(args.workspace,args.batch)
+        elif args.command=='export':result=export_checkpoint(args.workspace,args.output,slim=args.slim)
+        else:result=restore_checkpoint(args.archive,args.destination,args.sha256,args.objects)
+        print(json.dumps(result,sort_keys=True,indent=2));return 0
+    except Exception as exc:
+        from .invocation import refusal_details
+        print(json.dumps(refusal_details(exc,'preserve '+args.command,getattr(args,'workspace',None)),sort_keys=True,indent=2));return 2

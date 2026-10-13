@@ -1,0 +1,14 @@
+{
+  "schema_id": "IG_JUMPSTART_PROFILE_SCHEMA_V0_1",
+  "purpose": "Bind an exact graph target to target-specific materialization and launch semantics without encoding predecessor identities in the profile.",
+  "invariants": [
+    "All predecessor identities are resolved from the graph mandatory computation closure.",
+    "Profiles may define only relative payload paths; absolute dependency paths are forbidden.",
+    "A profile binds one exact target_node_id and one stable test alias.",
+    "Material roots must be content-addressed and hash-verified before use.",
+    "Existing workspaces are reused only after frozen payload verification.",
+    "Mutable runtime files such as bytecode caches must be explicitly declared and may not substitute for source authority."
+  ],
+  "supported_materialization_modes": ["SINGLE_ZIP_PAYLOAD", "MATERIAL_ONLY"],
+  "profile_store": "store/graph/jumpstart_profiles/<profile_sha256>.json"
+}
