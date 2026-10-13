@@ -146,6 +146,7 @@ def resolve_callable(ref: str, binding: dict[str, Any] | None):
     from .workflow_guard import preflight, scientific_call
     preflight(source, [path])
     source_text = str(source)
+    _rebind_identical_capture_namespace(source,binding['source_sha256'])
     if source_text not in sys.path:
         sys.path.insert(0, source_text)
     module, name = ref.split(":", 1)
@@ -186,6 +187,48 @@ def resolve_callable(ref: str, binding: dict[str, Any] | None):
                 if not origin.is_relative_to(source/'project'):
                     raise ProjectStageError('PROJECT_STAGE_MODULE_ORIGIN')
                 _LOADED_PROJECT_MODULES[loaded_name]=(loaded,binding['source_sha256'],str(origin),hashlib.sha256(origin.read_bytes()).hexdigest())
+            elif loaded_name=='project':
+                _LOADED_PROJECT_MODULES[loaded_name]=(loaded,binding['source_sha256'],str(source/'project'),None)
     if not callable(fn):
         raise ProjectStageError("PROJECT_STAGE_CALLABLE_MISSING")
     return fn
+
+
+def _rebind_identical_capture_namespace(source,source_sha):
+    """Move resolver-owned imports to another capture of the exact same source.
+
+    A rolling window has a new physical source path. Old modules are never
+    reused there: verify the complete cached closure, then reload current bytes.
+    Unknown modules and different source pins still fail closed before eviction.
+    """
+    loaded={name:module for name,module in list(sys.modules.items())
+            if name=='project' or name.startswith('project.')}
+    if not loaded:return
+    foreign=False
+    for name,module in loaded.items():
+        origin=getattr(module,'__file__',None)
+        if origin:
+            foreign|=not Path(origin).resolve().is_relative_to(source/'project')
+        else:
+            foreign|=list(getattr(module,'__path__',()))!=[str(source/'project')]
+    if not foreign:return
+    for name,module in loaded.items():
+        prior=_LOADED_PROJECT_MODULES.get(name)
+        if not prior or prior[0] is not module or prior[1]!=source_sha:
+            raise ProjectStageError('PROJECT_STAGE_CACHED_MODULE_UNBOUND')
+        origin=getattr(module,'__file__',None)
+        if origin:
+            origin=Path(origin).resolve()
+            if str(origin)!=prior[2] or prior[3] is None:
+                raise ProjectStageError('PROJECT_STAGE_CACHED_MODULE_UNBOUND')
+            stem=source.joinpath(*name.split('.'))
+            target=stem/'__init__.py' if origin.name=='__init__.py' else stem.with_suffix('.py')
+            if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest()!=prior[3]:
+                raise ProjectStageError('PROJECT_STAGE_MODULE_HASH')
+        else:
+            spec=getattr(module,'__spec__',None)
+            if (name!='project' or prior[3] is not None or spec is None
+                    or spec.origin is not None or list(getattr(module,'__path__',()))!=[prior[2]]):
+                raise ProjectStageError('PROJECT_STAGE_CACHED_MODULE_UNBOUND')
+    for name in sorted(loaded,key=len,reverse=True):
+        sys.modules.pop(name,None);_LOADED_PROJECT_MODULES.pop(name,None)

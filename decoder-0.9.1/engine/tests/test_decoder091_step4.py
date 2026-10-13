@@ -66,3 +66,34 @@ def test_namespace_handler_evaluator_reuse_ignores_ambient_project_roots(tmp_pat
     assert resolve_callable('project.module:handler',bindings['project.module:handler'])()=='PINNED'
     assert resolve_callable('project.module:evaluate',bindings['project.module:evaluate'])()=='PINNED_EVALUATOR'
     assert list(sys.modules['project'].__path__)==[str(source/'project')]
+
+
+@pytest.mark.parametrize('variant',['identical','different_source','unbound_sibling'])
+def test_sequential_capture_reload_requires_entire_known_identical_closure(tmp_path,monkeypatch,variant):
+    import sys,shutil,types
+    from infinity_grid.project_stage import bind_callables,resolve_callable,ProjectStageError
+    from infinity_grid.v05_controller_event_loop import _source_ids
+    first=tmp_path/'first';second=tmp_path/'second'
+    (first/'project').mkdir(parents=True);(first/'infinity_grid').mkdir()
+    (first/'infinity_grid/_version.py').write_text('__version__="0.9.1"\n')
+    (first/'project/helper.py').write_text('VALUE="PINNED"\n')
+    (first/'project/module.py').write_text('from .helper import VALUE\ndef handler():return VALUE\ndef evaluate():return VALUE\n')
+    shutil.copytree(first,second)
+    for name in list(sys.modules):
+        if name=='project' or name.startswith('project.'):monkeypatch.delitem(sys.modules,name)
+    refs=['project.module:handler','project.module:evaluate']
+    one=bind_callables(first,refs,source_sha256=_source_ids(first)[0])
+    original=resolve_callable(refs[0],one[refs[0]]);assert original()=='PINNED'
+    if variant=='different_source':(second/'project/helper.py').write_text('VALUE="CHANGED"\n')
+    if variant=='unbound_sibling':monkeypatch.setitem(sys.modules,'project.unknown',types.ModuleType('project.unknown'))
+    two=bind_callables(second,refs,source_sha256=_source_ids(second)[0])
+    if variant!='identical':
+        with pytest.raises(ProjectStageError,match='CACHED_MODULE_UNBOUND'):resolve_callable(refs[0],two[refs[0]])
+        assert sys.modules['project.module'].handler is original
+    else:
+        current=resolve_callable(refs[0],two[refs[0]])
+        assert current()=='PINNED' and current is not original
+        assert current.__code__.co_filename==str(second/'project/module.py')
+        assert Path(sys.modules['project.helper'].__file__)==second/'project/helper.py'
+        assert resolve_callable(refs[1],two[refs[1]])()=='PINNED'
+        assert list(sys.modules['project'].__path__)==[str(second/'project')]
