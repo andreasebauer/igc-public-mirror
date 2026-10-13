@@ -1,0 +1,69 @@
+{
+  "cost_control": {
+    "expected_science_complexity": "linear scan/postprocessing only",
+    "new_science_kernels": 0,
+    "reuse_s1_observer_rows": 992
+  },
+  "date": "2026-09-05",
+  "input_evidence": {
+    "expected_s1_observations": 992,
+    "expected_term_count": 4,
+    "g4_s1_rebase_science_sha256": "83fc3d8023fbd2bb8b6f2b3b66b2c04a9f27e030d857e00bea78a7c51978c66e",
+    "lower_layer_rematerialization": false,
+    "operator_count": 31,
+    "orientation_count": 2
+  },
+  "nonclaims": [
+    "NO_G4_GRADUATION",
+    "NO_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_GLOBAL_MINIMALITY",
+    "NO_FULL_TOPOLOGY_PROMOTION",
+    "NO_PHYSICAL_GEOMETRY_DIMENSION_METRIC_TIME_OR_SPACETIME"
+  ],
+  "ordered_tiers": [
+    {
+      "eligible": false,
+      "name": "CAPS7",
+      "reason": "public baseline already operationally insufficient",
+      "tier": 0
+    },
+    {
+      "eligible": false,
+      "name": "OLD_TIER1_SCALAR_TREE_SUMMARIES",
+      "reason": "falsified by certified n9 same-Tier1 challenge",
+      "tier": 1
+    },
+    {
+      "eligible": false,
+      "name": "SHELL_PROFILE_MULTISET",
+      "reason": "known incomplete after exhaustive G3 R18 shell break",
+      "tier": 2
+    },
+    {
+      "eligible": false,
+      "name": "PAIRED_SUPPORT_LOAD_DISTANCE_SIGNATURE_MULTISET",
+      "reason": "known insufficient without shell information in G3 challenges",
+      "tier": 3
+    },
+    {
+      "eligible": true,
+      "name": "REPAIRED_HIDDEN_STATE_H",
+      "reason": "G3:R3 repaired state with certified binary graft algebra",
+      "tier": 4
+    },
+    {
+      "eligible": false,
+      "name": "FULL_HIDDEN_TREE_CANON",
+      "reason": "diagnostic ceiling; do not promote full topology",
+      "tier": 5
+    }
+  ],
+  "pass_effect": "Unlock G4:S3.REBASE with the selected bounded candidate. No public descriptor promotion and no G4 graduation.",
+  "question": "On the complete certified G4:S1.REBASE pair-context observer (992 observations over four corrected G3 terms, 31 bridge operators, two orientations), what is the lowest scientifically eligible repaired hidden read for which the observer is single-valued?",
+  "schema_id": "IG_G4_S2_REBASE_MINIMAL_SUFFICIENT_READ_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "72c1ef88186b9df32faa0860bf1a6ef1e70f76adae650e7ae367b9664d1ab0b0",
+  "selection_rule": "Audit all tiers against the already-computed complete S1.REBASE observer; select the first eligible tier with zero quotient conflicts. No new pair kernels or lower-layer rematerialization are allowed.",
+  "stage_ref": "G4:S2.REBASE",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

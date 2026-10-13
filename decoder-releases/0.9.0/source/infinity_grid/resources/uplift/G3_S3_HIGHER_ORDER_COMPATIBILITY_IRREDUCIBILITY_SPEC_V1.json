@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "g3_s0_classification": "G3_BASELINE_UNIT_INTERFACE_FROZEN_CAPS7_ONLY_TOPOLOGY_COLLISION_CORPUS_EARNED_S1_UNLOCKED",
+    "g3_s0_science_sha256": "42832d682c1e0175f6f7c02eff6047f9ba8bf2a165c6017d8f4776166e766199",
+    "g3_s0_status": "PASS",
+    "g3_s1_classification": "G3_TOPOLOGY_NOT_READ_ON_REGISTERED_PAIR_CONTEXT_BASIS_CAPS7_SURVIVES_S2_UNLOCKED",
+    "g3_s1_outcome": "TOPOLOGY_NOT_READ",
+    "g3_s1_science_sha256": "0d4ab3493930ac1b0b3b29deaca52496ffacf30484d3742e8b4e54c7d4937e7c",
+    "g3_s1_status": "PASS",
+    "g3_s2_classification": "G3_CAPS7_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ_S3_UNLOCKED",
+    "g3_s2_science_sha256": "b6b122e7c304419bc7975d3da34726df4d1fc846575e595480c147136ad1a409",
+    "g3_s2_stable_payload_sha256": "1281920ca8f9c93c950f992e898b304d028285fdfbb44ffa18dc98ca5f2c7487",
+    "g3_s2_status": "PASS",
+    "required_g3_graduated": false,
+    "required_g3_s3_unlocked": true,
+    "required_s2_conflicts": 0,
+    "required_s2_public_pair_context_keys": 62,
+    "required_s2_representatives_per_key": 36,
+    "required_topology_promoted": false
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "PASS": "S2 pair evidence is exactly bound, all six equal-CAPS7 units have one identical complete ordered 7x7 branch-sensitive two-reservation continuation table, and therefore every declared P3/K3 joint public fact factors through CAPS7+S2. Certify no irreducible triple residual and unlock G3:S4.",
+    "REVIEW_REQUIRED": "Any S2 binding mismatch, any equal-CAPS7 local continuation conflict, or any reconstruction premise failure. Lock S4; do not promote topology or another descriptor post hoc."
+  },
+  "exact_reduction": [
+    "CERTIFIED_S2_PAIR_QUOTIENT_MUST_REPLAY_EXACTLY_AGAINST_THE_2232_ROW_S1_SIGNATURE_INDEX",
+    "WITHIN_EACH_CAPS7_UNIT_CLASS_THE_COMPLETE_7_BY_7_ORDERED_TWO_RESERVATION_BRANCH_RELATION_MUST_BE_REPRESENTATIVE_INDEPENDENT",
+    "P3_AND_K3_HAVE_MAX_VERTEX_DEGREE_2_SO_EDGEWISE_S2_VALUES_PLUS_LOCAL_ORDERED_TWO_RESERVATION_TABLES_RECONSTRUCT_THE_DECLARED_JOINT_OBSERVER"
+  ],
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "DECOMPOSABLE_LOCAL_CONTINUATION_WORK_VIA_INFINITY_GRID_EXECUTION_EXECUTE_TASKS",
+    "COLD_REPLAY_RERUNS_SAME_REGISTERED_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_REGISTRY_OR_S1_S2_BINDING_MISMATCH",
+    "NO_POST_HOC_OBSERVER_CHANGE",
+    "NO_STAGE_SPECIFIC_EXTERNAL_SCIENCE_ENGINE"
+  ],
+  "frozen_domain": {
+    "carrier_instance_rule": "three independently instantiated complete frozen G3:S0 G2 carriers; repeated carrier refs allowed as repeated instances",
+    "exact_unit_representatives": 6,
+    "hidden_topology_classes": 2,
+    "max_vertex_degree": 2,
+    "pair_context_basis": "complete certified G3:S1/S2 basis: 31 bridge operators x 2 target/context orientations",
+    "pair_public_context_keys": 62,
+    "public_unit_caps7_classes": 1,
+    "triple_scope": [
+      "P3_CONNECTED_PATH",
+      "K3_TRIANGLE"
+    ],
+    "unit_corpus": "all six exact four-G1-unit G2 carriers from certified G3:S0"
+  },
+  "joint_public_observer": {
+    "edge_reads": "the exact certified S2 pair-observer value for every incident edge, including operator and orientation",
+    "joint_legality": "an assembly is legal exactly when every incident edge pair outcome is legal and each vertex has at least one exact branch realizing its ordered incident reservations",
+    "reservation_order": "all 49 ordered endpoint-type pairs are certified; any construction order is represented rather than silently quotienting order dependence",
+    "vertex_reads": "CAPS7-only ordered one- and two-reservation branch-sensitive continuation: exact relation cardinality, CAPS7 successor set, and branch-profile multiplicity; no skin, topology, construction identity, owner witness, or ancestry"
+  },
+  "nonclaims": [
+    "NO_GLOBAL_CAPS7_MINIMALITY",
+    "NO_ARBITRARY_N_BODY_IRREDUCIBILITY",
+    "NO_G3_COMPOSITION_CLOSURE",
+    "NO_G3_FINITE_STATE_DESCRIPTOR",
+    "NO_TOPOLOGY_ERASURE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_G3_GRADUATION",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "pass_effect": "Unlock G3:S4 composition-closure design/execution only; do not promote topology, do not declare a G3 descriptor beyond the tested triple observer, and do not graduate G3.",
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "promotion": false,
+  "question": "After the certified G3:S2 CAPS7 pair-observer quotient, are any branch-sensitive public facts of connected simple three-G2-unit P3/K3 compatibility motifs irreducible to the complete S2 pair data plus the inherited CAPS7 unit interface?",
+  "schema_id": "IG_G3_S3_HIGHER_ORDER_COMPATIBILITY_IRREDUCIBILITY_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "8c0b0ff60bf036276b12254048bb35c286f5db343af5623c466e515f1b845bee",
+  "stage_ref": "G3:S3",
+  "status": "FROZEN_BEFORE_G3_S3_EXECUTION"
+}

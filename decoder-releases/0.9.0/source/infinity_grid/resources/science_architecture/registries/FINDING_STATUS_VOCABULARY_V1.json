@@ -1,0 +1,30 @@
+{
+  "evidence_classes": [
+    "RECONNAISSANCE",
+    "BOUNDED_EXACT",
+    "CONSTRUCTION_AUDIT",
+    "THEOREM_TRANSPORT",
+    "FORMAL_THEOREM"
+  ],
+  "operational_statuses": [
+    "PASS",
+    "FAIL",
+    "NOT_APPLICABLE",
+    "BLOCKED",
+    "ERROR"
+  ],
+  "rule": "Operational execution status is separate from scientific Finding status. A Finding may not exceed its Test claim_ceiling.",
+  "schema_id": "IG_FINDING_STATUS_VOCABULARY_V1",
+  "schema_version": "1.0.0",
+  "scientific_statuses": [
+    "NULL",
+    "OBSERVED_VARIATION",
+    "INVARIANT",
+    "CANDIDATE",
+    "COUNTEREXAMPLE",
+    "REOPEN_TRIGGER",
+    "PLATEAU_SUPPORT",
+    "LIFT_SUPPORT"
+  ],
+  "status": "FROZEN_SPEC_V1"
+}

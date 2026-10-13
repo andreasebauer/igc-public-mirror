@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admissibility": {
+      "additionalProperties": false,
+      "properties": {
+        "constraints": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "entity_class_refs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "regime_refs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "entity_class_refs",
+        "regime_refs",
+        "constraints"
+      ],
+      "type": "object"
+    },
+    "claim_ceiling": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "computation": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_science_projection": {
+          "type": "string"
+        },
+        "entrypoint_ref": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "NATIVE_MODULE",
+            "LEGACY_COMPAT_ADAPTER",
+            "DECLARATIVE_META_TEST",
+            "TO_BE_IMPLEMENTED"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "entrypoint_ref",
+        "deterministic_science_projection"
+      ],
+      "type": "object"
+    },
+    "cost_class": {
+      "enum": [
+        "CHEAP",
+        "MEDIUM",
+        "EXPENSIVE",
+        "VERY_EXPENSIVE"
+      ]
+    },
+    "default_cadence": {
+      "type": "string"
+    },
+    "dependency_test_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_schema_ref": {
+      "type": "string"
+    },
+    "input_mode": {
+      "enum": [
+        "OBSERVATION_VIEW",
+        "FINDING_DEPENDENCIES"
+      ]
+    },
+    "observer_definition": {
+      "type": "string"
+    },
+    "outcome_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "counterexample": {
+          "type": "string"
+        },
+        "null": {
+          "type": "string"
+        },
+        "positive": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "null",
+        "positive",
+        "counterexample"
+      ],
+      "type": "object"
+    },
+    "read_only": {
+      "const": true
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "sampling_policy": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_TEST_SPEC_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "scientific_question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope_class": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "shared_projection_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "test_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "test_id",
+    "version",
+    "status",
+    "scientific_question",
+    "admissibility",
+    "input_mode",
+    "required_capabilities",
+    "shared_projection_refs",
+    "computation",
+    "observer_definition",
+    "scope_class",
+    "cost_class",
+    "default_cadence",
+    "sampling_policy",
+    "outcome_rules",
+    "evidence_schema_ref",
+    "claim_ceiling",
+    "reopen_conditions",
+    "dependency_test_refs",
+    "read_only"
+  ],
+  "title": "IG Decoder Test Protocol V1",
+  "type": "object"
+}

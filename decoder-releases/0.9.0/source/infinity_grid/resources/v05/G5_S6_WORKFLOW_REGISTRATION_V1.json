@@ -1,0 +1,141 @@
+{
+  "adapter_id": "v05.science.g4-accepted-r7",
+  "budgets": {
+    "max_cases": 250000,
+    "max_steps": 7
+  },
+  "continuation": {
+    "of_registration_sha256": "4a732c035be223961ed2996ab2b0aa8673788c8ef7d9dc879ad8b7462c031b9a",
+    "version": 6
+  },
+  "promotion_policy": {
+    "authority_effect": "NONE_P6",
+    "graduation_authorized": false,
+    "graduation_requested": true
+  },
+  "question": {
+    "scope": "G5:S6 recursive closure and graduation-candidate audit over the frozen S5 CAPS7 + H-class bag state and 31-operator grammar",
+    "stage_rows": [
+      {
+        "capability_id": "g5.s0.carrier-interface.v1",
+        "parameters": {
+          "spec_science_sha256": "dde534060ba9f76b6831576e73ffd398f299c8aefc6f17adbba4c885bd819a58",
+          "witness_depths": [
+            2,
+            4
+          ]
+        },
+        "registered_alternatives": [
+          "G5_S0_G4_AUTHORITY_FROZEN_CAPS7_PLUS_H_CLASS_BAG_PUBLIC_ACTUAL_G4_HIDDEN_DECORATED_TREE_CHALLENGE_CORPUS_EARNED_S1_DESIGN_REVIEW",
+          "G5_S0_AUTHORITY_OR_INTERFACE_FREEZE_FAILURE"
+        ],
+        "stage": "S0"
+      },
+      {
+        "capability_id": "g5.s1.pair-census.v1",
+        "parameters": {
+          "required_s0_stage_science_sha256": "34b2dd21c1517657388a7b002c3566ddd36d96f20d85d3194519add123e72593",
+          "spec_science_sha256": "dbf6a45394e1011aaac904bb46c59f598f21ae71d9449cdd17d9a0902281f759"
+        },
+        "registered_alternatives": [
+          "G5_S1_PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE",
+          "G5_S1_PAIR_CENSUS_HIDDEN_RESIDUAL_DETECTED",
+          "G5_S1_AUTHORITY_OR_CENSUS_FAILURE"
+        ],
+        "stage": "S1"
+      },
+      {
+        "capability_id": "g5.s2.pair-quotient.v1",
+        "parameters": {
+          "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+          "required_s1_stage_science_sha256": "179e68f524a03063798d421b941d6b7b52f38f598c624ee437e3ed55c9161f84",
+          "spec_science_sha256": "d64e15ba04556e65ba971d85b2b7145c583fdc12189c2e472d9aaef8434c29b7"
+        },
+        "registered_alternatives": [
+          "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+          "G5_S2_PAIR_OBSERVER_QUOTIENT_NOT_CERTIFIED",
+          "G5_S2_AUTHORITY_OR_QUOTIENT_FAILURE"
+        ],
+        "stage": "S2"
+      },
+      {
+        "capability_id": "g5.s3.higher-residual.v1",
+        "parameters": {
+          "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+          "required_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+          "required_s2_stage_science_sha256": "abcecf9596fcdaf0597940707e34cdf82b3495aeec0abddff36af9649af3ce87",
+          "spec_science_sha256": "823fdedf0487913302135c09e58485ab97966a842f4f4adc991872ae929da9e7"
+        },
+        "registered_alternatives": [
+          "G5_S3_NO_IRREDUCIBLE_TRIPLE_RESIDUAL_ON_FROZEN_P3_K3_SCOPE_S4_DESIGN_REVIEW",
+          "G5_S3_HIGHER_ORDER_HIDDEN_RESIDUAL_DETECTED",
+          "G5_S3_AUTHORITY_OR_HIGHER_RESIDUAL_FAILURE"
+        ],
+        "stage": "S3"
+      },
+      {
+        "capability_id": "g5.s4.composition-closure.v1",
+        "parameters": {
+          "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+          "required_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+          "required_s2_stage_science_sha256": "abcecf9596fcdaf0597940707e34cdf82b3495aeec0abddff36af9649af3ce87",
+          "required_s3_stage_science_sha256": "bc5e8b743e043840ebc6d3146533f460faf3ee5d58dcdaa4b3b3e5a01441de15",
+          "spec_science_sha256": "7742bb05b33dd0fb622e22aff38747438e26099f442f442851a160c82847c195"
+        },
+        "registered_alternatives": [
+          "G5_S4_ONE_STEP_COMPOSITION_CLOSURE_ON_FROZEN_RECURSIVE_P3_SCOPE_S5_DESIGN_REVIEW",
+          "G5_S4_COMPOSITION_CLOSURE_SEPARATOR_DETECTED",
+          "G5_S4_AUTHORITY_OR_COMPOSITION_FAILURE"
+        ],
+        "stage": "S4"
+      },
+      {
+        "capability_id": "g5.s5.finite-read-write.v1",
+        "parameters": {
+          "required_s1_rows_sha256": "06df6100370dbdbcf46c81ab20870e03f606dc220b37864541c6368e8165dcc2",
+          "required_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+          "required_s3_stage_science_sha256": "bc5e8b743e043840ebc6d3146533f460faf3ee5d58dcdaa4b3b3e5a01441de15",
+          "required_s4_stage_science_sha256": "64a23285f0e15e699166f4f610e23398abc67aac0b8b755913d3d5462f770de3",
+          "spec_science_sha256": "2af286ec3507ef8ea528bfc5aae03aa2d0fa74af264567ef684ec61823a90191"
+        },
+        "registered_alternatives": [
+          "G5_S5_CAPS7_PLUS_H_CLASS_BAG_FINITE_READ_WRITE_STATE_EARNED_S6_DESIGN_REVIEW",
+          "G5_S5_FINITE_READ_WRITE_STATE_NOT_CERTIFIED"
+        ],
+        "stage": "S5"
+      },
+      {
+        "capability_id": "g5.s6.recursive-closure.v1",
+        "parameters": {
+          "required_s5_stage_science_sha256": "02e41c935a91f4ee28967114a004e0f55f4c250f17815869df9c46d310517635",
+          "spec_science_sha256": "14a43e855cfdc62add5051bc69823d83900a4cdd6bb0987be3e2d9998c3274ac"
+        },
+        "registered_alternatives": [
+          "G5_S6_RECURSIVE_CLOSURE_GRADUATION_CANDIDATE",
+          "G5_S6_RECURSIVE_CLOSURE_NOT_CERTIFIED"
+        ],
+        "stage": "S6"
+      }
+    ]
+  },
+  "registration_id": "g5-s6-recursive-closure-v1",
+  "registration_sha256": "ac6fb98070438d767c50b66fa023d5585a64ae869c4c16b93ff04fc93b93fd5f",
+  "schema_id": "IG_DECODER_V05_WORKFLOW_REGISTRATION_V1",
+  "status": "ACTIVE_CANDIDATE",
+  "stop_rules": {
+    "budget_exhausted": "STOP",
+    "changed_assumptions": "STOP",
+    "falsification": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "unmet_proof_obligations": "STOP"
+  },
+  "subject": {
+    "hierarchy": "G",
+    "level": 5,
+    "parent": "G5:S5",
+    "purpose": "RECURSIVE_CLOSURE_GRADUATION_AUDIT",
+    "stage": "S6"
+  },
+  "workflow_kind": "STRUCTURAL_S0_S6",
+  "workflow_mode": "DISCOVERY"
+}

@@ -1,0 +1,42 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_ARTIFACT_RECORD_V0_17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_by_run_id": {
+      "type": "null"
+    },
+    "logical_role": {
+      "type": "string"
+    },
+    "media_type": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_ARTIFACT_RECORD_V0_17",
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "integer"
+    },
+    "source_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "created_by_run_id",
+    "logical_role",
+    "media_type",
+    "schema_id",
+    "sha256",
+    "size_bytes",
+    "source_name"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_ARTIFACT_RECORD_V0_17",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

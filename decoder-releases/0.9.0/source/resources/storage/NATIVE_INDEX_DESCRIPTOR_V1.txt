@@ -1,0 +1,13 @@
+Native IndexDescriptor verification profile V1
+
+Admits one native reference-record SET collection and a closed read-only index.
+Checks pinned builder entrypoint files and exact DDL profile, index bytes and
+manifest, all source rows in key order, raw hash/size/schema, empty auxiliary
+projection tables, and a canonical report matching recomputed bindings.
+The report is independently cross-checked; it is not accepted as authority.
+Builder profile identifies current implementation files, not transitive build
+provenance or evidence of past execution. Root equality is checked; root closure,
+publication and scientific acceptance are not granted.
+Input byte budget counts descriptor, metadata and local index inputs once plus
+collection reads; it is not a physical I/O counter. SQLite work cap 5M VM steps.
+Collection limits bound records, pages, shards and sizes. No auto-rebuild.

@@ -1,0 +1,35 @@
+{
+  "family_order": [
+    "G1_PUBLIC_INTERFACE",
+    "G3_CORRECTED",
+    "G4_ACCEPTED"
+  ],
+  "gate": "V05-05",
+  "historical_contraction_order_rule": "Same-final-relation order invariance is preserved only at its declared observer/quotient scope and is not promoted into a claim of associative binary connected composition.",
+  "phase": "P5",
+  "promotion": false,
+  "required_equality_dimensions": [
+    "CANONICAL_OUTCOMES",
+    "PUBLIC_DESCRIPTORS",
+    "RELATION_VALUED_FAILURE_CASES",
+    "COUNTEREXAMPLE_WITNESSES",
+    "SCOPE_AND_NONCLAIMS"
+  ],
+  "rules": [
+    "A family must pass before the next family is migrated.",
+    "Historical providers remain available until the replacement adapter passes its compatibility gate.",
+    "Relation-valued outcomes and failed connections are preserved; no representative selection is allowed.",
+    "Unsupported capabilities fail early.",
+    "G4 abstract-tree statements may not transfer to actual G4 without the accepted realizability bridge.",
+    "No adapter has graduation or claim-promotion authority."
+  ],
+  "schema_id": "IG_DECODER_V05_P5_SCIENCE_ADAPTER_COMPATIBILITY_CONTRACT_V1",
+  "science_changed": false,
+  "science_sha256": "56e80264d060e3791a916c55bb15d1bc77b305203034896f11ee016f4aedc76e",
+  "sequential_adapter_ids": [
+    "v05.science.g1-public-r100",
+    "v05.science.g3-repaired-r3",
+    "v05.science.g4-accepted-r7"
+  ],
+  "version": "1.0.0"
+}

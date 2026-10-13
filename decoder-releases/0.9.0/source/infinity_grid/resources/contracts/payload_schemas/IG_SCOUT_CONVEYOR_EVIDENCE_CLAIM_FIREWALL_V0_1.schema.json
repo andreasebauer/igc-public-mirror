@@ -1,0 +1,116 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_records_per_level": {
+      "type": "integer"
+    },
+    "forbidden_terms_in_machine_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parent_inheritance": {
+      "additionalProperties": false,
+      "properties": {
+        "inherits_authority_above_reconnaissance": {
+          "type": "boolean"
+        },
+        "inherits_exact_bounded_input": {
+          "type": "boolean"
+        },
+        "inherits_first_occurrence": {
+          "type": "boolean"
+        },
+        "inherits_population_completeness": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "inherits_authority_above_reconnaissance",
+        "inherits_exact_bounded_input",
+        "inherits_first_occurrence",
+        "inherits_population_completeness"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1",
+      "type": "string"
+    },
+    "spec_sha256": {
+      "type": "string"
+    },
+    "spectroscope": {
+      "additionalProperties": false,
+      "properties": {
+        "cannot_change_selection": {
+          "type": "boolean"
+        },
+        "cannot_feedback": {
+          "type": "boolean"
+        },
+        "cannot_promote_geometry_topology_or_mechanism": {
+          "type": "boolean"
+        },
+        "recognition_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cannot_change_selection",
+        "cannot_feedback",
+        "cannot_promote_geometry_topology_or_mechanism",
+        "recognition_only"
+      ],
+      "type": "object"
+    },
+    "trigger_output_type": {
+      "type": "string"
+    },
+    "universal_tuple": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "completeness": {
+          "type": "string"
+        },
+        "execution": {
+          "type": "string"
+        },
+        "protocol_label": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority",
+        "completeness",
+        "execution",
+        "protocol_label",
+        "status"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "claim_records_per_level",
+    "forbidden_terms_in_machine_claims",
+    "parent_inheritance",
+    "schema_id",
+    "spec_sha256",
+    "spectroscope",
+    "trigger_output_type",
+    "universal_tuple"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_SCOUT_CONVEYOR_EVIDENCE_CLAIM_FIREWALL_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

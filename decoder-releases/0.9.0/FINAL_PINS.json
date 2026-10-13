@@ -1,0 +1,42 @@
+{
+  "schema_id": "IG_DECODER09_FINAL_IDENTITY_V1",
+  "version": "0.9.0",
+  "engine_source_sha256": "496d7a0b69798d51f5735207978f0e1143eefb930cbe9f081f65637243f9f8d2",
+  "bulk_combined_source_sha256": "31f4e27f4c7f083bd28c9c12f921a28f53904851f0a729a9d4cb82b5709aa9d1",
+  "package_sha256": "f9636fef712db302da2b75e33c0c56bb358974119329af35c8b4a6f67a377596",
+  "rc6_engine_source_sha256": "815b914c51a8c25873956cb17bf0863df9bf29910537b11ed41b901d0d836d85",
+  "rc6_bulk_combined_source_sha256": "0a64ebf84ff251f75266a3dae726a5690575d18cc08976610bb05d14dba20bd2",
+  "rc6_package_sha256": "b8465987c98cc8f2f15dcffea60c4c2cd12193034960155454f2eb0f43d9edf7",
+  "v2_parent_source_sha256": "27638afb1979370cbad0e733582cf6498e39acf884f0736b086ba8fa1f796fac",
+  "changed_from_v2": [
+    "infinity_grid/_build_meta.json",
+    "infinity_grid/_version.py"
+  ],
+  "runtime_manifest_sha256": "6a205e5d39a3acd7261b23caaf06997d41cc65ebd1329b1766c143f5dacf78b5",
+  "runtime_archive_sha256": "25f76fa883c03b2ccc8a902d0aca799abd167279dbc6108ee2dad8095ac90222",
+  "project_archive_sha256": "4d3cdc1bed187dcc42529d5d722ea7d59d7568a15e14a3cf4b64506e73678897",
+  "data_plan_sha256": "2706b6395139aa84715c5f1100704c4a73fdbb98dfe352ca220d3132096d5cfb",
+  "scientific_kernels_and_adapter_bytes_exact": true,
+  "all_test_files_exact_to_v2": true,
+  "native_selectors": [
+    "tests/test_decoder06_capture.py::test_active_version_has_one_source",
+    "tests/test_decoder06_changes.py::test_built_and_installed_version_matches_runtime_and_cli",
+    "tests/test_decoder06_capture.py::test_current_validation_job_has_real_saved_source_records",
+    "tests/test_storage_capture_metadata.py::test_source_ids_match_native_and_partial_runtime_scope",
+    "tests/test_storage_capture_metadata.py::test_job_and_package_identity_mismatch"
+  ],
+  "capture_id": "7b94e728607ea54c63da0ba83cec87a7833cd52797513eba86c84a142db5c666",
+  "native_gates": "5_PASS_0_FAIL",
+  "publication": "PENDING",
+  "scientific_adoption": false,
+  "host_preparation_refusal_retained": "host_preparation_refusal",
+  "engine_archive_sha256": "30bdd2e6275509524ed1f148a89c5b391e815034ac73dca8f0e2a4e495e04de2",
+  "engine_archive_size_bytes": 23076230,
+  "engine_archive_library_id": "libfile_b8982ad925248191bcc65e4ecdcb2dfd",
+  "engine_archive_drive_id": "1wGhQucoNjRNmtXsCKJIIYqIvXPfxKNq7",
+  "qualification": "FINAL_090_LOCAL_QUALIFICATION_CLOSED",
+  "preservation": "PRESERVED",
+  "completion_sha256": "6a3cd964fab72467dc4ab87966434a69fae4b0e658ce1b60284d8ad546a75651",
+  "next_task": 15,
+  "remaining_tasks": 1
+}

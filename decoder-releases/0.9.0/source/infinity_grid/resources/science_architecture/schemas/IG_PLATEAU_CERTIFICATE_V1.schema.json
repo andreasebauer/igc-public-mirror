@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complexity_growth_guard": {
+      "type": "string"
+    },
+    "depth_window": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "start": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "width": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "width"
+      ],
+      "type": "object"
+    },
+    "entity_class_ref": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "nonclaim": {
+      "const": "NOT_ETERNAL_CLOSURE_AND_NOT_AUTOMATIC_LIFT"
+    },
+    "observer_or_test_pack_ref": {
+      "type": "string"
+    },
+    "outstanding_counterexamples": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "persistence_rule": {
+      "type": "string"
+    },
+    "plateau_id": {
+      "type": "string"
+    },
+    "regime_ref": {
+      "type": "string"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_PLATEAU_CERTIFICATE_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "scope_class": {
+      "enum": [
+        "RECONNAISSANCE",
+        "BOUNDED_EXACT",
+        "CONSTRUCTION_AUDIT",
+        "THEOREM_TRANSPORT",
+        "FORMAL_THEOREM"
+      ]
+    },
+    "stabilization_definition": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "CANDIDATE",
+        "CERTIFIED_IN_DECLARED_SCOPE",
+        "REJECTED",
+        "EXAMPLE_TEMPLATE"
+      ]
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "plateau_id",
+    "status",
+    "entity_class_ref",
+    "regime_ref",
+    "observer_or_test_pack_ref",
+    "scope_class",
+    "depth_window",
+    "stabilization_definition",
+    "persistence_rule",
+    "complexity_growth_guard",
+    "evidence_refs",
+    "outstanding_counterexamples",
+    "reopen_conditions",
+    "nonclaim"
+  ],
+  "title": "IG Decoder Plateau Certificate V1",
+  "type": "object"
+}

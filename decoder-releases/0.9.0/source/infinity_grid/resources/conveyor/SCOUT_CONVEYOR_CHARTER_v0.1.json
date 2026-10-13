@@ -1,0 +1,56 @@
+{
+  "bootstrap": {
+    "L17_executed_in_phase0": false,
+    "parent_closeout_bundle_sha256": "bb445d7e9a630398831d7fdb6295859173857d5225f48ad12ae3ad626f88e1ef",
+    "parent_level": 16,
+    "parent_pin_file_sha256": "bd8b607fc7113dbebaba81da8bf153eea32d2a149a7fcad86da9e95f37a3abec",
+    "parent_status_required": "ELIGIBLE_FOR_SEPARATELY_FROZEN_L17_PARENT"
+  },
+  "core_decision": {
+    "new_scientific_protocol": false,
+    "one_catalog": true,
+    "one_runtime": true,
+    "one_store": true,
+    "outer_orchestrator_only": true,
+    "per_level_child_packet_is_derived_and_sealed_before_execution": true,
+    "per_level_run_remains_independent_and_immutable": true
+  },
+  "finite_execution_rule": "Every chain launch must freeze an explicit finite maximum target level and finite resource budgets. An unbounded --until-trigger launch is invalid.",
+  "hard_nonclaims": [
+    "No first-occurrence claim.",
+    "No population-wide absence claim.",
+    "No mechanism promotion.",
+    "No geometry or physical-topology promotion.",
+    "No transition-level or C-PROVED promotion.",
+    "No mature-node or graduation promotion.",
+    "No lattice or closed-algebra promotion from bounded closure metrics.",
+    "No O-level execution or OFormal graduation."
+  ],
+  "immutability_rules": [
+    "A chain plan is immutable after start.",
+    "Runtime source, wheel, primitive, observer, selection rules, evidence boundary, trigger registry and protocol template are fixed for the whole chain.",
+    "Any source or semantic change starts a new chain from the last eligible parent.",
+    "No adaptive lane extension, observer change, metric addition or outcome-driven sampling is permitted inside a chain."
+  ],
+  "purpose": "Automate a finite sequence of bounded L-level Scout transitions through the graduated unified runtime without weakening per-level packet sealing, provenance, evidence boundaries, or stop-on-interest discipline.",
+  "schema_id": "IG_SCOUT_LEVEL_CONVEYOR_CHARTER_V0_1",
+  "scientific_scope": {
+    "authority": "RECONNAISSANCE_ONLY",
+    "evidence_label": "SCOUT_OBSERVED",
+    "execution_type": "BOUNDED_PREREGISTERED_RECONNAISSANCE",
+    "hierarchy": "L",
+    "population_complete": false,
+    "protocol": "SCOUT",
+    "tracked_relation_families": [
+      "R_PARENT_FIBER",
+      "R_SHARED_SUPPORT",
+      "R_FIBER_INCLUSION",
+      "R_PARTIAL_CLOSURE",
+      "R_REFINEMENT_INDIVIDUATION"
+    ],
+    "unresolved_marker": "R_LOCAL_DEPTH_REORGANIZATION"
+  },
+  "spec_sha256": "8030ff8d9f328338a2924452988b6aff52e63ccb45b09393c93a14d92dbff734",
+  "status": "IG_SCOUT_LEVEL_CONVEYOR_V0_1_PHASE0_FROZEN_READY_FOR_IMPLEMENTATION_NOT_EXECUTED",
+  "version": "0.1"
+}

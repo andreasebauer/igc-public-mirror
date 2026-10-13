@@ -1,0 +1,29 @@
+DEV134 — A12 bounded engineering gate; qualification pending in this frozen source.
+
+Parent dev133 566 PASS completion remains immutable; no full rerun or promotion.
+This successor adds evidence diagnostics to COMPLETION_EVIDENCE_MISMATCH and
+CHECKPOINT_COMPLETION_EVIDENCE_MISMATCH. Existing refusal codes and acceptance
+predicates remain. Public run stores the diagnostic in runtime/refusals outside
+the evidence tree; read-only completion verification writes nothing. This schema
+records complete inventories, per-root differences, producer/admitted identities,
+phase, observer PID and wall/monotonic times, and a canonical diagnostic hash.
+Live inventories are sequential reads, NOT a global atomic filesystem snapshot.
+Observer PID is NOT writer attribution. Legacy checkpoint ambiguity is retained
+as multiple candidates. Metadata-first refusal does not pretend to read files.
+No claim of coverage for other refusal codes, unsafe paths or unreadable files.
+
+The saved validation runs targeted existing preservation/publication regressions
+plus nine new diagnostic and real-checkpoint API checks. No historical producer
+is executed. The partition fixture copies original retained bytes, including the
+422-byte progress file and its original completion expecting 551 bytes.
+
+Overlap experiment: a captured data fixture, never dispatched, is checkpointed
+by real make_checkpoint while a separate thread holds an uncommitted WAL write.
+Two handshakes require transaction_open < checkpoint_begin < checkpoint_end <
+transaction_commit. Exact state archives must contain committed rows only and no
+WAL/SHM, pass SQLite quick_check, and leave the writer able to commit afterward.
+Captured stdout retains checkpoint/state hashes, rows, monotonic markers and
+SQLite source ID. This is one registered validation experiment with two rounds,
+NOT production periodic scheduling, stress/race coverage, historical fault
+reproduction, old/new SQLite comparison, or an A12 root-cause determination.
+A12 and full RC remain OPEN. P9/A27 reconstruction remains outstanding.

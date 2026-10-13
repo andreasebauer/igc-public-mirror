@@ -1,0 +1,76 @@
+{
+  "schema": "IG_O10_PLUS_TARGETED_PROBE_MATRIX_V1",
+  "date": "2026-08-30",
+  "status": "FROZEN_NOT_EXECUTED",
+  "default": "NO_SEQUENTIAL_BROAD_CENSUS",
+  "execution_rule": "A next O-level is materialized only to answer a frozen question that O7/O8/O9 plus GRRL cannot decide. Use the smallest genuine existence witness and matched exact interventions; stop as soon as the question is decided.",
+  "probe_families": [
+    {
+      "priority": 1,
+      "id": "DEPTH_SERVICE_SIGNATURE",
+      "question": "Does the complete finite branch-observation/service signature change qualitatively with nesting depth under the unchanged grammar?",
+      "method": "Freeze a finite service observer/action basis; compare O8, O9 and only then minimal O10 sentinel using exact successor-block signatures, not scalar counts.",
+      "positive": "new stable branch capability or separator not present at lower depth",
+      "stop": "if signature transport is theorem-reducible or repeats"
+    },
+    {
+      "priority": 2,
+      "id": "LOCALITY_SELECTIVE_ACCESS",
+      "question": "Do some q-visible subowners become selectively reachable/usable while otherwise equivalent ones do not?",
+      "method": "matched states/actions with identical inherited local resource types; compare exact enabledness, multiplicity and successor blocks",
+      "positive": "organization-dependent access survives Local Sufficiency"
+    },
+    {
+      "priority": 3,
+      "id": "ROUTING_REDUNDANCY_BOTTLENECK",
+      "question": "Can alternative routes or bottlenecks change a legal finite future without adding a primitive topology read?",
+      "method": "freeze route-sensitive multi-step context language; compare exact branch trees on matched service states",
+      "positive": "stored finite separator tied to route redundancy/bottleneck"
+    },
+    {
+      "priority": 4,
+      "id": "ROLE_DIFFERENTIATION_PATH_CHOICE",
+      "question": "Do repeated recursion and context create stable functional roles or path-choice asymmetry?",
+      "method": "compare orbit-equivalent local owners in asymmetric higher context; require exact future difference, not degree labels alone",
+      "positive": "role class is control-necessary for the frozen service observer"
+    },
+    {
+      "priority": 5,
+      "id": "COARSE_NEIGHBORHOOD_SCALE",
+      "question": "Is there a depth-stable coarse adjacency, path cost, shell growth or scale transformation law?",
+      "method": "predeclare normalization across O-depth; test convergence/periodicity/fixed scaling on minimal exact carriers",
+      "positive": "same coarse law persists across at least three consecutive material depths and composes consistently"
+    },
+    {
+      "priority": 6,
+      "id": "MEMORY_HISTORY_RESPONSE",
+      "question": "Can two states identical under the current service quotient respond differently because of retained history/ordering?",
+      "method": "matched construction histories with same current quotient; exact finite-context comparison",
+      "positive": "history becomes operationally necessary; GRRL reopen if hidden ancestry/order is read"
+    },
+    {
+      "priority": 7,
+      "id": "COORDINATION_MULTIPLEXING",
+      "question": "Can several inherited local actions combine into a stable higher service not decomposable into independent one-step actions?",
+      "method": "preregister bounded multi-action contexts; compare exact branch relation against product/decomposition null",
+      "positive": "irreducible coordinated service with Local Sufficiency certificate"
+    },
+    {
+      "priority": 8,
+      "id": "GRAMMAR_BREAK_SENTINELS",
+      "question": "Did the primitive grammar itself change?",
+      "method": "static + exact gate audit for new fields, hidden reads, direction/order, arity, deletion/rewiring/retagging, copying/multiway/feedback, multiplicity or relabelling semantics",
+      "positive": "immediate stop and targeted formal derivation; no automatic further levels"
+    }
+  ],
+  "shared_requirements": [
+    "freeze observer/action/context language before generation",
+    "canonical exact carriers and content hashes",
+    "same-skin/same-local-service matched comparisons where relevant",
+    "successor sets/Counter multisets rather than counts when branch structure is observable",
+    "Local Sufficiency Gate before promotion",
+    "negative witnesses and destruction/obstruction-relief recorded",
+    "Spectroscope recognition only after exact behavioral hit",
+    "no geometry label from graph descriptor movement"
+  ]
+}

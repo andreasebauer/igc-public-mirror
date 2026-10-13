@@ -1,0 +1,32 @@
+{
+  "suite": "IG_V2.1_TREEMATCH_COSPAN_EMBEDDING",
+  "status": "PASS",
+  "tests": [
+    {
+      "test": "faithful_inverse_fixed_tree",
+      "status": "PASS",
+      "detail": {
+        "fibres": 7
+      }
+    },
+    {
+      "test": "faithful_inverse_random_trees",
+      "status": "PASS",
+      "detail": {
+        "cases": 100
+      }
+    },
+    {
+      "test": "cospan_pushout_equals_flattened_substitution",
+      "status": "PASS",
+      "detail": {
+        "fibres": 6
+      }
+    }
+  ],
+  "summary": {
+    "tests_passed": 3,
+    "random_faithfulness_cases": 100
+  },
+  "scope": "restricted pairwise connected acyclic TreeMatch image only"
+}

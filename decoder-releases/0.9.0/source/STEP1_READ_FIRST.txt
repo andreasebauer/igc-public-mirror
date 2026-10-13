@@ -1,0 +1,57 @@
+DECODER 0.8.0.dev148+lib — PRE-MASTER STEP 1 CANDIDATE
+
+Isolated successor of dev147. UNQUALIFIED_CANDIDATE: no shared pointer or science
+acceptance was advanced. Step 2 execution reliability and Step 3 fresh producer /
+master exporter remain open. The original data and source are unchanged.
+
+E7 scientific identities now use IG_E7_NESTED_BLISS_V2. Each canonicalization
+labels the full nested typed bag/site/incidence graph with igraph 1.0.0 BLISS.
+The returned witness is a complete allowed whole-parent bijection. Verify it
+with verify_relabeling_witness before accepting an externally supplied witness.
+
+API:
+from infinity_grid.o7_edge_canonicalization import (
+    canonicalize_with_witness, verify_relabeling_witness, state_identity)
+result = canonicalize_with_witness(ctx, edges)
+verify_relabeling_witness(ctx, edges, result['edges'], result['witness'])
+identity = state_identity(ctx, edges)
+
+Use identity['object_identity'] for a global E7 object key. It commits to the
+canonicalization version, parent slot colors, exact unordered nested resources
+and canonical typed edge multiset. Historical engine.state_digest remains an
+edge-only alias, usable only with its explicit parent/carrier context. Lane,
+source name, recipe and occurrence multiplicity are provenance, not global
+scientific identity. Do not replace the historical data or silently overwrite
+its identifiers. The old and new canonical representatives need not be equal.
+
+Frontier and scanner engine loaders bind V2; the scanner top relation path also
+calls V2 directly and propagates backend faults. Original C1 comparison helpers
+run in disposable forked processes on Linux. Joins on historical aliases require
+the declared lane and an unambiguous parent/edge context. A changed historical
+resource projection is reported as PASS_WITH_EXPLAINED_HISTORICAL_DIFFERENCE only
+when its legacy baseline is reproduced and the raw/new typed profiles agree.
+
+Execution coverage separates requested from observed classes per assertion.
+Historical/restored/static observations do not count as full fresh input
+production. NODE_IN's bounded 43008 checks use retained census inputs. Captured
+old checkpoints without accounting remain UNATTESTED_RESTORED; old declarations
+are not upgraded. Root status keeps legacy_declared_fresh_node_count as a legacy
+field; fresh_empty_root_science_node_count is zero for the current bound paths.
+
+The root rejects catalogue/DAG commitment mismatches and wrong root/dataset IDs
+before resume. Imported historical resources and compiler catalogues are kept as
+historical evidence, including their original classifications.
+
+Reproduce bounded validation with the pinned runtime, from this directory:
+python -B tools/step1_native_identity_validation.py --output /new/evidence/path
+python -B tools/step1_affected_profile_validation.py --output /new/evidence/path --workers 4
+python -B tools/step1_guard_validation.py --output /new/evidence/path
+python -B -m pytest -q -p no:cacheprovider tests/test_step1_nested_identity.py tests/test_step1_replay_guards.py tests/test_step1_production_binding.py
+
+The guard tool is explicitly an engineering harness with substituted authority /
+output checks. It is not a registered native capture or full release qualification.
+Dependencies and runtime remain pinned by pyproject.toml and the dev147 runtime
+baseline. Full wheel-only deployment and independent-host portability are open.
+
+See the companion STEP1_RESULT report and evidence for impact counts, source /
+package hashes, historical deltas, test results and remaining scope limitations.

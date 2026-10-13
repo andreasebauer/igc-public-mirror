@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-08-30T03:11:53.250496+00:00",
+  "executed": [
+    {
+      "recipe_sha256": "42d2993ae1cf76af337d210a97d6a87ba7f6d9a9ffda3cfbf98dc4e03ac5b05b",
+      "result": {
+        "outputs": {
+          "O1_EXACT_RESULT": {
+            "node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+            "sha256": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+            "size_bytes": 9298
+          }
+        },
+        "stage_results": [
+          {
+            "action_type": "ARCHIVE_COMMAND_REPLAY",
+            "result": {
+              "result_relative_path": "phase5_replay_results/NODE_GRADUATION_RESULT.json",
+              "result_sha256": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+              "returncode": 0,
+              "stderr_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+              "stdout_sha256": "d68a97112b160897b643db5226c4d660caf2c1aef683f48ed6138cbf32130c87",
+              "work_root_relative": "Infinity_Grid_O1_JUMPSTART_ROOT_v1_2026-08-29"
+            },
+            "stage_id": "replay",
+            "wall_seconds": 30.84922817699953
+          }
+        ]
+      },
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+    }
+  ],
+  "plan_sha256": "e3f9aa09c74527bba171934b797a5ffcd51d637e5f7762a8a2d275a370c3f97d",
+  "proof_id": "proof:sha256:32836aa603425f3de55be2771443b4a7d2a9fded8eeb87a812933c43284bddd8",
+  "recipe_closure_sha256": "15f26248bcef667a29ba9222703cad64bf2b74877a747facaf507ccc1cac7c07",
+  "result_sha256": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+  "root_set_sha256": "cf0341f9cd97cc454db2f387ff2f10081db35ad07544aab85feb18853a885425",
+  "schema_id": "IG_RECONSTRUCTION_PROOF_V0_1",
+  "status": "PASS",
+  "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+}

@@ -1,0 +1,346 @@
+{
+  "date": "2026-08-29",
+  "geometry_status": "GEOMETRY_NOT_EARNED",
+  "grammar_audit": {
+    "criteria": {
+      "A1_normalized_grammar_delta": {
+        "classification": "PARAMETRIC_LEVEL_EXTENSION_ONLY",
+        "evidence": "O4/O5/O6/O7 normalized grammar hashes are byte-identical",
+        "hash": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+        "status": "NO_NEW_GRAMMAR"
+      },
+      "A2_carrier_delta": {
+        "O6": "H6=(L,{H5_l},E6)/hierarchical isomorphism; finite nontrivial connected O5-owner component",
+        "O7": "H7=(L,{H6_l},E7)/hierarchical isomorphism; finite nontrivial connected O6-owner component",
+        "interpretation": "O7 adds one outer ownership/incidence stratum (O6 owners joined by E7); this is the GRRL lift form, not a new carrier grammar.",
+        "status": "PARAMETRIC_OWNER_LIFT_ONLY"
+      },
+      "A3_action_semantics_delta": {
+        "effect": "one typed endpoint consumed per side; inherited lower actions remain owner-local; R7 is the new outer scope instance.",
+        "multiplicity": "COUNTER",
+        "relation_arity": 2,
+        "status": "PARAMETRIC_SCOPE_EXTENSION_ONLY"
+      },
+      "A4_invariant_delta": {
+        "O6_ranges": {
+          "K5_range": [
+            2,
+            6
+          ],
+          "beta6_range": [
+            0,
+            5
+          ],
+          "edge_legality_checks": 432,
+          "failure_count": 0,
+          "m6_range": [
+            1,
+            6
+          ],
+          "nontrivial_connected_component_occurrences": 172,
+          "selected_state_records": 134
+        },
+        "O7_ranges": {
+          "F": [
+            9960,
+            47850
+          ],
+          "K6": [
+            2,
+            6
+          ],
+          "N": [
+            150,
+            720
+          ],
+          "beta7": [
+            0,
+            5
+          ],
+          "beta_flat": [
+            1926,
+            9221
+          ],
+          "d": [
+            13810,
+            66288
+          ],
+          "g": [
+            15885,
+            76228
+          ],
+          "m7": [
+            1,
+            6
+          ],
+          "r": [
+            2075,
+            9940
+          ]
+        },
+        "note": "Observed owner-count/relation-count/cycle-rank ranges repeat the O6 pattern: K 2..6, m 1..6, beta 0..5.",
+        "shared_laws": [
+          "r=sum all retained relation counts",
+          "beta_flat=r-N+1",
+          "P=d+2N",
+          "F=d+2-2beta_flat",
+          "g=d+r"
+        ],
+        "status": "NO_NEW_LAW_FOUND"
+      },
+      "A5_obstruction_delta": {
+        "O7_hidden_topology_result": "equal R7 can hide different lower topology while frozen direct future profile agrees",
+        "shared": [
+          "outer owner grouping necessary",
+          "typed sitewise (p,f) placement necessary",
+          "Counter multiplicity necessary",
+          "aggregate/scope-erased reductions unsound"
+        ],
+        "status": "NO_NEW_OBSTRUCTION_CLASS_FOUND"
+      },
+      "A6_same_level_closure": {
+        "result": "ordinary O7xO7 one-cross remains O7; it does not create O8",
+        "status": "THEOREM_AND_O7_EVIDENCE_AGREE"
+      },
+      "A7_actual_novelty_at_O7": {
+        "new": [
+          "an additional necessary O6-owner partition exposed at the O7 control skin",
+          "larger generated carriers/profile cost"
+        ],
+        "not_new": [
+          "carrier constructor form",
+          "pairwise relation arity",
+          "resource fields",
+          "Counter semantics",
+          "grade/Euler/resource laws",
+          "next-level boundary rule"
+        ],
+        "status": "STRUCTURAL_DEPTH_AND_SCALE_NOT_GRAMMAR"
+      },
+      "A8_O8_scientific_value": {
+        "reason": "GRRL already predicts the recursive lift conditionally. Repeating the O7-style census at O8 would mostly retest the theorem instance. The unresolved scientific question is whether a genuine generated O8 relation exists and whether any GRRL premise/normalized grammar first breaks there.",
+        "status": "FULL_O8_SCOUT_NOT_JUSTIFIED; MINIMAL_BREAKPOINT_PROBE_JUSTIFIED"
+      }
+    },
+    "date": "2026-08-29",
+    "decision": "O8_MINIMAL_BREAKPOINT_PROBE_JUSTIFIED",
+    "formal_theorem_first": "ALREADY_AVAILABLE_CONDITIONALLY_VIA_GRRL",
+    "full_O8_scout": "NOT_JUSTIFIED_AT_THIS_POINT",
+    "recommended_next_question": {
+      "id": "O8-BP0",
+      "outcomes": [
+        "O8_EXISTS_GRRL_REPEAT_STOP",
+        "O8_BREAKPOINT_FOUND_ESCALATE",
+        "O8_NOT_GENERATED_IN_FROZEN_SCOPE"
+      ],
+      "question": "Does the graduated/generated O7 population admit at least one genuine retained E8 relation between two distinct complete O7 carriers, and if so does the resulting O8 instance preserve H1-H13 and the normalized grammar?",
+      "stop_rule": "Construct the smallest exact O8 witness(es), run the H1-H13/grammar-delta breakpoint gate, and stop immediately if it is another parametric GRRL instance. Do not launch a broad O8 Scout/census unless a premise fails, a new observable/action is required, or normalized grammar changes."
+    },
+    "schema": "IG_POST_O7_STRUCTURAL_AUDIT_V1",
+    "science_sha256": "34bb6474be56be4ed5d75d3fd267c79cd2fb4274d3bfdecc2e57de31d268e044",
+    "source_science_hashes": {
+      "O6": "7b9e3ec0fbabcdb0fa46c2d5d153ac186cdd2d2343275a407e82b6fd14d9da37",
+      "O7": "a3e0bed91b9e68edd4d7c9f508587d6801f9651b0485c6ce40e8ca284ffc2d90",
+      "grammar_delta": "24e98d3124305cde50210c10f17c0ccebe03bc93bcb8480609cf2b2e750e8eb3"
+    },
+    "status": "PASS",
+    "summary": "O7 is a clean parametric recursive lift of O6 in the frozen resource scope. No new normalized grammar, action type, state field, invariant law, or obstruction class was found. The only genuinely new structure is the additional behaviorally necessary O6-owner partition, which is exactly the stratified lift predicted by GRRL."
+  },
+  "next_probe_outcomes": [
+    "TOPOLOGY_BECOMES_OPERATIONAL_AT_O7",
+    "PARTIAL_TOPOLOGY_QUOTIENT_EARNED",
+    "TOPOLOGY_REMAINS_HIDDEN_UNDER_O7_ACTIONS"
+  ],
+  "o8_policy": "Do not launch a broad O8 Scout/census. If the topology-aware O7 probe is negative or purely hidden, run only the minimal O8 breakpoint witness test already specified by the grammar audit.",
+  "pregeometry_audit": {
+    "date": "2026-08-29",
+    "findings": {
+      "S1_E7_adjacency": {
+        "statement": "Distinct O6 owners are intrinsically adjacent exactly when joined by a retained E7 relation occurrence.",
+        "status": "EARNED_BY_EXACT_CARRIER_DEFINITION"
+      },
+      "S2_owner_graph_separation": {
+        "diameter_distribution": {
+          "1": 144,
+          "2": 45,
+          "3": 10,
+          "4": 6
+        },
+        "radius_distribution": {
+          "1": 184,
+          "2": 21
+        },
+        "statement": "d7(u,v)=minimum number of E7 owner adjacencies in a path from u to v; no embedding or coordinates required.",
+        "status": "WELL_DEFINED_INTRINSIC_GRAPH_METRIC"
+      },
+      "S3_neighborhood_growth": {
+        "distinct_global_shell_signatures": 15,
+        "distinct_local_shell_profiles": 28,
+        "statement": "For owner v, G_v(k)=number of O6 owners at d7-distance k.",
+        "status": "WELL_DEFINED_AND_NONTRIVIAL_IN_GENERATED_FAMILY"
+      },
+      "S4_nested_ownership_separation_rank": {
+        "statement": "For two leaf/site occurrences, record the first O-level at which their ownership classes separate. Nested O2..O7 ownership supplies an intrinsic ordinal separation scale. This audit does not promote it to the certified observer.",
+        "status": "SYMBOLIC_CANDIDATE_FROM_NESTED_OWNERSHIP"
+      },
+      "S5_cycle_and_local_Euler_defect": {
+        "beta7_distribution": {
+          "0": 93,
+          "1": 67,
+          "2": 27,
+          "3": 10,
+          "4": 7,
+          "5": 1
+        },
+        "identity_failures": 0,
+        "statement": "Define kappa7(v)=1-deg7(v)/2 using E7 multidegree. For every connected H7 owner graph, sum_v kappa7(v)=K6-m7=1-beta7.",
+        "status": "EXACT_COMBINATORIAL_IDENTITY"
+      },
+      "S6_action_update_laws": {
+        "O7xO6_ONE_CROSS": "Add one fresh owner as a leaf. beta7 unchanged; old pairwise distances unchanged; distance from new owner to x is 1+d7(attachment,x); attachment kappa decreases by 1/2 and new leaf contributes +1/2.",
+        "O7xO7_ONE_CROSS": "Join two connected owner graphs by one edge. beta7_out=beta7_A+beta7_B; within-input distances unchanged; cross distance is d_A(x,a)+1+d_B(b,y); bridge endpoints each lose 1/2 kappa.",
+        "R7_RELATION_ADD": "Same owner set; one E7 edge added. beta7 increases by 1; graph distances cannot increase; the two endpoint kappa values each decrease by 1/2; total kappa decreases by 1.",
+        "inherited_RANK_LIFT_R2_R6": "E7 graph unchanged, hence d7, shells, beta7 and kappa7 unchanged.",
+        "status": "SYMBOLIC_EXACT_IN_FROZEN_ACTION_LANGUAGE"
+      },
+      "S7_current_resource_observer_relation": {
+        "example_conflicts": {
+          "coarse": {
+            "left_R7": "77dd8d3c080997c4b31af5cb7ecd1bdd533d2c9f60bc27f0955e80d0d8dbe597",
+            "left_profile": "2efa2867dc64b177b17a8ddcb265e107b0a32c992d55935379fde76911371c55",
+            "left_state": "a755d5bf1c3f16fedaf1cf9e6364b0c74bdde4ddcdbd55d9a572b22d2a046efa",
+            "right_R7": "59e4222b1e1fef1d9e88948559b97b05780456ccb2531971a1c072a14fd99a20",
+            "right_profile": "22254e9b2c21858f17d2ad86db902c707527f42308419d39fe8faf9ba5e380b6",
+            "right_state": "6989056542d4d7a4790f04d5403032cd342962fdd288ca0bc110e9a19f47794b"
+          },
+          "degree": {
+            "left_R7": "77dd8d3c080997c4b31af5cb7ecd1bdd533d2c9f60bc27f0955e80d0d8dbe597",
+            "left_profile": "2efa2867dc64b177b17a8ddcb265e107b0a32c992d55935379fde76911371c55",
+            "left_state": "a755d5bf1c3f16fedaf1cf9e6364b0c74bdde4ddcdbd55d9a572b22d2a046efa",
+            "right_R7": "59e4222b1e1fef1d9e88948559b97b05780456ccb2531971a1c072a14fd99a20",
+            "right_profile": "22254e9b2c21858f17d2ad86db902c707527f42308419d39fe8faf9ba5e380b6",
+            "right_state": "6989056542d4d7a4790f04d5403032cd342962fdd288ca0bc110e9a19f47794b"
+          },
+          "distance": {
+            "left_R7": "77dd8d3c080997c4b31af5cb7ecd1bdd533d2c9f60bc27f0955e80d0d8dbe597",
+            "left_profile": "2efa2867dc64b177b17a8ddcb265e107b0a32c992d55935379fde76911371c55",
+            "left_state": "a755d5bf1c3f16fedaf1cf9e6364b0c74bdde4ddcdbd55d9a572b22d2a046efa",
+            "right_R7": "59e4222b1e1fef1d9e88948559b97b05780456ccb2531971a1c072a14fd99a20",
+            "right_profile": "22254e9b2c21858f17d2ad86db902c707527f42308419d39fe8faf9ba5e380b6",
+            "right_state": "6989056542d4d7a4790f04d5403032cd342962fdd288ca0bc110e9a19f47794b"
+          },
+          "full": {
+            "left_R7": "77dd8d3c080997c4b31af5cb7ecd1bdd533d2c9f60bc27f0955e80d0d8dbe597",
+            "left_profile": "2efa2867dc64b177b17a8ddcb265e107b0a32c992d55935379fde76911371c55",
+            "left_state": "a755d5bf1c3f16fedaf1cf9e6364b0c74bdde4ddcdbd55d9a572b22d2a046efa",
+            "right_R7": "59e4222b1e1fef1d9e88948559b97b05780456ccb2531971a1c072a14fd99a20",
+            "right_profile": "22254e9b2c21858f17d2ad86db902c707527f42308419d39fe8faf9ba5e380b6",
+            "right_state": "6989056542d4d7a4790f04d5403032cd342962fdd288ca0bc110e9a19f47794b"
+          }
+        },
+        "lower_topology_twin": {
+          "A_articulations": 2,
+          "A_triangles": 1,
+          "B_articulations": 1,
+          "B_triangles": 0,
+          "different_E6_topology": true,
+          "equal_R7": true,
+          "equal_profile": true
+        },
+        "repeated_R7_groups": 24,
+        "repeated_R7_groups_with_outer_topology_variation_in_this_sample": 0,
+        "statement": "R7 future control deliberately hides exact E7/lower topology. Topological descriptors therefore are exact-carrier structure, not currently required control state.",
+        "status": "NOT_GEOMETRICALLY_OPERATIONAL_IN_CURRENT_R7_SCOPE",
+        "topology_only_future_control_tests": {
+          "coarse": {
+            "descriptor_classes": 19,
+            "repeated_descriptor_groups": 16,
+            "repeated_groups_with_different_direct_profiles": 16
+          },
+          "degree": {
+            "descriptor_classes": 34,
+            "repeated_descriptor_groups": 19,
+            "repeated_groups_with_different_direct_profiles": 19
+          },
+          "distance": {
+            "descriptor_classes": 36,
+            "repeated_descriptor_groups": 17,
+            "repeated_groups_with_different_direct_profiles": 17
+          },
+          "full": {
+            "descriptor_classes": 36,
+            "repeated_descriptor_groups": 17,
+            "repeated_groups_with_different_direct_profiles": 17
+          }
+        }
+      }
+    },
+    "interpretation": {
+      "earned": "O7 already contains an intrinsic relational graph metric, nontrivial neighborhood growth, cycle excess, and an Euler-type local defect with exact update laws under the frozen actions.",
+      "not_earned": "No length scale, angle, embedding, dimension, metric tensor, curvature law, propagation law, or geometry is derived. Calling kappa7 physical curvature would be unjustified.",
+      "recommended_pre_O8_probe": "If desired, freeze a topology-aware observer on exact H7 and test whether d7/shell/kappa descriptors admit useful congruence or predictive update laws beyond the current resource observer. Do not alter O7 or call this geometry."
+    },
+    "sample_summary": {
+      "K6_distribution": {
+        "2": 135,
+        "3": 34,
+        "4": 26,
+        "5": 3,
+        "6": 7
+      },
+      "articulation_distribution": {
+        "0": 150,
+        "1": 40,
+        "2": 11,
+        "3": 4
+      },
+      "diameter_distribution": {
+        "1": 144,
+        "2": 45,
+        "3": 10,
+        "4": 6
+      },
+      "distinct_degree_sequences": 34,
+      "distinct_global_shell_signatures": 15,
+      "distinct_local_shell_profiles": 28,
+      "m7_distribution": {
+        "1": 67,
+        "2": 55,
+        "3": 33,
+        "4": 23,
+        "5": 18,
+        "6": 9
+      },
+      "radius_distribution": {
+        "1": 184,
+        "2": 21
+      },
+      "triangle_distribution": {
+        "0": 191,
+        "1": 13,
+        "2": 1
+      }
+    },
+    "schema": "IG_POST_O7_STRUCTURAL_AUDIT_RESULT_V1",
+    "source_bundle_verified": true,
+    "source_records": 205,
+    "status": "INTRINSIC_PREGEOMETRIC_STRUCTURE_PRESENT_GEOMETRY_NOT_EARNED"
+  },
+  "primary_structural_result": "O7_GRRL_PARAMETRIC_REPEAT_WITH_INTRINSIC_PREGEOMETRIC_SKELETON",
+  "recommended_order": [
+    "O7_TOPOLOGY_AWARE_OBSERVER_PROBE",
+    "IF_TOPOLOGY_REMAINS_HIDDEN_THEN_O8_MINIMAL_BREAKPOINT_PROBE"
+  ],
+  "reconciled_conclusions": {
+    "C1": "O7 introduces no new normalized O-constructor grammar in the frozen resource scope; O4/O5/O6/O7 normalize identically.",
+    "C2": "Exact H7 nevertheless carries nontrivial intrinsic owner-graph structure: E7 adjacency, graph distance d7, shell growth, beta7 cycle excess, and local Euler defect kappa7(v)=1-deg7(v)/2.",
+    "C3": "The Euler defect identity sum_v kappa7(v)=1-beta7 holds exactly on all 205 audited records, with zero failures.",
+    "C4": "These pregeometric quantities have exact update laws under inherited actions, R7 relation-add, O7xO6 one-cross, and O7xO7 one-cross.",
+    "C5": "Topology alone is not sufficient to control the current algebraic future: every repeated rich topology class in the audited sample contains differing direct future profiles.",
+    "C6": "Conversely, hidden lower topology may differ while R7 and direct future profile agree; therefore exact topology is not currently operational in the frozen R7 resource observer.",
+    "C7": "No earned length scale, angle, embedding, dimension, metric tensor, propagation law, or physical curvature follows from this audit."
+  },
+  "schema": "IG_POST_O7_STRUCTURAL_AUDIT_RECONCILED_V0_2",
+  "science_sha256": "55dffae9d45032b47c6f3f16dd19c998b39861a1ab342c99abfc6a53fb223ebb",
+  "status": "PASS"
+}

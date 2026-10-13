@@ -1,0 +1,160 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_REPLAY_MANIFEST_ORACLE_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "IG_V026_REPLAY_MANIFEST_ORACLE_V1",
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "targets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "captured_replay_returncode": {
+            "type": "integer"
+          },
+          "expected_tree_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "material_roots": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "node_id": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "size_bytes": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "node_id",
+                "sha256",
+                "size_bytes"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "plan_sha256": {
+            "type": "string"
+          },
+          "profile_id": {
+            "type": "string"
+          },
+          "profile_sha256": {
+            "type": "string"
+          },
+          "replay_contract": {
+            "additionalProperties": false,
+            "properties": {
+              "authority_class": {
+                "type": "string"
+              },
+              "contract_sha256": {
+                "type": "string"
+              },
+              "does_not_recompute": {
+                "type": "string"
+              },
+              "historical_identity": {
+                "type": "string"
+              },
+              "limitations": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "recomputes": {
+                "type": "string"
+              },
+              "replay_class": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "authority_class",
+              "contract_sha256",
+              "does_not_recompute",
+              "historical_identity",
+              "limitations",
+              "recomputes",
+              "replay_class"
+            ],
+            "type": "object"
+          },
+          "status_probe_files": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "canonical_sha256": {
+                  "type": "string"
+                },
+                "relative_path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "size_bytes": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "canonical_sha256",
+                "relative_path",
+                "sha256",
+                "size_bytes"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "target_alias": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "captured_replay_returncode",
+          "expected_tree_sha256",
+          "material_roots",
+          "plan_sha256",
+          "profile_id",
+          "profile_sha256",
+          "replay_contract",
+          "status_probe_files",
+          "target_alias",
+          "target_node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_id",
+    "scope",
+    "status",
+    "targets"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_REPLAY_MANIFEST_ORACLE_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

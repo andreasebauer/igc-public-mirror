@@ -1,0 +1,107 @@
+{
+  "change_id": "IG.M2.DEV4.ADOPTION.V6",
+  "environment": {
+    "artifacts": [
+      {
+        "logical_name": "installed_runtime",
+        "object_name": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715.bin",
+        "sha256": "668e5d23985c0ac2c05ed1cd8d277c258dd6e1f41a8295c45410b6585ba32715"
+      }
+    ],
+    "python": "3.13",
+    "requirements": [
+      {
+        "distribution": "pytest",
+        "imports": [
+          "_pytest",
+          "pytest"
+        ],
+        "version": "9.0.2"
+      },
+      {
+        "distribution": "cryptography",
+        "imports": [
+          "cryptography"
+        ],
+        "version": "46.0.4"
+      },
+      {
+        "distribution": "cffi",
+        "imports": [
+          "cffi",
+          "_cffi_backend"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "distribution": "pycparser",
+        "imports": [
+          "pycparser"
+        ],
+        "version": "3.0"
+      },
+      {
+        "distribution": "iniconfig",
+        "imports": [
+          "iniconfig"
+        ],
+        "version": "2.3.0"
+      },
+      {
+        "distribution": "packaging",
+        "imports": [
+          "packaging"
+        ],
+        "version": "25.0"
+      },
+      {
+        "distribution": "pluggy",
+        "imports": [
+          "pluggy"
+        ],
+        "version": "1.6.0"
+      },
+      {
+        "distribution": "Pygments",
+        "imports": [
+          "pygments"
+        ],
+        "version": "2.20.0"
+      }
+    ]
+  },
+  "parent": {
+    "completion_sha256": "ced6ba8aee20e6d94936d264ad92d43142d9d1649706b99cb7379b454c3eeaa4",
+    "package_sha256": "85d2b9072d99bdca0b0f030892dbda1d243837732c53b96e9801c68282215a5f",
+    "source_object": {
+      "object_name": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db.zip",
+      "role": "change_parent_source",
+      "sha256": "c8f22b4fc366b5152669e42a8b8d7ea3afa14b4ae7ce22999800c973089f11db",
+      "size_bytes": 3823200
+    },
+    "source_sha256": "f2414ea473b95065828df1237e7ae72e52511246926f810522c8ac16685e159c",
+    "version": "0.6.1.dev8"
+  },
+  "parent_pointer_sha256": "8b0d089ee3104b824b7d31dca86cf3a2e0daf5562319b31587714afaa03321e8",
+  "project_parent_head": "75e63742f3dde35c20ab191bb4bddd3fc4916823ad042c51fafdabbf59c04ec2",
+  "purpose": "Carry out Stack V6 AUTHORIZE_M2_DEV4_PROJECT_STAGE_ROUTE: project-local adoption of exact qualified dev4 c420d865... in selected f834d70798da4bbbb53ac651da98d697. Shared pointer unchanged. No M2 mathematical execution in this engineering adoption.",
+  "record_sha256": "819b3fbba5a3aa262a1395d12ea2aaa9bf5aaf25822fe92fa96cd9af5dc8d2b2",
+  "requirements": {
+    "nodes": [
+      "tests/test_decoder06_project_stage.py::test_project_stage_executes_from_exact_captured_source",
+      "tests/test_decoder06_project_stage.py::test_project_callable_requires_exact_source_and_module_binding",
+      "tests/test_decoder06_project_stage.py::test_unbound_or_outside_project_callable_refuses",
+      "tests/test_decoder061_combined_contract.py::CombinedContractTests::test_policy_is_explicit_and_legacy_default_is_preserved"
+    ],
+    "statement": "Verify unchanged dev4 captured project-STAGE route using its three frozen engineering tests and explicit no-deadline policy parsing. These 4 engineering checks are not the M2 synthetic or archived-row qualification."
+  },
+  "resources": {
+    "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+    "memory_budget_bytes": 1073741824,
+    "start_method": "fork",
+    "wall_seconds_max": null,
+    "workers": 2,
+    "workspace_budget_bytes": 8589934592
+  },
+  "schema_id": "IG_DECODER_CHANGE_SESSION_V1"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_id": "IG_REPLAY_CONTRACT_SCHEMA_V1",
+  "purpose": "State exactly what a Decoder jumpstart target re-executes, what authority its output has, and what historical work is explicitly outside the replay contract.",
+  "replay_classes": {
+    "VERIFY_AUTHORITY": "Verify a frozen result/certificate and its source pins; do not claim to rerun the scientific computation that originally produced it.",
+    "RERUN_GRADUATION_AUDIT": "Re-execute the frozen graduation/classification audit from its declared retained inputs and recompute the scientific graduation result.",
+    "REPLAY_BOUNDED_EXPERIMENT": "Re-execute one frozen bounded probe, audit, witness or sentinel; conclusions do not automatically generalize beyond that declared experiment/theorem scope.",
+    "SCIENTIFIC_RECONSTRUCTION": "Reconstruct a scientific result from sealed parent evidence when original result bytes/package are missing; scientific equivalence is the contract, not byte identity.",
+    "CHECKPOINT_PREFLIGHT": "Verify a checkpoint/capsule and readiness to resume; no scientific result is recomputed by the preflight itself.",
+    "FULL_HISTORICAL_CAMPAIGN": "The packaged native staged campaign can run/resume through its declared stage sequence; smoke may cover only a preflight stage and does not itself constitute the full campaign."
+  },
+  "hard_rules": [
+    "Replay class is epistemic; launch.resume_semantics is operational. They must not be conflated.",
+    "Every active jumpstart profile in a Recovery-v7 runtime must have exactly one replay contract.",
+    "Contracts bind exact profile_id, profile_sha256 and target_node_id and fail closed on mismatch.",
+    "O2 remains certificate-verification-only until the missing original complete O2 package is recovered or independently rebuilt.",
+    "O5 remains a scientific reconstruction and must never claim historical byte identity.",
+    "A smoke test never upgrades a CHECKPOINT_PREFLIGHT or FULL_HISTORICAL_CAMPAIGN contract into a completed science replay."
+  ]
+}

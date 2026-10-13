@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-02",
+  "equivalence_rule": "Two repaired S1 outcomes are S2-equivalent iff their exact REALIZED_PUBLIC_ASSEMBLY_V1 observer SHA-256 values are equal.",
+  "hard_firewalls": [
+    "NO_CARRIER_REF_IN_QUOTIENT_KEY",
+    "NO_CONSTRUCTION_DIGEST_IN_QUOTIENT_KEY",
+    "NO_ANCESTRY_OR_RESERVATION_WITNESS",
+    "OBSERVER_HASH_IS_NONPROMOTING",
+    "NO_G2_STATE_DESCRIPTOR",
+    "NO_G2_GRADUATION"
+  ],
+  "next_stage_if_independently_verified": "G2:S3",
+  "observer_scope": "Audit observer frozen in v0.29.2 S1 full re-audit: canonical assembly skin, public total resources, sorted typed top-edge multiset, and all seven one-reservation public successor skins/counters.",
+  "parent_decoder_version": "0.29.2",
+  "parent_source_sha256": "0cf1a49659af124d59aa587a5a7b901c37c1270fde3edd22edaaa3f21cf2559a",
+  "pass_rules": [
+    "EXACT_S2_UNLOCK_CERTIFICATE_PASS",
+    "EXACT_PARENT_REPAIRED_STREAM_SHA_PASS",
+    "ALIGNED_580351_RECORD_AND_AUDIT_SIGNATURE_STREAMS",
+    "ZERO_S1_OUTCOME_TO_MULTIPLE_OBSERVER_VALUE_SPLITS",
+    "DETERMINISTIC_CANONICAL_MAPPING_HASH"
+  ],
+  "promotion": false,
+  "question": "What is the exact coarsest relabel-invariant quotient of certified repaired G2:S1 pair outcomes that preserves the declared REALIZED_PUBLIC_ASSEMBLY_V1 observer value?",
+  "required_repaired_record_stream_sha256": "9023c8d4a53ff6bba87a5b6954bac8d37008257aaf5214c67c0c6ba8ddf28049",
+  "s2_unlock_certificate_schema": "IG_G2_S2_UNLOCK_CERTIFICATE_V1",
+  "schema_id": "IG_G_UPLIFT_S2_QUOTIENT_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "b6b4cc216684546bb79121470cd0fe9ec564aa71d4246720b64b2241fc8a5ee2",
+  "source_stage": "G2:S1",
+  "stage_ref": "G2:S2",
+  "status": "FROZEN_BEFORE_S2_EXECUTION"
+}

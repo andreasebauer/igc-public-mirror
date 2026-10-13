@@ -1,0 +1,88 @@
+{
+  "$id": "ig://schema/claim-record/v0.17",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "immutability": "A correction creates a new version and supersession link; prior claim records are never overwritten.",
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim_type": {
+      "enum": [
+        "FORMAL_THEOREM",
+        "EXACT_COMPUTATION",
+        "BOUNDED_OBSERVATION",
+        "NEGATIVE_RESULT",
+        "DOCUMENTARY_STATUS",
+        "RECONNAISSANCE_CANDIDATE"
+      ]
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "observer": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "reopen_conditions": {
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_CLAIM_RECORD_V0_17"
+    },
+    "scope": {
+      "required": [
+        "population_or_symbolic_class",
+        "actions_or_contexts",
+        "multiplicity_semantics",
+        "depth_domain",
+        "completeness"
+      ],
+      "type": "object"
+    },
+    "statement": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OPEN",
+        "EARNED_SCOPED",
+        "FALSIFIED",
+        "RETRACTED",
+        "SUPERSEDED",
+        "PROVISIONAL",
+        "NOT_EARNED"
+      ]
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_id",
+    "claim_id",
+    "version",
+    "statement",
+    "claim_type",
+    "status",
+    "scope",
+    "observer",
+    "evidence_refs",
+    "dependencies",
+    "reopen_conditions",
+    "supersedes"
+  ],
+  "title": "Infinity Grid Claim Record v0.17",
+  "type": "object"
+}

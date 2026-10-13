@@ -1,0 +1,12 @@
+{
+  "budgets_are_frozen_before_execution": true,
+  "deterministic_chunking": true,
+  "memory": "No automatic lane/candidate truncation on memory pressure. Pause operationally rather than changing science.",
+  "minimum_free_space": "Check before every chunk, merge, release and catalog rebuild.",
+  "no_silent_tiering": true,
+  "preflight_estimate": "Compute attempts from exact parent/primitive port cardinalities before generation. Pause if the frozen attempt cap would be exceeded.",
+  "schema_id": "IG_SCOUT_CONVEYOR_RESOURCE_BUDGET_POLICY_V0_1",
+  "spec_sha256": "b2035bdbbfe7361ab95a6679317e6329490f1917c828646fad204ddb13a249a1",
+  "storage": "Object-store deduplication is used; chain accounting counts newly materialized bytes and release bytes separately.",
+  "wall_time": "Controller enforces per-level and total-chain wall limits at checkpoint boundaries."
+}

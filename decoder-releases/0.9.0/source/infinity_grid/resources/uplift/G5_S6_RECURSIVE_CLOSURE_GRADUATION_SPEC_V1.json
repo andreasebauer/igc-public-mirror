@@ -1,0 +1,106 @@
+{
+  "authority": {
+    "decoder_release_line": "v0.5",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s5_classification": "G5_S5_CAPS7_PLUS_H_CLASS_BAG_FINITE_READ_WRITE_STATE_EARNED_S6_DESIGN_REVIEW",
+    "g5_s5_independent_verification_sha256": "aedcb45c56a7fcd89a6b4d29765057d4e4e155b7b827e48412e0dd2ac028c807",
+    "g5_s5_primary_science_sha256": "474634a1fcffeb30aa4dd8a7ae980de78f31802d3799ed54a892a19bd50858d3",
+    "g5_s5_stage_science_sha256": "02e41c935a91f4ee28967114a004e0f55f4c250f17815869df9c46d310517635",
+    "g5_s5_workflow_science_sha256": "9e7f930b5f3a44f017dedce40a894d2a2251f2769446b65a9383142b7dcbb260",
+    "required_s5_pass": true
+  },
+  "candidate_descriptor": {
+    "H_class_alphabet": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "excluded": [
+      "raw exact relation identity",
+      "exact relation cardinality",
+      "exact branch multiplicity",
+      "hidden owner identity",
+      "construction identity",
+      "hidden topology canon",
+      "ancestry",
+      "lower-layer carrier"
+    ],
+    "fields": [
+      "total_free_by_type[0..6]",
+      "H_class_counts[A,B,C,D]"
+    ],
+    "frozen_coordinate_count": 11,
+    "mathematical_state": "D=(f,m) with f in N^7 and m in N^4 over frozen H-class alphabet [A,B,C,D]",
+    "name": "CAPS7_PLUS_H_CLASS_BAG",
+    "schema_id": "IG_G5_CAPS7_H_BAG_READ_WRITE_STATE_V1"
+  },
+  "candidate_law": {
+    "enabled": "f_a>0 and g_b>0",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR",
+    "state": "D=(f,m) in N^7 x N^4",
+    "write": "D_out=(f+g-e_a-e_b,m+n)"
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "PASS": "All authority/proof/read-surface gates pass, all fresh holdouts pass with zero failures, cold recompute is exact, then produce a G5 graduation candidate for independent scientific review. Mechanical S6 PASS alone does not graduate G5.",
+    "REVIEW_REQUIRED": "Any authority, proof, hidden-read, holdout, equality, coverage or cold-recompute gate fails."
+  },
+  "fresh_holdout": {
+    "deep_p5_cases": 8,
+    "operator_coverage": "ALL_31_AS_FINAL_RECURSIVE_OPERATOR",
+    "outcome_retuning": false,
+    "pair_plus_pair_operator_cases": 31,
+    "rebracketing_cases": 8
+  },
+  "frozen_grammar": {
+    "H_class_alphabet": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "directed_operator_count": 31,
+    "operator_semantics": "typed endpoint reservation; compose only if selected type has positive aggregate free count on each side"
+  },
+  "nonclaims": [
+    "NO_RAW_EXACT_RELATION_EQUIVALENCE",
+    "NO_EXACT_RELATION_CARDINALITY_EQUIVALENCE",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE",
+    "NO_HIDDEN_TOPOLOGY_ERASURE",
+    "NO_GEOMETRY_DISTANCE_TIME_SPACETIME_OR_PHYSICS_CLAIM"
+  ],
+  "promotion_constraints": {
+    "g4_change": false,
+    "geometry_claim": false,
+    "hidden_topology_promotion": false,
+    "independent_verification_required": true,
+    "mechanical_s6_pass_graduates": false,
+    "scientific_graduation_decision_required": true
+  },
+  "proof_obligations": [
+    "BASE_ATOMS_MAP_TO_D",
+    "PUBLIC_READ_HAS_EXACT_VERTEX_SUM_MINUS_TYPED_ENDPOINT_RESERVATION_FORM",
+    "BINARY_JOIN_ADDS_VERTEX_BAGS_AND_ONE_TYPED_ENDPOINT_RESERVATION_PER_SIDE",
+    "INDUCTIVE_WRITE_CLOSES_D_AND_MATCHES_PUBLIC_READ",
+    "IMPLEMENTATION_READ_SURFACE_HAS_NO_HIDDEN_SELECTOR",
+    "FRESH_HOLDOUT_PAIR_PLUS_PAIR_ALL_31_OPERATORS",
+    "FRESH_HOLDOUT_DEEP_P5",
+    "FRESH_HOLDOUT_REBRACKETING",
+    "COLD_RECOMPUTE_EXACT"
+  ],
+  "question": "Does the S5 state D=(CAPS7,H-class bag) define an exact recursive congruence for every finite G5 term generated from the frozen H-class atoms by the frozen 31 directed binary composition operators, so that all future finite compositions factor through D without hidden topology, owner identity, construction provenance, ancestry, exact relation identity/cardinality, or branch multiplicity?",
+  "resource_budget": {
+    "cpu_seconds_max": 150.0,
+    "logical_tasks_max": 7,
+    "peak_rss_bytes_max": 1073741824,
+    "stage_max_cases": 10000,
+    "wall_seconds_max": 180.0
+  },
+  "schema_id": "IG_G5_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+  "science_sha256": "14a43e855cfdc62add5051bc69823d83900a4cdd6bb0987be3e2d9998c3274ac",
+  "stage_ref": "G5:S6",
+  "status": "FROZEN_BEFORE_G5_S6_EXECUTION",
+  "version": "1.0.0"
+}

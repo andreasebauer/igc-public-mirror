@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-03",
+  "decision_rule": {
+    "fail": "Any gate fails. G2 remains ungraduated and G2:R0 remains locked.",
+    "pass": "All gates pass. Emit a separate graduation certificate: G2_GRADUATED_CAPS7_RECURSIVE_RELATION_GRAMMAR_EARNED_R0_UNLOCKED.",
+    "primary_run": "Primary S6 may only produce a graduation candidate; G2 graduates only after independent cold replay exact match."
+  },
+  "exact_gates": [
+    "S6_UNLOCK_AND_S5_AUTHORITY_EXACT",
+    "FULL_V0_30_4_REGRESSION_PASS_BEFORE_SCIENCE",
+    "GENERAL_CAPS7_RECURSIVE_FACTORISATION_ARGUMENT_PASS",
+    "ALL_31_OPERATORS_PASS_FRESH_DEPTH2_EXACT_HOLDOUT",
+    "SEVEN_FRESH_DEPTH4_CHAINS_PASS_ALL_BRANCH_CAPS_AND_RESERVATIONS",
+    "SEVEN_FRESH_REBRACKET_CASES_HAVE_IDENTICAL_CAPS7_QUOTIENT_OUTCOMES",
+    "NO_HIDDEN_SKIN_OR_CONSTRUCTION_SELECTOR_READ_IN_PROMOTABLE_TRANSITION_LOGIC",
+    "INDEPENDENT_COLD_REPLAY_REBUILDS_FRESH_HOLDOUT_AND_MATCHES_STABLE_S6_SCIENCE_PAYLOAD"
+  ],
+  "fresh_holdout": {
+    "carrier_selection": "Sort the complete 193 R100 carriers by (public total_caps, construction_digest tie-break used only for holdout sampling); select indices [0,24,48,72,96,120,144,168,192].",
+    "deep_chain_cases": 7,
+    "deep_chain_internal_bridges": 4,
+    "deep_chain_leaf_count": 5,
+    "freshness_scope": "NEW_RECURSIVE_G2_STATES_WITH_AT_LEAST_THREE_G1_LEAVES_NOT_PRESENT_IN_THE_S5_PAIR_CENSUS; same frozen R100 lower-G cohort, not a new generator family",
+    "no_outcome_retuning": true,
+    "operator_depth2_cases": 31,
+    "rebracketing_cases": 7,
+    "rebracketing_leaf_count": 4,
+    "reservation_check": "For every exact final branch in every case, check every enabled endpoint type and require all exact successors to have CAPS7=f-e_t."
+  },
+  "frozen_grammar": {
+    "binary_operator_count": 31,
+    "compose": "C_ab(f,g)=f+g-e_a-e_b iff (a,b) is in the frozen operator basis and f_a>0 and g_b>0",
+    "exact_routing": "RELATION_VALUED_ALL_ELIGIBLE_OWNER_CHOICES_V1",
+    "reservation_actions": 7,
+    "reserve": "R_t(f)=f-e_t iff f_t>0"
+  },
+  "g2_relation_spec_sha256": "e1f2f7502ab44c5e79d98abe25d041f2068b545828c9fd8ca778bbdd7f574214",
+  "hard_firewalls": [
+    "NO_CHANGE_TO_FROZEN_G1_RESERVE_EXTERNAL",
+    "NO_CHANGE_TO_V0_30_2_RELATION_VALUED_G2_ROUTING",
+    "NO_CAPS7_MINIMALITY_CLAIM",
+    "NO_RAW_SKIN_EQUIVALENCE_CLAIM",
+    "NO_EXACT_BRANCH_MULTIPLICITY_EQUIVALENCE_CLAIM",
+    "NO_G2_R0_BEFORE_FINAL_S6_GRADUATION_CERTIFICATE"
+  ],
+  "observer": {
+    "does_not_observe": [
+      "raw skin",
+      "hidden owner identity",
+      "construction identity",
+      "hidden topology",
+      "exact branch multiplicity"
+    ],
+    "name": "G2_TRANSITION_GRAMMAR_CAPS7_OBSERVER_V1",
+    "reads": [
+      "reservation enabledness by endpoint type",
+      "31 earned typed binary bridge enabledness",
+      "successor CAPS7 state"
+    ],
+    "state": "CAPS7=(f0,...,f6) in N^7"
+  },
+  "parent_s5_science_sha256": "f951cc790a07a4fb1c6fb2ad07349fd116e9288e55fc5e844e56fadda842bbe2",
+  "parent_s6_unlock_science_sha256": "16fe8b6e2371ef3e48b46884c1495d3142cf2a38cb237b04e1788dc510d93702",
+  "parent_source_sha256": "1a0f6ebbe19c2889a6f790b99f4639657bb91dd2abebf1c9801b26617363b4d7",
+  "question": "Does the earned CAPS7 quotient remain exact under arbitrary finite recursive use of the frozen relation-valued G2 reservation/binary grammar, with fresh exact recursive-state holdout transfer and no hidden selector reads, so that G2 can graduate under the frozen CAPS7 transition observer?",
+  "recursive_proof_obligation": {
+    "base": "Every frozen G1 leaf has CAPS7 in N^7 and S5 exhaustively verified its one-reservation factorisation.",
+    "binary_step": "If both complete inputs factor through CAPS7, every exact binary branch maps to f+g-e_a-e_b.",
+    "closure_consequence": "Every abstract successor remains a seven-coordinate nonnegative integer state.",
+    "context_consequence": "Equality of CAPS7 is preserved through every finite admitted reservation/composition context; exact branch multiplicity may differ but the quotient successor is unique.",
+    "method": "STRUCTURAL_INDUCTION_ON_FINITE_G2_CONSTRUCTION_AND_ACTION_SYNTAX",
+    "reserve_step": "If every eligible child branch factors through CAPS7, relation-valued whole-unit reservation preserves all exact branches but maps every branch to f-e_t."
+  },
+  "schema_id": "IG_G_UPLIFT_S6_RECURSIVE_CLOSURE_GRADUATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "04107ebad5258f6764b70f5742eab4a2b6d1fcae5b869c82dbb4565824ebde02",
+  "source_stage": "G2:S5",
+  "stage_ref": "G2:S6",
+  "status": "FROZEN_BEFORE_S6_EXECUTION"
+}

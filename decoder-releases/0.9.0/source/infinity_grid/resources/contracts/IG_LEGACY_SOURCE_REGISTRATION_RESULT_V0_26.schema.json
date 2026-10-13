@@ -1,0 +1,36 @@
+{
+  "$id": "ig://schema/ig_legacy_source_registration_result_v0_26",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26",
+      "type": "string"
+    },
+    "source_node_id": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    },
+    "wheel_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "source_node_id",
+    "source_sha256",
+    "status",
+    "target_node_id",
+    "wheel_sha256"
+  ],
+  "title": "IG_LEGACY_SOURCE_REGISTRATION_RESULT_V0_26",
+  "type": "object"
+}

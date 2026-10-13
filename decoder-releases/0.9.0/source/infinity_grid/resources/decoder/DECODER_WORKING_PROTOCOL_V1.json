@@ -1,0 +1,133 @@
+{
+  "completion_definition": {
+    "scientific_step_complete_only_when": [
+      "registered/frozen question executed through Decoder",
+      "required replay/certification gates passed or explicit scientific negative result recorded",
+      "human-readable and machine-readable result saved",
+      "reproducibility bundle and SHA-256 sidecar created",
+      "Google Drive upload to campaign_checkpoints verified"
+    ]
+  },
+  "date": "2026-09-03",
+  "principle": "Decoder is the scientific execution and authority surface. Chat/session tooling may orchestrate, monitor, interpret, checkpoint, and package, but must not become a parallel science engine.",
+  "rules": [
+    {
+      "id": "WP01_DECODER_FIRST",
+      "level": "MUST",
+      "reason": "Prevents scientific logic from drifting into chat-only or ad hoc side paths.",
+      "rule": "All new Infinity Grid algebra science must be implemented in Decoder before it can become authoritative."
+    },
+    {
+      "id": "WP02_REGISTER_BEFORE_RUN",
+      "level": "MUST",
+      "reason": "Question, dependencies, handler, scope, promotion status, and replay identity must be frozen before results are seen.",
+      "rule": "Every scientific experiment or audit must be registered before execution in the applicable Decoder scientific registry. G-uplift/G-ladder work uses src/infinity_grid/resources/uplift/G_UPLIFT_EXPERIMENT_REGISTRY_V1.json; legacy/general registered scientific targets use the Decoder scientific test registry where applicable."
+    },
+    {
+      "id": "WP03_NO_SIDELINE_DECODER",
+      "level": "MUST_NOT",
+      "reason": "Avoids the S5/S6 replay-provenance mistake and preserves one scientific implementation path.",
+      "rule": "Do not create an authoritative stage-specific science engine, notebook, one-off script, or chat-side implementation outside Decoder. External wrappers may only launch a registered Decoder-native handler, monitor it, checkpoint/copy files, verify outputs, or package evidence; they may contain no stage-specific scientific decision logic."
+    },
+    {
+      "id": "WP04_BACKGROUND_STANDARD",
+      "level": "MUST",
+      "reason": "The interactive chat/tool path has repeatedly failed around long-running work; execution must survive UI/session interruption.",
+      "rule": "Nontrivial scientific runs, full regressions, cold replays, large reconstructions, and any task that may approach the interactive runtime limit must be launched detached/background from the start. Foreground chat execution is reserved for short checks expected to finish comfortably below the interactive limit."
+    },
+    {
+      "id": "WP05_VERIFY_DETACHMENT",
+      "level": "MUST",
+      "reason": "Do not claim background execution merely because a command was issued.",
+      "rule": "After launching a background run, verify that the controller is genuinely detached or otherwise session-independent, record PID/process identity, run root, logs, state/checkpoint path, and confirm the process is alive before reporting it as running."
+    },
+    {
+      "id": "WP06_BACKGROUND_WRAPPER_IS_ORCHESTRATION_ONLY",
+      "level": "MUST",
+      "reason": "Background execution must not sideline Decoder.",
+      "rule": "Detached controllers supervise registered Decoder execution only. Scientific calculations and classification logic stay inside Decoder modules/handlers."
+    },
+    {
+      "id": "WP07_FAIL_CLOSED",
+      "level": "MUST",
+      "reason": "Scientific authority is more important than completion.",
+      "rule": "Any mismatch in source identity, registry identity, authority, checkpoint integrity, replay identity, manifest, or science hash stops advancement. Do not silently continue, reinterpret, or patch around a mismatch."
+    },
+    {
+      "id": "WP08_CHECKPOINT_RESUME",
+      "level": "MUST",
+      "reason": "Durability and efficiency.",
+      "rule": "Checkpoint deterministic stages/chunks. On restart, verify integrity and resume only missing work. Reuse completed verified checkpoints; rerun completed heavy work only when integrity or semantics require it."
+    },
+    {
+      "id": "WP09_COLD_REPLAY_SAME_REGISTERED_EXPERIMENT",
+      "level": "MUST",
+      "reason": "Independent source/materialization without changing the scientific implementation.",
+      "rule": "Certification cold replay reruns the same registered Decoder-native experiment from cold source/materialization and compares the declared stable scientific payload exactly."
+    },
+    {
+      "id": "WP10_EXECUTION_VS_SCIENCE",
+      "level": "MUST",
+      "reason": "Prevents operational and scientific conclusions from being conflated.",
+      "rule": "Report execution/reproducibility status separately from scientific outcome. A scientifically negative result can be an execution PASS; an execution failure is never a scientific negative result."
+    },
+    {
+      "id": "WP11_NONPROMOTING_FIREWALL",
+      "level": "MUST",
+      "reason": "Preserves the ladder firewall.",
+      "rule": "Reconnaissance/audits marked non-promoting cannot alter graduation, observer, state descriptor, or next-level authority unless a separately registered promotion/graduation gate earns it."
+    },
+    {
+      "id": "WP12_COMPACT_REPRO_BUNDLE",
+      "level": "MUST",
+      "reason": "Restartability and limited storage.",
+      "rule": "Every completed scientific step and every important rescue/checkpoint gets a compact reproducibility ZIP containing the frozen question/spec, exact code/runner identity, human and machine results, manifests/checksums, runtime/dependencies, checkpoint/state information, and necessary intermediate evidence without redundant bulk."
+    },
+    {
+      "id": "WP13_GDRIVE_ALWAYS",
+      "level": "MUST",
+      "reason": "Local sandbox/session storage is not durable project completion.",
+      "rule": "Every scientific completion, closeout, and important rescue/checkpoint must be uploaded to Google Drive folder campaign_checkpoints together with its SHA-256 sidecar."
+    },
+    {
+      "id": "WP14_VERIFY_GDRIVE_BEFORE_DONE",
+      "level": "MUST",
+      "reason": "Upload intent is not storage verification.",
+      "rule": "Verify Google Drive presence after upload. Do not tell the user a checkpoint/closeout is safely saved or complete until the ZIP and checksum are confirmed in campaign_checkpoints."
+    },
+    {
+      "id": "WP15_MACHINE_DOC_CURRENT",
+      "level": "MUST",
+      "reason": "The Decoder should be sufficient to continue without reconstructing state from chat history.",
+      "rule": "After a graduation, major scientific closeout, protocol repair, or frontier change, update the Decoder machine-readable documentation/current handoff so a new chat can recover the exact code and scientific state quickly."
+    },
+    {
+      "id": "WP16_AUTHORITY_ORDER",
+      "level": "MUST",
+      "reason": "Prevents stale summaries or historical motivation from overriding exact evidence.",
+      "rule": "When sources disagree, newest exact certified correction/result artifacts outrank machine handoff snapshots; current machine documentation outranks old handoffs and chat summaries; historical theory/cosmology documents are not premises for the finite algebra programme."
+    },
+    {
+      "id": "WP17_STATUS_DISCIPLINE",
+      "level": "SHOULD",
+      "reason": "Operational clarity.",
+      "rule": "Status responses should state done / running / to come, identify the actual active stage, and avoid implying work continues when no verified process is alive."
+    },
+    {
+      "id": "WP18_NO_UNNECESSARY_RERUN",
+      "level": "MUST",
+      "reason": "Avoids duplicating S1-S6 style programmes or wasting long computations.",
+      "rule": "Do not repeat earlier ladder stages merely to repair packaging, orchestration, or certification plumbing unless their scientific authority or semantics are actually invalidated."
+    }
+  ],
+  "schema_id": "IG_DECODER_WORKING_PROTOCOL_V1",
+  "schema_version": "1.0.0",
+  "scope": "Infinity Grid Algebra Decoder scientific work, execution, certification, checkpointing, handoff, and storage",
+  "status": "MANDATORY_PROJECT_WORKING_PROTOCOL",
+  "storage_target": {
+    "folder_name": "campaign_checkpoints",
+    "parent_folder_id": "1hCRByZK26m_7yoCTobCNPy29dTmdaP_9",
+    "provider": "Google Drive",
+    "verification_required": true
+  }
+}

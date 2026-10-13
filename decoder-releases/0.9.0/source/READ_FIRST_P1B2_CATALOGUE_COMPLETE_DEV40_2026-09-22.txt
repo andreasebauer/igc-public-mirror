@@ -1,0 +1,122 @@
+INFINITY GRID DECODER 0.8lib — P1B2 CATALOGUE COMPLETION
+DEV40 CANDIDATE — 2026-09-22
+
+DISPOSITION
+P1B2_ASSERTION_MAPPING_CATALOGUE_COMPLETE
+NOT_REPLAY_AUTHORIZED
+NO_SCIENCE_EXECUTED
+SHARED_POINTER_UNCHANGED
+
+1. OUTCOME
+
+The L0-upward replay catalogue now contains all four S/R/C/F scientific
+obligations for all 16 canonical layers. The 13 O7 GRRL hypotheses that were
+ambiguous in dev39 are classified from the exact H1-H13 theorem text and its
+O7 instantiation result. The remaining 23 L0, C0, Node, Scout, G1 and O1-O3
+catalogue gaps are mapped to pinned historical sources.
+
+This completes assertion mapping only. It does not execute science and it does
+not manufacture Decoder audit authority. P1C remains a separate lane.
+
+2. COMPILED STATE
+
+Layers: 16
+Total DAG nodes: 80
+Scientific nodes: 64
+Catalogue gaps: 0
+Workflow gates: 16
+Historical assertion records: 121
+Mapped assertions: 121
+Ambiguous assertions: 0
+Excluded assertions: 0
+Historical audit authorizations: 0
+Unauthorized scientific nodes: 64
+
+Compiled status: BLOCKED_UNAUTHORIZED
+Execution authorized: false
+Science executed: false
+Logical DAG SHA-256: 034d98bbb8e7477c887d407e6811851fa1c8f34e53fd2bab1e3419ea4ec99ed4
+
+3. O7 GRRL CLASSIFICATION
+
+H1=C  H2=S  H3=S  H4=R  H5=S  H6=C  H7=R
+H8=R  H9=C  H10=R  H11=S  H12=C  H13=C
+
+Each H row binds exactly one O4_O7 scientific series. Classification is based
+on the assertion's own semantics, not its registry position.
+
+4. HISTORICAL-AXIS SAFEGUARD
+
+Historical O7.G1 through O7.G8 remain O7 graduation-gate labels and map into
+O4_O7 S/R/C/F by assertion semantics. The active G1 anchor is mapped only
+through the explicit O7-to-G1 architecture/nomenclature crosswalk. The two
+uses of "G1" are not conflated.
+
+5. NEW HISTORICAL SOURCE PINS
+
+FORMAL_MONOGRAPH_FINAL_2026-08-27.md
+  524586b970a17c04cbe9581ad39bf65b955c8fc70c74bc2fc75398d2fc57c674
+GRRL_THEOREM_SPEC_v1.json
+  45f3e6c187db650379b0e01ba4f0f08799310d30912cd0d1f6fb91336d9a7f99
+IG_O123_RECONCILED_FORMAL_SPEC_v1.2_FF2.2.json
+  6ea4707dc45218044a875d2f6e2682c00a52907025093699bc1fef3c5b66085d
+IN6_FINITE_GRAMMAR_RESULT.json
+  ccdcde66c73c2713ce6a245ddd1b768738f7a4435f03e119832f0ab38c1df46b
+MATURE_NODE_ALGEBRA_AUTHORITATIVE_v1.1.txt
+  1fdda2546114e7752f5e25a84d933b8ea21f06f80b7028b80549cd05c29b1afe
+NODE_GRADUATION_RESULT.json
+  d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3
+O123_V1_2_FF22_COMPATIBILITY_RESULT.json
+  65776d122c5723fc9edab4288530ca2f462125b118da30be7aab70eb1ea90c7c
+O3_DISTRIBUTED_CARRIER_GRADUATION_STATEMENT.txt
+  be1de3ecbacbf2710d41f815f3b8cc90fe6be4ad48ec6914880457864622565a
+O3_GRADUATION_AUDIT_RESULT.json
+  00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612
+O7_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATION_STATEMENT.txt
+  de9b76b98eefc8cd483397cd064a2017705f3d0f1da450bad359fa4ab9d4ccab
+O7_GRRL_INSTANTIATION_RESULT.json
+  a6250559080bf6c82baf6cb21e70e4f844fb3de4fe288a0c56dbe2d77b79425c
+SCOUT2B_V1_5_K128_AUDIT_REPORT.txt
+  3b679969f99edf1775c3fc72407f2166ebcce95f7bf5ac724e7efb25301ac8b7
+SCOUT2B_V1_7_K128_AUDIT_REPORT.txt
+  d603cb8fbf868641ac711cdd2054efe362369f468f0503c3665622f2c16f5971
+SCOUT3_V1_0_R64_AUDIT_REPORT.txt
+  a9e1842efde935535e4d0bd71bec38a5a696fdbed9ff02be861cd1e47b2e34df
+
+All are stored under p1c_historical_sources/. Source-hash qualification reads
+the local bytes and confirms every mapping pin before compilation.
+
+6. QUALIFICATION
+
+P1A2 compatibility, P1B and P1B2 focused replay/compiler suite: 27 passed.
+The tests cover deterministic compilation, manifest verification, source-hash
+integrity, reciprocal bindings, complete four-series coverage, H1-H13 exact
+classification, the O7/G1 namespace safeguard, and absence of audit authority.
+
+The repository-wide historical suite is not a candidate gate in this extracted
+tree. Its first failure is a missing external registry input:
+dev33_minimal_restore/registry/DECODER.06.STEP1.VALIDATION.R2.json.
+
+7. PRIMARY FILES
+
+Source catalogue:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V4.json
+File SHA-256: 1e97efe9edd8db58b5bc86ee5fa980a9cf175f08872fb15066f15c5812b837e9
+
+Compiled DAG:
+infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_DAG_V4.json
+File SHA-256: aed5dee1b14f2b35eb58ef7d776e2ea760dd1d10d591d06d846e268438b56c0c
+
+Compiler:
+infinity_grid/replay_obligation_compiler.py
+File SHA-256: a7badb6e56166760683c63a939010b00895fcad2c910ccfe3d3584a904d0171f
+
+P1B2 tests:
+tests/test_replay_obligation_compiler_p1b2.py
+File SHA-256: e01dfd0df927897cebea2d63db28e0a6dfe5183a9598adc6e5a7353590362b5d
+
+8. NEXT LANE
+
+P1C: bind the already-completed historical audit decisions and earned-algebra
+authorizations through G8 by exact record, scope and hash. Preserve any G8
+qualification and keep GLOBAL/Components open where its source remains open.

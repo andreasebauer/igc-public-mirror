@@ -1,0 +1,48 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_FRONTIER_MINIMAL_RETENTION_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cache_rule": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "do_not_retain_by_default": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "escalation_retention": {
+      "type": "string"
+    },
+    "retain_on_repeat": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_FRONTIER_MINIMAL_RETENTION_POLICY_V0_1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cache_rule",
+    "date",
+    "do_not_retain_by_default",
+    "escalation_retention",
+    "retain_on_repeat",
+    "schema",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_FRONTIER_MINIMAL_RETENTION_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

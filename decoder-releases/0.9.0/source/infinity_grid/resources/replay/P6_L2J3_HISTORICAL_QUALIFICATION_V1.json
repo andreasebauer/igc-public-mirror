@@ -1,0 +1,48 @@
+{
+  "schema_id": "IG_P6_L2J3_HISTORICAL_QUALIFICATION_V1",
+  "date": "2026-09-23",
+  "decoder_version": "0.8.0.dev55+lib",
+  "status": "PASS_IMPLEMENTATION_AND_HARNESS__CAPTURE_REQUIRED",
+  "recorded_controller_attempt_executed": false,
+  "focused_replay_regression": {
+    "result": "PASS",
+    "passed": 64,
+    "failed": 0,
+    "scope": "P6 focused, P2-P5 replay and library backend checks"
+  },
+  "implementation_pins": [
+    {
+      "ref": "infinity_grid/replay_p5_frontier_import.py",
+      "sha256": "1860cc0e192cc01dfd12185442e9fc8bb77e7fea89a71cdd2b697d8457ef6cd6"
+    },
+    {
+      "ref": "infinity_grid/replay_l2j3_executor.py",
+      "sha256": "77757a96cdc1db9dbecf18c9bdd4bda8d882c529668459eb66c7c7e44f7bbf5c"
+    },
+    {
+      "ref": "infinity_grid/v05_stage_runtime.py",
+      "sha256": "d58f405357b21a53b2de15687fa53cf148e4d7a41606ac134e2fb5c010f03888"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P6_L2J3_HISTORICAL_REGISTRATION_PROFILE_V1.json",
+      "sha256": "58d8fe517696c99f4b58b539a6b6d03dbf25da5119a4554d87127a7185c2545d"
+    },
+    {
+      "ref": "infinity_grid/resources/replay/P5_CAPTURED_STATE_OBJECT_V1.zip",
+      "sha256": "c149c0cac5be7849f028d91d49616171f1542bbe8dfbf475a083b159ebd532a1"
+    }
+  ],
+  "boundary": {
+    "bound_layer": "L2J3",
+    "next_layer_in_pinned_dag": "NODE_IN",
+    "fresh_empty_root_science_node_count": 0,
+    "science_authority_effect": "NONE"
+  },
+  "known_environment_gate": "A capture-specific test requires a captured workspace; the standalone source checkout cannot satisfy it.",
+  "nonclaims": [
+    "Harness execution is not a recorded controller attempt.",
+    "Historical reproduction does not independently confirm scientific correctness.",
+    "No NODE_IN or later node was executed."
+  ],
+  "next_step": "Capture dev55, persist required objects with raw readback verification, run exactly one controller attempt, export and cold restore the terminal checkpoint."
+}

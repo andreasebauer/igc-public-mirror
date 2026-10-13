@@ -1,0 +1,196 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "current_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "forbidden_features_present": {
+          "additionalProperties": false,
+          "properties": {
+            "ancestry_provenance_read": {
+              "type": "boolean"
+            },
+            "copying": {
+              "type": "boolean"
+            },
+            "deletion": {
+              "type": "boolean"
+            },
+            "endpoint_replacement": {
+              "type": "boolean"
+            },
+            "feedback": {
+              "type": "boolean"
+            },
+            "hidden_topology_read": {
+              "type": "boolean"
+            },
+            "multiway": {
+              "type": "boolean"
+            },
+            "orientation_order_read": {
+              "type": "boolean"
+            },
+            "retagging": {
+              "type": "boolean"
+            },
+            "rewiring": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "ancestry_provenance_read",
+            "copying",
+            "deletion",
+            "endpoint_replacement",
+            "feedback",
+            "hidden_topology_read",
+            "multiway",
+            "orientation_order_read",
+            "retagging",
+            "rewiring"
+          ],
+          "type": "object"
+        },
+        "grrl_application_gate_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "hidden_reads": {
+          "items": {},
+          "type": "array"
+        },
+        "normalized_grammar_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "ownership_scope": {
+          "type": "string"
+        },
+        "rank_lift_effect": {
+          "type": "string"
+        },
+        "read_set": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "relation_arity": {
+          "type": "integer"
+        },
+        "relation_effect": {
+          "type": "string"
+        },
+        "reservation_effect": {
+          "type": "string"
+        },
+        "schema": {
+          "const": "IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V1",
+          "type": "string"
+        },
+        "successor_semantics": {
+          "type": "string"
+        },
+        "writes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "forbidden_features_present",
+        "grrl_application_gate_sha256",
+        "hidden_reads",
+        "normalized_grammar_sha256",
+        "ownership_scope",
+        "rank_lift_effect",
+        "read_set",
+        "relation_arity",
+        "relation_effect",
+        "reservation_effect",
+        "schema",
+        "successor_semantics",
+        "writes"
+      ],
+      "type": "object"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "A0_machine_theorem": {
+          "type": "string"
+        },
+        "A1_O7_adapter": {
+          "type": "string"
+        },
+        "A2_O7_read_probe": {
+          "type": "string"
+        },
+        "A3_O8_graduation": {
+          "type": "string"
+        },
+        "A4_O9_repeat": {
+          "type": "string"
+        },
+        "A5_current_implementation_contract": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "A0_machine_theorem",
+        "A1_O7_adapter",
+        "A2_O7_read_probe",
+        "A3_O8_graduation",
+        "A4_O9_repeat",
+        "A5_current_implementation_contract"
+      ],
+      "type": "object"
+    },
+    "generic_theorem_status_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "o7_adapter_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "o7_read_probe_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "o8_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "o9_science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "current_contract",
+    "gates",
+    "generic_theorem_status_file_sha256",
+    "o7_adapter_science_sha256",
+    "o7_read_probe_science_sha256",
+    "o8_science_sha256",
+    "o9_science_sha256",
+    "schema",
+    "science_sha256",
+    "status"
+  ],
+  "type": "object"
+}

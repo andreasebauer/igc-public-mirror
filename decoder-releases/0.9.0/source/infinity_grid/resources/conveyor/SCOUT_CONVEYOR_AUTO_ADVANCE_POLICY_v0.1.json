@@ -1,0 +1,25 @@
+{
+  "after_integrity_failure": "Preserve evidence and fail closed. Repair code/configuration under a new source identity and start a new chain from the last eligible parent.",
+  "after_operational_pause": "The same immutable chain may resume only after resources are restored; completed verified checkpoints may be reused.",
+  "after_scientific_pause": "Seal an escalation packet and allow no auto-advance. Any continuation requires a separate Pro/Scanner audit and a new chain plan or explicitly versioned chain amendment; never mutate the original chain plan.",
+  "atomicity": "A child packet may be derived only after the current result is committed as ELIGIBLE_AUTO_PARENT.",
+  "decision_precedence": [
+    "integrity failure -> FAIL_CLOSED",
+    "operator stop -> PAUSED_OPERATOR",
+    "operational trigger -> PAUSED_OPERATIONAL",
+    "scientific trigger -> PAUSED_SCIENTIFIC",
+    "parent ineligible -> FAIL_CLOSED",
+    "target level reaches finite maximum -> COMPLETE_LIMIT_REACHED",
+    "otherwise -> AUTO_ADVANCE_AUTHORIZED"
+  ],
+  "no_retry_with_changed_semantics": true,
+  "no_skip": true,
+  "routine_continue_classifications": [
+    "PERSISTS",
+    "PERSISTS + EXPANDS",
+    "PERSISTS + REORGANIZES",
+    "PERSISTS + EXPANDS + REORGANIZES"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_AUTO_ADVANCE_POLICY_V0_1",
+  "spec_sha256": "60084dce48065e9f4a45b8d6b0c71cccc78e0acac44872475a2b992989b2b530"
+}

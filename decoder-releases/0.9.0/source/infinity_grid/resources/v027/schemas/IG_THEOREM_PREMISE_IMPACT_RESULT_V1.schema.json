@@ -1,0 +1,22 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "changes": {
+      "items": {},
+      "type": "array"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_THEOREM_PREMISE_IMPACT_RESULT_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "changes",
+    "classification",
+    "schema_id"
+  ],
+  "type": "object"
+}

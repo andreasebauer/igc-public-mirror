@@ -1,0 +1,20 @@
+{
+  "schema_id": "IG_PHASE4_GENERIC_RUNTIME_ACCEPTANCE_GATES_V0_1",
+  "gates": [
+    "Bare test name resolves through stable ig:test/<name> alias.",
+    "O7 mandatory execution closure resolves to exactly one compact replay root.",
+    "Historical O7 provenance roots are absent from the mandatory execution cut.",
+    "Every materialized root is content-address verified.",
+    "ZIP materialization rejects path traversal.",
+    "Frozen payload manifest verifies before execution.",
+    "O7 C00 clean-root smoke passes.",
+    "Prepared workspaces are reusable without rebuilding valid predecessors.",
+    "Runtime-mutated bytecode caches do not invalidate authoritative source verification.",
+    "Frozen source tampering fails closed.",
+    "Plan identity is independent of workspace path.",
+    "Missing material root fails closed.",
+    "Synthetic target proves generic profile registration and smoke execution.",
+    "Synthetic target proves detached launch and status probing.",
+    "Unrelated missing external roots in a compact graph do not block a target whose own closure is complete."
+  ]
+}

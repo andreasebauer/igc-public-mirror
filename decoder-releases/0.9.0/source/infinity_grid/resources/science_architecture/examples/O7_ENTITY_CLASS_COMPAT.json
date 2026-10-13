@@ -1,0 +1,55 @@
+{
+  "action_provider_ref": "legacy:v0.27 O-regime action provider / GRRL compatibility adapter",
+  "authority_refs": [
+    {
+      "id": "O7_GRADUATION_SOURCE_AUTHORITY",
+      "role": "entity authority",
+      "scope": "O7 source scope",
+      "version": "historical-frozen"
+    },
+    {
+      "id": "O_REGIME_AUTHORITY_PACK_V1",
+      "role": "regime compatibility",
+      "scope": "v0.27 pinned O-regime authority",
+      "version": "1"
+    }
+  ],
+  "capability_provider_refs": [
+    "IG_O7_CAPABILITY_PROVIDER_COMPAT"
+  ],
+  "entity_class_id": "IG_O7_ORGANIZATION_CARRIER_COMPAT",
+  "historical_aliases": [
+    "O7",
+    "O7 carrier",
+    "O-regime ignition/reference carrier"
+  ],
+  "meaning": "The certified O7 organizational carrier used as the meaningful scientific entity at ignition/reference of the current O-regime compatibility example.",
+  "reopen_conditions": [
+    "O7 source authority changes",
+    "canonical carrier semantics change",
+    "action/context language changes",
+    "hidden state becomes operational",
+    "multiplicity semantics change"
+  ],
+  "representation": {
+    "canonical_identity": {
+      "canonicalizer_ref": "legacy:v0.27 canonical O carrier identity",
+      "equivalence": "source-certified exact/canonical O7 carrier identity in its frozen scope"
+    },
+    "exactness": "SOURCE_SCOPED_CERTIFIED",
+    "schema_ref": "legacy:v0.27:O7 exact/certified carrier representation"
+  },
+  "schema_id": "IG_ENTITY_CLASS_V1",
+  "schema_version": "1.0.0",
+  "status": "COMPATIBILITY_EXAMPLE_NO_NEW_GRADUATION",
+  "substitution_scope": {
+    "context_language_ref": "legacy O7/GRRL scope",
+    "kind": "SOURCE_SCOPED_CERTIFIED",
+    "limitations": [
+      "This compatibility example does not strengthen or broaden the historical O7 graduation claim.",
+      "A new Lift still requires its own certificate."
+    ],
+    "observer_ref": "legacy O7 observer scope"
+  },
+  "version": "1.0.0"
+}

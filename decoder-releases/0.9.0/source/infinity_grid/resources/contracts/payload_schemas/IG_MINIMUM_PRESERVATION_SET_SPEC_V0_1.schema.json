@@ -1,0 +1,41 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "algorithm": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "definition": {
+      "type": "string"
+    },
+    "optimization_note": {
+      "type": "string"
+    },
+    "safety": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1",
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "algorithm",
+    "definition",
+    "optimization_note",
+    "safety",
+    "schema_id",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_MINIMUM_PRESERVATION_SET_SPEC_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

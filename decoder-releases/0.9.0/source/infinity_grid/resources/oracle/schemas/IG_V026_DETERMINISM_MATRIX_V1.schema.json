@@ -1,0 +1,91 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_DETERMINISM_MATRIX_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "schema_id": {
+      "const": "IG_V026_DETERMINISM_MATRIX_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "target_alias": {
+      "type": "string"
+    },
+    "unique_probe_file_sha256": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unique_science_sha256": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "variant_count": {
+      "type": "integer"
+    },
+    "variants": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "elapsed_seconds": {
+            "type": "integer"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "probe_file_sha256": {
+            "type": "string"
+          },
+          "python_optimize": {
+            "type": "boolean"
+          },
+          "pythonhashseed": {
+            "type": "string"
+          },
+          "science_sha256": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "elapsed_seconds",
+          "locale",
+          "probe_file_sha256",
+          "python_optimize",
+          "pythonhashseed",
+          "science_sha256",
+          "status",
+          "target_node_id",
+          "variant"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_id",
+    "status",
+    "target_alias",
+    "unique_probe_file_sha256",
+    "unique_science_sha256",
+    "variant_count",
+    "variants"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_DETERMINISM_MATRIX_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

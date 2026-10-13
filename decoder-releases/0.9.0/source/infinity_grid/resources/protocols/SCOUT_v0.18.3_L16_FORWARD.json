@@ -1,0 +1,265 @@
+{
+  "acceptance_gates": [
+    "exact D lane byte-identical to independent audit counterfactual",
+    "no binary float in D ordering key",
+    "explicit minimum-SHA seed and maximum-SHA exact tie direction",
+    "selected relation has new immutable identity and no historical-golden equality claim",
+    "classification derived from explicit predicates",
+    "comparable/incomparable closure breakdown published",
+    "science projection V2 timing-independent",
+    "catalog rebuilt after release generation",
+    "clean standalone reproduction",
+    "original 22-gate regression PASS"
+  ],
+  "allowed_protocol_labels": [
+    "SCOUT_OBSERVED"
+  ],
+  "descriptor_sha256": "7ceea10e2dbe0b398c900577e234e916dd4c9a3b6564273e5a83f3b2228f44cc",
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "OBSERVED",
+        "RECONNAISSANCE_ONLY",
+        "SCOUT_OBSERVED"
+      ]
+    ],
+    "max_authority": "RECONNAISSANCE_ONLY"
+  },
+  "forbidden_claims": [
+    "first occurrence",
+    "c_proved",
+    "population-wide negative",
+    "mechanism promotion",
+    "geometry promotion",
+    "physical topology promotion",
+    "transition level",
+    "graduated",
+    "lattice or closed algebra promotion"
+  ],
+  "input_contract": {
+    "bounded_preregistered": true,
+    "exact_root_and_primitive_hashes_required": true,
+    "parent_certificate_required_for_live": true,
+    "population_completeness": false,
+    "separate_lineage_required": true
+  },
+  "observer_contract": {
+    "must_be_explicit": true,
+    "observer_freeze_before_generation": true,
+    "observer_sha256": "c13e4a9f7e815cfe3692ac9628175dd939215efe155d59f5c449c0eb673eda7a"
+  },
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "bounded_preregistered",
+        "parent_certified",
+        "separate_lineage",
+        "observer_frozen",
+        "selection_sealed_before_relation_analysis",
+        "spectroscope_non_feedback",
+        "population_complete",
+        "audit_reseal"
+      ],
+      "allowed_protocol_labels": [
+        "SCOUT_OBSERVED"
+      ],
+      "profile_id": "l16_exact_forward_parent_reseal_v1_1",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "root_sha256",
+            "primitive_sha256",
+            "root_count"
+          ],
+          "runner": "adapter.scout_l16_forward.preflight",
+          "stage_id": "preflight"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256"
+          ],
+          "depends_on": [
+            "preflight"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "source_level",
+            "target_level",
+            "per_lane",
+            "lane_ids",
+            "selection_rules_sha256"
+          ],
+          "runner": "adapter.scout_l16_forward.wide",
+          "stage_id": "wide"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "depends_on": [
+            "wide"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "recognition_only",
+            "cannot_feedback"
+          ],
+          "runner": "adapter.scout_l16_forward.spectroscope",
+          "stage_id": "spectroscope"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "baseline_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "depends_on": [
+            "wide",
+            "spectroscope"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "baseline_level",
+            "observer_sha256",
+            "claim_boundary_sha256"
+          ],
+          "runner": "adapter.scout_l16_forward.classify",
+          "stage_id": "classify"
+        },
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256",
+            "audit_reference_sha256",
+            "projection_version"
+          ],
+          "depends_on": [
+            "classify"
+          ],
+          "required_param_keys": [
+            "fixture_dataset_sha256",
+            "audit_reference_sha256",
+            "projection_version"
+          ],
+          "runner": "adapter.scout_l16_forward.verify",
+          "stage_id": "verify"
+        }
+      ],
+      "subject_equals": {
+        "forward_parent_reseal": true,
+        "hierarchy": "L",
+        "historical_scope_replay": false,
+        "level": 16,
+        "live_generation": true,
+        "source_level": 15
+      }
+    }
+  ],
+  "planner_contract": {
+    "audit_reference_terminal_only": true,
+    "freeze_before_execution": true,
+    "historical_golden_equality_required": false,
+    "immutable_plan": true
+  },
+  "protocol_id": "SCOUT",
+  "purpose": "Versioned bounded L16 forward-parent reseal using exact rational D-lane ordering and corrected Scout interpretation; not historical-golden equality and not graduation.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [
+    {
+      "role": "runtime_parent_closeout",
+      "sha256": "109476351119f032b1a4ad50dfeccdf6c439c93a96e983383be3603239df799b"
+    },
+    {
+      "role": "historical_l16_closeout",
+      "sha256": "29b4fd076f0ffdb9b557e1afc21128183d6cc2c744c380406c9255a2fe6bbac5"
+    },
+    {
+      "role": "pro_scientific_audit",
+      "sha256": "1d8982aff4be4678b9aadef73f6810687c77b5bdc65daba9b591369ff1df2163"
+    },
+    {
+      "role": "input_dataset",
+      "sha256": "914236c3c31305e2bd72cf4ce0a0f4e464613743530e581fc9511d6c5f2eecda"
+    },
+    {
+      "role": "selection_rules",
+      "sha256": "8fd2b9d647e074e68f048c79c1320a15019dd484f35ce8dc3fdf1b9646b85bd2"
+    },
+    {
+      "role": "observer",
+      "sha256": "c13e4a9f7e815cfe3692ac9628175dd939215efe155d59f5c449c0eb673eda7a"
+    },
+    {
+      "role": "claim_boundary",
+      "sha256": "5991a811beac9b81835bb620127bf8d445b09cdf95bcce13f47d3f66ae9a452a"
+    },
+    {
+      "role": "audit_reference",
+      "sha256": "7ede6ed7b4d11110187a0a8cec2492ceed717df9e6fd9da5427de6ebbe85d86b"
+    }
+  ],
+  "stage_dag": [
+    {
+      "depends_on": [],
+      "id": "preflight",
+      "purpose": "verify exact inputs and frozen forward-parent resources"
+    },
+    {
+      "depends_on": [
+        "preflight"
+      ],
+      "id": "wide",
+      "purpose": "complete bounded generation and exact-D lane reseal"
+    },
+    {
+      "depends_on": [
+        "wide"
+      ],
+      "id": "spectroscope",
+      "purpose": "recognition-only corrected closure analysis"
+    },
+    {
+      "depends_on": [
+        "wide",
+        "spectroscope"
+      ],
+      "id": "classify",
+      "purpose": "predicate-driven bounded Scout classification and projection V2"
+    },
+    {
+      "depends_on": [
+        "classify"
+      ],
+      "id": "verify",
+      "purpose": "terminal comparison to independent Pro audit exact-D reference; no historical golden equality"
+    }
+  ],
+  "stopping_rules": {
+    "complete_exact_bounded_generation": true,
+    "fail_closed": true,
+    "no_adaptive_lane_extension": true,
+    "no_deep_ancestry_search": true,
+    "no_population_census": true,
+    "spectroscope_after_seal_only": true,
+    "spectroscope_cannot_feedback": true,
+    "stop_after_terminal_audit_reference_verification": true
+  },
+  "version": "0.18.3"
+}

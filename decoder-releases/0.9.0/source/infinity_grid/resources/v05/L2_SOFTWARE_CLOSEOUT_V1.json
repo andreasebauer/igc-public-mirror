@@ -1,0 +1,30 @@
+{
+  "accepted_evidence": {
+    "full_inherited_regression": "PASS",
+    "historical_private_executor": "DISABLED_INSPECT_ONLY",
+    "official_local_fallback": "DISABLED",
+    "parent_source_read_only_to_worker": true,
+    "registered_engineering_self_hosting": true,
+    "registered_service_policy_pinned": true,
+    "separate_worker_identity": true,
+    "signed_execution_and_publication_receipts": true
+  },
+  "deployment_prerequisites": [
+    "install protected official controller/service outside the editable development workspace",
+    "install protected pinned trust registry code and store",
+    "bind external mirror acknowledgements to protected official stage commits"
+  ],
+  "g6_science_changed": false,
+  "official_science_enabled": false,
+  "official_science_reason": "PROTECTED_DEPLOYMENT_NOT_CONFIGURED",
+  "parent_version": "0.30.88.dev5",
+  "schema_id": "IG_DECODER_V05_L2_SOFTWARE_CLOSEOUT_V1",
+  "software_l2_complete": true,
+  "source_lineage_disposition": {
+    "accepted_line": "0.30.87 accepted -> 0.30.88.dev1 -> dev2 -> dev3 -> dev4 -> dev5 -> dev6",
+    "later_nonaccepted_E3_durability_revision": "retained as historical evidence; not silently merged or treated as accepted parent",
+    "release_rule": "only registered accepted descendants of the accepted 0.30.87 parent can advance this line"
+  },
+  "status": "SOFTWARE_RELEASE_ACCEPTED_FAIL_CLOSED",
+  "version": "0.30.88.dev6"
+}

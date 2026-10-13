@@ -1,0 +1,290 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_REPRO_GRAPH_NODE_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "kind",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "created_utc": {
+      "type": "string"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "O7_graduated": {
+          "type": "boolean"
+        },
+        "atomic_status": {
+          "type": "string"
+        },
+        "authority_grade": {
+          "type": "string"
+        },
+        "boundary_records": {
+          "type": "integer"
+        },
+        "broad_census": {
+          "type": "boolean"
+        },
+        "certification_scope": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "data_policy": {
+          "type": "string"
+        },
+        "descriptor": {
+          "additionalProperties": false,
+          "properties": {
+            "action_type": {
+              "type": "string"
+            },
+            "determinism": {
+              "type": "string"
+            },
+            "implementation": {
+              "type": "string"
+            },
+            "machine": {
+              "type": "string"
+            },
+            "nonclaims": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "package_version": {
+              "type": "string"
+            },
+            "protocol_id": {
+              "type": "string"
+            },
+            "purpose": {
+              "type": "string"
+            },
+            "python": {
+              "type": "string"
+            },
+            "schema_id": {
+              "type": "string"
+            },
+            "scope": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "system": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema_id"
+          ],
+          "type": "object"
+        },
+        "expected_O7_science_sha256": {
+          "type": "string"
+        },
+        "expected_science_sha256": {
+          "type": "string"
+        },
+        "geometry_status": {
+          "type": "string"
+        },
+        "graduation_authority": {
+          "type": "boolean"
+        },
+        "known_gap": {
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "type": "string"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "original_v1_9_full_bundle_replay": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "preflight_adapter_scope": {
+          "type": "string"
+        },
+        "provenance_kind": {
+          "type": "string"
+        },
+        "provenance_limit": {
+          "type": "string"
+        },
+        "read_rank": {
+          "type": "string"
+        },
+        "record_is_content": {
+          "type": "boolean"
+        },
+        "record_path_hint": {
+          "type": "string"
+        },
+        "recorded_original_science_sha256": {
+          "type": "string"
+        },
+        "replay_mode": {
+          "type": "string"
+        },
+        "root_sha256": {
+          "type": "string"
+        },
+        "science_sha256": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "selected_count": {
+          "type": "integer"
+        },
+        "source_bundle_sha256": {
+          "type": "string"
+        },
+        "source_name_hint": {
+          "type": "string"
+        },
+        "source_repro_bundle_recovered": {
+          "type": "boolean"
+        },
+        "static_tree_sha256": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "tied_max": {
+          "type": "integer"
+        },
+        "tier": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        },
+        "wheel_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "node_type": {
+      "type": "string"
+    },
+    "producer_ref": {
+      "type": "null"
+    },
+    "provenance_refs": {
+      "items": {},
+      "type": "array"
+    },
+    "retention_class": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_REPRO_GRAPH_NODE_V0_1",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "semantic_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "descriptor_sha256": {
+          "type": "string"
+        },
+        "environment_sha256": {
+          "type": "string"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "question_sha256": {
+          "type": "string"
+        },
+        "recipe_sha256": {
+          "type": "string"
+        },
+        "result_sha256": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "semantic_role": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "content_refs",
+    "created_utc",
+    "metadata",
+    "node_id",
+    "node_type",
+    "producer_ref",
+    "provenance_refs",
+    "retention_class",
+    "schema_id",
+    "schema_version",
+    "semantic_identity",
+    "semantic_role",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_REPRO_GRAPH_NODE_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

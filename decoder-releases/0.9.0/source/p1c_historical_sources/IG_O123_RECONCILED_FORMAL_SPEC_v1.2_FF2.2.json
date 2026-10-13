@@ -1,0 +1,275 @@
+{
+  "O1": {
+    "carrier": "image M1 subset N^7 x N^9 of exact mature-coordinate map c1",
+    "composition": "(p,t) star_(a,b) (p',t')=(p+p'-e_a-e_b,t+t') when guarded",
+    "internal_grade": "d1=||t||_1=||p||_1-2; rank lift +1",
+    "invariant": "||p||_1-||t||_1=2",
+    "logical_role": "exact/injective coordinate representation on audited mature family",
+    "map": "c1(X)=(p,t)",
+    "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+    "status": "MATURE_NODE_ALGEBRA_EARNED"
+  },
+  "O2": {
+    "atomic_status": "ATOMIC_HIGHER_ORDER_NODE_NOT_EARNED",
+    "cycle_rank": "beta2=rho2-|q2(G)|+1",
+    "exact_carrier": "finite connected anonymous typed multigraph of O1 sites with endpoint types/reservations",
+    "global_minimality": "OPEN; v2.2 finite minimization theorem does not by itself reduce the variable-size generated Q family to one finite closed packet",
+    "grade": "r=rho2=m2",
+    "kernel_status": "strong bisimulation for frozen O2 resource observer",
+    "logical_role": "observer-relative resource quotient",
+    "quotient_image": "Q2=im(q2) subset Bag(S)",
+    "quotient_map": "q2(G)=MSet_v(p_v,f_v)",
+    "science_sha256": "d138de3c6c906be3ab453c225ecce2e3fff5d3e4f91d220ed681ef5253a86bbb",
+    "status": "O2_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V1_9",
+    "transition_semantics": "finite set-valued support gamma2:C2->P_f(Sigma2 x C2), exact duplicate elimination"
+  },
+  "O3": {
+    "atomic_status": "ATOMIC_O3_NODE_NOT_EARNED",
+    "block_parity": "c_v=sum(p-f)=2*m2(v)+deg3(v); deg3(v)=c_v mod 2",
+    "exact_carrier": "one nontrivial connected component of O2 blocks joined by typed O3 incidences",
+    "global_minimality": "OPEN; v2.2 observer Obs3 historical class count is a distinct finite-packet question and does not alter carrier O3 graduation",
+    "kernel_status": "multiplicity-aware strong resource bisimulation for frozen O3 observer",
+    "known_lossy_projections": [
+      "flatten Bag(Bag(S))->Bag(S)",
+      "(p,f)->f"
+    ],
+    "quotient_image": "R3=im(q3) subset Bag(Bag(S))",
+    "quotient_map": "q3(C)=MSet_v[MSet_i(p_vi,f_vi)]",
+    "required_information": [
+      "O2-block nesting",
+      "p",
+      "f"
+    ],
+    "reservation_grade": "rho3=1/2 sum ||p-f||_1=U2+m3",
+    "science_sha256": "92b5f72bdc1244292667383c326ca4f09f5752a86a94062802fd46c2c6c3053d",
+    "source_grade": "Gamma3=sum(||p||_1-2)+rho3",
+    "status": "O3_DISTRIBUTED_RELATIONAL_CARRIER_GRADUATED_V1_3",
+    "transition_semantics": "multiplicity-aware action-copy gamma3:C3->Bag(Sigma3 x C3)"
+  },
+  "O4": {
+    "negative_boundary": "O3xO3 one-cross fusion returns one O3 carrier and is not O4",
+    "phase0_observer_packet": {
+      "lower_quotient_reopen_rule": "reopen Q or R3 if any O4 operation reads a distinction hidden by that quotient",
+      "required": [
+        "S4 exact carrier population",
+        "Gamma4 unary generator/context set",
+        "delta4 exact transition and explicit undefined cases",
+        "O4_terminal observer",
+        "Y4 output space",
+        "identity-context convention",
+        "multiplicity convention if operationally visible"
+      ],
+      "separator_rule": "retain shortest distinguishing context for failed finite-packet merges when available"
+    },
+    "phase0_requirement": "multiple graduated O3 carriers remain distinct while an inter-carrier relation is represented",
+    "provisional_schema": "H4=(V4,{C_v},E4), E4 type/semantics unfrozen",
+    "status": "NOT_DEFINED_PHASE_0_NEXT"
+  },
+  "date": "2026-08-27",
+  "foundation": {
+    "exact_boundary_full_abstraction": {
+      "condition": "identity context admitted; observer returns exact canonical boundary relation",
+      "statement": "q_exact(x)=q_exact(y) iff q_exact(C[x])=q_exact(C[y]) for all admitted finite contexts C",
+      "status": "FULLY_ABSTRACT_AND_MINIMAL_UP_TO_ISOMORPHISM_FOR_EXACT_BOUNDARY_OBSERVER"
+    },
+    "ig_specific_core": "T_X=B(X)",
+    "observer_foundation": "Formal Foundation v2.2 observer-relative full abstraction and finite minimization",
+    "quotient_action": "one global Sym(I) x Sym(U) action on the complete relation",
+    "row_type": "(L,kappa:I->K,s,theta:U->D_T,stay)",
+    "semantics": "finite Rel-valued complete-relation evaluation",
+    "syntax": "restricted pairwise connected acyclic TreeMatch"
+  },
+  "non_claims": [
+    "geometry",
+    "distance",
+    "direction",
+    "dimension",
+    "metric",
+    "physical time",
+    "propagation",
+    "fields",
+    "matter",
+    "actualisation",
+    "cosmology",
+    "universal minimality",
+    "universal O-level induction"
+  ],
+  "observer_exact_results": {
+    "Obs0": {
+      "automorphism_group": "C2 x C2",
+      "class_count": 5,
+      "scope": "frozen mature endpoint alphabet; selected-endpoint bridge acceptance only"
+    },
+    "Obs1": {
+      "A4_classes": 3240,
+      "exact_carrier_occurrences": 25474,
+      "immediate_enabledness_classes": 2864,
+      "population": "IN11 d78-d109",
+      "status": "A4 sufficient but not minimal for immediate enabledness"
+    },
+    "Obs2": {
+      "class_count_lower_bound_on_same_A4_carrier": 2865,
+      "global_count": "not promoted without complete frozen successor table",
+      "status": "strictly finer than Obs1 on supplied exact witness"
+    },
+    "Obs3": {
+      "required_packet": [
+        "finite exact carrier",
+        "frozen unary context-generator set",
+        "totalized transition table",
+        "frozen observer"
+      ],
+      "status": "algorithm/theorem complete; historical global quotient not computed"
+    },
+    "Obs4": {
+      "proof": "finite-context congruence + identity context",
+      "status": "fully abstract and minimal up to quotient isomorphism"
+    }
+  },
+  "observer_minimization": {
+    "contextual_equivalence": "x equiv_O y iff O(delta_w(x)) = O(delta_w(y)) for all w in Gamma*",
+    "observer_ladder_source": [
+      {
+        "id": "O0",
+        "name": "selected-endpoint bridge acceptance",
+        "status": "exact 7-to-5 local quotient"
+      },
+      {
+        "id": "O1",
+        "name": "current enabled one-step moves",
+        "status": "2864 immediate classes on frozen IN11 window; not transition-congruent"
+      },
+      {
+        "id": "O2",
+        "name": "one-step successor boundary relation",
+        "status": "strictly finer than O1 on exact witness; global count not promoted"
+      },
+      {
+        "id": "O3",
+        "name": "arbitrary finite future move observation",
+        "status": "algorithm/theorem complete; authoritative historical packet not yet frozen"
+      },
+      {
+        "id": "O4",
+        "name": "exact canonical boundary relation",
+        "status": "fully abstract and minimal with identity context"
+      }
+    ],
+    "packet": {
+      "carrier": "finite set S of exact canonical semantic states",
+      "context_language": "Gamma* including identity unless explicitly excluded",
+      "generators": "finite set Gamma of deterministic partial unary one-hole contexts",
+      "observer": "O:S -> Y",
+      "transition": "delta:SxGamma -> S partial, totalized with sink"
+    },
+    "principal_correction": "Full abstraction is observer-relative. The converse is closed for the exact-boundary observer with identity context and remains nontrivial only for reduced observers or restricted context languages.",
+    "refinement": {
+      "P0": "kernel(O)",
+      "separator": "shortest distinguishing generator word from pair-machine BFS",
+      "stabilization_bound": "at most |S|-1 strict refinement rounds",
+      "step": "same observation and generator successors in same previous-round blocks"
+    },
+    "scope_exclusions": [
+      "observer-independent minimal boundary",
+      "promotion of local 7-to-5 bridge quotient to exact mature dynamics",
+      "promotion of immediate IN11 enabledness quotient to a dynamic state",
+      "universal O2/O3 class counts without complete frozen packets",
+      "geometry, physical time, actualization, or cosmology"
+    ]
+  },
+  "observer_namespace": {
+    "compatibility_notation": {
+      "Obs0": "selected-endpoint bridge acceptance",
+      "Obs1": "current enabled one-step moves",
+      "Obs2": "one-step successor boundary relation",
+      "Obs3": "arbitrary finite future move observation",
+      "Obs4": "exact canonical boundary relation"
+    },
+    "rule": "In O-chain documents use Obs0-Obs4 (typeset mathsf{Obs}_k) for observer levels and O1-O4 only for carrier levels.",
+    "source_warning": "Formal Foundation v2.2 source labels O0-O4 are observer levels and collide numerically with carrier O1-O4."
+  },
+  "reconciled_grade_calculus": {
+    "definitions": {
+      "F": "sum||f_i||_1",
+      "Gamma": "d+r",
+      "N1": "O1 site count",
+      "beta_flat": "r-N1+1",
+      "d": "sum(||p_i||_1-2)=sum||t_i||_1",
+      "r": "1/2 sum||p_i-f_i||_1"
+    },
+    "euler_resource": [
+      "beta_flat=r-N1+1",
+      "beta_flat=sum_v beta2(v)+beta3",
+      "F=d+2-2*beta_flat",
+      "0<=beta_flat and 2*beta_flat<=d+2"
+    ],
+    "move_effects": {
+      "one_cross": "d=dA+dB; r=rA+rB+1; Gamma=GammaA+GammaB+1",
+      "rank_lift": "(d,r)->(d+1,r)",
+      "retained_relation_add": "(d,r)->(d,r+1)"
+    },
+    "source_reconciliation": [
+      "d=Gamma3-rho3",
+      "r=rho3",
+      "Gamma=Gamma3"
+    ]
+  },
+  "reopen_conditions": [
+    "operation reads exact topology",
+    "operation reads endpoint pairing",
+    "operation reads destination types",
+    "operation reads reservation provenance",
+    "operation reads ancestry",
+    "deletion",
+    "rewiring",
+    "copying",
+    "feedback",
+    "trace"
+  ],
+  "shared": {
+    "destination_dimension": 9,
+    "finite_bag": "Bag(X)={m:X->N | finite support}",
+    "port_dimension": 7,
+    "site_colour": "S={(p,f) in N^7 x N^7 | 0<=f<=p}"
+  },
+  "source_precedence": {
+    "authoritative_compositional_foundation": "Formal Foundation v2.1",
+    "authoritative_observer_foundation": "Formal Foundation v2.2 COMPLETE bundle 2026-08-27, sha256 6ada8dcc82d3a556ee77efe217adabf8fbcc808dab1a57f3acfca7b593e9dbca",
+    "excluded": "old theory/concept documents; analogy only, not premise/evidence",
+    "o_level_science": "O1/O2/O3 Mathematical Integration v1.1 RECONCILED, sha256 8030c038f6e42f0850c6369920a0e29866da2a3c165837a2d25f2ed9ce1b19f9"
+  },
+  "specification": "IG_O123_RECONCILED_FORMAL_SPEC_v1.2_FF2.2_COMPATIBILITY",
+  "status": "FORMAL_O1_O2_O3_HIERARCHY_RECONCILED_V1_2_FF22_COMPATIBLE",
+  "v1_2_change_log": [
+    "Close exact-boundary full abstraction/minimality for Obs4 with identity context.",
+    "Import finite observer-packet partition-refinement theorem and shortest separator protocol.",
+    "Rename FF2.2 source observer labels O0-O4 to Obs0-Obs4 inside O-chain work to prevent collision with carrier levels.",
+    "Record exact 7-to-5 mature bridge quotient for Obs0.",
+    "Record IN11 A4 3240-to-2864 immediate-enabledness reduction for Obs1.",
+    "Record exact witness that Obs1 immediate enabledness is not transition-congruent and Obs2 has at least 2865 classes on the same A4 carrier.",
+    "Clarify that observer Obs3 historical global quotient is open pending a complete finite packet; this does not alter graduated carrier O3.",
+    "Make an observer packet mandatory in carrier-O4 Phase 0 before any sufficiency/minimality claim.",
+    "Leave all v1.1 O-level science hashes, grade formulas, graduation statuses and phase boundary unchanged."
+  ],
+  "verification": {
+    "connected_components": 4927,
+    "equation_parity_mismatches": 0,
+    "flattened_retained_relations": 1040816,
+    "historic_checkpoint_status": "visual provenance only; original result schema did not survive",
+    "historic_interrupted_checkpoint_sha256": "7735d62f5e1a32c74dee598dcc517db099597e9372ab3e542b6ecf16b2d1dbd9",
+    "internal_o2_relations": 885358,
+    "isolated_o2_excluded": 6850,
+    "lane_A_sha256": "92e1691d9c418bd4d96c083b124602a1cc777e18e2067ed38b3008fb771f13e6",
+    "lane_B_sha256": "a9b3bb0a865b0918ab4f39aa252c80112c7957996f5fc5d58f78fe0563880d63",
+    "missing_components": 0,
+    "o1_sites": 91962,
+    "o2_blocks": 18207,
+    "o3_incidences": 155458,
+    "panels": 65,
+    "profile_mismatches": 0,
+    "reconciliation_science_sha256": "ac921e03cc17839999e74bbe0a0af7354899665b529786f741fd32376b0ec469",
+    "scalar_mismatches": 0,
+    "selected_states": 4867
+  },
+  "version": "1.2"
+}

@@ -1,0 +1,149 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_REGIME_LEVEL_SERIES_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_orbits_median": {
+            "type": "number"
+          },
+          "all_bridge_types_supported_everywhere": {
+            "type": "boolean"
+          },
+          "automorphism_size_median": {
+            "type": "number"
+          },
+          "genealogy": {
+            "additionalProperties": false,
+            "properties": {
+              "branching": {
+                "type": "string"
+              },
+              "diversity": {
+                "type": "string"
+              },
+              "grammar": {
+                "type": "string"
+              },
+              "lineage": {
+                "type": "string"
+              },
+              "obstruction_relief": {
+                "type": "string"
+              },
+              "overlap_gluing": {
+                "type": "string"
+              },
+              "quotient": {
+                "type": "string"
+              },
+              "representation": {
+                "type": "string"
+              },
+              "symmetry": {
+                "type": "string"
+              },
+              "topology_services": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "branching",
+              "diversity",
+              "grammar",
+              "lineage",
+              "obstruction_relief",
+              "overlap_gluing",
+              "quotient",
+              "representation",
+              "symmetry",
+              "topology_services"
+            ],
+            "type": "object"
+          },
+          "level": {
+            "type": "integer"
+          },
+          "matched_backbone_signature_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "median_leaf_count": {
+            "type": "number"
+          },
+          "median_total_free": {
+            "type": "number"
+          },
+          "median_total_relations": {
+            "type": "number"
+          },
+          "normalized_signature_sha256": {
+            "type": "string"
+          },
+          "organizational_classes": {
+            "type": "integer"
+          },
+          "resource_skins": {
+            "type": "integer"
+          },
+          "same_skin_topology_hidden_present": {
+            "type": "boolean"
+          },
+          "service_classes_median": {
+            "type": "number"
+          },
+          "states": {
+            "type": "integer"
+          },
+          "structural_shock_changed_families": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "topology_classes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "action_orbits_median",
+          "all_bridge_types_supported_everywhere",
+          "automorphism_size_median",
+          "genealogy",
+          "level",
+          "matched_backbone_signature_sha256",
+          "median_leaf_count",
+          "median_total_free",
+          "median_total_relations",
+          "normalized_signature_sha256",
+          "organizational_classes",
+          "resource_skins",
+          "same_skin_topology_hidden_present",
+          "service_classes_median",
+          "states",
+          "structural_shock_changed_families",
+          "topology_classes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_REGIME_LEVEL_SERIES_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rows",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_REGIME_LEVEL_SERIES_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}
