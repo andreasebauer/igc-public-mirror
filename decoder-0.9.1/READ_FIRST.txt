@@ -1,1 +1,6 @@
-Decoder 0.9.1rc3 step 3 implementation candidate. Shared resources, immutable context, indexed descriptors and live attribution. Not native release-qualified; science remains paused. Parent step 2 commit38bf84b9461a18334745d91097edfd071321d733. Read the saved step 3 report and handoff. Final native qualification, transport, cold restoration and data-owner cutover remain step 4.
+Decoder 0.9.1 frozen release source.
+Split source: engine/ and adapter/. Exact identities are in CANDIDATE_PINS.json.
+Read engine/DECODER091_RELEASE_READ_FIRST.txt and the separate hash-bound native qualification, cold-recovery evidence and data-owner cutover packet.
+This source snapshot is not an ADOPTED receipt or a full L0-to-G8 master producer.
+All historical producers retain their original authority. Official missing-only HET4 dispatch requires independent data-owner acceptance; keep the 56,832 historical rows unchanged.
+The external qualification ledger determines the qualified scope. Source metadata alone never asserts PASS.
