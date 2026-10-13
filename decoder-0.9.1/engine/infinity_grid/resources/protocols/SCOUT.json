@@ -1,0 +1,110 @@
+{
+  "acceptance_gates": [
+    "evidence remains reconnaissance only"
+  ],
+  "allowed_protocol_labels": [
+    "SCOUT_OBSERVED"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [
+      [
+        "DIRECT_EXECUTION",
+        "BOUNDED_PREREGISTERED",
+        "OBSERVED",
+        "RECONNAISSANCE_ONLY",
+        "SCOUT_OBSERVED"
+      ]
+    ],
+    "max_authority": "RECONNAISSANCE_ONLY"
+  },
+  "forbidden_claims": [
+    "first occurrence",
+    "c_proved",
+    "population-wide negative",
+    "mechanism promotion",
+    "geometry promotion",
+    "graduated"
+  ],
+  "input_contract": {
+    "bounded_preregistered": true
+  },
+  "observer_contract": null,
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [
+        "scanner_closed",
+        "bounded_preregistered"
+      ],
+      "allowed_protocol_labels": [
+        "SCOUT_OBSERVED"
+      ],
+      "profile_id": "l15_reference_replay",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "adapter.scout_l15",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "L",
+        "level": 15,
+        "live_generation": false
+      }
+    },
+    {
+      "allowed_input_flags": [
+        "scanner_closed",
+        "bounded_preregistered"
+      ],
+      "allowed_protocol_labels": [
+        "SCOUT_OBSERVED"
+      ],
+      "profile_id": "future_live_scout",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "NOT_IMPLEMENTED.scout_live",
+          "stage_id": "execute"
+        }
+      ],
+      "subject_equals": {
+        "hierarchy": "L",
+        "live_generation": true
+      },
+      "subject_level_min": 16
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "SCOUT",
+  "purpose": "Bounded non-authoritative L-level roadmap reconnaissance.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "execute",
+      "purpose": "wide->calibration->spectroscope->baseline->depth"
+    }
+  ],
+  "stopping_rules": {
+    "fail_closed": true,
+    "no_adaptive_lane_extension": true,
+    "official_science_after_phase1_only": true
+  },
+  "version": "0.16"
+}

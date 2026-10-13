@@ -1,0 +1,50 @@
+{
+  "payload_schemas": {
+    "IG_V026_CALIBRATION_RECORD_INDEX_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/CALIBRATION_RECORD_INDEX.json",
+      "schema_path": "schemas/IG_V026_CALIBRATION_RECORD_INDEX_V1.schema.json",
+      "schema_sha256": "bd57468b868b5286c1cdfe13a9537afe218c730c2f235bcae26303d76415f45c"
+    },
+    "IG_V026_DETERMINISM_MATRIX_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/DETERMINISM_MATRIX_RESULT.json",
+      "schema_path": "schemas/IG_V026_DETERMINISM_MATRIX_V1.schema.json",
+      "schema_sha256": "51004087204635fd91ab8f6ce2a333e66fff5afa29311ba2c9cc0eca3318ff9a"
+    },
+    "IG_V026_L2_ORACLE_INDEX_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/L2_ORACLE_INDEX.json",
+      "schema_path": "schemas/IG_V026_L2_ORACLE_INDEX_V1.schema.json",
+      "schema_sha256": "4bbfa08d218c12703b935878d07a732390f0516bcb35c9d2c14393917d279649"
+    },
+    "IG_V026_O1_O7_PRIMARY_ORACLE_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/O1_O7_PRIMARY_ORACLE.json",
+      "schema_path": "schemas/IG_V026_O1_O7_PRIMARY_ORACLE_V1.schema.json",
+      "schema_sha256": "fee371a04c7dd93e9f2a41e6c1659c51f0a48361fbb6b335ace5b2a3dc3f9014"
+    },
+    "IG_V026_REPLAY_MANIFEST_ORACLE_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/REPLAY_MANIFEST_ORACLE.json",
+      "schema_path": "schemas/IG_V026_REPLAY_MANIFEST_ORACLE_V1.schema.json",
+      "schema_sha256": "5c0e948483d0dcbe14fb23a7c3f283e7abd409868367d7bf8a704870a809d8b3"
+    },
+    "IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/V026_SCIENTIFIC_ORACLE_MANIFEST.json",
+      "schema_path": "schemas/IG_V026_SCIENTIFIC_ORACLE_MANIFEST_V1.schema.json",
+      "schema_sha256": "1b4f502f43282f87e513ef5792ed80a0ab51b5cd475e2259c4ddf6c7ce003add"
+    },
+    "IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1": {
+      "decision": "NATIVE_STRICT",
+      "fixture": "oracle/SCIENTIFIC_TEST_ORACLE_RESULT.json",
+      "schema_path": "schemas/IG_V026_SCIENTIFIC_TEST_ORACLE_RESULT_V1.schema.json",
+      "schema_sha256": "e17890d26e9554113baff2de71c5289bd6769e4c2a4d7a67f44a3b5e61e5e2e1"
+    }
+  },
+  "purpose": "Strict native contracts for Gate 2 oracle metadata. Gate 1 frozen baseline registry remains unchanged.",
+  "registry_sha256": "6234dbe49ec4fac578ff43be7be0a8a885692d675724a3c70b9007d7a013bdf8",
+  "schema_id": "IG_GATE2_NATIVE_CONTRACT_REGISTRY_V1",
+  "version": "1.0.0"
+}

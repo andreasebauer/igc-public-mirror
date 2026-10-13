@@ -1,0 +1,29 @@
+{
+  "$id": "ig://decoder/documentation/IG_DECODER_WORKING_PROTOCOL_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "completion_definition": {
+      "type": "object"
+    },
+    "rules": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_DECODER_WORKING_PROTOCOL_V1"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "date",
+    "status",
+    "scope",
+    "principle",
+    "rules",
+    "completion_definition"
+  ],
+  "title": "Infinity Grid Decoder working protocol v1",
+  "type": "object"
+}

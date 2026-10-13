@@ -1,0 +1,39 @@
+A08: EXPLICIT_ARTIFACT_CONTENT_V1, dev133 candidate
+
+New SCIENCE admission requires IG_DECODER_RESULT_CONTRACT_V2 and a nonempty,
+unique scientific_content list naming required_artifacts. Every named artifact
+must have an expected sha256 or a value/shape check beyond the top-level process
+status/return_code/exit_code. Top-level outcome assertions must constrain
+non-process outcome strings. Process-result checks alone cannot qualify content.
+All declared checks remain independently mandatory, including supporting-file
+checks. Unlisted artifacts are SUPPORTING, never silently content-certified.
+
+The policy is a syntactic admission floor. Arbitrary assertions and frozen hashes
+establish declared-content conformance only. It cannot judge theorem truth,
+representativeness or whether a caller has mislabeled process data as science.
+V2 verification explicitly grants science_qualification_authority NONE.
+NO_EFFECT and NOT_ESTABLISHED remain valid registered outcomes. SCRIPT process outcomes remain registered alongside scientific outcomes, as
+required by controller admission. At least one non-process outcome is required;
+process outcomes cannot satisfy scientific verification or be reported as a
+scientific conclusion. This repairs the dev132 565 PASS / 1 FAIL attempt, retained
+unchanged with its rejected completion.
+
+New admission of every V1 SCIENCE contract refuses, including historically strong
+contracts. Migration requires a new explicit V2 contract and new capture; no
+automatic inference, alteration or rerun of old captures. Existing V1 VALIDATION
+and EXECUTION_ONLY contract/report semantics remain unchanged. Existing immutable
+completion verification reads original evidence/hashes without re-evaluating the
+science contract under new semantics. Historical source and receipts are retained.
+Unfinished legacy SCIENCE work requires explicit migration to resume on dev133.
+
+normalize, stored contract_for and direct verify enforce the same V2 content
+policy. Stored question outcomes must equal the normalized declaration.
+Science JSON decoded for checks or outcome extraction is UTF-8, rejects duplicate
+keys at any depth, NaN/Infinity and overflow to infinity. Hash-only opaque artifacts
+are byte-constrained, not claimed to be parsed JSON. Supporting JSON is strict when
+it is decoded. General historical parsers and A06 full scope are not closed here.
+
+A08 historical-impact corpus is not complete. Six previously inspected FF22 specs
+had content checks; two path-only supporting artifacts in TWO.OBSERVER.SUITES need
+explicit migration classification. Those receipts are not invalidated. This
+engineering gate does not close full RC or authorize a shared-pointer promotion.

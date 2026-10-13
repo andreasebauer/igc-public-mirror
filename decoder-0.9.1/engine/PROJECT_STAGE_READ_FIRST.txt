@@ -1,0 +1,67 @@
+DECODER 0.6 — SOURCE-BOUND PROJECT STAGE ROUTE
+
+Purpose
+-------
+Use this route when captured project code must run parallel or resumable work
+through Decoder's STAGE runtime. It fixes the former rejection of legitimate
+``project.*`` handlers and evaluators. It does not turn arbitrary files into
+trusted inputs and it does not add a shortcut around capture, saving, or review.
+
+What a chat/operator must do
+----------------------------
+1. Put the handler, evaluators, and every local Python helper in project_source.
+2. Register refs in the capture specification as, for example:
+     handler_ref:   project.m2_native_dispatch:handler
+     evaluator_ref: project.m2_native_evaluator:evaluate
+3. Capture the job. Never copy project code into ``infinity_grid`` and never
+   monkeypatch the fixed built-in registry.
+4. Save every pending role-bound object and verify raw readback before running.
+5. Run from the exact captured workspace/source. A changed module, helper,
+   registration, source tree, or module origin must produce a refusal.
+6. Preserve the completion and reuse it. Do not repeat scientific execution
+   merely to demonstrate that reuse works.
+
+Security and meaning
+--------------------
+The workspace source SHA-256 binds the complete engine plus project tree. The
+job registration separately binds the handler/evaluator refs and parameters.
+At runtime Decoder binds each project ref to its exact captured module path and
+module SHA-256, checks the full source identity again, preflights its local
+import closure, and resolves it only below ``source/project``.
+
+Project evaluators do not receive Decoder kernel services. Built-in
+``infinity_grid.*`` evaluators still require the fixed accepted registry and
+their declared semantic service specifications. The two routes are separate.
+
+Expected refusals are evidence, not invitations to bypass the gate:
+  JOB_HANDLER_REFERENCE / JOB_HANDLER_MISSING
+  PROJECT_STAGE_BINDING_REQUIRED / PROJECT_STAGE_BINDING_FIELDS
+  PROJECT_STAGE_MODULE_PATH / PROJECT_STAGE_MODULE_HASH
+  PROJECT_STAGE_SOURCE_HASH / PROJECT_STAGE_MODULE_ORIGIN
+  PRIVATE_EXECUTION_PREFLIGHT / CHANGED_SOURCE_HELPER
+
+Google Drive size rule
+----------------------
+An upload failure is often a transport-size problem, not bad scientific data.
+Keep the capture paused and split the same immutable object into smaller ordered
+chunks. Start with the native 16 MiB default. If the connector still fails,
+repack at 8 MiB; if needed, repack at 4 MiB:
+
+  ig-decoder transport pack OBJECT PARTS --chunk-bytes 8388608
+  ig-decoder transport pack OBJECT PARTS --chunk-bytes 4194304
+
+Upload parts one at a time. Record the order, byte size, SHA-256, and actual
+Drive ID for every part. Download and verify every part, bind and save the
+manifest, reconstruct the object, and verify the full original size and SHA-256.
+Do not declare success because uploads merely completed.
+
+Transport verification and job obligation confirmation are different layers.
+The verified multipart manifest may satisfy one exact role-bound obligation;
+it must never silently satisfy a different role that happens to contain the
+same bytes. Use the obligation ID when equal digests are ambiguous.
+
+Versioning
+----------
+This route first appears in 0.6.2.dev4. Earlier candidates remain immutable.
+Creating or qualifying this candidate does not advance the shared Decoder
+pointer; activation remains a separate explicit decision.

@@ -1,0 +1,32 @@
+{
+  "$id": "ig://schema/decoder-release-identity/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+        "decoder_version": {"const": "0.26.0"},
+        "source_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+      },
+      "required": ["decoder_version", "archive_sha256", "source_sha256"],
+      "type": "object"
+    },
+    "current": {
+      "additionalProperties": false,
+      "properties": {
+        "decoder_version": {"const": "0.26.1"},
+        "release_id": {"minLength": 1, "type": "string"},
+        "source_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+      },
+      "required": ["decoder_version", "release_id", "source_sha256"],
+      "type": "object"
+    },
+    "schema_id": {"const": "IG_DECODER_RELEASE_IDENTITY_V1"},
+    "semantic_delta": {"const": "NONE"},
+    "status": {"const": "GATE1_CONTRACT_HARDENING_ONLY"}
+  },
+  "required": ["schema_id", "status", "semantic_delta", "baseline", "current"],
+  "type": "object"
+}

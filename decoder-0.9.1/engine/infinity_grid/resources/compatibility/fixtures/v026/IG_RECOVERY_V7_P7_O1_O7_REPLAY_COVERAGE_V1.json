@@ -1,0 +1,109 @@
+{
+  "rows": [
+    {
+      "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+      "does_not_recompute": "The full historical O1 discovery campaign test by test.",
+      "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+      "level": "O1",
+      "limitations": [
+        "Compact exact graduation replay, not a reconstruction of every historical exploratory step."
+      ],
+      "profile_id": "O1_JUMPSTART_V1",
+      "recomputes": "The mature-node graduation audit over the frozen 22,885-record carrier and reproduces the declared science digest.",
+      "replay_class": "RERUN_GRADUATION_AUDIT",
+      "target_alias": "ig:test/O1",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+    },
+    {
+      "authority_class": "CERTIFIED_AUTHORITY",
+      "does_not_recompute": "The original complete O2 V1.9 historical package or full O2 generation campaign.",
+      "historical_identity": "CERTIFICATE_ONLY",
+      "level": "O2",
+      "limitations": [
+        "Original complete O2 package is missing; this target is certificate-verification-only."
+      ],
+      "profile_id": "O2_CERTIFICATE_REPLAY_V1",
+      "recomputes": "Verification of the recovered O2 V1.9 certificate, parent pins and retained anchor panels.",
+      "replay_class": "VERIFY_AUTHORITY",
+      "target_alias": "ig:test/O2",
+      "target_node_id": "result:sha256:0f05e9f95b153547c34ad2bc48851e5faeea456f388cda813e8831ad5b538cbc"
+    },
+    {
+      "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+      "does_not_recompute": "A new broad O3 population census beyond the frozen carrier.",
+      "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+      "level": "O3",
+      "limitations": [
+        "Graduation replay is exact in the retained frozen scope; it is not a new population-generation campaign."
+      ],
+      "profile_id": "O3_JUMPSTART_V1",
+      "recomputes": "The frozen O3 graduation/classification audit over exact earned carrier evidence.",
+      "replay_class": "RERUN_GRADUATION_AUDIT",
+      "target_alias": "ig:test/O3",
+      "target_node_id": "result:sha256:00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612"
+    },
+    {
+      "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+      "does_not_recompute": "Earlier O4 exploratory work not represented by the Phase-2 reproduction package.",
+      "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+      "level": "O4",
+      "limitations": [
+        "Exact reproduction is claimed only within the packaged Phase-2 scope."
+      ],
+      "profile_id": "O4_PHASE6_V1",
+      "recomputes": "The packaged O4 Phase-2 graduation reproduction script and result.",
+      "replay_class": "RERUN_GRADUATION_AUDIT",
+      "target_alias": "ig:test/O4",
+      "target_node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    {
+      "authority_class": "RECONSTRUCTED_SCIENCE",
+      "does_not_recompute": "The lost original O5 Phase-2 ZIP or its historical bytes.",
+      "historical_identity": "SCIENCE_EQUIVALENT_NOT_BYTE_IDENTICAL",
+      "level": "O5",
+      "limitations": [
+        "Original and reconstructed science hashes intentionally differ; historical byte identity is not claimed."
+      ],
+      "profile_id": "O5_PHASE6_V1",
+      "recomputes": "The O5 Phase-2 graduation classification from sealed parent evidence and rechecks selected parent evidence.",
+      "replay_class": "SCIENTIFIC_RECONSTRUCTION",
+      "target_alias": "ig:test/O5",
+      "target_node_id": "result:sha256:421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b"
+    },
+    {
+      "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+      "does_not_recompute": "Earlier exploratory O6 campaign work outside the packaged Phase-2 reproduction.",
+      "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+      "level": "O6",
+      "limitations": [
+        "Exact reproduction is claimed only within the packaged Phase-2 scope."
+      ],
+      "profile_id": "O6_PHASE6_V1",
+      "recomputes": "The packaged O6 Phase-2 graduation/classification audit and its exact checks.",
+      "replay_class": "RERUN_GRADUATION_AUDIT",
+      "target_alias": "ig:test/O6",
+      "target_node_id": "result:sha256:4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f"
+    },
+    {
+      "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+      "does_not_recompute": "Every historical O7 exploratory subtest as an independently named target.",
+      "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+      "level": "O7",
+      "limitations": [
+        "This is the canonical graduated O7 authority; test-level registration is a later Recovery-v7 gate."
+      ],
+      "profile_id": "O7_GRADUATED_PHASE7_V1",
+      "recomputes": "The O7 Phase-2 graduation audit from the frozen graduated O7 material root and reproduces the graduation science digest.",
+      "replay_class": "RERUN_GRADUATION_AUDIT",
+      "target_alias": "ig:test/O7",
+      "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+    }
+  ],
+  "schema_id": "IG_RECOVERY_V7_P7_O1_O7_REPLAY_COVERAGE_V1",
+  "special_historical_gaps": {
+    "O2": "CERTIFICATE_ONLY",
+    "O5": "SCIENCE_EQUIVALENT_NOT_BYTE_IDENTICAL",
+    "O7_RECONSTRUCTION_ALIAS": "ig:test/O7_RECONSTRUCTION"
+  },
+  "status": "PASS"
+}

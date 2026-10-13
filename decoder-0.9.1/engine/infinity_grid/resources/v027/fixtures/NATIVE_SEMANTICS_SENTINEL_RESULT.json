@@ -1,0 +1,147 @@
+{
+  "baseline_sha256": "2ca50e140b5aa1d8ad0de3d05d81c5047b4a29482fb10a98b7819b423519450a",
+  "classification": "NATIVE_SEMANTICS_UNCHANGED",
+  "comparison": {
+    "changes": [],
+    "classification": "NATIVE_SEMANTICS_UNCHANGED",
+    "current_science_sha256": "dce478f44fb07521abffceaeb3cd82b52a13337dac119d6a1045fa4527da8a71",
+    "previous_science_sha256": "dce478f44fb07521abffceaeb3cd82b52a13337dac119d6a1045fa4527da8a71",
+    "schema_id": "IG_O_NATIVE_SEMANTICS_COMPARISON_V1"
+  },
+  "current_snapshot": {
+    "action_registry_sha256": "3509e3c3459691be799ed1592365608943c2287db4f73a52438015a89610ca88",
+    "actions": [
+      {
+        "action_id": "EXACT_CANONICAL_RESERVATION_SAMPLER_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactLiftState.reserve_canonical",
+        "callable_semantic_sha256": "393430d2f498f6d27ac7161eeda1d9ef4aabd511efd718e1242924030c777faa",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "anonymous_owner_canonical_labels",
+          "exact_H_structure",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "CONSTRUCTION_SAMPLER",
+        "successor_semantics": "SINGLE_CANONICAL_POINTED_ORBIT_FOR_CONSTRUCTION_ONLY",
+        "writes": [
+          "exact_H_overlay",
+          "one_visible_p_f_reservation"
+        ]
+      },
+      {
+        "action_id": "EXACT_PROJECTED_RELATION_ADD_PROFILE_V1",
+        "callable": "infinity_grid.exact_carrier_unblinding:ExactProjectedActionOracle.current_level_profile",
+        "callable_semantic_sha256": "aca0ebd72c3e6a3ac84f368aed22370659f710a93c7f6a0452001e73ae81067e",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "Bridge",
+          "hierarchical_occurrence_structure",
+          "multiplicity",
+          "scope",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "hidden_outer_incidence",
+          "visible_p_f_reservation"
+        ]
+      },
+      {
+        "action_id": "FIXED_GRAMMAR_FRONTIER_ADVANCE_V1",
+        "callable": "infinity_grid.fixed_grammar_transport:_advance_frontier",
+        "callable_semantic_sha256": "08e7aa7878f0fedd12fce6afd7c6bab53073b6dc422f76285cc3f9f86b2956ba",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "compact_growth_frontier",
+          "earned_law_pins",
+          "frozen_contract_hashes",
+          "support_bounds"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "THEOREM_TRANSPORT_ENGINE",
+        "successor_semantics": "THEOREM_TRANSPORTED_COMPACT_FRONTIER",
+        "writes": [
+          "compact_frontier",
+          "immutable_level_delta"
+        ]
+      },
+      {
+        "action_id": "RESOURCE_SCANNER_RELATION_ADD_AGGREGATE_V1",
+        "callable": "infinity_grid.regime_scanner:_action_aggregate",
+        "callable_semantic_sha256": "00ba4ebc0204bfb56aa1f114bc85aa3e22618e5b7fda90c42921eb8b919f5490",
+        "features": {
+          "ancestry_provenance_read": false,
+          "copying": false,
+          "deletion": false,
+          "endpoint_replacement": false,
+          "feedback": false,
+          "hidden_topology_read": false,
+          "multiway": false,
+          "orientation_order_read": false,
+          "retagging": false,
+          "rewiring": false
+        },
+        "hidden_reads": [],
+        "read_set": [
+          "Bridge",
+          "hierarchical_occurrence_structure",
+          "multiplicity",
+          "scope",
+          "typed_p_f"
+        ],
+        "relation_arity": 2,
+        "scientific_role": "RELATION_ADD_SEMANTICS",
+        "successor_semantics": "COUNTER",
+        "writes": [
+          "hidden_outer_incidence",
+          "visible_p_f_reservation"
+        ]
+      }
+    ],
+    "schema_id": "IG_O_NATIVE_SEMANTICS_SNAPSHOT_V1",
+    "science_sha256": "dce478f44fb07521abffceaeb3cd82b52a13337dac119d6a1045fa4527da8a71"
+  },
+  "reopen_action": "STOP_FAIL_CLOSED_AND_REQUIRE_THEOREM_IMPACT_ANALYSIS_THEN_TARGETED_EXACT_AUDIT_IF_NEEDED",
+  "schema_id": "IG_O_NATIVE_SEMANTICS_SENTINEL_RESULT_V1",
+  "science_sha256": "00480a2f03509d1f7a4c19d7131c8de12528d527f2c3dcf0fc89b2ab23acaec2",
+  "status": "PASS"
+}

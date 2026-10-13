@@ -1,0 +1,29 @@
+{
+  "checkpoint_rule": "Every chunk is independently checkpointed, immutable and verified before merge. Resume computes only missing verified chunks.",
+  "chunk_outputs": [
+    "attempt count",
+    "lawful attachment count",
+    "child record keyed by child SHA",
+    "parent-child incidence",
+    "witness count",
+    "input/dependency hashes"
+  ],
+  "deterministic_partition": {
+    "chunk_id": "zero-padded ordinal plus first/last parent SHA",
+    "chunking": "contiguous parent SHA ranges of generation_chunk_parent_count frozen in the chain plan",
+    "sort_parent_objects": "sha256 ASC"
+  },
+  "merge": {
+    "child_deduplication": "exact child SHA",
+    "must_be_independent_of_chunk_size": true,
+    "order": "child SHA ASC",
+    "parent_fiber": "set union by child SHA",
+    "witness_count": "integer sum"
+  },
+  "no_early_selection": true,
+  "no_feedback": true,
+  "reference_gate": "Chunked L16 recomputation must be byte-identical in scientific projection to the certified v0.18.3 monolithic L16 forward result before implementation graduates.",
+  "schema_id": "IG_SCOUT_CONVEYOR_CHUNKED_GENERATION_V0_1",
+  "semantics": "Exactly one complete lawful primitive-attachment step from every certified parent object to every chain-pinned primitive record and every legal selected-port pair.",
+  "spec_sha256": "428a477dd729a4d86cc83a96654c143d9706f7129241f41475e1a609d923cf88"
+}

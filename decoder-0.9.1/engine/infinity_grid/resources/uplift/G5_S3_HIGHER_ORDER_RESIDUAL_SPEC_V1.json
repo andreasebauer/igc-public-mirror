@@ -1,0 +1,116 @@
+{
+  "authority": {
+    "g4_completion_science_sha256": "44db26880449be8b98e6ac332849db8bfb6ff7f731ced6b58c0a6394dcf7ac59",
+    "g4_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "g4_status": "GRADUATED_AND_FROZEN",
+    "g5_s1_rows_sha256": "5e017d0529da53900e2b1d8cee993b20315bbd9630cd5d8e6584b9f25e27c863",
+    "g5_s2_classification": "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+    "g5_s2_primary_science_sha256": "91c5cfed19c6db59bfeb53c93603f8c8f835cee1a727153ba8ca2c1bb5984be9",
+    "g5_s2_quotient_table_sha256": "afa4ed046578cd87867c8e94ad3f30578fcfbd5e8f776b9b9f51cbd41aad3f22",
+    "g5_s2_workflow_science_sha256": "1e2aae65a1ad0d007994ad400a287122ff4f62687ef7ea7ba3c68e892a606403",
+    "required_s2_conflicts": 0,
+    "required_s2_minimal_added_read": "NONE",
+    "required_s2_public_pair_context_keys": 124,
+    "required_s2_representatives_per_key": 4
+  },
+  "date": "2026-09-06",
+  "decision_rule": {
+    "HIGHER_ORDER_HIDDEN_RESIDUAL_DETECTED": "Any same-public-class exact representatives disagree in an ordered local continuation signature or reconstructed motif observer. Preserve first witness and stop for review; do not invent a new descriptor post hoc.",
+    "NO_IRREDUCIBLE_TRIPLE_RESIDUAL": "All authority and S2 bindings pass; every public carrier class has one complete 49-entry ordered two-reservation vector across both exact representatives; P3/K3 factorization covers all 246016 public contexts. Certify zero higher residual on this frozen scope and unlock S4 design review only.",
+    "REVIEW_REQUIRED": "Any authority, evidence, source, observer, coverage, or execution mismatch."
+  },
+  "exact_reduction": [
+    "REPLAY_AND_BIND_THE_CERTIFIED_S2_124_KEY_QUOTIENT_EXACTLY",
+    "FOR_EACH_OF_4_EXACT_CARRIERS_CERTIFY_ALL_49_ORDERED_TWO_RESERVATION_LOCAL_SIGNATURES",
+    "WITHIN_EACH_OF_2_PUBLIC_CARRIER_CLASSES_THE_COMPLETE_49_ENTRY_LOCAL_SIGNATURE_VECTOR_MUST_BE_SINGLE_VALUED_ACROSS_2_EXACT_REPRESENTATIVES",
+    "P3_AND_K3_HAVE_MAX_VERTEX_DEGREE_2_SO_S2_EDGE_VALUES_PLUS_THE_PUBLIC_CLASS_LOCAL_CONTINUATION_VECTOR_RECONSTRUCT_THE_DECLARED_TRIPLE_OBSERVER",
+    "COUNT_ALL_246016_PUBLIC_P3_K3_CONTEXTS_EXACTLY_WITHOUT_SAMPLING"
+  ],
+  "frozen_domain": {
+    "carrier_ids": [
+      "D2_PATH",
+      "D2_BROOM",
+      "D4_PATH",
+      "D4_BROOM"
+    ],
+    "directed_operator_count": 31,
+    "exact_carrier_count": 4,
+    "exact_representatives_per_public_carrier_class": 2,
+    "k3_public_contexts": 238328,
+    "local_endpoint_type_count": 7,
+    "max_vertex_degree": 2,
+    "ordered_local_endpoint_pair_count": 49,
+    "ordered_public_carrier_assignments": 8,
+    "p3_public_contexts": 7688,
+    "public_carrier_class_count": 2,
+    "total_public_contexts": 246016,
+    "triple_scope": [
+      "P3_CONNECTED_PATH",
+      "K3_TRIANGLE"
+    ]
+  },
+  "higher_order_observer": {
+    "edge_reads": "Exact certified S2 pair-observer value for each ordered public-carrier pair and directed operator.",
+    "hidden_inputs_forbidden": [
+      "path/broom identity",
+      "unrooted topology canon",
+      "owner identity",
+      "rooted action read",
+      "ancestry",
+      "construction identity",
+      "provenance"
+    ],
+    "joint_legality": "A motif realization is legal iff every incident external endpoint reservation can be assigned to exact carrier owners with remaining local resource. Degree is at most two, so the complete ordered two-reservation table is exhaustive locally.",
+    "public_outcome": "Aggregate CAPS7 + H-class bag after subtracting the endpoint resources consumed by motif edges; this output is owner-independent once the public carrier assignment and directed operators are fixed.",
+    "vertex_reads": "Inherited G4 public carrier key plus exact branch-sensitive counts for one and two ordered external endpoint reservations, certified representative-independent inside each frozen public class."
+  },
+  "nonclaims": [
+    "NO_GLOBAL_G5_CONGRUENCE",
+    "NO_ARBITRARY_N_BODY_IRREDUCIBILITY",
+    "NO_G5_COMPOSITION_CLOSURE",
+    "NO_G5_COMPOSITION_LAW",
+    "NO_G5_PUBLIC_DESCRIPTOR_PROMOTION",
+    "NO_G5_GRADUATION",
+    "NO_G4_DESCRIPTOR_CHANGE",
+    "NO_HIDDEN_TOPOLOGY_PROMOTION",
+    "NO_GEOMETRY_DISTANCE_TIME_OR_SPACETIME"
+  ],
+  "pass_gates": [
+    "EXACT_S2_AUTHORITY_BINDING",
+    "124_S2_EDGE_CONTEXTS_REBOUND",
+    "196_EXACT_LOCAL_TWO_RESERVATION_ROWS",
+    "TWO_REPRESENTATIVES_PER_PUBLIC_CLASS",
+    "ZERO_LOCAL_REPRESENTATIVE_CONFLICTS",
+    "EXACT_246016_PUBLIC_TRIPLE_CONTEXT_COVERAGE",
+    "NO_HIDDEN_READ",
+    "NO_PROMOTION"
+  ],
+  "promotion_constraints": {
+    "g4_change": false,
+    "g5_composition_law_promotion": false,
+    "g5_graduation": false,
+    "g5_public_descriptor_promotion": false,
+    "hidden_topology_promotion": false,
+    "s4_execution_authorized": false
+  },
+  "question": "On connected simple three-G4-carrier P3/K3 motifs over the complete frozen G5:S2 pair quotient, are any branch-sensitive public compatibility facts irreducible to inherited G4 public carrier state CAPS7 + H-class bag plus the certified S2 edge observer?",
+  "resource_budget": {
+    "cpu_seconds_max": 150.0,
+    "logical_tasks_max": 1,
+    "peak_rss_bytes_max": 805306368,
+    "wall_seconds_max": 180.0
+  },
+  "schema_id": "IG_G5_S3_HIGHER_ORDER_RESIDUAL_SPEC_V1",
+  "science_sha256": "00b2b6b8adff73acea1446e3a7c8ae473322c965114afea51943ebed7bfea093",
+  "stage_ref": "G5:S3",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stop_rules": {
+    "after_s3_pass": "STOP_AT_S4_REVIEW_REQUIRED_UNTIL_SEPARATE_PREREGISTRATION",
+    "authority_mismatch": "STOP",
+    "budget_exhausted": "STOP",
+    "higher_residual": "STOP",
+    "novelty_outside_registered_alternatives": "STOP",
+    "s2_evidence_mismatch": "STOP"
+  },
+  "version": "1.0.0"
+}

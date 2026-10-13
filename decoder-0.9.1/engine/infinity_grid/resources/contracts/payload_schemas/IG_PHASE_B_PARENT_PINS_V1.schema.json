@@ -1,0 +1,46 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_PHASE_B_PARENT_PINS_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "parents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "filename",
+          "role",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_PHASE_B_PARENT_PINS_V1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parents",
+    "schema"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_PHASE_B_PARENT_PINS_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

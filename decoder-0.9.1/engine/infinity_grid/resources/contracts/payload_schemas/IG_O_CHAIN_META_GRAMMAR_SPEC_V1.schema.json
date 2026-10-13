@@ -1,0 +1,115 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_O_CHAIN_META_GRAMMAR_SPEC_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "P0_P1_P2": {
+          "type": "string"
+        },
+        "P0_P1_only": {
+          "type": "string"
+        },
+        "P3_required_for_type_fixed_point": {
+          "type": "boolean"
+        },
+        "P4_P5_required_for_raised_algebraic_layer": {
+          "type": "boolean"
+        },
+        "P6_required_for_minimal_meta_boundary_claim": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "P0_P1_P2",
+        "P0_P1_only",
+        "P3_required_for_type_fixed_point",
+        "P4_P5_required_for_raised_algebraic_layer",
+        "P6_required_for_minimal_meta_boundary_claim"
+      ],
+      "type": "object"
+    },
+    "date": {
+      "type": "string"
+    },
+    "gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "criterion": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "criterion",
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "question": {
+      "type": "string"
+    },
+    "reopen_triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "IG_O_CHAIN_META_GRAMMAR_SPEC_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "terminology": {
+      "additionalProperties": false,
+      "properties": {
+        "grammar_plateau": {
+          "type": "string"
+        },
+        "meta_service_quotient": {
+          "type": "string"
+        },
+        "raised_O_group": {
+          "type": "string"
+        },
+        "type_fixed_point": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grammar_plateau",
+        "meta_service_quotient",
+        "raised_O_group",
+        "type_fixed_point"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "classification_rules",
+    "date",
+    "gates",
+    "question",
+    "reopen_triggers",
+    "schema",
+    "status",
+    "terminology"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_O_CHAIN_META_GRAMMAR_SPEC_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

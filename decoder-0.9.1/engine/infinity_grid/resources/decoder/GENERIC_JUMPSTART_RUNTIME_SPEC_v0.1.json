@@ -1,0 +1,21 @@
+{
+  "schema_id": "IG_GENERIC_JUMPSTART_RUNTIME_SPEC_V0_1",
+  "phase": 4,
+  "goal": "Turn the semantic dependency graph into a portable run launcher: resolve the minimum mandatory predecessor cut, materialize it, verify it, and hand execution to the target-native resumable runner.",
+  "commands": {
+    "plan": "ig --root <ROOT> jumpstart plan <TEST>",
+    "prepare": "ig --root <ROOT> jumpstart prepare <TEST> [--workspace W] [--clean]",
+    "smoke": "ig --root <ROOT> jumpstart smoke <TEST> [--workspace W]",
+    "launch": "ig --root <ROOT> jumpstart launch <TEST> [--workspace W] [--foreground]",
+    "status": "ig --root <ROOT> jumpstart status <TEST> [--workspace W]"
+  },
+  "resolution_policy": [
+    "Resolve <TEST> directly; for bare names also try ig:test/<TEST>.",
+    "Traverse mandatory computation edges only.",
+    "Do not pull provenance-only or evidence-only ancestors into the execution cut.",
+    "Material roots are leaf content nodes in the target mandatory closure.",
+    "Fail closed on missing root, ambiguous target/profile, dependency cycle, unsupported material form, hash mismatch, unsafe archive path, or payload tampering."
+  ],
+  "cache_policy": "Retention classes CACHE_EXPENSIVE/CACHE/EPHEMERAL are surfaced in the jumpstart plan. Target-native checkpoint reuse remains authoritative until generic checkpoint adapters are registered.",
+  "scope": "Generic runtime implemented; O7 is the first end-to-end registered target. Programme-wide target/profile population remains future graph-ingestion work."
+}

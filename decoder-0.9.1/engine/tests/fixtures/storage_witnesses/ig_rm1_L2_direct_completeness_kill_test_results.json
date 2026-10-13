@@ -1,0 +1,29 @@
+{
+  "ABC_classes": [
+    258,
+    33632,
+    3943
+  ],
+  "behavioral_ABC_records": 192888,
+  "collision_behavioral_records": 38070,
+  "collision_microscopic_paths_total": 76140,
+  "first_failure": null,
+  "interpretation": "A failure would prove that microscopic realizations collapsed by the current ABC boundary construction can be distinguished by a legal future context. No failure is not a proof of arbitrary-finite completeness; it exhausts the stated adversarial context families, including recursive attachment through a newly introduced port.",
+  "max_collision_multiplicity": 2,
+  "microscopic_ABC_paths": 230958,
+  "result": "NO_SEPARATING_CONTEXT_FOUND",
+  "stage1": {
+    "admissible_contexts": 833424,
+    "collision_classes_completed": 256,
+    "microscopic_parent_output_comparisons": 833424,
+    "scope": "top 256 collision classes x all 5 original ports x all unique complete external events from handles 3963,30464,33753 x all 3 external ports",
+    "unique_external_events": 227
+  },
+  "stage2": {
+    "admissible_depth2_contexts": 3936600,
+    "collision_classes_completed": 64,
+    "microscopic_parent_output_comparisons": 3936600,
+    "scope": "top 64 collision classes; depth-2 contexts where second attachment targets a port introduced by first external object; all events of handle 3963 and all external ports"
+  },
+  "test": "direct completeness kill-test: microscopic multiplicity classes vs finite contexts"
+}

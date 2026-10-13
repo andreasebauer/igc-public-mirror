@@ -1,0 +1,2467 @@
+{
+  "schema_id": "IG_HET4_ROLLING_MAPPING_PLAN_V1",
+  "domain_rows": 652366,
+  "preserved_rows": 56832,
+  "missing_rows": 595534,
+  "raw_archive_sha256": "9b2824df5eeeced822c12ba582e778bd7fb1007f2ec32efa2c4f90209ebeb75f",
+  "all_descriptors_canonical_stream_sha256": "6a5646f19136d1a8f21586b940f0ca483906fe3d3e5d7df4799851e167e32673",
+  "missing_descriptors_canonical_stream_sha256": "6d6b91304fb12db3c31f1d1e71c5147d38423be81b94cbeead2cd7131e751a65",
+  "prefix": {
+    "schema_id": "IG_PRESERVED_MAPPING_PREFIX_V1",
+    "archive_sha256": "c218306314006329ca9cdcedfec0319a0c6d9f6cd2ff3c247793f89b483877ad",
+    "records": 56832,
+    "files": [
+      {
+        "path": "data/official_rows/000.jsonl",
+        "chunk": 0,
+        "file": "000.jsonl",
+        "start": 0,
+        "stop": 256,
+        "records": 256,
+        "sha256": "e51e0a108f8a4b129a0fab70f82a6a9a8e6eb6de91957ee0a25b47658ce1f78a",
+        "size_bytes": 147721
+      },
+      {
+        "path": "data/official_rows/001.jsonl",
+        "chunk": 1,
+        "file": "001.jsonl",
+        "start": 256,
+        "stop": 512,
+        "records": 256,
+        "sha256": "df81f2729195d74bc8832cfede75db00ac13cd0f169ed5ca0f1df34f92d72f09",
+        "size_bytes": 147829
+      },
+      {
+        "path": "data/official_rows/002.jsonl",
+        "chunk": 2,
+        "file": "002.jsonl",
+        "start": 512,
+        "stop": 768,
+        "records": 256,
+        "sha256": "7b1a8367c01f3c8cabc4601bd51d6b835fda47c4f182de7c5d917e9f1e49af2a",
+        "size_bytes": 147848
+      },
+      {
+        "path": "data/official_rows/003.jsonl",
+        "chunk": 3,
+        "file": "003.jsonl",
+        "start": 768,
+        "stop": 1024,
+        "records": 256,
+        "sha256": "ab8c86fc9bd6b0c7a0383d5b1e5381746ff9c29216bf2b56c64c778d805dd568",
+        "size_bytes": 147873
+      },
+      {
+        "path": "data/full_rows/0004.jsonl",
+        "chunk": 4,
+        "file": "0004.jsonl",
+        "start": 1024,
+        "stop": 1280,
+        "records": 256,
+        "sha256": "61764cf81a396bfbab96790eff4d954e9e9a64bbc992148370c03c9603ad4916",
+        "size_bytes": 148112
+      },
+      {
+        "path": "data/full_rows/0005.jsonl",
+        "chunk": 5,
+        "file": "0005.jsonl",
+        "start": 1280,
+        "stop": 1536,
+        "records": 256,
+        "sha256": "0415ec25e1187b2b61e7cfa32a460cc121530473d3456f23a815091d4b8ca7da",
+        "size_bytes": 148100
+      },
+      {
+        "path": "data/full_rows/0006.jsonl",
+        "chunk": 6,
+        "file": "0006.jsonl",
+        "start": 1536,
+        "stop": 1792,
+        "records": 256,
+        "sha256": "b05a3f60311993e0653463b5b226a2a35dd85108b1f07d49b2c2e639c5cb07ee",
+        "size_bytes": 148111
+      },
+      {
+        "path": "data/full_rows/0007.jsonl",
+        "chunk": 7,
+        "file": "0007.jsonl",
+        "start": 1792,
+        "stop": 2048,
+        "records": 256,
+        "sha256": "1635ba7c1e4c7b36e7f5a6b0e5ca552f6d2cac351598b3989f36c4650615aed6",
+        "size_bytes": 148112
+      },
+      {
+        "path": "data/full_rows/0008.jsonl",
+        "chunk": 8,
+        "file": "0008.jsonl",
+        "start": 2048,
+        "stop": 2304,
+        "records": 256,
+        "sha256": "ea0692941fc24482ac5c326ca12e89be82c8e63068ffc2f5b4f5617844854dca",
+        "size_bytes": 148103
+      },
+      {
+        "path": "data/full_rows/0009.jsonl",
+        "chunk": 9,
+        "file": "0009.jsonl",
+        "start": 2304,
+        "stop": 2560,
+        "records": 256,
+        "sha256": "53a27df37aa6a443b3e8c0c2523cfefda317534b14f4cdd7de194691000dd608",
+        "size_bytes": 148094
+      },
+      {
+        "path": "data/full_rows/0010.jsonl",
+        "chunk": 10,
+        "file": "0010.jsonl",
+        "start": 2560,
+        "stop": 2816,
+        "records": 256,
+        "sha256": "da60a8aa614d9676356d337a3574ecbdcedb85915002f73eda1d346dfb6b0f84",
+        "size_bytes": 148093
+      },
+      {
+        "path": "data/full_rows/0011.jsonl",
+        "chunk": 11,
+        "file": "0011.jsonl",
+        "start": 2816,
+        "stop": 3072,
+        "records": 256,
+        "sha256": "f738f22f44ce103e9aab2cdbc2bd73fff546e98acfc821c80dcf6e36e1f48331",
+        "size_bytes": 148105
+      },
+      {
+        "path": "data/full_rows/0012.jsonl",
+        "chunk": 12,
+        "file": "0012.jsonl",
+        "start": 3072,
+        "stop": 3328,
+        "records": 256,
+        "sha256": "2fb49cb9bcb4ca62db4f9b468696479a5212bc1d672ea11a0419697ebd0f82c2",
+        "size_bytes": 148111
+      },
+      {
+        "path": "data/full_rows/0013.jsonl",
+        "chunk": 13,
+        "file": "0013.jsonl",
+        "start": 3328,
+        "stop": 3584,
+        "records": 256,
+        "sha256": "f791866b17f293ff6a11b89d0e21e8fc6c38212c8f92291804c6b02b632ac9bd",
+        "size_bytes": 148113
+      },
+      {
+        "path": "data/full_rows/0014.jsonl",
+        "chunk": 14,
+        "file": "0014.jsonl",
+        "start": 3584,
+        "stop": 3840,
+        "records": 256,
+        "sha256": "1b308ecc64af16d42b7db73ca9f7339e971bdcc58ed6028f8de0b6d63e86e084",
+        "size_bytes": 148119
+      },
+      {
+        "path": "data/full_rows/0015.jsonl",
+        "chunk": 15,
+        "file": "0015.jsonl",
+        "start": 3840,
+        "stop": 4096,
+        "records": 256,
+        "sha256": "94d57859ce0cf2fbb9a015c322bf8efd74b4c502d8d3aa998e1230c5ac05a4c9",
+        "size_bytes": 148095
+      },
+      {
+        "path": "data/full_rows/0016.jsonl",
+        "chunk": 16,
+        "file": "0016.jsonl",
+        "start": 4096,
+        "stop": 4352,
+        "records": 256,
+        "sha256": "af8895e34a16ec63e715ac58a378321922d9cf9ee03ad814ce69ef4f3353c52b",
+        "size_bytes": 148119
+      },
+      {
+        "path": "data/full_rows/0017.jsonl",
+        "chunk": 17,
+        "file": "0017.jsonl",
+        "start": 4352,
+        "stop": 4608,
+        "records": 256,
+        "sha256": "612209e707f1d18180e9c252df51fc1f1f834834cdc1367f07e864f537111f91",
+        "size_bytes": 148118
+      },
+      {
+        "path": "data/full_rows/0018.jsonl",
+        "chunk": 18,
+        "file": "0018.jsonl",
+        "start": 4608,
+        "stop": 4864,
+        "records": 256,
+        "sha256": "af69eaa442d18e311652a7c8d326aeb2391ed44d70b26643241dc7c1496526d2",
+        "size_bytes": 148097
+      },
+      {
+        "path": "data/full_rows/0019.jsonl",
+        "chunk": 19,
+        "file": "0019.jsonl",
+        "start": 4864,
+        "stop": 5120,
+        "records": 256,
+        "sha256": "c46c513b857c87b40bafb59a87a72e7927c659a6e7c679a35bdff037c57e4465",
+        "size_bytes": 148111
+      },
+      {
+        "path": "data/full_rows/0020.jsonl",
+        "chunk": 20,
+        "file": "0020.jsonl",
+        "start": 5120,
+        "stop": 5376,
+        "records": 256,
+        "sha256": "8f0bb4bce00fe034ed9e18c930fe03e5f8dafda9272321bc19e07f2fc7f38e71",
+        "size_bytes": 148111
+      },
+      {
+        "path": "data/full_rows/0021.jsonl",
+        "chunk": 21,
+        "file": "0021.jsonl",
+        "start": 5376,
+        "stop": 5632,
+        "records": 256,
+        "sha256": "bd9e466e72506139451e0c7da04b0fa2ba7fe81b8b124493c1120e7e4184ddc2",
+        "size_bytes": 148109
+      },
+      {
+        "path": "data/full_rows/0022.jsonl",
+        "chunk": 22,
+        "file": "0022.jsonl",
+        "start": 5632,
+        "stop": 5888,
+        "records": 256,
+        "sha256": "b35cff9c8c9aa40db8fac24f38e1b6ced9da6e7833dea7dce900dbcab2ade292",
+        "size_bytes": 148103
+      },
+      {
+        "path": "data/full_rows/0023.jsonl",
+        "chunk": 23,
+        "file": "0023.jsonl",
+        "start": 5888,
+        "stop": 6144,
+        "records": 256,
+        "sha256": "9a66c57f6e4395292346985f7826fa4843f9a3b65a93891235b8cc0eac8f0aed",
+        "size_bytes": 148108
+      },
+      {
+        "path": "data/full_rows/0024.jsonl",
+        "chunk": 24,
+        "file": "0024.jsonl",
+        "start": 6144,
+        "stop": 6400,
+        "records": 256,
+        "sha256": "63e9d4e9dc04783dc81aefaf89c164af9d208fdae382dbad224f734d2e6be374",
+        "size_bytes": 148109
+      },
+      {
+        "path": "data/full_rows/0025.jsonl",
+        "chunk": 25,
+        "file": "0025.jsonl",
+        "start": 6400,
+        "stop": 6656,
+        "records": 256,
+        "sha256": "dc33e681134ecb60ae71b6b615e22b6017658fe7c41fa0c9348c0a216ce6c3bb",
+        "size_bytes": 148111
+      },
+      {
+        "path": "data/full_rows/0026.jsonl",
+        "chunk": 26,
+        "file": "0026.jsonl",
+        "start": 6656,
+        "stop": 6912,
+        "records": 256,
+        "sha256": "1a04b8cab90eb58b46aea82048ed823963c6cdd595140bad88a3ac47166f782b",
+        "size_bytes": 148103
+      },
+      {
+        "path": "data/full_rows/0027.jsonl",
+        "chunk": 27,
+        "file": "0027.jsonl",
+        "start": 6912,
+        "stop": 7168,
+        "records": 256,
+        "sha256": "aaddab66c04ec41af23326ade2a8a9a915ba226ba32840f39dd62810e27d5a91",
+        "size_bytes": 148098
+      },
+      {
+        "path": "data/full_rows/0028.jsonl",
+        "chunk": 28,
+        "file": "0028.jsonl",
+        "start": 7168,
+        "stop": 7424,
+        "records": 256,
+        "sha256": "617302edd52a253f3acbcb2594b62cec3d0cc472349e1d4e2dba093a4cf748b9",
+        "size_bytes": 148100
+      },
+      {
+        "path": "data/full_rows/0029.jsonl",
+        "chunk": 29,
+        "file": "0029.jsonl",
+        "start": 7424,
+        "stop": 7680,
+        "records": 256,
+        "sha256": "a8530a348bd401437f8f7fa14d1d000e8b917fd8b10f2528fa530899c1d8d735",
+        "size_bytes": 148104
+      },
+      {
+        "path": "data/full_rows/0030.jsonl",
+        "chunk": 30,
+        "file": "0030.jsonl",
+        "start": 7680,
+        "stop": 7936,
+        "records": 256,
+        "sha256": "ab26d086a09bf029f28bc4ab0e0d30de89d6133d983173c680f44c77b01c414b",
+        "size_bytes": 148085
+      },
+      {
+        "path": "data/full_rows/0031.jsonl",
+        "chunk": 31,
+        "file": "0031.jsonl",
+        "start": 7936,
+        "stop": 8192,
+        "records": 256,
+        "sha256": "5cbc3444907b3ad0fbdc5d3e7c63bbe5995eeaa2248353990a2036894b7e7f0c",
+        "size_bytes": 148105
+      },
+      {
+        "path": "data/full_rows/0032.jsonl",
+        "chunk": 32,
+        "file": "0032.jsonl",
+        "start": 8192,
+        "stop": 8448,
+        "records": 256,
+        "sha256": "4329827661abe5ac5a0c75f9b8816633d6360d5be8412abaf7b50dfc6085aacc",
+        "size_bytes": 148108
+      },
+      {
+        "path": "data/full_rows/0033.jsonl",
+        "chunk": 33,
+        "file": "0033.jsonl",
+        "start": 8448,
+        "stop": 8704,
+        "records": 256,
+        "sha256": "146433b8ccecee220f02694c2a49915f097f96c800568a756bf70293c9107e17",
+        "size_bytes": 148118
+      },
+      {
+        "path": "data/full_rows/0034.jsonl",
+        "chunk": 34,
+        "file": "0034.jsonl",
+        "start": 8704,
+        "stop": 8960,
+        "records": 256,
+        "sha256": "8a3253caf17a710383f15dbdce879e4e547576afc8ac186df777572223e9ded6",
+        "size_bytes": 148125
+      },
+      {
+        "path": "data/full_rows/0035.jsonl",
+        "chunk": 35,
+        "file": "0035.jsonl",
+        "start": 8960,
+        "stop": 9216,
+        "records": 256,
+        "sha256": "9e9abeeb9fa7c83fffdac3f7229b2902e4cedc2ed7b40cf75207a39c67d2f0bf",
+        "size_bytes": 148109
+      },
+      {
+        "path": "data/full_rows/0036.jsonl",
+        "chunk": 36,
+        "file": "0036.jsonl",
+        "start": 9216,
+        "stop": 9472,
+        "records": 256,
+        "sha256": "ad5aadac683d703a00d1ed581086b12608cd246969e728d9a7862942350232d9",
+        "size_bytes": 148109
+      },
+      {
+        "path": "data/full_rows/0037.jsonl",
+        "chunk": 37,
+        "file": "0037.jsonl",
+        "start": 9472,
+        "stop": 9728,
+        "records": 256,
+        "sha256": "cd7f01ccd3af5ac210080a4438e237a3f4daa446878ff7424afbf6308efddf69",
+        "size_bytes": 148100
+      },
+      {
+        "path": "data/full_rows/0038.jsonl",
+        "chunk": 38,
+        "file": "0038.jsonl",
+        "start": 9728,
+        "stop": 9984,
+        "records": 256,
+        "sha256": "d6a5828319bcdafebb80228c24ec0ff6c1bdef28474aa0f5388494a4ee6cfe80",
+        "size_bytes": 148104
+      },
+      {
+        "path": "data/full_rows/0039.jsonl",
+        "chunk": 39,
+        "file": "0039.jsonl",
+        "start": 9984,
+        "stop": 10240,
+        "records": 256,
+        "sha256": "d5aa88571c1fc0934e1aec9d895491e7cd637641bb1bd828056999088152b6ff",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0040.jsonl",
+        "chunk": 40,
+        "file": "0040.jsonl",
+        "start": 10240,
+        "stop": 10496,
+        "records": 256,
+        "sha256": "99bd5aec8b53fda8ddfb732f31dc7bf0cfe74bd5ef1346e901a3d6e34b961a19",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0041.jsonl",
+        "chunk": 41,
+        "file": "0041.jsonl",
+        "start": 10496,
+        "stop": 10752,
+        "records": 256,
+        "sha256": "98f45922c1bab4a13bfce52772ea84595ddad718dd871f6665c758279469b505",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0042.jsonl",
+        "chunk": 42,
+        "file": "0042.jsonl",
+        "start": 10752,
+        "stop": 11008,
+        "records": 256,
+        "sha256": "1e789137ef4c9aed843b0a92ec295673506fde3ee0b7027a0c1d98a5993a9d87",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0043.jsonl",
+        "chunk": 43,
+        "file": "0043.jsonl",
+        "start": 11008,
+        "stop": 11264,
+        "records": 256,
+        "sha256": "ea65771ca6d1c9a000e09396bc79e1f4ee6e1a8eb35016d7b1426d91d46620d2",
+        "size_bytes": 148372
+      },
+      {
+        "path": "data/full_rows/0044.jsonl",
+        "chunk": 44,
+        "file": "0044.jsonl",
+        "start": 11264,
+        "stop": 11520,
+        "records": 256,
+        "sha256": "2519b2d5b0ba17a75d2c910577b33722199eb678f1d82ddefd911cdd2dfe5d5e",
+        "size_bytes": 148354
+      },
+      {
+        "path": "data/full_rows/0045.jsonl",
+        "chunk": 45,
+        "file": "0045.jsonl",
+        "start": 11520,
+        "stop": 11776,
+        "records": 256,
+        "sha256": "a0633fcf71b8ffaab91261b2bd681a45195961590db0898fa1fc5b84bc8dd14e",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0046.jsonl",
+        "chunk": 46,
+        "file": "0046.jsonl",
+        "start": 11776,
+        "stop": 12032,
+        "records": 256,
+        "sha256": "d9ed4318d545454ac671f2cb67937d9854f63df7a572538b3009e504ea70632a",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0047.jsonl",
+        "chunk": 47,
+        "file": "0047.jsonl",
+        "start": 12032,
+        "stop": 12288,
+        "records": 256,
+        "sha256": "51f556cb05fac687e61ff0944d5312503110d3707f870430609b3b763ced0ce4",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0048.jsonl",
+        "chunk": 48,
+        "file": "0048.jsonl",
+        "start": 12288,
+        "stop": 12544,
+        "records": 256,
+        "sha256": "cb4d305a21312896fa44baa46a6742fab9cb8fb6d09d16ac200e2df25341f5f3",
+        "size_bytes": 148361
+      },
+      {
+        "path": "data/full_rows/0049.jsonl",
+        "chunk": 49,
+        "file": "0049.jsonl",
+        "start": 12544,
+        "stop": 12800,
+        "records": 256,
+        "sha256": "d7df1f310e106584605f2c3ee715f0a5236bfde413e90d10a49a869dc70097ce",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0050.jsonl",
+        "chunk": 50,
+        "file": "0050.jsonl",
+        "start": 12800,
+        "stop": 13056,
+        "records": 256,
+        "sha256": "81da0012b0920f354d04a4e4c9d11de41679947b398c4a6b2a522f8fccb971de",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0051.jsonl",
+        "chunk": 51,
+        "file": "0051.jsonl",
+        "start": 13056,
+        "stop": 13312,
+        "records": 256,
+        "sha256": "f9843ca2ca5290482b4ec7f289969f5f8f83747c62158741c17699a4af82d7f6",
+        "size_bytes": 148331
+      },
+      {
+        "path": "data/full_rows/0052.jsonl",
+        "chunk": 52,
+        "file": "0052.jsonl",
+        "start": 13312,
+        "stop": 13568,
+        "records": 256,
+        "sha256": "75d94edac4369f3b1c86d2ce9df510e98c3ec96a119731af9af685d81ba9d997",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0053.jsonl",
+        "chunk": 53,
+        "file": "0053.jsonl",
+        "start": 13568,
+        "stop": 13824,
+        "records": 256,
+        "sha256": "cd982181d792cb61c36cf2338fe58e39bb58fa127bc1b0cbd6aed1e841e76aaf",
+        "size_bytes": 148375
+      },
+      {
+        "path": "data/full_rows/0054.jsonl",
+        "chunk": 54,
+        "file": "0054.jsonl",
+        "start": 13824,
+        "stop": 14080,
+        "records": 256,
+        "sha256": "a49a3916b899bc6a4dba83a6611e652da9df2d7756fa73067295126bab716551",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0055.jsonl",
+        "chunk": 55,
+        "file": "0055.jsonl",
+        "start": 14080,
+        "stop": 14336,
+        "records": 256,
+        "sha256": "b2eec91b7346c7be615e8787c72fc69b2dfa792b8e7beaa0b4e9e170cf8d83d4",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0056.jsonl",
+        "chunk": 56,
+        "file": "0056.jsonl",
+        "start": 14336,
+        "stop": 14592,
+        "records": 256,
+        "sha256": "dabe65ed6f074d9402ba2bf2dad691350a08149c619c6c88019bd7514ea09dab",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0057.jsonl",
+        "chunk": 57,
+        "file": "0057.jsonl",
+        "start": 14592,
+        "stop": 14848,
+        "records": 256,
+        "sha256": "c963c8a2d86260d6b2250760f4ad2f55fdbfcc012cc1ebd7b1998f153bb16d13",
+        "size_bytes": 148381
+      },
+      {
+        "path": "data/full_rows/0058.jsonl",
+        "chunk": 58,
+        "file": "0058.jsonl",
+        "start": 14848,
+        "stop": 15104,
+        "records": 256,
+        "sha256": "98e328d8ff1bdb976dc13eed7bb6e5a84e163459d977695b074ee63dddc7884c",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0059.jsonl",
+        "chunk": 59,
+        "file": "0059.jsonl",
+        "start": 15104,
+        "stop": 15360,
+        "records": 256,
+        "sha256": "41c793dbbdfe1b065845bf6efa385af7139d62359bcc9682f78c7b7eeeff2327",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0060.jsonl",
+        "chunk": 60,
+        "file": "0060.jsonl",
+        "start": 15360,
+        "stop": 15616,
+        "records": 256,
+        "sha256": "c03206c79236fed1815ab447aafe5fa690941657d35a43fb51d495b64ca5e09d",
+        "size_bytes": 148354
+      },
+      {
+        "path": "data/full_rows/0061.jsonl",
+        "chunk": 61,
+        "file": "0061.jsonl",
+        "start": 15616,
+        "stop": 15872,
+        "records": 256,
+        "sha256": "19e5866aa818dd93e636f14cda6a78b54cbe04127d64281ffb631ad4efae6f59",
+        "size_bytes": 148355
+      },
+      {
+        "path": "data/full_rows/0062.jsonl",
+        "chunk": 62,
+        "file": "0062.jsonl",
+        "start": 15872,
+        "stop": 16128,
+        "records": 256,
+        "sha256": "dd36477b7ab1f5e9e2573092ebc56578e8e76cd4c0738be15da01dbd89220f3e",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0063.jsonl",
+        "chunk": 63,
+        "file": "0063.jsonl",
+        "start": 16128,
+        "stop": 16384,
+        "records": 256,
+        "sha256": "d3b093f6379e21e5dbdf7a1bcbe566fa94f17c9b788134fc34d2e5055791e3fc",
+        "size_bytes": 148380
+      },
+      {
+        "path": "data/full_rows/0064.jsonl",
+        "chunk": 64,
+        "file": "0064.jsonl",
+        "start": 16384,
+        "stop": 16640,
+        "records": 256,
+        "sha256": "5903d5e8836d7604d8f0a753d5ae003e9dfbe2c52bd0f5a16d4e625e004cf227",
+        "size_bytes": 148376
+      },
+      {
+        "path": "data/full_rows/0065.jsonl",
+        "chunk": 65,
+        "file": "0065.jsonl",
+        "start": 16640,
+        "stop": 16896,
+        "records": 256,
+        "sha256": "5acab7a757a8321c9dfa68a5d6b6fae3c77a3aad50aeeabe4856b3529427a7f8",
+        "size_bytes": 148334
+      },
+      {
+        "path": "data/full_rows/0066.jsonl",
+        "chunk": 66,
+        "file": "0066.jsonl",
+        "start": 16896,
+        "stop": 17152,
+        "records": 256,
+        "sha256": "a33cdbbd7a5e1f77da44ec37ee42a2ad7008794d3f3da029ca45ee085156fb37",
+        "size_bytes": 148365
+      },
+      {
+        "path": "data/full_rows/0067.jsonl",
+        "chunk": 67,
+        "file": "0067.jsonl",
+        "start": 17152,
+        "stop": 17408,
+        "records": 256,
+        "sha256": "1c5dc5b025c6935fc9a74b164953e1217277538c406fe183ed916cbea0fff946",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0068.jsonl",
+        "chunk": 68,
+        "file": "0068.jsonl",
+        "start": 17408,
+        "stop": 17664,
+        "records": 256,
+        "sha256": "b27dbc7df638876e4d480cd2a7e2d93a1b54ff274f3d965d74f5a87c2addf2f2",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0069.jsonl",
+        "chunk": 69,
+        "file": "0069.jsonl",
+        "start": 17664,
+        "stop": 17920,
+        "records": 256,
+        "sha256": "5e44bce6a4f39ce4ff1fa48779e8cef05a45881094da09420006b349c1d33e7d",
+        "size_bytes": 148368
+      },
+      {
+        "path": "data/full_rows/0070.jsonl",
+        "chunk": 70,
+        "file": "0070.jsonl",
+        "start": 17920,
+        "stop": 18176,
+        "records": 256,
+        "sha256": "f8e243b797058bd26e53a9ce8d3d7c94b5d38be91a7431de19bdc56d9fb32e95",
+        "size_bytes": 148354
+      },
+      {
+        "path": "data/full_rows/0071.jsonl",
+        "chunk": 71,
+        "file": "0071.jsonl",
+        "start": 18176,
+        "stop": 18432,
+        "records": 256,
+        "sha256": "8aa1354e61c0b55d49901579f5ae207aa3db45bb3cae1a7a1d9f699aecda2ce2",
+        "size_bytes": 148361
+      },
+      {
+        "path": "data/full_rows/0072.jsonl",
+        "chunk": 72,
+        "file": "0072.jsonl",
+        "start": 18432,
+        "stop": 18688,
+        "records": 256,
+        "sha256": "d27b1ad8d7b51fc8240129a3ec37dfe7c0892c69542cd268ff1f1fa1c922197f",
+        "size_bytes": 148344
+      },
+      {
+        "path": "data/full_rows/0073.jsonl",
+        "chunk": 73,
+        "file": "0073.jsonl",
+        "start": 18688,
+        "stop": 18944,
+        "records": 256,
+        "sha256": "54852257e5f89fb8e8419f6575c4e4a7c87f42e6a3ef73b9608554ce4275d210",
+        "size_bytes": 148348
+      },
+      {
+        "path": "data/full_rows/0074.jsonl",
+        "chunk": 74,
+        "file": "0074.jsonl",
+        "start": 18944,
+        "stop": 19200,
+        "records": 256,
+        "sha256": "9a57210c393e8005105828e6c0ba1856f43835411a3bbcc64f5cc168cb8c5370",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0075.jsonl",
+        "chunk": 75,
+        "file": "0075.jsonl",
+        "start": 19200,
+        "stop": 19456,
+        "records": 256,
+        "sha256": "c9e7945dc99e3438e97a5586c2a39677ebb6de330ca1d970d06ce3ed5c3d95ac",
+        "size_bytes": 148378
+      },
+      {
+        "path": "data/full_rows/0076.jsonl",
+        "chunk": 76,
+        "file": "0076.jsonl",
+        "start": 19456,
+        "stop": 19712,
+        "records": 256,
+        "sha256": "ddd25002bf811aa9737b3c39575996b3761c237dc42b162e6a0767bbcdf6b309",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0077.jsonl",
+        "chunk": 77,
+        "file": "0077.jsonl",
+        "start": 19712,
+        "stop": 19968,
+        "records": 256,
+        "sha256": "22c0747a33fc78d5e4ca832cbc68132991cf46f55755c7f68bcdbca81ccddf22",
+        "size_bytes": 148374
+      },
+      {
+        "path": "data/full_rows/0078.jsonl",
+        "chunk": 78,
+        "file": "0078.jsonl",
+        "start": 19968,
+        "stop": 20224,
+        "records": 256,
+        "sha256": "606988a6e38262c2b00d70fff2b2d0d3c162ecf84bb8e1625c33ada4cb301d24",
+        "size_bytes": 148341
+      },
+      {
+        "path": "data/full_rows/0079.jsonl",
+        "chunk": 79,
+        "file": "0079.jsonl",
+        "start": 20224,
+        "stop": 20480,
+        "records": 256,
+        "sha256": "98383d34b3055cd89be837d9d6c902151d3457141d3535c1ce53bec26213e013",
+        "size_bytes": 148351
+      },
+      {
+        "path": "data/full_rows/0080.jsonl",
+        "chunk": 80,
+        "file": "0080.jsonl",
+        "start": 20480,
+        "stop": 20736,
+        "records": 256,
+        "sha256": "8ed562594f5d6a374f1f5de8fa85a9ad28f8a2c647c5558643098da33e29388d",
+        "size_bytes": 148344
+      },
+      {
+        "path": "data/full_rows/0081.jsonl",
+        "chunk": 81,
+        "file": "0081.jsonl",
+        "start": 20736,
+        "stop": 20992,
+        "records": 256,
+        "sha256": "43844c2c97a1049b8ab45a68cc6333b19671e9f91b482c9d34539e43d381bea0",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0082.jsonl",
+        "chunk": 82,
+        "file": "0082.jsonl",
+        "start": 20992,
+        "stop": 21248,
+        "records": 256,
+        "sha256": "4dc7a33b7ad9e1038b62ad63f601135c409fb6f531255542a1d4aae6f97f82dd",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0083.jsonl",
+        "chunk": 83,
+        "file": "0083.jsonl",
+        "start": 21248,
+        "stop": 21504,
+        "records": 256,
+        "sha256": "fbdbd9a818d311c8622dceb865c66015c88b928c5316d81bceed6247c8087410",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0084.jsonl",
+        "chunk": 84,
+        "file": "0084.jsonl",
+        "start": 21504,
+        "stop": 21760,
+        "records": 256,
+        "sha256": "213862dfe4dcc697807d6a77f6f539db11fea145ec0b4fc3f80cfb7857d972d1",
+        "size_bytes": 148387
+      },
+      {
+        "path": "data/full_rows/0085.jsonl",
+        "chunk": 85,
+        "file": "0085.jsonl",
+        "start": 21760,
+        "stop": 22016,
+        "records": 256,
+        "sha256": "67d2153acd2be810776034647142b96e81640d9f8ae88df2f8d2b57a6f85b911",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0086.jsonl",
+        "chunk": 86,
+        "file": "0086.jsonl",
+        "start": 22016,
+        "stop": 22272,
+        "records": 256,
+        "sha256": "80cf1b4e3df64820b7a6df1e74b1ef2961db2a1007f2badadaee7e0885d217ba",
+        "size_bytes": 148334
+      },
+      {
+        "path": "data/full_rows/0087.jsonl",
+        "chunk": 87,
+        "file": "0087.jsonl",
+        "start": 22272,
+        "stop": 22528,
+        "records": 256,
+        "sha256": "154b57555af5637a225fe6101840db3aafa7e1cacc30bdf301124e629919b371",
+        "size_bytes": 148349
+      },
+      {
+        "path": "data/full_rows/0088.jsonl",
+        "chunk": 88,
+        "file": "0088.jsonl",
+        "start": 22528,
+        "stop": 22784,
+        "records": 256,
+        "sha256": "c8997a07b99861ecc781b6531647f5d54f6fbb7442518fb3654e82c072d4e472",
+        "size_bytes": 148389
+      },
+      {
+        "path": "data/full_rows/0089.jsonl",
+        "chunk": 89,
+        "file": "0089.jsonl",
+        "start": 22784,
+        "stop": 23040,
+        "records": 256,
+        "sha256": "d2be4773e6a16aeb2828aac70c2a7e46cfe9f5336f322a62a212927657e6d329",
+        "size_bytes": 148379
+      },
+      {
+        "path": "data/full_rows/0090.jsonl",
+        "chunk": 90,
+        "file": "0090.jsonl",
+        "start": 23040,
+        "stop": 23296,
+        "records": 256,
+        "sha256": "382b0875a6107171aa0f226ca5569057de2fce0b3b7567698ef3a93bf8e294c0",
+        "size_bytes": 148362
+      },
+      {
+        "path": "data/full_rows/0091.jsonl",
+        "chunk": 91,
+        "file": "0091.jsonl",
+        "start": 23296,
+        "stop": 23552,
+        "records": 256,
+        "sha256": "89ec136129c45d8ff5395e26901fd82c06f1f8829526002afd7238b5204afc7d",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0092.jsonl",
+        "chunk": 92,
+        "file": "0092.jsonl",
+        "start": 23552,
+        "stop": 23808,
+        "records": 256,
+        "sha256": "428c007dca9212d2cfce64ebe5ee97167fe14627c24c09938aac28d0011fe99e",
+        "size_bytes": 148359
+      },
+      {
+        "path": "data/full_rows/0093.jsonl",
+        "chunk": 93,
+        "file": "0093.jsonl",
+        "start": 23808,
+        "stop": 24064,
+        "records": 256,
+        "sha256": "32bedee8f3789db49fca02da96510db3c38e71580703d1ce25c69b513c0f37bb",
+        "size_bytes": 148368
+      },
+      {
+        "path": "data/full_rows/0094.jsonl",
+        "chunk": 94,
+        "file": "0094.jsonl",
+        "start": 24064,
+        "stop": 24320,
+        "records": 256,
+        "sha256": "95712e78af0c2d5ba27edda9dc2dd3dc6b5ad47e4c1d5c552cb6296ef8a0da89",
+        "size_bytes": 148374
+      },
+      {
+        "path": "data/full_rows/0095.jsonl",
+        "chunk": 95,
+        "file": "0095.jsonl",
+        "start": 24320,
+        "stop": 24576,
+        "records": 256,
+        "sha256": "ab25acf6a4f88e2363ecf781e32dae034bf994f5454d813db53ea52e08ee8248",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0096.jsonl",
+        "chunk": 96,
+        "file": "0096.jsonl",
+        "start": 24576,
+        "stop": 24832,
+        "records": 256,
+        "sha256": "a3f6e48b4c6757ed8949d6e978a3b773574632fa618f51ad9764141257c51409",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0097.jsonl",
+        "chunk": 97,
+        "file": "0097.jsonl",
+        "start": 24832,
+        "stop": 25088,
+        "records": 256,
+        "sha256": "073afef18d4bef6649a1765b3a0737f2d33b2e8f2a8409f12037a5c78fdc9d4a",
+        "size_bytes": 148355
+      },
+      {
+        "path": "data/full_rows/0098.jsonl",
+        "chunk": 98,
+        "file": "0098.jsonl",
+        "start": 25088,
+        "stop": 25344,
+        "records": 256,
+        "sha256": "cd6559105c1816f197a7969c9cc757fbe48ef2c299cfc8042b84eed6c73a9033",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0099.jsonl",
+        "chunk": 99,
+        "file": "0099.jsonl",
+        "start": 25344,
+        "stop": 25600,
+        "records": 256,
+        "sha256": "450fc3ad8e8fdf0785dc525aaa23beee894f2c4bb8de7d9a398f143dcc7c6cd7",
+        "size_bytes": 148354
+      },
+      {
+        "path": "data/full_rows/0100.jsonl",
+        "chunk": 100,
+        "file": "0100.jsonl",
+        "start": 25600,
+        "stop": 25856,
+        "records": 256,
+        "sha256": "a2020114b41eafe0202cabf9986b4e3757155ef54f99109acdec2e07b6dd59e1",
+        "size_bytes": 148374
+      },
+      {
+        "path": "data/full_rows/0101.jsonl",
+        "chunk": 101,
+        "file": "0101.jsonl",
+        "start": 25856,
+        "stop": 26112,
+        "records": 256,
+        "sha256": "6b93e68a2a3429c44a76ed3ad3dcae4bc5ef6c2e263f2d17604c5a9242e4d190",
+        "size_bytes": 148375
+      },
+      {
+        "path": "data/full_rows/0102.jsonl",
+        "chunk": 102,
+        "file": "0102.jsonl",
+        "start": 26112,
+        "stop": 26368,
+        "records": 256,
+        "sha256": "fc33fb2b63bc6235fc9785c930d9dda54105fb4d8ca5cab0f09075bdaed86c65",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0103.jsonl",
+        "chunk": 103,
+        "file": "0103.jsonl",
+        "start": 26368,
+        "stop": 26624,
+        "records": 256,
+        "sha256": "21d97e7265ee4c0a59c75d768c73ab31dfd8c0532d696279050fa1dd102d5eb6",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0104.jsonl",
+        "chunk": 104,
+        "file": "0104.jsonl",
+        "start": 26624,
+        "stop": 26880,
+        "records": 256,
+        "sha256": "c00df1aed53ebf55ab9117202713df5e32679e06fea46a403dfd9a441fb853aa",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0105.jsonl",
+        "chunk": 105,
+        "file": "0105.jsonl",
+        "start": 26880,
+        "stop": 27136,
+        "records": 256,
+        "sha256": "9082041755b0c49103d2c22dbb9a10aaf19e74ed40b19c18f2eda873c3ebb975",
+        "size_bytes": 148351
+      },
+      {
+        "path": "data/full_rows/0106.jsonl",
+        "chunk": 106,
+        "file": "0106.jsonl",
+        "start": 27136,
+        "stop": 27392,
+        "records": 256,
+        "sha256": "a4283aadc4e7885a0ddc85ab88fcae036cc2ba5efc4314356d2f2d67eb3262cf",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0107.jsonl",
+        "chunk": 107,
+        "file": "0107.jsonl",
+        "start": 27392,
+        "stop": 27648,
+        "records": 256,
+        "sha256": "8f4278f54608d157f1dc7f87857d46e5b6589d47ba38630d09d4c42ad878199b",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0108.jsonl",
+        "chunk": 108,
+        "file": "0108.jsonl",
+        "start": 27648,
+        "stop": 27904,
+        "records": 256,
+        "sha256": "32746ffbe032081b97b4fe285ceb946ea291dc6a03d66c0e3827ae6825da758b",
+        "size_bytes": 148373
+      },
+      {
+        "path": "data/full_rows/0109.jsonl",
+        "chunk": 109,
+        "file": "0109.jsonl",
+        "start": 27904,
+        "stop": 28160,
+        "records": 256,
+        "sha256": "1f8a9cbab92138d6e1199113e967b5dc972665ac0d29f44891b97b3a88e4e842",
+        "size_bytes": 148372
+      },
+      {
+        "path": "data/full_rows/0110.jsonl",
+        "chunk": 110,
+        "file": "0110.jsonl",
+        "start": 28160,
+        "stop": 28416,
+        "records": 256,
+        "sha256": "bcb584e0b44fb951de0408806a6312698632d4ee1f4b08ebbaa2156c818c21d3",
+        "size_bytes": 148379
+      },
+      {
+        "path": "data/full_rows/0111.jsonl",
+        "chunk": 111,
+        "file": "0111.jsonl",
+        "start": 28416,
+        "stop": 28672,
+        "records": 256,
+        "sha256": "9a44c124720f0e4ecd6c4a366a9dbc13e46d2f25f490f1c9943929c17e52550c",
+        "size_bytes": 148351
+      },
+      {
+        "path": "data/full_rows/0112.jsonl",
+        "chunk": 112,
+        "file": "0112.jsonl",
+        "start": 28672,
+        "stop": 28928,
+        "records": 256,
+        "sha256": "3fd6fd676fbb5cd5d496cc4d26e14006dbfd88dbfa3d22e2198220d2c8961849",
+        "size_bytes": 148363
+      },
+      {
+        "path": "data/full_rows/0113.jsonl",
+        "chunk": 113,
+        "file": "0113.jsonl",
+        "start": 28928,
+        "stop": 29184,
+        "records": 256,
+        "sha256": "395f0383fca4740acd8c77b6e01e976dc4b45970a5c82e3455013d19298058eb",
+        "size_bytes": 148348
+      },
+      {
+        "path": "data/full_rows/0114.jsonl",
+        "chunk": 114,
+        "file": "0114.jsonl",
+        "start": 29184,
+        "stop": 29440,
+        "records": 256,
+        "sha256": "c629d7731e723aabd99bf727d2d4adb5ed6dfe2711cf5991ec0cab760d5a5455",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0115.jsonl",
+        "chunk": 115,
+        "file": "0115.jsonl",
+        "start": 29440,
+        "stop": 29696,
+        "records": 256,
+        "sha256": "ea71885f21b875a5ca3108c1ee2d7ebef953d42e68ad5308b1fdeba0c13fad8d",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0116.jsonl",
+        "chunk": 116,
+        "file": "0116.jsonl",
+        "start": 29696,
+        "stop": 29952,
+        "records": 256,
+        "sha256": "89de85493bd97335bc4e0834859150f8bc9e74c41d68ebb6c4e7315a19b73022",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0117.jsonl",
+        "chunk": 117,
+        "file": "0117.jsonl",
+        "start": 29952,
+        "stop": 30208,
+        "records": 256,
+        "sha256": "869a02a29e8839e9a564d5b7998ced80f28305eaa487d545ad315eefc0fc8e94",
+        "size_bytes": 148351
+      },
+      {
+        "path": "data/full_rows/0118.jsonl",
+        "chunk": 118,
+        "file": "0118.jsonl",
+        "start": 30208,
+        "stop": 30464,
+        "records": 256,
+        "sha256": "ca45d583e303fed3a4fe601658e1ac2364c93681e49fdf26ba78caa5daab2c52",
+        "size_bytes": 148381
+      },
+      {
+        "path": "data/full_rows/0119.jsonl",
+        "chunk": 119,
+        "file": "0119.jsonl",
+        "start": 30464,
+        "stop": 30720,
+        "records": 256,
+        "sha256": "c76cd5c2897968e20f5c031c7dc6e805318a8def6e65bc18b1391f6ccb380223",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0120.jsonl",
+        "chunk": 120,
+        "file": "0120.jsonl",
+        "start": 30720,
+        "stop": 30976,
+        "records": 256,
+        "sha256": "8e33e5ccca3a707ee8abd21c7939df09e870efe0f968e8bc52d909c7c69099d9",
+        "size_bytes": 148379
+      },
+      {
+        "path": "data/full_rows/0121.jsonl",
+        "chunk": 121,
+        "file": "0121.jsonl",
+        "start": 30976,
+        "stop": 31232,
+        "records": 256,
+        "sha256": "8cf22e0bad814e43170f592c66d395f24df7b4d9e2b74d6c922b76a113241ae3",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0122.jsonl",
+        "chunk": 122,
+        "file": "0122.jsonl",
+        "start": 31232,
+        "stop": 31488,
+        "records": 256,
+        "sha256": "2f3fa2578e5b19826f97ad879dac9fb6e4095538a640f9080183c075675c3678",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0123.jsonl",
+        "chunk": 123,
+        "file": "0123.jsonl",
+        "start": 31488,
+        "stop": 31744,
+        "records": 256,
+        "sha256": "b14b93b439c6c0f7ca492566e931212582978cef7e5ebd684ea9ca0ee839129b",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0124.jsonl",
+        "chunk": 124,
+        "file": "0124.jsonl",
+        "start": 31744,
+        "stop": 32000,
+        "records": 256,
+        "sha256": "1ecac21e79b3d91296d5abd394a9950fef1806638b032dd156ce83acef72f184",
+        "size_bytes": 148373
+      },
+      {
+        "path": "data/full_rows/0125.jsonl",
+        "chunk": 125,
+        "file": "0125.jsonl",
+        "start": 32000,
+        "stop": 32256,
+        "records": 256,
+        "sha256": "c0a8ca7617dc466e1b494b8e2b63673889c7a00e2daf5a660024e8fc51e03a41",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0126.jsonl",
+        "chunk": 126,
+        "file": "0126.jsonl",
+        "start": 32256,
+        "stop": 32512,
+        "records": 256,
+        "sha256": "560a65cd59865c22e46847fe19e72168f0d0a0895e306b8c7583c14c33283fc6",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0127.jsonl",
+        "chunk": 127,
+        "file": "0127.jsonl",
+        "start": 32512,
+        "stop": 32768,
+        "records": 256,
+        "sha256": "bc4dd96d85b3a74be5a30f344c47843c36537f4b0ed98fff87bb3cd21d6fe513",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0128.jsonl",
+        "chunk": 128,
+        "file": "0128.jsonl",
+        "start": 32768,
+        "stop": 33024,
+        "records": 256,
+        "sha256": "8d3761edb16eab85acef2adef440d1be6294e5aaddfefb60ed158744ea433222",
+        "size_bytes": 148347
+      },
+      {
+        "path": "data/full_rows/0129.jsonl",
+        "chunk": 129,
+        "file": "0129.jsonl",
+        "start": 33024,
+        "stop": 33280,
+        "records": 256,
+        "sha256": "341b2a7f75f566d8652fbb6346df695343ac80cfa2c0588cca4cfb2932c97a16",
+        "size_bytes": 148319
+      },
+      {
+        "path": "data/full_rows/0130.jsonl",
+        "chunk": 130,
+        "file": "0130.jsonl",
+        "start": 33280,
+        "stop": 33536,
+        "records": 256,
+        "sha256": "fa092a418e4a120ff01c0f6cac17ebe9fee9d2a63b23e307c3df7f5325df70f0",
+        "size_bytes": 148370
+      },
+      {
+        "path": "data/full_rows/0131.jsonl",
+        "chunk": 131,
+        "file": "0131.jsonl",
+        "start": 33536,
+        "stop": 33792,
+        "records": 256,
+        "sha256": "295148c3201242f2d70205ebf7fee4a632aca89143b6c1d9517f99ccbecc1f04",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0132.jsonl",
+        "chunk": 132,
+        "file": "0132.jsonl",
+        "start": 33792,
+        "stop": 34048,
+        "records": 256,
+        "sha256": "370be777ffc31d30b44597ed232e84c422ea3a6c96a82189be15ea9949b708a0",
+        "size_bytes": 148378
+      },
+      {
+        "path": "data/full_rows/0133.jsonl",
+        "chunk": 133,
+        "file": "0133.jsonl",
+        "start": 34048,
+        "stop": 34304,
+        "records": 256,
+        "sha256": "0a3035a750d76de282ff82d70655fac066ea7ef99c355cdd34d4f0bbda21dab8",
+        "size_bytes": 148371
+      },
+      {
+        "path": "data/full_rows/0134.jsonl",
+        "chunk": 134,
+        "file": "0134.jsonl",
+        "start": 34304,
+        "stop": 34560,
+        "records": 256,
+        "sha256": "9a80b07aa695e33a9bd004dd7338ac1255ae5bd0c6e42ac5c1d8d0f4e4681c28",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0135.jsonl",
+        "chunk": 135,
+        "file": "0135.jsonl",
+        "start": 34560,
+        "stop": 34816,
+        "records": 256,
+        "sha256": "9db45721c825efc8057310862f86f8c8cd1af4b902801744c2f4cf506f4bbb83",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0136.jsonl",
+        "chunk": 136,
+        "file": "0136.jsonl",
+        "start": 34816,
+        "stop": 35072,
+        "records": 256,
+        "sha256": "f3f4bdd775a2603551b188d23c0c867bc1b8c3af76d6a8ac89b27969b04cb7bf",
+        "size_bytes": 148370
+      },
+      {
+        "path": "data/full_rows/0137.jsonl",
+        "chunk": 137,
+        "file": "0137.jsonl",
+        "start": 35072,
+        "stop": 35328,
+        "records": 256,
+        "sha256": "356834f7c5368f4cd78b9437c0a0e3464c6cad909f54dfdbc30e048c9dcc89c1",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0138.jsonl",
+        "chunk": 138,
+        "file": "0138.jsonl",
+        "start": 35328,
+        "stop": 35584,
+        "records": 256,
+        "sha256": "6491766f4632a8297fb0265bc8f49e73ceaa88b04a58d06e510efa2ab1a36a11",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0139.jsonl",
+        "chunk": 139,
+        "file": "0139.jsonl",
+        "start": 35584,
+        "stop": 35840,
+        "records": 256,
+        "sha256": "8e8a5e68423d83e8dc2cc5fc7b2a8fb046c3824320bf9b15332c42fa70cbf916",
+        "size_bytes": 148331
+      },
+      {
+        "path": "data/full_rows/0140.jsonl",
+        "chunk": 140,
+        "file": "0140.jsonl",
+        "start": 35840,
+        "stop": 36096,
+        "records": 256,
+        "sha256": "2cb1be611cb0afa990c02380a811f33a0a42c8213cd2ddd91de3d7b1838ba7db",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0141.jsonl",
+        "chunk": 141,
+        "file": "0141.jsonl",
+        "start": 36096,
+        "stop": 36352,
+        "records": 256,
+        "sha256": "f42af7663cb6820510027fec7c16810f32b7493b289922bc1e853fb8310ef137",
+        "size_bytes": 148346
+      },
+      {
+        "path": "data/full_rows/0142.jsonl",
+        "chunk": 142,
+        "file": "0142.jsonl",
+        "start": 36352,
+        "stop": 36608,
+        "records": 256,
+        "sha256": "16090bd7a3e8c2beaa9085bc510233f1b472ddcd855406263921bec75a0264cd",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0143.jsonl",
+        "chunk": 143,
+        "file": "0143.jsonl",
+        "start": 36608,
+        "stop": 36864,
+        "records": 256,
+        "sha256": "b0ff5a7268ba549d36b3b5256fd90e6838efecdcb418d9b374d1b398f9eb87b9",
+        "size_bytes": 148350
+      },
+      {
+        "path": "data/full_rows/0144.jsonl",
+        "chunk": 144,
+        "file": "0144.jsonl",
+        "start": 36864,
+        "stop": 37120,
+        "records": 256,
+        "sha256": "685a00ba9fd12f5d17a41479357170f7dac96a4b588cdf971e3cc37d67dcea58",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0145.jsonl",
+        "chunk": 145,
+        "file": "0145.jsonl",
+        "start": 37120,
+        "stop": 37376,
+        "records": 256,
+        "sha256": "89e443f1083e68acadbbe85085ad7a7e27f84666b26241d1e034b89c0f016953",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0146.jsonl",
+        "chunk": 146,
+        "file": "0146.jsonl",
+        "start": 37376,
+        "stop": 37632,
+        "records": 256,
+        "sha256": "b9d088de0fab9018da04f273d0e0d7425926e735fb2c10174c8cea421e6ebf12",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0147.jsonl",
+        "chunk": 147,
+        "file": "0147.jsonl",
+        "start": 37632,
+        "stop": 37888,
+        "records": 256,
+        "sha256": "b87e3911bc67efc632f650888ef7617b682bfe2b92c797950864a0e3c39b9d52",
+        "size_bytes": 148368
+      },
+      {
+        "path": "data/full_rows/0148.jsonl",
+        "chunk": 148,
+        "file": "0148.jsonl",
+        "start": 37888,
+        "stop": 38144,
+        "records": 256,
+        "sha256": "e165043a2ed541073bcd26ee4af8ee900fcda0193a6c76b8d0a914072ea13935",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0149.jsonl",
+        "chunk": 149,
+        "file": "0149.jsonl",
+        "start": 38144,
+        "stop": 38400,
+        "records": 256,
+        "sha256": "36de2364cc3d116033c80a305f4a53fbc16a40c8cf6740cc18dddc1dca2d2d13",
+        "size_bytes": 148365
+      },
+      {
+        "path": "data/full_rows/0150.jsonl",
+        "chunk": 150,
+        "file": "0150.jsonl",
+        "start": 38400,
+        "stop": 38656,
+        "records": 256,
+        "sha256": "5ce3d185cb778a0bcb65e09e148f6c56cf2fbab64d93eb90369f910658b34f5b",
+        "size_bytes": 148326
+      },
+      {
+        "path": "data/full_rows/0151.jsonl",
+        "chunk": 151,
+        "file": "0151.jsonl",
+        "start": 38656,
+        "stop": 38912,
+        "records": 256,
+        "sha256": "fa416971454f55837bbebb39730da4ce170273faa2c1b604e2fcc4ab5f7cdfc0",
+        "size_bytes": 148383
+      },
+      {
+        "path": "data/full_rows/0152.jsonl",
+        "chunk": 152,
+        "file": "0152.jsonl",
+        "start": 38912,
+        "stop": 39168,
+        "records": 256,
+        "sha256": "8b21a00bd4a6b6b8bed8051dec311b8f39799511b42678e5727a4eb8c91b3378",
+        "size_bytes": 148348
+      },
+      {
+        "path": "data/full_rows/0153.jsonl",
+        "chunk": 153,
+        "file": "0153.jsonl",
+        "start": 39168,
+        "stop": 39424,
+        "records": 256,
+        "sha256": "4fae5471f85167737d71041e22345cd5ca2030d005d00eb974ffd2438f50c923",
+        "size_bytes": 148349
+      },
+      {
+        "path": "data/full_rows/0154.jsonl",
+        "chunk": 154,
+        "file": "0154.jsonl",
+        "start": 39424,
+        "stop": 39680,
+        "records": 256,
+        "sha256": "7ce77d4d4f8851dddddd1947e7405ffb9aefa1973057827859340596e75ff8c1",
+        "size_bytes": 148346
+      },
+      {
+        "path": "data/full_rows/0155.jsonl",
+        "chunk": 155,
+        "file": "0155.jsonl",
+        "start": 39680,
+        "stop": 39936,
+        "records": 256,
+        "sha256": "26009adc6fc84adc61d9faf6306864d0117a3d21e17c851c4855ecc81542ffa1",
+        "size_bytes": 148333
+      },
+      {
+        "path": "data/full_rows/0156.jsonl",
+        "chunk": 156,
+        "file": "0156.jsonl",
+        "start": 39936,
+        "stop": 40192,
+        "records": 256,
+        "sha256": "2352551de738f830efc9427afe4e6c05e15e8b233d74dea193cc7cf15d09ad03",
+        "size_bytes": 148373
+      },
+      {
+        "path": "data/full_rows/0157.jsonl",
+        "chunk": 157,
+        "file": "0157.jsonl",
+        "start": 40192,
+        "stop": 40448,
+        "records": 256,
+        "sha256": "050469bf1b6b0f8fb2a607a54ec09b15434d68260cd2d0eb28d5cd2fdf18fdb8",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0158.jsonl",
+        "chunk": 158,
+        "file": "0158.jsonl",
+        "start": 40448,
+        "stop": 40704,
+        "records": 256,
+        "sha256": "bfe41941f71117d8d2347799b6bd9fa71f3899534e26294d3a1e93f5567f987c",
+        "size_bytes": 148363
+      },
+      {
+        "path": "data/full_rows/0159.jsonl",
+        "chunk": 159,
+        "file": "0159.jsonl",
+        "start": 40704,
+        "stop": 40960,
+        "records": 256,
+        "sha256": "86c28c774d1cc4ff8b2439089aafd923243ae0714b8717d535e8080c97a6543b",
+        "size_bytes": 148366
+      },
+      {
+        "path": "data/full_rows/0160.jsonl",
+        "chunk": 160,
+        "file": "0160.jsonl",
+        "start": 40960,
+        "stop": 41216,
+        "records": 256,
+        "sha256": "415e51a055bd0a5acd67a55d8cb4a4c7bd51d9f17ba38f57daa69060c986549b",
+        "size_bytes": 148359
+      },
+      {
+        "path": "data/full_rows/0161.jsonl",
+        "chunk": 161,
+        "file": "0161.jsonl",
+        "start": 41216,
+        "stop": 41472,
+        "records": 256,
+        "sha256": "55df7ea294318b80c10f734cbf931176929ce8a20a9322c1efc2f0366f4b3bce",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0162.jsonl",
+        "chunk": 162,
+        "file": "0162.jsonl",
+        "start": 41472,
+        "stop": 41728,
+        "records": 256,
+        "sha256": "be8da6a938a56ff34f97892d2d47ed005dac98f9758fc18738bba7acdac23a8d",
+        "size_bytes": 148372
+      },
+      {
+        "path": "data/full_rows/0163.jsonl",
+        "chunk": 163,
+        "file": "0163.jsonl",
+        "start": 41728,
+        "stop": 41984,
+        "records": 256,
+        "sha256": "b1af380906f58e2cd0372c48b512143f4d0de2a8c9be735c9251023b451edd18",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0164.jsonl",
+        "chunk": 164,
+        "file": "0164.jsonl",
+        "start": 41984,
+        "stop": 42240,
+        "records": 256,
+        "sha256": "2df1efdd732d11970081f10f441bf8a04607e841a68437741fa0d8f4318a39d9",
+        "size_bytes": 148338
+      },
+      {
+        "path": "data/full_rows/0165.jsonl",
+        "chunk": 165,
+        "file": "0165.jsonl",
+        "start": 42240,
+        "stop": 42496,
+        "records": 256,
+        "sha256": "be578881fb92a452105b87dbdff63f84d037b1b93c0a2d2ed970fbddfe79fea8",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0166.jsonl",
+        "chunk": 166,
+        "file": "0166.jsonl",
+        "start": 42496,
+        "stop": 42752,
+        "records": 256,
+        "sha256": "00fbd990e6580ad9909ed8885394efffcdf67b16bdb54063aafd7486513d8da5",
+        "size_bytes": 148352
+      },
+      {
+        "path": "data/full_rows/0167.jsonl",
+        "chunk": 167,
+        "file": "0167.jsonl",
+        "start": 42752,
+        "stop": 43008,
+        "records": 256,
+        "sha256": "85981bcffb819c9ada139c8705d928a164d20ff51acd63191512a40bd66b1ff0",
+        "size_bytes": 148351
+      },
+      {
+        "path": "data/full_rows/0168.jsonl",
+        "chunk": 168,
+        "file": "0168.jsonl",
+        "start": 43008,
+        "stop": 43264,
+        "records": 256,
+        "sha256": "fc7946535cf507f6aed0027ace08cd949ce23483a30a79d6a10bba6fbdc9ebc3",
+        "size_bytes": 148367
+      },
+      {
+        "path": "data/full_rows/0169.jsonl",
+        "chunk": 169,
+        "file": "0169.jsonl",
+        "start": 43264,
+        "stop": 43520,
+        "records": 256,
+        "sha256": "ac5fe8e4009b84a20d5d84a0c3c1549fb6cb144bbe35b52d1d7e2d04e47b0839",
+        "size_bytes": 148337
+      },
+      {
+        "path": "data/full_rows/0170.jsonl",
+        "chunk": 170,
+        "file": "0170.jsonl",
+        "start": 43520,
+        "stop": 43776,
+        "records": 256,
+        "sha256": "688218efefbe4aa0bd21808f8870f187ae85131d45fcba553e053ddc4be16daa",
+        "size_bytes": 148332
+      },
+      {
+        "path": "data/full_rows/0171.jsonl",
+        "chunk": 171,
+        "file": "0171.jsonl",
+        "start": 43776,
+        "stop": 44032,
+        "records": 256,
+        "sha256": "b1aba8014a73a3b6861910df95d223ca90d989ac559090eb19da78b5e8084be1",
+        "size_bytes": 148322
+      },
+      {
+        "path": "data/full_rows/0172.jsonl",
+        "chunk": 172,
+        "file": "0172.jsonl",
+        "start": 44032,
+        "stop": 44288,
+        "records": 256,
+        "sha256": "e2f32ad3648386bb9c4fd5af3c19d3c4428da0151b56ad0821be03ca3516d125",
+        "size_bytes": 148365
+      },
+      {
+        "path": "data/full_rows/0173.jsonl",
+        "chunk": 173,
+        "file": "0173.jsonl",
+        "start": 44288,
+        "stop": 44544,
+        "records": 256,
+        "sha256": "e78c4593a5340551cb592f99458c2fe7023f9159f65a7f6bb473b3a767e8ff88",
+        "size_bytes": 148345
+      },
+      {
+        "path": "data/full_rows/0174.jsonl",
+        "chunk": 174,
+        "file": "0174.jsonl",
+        "start": 44544,
+        "stop": 44800,
+        "records": 256,
+        "sha256": "ea2fc20fa19ba8bf7ad32b58f7f97b0336d86b474c0c4e316d43028b68de0af6",
+        "size_bytes": 148355
+      },
+      {
+        "path": "data/full_rows/0175.jsonl",
+        "chunk": 175,
+        "file": "0175.jsonl",
+        "start": 44800,
+        "stop": 45056,
+        "records": 256,
+        "sha256": "66ef4f1a127863b91aa8880775346c7d4cef8b96da1931f0d5912727eea60283",
+        "size_bytes": 148367
+      },
+      {
+        "path": "data/full_rows/0176.jsonl",
+        "chunk": 176,
+        "file": "0176.jsonl",
+        "start": 45056,
+        "stop": 45312,
+        "records": 256,
+        "sha256": "43a9b043eeb5439405e72ae3ca42cb25d6d1d93e274d2a49200a377fc86cda4a",
+        "size_bytes": 148360
+      },
+      {
+        "path": "data/full_rows/0177.jsonl",
+        "chunk": 177,
+        "file": "0177.jsonl",
+        "start": 45312,
+        "stop": 45568,
+        "records": 256,
+        "sha256": "fc222c33302ba3530735beb9cbc72e583a0dc44e61f7f7928346b964b6a3568d",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0178.jsonl",
+        "chunk": 178,
+        "file": "0178.jsonl",
+        "start": 45568,
+        "stop": 45824,
+        "records": 256,
+        "sha256": "fabfb230349cd40ab0e0e1fda5c6834f45596fbdcee349ee1a5026f022ab6fe5",
+        "size_bytes": 148363
+      },
+      {
+        "path": "data/full_rows/0179.jsonl",
+        "chunk": 179,
+        "file": "0179.jsonl",
+        "start": 45824,
+        "stop": 46080,
+        "records": 256,
+        "sha256": "6e72fc24edc93ff328b7e5e084d2fb192e6fa3918ed7fcae0c8ebcf203c92b61",
+        "size_bytes": 148376
+      },
+      {
+        "path": "data/full_rows/0180.jsonl",
+        "chunk": 180,
+        "file": "0180.jsonl",
+        "start": 46080,
+        "stop": 46336,
+        "records": 256,
+        "sha256": "a6b7289dabf497f0818dac29de57cae63a81a5588626b0d98755ad7ef6294056",
+        "size_bytes": 148349
+      },
+      {
+        "path": "data/full_rows/0181.jsonl",
+        "chunk": 181,
+        "file": "0181.jsonl",
+        "start": 46336,
+        "stop": 46592,
+        "records": 256,
+        "sha256": "fc2d648d05d89a17dcc76ed7e38b641cc95f411f89261a9280aad36b8eb74572",
+        "size_bytes": 148369
+      },
+      {
+        "path": "data/full_rows/0182.jsonl",
+        "chunk": 182,
+        "file": "0182.jsonl",
+        "start": 46592,
+        "stop": 46848,
+        "records": 256,
+        "sha256": "0e73169b75728fc96981bb7772f356fe0e44c448842a797c9d6ef0d0af4495a9",
+        "size_bytes": 148343
+      },
+      {
+        "path": "data/full_rows/0183.jsonl",
+        "chunk": 183,
+        "file": "0183.jsonl",
+        "start": 46848,
+        "stop": 47104,
+        "records": 256,
+        "sha256": "300a274de690f0ead35e10b7d4013b2ff3dabc8951c22627fa5ee266e3880d9e",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0184.jsonl",
+        "chunk": 184,
+        "file": "0184.jsonl",
+        "start": 47104,
+        "stop": 47360,
+        "records": 256,
+        "sha256": "28865cc942df0218bc8c1ad5563aeb2094f3f6713718d9b7f067a1f5c1667715",
+        "size_bytes": 148361
+      },
+      {
+        "path": "data/full_rows/0185.jsonl",
+        "chunk": 185,
+        "file": "0185.jsonl",
+        "start": 47360,
+        "stop": 47616,
+        "records": 256,
+        "sha256": "2246ddbb4787a70e0ff486e8878a50fa753bf260134d733325218f329032639c",
+        "size_bytes": 148380
+      },
+      {
+        "path": "data/full_rows/0186.jsonl",
+        "chunk": 186,
+        "file": "0186.jsonl",
+        "start": 47616,
+        "stop": 47872,
+        "records": 256,
+        "sha256": "9f85a3147e56c0d5e9077d4bbeabd9072021e7dda0bdc37c65e5cf525a79f7f8",
+        "size_bytes": 148374
+      },
+      {
+        "path": "data/full_rows/0187.jsonl",
+        "chunk": 187,
+        "file": "0187.jsonl",
+        "start": 47872,
+        "stop": 48128,
+        "records": 256,
+        "sha256": "0b2a6c548f3013ccd6ce5670433935a21fa13c76df1d6a42a9d5d1ddc5a0c3bf",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0188.jsonl",
+        "chunk": 188,
+        "file": "0188.jsonl",
+        "start": 48128,
+        "stop": 48384,
+        "records": 256,
+        "sha256": "38e4a8dc2e168c1be431716be5978cfb484fa51e04c120761d2bc7e13f8124ec",
+        "size_bytes": 148331
+      },
+      {
+        "path": "data/full_rows/0189.jsonl",
+        "chunk": 189,
+        "file": "0189.jsonl",
+        "start": 48384,
+        "stop": 48640,
+        "records": 256,
+        "sha256": "d57d75ed84fe2e0f86e06714298f1cd50d856e4f11ef370462b245f531e2ec0f",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0190.jsonl",
+        "chunk": 190,
+        "file": "0190.jsonl",
+        "start": 48640,
+        "stop": 48896,
+        "records": 256,
+        "sha256": "8ea8e7b9e457ffe5c3360162be2ede8f14e397f7615ccf3282b4978423df3447",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0191.jsonl",
+        "chunk": 191,
+        "file": "0191.jsonl",
+        "start": 48896,
+        "stop": 49152,
+        "records": 256,
+        "sha256": "cd5003a555063e1d54a523c6ba516d65442ec125aa2842dd4c1c663acc9670d3",
+        "size_bytes": 148379
+      },
+      {
+        "path": "data/full_rows/0192.jsonl",
+        "chunk": 192,
+        "file": "0192.jsonl",
+        "start": 49152,
+        "stop": 49408,
+        "records": 256,
+        "sha256": "af733c50f9689f02eabcbc0f0f9d8b4ebf8f5b25c972553f046f79dfd38ee4bd",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0193.jsonl",
+        "chunk": 193,
+        "file": "0193.jsonl",
+        "start": 49408,
+        "stop": 49664,
+        "records": 256,
+        "sha256": "6162cf1f9f371db91753a08d13977e900c10ebbf47bca415527e7efc97a768ec",
+        "size_bytes": 148375
+      },
+      {
+        "path": "data/full_rows/0194.jsonl",
+        "chunk": 194,
+        "file": "0194.jsonl",
+        "start": 49664,
+        "stop": 49920,
+        "records": 256,
+        "sha256": "c9800fa4b04609422a650a77ea93b97f821098bd94d9ecf654b6f0a9caf3577a",
+        "size_bytes": 148349
+      },
+      {
+        "path": "data/full_rows/0195.jsonl",
+        "chunk": 195,
+        "file": "0195.jsonl",
+        "start": 49920,
+        "stop": 50176,
+        "records": 256,
+        "sha256": "e39afaebc40ec8a4201572cba604a8d2d8fdef88391ff51fb91ac835d8a5af2e",
+        "size_bytes": 148327
+      },
+      {
+        "path": "data/full_rows/0196.jsonl",
+        "chunk": 196,
+        "file": "0196.jsonl",
+        "start": 50176,
+        "stop": 50432,
+        "records": 256,
+        "sha256": "c5659345d2705a61c0b3c8eb240198f2f6017da2d1080da8c7280a936c4bfc01",
+        "size_bytes": 148359
+      },
+      {
+        "path": "data/full_rows/0197.jsonl",
+        "chunk": 197,
+        "file": "0197.jsonl",
+        "start": 50432,
+        "stop": 50688,
+        "records": 256,
+        "sha256": "5d3c8991aa461a3a8b71795371265a2e48ade44050674bafd4a15425f3c8270a",
+        "size_bytes": 148350
+      },
+      {
+        "path": "data/full_rows/0198.jsonl",
+        "chunk": 198,
+        "file": "0198.jsonl",
+        "start": 50688,
+        "stop": 50944,
+        "records": 256,
+        "sha256": "0c32dfc66662305a0c5226fc2ef945bb74d9e9fd9dcb04368525a42bf1ded0c1",
+        "size_bytes": 148342
+      },
+      {
+        "path": "data/full_rows/0199.jsonl",
+        "chunk": 199,
+        "file": "0199.jsonl",
+        "start": 50944,
+        "stop": 51200,
+        "records": 256,
+        "sha256": "3208cb1df556050062f0afc04483c63043ab4ed1f4c56c5b35d4c479c9e42d75",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0200.jsonl",
+        "chunk": 200,
+        "file": "0200.jsonl",
+        "start": 51200,
+        "stop": 51456,
+        "records": 256,
+        "sha256": "b88af9091a81fc092c761f8344608594b97fb6c4ae535dd672b0e51928bb2f85",
+        "size_bytes": 148335
+      },
+      {
+        "path": "data/full_rows/0201.jsonl",
+        "chunk": 201,
+        "file": "0201.jsonl",
+        "start": 51456,
+        "stop": 51712,
+        "records": 256,
+        "sha256": "b32e69fc74e854b398c8a4e4c873dd64db4de586c4c2f55a1fcf6422a89cd403",
+        "size_bytes": 148357
+      },
+      {
+        "path": "data/full_rows/0202.jsonl",
+        "chunk": 202,
+        "file": "0202.jsonl",
+        "start": 51712,
+        "stop": 51968,
+        "records": 256,
+        "sha256": "0148edadd31e0260b488597d92e5b405610809b2c4b4a22faf224a71d4bde022",
+        "size_bytes": 148368
+      },
+      {
+        "path": "data/full_rows/0203.jsonl",
+        "chunk": 203,
+        "file": "0203.jsonl",
+        "start": 51968,
+        "stop": 52224,
+        "records": 256,
+        "sha256": "6d72636f0d7255e4ba700929bc6341b528ea7ac786f78a9bfa519529c909dc82",
+        "size_bytes": 148377
+      },
+      {
+        "path": "data/full_rows/0204.jsonl",
+        "chunk": 204,
+        "file": "0204.jsonl",
+        "start": 52224,
+        "stop": 52480,
+        "records": 256,
+        "sha256": "368f4759bfa15967528a76e884e8af2a43d74c232a43b5402c7dc17adbfc561e",
+        "size_bytes": 148363
+      },
+      {
+        "path": "data/full_rows/0205.jsonl",
+        "chunk": 205,
+        "file": "0205.jsonl",
+        "start": 52480,
+        "stop": 52736,
+        "records": 256,
+        "sha256": "d3ac937e109f5ca2975ae2c200c1319d73b99f455b99eef103ebfdae2e0640ae",
+        "size_bytes": 148358
+      },
+      {
+        "path": "data/full_rows/0206.jsonl",
+        "chunk": 206,
+        "file": "0206.jsonl",
+        "start": 52736,
+        "stop": 52992,
+        "records": 256,
+        "sha256": "d1c23766e5fecfc86694a498eab81e8cd4c2aaf21f6a24baefdd3ab063a2343c",
+        "size_bytes": 148349
+      },
+      {
+        "path": "data/full_rows/0207.jsonl",
+        "chunk": 207,
+        "file": "0207.jsonl",
+        "start": 52992,
+        "stop": 53248,
+        "records": 256,
+        "sha256": "93a9f551317c2549c85623a1b3923ba94ea613eb87f689de04a1cd4e760999da",
+        "size_bytes": 148359
+      },
+      {
+        "path": "data/full_rows/0208.jsonl",
+        "chunk": 208,
+        "file": "0208.jsonl",
+        "start": 53248,
+        "stop": 53504,
+        "records": 256,
+        "sha256": "e779ced2fe170347d3df9415d2b748e216e6045f1caef3691930bf61bd84f251",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0209.jsonl",
+        "chunk": 209,
+        "file": "0209.jsonl",
+        "start": 53504,
+        "stop": 53760,
+        "records": 256,
+        "sha256": "059de3a258af8a33b4bbfdce246fbbb7e850b6ec183b5ea29ab697644f3e5818",
+        "size_bytes": 148344
+      },
+      {
+        "path": "data/full_rows/0210.jsonl",
+        "chunk": 210,
+        "file": "0210.jsonl",
+        "start": 53760,
+        "stop": 54016,
+        "records": 256,
+        "sha256": "8797cabe55e1f2baa22bbb0ab36f2162efd6d5f60d7ac319409cbf6f3212947d",
+        "size_bytes": 148367
+      },
+      {
+        "path": "data/full_rows/0211.jsonl",
+        "chunk": 211,
+        "file": "0211.jsonl",
+        "start": 54016,
+        "stop": 54272,
+        "records": 256,
+        "sha256": "7fb4d066115abfeaa04da7cecf6b67a1b8a448aef207eb8be47e4366919db1af",
+        "size_bytes": 148353
+      },
+      {
+        "path": "data/full_rows/0212.jsonl",
+        "chunk": 212,
+        "file": "0212.jsonl",
+        "start": 54272,
+        "stop": 54528,
+        "records": 256,
+        "sha256": "962a5a4cc8aa90357bf2f4fbf085c678074c65c2b5b82e034043417d2537acbb",
+        "size_bytes": 148371
+      },
+      {
+        "path": "data/full_rows/0213.jsonl",
+        "chunk": 213,
+        "file": "0213.jsonl",
+        "start": 54528,
+        "stop": 54784,
+        "records": 256,
+        "sha256": "fdbb5d3398fffea826b9b2c68863389051fb94477c925aae455a3da3ad75fa37",
+        "size_bytes": 148364
+      },
+      {
+        "path": "data/full_rows/0214.jsonl",
+        "chunk": 214,
+        "file": "0214.jsonl",
+        "start": 54784,
+        "stop": 55040,
+        "records": 256,
+        "sha256": "fb879b5e13c1680e4421e63957c237bfd72324d427c26cb76037057f7032d5e9",
+        "size_bytes": 148375
+      },
+      {
+        "path": "data/full_rows/0215.jsonl",
+        "chunk": 215,
+        "file": "0215.jsonl",
+        "start": 55040,
+        "stop": 55296,
+        "records": 256,
+        "sha256": "e6436cb49123c0eaf741c5ff56a22f713499c9cfe0ffea7b24db3364a9c9b420",
+        "size_bytes": 148390
+      },
+      {
+        "path": "data/full_rows/0216.jsonl",
+        "chunk": 216,
+        "file": "0216.jsonl",
+        "start": 55296,
+        "stop": 55552,
+        "records": 256,
+        "sha256": "f7b2da66ee4648800d718eca78d21c5374bbfd201b41e7920a77e3c9d85ff293",
+        "size_bytes": 148359
+      },
+      {
+        "path": "data/full_rows/0217.jsonl",
+        "chunk": 217,
+        "file": "0217.jsonl",
+        "start": 55552,
+        "stop": 55808,
+        "records": 256,
+        "sha256": "09d7cbd4e218fe48d88a7a7d678b99d2a3891cc9bd28f32aa415412b392d8038",
+        "size_bytes": 148373
+      },
+      {
+        "path": "data/full_rows/0218.jsonl",
+        "chunk": 218,
+        "file": "0218.jsonl",
+        "start": 55808,
+        "stop": 56064,
+        "records": 256,
+        "sha256": "2538ece43a3e6943fb20ee6d130bc8dc74fdf159b74a99aaddf63baebfff4c30",
+        "size_bytes": 148356
+      },
+      {
+        "path": "data/full_rows/0219.jsonl",
+        "chunk": 219,
+        "file": "0219.jsonl",
+        "start": 56064,
+        "stop": 56320,
+        "records": 256,
+        "sha256": "d1af033bac51a2059e32485faf44aa6e8c8a5872d93c46c3ab2aa35612ebd5da",
+        "size_bytes": 148354
+      },
+      {
+        "path": "data/full_rows/0220.jsonl",
+        "chunk": 220,
+        "file": "0220.jsonl",
+        "start": 56320,
+        "stop": 56576,
+        "records": 256,
+        "sha256": "c6214d0db9c75177786af065a6f44c39d0e8cf12b0bb020ed915d5d70bfb2357",
+        "size_bytes": 148361
+      },
+      {
+        "path": "data/full_rows/0221.jsonl",
+        "chunk": 221,
+        "file": "0221.jsonl",
+        "start": 56576,
+        "stop": 56832,
+        "records": 256,
+        "sha256": "1fd37025394016d89f6211bd8abdfad163d9d1b16239202f7f5b401d4d755594",
+        "size_bytes": 148361
+      }
+    ],
+    "rows_canonical_stream_sha256": "2b5f70150e3f2c49004a3a555ca01d80e072ceb78b9820afb14c58792dace23a",
+    "recomputed_rows": 0
+  },
+  "window_rows_tuning": 16384,
+  "windows": [
+    {
+      "start": 56832,
+      "stop": 73216,
+      "rows": 16384,
+      "descriptor_stream_sha256": "0973d348b5bd0b295d78eafe892f4e6d16ec64e0f3eae17478885fdbdd663cf8"
+    },
+    {
+      "start": 73216,
+      "stop": 89600,
+      "rows": 16384,
+      "descriptor_stream_sha256": "a51510e7f9e0c3e1ac816d8e6fb9e473ae0dab850b9928e96a1370caacd2c406"
+    },
+    {
+      "start": 89600,
+      "stop": 105984,
+      "rows": 16384,
+      "descriptor_stream_sha256": "766a005ee26190594069d43b1aa1043dd1ff92a23737ee0a9386065438746858"
+    },
+    {
+      "start": 105984,
+      "stop": 122368,
+      "rows": 16384,
+      "descriptor_stream_sha256": "b2166fc32ee3362a2a18f5ef59607c2d34abfe6db71333fc9d3267f696e2cffe"
+    },
+    {
+      "start": 122368,
+      "stop": 138752,
+      "rows": 16384,
+      "descriptor_stream_sha256": "a46d8aba5ea904a2c22d88ecf0a050b9a599174955b8bdbf93311345391fbb02"
+    },
+    {
+      "start": 138752,
+      "stop": 155136,
+      "rows": 16384,
+      "descriptor_stream_sha256": "4a5ac0272c3fa6866ebb1ca64b06b76637c6c8594c97675504c0317a861c8479"
+    },
+    {
+      "start": 155136,
+      "stop": 171520,
+      "rows": 16384,
+      "descriptor_stream_sha256": "2fa64a7a0e3a20c79a8fa4cfa8a91390408afc7a21a50f392e1c2e119fc57b96"
+    },
+    {
+      "start": 171520,
+      "stop": 187904,
+      "rows": 16384,
+      "descriptor_stream_sha256": "751cade8c7d76247bf65f86cfc468e987270f0588022213676412b3769f9e6cb"
+    },
+    {
+      "start": 187904,
+      "stop": 204288,
+      "rows": 16384,
+      "descriptor_stream_sha256": "e3874addce88d2934dc05a43ecd6db95eb4182ba63178c1e065a9fc5dabcfd8b"
+    },
+    {
+      "start": 204288,
+      "stop": 220672,
+      "rows": 16384,
+      "descriptor_stream_sha256": "7a0b56851ab9785fd75b28586384b270b69410a6af720bbf711802e7cdb3913c"
+    },
+    {
+      "start": 220672,
+      "stop": 237056,
+      "rows": 16384,
+      "descriptor_stream_sha256": "62b5f848f191eb3fb94ce960561beb1af676c905d0d4467038abd916f0e7df61"
+    },
+    {
+      "start": 237056,
+      "stop": 253440,
+      "rows": 16384,
+      "descriptor_stream_sha256": "0292a1f01134f4ef83d66384f266a095227fb66e12e73296baaf2ea43c0b98f7"
+    },
+    {
+      "start": 253440,
+      "stop": 269824,
+      "rows": 16384,
+      "descriptor_stream_sha256": "d44b932b676f64c2e7c31487a07bdbb50492fd5ad00d159084141de08360a659"
+    },
+    {
+      "start": 269824,
+      "stop": 286208,
+      "rows": 16384,
+      "descriptor_stream_sha256": "2fc71a8abe7c10b0703c8297d33136e726eecba2a3b4b7e35856d67273572942"
+    },
+    {
+      "start": 286208,
+      "stop": 302592,
+      "rows": 16384,
+      "descriptor_stream_sha256": "22b3f4346a7ec37beb1662ecaaefb2e2424c5166ff3b6e1d6e9047c46aa33803"
+    },
+    {
+      "start": 302592,
+      "stop": 318976,
+      "rows": 16384,
+      "descriptor_stream_sha256": "1edcd12e7406be03ba553d30f00ca1a81bc5f12c4fea39cfb7abc2d0d03fdea8"
+    },
+    {
+      "start": 318976,
+      "stop": 335360,
+      "rows": 16384,
+      "descriptor_stream_sha256": "0e360785fa25e9d54dcf1e8fabed06e0fbbf0b281f8376afbd365074cce87731"
+    },
+    {
+      "start": 335360,
+      "stop": 351744,
+      "rows": 16384,
+      "descriptor_stream_sha256": "2123ee6235a2a63832936229844c9048c64bbacf5083cf77cb579a22662a18a1"
+    },
+    {
+      "start": 351744,
+      "stop": 368128,
+      "rows": 16384,
+      "descriptor_stream_sha256": "e9dee33e1dfa10025e817e386f46c828785b07d6fb9db6635b1fd5780b2567c9"
+    },
+    {
+      "start": 368128,
+      "stop": 384512,
+      "rows": 16384,
+      "descriptor_stream_sha256": "61e7c54461419e2501f1b4e1566cec6a133f7cf083c7ec8822e515bd9b54c7aa"
+    },
+    {
+      "start": 384512,
+      "stop": 400896,
+      "rows": 16384,
+      "descriptor_stream_sha256": "ec8d8e8c034e9f20690b1616ac86628f9c251d8fab82245fd557e0a7c13c61cd"
+    },
+    {
+      "start": 400896,
+      "stop": 417280,
+      "rows": 16384,
+      "descriptor_stream_sha256": "27e31a3b1606fc435e6b0bba7fb74bc3ad8f65d229150df7b8f889538152706c"
+    },
+    {
+      "start": 417280,
+      "stop": 433664,
+      "rows": 16384,
+      "descriptor_stream_sha256": "c71434ba2c4efd448267742fcfeb76367cdd9b6bd901aa4b96cc047018c14e6e"
+    },
+    {
+      "start": 433664,
+      "stop": 450048,
+      "rows": 16384,
+      "descriptor_stream_sha256": "508c623d66f60caf1edd4584bb1d6c3ef62dfc7330c43acb3ab89924129236df"
+    },
+    {
+      "start": 450048,
+      "stop": 466432,
+      "rows": 16384,
+      "descriptor_stream_sha256": "d3f8e9b8a4041c3f76b5d2d2db3f87e45661b6642247dd995cdb86733fba521f"
+    },
+    {
+      "start": 466432,
+      "stop": 482816,
+      "rows": 16384,
+      "descriptor_stream_sha256": "d94fecbdbd2c302f143ec0dd5c4d63bdec123f03c06df8b42b26a3c9329f4287"
+    },
+    {
+      "start": 482816,
+      "stop": 499200,
+      "rows": 16384,
+      "descriptor_stream_sha256": "4dadd4dfa408cfe7a659976a3ca390ae6d68f26e5df9ce4c3fc38c2c67f31acc"
+    },
+    {
+      "start": 499200,
+      "stop": 515584,
+      "rows": 16384,
+      "descriptor_stream_sha256": "7eeb9d1139e47ca32ecd47dd079099dbe2a5286100af833930a9c247ae2b8515"
+    },
+    {
+      "start": 515584,
+      "stop": 531968,
+      "rows": 16384,
+      "descriptor_stream_sha256": "22664046939f93b2190850d74a55e56dbc3068e013f4bd63005d07aaaf6bbb85"
+    },
+    {
+      "start": 531968,
+      "stop": 548352,
+      "rows": 16384,
+      "descriptor_stream_sha256": "e6d54365b9ca12ccd108f93e397cc53bdc78817bb64eca2681de34fa3f760704"
+    },
+    {
+      "start": 548352,
+      "stop": 564736,
+      "rows": 16384,
+      "descriptor_stream_sha256": "047c82486dec3b393f03a9f2080203e81777948c4e84868c2bcf85e4d8acc6a1"
+    },
+    {
+      "start": 564736,
+      "stop": 581120,
+      "rows": 16384,
+      "descriptor_stream_sha256": "a89ec343bd9cd3839f6a8858e8f860e361fbc191213d5702d61358832d6170e9"
+    },
+    {
+      "start": 581120,
+      "stop": 597504,
+      "rows": 16384,
+      "descriptor_stream_sha256": "bc127855acb629395929db42d88441ef149114d0dcef6e1d36c5cbc4e9c5374a"
+    },
+    {
+      "start": 597504,
+      "stop": 613888,
+      "rows": 16384,
+      "descriptor_stream_sha256": "24740652bea5e28a0903141f420ea4433cbd51a46820a4b52f64ff9f9351fe20"
+    },
+    {
+      "start": 613888,
+      "stop": 630272,
+      "rows": 16384,
+      "descriptor_stream_sha256": "34c123f0e750bf8b9f4a5cbefca4a75ac7fc632f2fb19d9d0e83f031013902d8"
+    },
+    {
+      "start": 630272,
+      "stop": 646656,
+      "rows": 16384,
+      "descriptor_stream_sha256": "6889e7af2d967e0e0ce7acd675e47d9880a2fb7e5e8f1e6ceafb6d5379051c69"
+    },
+    {
+      "start": 646656,
+      "stop": 652366,
+      "rows": 5710,
+      "descriptor_stream_sha256": "fb8378456f71f3724dace2bd0e6d5e8d77ffdaa1f3962c0f0fe5d144c681240f"
+    }
+  ],
+  "execution_model": "ONE_NATIVE_CAPTURE_AND_PORTABLE_PROJECT_PER_WINDOW",
+  "data_restart": false,
+  "scientific_adoption": false,
+  "plan_sha256": "2706b6395139aa84715c5f1100704c4a73fdbb98dfe352ca220d3132096d5cfb"
+}

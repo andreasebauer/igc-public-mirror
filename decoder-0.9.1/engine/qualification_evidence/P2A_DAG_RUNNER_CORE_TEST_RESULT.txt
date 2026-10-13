@@ -1,0 +1,19 @@
+P2A DAG RUNNER CORE QUALIFICATION — DEV49 — 2026-09-22
+
+FOCUSED RUNNER TESTS
+10 passed, 0 failed
+
+REGRESSION SELECTION
+92 passed, 1 failed
+
+The single failure is:
+tests/test_decoder06_capture.py::test_current_validation_job_has_real_saved_source_records
+
+It requires the absent saved current-validation workspace CAPTURE.json and is
+one of the already named R02 nonportable gaps. It is not a new production
+regression and does not convert the dev47 portable-R02 result into full R02.
+
+BOUNDARY
+The runner schedules and seals replay records only. No science handler was
+bound or executed, no audit authority was minted, and no shared pointer moved.
+P2A is complete; P2 as a whole is not complete.

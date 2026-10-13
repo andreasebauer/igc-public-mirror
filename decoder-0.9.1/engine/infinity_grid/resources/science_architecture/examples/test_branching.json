@@ -1,0 +1,54 @@
+{
+  "admissibility": {
+    "constraints": [
+      "Run only while Regime premise/sentinel gates pass.",
+      "Historical compatibility mapping; does not broaden source claims."
+    ],
+    "entity_class_refs": [
+      "IG_O7_ORGANIZATION_CARRIER_COMPAT@1.0.0"
+    ],
+    "regime_refs": [
+      "IG_O7_PLUS_ORGANIZATIONAL_REGIME_COMPAT@1.0.0"
+    ]
+  },
+  "claim_ceiling": "BOUNDED_EXACT",
+  "computation": {
+    "deterministic_science_projection": "legacy frozen normalized lane signature/evidence projection",
+    "entrypoint_ref": "infinity_grid.regime_scanner compatibility extraction for L2 branching",
+    "kind": "LEGACY_COMPAT_ADAPTER"
+  },
+  "cost_class": "MEDIUM",
+  "default_cadence": "every completed development depth unless RunPlan overrides with a stricter preregistered cadence",
+  "dependency_test_refs": [],
+  "evidence_schema_ref": "legacy O_REGIME lane evidence -> future typed evidence schema",
+  "input_mode": "OBSERVATION_VIEW",
+  "observer_definition": "Frozen observer semantics inherited from O_REGIME_ADAPTIVE_SCANNER_SPEC_v1 for L2 branching",
+  "outcome_rules": {
+    "counterexample": "Observed result violates an earned invariant/law/premise or invalidates the proposed lane interpretation.",
+    "null": "No qualifying change/structure under the frozen observer and scope.",
+    "positive": "Declared lane detects a reproducible/stable structure or change according to its preregistered legacy-compatible rule."
+  },
+  "read_only": true,
+  "reopen_conditions": [
+    "required capability semantics change",
+    "observer definition changes",
+    "legacy lane computation changes",
+    "Regime premise/freezewall triggers"
+  ],
+  "required_capabilities": [
+    "TRANSITION_SYSTEM",
+    "ACTION_ENABLEDNESS",
+    "ACTION_MULTIPLICITY"
+  ],
+  "sampling_policy": "pre-outcome deterministic panel/authority policy inherited from frozen compatibility spec",
+  "schema_id": "IG_TEST_SPEC_V1",
+  "schema_version": "1.0.0",
+  "scientific_question": "How do enabled actions, multiplicities, action orbits and successor-image diversity organize?",
+  "scope_class": "BOUNDED_EXACT",
+  "shared_projection_refs": [
+    "O7_COMPAT_SHARED_NORMALIZED_PROJECTIONS"
+  ],
+  "status": "LEGACY_COMPAT_SPEC_NO_NEW_CLAIM",
+  "test_id": "IG_TEST_O7_BRANCHING_COMPAT",
+  "version": "1.0.0"
+}

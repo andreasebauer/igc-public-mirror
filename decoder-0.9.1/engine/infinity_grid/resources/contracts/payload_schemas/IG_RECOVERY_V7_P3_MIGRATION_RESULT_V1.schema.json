@@ -1,0 +1,191 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_class_distribution": {
+      "additionalProperties": false,
+      "properties": {
+        "BOUNDED_SCIENTIFIC_EVIDENCE": {
+          "type": "integer"
+        },
+        "CANONICAL_SCIENCE_AUTHORITY": {
+          "type": "integer"
+        },
+        "CERTIFIED_AUTHORITY": {
+          "type": "integer"
+        },
+        "CHECKPOINT_STATE_EVIDENCE": {
+          "type": "integer"
+        },
+        "HISTORICAL_CAMPAIGN_EVIDENCE": {
+          "type": "integer"
+        },
+        "ORCHESTRATION_CONTROL_EVIDENCE": {
+          "type": "integer"
+        },
+        "RECONSTRUCTED_SCIENCE": {
+          "type": "integer"
+        },
+        "RECOVERED_CERTIFIED_AUTHORITY": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "CANONICAL_SCIENCE_AUTHORITY",
+        "CERTIFIED_AUTHORITY",
+        "CHECKPOINT_STATE_EVIDENCE",
+        "HISTORICAL_CAMPAIGN_EVIDENCE",
+        "ORCHESTRATION_CONTROL_EVIDENCE",
+        "RECONSTRUCTED_SCIENCE",
+        "RECOVERED_CERTIFIED_AUTHORITY"
+      ],
+      "type": "object"
+    },
+    "changed_resume_semantics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "new_profile_sha256": {
+            "type": "string"
+          },
+          "old_profile_sha256": {
+            "type": "string"
+          },
+          "profile_id": {
+            "type": "string"
+          },
+          "resume_semantics": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "new_profile_sha256",
+          "old_profile_sha256",
+          "profile_id",
+          "resume_semantics"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "contracts": {
+      "type": "integer"
+    },
+    "coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "contracts": {
+          "type": "integer"
+        },
+        "failures": {
+          "items": {},
+          "type": "array"
+        },
+        "profiles": {
+          "type": "integer"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "authority_class": {
+                "type": "string"
+              },
+              "profile_id": {
+                "type": "string"
+              },
+              "replay_class": {
+                "type": "string"
+              },
+              "target_node_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "authority_class",
+              "profile_id",
+              "replay_class",
+              "target_node_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "schema_id": {
+          "const": "IG_REPLAY_CONTRACT_REGISTRY_V1",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contracts",
+        "failures",
+        "profiles",
+        "rows",
+        "schema_id",
+        "status"
+      ],
+      "type": "object"
+    },
+    "profiles": {
+      "type": "integer"
+    },
+    "replay_class_distribution": {
+      "additionalProperties": false,
+      "properties": {
+        "CHECKPOINT_PREFLIGHT": {
+          "type": "integer"
+        },
+        "FULL_HISTORICAL_CAMPAIGN": {
+          "type": "integer"
+        },
+        "REPLAY_BOUNDED_EXPERIMENT": {
+          "type": "integer"
+        },
+        "RERUN_GRADUATION_AUDIT": {
+          "type": "integer"
+        },
+        "SCIENTIFIC_RECONSTRUCTION": {
+          "type": "integer"
+        },
+        "VERIFY_AUTHORITY": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CHECKPOINT_PREFLIGHT",
+        "FULL_HISTORICAL_CAMPAIGN",
+        "REPLAY_BOUNDED_EXPERIMENT",
+        "RERUN_GRADUATION_AUDIT",
+        "SCIENTIFIC_RECONSTRUCTION",
+        "VERIFY_AUTHORITY"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority_class_distribution",
+    "changed_resume_semantics",
+    "contracts",
+    "coverage",
+    "profiles",
+    "replay_class_distribution",
+    "schema_id",
+    "status"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P3_MIGRATION_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

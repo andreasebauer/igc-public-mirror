@@ -1,0 +1,124 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_CALIBRATION_RECORD_INDEX_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_note": {
+            "type": "string"
+          },
+          "benchmark_summary": {
+            "additionalProperties": false,
+            "properties": {
+              "O7_center_reservation_options_seconds_by_endpoint_type": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "O7_profile_fast_projected_seconds": {
+                "type": "number"
+              },
+              "O7_profile_old_seconds": {
+                "type": "number"
+              },
+              "O7_profiles_equal": {
+                "type": "boolean"
+              },
+              "O7_through_7_wall_seconds": {
+                "type": "number"
+              },
+              "O8_candidate_count": {
+                "type": "integer"
+              },
+              "O8_candidate_edge_count": {
+                "type": "integer"
+              },
+              "O8_full_build_180_second_timeout": {
+                "type": "boolean"
+              },
+              "O8_profiles_equal": {
+                "type": "boolean"
+              },
+              "O8_reserve_canonical_calls": {
+                "type": "integer"
+              },
+              "O8_single_sparse_3_edge_candidate_build_seconds": {
+                "type": "number"
+              },
+              "O8_sparse_profile_fast_projected_seconds": {
+                "type": "number"
+              },
+              "O8_sparse_profile_old_seconds": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "O7_center_reservation_options_seconds_by_endpoint_type",
+              "O7_profile_fast_projected_seconds",
+              "O7_profile_old_seconds",
+              "O7_profiles_equal",
+              "O7_through_7_wall_seconds",
+              "O8_candidate_count",
+              "O8_candidate_edge_count",
+              "O8_full_build_180_second_timeout",
+              "O8_profiles_equal",
+              "O8_reserve_canonical_calls",
+              "O8_single_sparse_3_edge_candidate_build_seconds",
+              "O8_sparse_profile_fast_projected_seconds",
+              "O8_sparse_profile_old_seconds"
+            ],
+            "type": "object"
+          },
+          "classification": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "authority_note",
+          "classification",
+          "file",
+          "record_id",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rule": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_V026_CALIBRATION_RECORD_INDEX_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "records",
+    "rule",
+    "schema_id",
+    "status"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_CALIBRATION_RECORD_INDEX_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

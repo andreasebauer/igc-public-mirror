@@ -1,0 +1,83 @@
+DECODER 0.6 — RESULT CHECKS AND PRESERVATION
+Candidate revision: read the single canonical _version.py value.
+
+All execution continues through native capture / pending-saves / confirm-save /
+run. Declared tests and scientific scripts are saved before they execute.
+
+Machine result contracts use schema_id IG_DECODER_RESULT_CONTRACT_V1:
+  claim: SCIENCE, VALIDATION, or EXECUTION_ONLY
+  required_artifacts: [{path, optional sha256, optional json_checks}]
+  result_checks: [{pointer, equals | one_of | count}]
+  prerequisites: [{capsule_sha256, completion_sha256}]
+  preservation: optional policy overrides, as a dictionary
+An optional outcome={artifact,pointer} reads the scientific outcome from one of
+the required JSON artifacts. This is useful for a SCRIPT: its process outcome
+remains separate from the scientific outcome in its output JSON.
+Artifact paths are relative to the registered run output; SCRIPT files are
+under script/work/, and stdout is script/stdout.log. JSON pointers use /field.
+Scientific outcomes must be among the frozen question outcomes. A negative
+scientific outcome is accepted when its declared checks pass.
+
+Legacy descriptive contracts remain usable, but do not certify scientific
+output. Native validation and recorded change jobs get an explicit PASS check.
+Missing or mismatched typed evidence yields RESULT_REJECTED. The original
+completion records execution_status, evidence_status and scientific_outcome;
+remote saving is reported separately and never changes the completion hash.
+Prerequisites require the exact original capsule, completion and VERIFIED
+evidence. Import missing project history; do not invent an acceptance flag.
+
+The validation runtime records actual per-test setup/call/teardown reports,
+collections and logs. A worker's failure does not turn its passed tests into
+failures. An interrupted job selects unfinished tests on resume; old partial
+reports remain retained. Skipped/incomplete checks are not silently PASS.
+Use preserve pause for a monitored interruption. Validation timeouts retain an
+unfinished attempt instead of creating a reusable final failure completion.
+
+Native preservation commands:
+  python -m infinity_grid.controller preserve status WORKSPACE
+  ... preserve snapshot WORKSPACE
+  ... preserve pause WORKSPACE REASON
+  ... preserve note-upload WORKSPACE OBJECT_SHA DRIVE_FILE_ID
+  ... preserve confirm WORKSPACE OBJECT_SHA RAW_READBACK DRIVE_FILE_ID
+  ... preserve export WORKSPACE ARCHIVE [--slim]
+  ... preserve restore ARCHIVE DESTINATION ARCHIVE_SHA [--objects DIRECTORY]
+
+The native controller checkpoints before execution, at timed committed stage /
+validation boundaries, and at terminal or caught-interruption boundaries.
+Shared SQLite stores use SQLite backup while active; completed evidence keeps
+its original bytes. Plain scripts have process-boundary recovery, not a saved
+Python heap or automatic continuation of an arbitrary interrupted instruction.
+Checkpoint packets reuse unchanged source and input objects; changing run state
+and project history are separate immutable objects. Project checkpoints store
+only additions to the already saved baseline, avoiding repeated history uploads. The outbox lists exact
+pending bytes, objects, checkpoint count and oldest pending age.
+
+Save each pending object through the available Drive connector. Record the
+returned file ID with note-upload immediately. Fetch its raw original bytes and
+use preserve confirm. Retrying an already noted upload reuses its file ID for
+readback rather than creating a new upload. A note alone never means preserved.
+No connector credentials or remote tokens are embedded in the engine.
+
+Default preservation policy (captured with the result contract):
+  interval_seconds=30; max_pending_bytes=268435456;
+  max_commit_bytes=134217728; max_pending_commits=8;
+  max_pending_age_seconds=3600.
+New scheduling reserves one maximum checkpoint's capacity. A backlog pause
+keeps the original capture; drain the outbox and resume that capture. An
+oversized checkpoint or changing uncommitted file is explicitly refused and
+reported; it is never called remotely preserved. Workspace and measured memory
+budgets also cover native publication and monitored execution.
+
+Native export for new captures uses this checkpoint format. Complete archives
+include all objects required for the current restart. Slim archives list each
+required object and available exact Drive receipt. Restore refuses missing or
+wrong bytes before producing a usable destination. Earlier checkpoint IDs and
+their save receipts remain separate historical references; a complete current
+restart archive does not pretend to contain every earlier intermediate snapshot.
+
+Durability boundaries: local checkpoint, uploaded, readback-confirmed. In this
+chat environment Drive transport is an explicit connector capability. Detached
+execution does not prove saving after a chat/environment disappears. Do not
+claim unattended transfer unless an actual independent transport demonstration
+establishes that capability. Imported project history cannot reveal unseen work
+in a disconnected chat.

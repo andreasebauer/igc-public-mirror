@@ -1,0 +1,5 @@
+Historical replay qualification pins remain unchanged.
+
+The historical uplift_structural.py bytes are retained from the exact public mirror commit and checked against the original SHA256. Historical source-integrity tests use a temporary retained-source view. The production verifier is unchanged and must refuse binding those historical records to changed current code. Current0.9 full-release qualification remains required separately.
+
+The physical source change replaces an assert with an explicit integrity check that survives optimized Python. It does not arise from the hierarchy cache. No historical authority, qualification, certificate or expected digest was rewritten.

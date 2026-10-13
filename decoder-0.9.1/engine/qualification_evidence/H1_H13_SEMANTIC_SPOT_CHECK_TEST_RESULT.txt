@@ -1,0 +1,15 @@
+H1-H13 SEMANTIC CLASSIFICATION SPOT-CHECK — DEV48 — 2026-09-22
+
+Result: PASS
+Passed: 72
+Failed: 0
+Duration: 1.11 seconds
+
+Scope:
+  H1-H13 semantic result and source-identity checks
+  R02 boundary-preservation checks
+  P1A2/P1B/P1B2/P1C/P1C2/P1C3/P1C4/P1C5/P1D regressions
+  runtime/backend version contract
+
+The known saved-current-validation CAPTURE_REQUIRED node was not part of this
+focused run; it remains one of the 22 explicit dev47 R02 nonportable gaps.

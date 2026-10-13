@@ -1,0 +1,85 @@
+DECODER 0.6 DEVELOPMENT — CAPTURE AND SAVED EXECUTION
+
+Active version comes from infinity_grid/_version.py. This is a development
+candidate; common release activation and final version acceptance are later.
+
+Supported controller operations:
+  capture STORE SPEC.json
+  pending-saves WORKSPACE
+  confirm-save WORKSPACE OBJECT_SHA256 RAW_DOWNLOADED_FILE DRIVE_FILE_ID
+  save-failed WORKSPACE OBJECT_SHA256 REASON
+  run WORKSPACE JOB_ID
+  export WORKSPACE SNAPSHOT.zip
+  restore SNAPSHOT.zip NEW_WORKSPACE EXPECTED_SHA256
+  restore-capture CAPTURE.json OBJECT_DIRECTORY NEW_WORKSPACE
+
+Invoke these through python -m infinity_grid.v05_controller_event_loop.
+The historical module name remains the supported entrypoint until Step4's
+version-neutral aliases. Use PYTHONPATH=WORKSPACE/source when running a capture.
+The registered job and the loaded source must match exactly.
+
+Capture is preparation: it never imports or runs submitted project code.
+It snapshots the engine and the entire project, not only a guessed import list.
+It preserves parameters, question, outcomes, stopping rule, output contract,
+test selection, resource limits, data hashes and environment requirements.
+Engine objects are shared by content identity; a changed helper, contract or
+environment yields a new capture. The prior capture and its receipts remain.
+
+The specification schema is IG_DECODER_CAPTURE_SPEC_V1, with exactly:
+schema_id, job_id, engine_source, project_source (path or null), question,
+execution, resources, inputs, environment, output_contract.
+Question/resources retain the existing registered-workspace structure.
+Inputs are logical_name/path/sha256 rows. Environment has python (major.minor),
+requirements (distribution/version/imports rows), and artifacts (input rows).
+Declare and save dependency archives for recovery on the intended platform.
+
+VALIDATION uses frozen tests/... node IDs. STAGE uses the existing native
+handler/evaluator protocol. SCRIPT runs one project/*.py entrypoint with argv
+and JSON parameters; it is serial (workers=1, start_method=AUTO or fork).
+Parallel science continues to use scheduled STAGE work. SCRIPT questions must
+include PROCESS_COMPLETED and PROCESS_FAILED. These record process outcomes,
+not scientific acceptance. The output contract is captured in Step2; semantic
+output/prerequisite enforcement remains Step6.
+
+STAGE may use fixed infinity_grid.* refs or source-bound project.* refs.
+Project refs must resolve below the captured source/project tree. The complete
+source hash, registered refs, module hashes, and helper preflight are checked
+again at execution. Project evaluators have no built-in kernel-service access.
+See PROJECT_STAGE_READ_FIRST.txt for the exact chat/operator procedure.
+
+SCRIPT receives DECODER_PARAMETERS_PATH and DECODER_INPUTS_PATH. Its working
+directory is a controller-owned output directory; stdout, stderr, files and
+exit status become completion evidence. Captured project helpers are checked
+before ordinary import. Missing imports and direct dynamic executable loading
+receive a refusal explaining how to capture the required helper first.
+Static dependency admission is conservative and is not proof of arbitrary
+Python behavior. Step4 supplies the remaining invocation controls.
+
+Saving:
+After capture, upload each pending object through the Drive connector, fetch
+its raw bytes, and confirm-save its exact digest and actual Drive file ID.
+No run may begin until every required object, including the capture record,
+has a matching acknowledgment. Reused engine/input acknowledgments carry to
+later captures. Wrong readbacks and reported transport failures stay recorded.
+The receipt verifies bytes locally and records an explicit connector/operator
+attestation. It is not a remote cryptographic identity proof. Shared authority
+is Step5; unattended transfer is Step6. Do not claim either exists from this
+manual connector workflow. No insecure alternate run flag is supplied.
+
+If Drive rejects a large object, keep the job paused and use native transport
+parts instead of changing the object. Start at 16 MiB; retry with a new verified
+manifest at 8 MiB and then 4 MiB if required. Upload parts sequentially, raw-
+download each part, verify its size and SHA-256, reconstruct the object, and
+verify the full original hash. Multipart transport does not erase role-bound
+save obligations; confirm the exact obligation ID. See SAVE_TRANSPORT_READ_FIRST.txt.
+
+Recovery:
+Native export contains frozen source, inputs, registration, receipts and run
+evidence. Native restore verifies it before use. restore-capture reconstructs
+pre-execution files from the saved content objects and starts in SAVE_REQUIRED;
+it does not invent remote acknowledgments. Preserve final snapshots and
+receipt files alongside content objects to recover completed/reusable runs.
+
+Historical evidence and schema IDs keep their original identities. Read
+build_meta() for active version-aware build status. Historical pre-0.6 build
+metadata is retained in resources/history/BUILD_META_BEFORE_06.json.

@@ -1,0 +1,99 @@
+{
+  "admitted_operations": [
+    "the same inherited 31-operator composition grammar; this stage changes representation only, not operations"
+  ],
+  "date": "2026-09-06",
+  "decoder_release": "v0.5 / 0.50",
+  "dependencies": [
+    "G6:S0",
+    "G6:S1",
+    "G6:S2",
+    "G6:S3",
+    "G6:S4"
+  ],
+  "domain": {
+    "candidate_generation": "enumerate canonical feature expressions in increasing complexity subject to registered budgets; perform exact partition refinement until stable",
+    "evidence_input": "all certified S0-S4 exact/public rows and continuation signatures",
+    "feature_grammar": {
+      "allowed_public_feature_language": [
+        "integer-linear/additive aggregates of inherited G5 public coordinates f and m over constituent G5 terms",
+        "finite bags/counts over S1-S4 certified public equivalence classes when those classes are produced by the preregistered quotient algorithms",
+        "finite deterministic read labels that are exact functions of the S1-S4 certified public observer and are explicitly materialized in those stages"
+      ],
+      "forbidden_without_review": [
+        "raw hidden tree topology/canon",
+        "construction identity",
+        "ancestry/provenance",
+        "owner identity",
+        "coordinates/distance/dimension/time",
+        "features selected after looking at holdout failures outside the declared language"
+      ],
+      "selection_rule": "partition refinement / deterministic transducer minimization within this feature language; tie-break lexicographically by canonical feature expression, then by smaller state dimension"
+    },
+    "training_scope": "entire S0-S4 certified finite universe; no hidden holdout tuning"
+  },
+  "evidence_contract": [
+    "candidate feature expressions tried",
+    "partition refinement trace",
+    "state cardinality/dimension",
+    "exact write law/table",
+    "all conflicts",
+    "coverage matrix",
+    "candidate law hash",
+    "independent recomputation input package"
+  ],
+  "exact_equality_rule": "Hashes may index/bind artifacts, but every exact scientific equality claim is decided by full structural equality of the declared carrier/outcome objects.",
+  "frozen_question": "Is there a finite state/read-write description, expressible in the preregistered G6 feature grammar, that is sufficient and deterministic for every S0-S4 certified composition context; if so, what is the coarsest such state and its exact write law?",
+  "nonclaims": [
+    "NO_GEOMETRY_METRIC_DIMENSION_TIME_OR_SPACETIME_CLAIM",
+    "NO_UNREGISTERED_PUBLIC_FIELD_PROMOTION",
+    "NO_POSTHOC_QUESTION_CHANGE"
+  ],
+  "notes": [
+    "A S5 PASS earns only a candidate finite G6 algebra pending S6 recursive closure and explicit graduation review."
+  ],
+  "observer": {
+    "minimality": "minimal only inside the declared feature grammar and certified finite evidence unless a separate proof upgrades it",
+    "primary": "candidate finite state projection plus exact deterministic transition/write table or symbolic law",
+    "success": "single-valued writes, representative independence, complete coverage of S0-S4 observer"
+  },
+  "parent_authority": {
+    "authority_ref": "Decoder_v0.5_G5_S6_READ_FIRST_2026-09-06.txt",
+    "graduation_science_sha256": "05a836cc08a4368e9ad4d6533b80ea3f6cf98bb90baf41a7ce0ace7b7eac0566",
+    "independent_verification_sha256": "ca4909473651257b37f0443605997fd37342ebbd47cc093cdb4f20483bc6fc19",
+    "public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "public_law": "enabled iff f_a>0 and g_b>0; D_out=(f+g-e_a-e_b,m+n)",
+    "s6_stage_science_sha256": "19c5ef0a3f394d0843ca90ae5015ad359452d00a63e7b0a51a0004d62f1ae66b",
+    "scope": "ALL_FINITE_GENERATED_G5_TERMS_UNDER_FROZEN_31_OPERATOR_GRAMMAR"
+  },
+  "promotion_constraints": [
+    "Mechanical PASS never changes G5 authority.",
+    "Any new G6 public field is candidate-only until S5 earns a finite state and S6 plus explicit graduation review approve it.",
+    "Hidden topology/canon/provenance may be used as oracle evidence but cannot enter the public descriptor unless a separately registered promotion test earns it."
+  ],
+  "purpose": "Earn a finite G6 read/write state and composition law, if one exists in the frozen feature grammar.",
+  "question_sha256": "bf6f3734f93ac42f9d7141407cc3f83096c8b93cc5881689d1e26b389dcd894f",
+  "registered_alternatives": [
+    "PASS_FINITE_STATE_AND_WRITE_LAW_EARNED",
+    "NO_FINITE_STATE_WITHIN_REGISTERED_FEATURE_GRAMMAR",
+    "WRITE_CONFLICT",
+    "BUDGET_INSUFFICIENT"
+  ],
+  "resource_budget": {
+    "max_feature_candidates": 10000,
+    "max_partition_states": 1000000,
+    "wall_seconds": 21600,
+    "workers": 4
+  },
+  "schema_id": "IG_G6_STAGE_PREREGISTRATION_V1",
+  "stage_id": "G6:S5",
+  "status": "FROZEN_BEFORE_G6_EXECUTION",
+  "stopping_rules": [
+    "authority/source/question hash mismatch",
+    "changed scientific assumptions",
+    "unregistered operator/read/field required",
+    "runtime integrity failure",
+    "registered science budget exhausted",
+    "first decisive separator when the stage specifies first-separator stopping"
+  ]
+}

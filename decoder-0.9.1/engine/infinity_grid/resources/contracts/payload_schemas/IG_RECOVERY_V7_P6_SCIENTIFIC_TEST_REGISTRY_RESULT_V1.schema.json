@@ -1,0 +1,159 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "levels": {
+          "additionalProperties": false,
+          "properties": {
+            "O1": {
+              "type": "integer"
+            },
+            "O2": {
+              "type": "integer"
+            },
+            "O3": {
+              "type": "integer"
+            },
+            "O4": {
+              "type": "integer"
+            },
+            "O5": {
+              "type": "integer"
+            },
+            "O6": {
+              "type": "integer"
+            },
+            "O7": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "O1",
+            "O2",
+            "O3",
+            "O4",
+            "O5",
+            "O6",
+            "O7"
+          ],
+          "type": "object"
+        },
+        "registry_sha256": {
+          "type": "string"
+        },
+        "replay_modes": {
+          "additionalProperties": false,
+          "properties": {
+            "DIRECT_TARGET": {
+              "type": "integer"
+            },
+            "EMBEDDED_EVIDENCE_CHECK": {
+              "type": "integer"
+            },
+            "EMBEDDED_GATE": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "DIRECT_TARGET",
+            "EMBEDDED_EVIDENCE_CHECK",
+            "EMBEDDED_GATE"
+          ],
+          "type": "object"
+        },
+        "schema_id": {
+          "const": "IG_SCIENTIFIC_TEST_COVERAGE_V1",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "tests": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "levels",
+        "registry_sha256",
+        "replay_modes",
+        "schema_id",
+        "status",
+        "tests"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_note": {
+            "type": "string"
+          },
+          "evidence_relative_path": {
+            "type": "string"
+          },
+          "execution": {
+            "type": "string"
+          },
+          "expected_value": {
+            "type": "string"
+          },
+          "json_pointer": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "parent_target_alias": {
+            "type": "string"
+          },
+          "replay_mode": {
+            "type": "string"
+          },
+          "replay_semantics": {
+            "type": "string"
+          },
+          "test_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "authority_note",
+          "execution",
+          "level",
+          "parent_target_alias",
+          "replay_mode",
+          "replay_semantics",
+          "test_id",
+          "title"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "coverage",
+    "schema_id",
+    "status",
+    "tests"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_RECOVERY_V7_P6_SCIENTIFIC_TEST_REGISTRY_RESULT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

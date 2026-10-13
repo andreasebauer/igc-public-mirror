@@ -1,0 +1,30 @@
+{
+  "allowed_s1_alternatives": [
+    "G5_S1_PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE",
+    "G5_S1_PAIR_CENSUS_HIDDEN_RESIDUAL_DETECTED",
+    "G5_S1_AUTHORITY_OR_CENSUS_FAILURE"
+  ],
+  "allowed_s1_outcomes": [
+    "PASS",
+    "REVIEW_REQUIRED",
+    "BLOCKED"
+  ],
+  "g4_changed": false,
+  "g5_composition_law_earned": false,
+  "graduated": false,
+  "historical_compatibility": {
+    "comparison_projection": "ROW_KEY_INPUT_PUBLIC_KEY_OPERATOR_PUBLIC_SIGNATURE_EXCLUDING_HIDDEN_EXACT_CHILD_CANON_COUNT",
+    "hidden_diagnostic_identity_change_allowed": true,
+    "historical_public_projection_sha256": "77885c3a3e27e2cbfa557d625ce54982926e8ce81d5e4302cc5e4819b2b308fd",
+    "historical_s1_rows_sha256": "5e017d0529da53900e2b1d8cee993b20315bbd9630cd5d8e6584b9f25e27c863",
+    "required_historical_s1_classification": "G5_S1_PAIR_CENSUS_PUBLIC_CONGRUENT_ON_CHALLENGE"
+  },
+  "required_authority_effect": "NONE_P6",
+  "required_post_s1_stop": "G5_S2_PREREGISTRATION_REQUIRED",
+  "required_s0_stage_science_sha256": "34b2dd21c1517657388a7b002c3566ddd36d96f20d85d3194519add123e72593",
+  "s2_execution_authorized": false,
+  "schema_id": "IG_G5_S1_PREREGISTERED_ORACLE_V2",
+  "science_sha256": "8137dba6bb3a22a6054047317b7cc240c434ae102ba7267ce49c0a5b0cdf32ce",
+  "spec_science_sha256": "dbf6a45394e1011aaac904bb46c59f598f21ae71d9449cdd17d9a0902281f759",
+  "stage": "G5:S1_REPAIR_RECERTIFICATION"
+}

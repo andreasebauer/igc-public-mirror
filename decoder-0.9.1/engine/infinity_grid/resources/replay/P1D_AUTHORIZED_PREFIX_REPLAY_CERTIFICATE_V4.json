@@ -1,0 +1,39 @@
+{
+  "schema_id": "IG_P1D_AUTHORIZED_PREFIX_REPLAY_CERTIFICATE_V4",
+  "status": "QUALIFIED_EVIDENCE_REPRODUCTION_BUDGET_INCOMPLETE_WAITING_AT_GLOBAL",
+  "decoder_version": "0.8.0.dev46+lib",
+  "underlying_replay_decoder_version": "0.8.0.dev42+lib",
+  "authorized_replay_through_layer": "G8",
+  "next_wait_layer": "GLOBAL",
+  "fail_closed": true,
+  "science_executed_in_correction": false,
+  "result_language": "REPRODUCED",
+  "current_evidence_replay_budget": {
+    "status": "BUDGET_INCOMPLETE_ONE_FRESH_NODE_UNMEASURED",
+    "pre_global_node_outcomes": {
+      "LIKELY_WITHIN_BUDGET": 59,
+      "BUDGET_REQUIRED_BEFORE_RUN": 1
+    },
+    "total_runtime_estimate": "NOT_SUMMABLE_FROM_AVAILABLE_MEASUREMENTS"
+  },
+  "prospective_full_empty_root_recompute_budget": {
+    "status": "DO_NOT_LAUNCH_COST_MODEL_INCOMPLETE",
+    "pre_global_node_outcomes": {
+      "LIKELY_WITHIN_BUDGET": 2,
+      "BUDGET_REQUIRED_BEFORE_RUN": 57,
+      "PERFORMANCE_BUDGET_EXCEEDED_EXPECTED": 1
+    },
+    "expected_performance_budget_exceeded_nodes": [
+      "IG/G8/F/ASSERTION_MAPPED_FALSIFICATIONS"
+    ],
+    "total_runtime_estimate": "UNAVAILABLE"
+  },
+  "interpretation": "The evidence replay remains qualified through G8, but a full empty-root run must not launch: 57 pre-GLOBAL nodes lack empirical cost models and the G8 CAP37 frontier is expected to exceed the current performance budget.",
+  "nonclaims": [
+    "Operational ceilings are not runtime estimates.",
+    "The shared G6 two-module probe cannot be split into per-node costs or extrapolated to full historical G6 science.",
+    "No total runtime or memory estimate is available for a full empty-root replay.",
+    "No GLOBAL/Components assertion was executed or authorized.",
+    "The shared release pointer was not advanced."
+  ]
+}

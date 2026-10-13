@@ -1,0 +1,140 @@
+{
+  "schema_id": "IG_R02_REPLAY_SELF_QUALIFICATION_MANIFEST_V1",
+  "decoder_version": "0.8.0.dev47+lib",
+  "date": "2026-09-22",
+  "status": "PORTABLE_R02_CORE_PASS_WITH_22_DECLARED_NONPORTABLE_GAPS",
+  "r02_complete": false,
+  "production_regressions_detected": 0,
+  "interpretation": "PASS means reproduced under the stated dev47 portable qualification boundary; it does not independently confirm scientific correctness.",
+  "qualification_runs": {
+    "portable_core": {
+      "result": "PASS",
+      "passed": 340,
+      "skipped": 1,
+      "deselected": 3,
+      "junit": "qualification_evidence/R02_PORTABLE_CORE_JUNIT.xml",
+      "junit_sha256": "9ccbf90c162262a9bb6f85ed6832fe779023982d7cfd7de22a7859d9a72f8d64",
+      "execution_policy": "NO_AUTOMATIC_RUNTIME_DEADLINE_V1",
+      "scope": [
+        "library backend equivalence",
+        "controller and registered-service boundaries",
+        "C5/C6 origin, namespace and persistent recovery",
+        "change and result preservation",
+        "SQLite lifecycle",
+        "deterministic multicore and exact-byte handoff",
+        "no-science workflow"
+      ],
+      "skip": {
+        "node": "tests/test_legacy_capture_receipts.py::test_execution_environment_remains_strict",
+        "reason": "fixture interpreter happens to match this test environment"
+      }
+    },
+    "dev33_archive_compatibility": {
+      "result": "PASS_AT_EVIDENCE_BOUNDARY",
+      "passed": 9,
+      "deselected": 4,
+      "junit": "qualification_evidence/R02_DEV33_ARCHIVE_COMPAT_JUNIT.xml",
+      "junit_sha256": "63a5a7ae49fe4d8013d0840573cd168c63224c3a332c1cf50ea86944ae691991",
+      "note": "The four positive execution cases are not portable across the dev33-to-dev47 loaded-code boundary and are recorded below, not treated as passes."
+    },
+    "p1_compiler_regression": {
+      "result": "PASS",
+      "passed": 57,
+      "evidence": "qualification_evidence/R02_P1_COMPILER_REGRESSION.txt"
+    }
+  },
+  "nonportable_gaps": [
+    {
+      "category": "HISTORICAL_PARENT_SNAPSHOT_REQUIRED",
+      "count": 10,
+      "nodes": [
+        "tests/test_decoder06_changes.py::test_open_binds_verified_parent_without_importing_it",
+        "tests/test_decoder06_changes.py::test_deep_controller_edit_captured_and_unchanged_revision_reused",
+        "tests/test_decoder06_changes.py::test_requirement_change_needs_reason_and_retains_both_forms",
+        "tests/test_decoder06_changes.py::test_changed_test_bytes_need_reason",
+        "tests/test_decoder06_changes.py::test_candidate_status_flag_cannot_prepare_activation",
+        "tests/test_decoder06_changes.py::test_unsaved_change_test_refuses_and_keeps_event",
+        "tests/test_decoder06_changes.py::test_modified_revision_and_wrong_save_bytes_are_rejected",
+        "tests/test_decoder06_changes.py::test_rollback_requires_exact_current_and_previous",
+        "tests/test_decoder06_changes.py::test_fabricated_pass_receipt_requires_real_controller_completion",
+        "tests/test_decoder06_changes.py::test_validation_runner_project_does_not_change_parent_release"
+      ],
+      "reason": "The historical step2_parent_snapshot fixture is absent from this restored source."
+    },
+    {
+      "category": "OFFLINE_BUILD_DEPENDENCY_REQUIRED",
+      "count": 1,
+      "nodes": [
+        "tests/test_decoder06_changes.py::test_built_and_installed_version_matches_runtime_and_cli"
+      ],
+      "reason": "The isolated qualification interpreter has no setuptools installation or cached wheel."
+    },
+    {
+      "category": "CURRENT_SAVED_VALIDATION_REQUIRED",
+      "count": 3,
+      "nodes": [
+        "tests/test_decoder06_capture.py::test_current_validation_job_has_real_saved_source_records",
+        "tests/test_decoder06_invocation.py::test_saved_current_validation_is_attempt_bound",
+        "tests/test_decoder06_portable_registry.py::test_current_validation_has_native_project_claim"
+      ],
+      "reason": "These checks require a saved current-project validation attempt, not a portable source-only workspace."
+    },
+    {
+      "category": "CURRENT_REPRESENTATIVE_QUALIFICATION_REQUIRED",
+      "count": 4,
+      "nodes": [
+        "tests/test_v05_stage_runtime_representative_bytes.py::test_257_distinct_then_duplicate_needs_no_controller_reopen",
+        "tests/test_v05_stage_runtime_representative_bytes.py::test_cold_multicore_over_256_classes_keeps_exact_grouping_and_durable_bytes",
+        "tests/test_v05_stage_runtime_representative_bytes.py::test_partial_resume_reuses_durable_rep_bytes_without_reopen",
+        "tests/test_v05_stage_runtime_representative_bytes.py::test_legacy_null_rep_binds_view_once_backfills_then_reuses"
+      ],
+      "reason": "The saved_representative_qualification fixture is not present on the restored line."
+    },
+    {
+      "category": "HISTORICAL_LOADED_CODE_MISMATCH",
+      "count": 4,
+      "nodes": [
+        "tests/test_v05_registered_workspace.py::test_changed_input_bytes_are_rejected",
+        "tests/test_v05_registered_workspace.py::test_interrupted_checkpoint_restores_elsewhere_and_resumes",
+        "tests/test_v05_registered_workspace.py::test_wrong_archive_checksum_is_rejected",
+        "tests/test_v05_registered_workspace.py::test_unregistered_scientific_outcome_is_not_committed"
+      ],
+      "reason": "Positive execution from dev33 archives is correctly refused by dev47 as WORKSPACE_LOADED_CODE_MISMATCH."
+    }
+  ],
+  "gap_count": 22,
+  "historical_archives": [
+    {
+      "name": "SAVED_STAGE_ONE_DEV33.zip",
+      "sha256": "f350b3252f446b3373a7be4df2e8375beef7653cb9c0d7d05226f2adb09a2b67"
+    },
+    {
+      "name": "SAVED_STAGE_FOUR_DEV33.zip",
+      "sha256": "c64754005fac9b2da47f7e60681fe4dbb1ad5e2f8c91937e0cff7580a4bf9f31"
+    },
+    {
+      "name": "SAVED_STAGE_OUTCOME_DEV33.zip",
+      "sha256": "5f59ed05756ef666931ef2c9875f0a76c91c273c65fb1e595c349e14218f3fff"
+    }
+  ],
+  "fixture_note": {
+    "qualification_capture_id": "d8067250e85115429da3b172448e19a2c061f1e0f289aba1fbd6d1e408a06557",
+    "status": "SAVE_REQUIRED",
+    "authority": "NON_AUTHORITATIVE_FIXTURE_ACCESS_ONLY"
+  },
+  "raw_diagnostics": [
+    {
+      "passed": 307,
+      "failed": 51,
+      "errors": 14,
+      "classification": "INVALID_SOURCE_LOCAL_VENV_AND_MISSING_CAPTURE_DIAGNOSTIC"
+    },
+    {
+      "passed": 341,
+      "failed": 17,
+      "errors": 14,
+      "classification": "HISTORICAL_AND_CURRENT_FIXTURE_GAPS_DIAGNOSTIC"
+    }
+  ],
+  "conclusion": "The portable R02 core is green and no production-code regression was found. Full R02 remains incomplete until the 22 named environment, fixture and source-version gaps are qualified with matching saved evidence. P2 runner construction must not rely on a full-R02 claim."
+}

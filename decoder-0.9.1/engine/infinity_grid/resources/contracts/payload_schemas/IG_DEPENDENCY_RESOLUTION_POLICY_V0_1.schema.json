@@ -1,0 +1,49 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_DEPENDENCY_RESOLUTION_POLICY_V0_1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity": {
+      "type": "string"
+    },
+    "offline_requirement": {
+      "type": "string"
+    },
+    "path_handling": {
+      "type": "string"
+    },
+    "remote_requirement": {
+      "type": "string"
+    },
+    "resolution_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_DEPENDENCY_RESOLUTION_POLICY_V0_1",
+      "type": "string"
+    },
+    "semantic_aliases": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ambiguity",
+    "offline_requirement",
+    "path_handling",
+    "remote_requirement",
+    "resolution_order",
+    "schema_id",
+    "semantic_aliases",
+    "version"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_DEPENDENCY_RESOLUTION_POLICY_V0_1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

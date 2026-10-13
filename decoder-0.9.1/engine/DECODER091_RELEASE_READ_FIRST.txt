@@ -1,0 +1,27 @@
+Decoder 0.9.1 release source. Read the delivered external qualification ledger,
+source/runtime pins and data-owner cutover packet before execution.
+Canonical version: infinity_grid/_version.py; wheel/offline installed CLI must
+match it. Raw source has no stale generated egg-info. Historical profiles and
+requirements retain their original producer/status under qualification/history.
+
+Use split engine/adapter source with tools/verify_candidate_source.py and the
+exact bundled CPython3.13.5/SQLite3.51.3 runtime. For rolling operation, construct
+a separate composite source from exact engine + project/adapter bytes; load the
+runner from that composite so loaded source equals captured source. CLI:
+python-bundled-host -B -m infinity_grid.rolling_operator --help
+--data-owner-adoption is required for official rolling data. The distinct
+--engineering-registration route qualifies sparse transport/recovery fixtures
+and cannot produce a data-owner adoption receipt or official progress file.
+
+OperatorQueueTransport emits source/capture-bound save requests. Service them
+through the actual connected provider, download exact raw bytes, and reply with
+real provider IDs and local readback paths. The runner verifies all bytes and
+native obligations before continuing. A filename or upload success is not ACK.
+No API secrets live in source. No unattended connector integration is implied.
+
+Source metadata is not release qualification. Use only the external ledger
+whose source/package/runtime/input pins match. Local Linux qualification does
+not imply independent-host qualification or full L0-to-G8 master production.
+Keep56,832completed historical mapping rows /222chunks; begin missing-only work
+at ordinal56,832 after independent data-owner acceptance. Do not repeat closed
+114observer chunks or cancelled66replays.

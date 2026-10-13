@@ -1,0 +1,33 @@
+{
+  "authority_refs": [
+    {
+      "id": "TEMPLATE_ONLY",
+      "role": "placeholder",
+      "scope": "none",
+      "version": "0"
+    }
+  ],
+  "canonicalization_rule": "TO_BE_FROZEN",
+  "certificate_scope": "SOURCE_SCOPED_GRADUATION",
+  "creates_entity_class": false,
+  "lift_candidate_ref": "IG_O7_REGIME_NEXT_ENTITY_LIFT_TEMPLATE",
+  "lift_certificate_id": "IG_LIFT_CERTIFICATE_TEMPLATE_DO_NOT_TREAT_AS_EARNED",
+  "limitations_and_nonclaims": [
+    "This is a schema/example only. It does not certify the next EntityClass.",
+    "Plateau evidence alone is insufficient."
+  ],
+  "observer_action_multiplicity_scope": "TO_BE_FROZEN",
+  "premise_set_ref": "TO_BE_CREATED",
+  "reopen_conditions": [
+    "Any certified premise changes"
+  ],
+  "representative_independence": "TO_BE_PROVED_OR_AUDITED",
+  "retained_relations_and_fields": [],
+  "schema_id": "IG_LIFT_CERTIFICATE_V1",
+  "schema_version": "1.0.0",
+  "status": "EXAMPLE_TEMPLATE",
+  "sufficiency_and_closure": [
+    "TO_BE_PROVED_OR_AUDITED: mature organization representation is sufficient in declared future contexts/actions",
+    "TO_BE_PROVED_OR_AUDITED: transition/action closure holds in declared scope"
+  ]
+}

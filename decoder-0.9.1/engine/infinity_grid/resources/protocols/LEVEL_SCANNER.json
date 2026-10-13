@@ -1,0 +1,59 @@
+{
+  "acceptance_gates": [],
+  "allowed_protocol_labels": [
+    "SCANNER_OPEN",
+    "SCANNER_CLOSED"
+  ],
+  "evidence_policy": {
+    "allowed_tuples": [],
+    "max_authority": "SCOPED_AUDIT_AUTHORITY"
+  },
+  "forbidden_claims": [
+    "geometry emerged",
+    "o-level graduated"
+  ],
+  "input_contract": {},
+  "observer_contract": null,
+  "plan_profiles": [
+    {
+      "allowed_input_flags": [],
+      "allowed_protocol_labels": [
+        "SCANNER_OPEN",
+        "SCANNER_CLOSED"
+      ],
+      "profile_id": "future_scanner",
+      "stages": [
+        {
+          "allowed_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "depends_on": [],
+          "required_param_keys": [
+            "fixture_dataset_sha256"
+          ],
+          "runner": "NOT_IMPLEMENTED.level_scanner",
+          "stage_id": "execute"
+        }
+      ]
+    }
+  ],
+  "planner_contract": {
+    "freeze_before_execution": true,
+    "immutable_plan": true
+  },
+  "protocol_id": "LEVEL_SCANNER",
+  "purpose": "Exact level investigation protocol; scientific order remains frozen from Scanner contract.",
+  "schema_id": "IG_PROTOCOL_DESCRIPTOR_V0_17",
+  "source_pins": [],
+  "stage_dag": [
+    {
+      "id": "scanner",
+      "purpose": "exact scanner phases"
+    }
+  ],
+  "stopping_rules": {
+    "fail_closed": true,
+    "freeze_before_result_access": true
+  },
+  "version": "0.17"
+}

@@ -1,0 +1,53 @@
+{
+  "current_contract": {
+    "forbidden_features_present": {
+      "ancestry_provenance_read": false,
+      "copying": false,
+      "deletion": false,
+      "endpoint_replacement": false,
+      "feedback": false,
+      "hidden_topology_read": false,
+      "multiway": false,
+      "orientation_order_read": false,
+      "retagging": false,
+      "rewiring": false
+    },
+    "grrl_application_gate_sha256": "81fe94531bc274cab2e8bea96dd6e12e5a073786f9f3d1cdfa157ecb7d838d8c",
+    "hidden_reads": [],
+    "normalized_grammar_sha256": "5a2b34df6572a10648d46936da81228c606406d09b5b4c7e9603b624527d5a07",
+    "ownership_scope": "DISTINCT_TOP_OWNER_OCCURRENCES",
+    "rank_lift_effect": "LOCAL_P_F_INCREMENT_OWNERSHIP_PRESERVED",
+    "read_set": [
+      "hierarchical_occurrence_structure",
+      "typed_p_f",
+      "Bridge",
+      "scope",
+      "multiplicity"
+    ],
+    "relation_arity": 2,
+    "relation_effect": "MONOTONE_ADD_ONLY",
+    "reservation_effect": "ONE_TYPED_ENDPOINT_PER_SIDE",
+    "schema": "IG_GRRL_NORMALIZED_IMPLEMENTATION_CONTRACT_V1",
+    "successor_semantics": "COUNTER",
+    "writes": [
+      "visible_p_f_reservation",
+      "hidden_outer_incidence"
+    ]
+  },
+  "gates": {
+    "A0_machine_theorem": "PASS",
+    "A1_O7_adapter": "PASS",
+    "A2_O7_read_probe": "PASS",
+    "A3_O8_graduation": "PASS",
+    "A4_O9_repeat": "PASS",
+    "A5_current_implementation_contract": "PASS"
+  },
+  "generic_theorem_status_file_sha256": "2b6fb168fb83fe949f4462acce4f09d638994e61b3354de1e16eb5de8bf9d821",
+  "o7_adapter_science_sha256": "3a81c8fac30eb37359b366bc7d2eb2f298440f112ceea95f84d40c3832bc139d",
+  "o7_read_probe_science_sha256": "51079cc1598aa5d3d1e80c998dafbd855d14c26667661b87ef138e1730058303",
+  "o8_science_sha256": "a8d79ae7af92cac3f4cad9b852298cea6c155d71bdc65f024529b6b3455d9cbd",
+  "o9_science_sha256": "b86b4d8e1a1beec80952064f9b393f371c8f2287826b6bfbf0b1da0a3a1059fa",
+  "schema": "IG_EXACT_CARRIER_THEOREM_AUTHORITY_AUDIT_V1",
+  "science_sha256": "dfa8a279d110d1483069d08020e924ab525113611241b4319e511917351551ee",
+  "status": "PASS"
+}
