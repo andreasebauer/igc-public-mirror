@@ -1,0 +1,53 @@
+{
+  "environment_node_id": "environment:sha256:fbc50d01ba79c2d7ded5ca438b14f8193bca08fa5e3ed6f85d2fe7585a9958b7",
+  "environment_sha256": "fbc50d01ba79c2d7ded5ca438b14f8193bca08fa5e3ed6f85d2fe7585a9958b7",
+  "exact_clean_rebuild_subset": [
+    "O1",
+    "O4",
+    "O6",
+    "O7"
+  ],
+  "protocol_node_id": "protocol:sha256:0f4ca85444422bc1ff5643c5bfd3d00df1f71e9e2b971d8e6acd3ba265d54504",
+  "rows": [
+    {
+      "expected_result_sha256": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "level": "O1",
+      "question_node_id": "question:sha256:5550b8ecef8efd4897e944ce9fce1e3a4169682cef5f19dc40116b28f1a932fe",
+      "recipe_node_id": "recipe:sha256:42d2993ae1cf76af337d210a97d6a87ba7f6d9a9ffda3cfbf98dc4e03ac5b05b",
+      "recipe_sha256": "42d2993ae1cf76af337d210a97d6a87ba7f6d9a9ffda3cfbf98dc4e03ac5b05b",
+      "root_node_id": "artifact:sha256:c79232ee23c28d7fe5273b66c7c3f9afb447b5e4ccd90500c5d55bdd1743971d",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+    },
+    {
+      "expected_result_sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+      "level": "O4",
+      "question_node_id": "question:sha256:d0f647682315c97b68fd514194c1d2c9fd797d4374ceb753cbe0ede8c23eba05",
+      "recipe_node_id": "recipe:sha256:03e09684f6c39fc70da551c9475dfbaebc99c339a803a4b5adaa987a83ef61d8",
+      "recipe_sha256": "03e09684f6c39fc70da551c9475dfbaebc99c339a803a4b5adaa987a83ef61d8",
+      "root_node_id": "artifact:sha256:5c2f56a57ff7921a7fe480db79d1f5e199e434cba2fc9bc4d48ca55bdf02593b",
+      "target_node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    {
+      "expected_result_sha256": "4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f",
+      "level": "O6",
+      "question_node_id": "question:sha256:de27dc6e502b048f800252d9c3f70126d4c229a07673194f450492be2f2ed3e5",
+      "recipe_node_id": "recipe:sha256:611213a9220f01d3ca10235687915f35f823fa1ec529f16c1fb5329c4cced32f",
+      "recipe_sha256": "611213a9220f01d3ca10235687915f35f823fa1ec529f16c1fb5329c4cced32f",
+      "root_node_id": "artifact:sha256:1e0934060973a98cd4c9d47e7d1e42819ed354291312980586751fba64770545",
+      "target_node_id": "result:sha256:4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f"
+    },
+    {
+      "expected_result_sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+      "level": "O7",
+      "question_node_id": "question:sha256:f63ed1ee3f189e56bd80d439f30b2caef6ea78bef8de73ded10f4e8ecda7e646",
+      "recipe_node_id": "recipe:sha256:cb360abf066d33600a1d4b932a5f23a366d268339028450f2fcca32429785c8f",
+      "recipe_sha256": "cb360abf066d33600a1d4b932a5f23a366d268339028450f2fcca32429785c8f",
+      "root_node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+      "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+    }
+  ],
+  "schema_id": "IG_RECOVERY_V7_P5_EXACT_REPLAY_RECIPE_REGISTRY_V1",
+  "source_node_id": "source:sha256:b8950d3786c278df92b0fe03d17343d08f5856e43d98746ef20d588ea0b86461",
+  "source_sha256": "b8950d3786c278df92b0fe03d17343d08f5856e43d98746ef20d588ea0b86461",
+  "status": "PASS"
+}

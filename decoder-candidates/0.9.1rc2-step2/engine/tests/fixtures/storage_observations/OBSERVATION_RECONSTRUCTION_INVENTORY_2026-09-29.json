@@ -1,0 +1,1334 @@
+{
+  "historical_node_audit_raw_sha256": "cc8be94113f20e36b2befd8788fc1acb265d4b93d6505f1a30c0829af30647aa",
+  "kind": "RECONSTRUCTED_HASH_MATCHING_PAYLOADS_NOT_NATIVE_QUALIFICATION",
+  "source_revision": "dev117",
+  "evidence_records": 80,
+  "matched_records": 80,
+  "unique_matched_payloads": 49,
+  "records": [
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A29/HISTORICAL",
+      "record_sha256": "20beed25226c150a7d325e2a0a8bc2f97e0bf7bb7d5fccf317570f57218bebc4",
+      "record_raw_sha256": "d60a0dcf3d6e4f3040edfaa258a59daa2c139f5e32c1fd288b6a02c606e77be0",
+      "result_identity": "3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A29",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124.json",
+      "payload_bytes": 455
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A19/HISTORICAL",
+      "record_sha256": "06046581268b32e37e4027b1fe50a750e380db69562c0f74f5f1e6d2206a4f04",
+      "record_raw_sha256": "c19b65a7fc01d3b10ae08ab523a890302b467ec5686660cbd659b3e5826ad602",
+      "result_identity": "11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A19",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987.json",
+      "payload_bytes": 503
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A19/REPLAY",
+      "record_sha256": "0457df68093e7d2a39a07d8a44d81f877d2dc566aad1087ec5e29265cebcb783",
+      "record_raw_sha256": "63fd972a3e2c5bfc8b723ceea0ec19314ca980c732db2536c00a231b2cd55f37",
+      "result_identity": "11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A19",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/11445ed8de0dd000531b2b2ad67a251b1043f9cea2b8b44e596b80dfd471a987.json",
+      "payload_bytes": 503
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/S/HISTORICAL",
+      "record_sha256": "19c9f6446a4b3f1dc682ed4b0bf5b863026751c92d77b72521f83f2c9ce074bd",
+      "record_raw_sha256": "2f9b9614e090ffa975bf05aaa03fc35c5d9f88601b7e13d97af4420dea474927",
+      "result_identity": "14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/S/LOCAL_CERTIFICATE",
+          "node_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8.json",
+      "payload_bytes": 762
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/C/HISTORICAL",
+      "record_sha256": "d21ac11978564a20e37481160e6a5384f6ad058584472ba30150e2990238c7fe",
+      "record_raw_sha256": "64217dced02cd7677309149625aeb303dc227d7a2d1c40410bb5f6284b73381c",
+      "result_identity": "8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/C/SUBSTITUTION_AND_GRAPH_GRAMMAR",
+          "node_id": "IG/NODE_IN/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497.json",
+      "payload_bytes": 132
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/F/REPLAY",
+      "record_sha256": "36e1905bb44521195d860432184946d3af70d9896bb38f96015b1b70edf7288e",
+      "record_raw_sha256": "6045bd1bc92735558f2f114b35541f6d331126c44b391619c1aa96a8cef242c2",
+      "result_identity": "a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/F/OBSERVER_FAILURES",
+          "node_id": "IG/SCOUT_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb.json",
+      "payload_bytes": 716
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/F/HISTORICAL",
+      "record_sha256": "26b40c34ab823f2e2c84d8789ce83453c1f9553930d5307f52d7619c8cde57f1",
+      "record_raw_sha256": "3e1375671ab6e7927cd8d9906cd846cd42223e9040ca347218d42cb3c7592481",
+      "result_identity": "f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/F/LOCAL_COMPOSITOR_NONCLAIMS",
+          "node_id": "IG/L0/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462.json",
+      "payload_bytes": 848
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/S/REPLAY",
+      "record_sha256": "7f16c21c56abea54418aad33035c9b60c743b53a61d5d5344ac6bafef95864ab",
+      "record_raw_sha256": "763d838637d1bcb39c464d43bc19d10598ceeea29b6a85214c7b51dc5c5404b5",
+      "result_identity": "08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/S/RECURRENT_RELATIONAL_TYPES",
+          "node_id": "IG/SCOUT_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae.json",
+      "payload_bytes": 471
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/F/REPLAY",
+      "record_sha256": "52856dfbeff7897718f8346beb20686732cdf8b4be662e38ec501796c68cf3a0",
+      "record_raw_sha256": "b3a20255a2f6ae425a76bdd827b1f76a73e35904522d1e18d44e615106f69a1e",
+      "result_identity": "8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/F/KILL_GATES_AND_NONCLAIMS",
+          "node_id": "IG/NODE_IN/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d.json",
+      "payload_bytes": 100
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A24/REPLAY",
+      "record_sha256": "7f7e4b5212259c0d7eb0495ad6968d5c95fcec25eb3f346163742eb49da8664c",
+      "record_raw_sha256": "1ae32fc9edc8eda43f27166d478cbc98193d807a9bfbe00139c9564621b7c860",
+      "result_identity": "96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A24",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e.json",
+      "payload_bytes": 453
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A10/REPLAY",
+      "record_sha256": "da02d4223791f94e902bab9123f148e3ef7af7b9f365b33cd25df3dbc4f91a71",
+      "record_raw_sha256": "9e3da0716bdb3740bb03f595446b324852adad2745aa69a8201c70acc1ba292f",
+      "result_identity": "596ac05832f9473fa07f200d728b6fefd3172762b7c960cad3d6b6e32ff9ec6f",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A10",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/596ac05832f9473fa07f200d728b6fefd3172762b7c960cad3d6b6e32ff9ec6f.json",
+      "payload_bytes": 249
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A21/REPLAY",
+      "record_sha256": "3c552c4a52cb51b7f7ac4d35816967f2530236024af927379b44b80c8e47e2bd",
+      "record_raw_sha256": "d0a6d3bb8be12df55df06b18add47cd9066801394607c4601ad908f8e82b6bf7",
+      "result_identity": "c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A21",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2.json",
+      "payload_bytes": 484
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/S/HISTORICAL",
+      "record_sha256": "5eb11f50f75da3e255e2eaecd208d17f3b8f38b99503d80dfe6fef8f676777c3",
+      "record_raw_sha256": "627569fe17008e70eec7aab9b80e72bf0349ace9f40dbba65e03da35835cbd65",
+      "result_identity": "08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/S/RECURRENT_RELATIONAL_TYPES",
+          "node_id": "IG/SCOUT_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/08d5a415fc46778284e88c8a84438e3553235bc74a22e2c0a6dd298eec7b20ae.json",
+      "payload_bytes": 471
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A18/REPLAY",
+      "record_sha256": "0c54a6af8306f2c191ad59f7b5468ca55593b11b72b52bbb8b5c50ea16406c3c",
+      "record_raw_sha256": "e56e556c7fa0a844c580edf709aa58f5cff536099ee733b9c4a47a8facddef4a",
+      "result_identity": "05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A18",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3.json",
+      "payload_bytes": 453
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O3_PRIMARY/REPLAY",
+      "record_sha256": "831e2ecb895bdf8d58a353a70d82be49fa594e335786331e24484383dbf96798",
+      "record_raw_sha256": "5830d44d79d5b95a5f9b856be891a8a9fcf566c913af43ecc8b445817254624c",
+      "result_identity": "c56d80f1ae7b2e643a6aff333543fd4a710af70c39524e28b39ccd35059f879d",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O3_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/c56d80f1ae7b2e643a6aff333543fd4a710af70c39524e28b39ccd35059f879d.json",
+      "payload_bytes": 183
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A16/HISTORICAL",
+      "record_sha256": "ebeabafdae8c319de48bdfebb03dac70ff8a682752738d674125bbb6fc269a89",
+      "record_raw_sha256": "8324dc5ef2a847f58d991ea73e951bfbb0e81214d74147d122c6da6577386dfe",
+      "result_identity": "9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A16",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4.json",
+      "payload_bytes": 450
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O3_PRIMARY/HISTORICAL",
+      "record_sha256": "500f8757ea89fc5f20eae5fc7b34f4b928f9480cbb9d41d5aa47982e3e5dd681",
+      "record_raw_sha256": "19e1c2b1b0a48c4059b5a9f1fada2033b5ca3b93850aaf7f6be79f8891bbeaa5",
+      "result_identity": "6241a1be0e57a7b9f0a15e0c5d4b444d24a08991c88edb3c398c9a7bb12afd61",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O3_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/6241a1be0e57a7b9f0a15e0c5d4b444d24a08991c88edb3c398c9a7bb12afd61.json",
+      "payload_bytes": 191
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/R/HISTORICAL",
+      "record_sha256": "48b524398b02c36603d9d9bf90226eaa96f02babe8ac9d0b90ca2bf972ae20b1",
+      "record_raw_sha256": "9f9831d157717fe0a0cd50146fb5893df70b034940e1b6403e7a757b22c8e030",
+      "result_identity": "6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/R/CERTIFICATE_LADDER",
+          "node_id": "IG/C0_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7.json",
+      "payload_bytes": 781
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A17/REPLAY",
+      "record_sha256": "ce0a596a6f835358bcb45e74a1c7774eb1344b6f1276b3ef6489b851c095f1de",
+      "record_raw_sha256": "960ebe9ecda4b4279d6bfd0a06a04d02dc08f9392c1209d5855227670a3a3d58",
+      "result_identity": "65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A17",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98.json",
+      "payload_bytes": 463
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A09/REPLAY",
+      "record_sha256": "1a7908dcb5980445b18f4d2d495d4de03476a5776009c65a1566db7cdc1f04c5",
+      "record_raw_sha256": "50361ad078dc5a4c2ebff5041cba31d4afed96ab387bf4693888f5130ea0fc9f",
+      "result_identity": "0a7f7c279e1b21eec80b55e1fa8085cbe0a722df4709cdb00d1bb02f99534fbf",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A09",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/0a7f7c279e1b21eec80b55e1fa8085cbe0a722df4709cdb00d1bb02f99534fbf.json",
+      "payload_bytes": 249
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/S/A27/HISTORICAL",
+      "record_sha256": "03e5b9ac575a2a9c42dd26c52adb2904f97d7be3903a7299b730e5e36bae4324",
+      "record_raw_sha256": "c18606198bce70de1cd15f014a942db6ccec6cef9ae66e52a2932e8a36afe559",
+      "result_identity": "86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A27",
+          "node_id": "IG/L2J3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300.json",
+      "payload_bytes": 468
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/C/HISTORICAL",
+      "record_sha256": "bf8385511392f814e5656ddbc7958b61c6535034d61610ebf337329315ee97b8",
+      "record_raw_sha256": "5dab096f2e4eb73179464672a0fccd0fce4885c0f725d09b6dff301427994ffd",
+      "result_identity": "0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/C/Q_EXTERNAL_INTERFACE",
+          "node_id": "IG/SCOUT_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558.json",
+      "payload_bytes": 445
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A26/REPLAY",
+      "record_sha256": "bb562553181ef5b147cbc5000ed69670d83d69eaf8549f41ca543a9652919710",
+      "record_raw_sha256": "b9c3830bff95d9523d99c55ed6107c9f0ba93e03a7b7165c831a41d08bc31ed0",
+      "result_identity": "6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A26",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08.json",
+      "payload_bytes": 487
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A24/HISTORICAL",
+      "record_sha256": "548f8799d338062a21e63d032cfb63357c83b2230402293109c84bb16321e0fa",
+      "record_raw_sha256": "48fb8b1f6cecba60222c18567e1ab02f67fc5a242653cc5f0ed6e7beb9b2c9ca",
+      "result_identity": "96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A24",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/96a497614c436475e011f072c1e45f3c7cd86b43288e105d43e01f675d5b887e.json",
+      "payload_bytes": 453
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/C/HISTORICAL",
+      "record_sha256": "fa4b62cfe5a2d7f997bff807281851fe2cac5ec027b524e44476794960c1aa40",
+      "record_raw_sha256": "a1999f7e1ebc67463d971882b75425cbca23dec42e6b05a7b6a5cd66000dee10",
+      "result_identity": "2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/C/BOUNDARY_INTERFACE",
+          "node_id": "IG/L0/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da.json",
+      "payload_bytes": 803
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/S/HISTORICAL",
+      "record_sha256": "d08f56d3434ae512bc1e54f19916361239d464dc155455606befaed323b1a0c0",
+      "record_raw_sha256": "bda1f7519f35b031d3504a8b9f92268dfd0e8e5ba00d5d3213b6f95cfe3f5fe4",
+      "result_identity": "1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/S/MATURE_NODE_COUNTER_ALGEBRA",
+          "node_id": "IG/NODE_IN/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3.json",
+      "payload_bytes": 109
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/S/REPLAY",
+      "record_sha256": "d39dfbec0ad225e7d1e7c287618767c4245eea8ce1d45c703d98b1eea5d0594d",
+      "record_raw_sha256": "ff78ae3ff88e9e4fb236c1ede2ce148f08b056b6b1a077765757c4d3cbe38475",
+      "result_identity": "d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/S/PRIMITIVE_EXACTNESS",
+          "node_id": "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0.json",
+      "payload_bytes": 721
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/S/A27/REPLAY",
+      "record_sha256": "a1b181faf301c9609f5328c95469215f8d11826460b2fd54e4a003407f14e41e",
+      "record_raw_sha256": "485f641439832b44e6ed94b14682994c08532ee207595da0dd0089a093fb3cf2",
+      "result_identity": "86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A27",
+          "node_id": "IG/L2J3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/86f0385089df428a09c8c82e67379c8bd2cfa33876e2167858924fc3d695e300.json",
+      "payload_bytes": 468
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A20/REPLAY",
+      "record_sha256": "3ec7efbb1e228579aaa629e8844f63cc66e241b23e7de2d323ffbf6b8eb69bc3",
+      "record_raw_sha256": "117ed6e23e76b73a39b4bc06b0e17517545b36edf92f98be8c139272c32f5a75",
+      "result_identity": "66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A20",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752.json",
+      "payload_bytes": 475
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/R/REPLAY",
+      "record_sha256": "a47a747468c0d670e771b46d1bb8527aea0bbd5006877e163b138ecc9267feac",
+      "record_raw_sha256": "257852746f5b5d5b291a5a87df715ce0e7db6aa5ee66df4f613d971e1aaa7aca",
+      "result_identity": "8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/R/BRIDGE_LAW",
+          "node_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b.json",
+      "payload_bytes": 729
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/C/REPLAY",
+      "record_sha256": "8b4dc7226217937cd91b404c3fe249237b43dfe8a1b19c9c2464a3fcfcbb66c4",
+      "record_raw_sha256": "d2e7d874dda99b73031ec90cca4bcbe9583be83ecb930b2b1eb4b40930797e47",
+      "result_identity": "8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/C/SUBSTITUTION_AND_GRAPH_GRAMMAR",
+          "node_id": "IG/NODE_IN/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8bca5756d62eceec6eb0a7d1eb9cf0593b0b5ddeb7c9dd498a2dc6cc0a95b497.json",
+      "payload_bytes": 132
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/F/REPLAY",
+      "record_sha256": "ef7c6c594c2647a6f29e708b973cfcac4b0ec29455e4f0dece0b8cee928925f2",
+      "record_raw_sha256": "58f6ff3213543a1ee04d84f46d15912dace600cd4dc1712d4456c7de3551234a",
+      "result_identity": "2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/F/EXACT_FAILURES",
+          "node_id": "IG/C0_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b.json",
+      "payload_bytes": 764
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O1_PRIMARY/HISTORICAL",
+      "record_sha256": "b224813eaad2cb606aede7917f9c28a8c35fd86da3e21399d24db0189b2faeef",
+      "record_raw_sha256": "2c6c70e986f35c3ea379d61a76a7cf69ddfe2209c5f1f1e28c902829b0f641c3",
+      "result_identity": "9fd16992e1c82fc417b02a9b064ca5fb4272b091d5d9fa02a63196bda87a4ee2",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O1_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/9fd16992e1c82fc417b02a9b064ca5fb4272b091d5d9fa02a63196bda87a4ee2.json",
+      "payload_bytes": 191
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A28/REPLAY",
+      "record_sha256": "0f0eee97433c9355338f570763796165140d163a39691ccee8bdebe0eea5b13c",
+      "record_raw_sha256": "c36ae25f40d6f5c4e7be0657a7966503be9dd5ca610565d3fe833f24d2377207",
+      "result_identity": "92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A28",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b.json",
+      "payload_bytes": 455
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A29/REPLAY",
+      "record_sha256": "9d07fadee39bc4d377592dedf4ab6e1cc15a257d20b3e9f8e3833e6d2beb3b1a",
+      "record_raw_sha256": "2b61297c13a7dff435b864a4f8357ba6ae79d6722ade08fffd20940e5301857a",
+      "result_identity": "3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A29",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/3c0952a659cd717bb2760e70c1db899a073a9cc27a9e2ce9a20ca302283f2124.json",
+      "payload_bytes": 455
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/F/HISTORICAL",
+      "record_sha256": "743503f75fef4141c53041cfd9fd1f3c049bab753ad4429a389f9e07f4856482",
+      "record_raw_sha256": "c22b2aca11f763c5e19c814c2ef7f8f86d8baf1fbbba58ed1a36b5c3cbd5972e",
+      "result_identity": "8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/F/KILL_GATES_AND_NONCLAIMS",
+          "node_id": "IG/NODE_IN/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8d6fe8e0e40b87ad33c08e52311119287d721c20397a4b471c0b0d44db8aad9d.json",
+      "payload_bytes": 100
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A10/HISTORICAL",
+      "record_sha256": "9244615a34b8071dfca435e758cf2afe1779971b0aff5997f5c8cbf5851e1323",
+      "record_raw_sha256": "391191c4eb5afa1645df3b1d654630b0bdf30694ea8c7f7e10a43a15b2e07dcb",
+      "result_identity": "d75ac1e4c3f28a60e6593e05c923c74ce367ea5fd36861289f3585ba675fe097",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A10",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/d75ac1e4c3f28a60e6593e05c923c74ce367ea5fd36861289f3585ba675fe097.json",
+      "payload_bytes": 257
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/C/REPLAY",
+      "record_sha256": "9a382284b958c82f6d8980f2bc99bafbdbb38b84a100e430601b9ff0adb25bfa",
+      "record_raw_sha256": "cd5a8c2442672b2a65fe49310ee1ea8464f2b9015c0fc46c4373380c7110b855",
+      "result_identity": "2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/C/BOUNDARY_INTERFACE",
+          "node_id": "IG/L0/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2b539599b834ef5dd781e5ebb4a872527cde4aab27b1269a6531510587f220da.json",
+      "payload_bytes": 803
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/S/HISTORICAL",
+      "record_sha256": "14691b40400ff94bc4a36447179a8180ab3ce1a1f944ee7ec8029e1d465c23ad",
+      "record_raw_sha256": "266971c8963893378beaeed258b1516deb345a4a3ed1c29b759d7354e9075e43",
+      "result_identity": "d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/S/PRIMITIVE_EXACTNESS",
+          "node_id": "IG/L0/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/d7c3223485d46f53aa1b369df93cf1af6d3b6029eefe86745fd0756d0e0bbcd0.json",
+      "payload_bytes": 721
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A16/REPLAY",
+      "record_sha256": "7e35d5553f82916cc8d546b8986e5dd56663ecebfa539a229fa73d3bdc32f8af",
+      "record_raw_sha256": "eda52f89edeeae7e91ae803e8f8c3f5214855f1f04b702c70808c9514f63771d",
+      "result_identity": "9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A16",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/9ad19ec16aa1d94e371c9c54a27232d669d2cb99a561727762813417bcd12cf4.json",
+      "payload_bytes": 450
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/R/NESTED_RESOURCE_RELATIONS/REPLAY",
+      "record_sha256": "2edb31381606c8e06dcdf4e84dd239eadc7556bba6a3362a36c57b433c0713f4",
+      "record_raw_sha256": "4c1ff472fcf3fa32f972bf75f1edff1f4ed79c992f24cae3045b8fa7d3f25f71",
+      "result_identity": "28a39dec2267b7b7d92ed5c41fa0fd7d6c9205037c2cc711543473d976c7e437",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/R/NESTED_RESOURCE_RELATIONS",
+          "node_id": "IG/O1_O3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/28a39dec2267b7b7d92ed5c41fa0fd7d6c9205037c2cc711543473d976c7e437.json",
+      "payload_bytes": 207
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A21/HISTORICAL",
+      "record_sha256": "c768b2203b726a288a70dd2cfe08b31393fa2031abb1dde60142d6fc2a347a21",
+      "record_raw_sha256": "4b5ad3f576959a04d8700ed0b46dad33273945171be949680b1e542dd8321232",
+      "result_identity": "c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A21",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/c9240a867a350e1acca08675f9f725650b482ca37d0c5da22883a8c9bab91af2.json",
+      "payload_bytes": 484
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/F/REPLAY",
+      "record_sha256": "489b929a2994ebb32156d54aba85420fb9f71d69a5cf9235354bbbff8d9efd21",
+      "record_raw_sha256": "1db6ed62386caa4d925468f8b719604b8e732547060bdd22f3db776a55b4e551",
+      "result_identity": "f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/F/LOCAL_COMPOSITOR_NONCLAIMS",
+          "node_id": "IG/L0/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/f11bcddd13abc18d5d0e0ba9099c434cfe2298669295a3082c08574ab43cf462.json",
+      "payload_bytes": 848
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A25/HISTORICAL",
+      "record_sha256": "2b1a725a6a2eb880f9ff297f192b6ba93ed0dd4bd77f147eb5b4377977e3f1ad",
+      "record_raw_sha256": "cc7917e850d1a9a261319e89c02bddb5087b0340a1faedf51b5fdcf81c9fd89c",
+      "result_identity": "b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A25",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a.json",
+      "payload_bytes": 511
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A20/HISTORICAL",
+      "record_sha256": "411cd9302a815f85c1f1b38783d52442b76bfcf7d5e34e9f38774c3e345f291e",
+      "record_raw_sha256": "6d7577aefb7f9ac3eed70c4ea72110f86ef58662eaeb2cf97f663823fa383eb4",
+      "result_identity": "66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A20",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/66fb733f25fd8da6670171d643ede3d153da9a51b78962b797eac531e74a0752.json",
+      "payload_bytes": 475
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/S/REPLAY",
+      "record_sha256": "b7d6b1626f21cc17bb0441dc7f52c9346410579118047010a2b6e1ceecc3d27d",
+      "record_raw_sha256": "503c4fbb8013385a04c3f81ab2a5800f6ee961f854871c3542306c504b5acf60",
+      "result_identity": "1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/S/MATURE_NODE_COUNTER_ALGEBRA",
+          "node_id": "IG/NODE_IN/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/1495d09bffa5cd6b70bbb510564f417fe403588a4de5d2ac0d7aa668ad1653f3.json",
+      "payload_bytes": 109
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A23/REPLAY",
+      "record_sha256": "7aa6293a8e6533df01d781159c0a50fce759d1d2fbdeb3eb3071da86df3228ac",
+      "record_raw_sha256": "ad095710e5c0394086265809dee1e14cdedef28d1dfd9c7037e3e756ec8c8847",
+      "result_identity": "759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A23",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e.json",
+      "payload_bytes": 461
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/C/REPLAY",
+      "record_sha256": "a36a21cf9e1ddec44ede19b89b8e87407805fa460683a9942fa1032c81b17ec8",
+      "record_raw_sha256": "bd6018c7803ea5d5cbed0c872f2c0d512d30e9275bd02bd450ae984c1ef7d43e",
+      "result_identity": "2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/C/OBSERVER_GATE_INTERFACE",
+          "node_id": "IG/C0_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5.json",
+      "payload_bytes": 799
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/R/REPLAY",
+      "record_sha256": "eb31ec8baea38ddc91e88097cdf00a9fda361f8b238c2ddae1b638c1f5fd3f91",
+      "record_raw_sha256": "3a4173f7510dcd4bedad75d0e6b1e5323646a8e93973cdab935c7575546efdb3",
+      "result_identity": "6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/R/CERTIFICATE_LADDER",
+          "node_id": "IG/C0_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/6c19a9cdac67835ecd2e3d13d7f40bd16b3801f3e45c851fb516931e2a6ad8d7.json",
+      "payload_bytes": 781
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A28/HISTORICAL",
+      "record_sha256": "efd27d1b5c8c536f03d1e52b8d1d3ebb0f9a79b5fde6e1ef7fdbd32ab1d17a5c",
+      "record_raw_sha256": "0727268ed8ec4cc95587f4b2e19d6a0fb61ec75d94330ba700de6b7b7f954e3b",
+      "result_identity": "92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A28",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/92eca799d68041ee8587015f5fc80024d482085661296a248a2292c5847ecd6b.json",
+      "payload_bytes": 455
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A09/HISTORICAL",
+      "record_sha256": "7d68ed7ef9c91daef93f9762a5dba92fe7eb818e0354aa7ca471cae06d642af5",
+      "record_raw_sha256": "a2a4dee8f13e8f245e7222ccf6f22bead9a241ea7767fd70722c614267154839",
+      "result_identity": "dbd3d62b14a4d21ca340756fb04ee274d2d9cbb038566ce329e3541350867740",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A09",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/dbd3d62b14a4d21ca340756fb04ee274d2d9cbb038566ce329e3541350867740.json",
+      "payload_bytes": 257
+    },
+    {
+      "record_id": "IGRD/L0/EVIDENCE/R/HISTORICAL",
+      "record_sha256": "76f5f78f72e925a2cc6aae3159306a29e6b9262a1a8a7b4c7c6317568fd97895",
+      "record_raw_sha256": "e34236a75cf364e88a11a04b044c6cf442172699f12e472d8106ac5f02c15630",
+      "result_identity": "8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L0/R/BRIDGE_LAW",
+          "node_id": "IG/L0/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/8fcd7b970364e6fd9e3db94cfd86d3b8e8edc1d9f9df4932a52ce4491bba067b.json",
+      "payload_bytes": 729
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O2_PRIMARY/REPLAY",
+      "record_sha256": "02581b7f97f83f8e49cbf95f6189c3b38d5bd65e3aa453c5401ecf63624ac5fc",
+      "record_raw_sha256": "43cd3fc895c0d0fec7e3c1761823f2901f2e27e11d137b907085fa989577f9f1",
+      "result_identity": "14aa8a17571e62c87b9ec4117edec31b48a2ce941e86d53c1a8d422b9294b60d",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O2_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/14aa8a17571e62c87b9ec4117edec31b48a2ce941e86d53c1a8d422b9294b60d.json",
+      "payload_bytes": 183
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/R/HISTORICAL",
+      "record_sha256": "b761ac9dfbec825c5b3fc61988d482a9ec012b6cb0c5b9206ba3c1b7b408e797",
+      "record_raw_sha256": "5ea3ca3754b36d50009e298a7057fe946816adb24e8c1fda981534e46467d832",
+      "result_identity": "66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/R/FUTURE_REFINEMENT_AND_COMPOSITION",
+          "node_id": "IG/SCOUT_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2.json",
+      "payload_bytes": 650
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/F/DISTRIBUTED_NOT_ATOMIC/HISTORICAL",
+      "record_sha256": "46050023ee8471c96f433042c17bb7be897d39d3dbab1b4e17af83aa7323146b",
+      "record_raw_sha256": "99b7408ef32697e075ca8aa84389f82b867272e58c1a9db65892bb480dba4bb6",
+      "result_identity": "3e26a52f66bb2e84e76abef4456ba19e5c85d6ef152dd33f79e2e0753f271702",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/F/DISTRIBUTED_NOT_ATOMIC",
+          "node_id": "IG/O1_O3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/3e26a52f66bb2e84e76abef4456ba19e5c85d6ef152dd33f79e2e0753f271702.json",
+      "payload_bytes": 225
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A18/HISTORICAL",
+      "record_sha256": "3f7ed40a5ac9b9fa97350dcb1e65a8ba63db2e5959939e17895951af4d77d95f",
+      "record_raw_sha256": "e37112cbf4a8eb93ec8b18a7cde060f917cf962a63dfc5a7262488939be499ae",
+      "result_identity": "05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A18",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/05c663afe6b1dc7c33ffedf1030210a13c45b1cdcc85f2e4f47cfbd30f5d38d3.json",
+      "payload_bytes": 453
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A26/HISTORICAL",
+      "record_sha256": "e7a86f948efb33a2c738220819b9f1e9413c5141e07c2722c6aaee1dbcbb03b3",
+      "record_raw_sha256": "4bb56c0f199997c22266b50f1ce29a797f22fbf19070d17c535e95acb55c52c9",
+      "result_identity": "6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A26",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/6314896df212394fde17df84a6d1ea51478d975d85074d161aff5b2c51398b08.json",
+      "payload_bytes": 487
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/C/HISTORICAL",
+      "record_sha256": "e95f4ae478f21959950fbe6e127634dc44574c63c2240e0c7db82cbf8051400b",
+      "record_raw_sha256": "954210f1e4afd0f669b286c2745403a80a8c0f8f3d6e76d62f894906b24e4346",
+      "result_identity": "2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/C/OBSERVER_GATE_INTERFACE",
+          "node_id": "IG/C0_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2501bae8286eaa1b0888c50f8345650d9c3c1beca0d5c31caf35dfca6a70a3b5.json",
+      "payload_bytes": 799
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/F/DISTRIBUTED_NOT_ATOMIC/REPLAY",
+      "record_sha256": "2a6db2ee6c7334e2dfe32c57674f3cbc889846a678a265a6386f148f30015a30",
+      "record_raw_sha256": "3f8c3c2da8383aa2636b00b762b5c72c5b7cc903cf844f20d2af8a15e3ee3e6f",
+      "result_identity": "11e434ee3235d74fc8319a2159f2448ee71fbb261b9fd18ff19329a56ad00e59",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/F/DISTRIBUTED_NOT_ATOMIC",
+          "node_id": "IG/O1_O3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/11e434ee3235d74fc8319a2159f2448ee71fbb261b9fd18ff19329a56ad00e59.json",
+      "payload_bytes": 217
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/R/REPLAY",
+      "record_sha256": "b64403d60d34b004155be8d89defbaa866dced90b8ca3e3e6b524da866e2a174",
+      "record_raw_sha256": "85a9e7f8386224e3ee80826b5d8a8099313353fbdc2846e4270ce0eea899ed04",
+      "result_identity": "66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/R/FUTURE_REFINEMENT_AND_COMPOSITION",
+          "node_id": "IG/SCOUT_HISTORICAL/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/66120704ff76240b05c0570b80a5a2655885c5f3e801a8e11cbb1afea851e8a2.json",
+      "payload_bytes": 650
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O1_PRIMARY/REPLAY",
+      "record_sha256": "dbb6ba5e44a33efc691f7b39ba4779f9c5b8f1f043bf6d8337c218dba454d229",
+      "record_raw_sha256": "4717f0e7c293697f96ba05592483e51b2f97200bdf6d01c6c2c68da529c7d4ec",
+      "result_identity": "a58864e9f27806043ecdeff26dc367c027c2a2d6d4ea6302267cfe45309ed3d8",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O1_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/a58864e9f27806043ecdeff26dc367c027c2a2d6d4ea6302267cfe45309ed3d8.json",
+      "payload_bytes": 183
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A11/REPLAY",
+      "record_sha256": "797841c162a3f543a899ebe4b3d32a0e00d5823d14ada54c80bb67004d5a68e4",
+      "record_raw_sha256": "767014c3c7395716f4f10929781f2db87f36c079c09119c5a3d68a6dd598a3c4",
+      "result_identity": "2e2a08963a298bf050ed1b59516e360a2eaf7f7f168f345b5f142d20444946b5",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A11",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2e2a08963a298bf050ed1b59516e360a2eaf7f7f168f345b5f142d20444946b5.json",
+      "payload_bytes": 250
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/C/O123_COMPATIBILITY/HISTORICAL",
+      "record_sha256": "f9f632e50d3b632282c61b71dd761e73def7a78e65ea560de1bf4315648a2d37",
+      "record_raw_sha256": "b9dba317e80b545033d970a04ceb3c11f58b137597677b2c94ba5d5c10d8a5e1",
+      "result_identity": "06fc6e9fc84b8732aa4aa1de67f7b7d2b03d428148d37a23ff428ce24524315e",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/C/O123_COMPATIBILITY",
+          "node_id": "IG/O1_O3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/06fc6e9fc84b8732aa4aa1de67f7b7d2b03d428148d37a23ff428ce24524315e.json",
+      "payload_bytes": 223
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A25/REPLAY",
+      "record_sha256": "04afa4ee2beb59002e7cf3a8bbf3c3082ad5496f5305740c8046aaffb1e790e7",
+      "record_raw_sha256": "d9b0435da9506d8d16f5824322e9efc51d8e9093ac66770dd77cffc737fc623a",
+      "result_identity": "b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A25",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b7fec6cd36aca158684f287df220b78a8169547a63fe73d305b3eadd25de625a.json",
+      "payload_bytes": 511
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/R/REPLAY",
+      "record_sha256": "0708734311066a9499bb22abb185b76ae28fcc3964ef17fde025d1fd221f35e3",
+      "record_raw_sha256": "8a70514d011aea64f177d54d37c1c750bf0012e846328b2bbadb029edcc4afce",
+      "result_identity": "b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/R/EXACT_COUNTER_OPERATION",
+          "node_id": "IG/NODE_IN/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901.json",
+      "payload_bytes": 92
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A22/HISTORICAL",
+      "record_sha256": "b80188b8e8ca81e623d205f7ea14b274cfca276cb924e60a8fdbce0a8ec0cce1",
+      "record_raw_sha256": "b1ee657506fa6440076df1dae98407b936cc95dacd641ef6805563c3417f5123",
+      "result_identity": "034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A22",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b.json",
+      "payload_bytes": 460
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/R/NESTED_RESOURCE_RELATIONS/HISTORICAL",
+      "record_sha256": "4f2677d792ebb4408efde25db8abec033a4343a3bb4a616ed9ed2d7cb2f61563",
+      "record_raw_sha256": "242dfe7ebc38c371a49c39662b46d68e3fcf0f0670fb5784b93f6c0a1642ce3f",
+      "result_identity": "5f4c085d526e1ca59099166408ded0facf550553f1a7ebd02dc530d28dd1e3fc",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/R/NESTED_RESOURCE_RELATIONS",
+          "node_id": "IG/O1_O3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/5f4c085d526e1ca59099166408ded0facf550553f1a7ebd02dc530d28dd1e3fc.json",
+      "payload_bytes": 215
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/S/REPLAY",
+      "record_sha256": "5e29dbee32e342a383c3ff5297467ffec4660a8128321dc0e0a81a2cb771fd93",
+      "record_raw_sha256": "903968fd92355f81e198264e8c9642bff02c3808000f1957fccc74c0cd03e628",
+      "result_identity": "14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/S/LOCAL_CERTIFICATE",
+          "node_id": "IG/C0_HISTORICAL/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/14a5d9b2a40933d9a552cc14e90bfa4b8dc8057b7bfc6c5c810dd9aeae634ef8.json",
+      "payload_bytes": 762
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/C/REPLAY",
+      "record_sha256": "ecfca92aeaeb1e4afadde08f3f047275484f59119dd31e8deeeb7ce8eb391d21",
+      "record_raw_sha256": "fcdf42edd6fa3a5fe2b000f6a199e39ad9708eee50db9c321a5da7aaf93b8969",
+      "result_identity": "0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/C/Q_EXTERNAL_INTERFACE",
+          "node_id": "IG/SCOUT_HISTORICAL/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/0fd7d9859e1d350e8dc44139af4c46f0b61371d845dff8ee28960f14c82ed558.json",
+      "payload_bytes": 445
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A30/HISTORICAL",
+      "record_sha256": "ed2eedd42db7ff5582e7be6cacd8d0aaf7d3a5b74f72017904bc34618ea29a71",
+      "record_raw_sha256": "f82af200a40150967963dcf84e9808263cf199a71d83b9f1444eb16ba9bc7f7a",
+      "result_identity": "b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A30",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe.json",
+      "payload_bytes": 457
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/A11/HISTORICAL",
+      "record_sha256": "04daaa933ab9078357366e5c5d5a179b07b1f11e0e4ae9dd77965f28f16e47ec",
+      "record_raw_sha256": "6697aa781b238acf707477dbc74bb08805cd5ceffd4de03c029d79385035950e",
+      "result_identity": "f98f9503064fce2a85fa0f83596be4b46202a4c61d3140ace026af79e71c27dd",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/V026_ORACLE/A11",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/f98f9503064fce2a85fa0f83596be4b46202a4c61d3140ace026af79e71c27dd.json",
+      "payload_bytes": 258
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/R/A17/HISTORICAL",
+      "record_sha256": "0cdec0249636d5de917a169310c1e856aac29cda5e0ec446c9f8df6c277622b0",
+      "record_raw_sha256": "83032a259f932b0fd854cd12c9fe6ae3c20aa36bd412e1584a56c75b24ecde84",
+      "result_identity": "65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A17",
+          "node_id": "IG/L2J3/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/65a1a037634e060fe7ba95e493b1df322c819a6ec20c90e84eab9577121eaf98.json",
+      "payload_bytes": 463
+    },
+    {
+      "record_id": "IGRD/NODE_IN/EVIDENCE/R/HISTORICAL",
+      "record_sha256": "03137cc610dfff61711b86f0979309b685de651b6ad34c3deab5e52f2fca791c",
+      "record_raw_sha256": "f743705b292b8c30727d594470b93fd5000f08051fbabc8d80322f9ee0268101",
+      "result_identity": "b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/NODE_IN/R/EXACT_COUNTER_OPERATION",
+          "node_id": "IG/NODE_IN/R/ASSERTION_MAPPED_RELATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b15435bb079415df6d72a89f6e4799661877be60c8b41783c5cd0886b42cf901.json",
+      "payload_bytes": 92
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A22/REPLAY",
+      "record_sha256": "b82a3991953c82b732eb1c9ba54b6b204b1c51f23cd49a31647859e07ade54df",
+      "record_raw_sha256": "ddb9a3151a3f9422d51662a3a183a37f2a00df16b009de019161a4e0f42fd5c2",
+      "result_identity": "034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A22",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/034b985dead264d4eba44dd6f8822b488da2fad30fb278dc328d1836dd37f38b.json",
+      "payload_bytes": 460
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/S/O2_PRIMARY/HISTORICAL",
+      "record_sha256": "1d1c94b0f7b63ca43c60417984bb7183905bd0d6cd030d0acb592f4c4a1a8e49",
+      "record_raw_sha256": "701898d71acd693874ae75c23bf05f619773e634009e3a4c22806201d5a7fc4c",
+      "result_identity": "d15eaa70b1c3e432af93607ff0bdca571ff2984365dd69e0948ebd3ae3f12733",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/REGISTRY/O2_PRIMARY",
+          "node_id": "IG/O1_O3/S/ASSERTION_MAPPED_STRUCTURE",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/d15eaa70b1c3e432af93607ff0bdca571ff2984365dd69e0948ebd3ae3f12733.json",
+      "payload_bytes": 191
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/F/A23/HISTORICAL",
+      "record_sha256": "a160a1b62c0b3a697e7618165f142bcf4793bf6b2e51c1166097a7e7564585de",
+      "record_raw_sha256": "ad3cb4f1c9908cc6eeb372e31960867dafe9c0011f162c95d7587e1b092952ba",
+      "result_identity": "759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A23",
+          "node_id": "IG/L2J3/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/759043538ca1e9a495fe629f0dd934ef62f3387c1a578b242fb3c1a1d7ebb85e.json",
+      "payload_bytes": 461
+    },
+    {
+      "record_id": "IGRD/SCOUT_HISTORICAL/EVIDENCE/F/HISTORICAL",
+      "record_sha256": "92b0990557df346871dbfeb4107f809b76b61246b39d15edf6525062c3ca3ae8",
+      "record_raw_sha256": "52c6dc0dd0ac455d0d408b11472ad90469f4b3c8a9247290003a16e11273de95",
+      "result_identity": "a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/SCOUT_HISTORICAL/F/OBSERVER_FAILURES",
+          "node_id": "IG/SCOUT_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/a7aefd704f0ef8a1c51cc34fef3762d89657fdb45732cb8290dea1fae00d91fb.json",
+      "payload_bytes": 716
+    },
+    {
+      "record_id": "IGRD/C0_HISTORICAL/EVIDENCE/F/HISTORICAL",
+      "record_sha256": "039484fb28e15b18ef36b396ea28fafc9c6f437e6947f3908edb0686d2a31e73",
+      "record_raw_sha256": "651811483a84cec744e4b1ffddd847862ef68c4e182077bcbbd2191b1cf6bb12",
+      "result_identity": "2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/C0_HISTORICAL/F/EXACT_FAILURES",
+          "node_id": "IG/C0_HISTORICAL/F/ASSERTION_MAPPED_FALSIFICATIONS",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/2832813b6e58400f96f681b3e3069f1d8a17023dfce4c5660cebe4dbf9f5255b.json",
+      "payload_bytes": 764
+    },
+    {
+      "record_id": "IGRD/L2J3/EVIDENCE/C/A30/REPLAY",
+      "record_sha256": "3ebb7729b48e28e9430e2d6abf3df4d26037433c1ec88ac63c3adcdd61d51f8d",
+      "record_raw_sha256": "8b0310b371efdd90624e1532752a1c66aa2b27aa914b24e9092ff633c3f90278",
+      "result_identity": "b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/L2J3/V026_ORACLE/A30",
+          "node_id": "IG/L2J3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_PINNED_DATA_RECONSTRUCTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/b51611497a7befb18e86ce8b3c3dba93a7476754d3d97511cb0e48e1dc71d0fe.json",
+      "payload_bytes": 457
+    },
+    {
+      "record_id": "IGRD/O1_O3/EVIDENCE/C/O123_COMPATIBILITY/REPLAY",
+      "record_sha256": "1126ca18f31886132c586aa737e6e485c3b663582ec5ae98b9e4f4cf1da0ecf8",
+      "record_raw_sha256": "347e86b8ec745942143bc54a46e2000bac49798d6d98a69f55f3452d2d0b2f03",
+      "result_identity": "c2fae855e65687ed5d7962b13fdbc105ec558b58e36448e5fa141de534e4c0a1",
+      "matched": true,
+      "origins": [
+        {
+          "assertion_id": "IGAM/O1_O3/C/O123_COMPATIBILITY",
+          "node_id": "IG/O1_O3/C/ASSERTION_MAPPED_INTERFACES",
+          "basis": "STATIC_SOURCE_FIELD_EXTRACTION"
+        }
+      ],
+      "payload_path": "reconstructed_payloads/c2fae855e65687ed5d7962b13fdbc105ec558b58e36448e5fa141de534e4c0a1.json",
+      "payload_bytes": 215
+    }
+  ],
+  "input_raw_hashes": {
+    "infinity_grid/resources/replay/L0_UPWARD_SRCF_ASSERTION_SOURCE_V9.json": "e27e2a3628cae583040733da9297d3043af8947acd5c1fa44cc9695b35b343ee",
+    "infinity_grid/replay_l0_executor.py": "151905302fb370c0aa2deda154be6d511a14e6d4814675bcafdf5e92279fa6a1",
+    "infinity_grid/replay_c0_historical_executor.py": "754548f2a33fe08f6a097f87b1ee69b7f3c3a67f7c81f586146f81060ab3b2e6",
+    "infinity_grid/replay_scout_historical_executor.py": "f22c22b81300e465962f6faba41c4adee3e7195d547abfb6dc824bd43bd4becd",
+    "infinity_grid/replay_o1_o3_executor.py": "227673c25f9aaea8e2a2d4c2c2112f2b7a8b566e88d091aa191e86c8c08900cc",
+    "p1c_historical_sources/FORMAL_MONOGRAPH_FINAL_2026-08-27.md": "524586b970a17c04cbe9581ad39bf65b955c8fc70c74bc2fc75398d2fc57c674",
+    "infinity_grid/resources/oracle/V026_SCIENTIFIC_ORACLE_MANIFEST.json": "266e933df3b4e5e21463a696fbd4c9811d4b4e71b1d583a5b58c6b057f6829a8",
+    "p1c_historical_sources/MATURE_NODE_ALGEBRA_AUTHORITATIVE_v1.1.txt": "1fdda2546114e7752f5e25a84d933b8ea21f06f80b7028b80549cd05c29b1afe",
+    "p1c_historical_sources/IN6_FINITE_GRAMMAR_RESULT.json": "ccdcde66c73c2713ce6a245ddd1b768738f7a4435f03e119832f0ab38c1df46b",
+    "p1c_historical_sources/NODE_GRADUATION_RESULT.json": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+    "p1c_historical_sources/IG_O123_RECONCILED_FORMAL_SPEC_v1.2_FF2.2.json": "6ea4707dc45218044a875d2f6e2682c00a52907025093699bc1fef3c5b66085d",
+    "p1c_historical_sources/O123_V1_2_FF22_COMPATIBILITY_RESULT.json": "65776d122c5723fc9edab4288530ca2f462125b118da30be7aab70eb1ea90c7c",
+    "p1c_historical_sources/O3_GRADUATION_AUDIT_RESULT.json": "00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612",
+    "p1c_historical_sources/O3_DISTRIBUTED_CARRIER_GRADUATION_STATEMENT.txt": "be1de3ecbacbf2710d41f815f3b8cc90fe6be4ad48ec6914880457864622565a",
+    "infinity_grid/resources/decoder/SCIENTIFIC_TEST_REGISTRY_v1.json": "8b7a7131c6deb3fb4fa4fef9b0160adda4815128c41e1915d48b34765487b69f",
+    "p1c_historical_sources/SCOUT2B_V1_7_K128_AUDIT_REPORT.txt": "d603cb8fbf868641ac711cdd2054efe362369f468f0503c3665622f2c16f5971",
+    "p1c_historical_sources/SCOUT2B_V1_5_K128_AUDIT_REPORT.txt": "3b679969f99edf1775c3fc72407f2166ebcce95f7bf5ac724e7efb25301ac8b7",
+    "p1c_historical_sources/SCOUT3_V1_0_R64_AUDIT_REPORT.txt": "a9e1842efde935535e4d0bd71bec38a5a696fdbed9ff02be861cd1e47b2e34df",
+    "tests/fixtures/dev79_index_reproduction/P9_CAPTURED_STATE_OBJECT_V1.zip": "b360397d2593cfee3086ac4b23560c6ab8de2418d6d607d89844463a00766cfc"
+  },
+  "mapping_source_pins_checked": {
+    "p1c_historical_sources/FORMAL_MONOGRAPH_FINAL_2026-08-27.md": "524586b970a17c04cbe9581ad39bf65b955c8fc70c74bc2fc75398d2fc57c674",
+    "infinity_grid/resources/oracle/V026_SCIENTIFIC_ORACLE_MANIFEST.json": "266e933df3b4e5e21463a696fbd4c9811d4b4e71b1d583a5b58c6b057f6829a8",
+    "p1c_historical_sources/MATURE_NODE_ALGEBRA_AUTHORITATIVE_v1.1.txt": "1fdda2546114e7752f5e25a84d933b8ea21f06f80b7028b80549cd05c29b1afe",
+    "p1c_historical_sources/IN6_FINITE_GRAMMAR_RESULT.json": "ccdcde66c73c2713ce6a245ddd1b768738f7a4435f03e119832f0ab38c1df46b",
+    "p1c_historical_sources/NODE_GRADUATION_RESULT.json": "d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+    "p1c_historical_sources/IG_O123_RECONCILED_FORMAL_SPEC_v1.2_FF2.2.json": "6ea4707dc45218044a875d2f6e2682c00a52907025093699bc1fef3c5b66085d",
+    "p1c_historical_sources/O123_V1_2_FF22_COMPATIBILITY_RESULT.json": "65776d122c5723fc9edab4288530ca2f462125b118da30be7aab70eb1ea90c7c",
+    "p1c_historical_sources/O3_GRADUATION_AUDIT_RESULT.json": "00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612",
+    "p1c_historical_sources/O3_DISTRIBUTED_CARRIER_GRADUATION_STATEMENT.txt": "be1de3ecbacbf2710d41f815f3b8cc90fe6be4ad48ec6914880457864622565a",
+    "infinity_grid/resources/decoder/SCIENTIFIC_TEST_REGISTRY_v1.json": "8b7a7131c6deb3fb4fa4fef9b0160adda4815128c41e1915d48b34765487b69f",
+    "p1c_historical_sources/SCOUT2B_V1_7_K128_AUDIT_REPORT.txt": "d603cb8fbf868641ac711cdd2054efe362369f468f0503c3665622f2c16f5971",
+    "p1c_historical_sources/SCOUT2B_V1_5_K128_AUDIT_REPORT.txt": "3b679969f99edf1775c3fc72407f2166ebcce95f7bf5ac724e7efb25301ac8b7",
+    "p1c_historical_sources/SCOUT3_V1_0_R64_AUDIT_REPORT.txt": "a9e1842efde935535e4d0bd71bec38a5a696fdbed9ff02be861cd1e47b2e34df"
+  },
+  "tests_executed": 0,
+  "science_runs": 0,
+  "limits": [
+    "Payloads are reconstructed canonical JSON, not original archived file encodings",
+    "Hash agreement verifies identity, not source truth or fresh recomputation",
+    "Historical node-audit source recovered separately; see HISTORICAL_SOURCE_RECOVERY.json",
+    "The derivation does not execute the full scientific guards of original handlers"
+  ]
+}

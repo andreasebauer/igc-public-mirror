@@ -1,0 +1,53 @@
+{
+  "challenge_corpus": {
+    "must_include_exact_R1_n4_path_star_pair": true,
+    "must_verify_R1_candidate_read_audit": true,
+    "must_verify_R2_shell_profile_maturation_support": true,
+    "source": "certified G3:R1 exact n=4 fiber plus certified R1/R2 hidden-read evidence"
+  },
+  "challenge_read_tier_science_sha256": "f17663e78ab794b0ed43a4d47022b1705fa874e54ef957fe1dd5b2d21355b3c8",
+  "date": "2026-09-04",
+  "fail_effect": "G4:S1 remains locked; preserve certified G3 and G3:R0/R1/R2 authority.",
+  "input_authority": [
+    "certified G3:R1 result",
+    "certified G3:R2 primary result",
+    "exact G3:R2 cold replay comparison",
+    "G3:R2 certified closeout"
+  ],
+  "nonclaims": [
+    "NO_G4_SCIENTIFIC_RESULT_IN_PHASE0",
+    "NO_G4_GRADUATION",
+    "NO_G4_R_AXIS",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_SHELL_PROFILE_PROMOTION",
+    "NO_CAPS7_MINIMALITY_CLAIM",
+    "NO_PHYSICAL_SPACE_DIMENSION_METRIC_TIME_OR_SPACETIME",
+    "NO_G4_CONTEXT_DISTINGUISHABILITY_RESULT_YET"
+  ],
+  "pass_effect": "Unlock registered G4:S1 context-read audit only. No hidden-read promotion and no G4 graduation.",
+  "pass_gates": [
+    "G3_R1_AUTHORITY_EXACT",
+    "G3_R2_PRIMARY_AUTHORITY_EXACT",
+    "G3_R2_COLD_REPLAY_EXACT",
+    "G3_R2_CLOSEOUT_CERTIFIED",
+    "G4_UNIT_DEFINITION_FROZEN",
+    "CAPS7_EXTRACTOR_CANONICAL",
+    "R1_EXACT_N4_COLLISION_PAIR_PRESENT",
+    "PAIR_PUBLIC_INTERFACES_EQUAL",
+    "PAIR_HIDDEN_TOPOLOGIES_DIFFER",
+    "CHALLENGE_READ_TIER_REGISTRY_HASH_VALID",
+    "R1_SELECTED_READ_IS_SHELL_PROFILE_MULTISET",
+    "R2_SELECTED_READ_UNDER_STRESS_IS_SHELL_PROFILE_MULTISET",
+    "TOPOLOGY_NOT_IN_PUBLIC_INTERFACE",
+    "SHELL_PROFILE_NOT_IN_PUBLIC_INTERFACE",
+    "NO_HIDDEN_PROVENANCE_IN_PUBLIC_INTERFACE"
+  ],
+  "phase0_spec_sha256": "d4a3283e749e67896338a99514cab178d551eacc69f8cafbb9892caa7d03d429",
+  "public_interface": "CAPS7 only",
+  "question": "Can complete graduated G3 units be canonically presented to G4 through inherited CAPS7 while the certified hidden G3 tree/fiber organization and shell-profile challenge hierarchy remain strictly nonpublic?",
+  "schema_id": "IG_G4_S0_INTERFACE_EXTRACTION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "b61e1ffc10991dc1d3893e05144ebf607948655965d9c4531ced3601165b2794",
+  "stage_ref": "G4:S0",
+  "status": "FROZEN_BEFORE_EXECUTION"
+}

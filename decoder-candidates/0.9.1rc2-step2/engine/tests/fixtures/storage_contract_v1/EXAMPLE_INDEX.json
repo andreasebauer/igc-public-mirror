@@ -1,0 +1,110 @@
+{
+  "all_examples_synthetic": true,
+  "native_scientific_jobs_executed": 0,
+  "notes": [
+    "PublicationSeal is a SHAPE example only, forbidden for production acceptance.",
+    "All content/byte digests are actually computed from supplied fixture bytes.",
+    "The mock native audit record has no real authority.",
+    "No existing scientific data was converted or recomputed."
+  ],
+  "positive_shapes": [
+    {
+      "file": "positive/IdentityProfile.json",
+      "schema_id": "IG_STORAGE_IDENTITYPROFILE_V1"
+    },
+    {
+      "file": "positive/Block_0.json",
+      "schema_id": "IG_STORAGE_BLOCK_V1"
+    },
+    {
+      "file": "positive/Block_1.json",
+      "schema_id": "IG_STORAGE_BLOCK_V1"
+    },
+    {
+      "file": "positive/Payload_Blocks.json",
+      "schema_id": "IG_STORAGE_PAYLOAD_V1"
+    },
+    {
+      "file": "positive/Payload_Whole.json",
+      "schema_id": "IG_STORAGE_PAYLOAD_V1"
+    },
+    {
+      "file": "positive/Object_S.json",
+      "schema_id": "IG_STORAGE_OBJECT_V1"
+    },
+    {
+      "file": "positive/Object_P.json",
+      "schema_id": "IG_STORAGE_OBJECT_V1"
+    },
+    {
+      "file": "positive/Occurrence_left.json",
+      "schema_id": "IG_STORAGE_OCCURRENCE_V1"
+    },
+    {
+      "file": "positive/Occurrence_right.json",
+      "schema_id": "IG_STORAGE_OCCURRENCE_V1"
+    },
+    {
+      "file": "positive/RelationType.json",
+      "schema_id": "IG_STORAGE_RELATIONTYPE_V1"
+    },
+    {
+      "file": "positive/Incidence_0.json",
+      "schema_id": "IG_STORAGE_INCIDENCE_V1"
+    },
+    {
+      "file": "positive/Incidence_1.json",
+      "schema_id": "IG_STORAGE_INCIDENCE_V1"
+    },
+    {
+      "file": "positive/Incidence_2.json",
+      "schema_id": "IG_STORAGE_INCIDENCE_V1"
+    },
+    {
+      "file": "positive/Relation.json",
+      "schema_id": "IG_STORAGE_RELATION_V1"
+    },
+    {
+      "file": "positive/Coverage.json",
+      "schema_id": "IG_STORAGE_COVERAGE_V1"
+    },
+    {
+      "file": "positive/Layer.json",
+      "schema_id": "IG_STORAGE_LAYER_V1"
+    },
+    {
+      "file": "positive/CollectionPage.json",
+      "schema_id": "IG_STORAGE_COLLECTIONPAGE_V1"
+    },
+    {
+      "file": "positive/RequiredContent.json",
+      "schema_id": "IG_STORAGE_REQUIREDCONTENT_V1"
+    },
+    {
+      "file": "positive/ReleaseRoot.json",
+      "schema_id": "IG_STORAGE_RELEASEROOT_V1"
+    },
+    {
+      "file": "positive/PublicationSeal.json",
+      "schema_id": "IG_STORAGE_PUBLICATIONSEAL_V1"
+    },
+    {
+      "file": "positive/IndexDescriptor.json",
+      "schema_id": "IG_STORAGE_INDEXDESCRIPTOR_V1"
+    },
+    {
+      "file": "positive/Locator.json",
+      "schema_id": "IG_STORAGE_LOCATOR_V1"
+    }
+  ],
+  "purpose": "SCHEMA_FIXTURE",
+  "science_authorizations": 0,
+  "worked_counts": {
+    "declared_cases": "3",
+    "distinct_objects": "2",
+    "distinct_occurrences": "2",
+    "incidences": "3",
+    "joint_relations": "1",
+    "raw_attempts": "4"
+  }
+}

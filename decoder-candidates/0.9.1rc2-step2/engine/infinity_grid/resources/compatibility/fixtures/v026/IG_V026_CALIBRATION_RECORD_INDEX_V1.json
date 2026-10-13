@@ -1,0 +1,54 @@
+{
+  "records": [
+    {
+      "authority_note": "RUNNING, NOT YET INTERPRETED; no DONE.json/FAILED.txt in captured rescue checkpoint.",
+      "classification": "HISTORICAL_RUNNING_RESCUE_INCOMPLETE",
+      "file": "Infinity_Grid_EXACT_CARRIER_CALIBRATION_O7_O9_RUNNING_RESCUE_2026-08-30.zip",
+      "record_id": "EXACT_CARRIER_CALIBRATION_O7_O9_RUNNING_RESCUE",
+      "sha256": "e572fe32508a59e0844e2e8d4b70e658f8c774aef40f115942b3c632f4347bf7",
+      "size_bytes": 4210
+    },
+    {
+      "authority_note": "Contains exact-carrier benchmark/profile audit and fast projected-kernel comparison.",
+      "benchmark_summary": {
+        "O7_center_reservation_options_seconds_by_endpoint_type": [
+          2.886,
+          2.15,
+          1.0586,
+          0.3923,
+          1.2256,
+          0.6502,
+          2.8309
+        ],
+        "O7_profile_fast_projected_seconds": 1.1633,
+        "O7_profile_old_seconds": 8.7741,
+        "O7_profiles_equal": true,
+        "O7_through_7_wall_seconds": 10.44,
+        "O8_candidate_count": 193,
+        "O8_candidate_edge_count": 1451,
+        "O8_full_build_180_second_timeout": true,
+        "O8_profiles_equal": true,
+        "O8_reserve_canonical_calls": 2902,
+        "O8_single_sparse_3_edge_candidate_build_seconds": 19.0357,
+        "O8_sparse_profile_fast_projected_seconds": 20.2783,
+        "O8_sparse_profile_old_seconds": 43.0976
+      },
+      "classification": "HISTORICAL_PERFORMANCE_AUDIT",
+      "file": "Infinity_Grid_EXACT_CARRIER_PERFORMANCE_AUDIT_v1_2026-08-30.zip",
+      "record_id": "EXACT_CARRIER_PERFORMANCE_AUDIT_V1",
+      "sha256": "6113a7228ec839ce7314ad2925005f3a708cfb2672b2a5d0115c4ee5e06f76ee",
+      "size_bytes": 33207
+    },
+    {
+      "authority_note": "Contains O-regime performance audit, microbenchmark and draft streaming scanner spec.",
+      "classification": "HISTORICAL_PERFORMANCE_AUDIT",
+      "file": "Infinity_Grid_O_REGIME_PERFORMANCE_AUDIT_v2_2026-08-30.zip",
+      "record_id": "O_REGIME_PERFORMANCE_AUDIT_V2",
+      "sha256": "d3f4d48f765ccb7bb75e6cf18f67f5bc3810372d87788f75c726d50c3be96588",
+      "size_bytes": 34361
+    }
+  ],
+  "rule": "Incomplete calibration snapshots are frozen as provenance, never promoted to PASS/FAIL or to a completed calibration result.",
+  "schema_id": "IG_V026_CALIBRATION_RECORD_INDEX_V1",
+  "status": "PASS"
+}

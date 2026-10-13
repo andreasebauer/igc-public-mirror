@@ -1,0 +1,102 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_L2_ORACLE_INDEX_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assertions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "equals": {
+            "type": [
+              "boolean",
+              "integer",
+              "string"
+            ]
+          },
+          "file": {
+            "type": "string"
+          },
+          "pointer": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "equals",
+          "file",
+          "pointer"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "authority_note": {
+      "type": "string"
+    },
+    "result_files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "canonical_sha256": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "canonical_sha256",
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_V026_L2_ORACLE_INDEX_V1",
+      "type": "string"
+    },
+    "source_archive": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assertions",
+    "authority_note",
+    "result_files",
+    "schema_id",
+    "source_archive",
+    "status"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_L2_ORACLE_INDEX_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

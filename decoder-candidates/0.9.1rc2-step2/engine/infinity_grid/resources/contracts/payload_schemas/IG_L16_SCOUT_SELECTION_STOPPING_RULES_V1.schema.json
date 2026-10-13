@@ -1,0 +1,146 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generation": {
+      "additionalProperties": false,
+      "properties": {
+        "bridge_and_output_semantics": {
+          "type": "string"
+        },
+        "deduplication": {
+          "type": "string"
+        },
+        "enumeration": {
+          "type": "string"
+        },
+        "must_complete_all_bounded_roots": {
+          "type": "boolean"
+        },
+        "operation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bridge_and_output_semantics",
+        "deduplication",
+        "enumeration",
+        "must_complete_all_bounded_roots",
+        "operation"
+      ],
+      "type": "object"
+    },
+    "rules_sha256": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1",
+      "type": "string"
+    },
+    "selection": {
+      "additionalProperties": false,
+      "properties": {
+        "B": {
+          "type": "string"
+        },
+        "D": {
+          "type": "string"
+        },
+        "L": {
+          "type": "string"
+        },
+        "O": {
+          "type": "string"
+        },
+        "S": {
+          "type": "string"
+        },
+        "lane_order": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "no_outcome_feedback": {
+          "type": "boolean"
+        },
+        "per_lane_max": {
+          "type": "integer"
+        },
+        "seal_before_relation_analysis": {
+          "type": "boolean"
+        },
+        "selected_union": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "B",
+        "D",
+        "L",
+        "O",
+        "S",
+        "lane_order",
+        "no_outcome_feedback",
+        "per_lane_max",
+        "seal_before_relation_analysis",
+        "selected_union"
+      ],
+      "type": "object"
+    },
+    "source_scope": {
+      "type": "string"
+    },
+    "spectroscope": {
+      "additionalProperties": false,
+      "properties": {
+        "cannot_change_selection_or_generation": {
+          "type": "boolean"
+        },
+        "expensive_optional_modules": {
+          "type": "string"
+        },
+        "recognition_only": {
+          "type": "boolean"
+        },
+        "runs_after_selection_seal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cannot_change_selection_or_generation",
+        "expensive_optional_modules",
+        "recognition_only",
+        "runs_after_selection_seal"
+      ],
+      "type": "object"
+    },
+    "stage_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stopping_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "generation",
+    "rules_sha256",
+    "schema_id",
+    "selection",
+    "source_scope",
+    "spectroscope",
+    "stage_order",
+    "stopping_rules"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_L16_SCOUT_SELECTION_STOPPING_RULES_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

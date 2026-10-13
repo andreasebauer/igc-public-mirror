@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "canonicalization_rule": {
+      "type": "string"
+    },
+    "certificate_scope": {
+      "enum": [
+        "EXACT_CONTEXT_SUBSTITUTION",
+        "OBSERVER_RELATIVE_FULL_ABSTRACTION",
+        "SCOPED_TRANSITION_CONGRUENCE",
+        "SOURCE_SCOPED_GRADUATION"
+      ]
+    },
+    "creates_entity_class": {
+      "type": "boolean"
+    },
+    "lift_candidate_ref": {
+      "type": "string"
+    },
+    "lift_certificate_id": {
+      "type": "string"
+    },
+    "limitations_and_nonclaims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "observer_action_multiplicity_scope": {
+      "type": "string"
+    },
+    "premise_set_ref": {
+      "type": "string"
+    },
+    "reopen_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "representative_independence": {
+      "type": "string"
+    },
+    "retained_relations_and_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_LIFT_CERTIFICATE_V1"
+    },
+    "schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "CERTIFIED_IN_DECLARED_SCOPE",
+        "REJECTED",
+        "EXAMPLE_TEMPLATE"
+      ]
+    },
+    "sufficiency_and_closure": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "lift_certificate_id",
+    "status",
+    "lift_candidate_ref",
+    "certificate_scope",
+    "creates_entity_class",
+    "sufficiency_and_closure",
+    "representative_independence",
+    "observer_action_multiplicity_scope",
+    "canonicalization_rule",
+    "retained_relations_and_fields",
+    "authority_refs",
+    "premise_set_ref",
+    "reopen_conditions",
+    "limitations_and_nonclaims"
+  ],
+  "title": "IG Decoder Lift Certificate V1",
+  "type": "object"
+}

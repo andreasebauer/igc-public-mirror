@@ -1,0 +1,80 @@
+{
+  "schema_id": "IG_V026_DETERMINISM_MATRIX_V1",
+  "status": "PASS",
+  "target_alias": "ig:test/O1",
+  "unique_probe_file_sha256": [
+    "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad"
+  ],
+  "unique_science_sha256": [
+    "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e"
+  ],
+  "variant_count": 6,
+  "variants": [
+    {
+      "elapsed_seconds": 11,
+      "locale": "C",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": false,
+      "pythonhashseed": "0",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "normal_seed0_C"
+    },
+    {
+      "elapsed_seconds": 11,
+      "locale": "C.utf8",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": false,
+      "pythonhashseed": "1",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "normal_seed1_Cutf8"
+    },
+    {
+      "elapsed_seconds": 12,
+      "locale": "C",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": false,
+      "pythonhashseed": "42",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "normal_seed42_C"
+    },
+    {
+      "elapsed_seconds": 12,
+      "locale": "C.utf8",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": false,
+      "pythonhashseed": "123",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "normal_seed123_Cutf8"
+    },
+    {
+      "elapsed_seconds": 13,
+      "locale": "C",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": true,
+      "pythonhashseed": "0",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "optimized_seed0_C"
+    },
+    {
+      "elapsed_seconds": 12,
+      "locale": "C.utf8",
+      "probe_file_sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+      "python_optimize": true,
+      "pythonhashseed": "1",
+      "science_sha256": "726ee683d13a3e6ddc9437cd2df53c94a6f92caffd0f908fe5866d45bb06cd6e",
+      "status": "PASS",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3",
+      "variant": "optimized_seed1_Cutf8"
+    }
+  ]
+}

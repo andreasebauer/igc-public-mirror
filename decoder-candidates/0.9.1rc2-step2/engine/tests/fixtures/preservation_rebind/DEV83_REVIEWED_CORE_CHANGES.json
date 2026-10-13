@@ -1,0 +1,21 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Prospective source review at dev83; qualification is established only by external native results. Original historical baseline and amendment remain byte-identical.",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "ed0bc2348f57d8d8169562acfa68951d8a89c3787ba9ba142383d220e2bcf82d",
+      "reviewed_sha256": "c00b409b0927dd13490209fe389e409de3a55ded43ee50b0c43a1296125a7dde",
+      "reason": "Dev82 A05/A06: prepared completion is separate from published completion; terminal checkpoint proof precedes project claim completion, and verified artifact bytes bind to the evidence inventory. Exact dev82 production bytes retained."
+    },
+    "infinity_grid/preservation.py": {
+      "previous_reviewed_sha256": "74664cc08ea6e1ce3bc866bc9018ca22ea077392cb1afa26fa93cf8657be42e7",
+      "reviewed_sha256": "287d8fef8ae923c68822bbb381ed249960352233c5e9283fd4c0fd649832fbd0",
+      "reason": "Current review includes retained dev80 quiescent SQLite and terminal evidence verification, followed by dev82 prepared completion binding, portable terminal proof and pending-finalization recovery. This successor records current reviewed bytes prospectively; it does not rewrite earlier review or qualification."
+    },
+    "infinity_grid/result_contracts.py": {
+      "previous_reviewed_sha256": "0fd5396e23f0d463914a4756fa72eaf865ed315f0886aa462495ab9ba96e3f65",
+      "reviewed_sha256": "5e87665b3414a91db787779e51d2798affdc28029f06c8e51f31e928ee93dab1",
+      "reason": "Dev82 A06: one captured artifact buffer supplies hash, JSON checks and outcome. Exact dev82 production bytes retained."
+    }
+  }
+}

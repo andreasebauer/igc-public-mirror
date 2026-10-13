@@ -1,0 +1,25 @@
+{
+  "allowed_s2_alternatives": [
+    "G5_S2_PAIR_OBSERVER_QUOTIENT_CERTIFIED_NO_ADDED_READ",
+    "G5_S2_PAIR_OBSERVER_QUOTIENT_NOT_CERTIFIED",
+    "G5_S2_AUTHORITY_OR_QUOTIENT_FAILURE"
+  ],
+  "allowed_s2_outcomes": [
+    "PASS",
+    "REVIEW_REQUIRED",
+    "BLOCKED"
+  ],
+  "g4_changed": false,
+  "g5_composition_law_earned": false,
+  "g5_public_descriptor_promoted": false,
+  "graduated": false,
+  "required_authority_effect": "NONE_P6",
+  "required_post_s2_stop": "G5_S3_PREREGISTRATION_REQUIRED",
+  "required_s1_primary_science_sha256": "834e36c3eea8238d7c66c2440e88134cb5170688d4f3350d87a8d718105907e9",
+  "required_s1_rows_sha256": "5e017d0529da53900e2b1d8cee993b20315bbd9630cd5d8e6584b9f25e27c863",
+  "s3_execution_authorized": false,
+  "schema_id": "IG_G5_S2_PREREGISTERED_ORACLE_V1",
+  "science_sha256": "bca1425fab580c1c6b2a23be00c2b48ac1bde0b4c8158e830149be9693e595af",
+  "spec_science_sha256": "a1d9c18bbc709ec3b49bc9cb796e509cb7678ff2b4f8b2971fb669d5f0157d28",
+  "stage": "G5:S2"
+}

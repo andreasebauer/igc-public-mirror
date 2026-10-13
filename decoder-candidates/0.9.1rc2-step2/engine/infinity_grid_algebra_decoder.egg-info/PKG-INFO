@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: infinity-grid-algebra-decoder
+Version: 0.8.0.dev83+lib
+Summary: Infinity Grid Decoder — registered capture and execution
+Author: Andreas Erich Bauer
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: cryptography>=46.0.4
+Requires-Dist: igraph==1.0.0
+Requires-Dist: sympy==1.14.0
+Provides-Extra: verification
+Requires-Dist: networkx==3.4.2; extra == "verification"
+Provides-Extra: qualification
+Requires-Dist: cryptography==46.0.4; extra == "qualification"
+Requires-Dist: networkx==3.4.2; extra == "qualification"
+Requires-Dist: pytest==8.3.5; extra == "qualification"
+Requires-Dist: setuptools==84.0.0; extra == "qualification"
+Requires-Dist: wheel==0.48.0; extra == "qualification"
+Requires-Dist: pip==26.2.1; extra == "qualification"

@@ -1,0 +1,82 @@
+{
+  "authority": {
+    "g5_r3_closeout_sha256": "133204f5aa358b35d7338a5c536f94971548b197f5a5164bf992d499c2f9743f",
+    "g5_r3_independent_verification_sha256": "31d45470aeeda7106904a80cf3625a8168ec45a59d8c1ad2aea6284ab0fe2155",
+    "g5_r3_primary_science_sha256": "3677221f5a06f6121964b91555b9a2d56bc7a161f7245eb66c02a6ed382c7137",
+    "required_public_descriptor": "CAPS7_PLUS_H_CLASS_BAG",
+    "required_r3_future_congruence": true
+  },
+  "claim_targets": [
+    "UNIQUE_D_MARKER_DELETION_RECOVERS_EXACT_PARENT",
+    "NONISOMORPHIC_MARKER_FREE_PARENTS_HAVE_DISJOINT_D_MARKER_CHILD_CANON_SETS",
+    "EQUALITY_OF_NONEMPTY_D_MARKER_RELATIONS_IMPLIES_EXACT_PARENT_CANON_EQUALITY",
+    "EXACT_HIDDEN_CANON_IS_MINIMAL_UP_TO_ISOMORPHISM_FOR_THIS_MARKED_ONE_STEP_OBSERVER_ONLY"
+  ],
+  "cost_control": {
+    "expected_runtime_class": "SECONDS_TO_LOW_MINUTES",
+    "full_31_operator_parent_panel_max_n": 3,
+    "homogeneous_max_n": 12,
+    "parallel_stage_required": false,
+    "workers": 1
+  },
+  "date": "2026-09-06",
+  "experiment_id": "G5:R4.MARKED_LEAF_HIDDEN_MINIMALITY",
+  "marker_observer": {
+    "empty_relation_policy": "OUT_OF_MINIMALITY_THEOREM_SCOPE; RECORDED_AS_INADMISSIBLE_FOR_THIS_OBSERVER",
+    "marker_H_class": "D",
+    "observer": "DEDUPLICATED_EXACT_UNROOTED_D_MARKER_CHILD_CANON_SET",
+    "operator_generalization": "ANY_FIXED_OPERATOR_IN_FROZEN_31_OPERATOR_BASIS_WHERE_AT_LEAST_ONE_LAWFUL_MARKER_GRAFT_EXISTS",
+    "parent_excludes_H_class": "D",
+    "primary_marker_operator": [
+      0,
+      0
+    ]
+  },
+  "next_if_pass": "G5:R5_DESIGN_AFTER_HUMAN_REVIEW",
+  "nonclaims": [
+    "NO_GLOBAL_MINIMALITY_OF_EXACT_HIDDEN_CANON_OVER_ALL_G5_OBSERVERS",
+    "NO_MINIMAL_SERIALIZATION_OR_BIT_COMPLEXITY_CLAIM",
+    "NO_FINITE_STATE_HIDDEN_QUOTIENT_CLAIM",
+    "NO_MARKER_FREE_FUTURE_SEPARATION_CLAIM",
+    "NO_PUBLIC_DESCRIPTOR_CHANGE",
+    "NO_TOPOLOGY_PROMOTION",
+    "NO_EXACT_HIDDEN_CANON_PROMOTION_TO_PUBLIC_STATE",
+    "NO_PHYSICAL_GEOMETRY",
+    "NO_DIMENSION",
+    "NO_METRIC",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_G6_LAUNCH"
+  ],
+  "outcomes": {
+    "fail": "G5_R4_MARKED_OBSERVER_COLLISION_REVIEW_REQUIRED_NO_PROMOTION",
+    "pass": "G5_R4_FRESH_MARKER_GRAFT_SEPARATES_EXACT_HIDDEN_PARENTS_SCOPED_OBSERVER_MINIMALITY_EARNED_NO_PROMOTION_R5_DESIGN_AUTHORIZED"
+  },
+  "promotion": false,
+  "question": "Given R3 sufficiency of the exact endpoint-typed hidden-tree canon for all finite certified graft futures, is that exact canon also necessary on a nontrivial actual G5 subcarrier for a frozen one-step exact-hidden continuation observer? Specifically, when D is reserved as a fresh marker absent from the parent, does the nonempty relation-valued D-leaf graft observer injectively determine the exact parent canon?",
+  "schema_id": "IG_G5_R4_MARKED_LEAF_HIDDEN_MINIMALITY_SPEC_V1",
+  "science_sha256": "e17089c6a4800ba3a388fc9877dcee5ff8236d038d3abe9fabcec583f5c60bec",
+  "stage": "G5:R4",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "stops": [
+    "R3_AUTHORITY_MISMATCH",
+    "SPEC_HASH_MISMATCH",
+    "ANY_UNIQUE_MARKER_VIOLATION",
+    "ANY_CHILD_SET_OVERLAP_BETWEEN_DISTINCT_PARENT_CANONS",
+    "ANY_COLD_REPLAY_MISMATCH",
+    "ANY_INDEPENDENT_VERIFICATION_FAILURE",
+    "RESOURCE_OR_RUNTIME_INTEGRITY_FAILURE"
+  ],
+  "support_panel": {
+    "all_31_existing_operator_max_n": 3,
+    "all_31_marker_operator_sentinel": true,
+    "hashes_are_audit_handles_only": true,
+    "homogeneous_existing_operator": [
+      0,
+      0
+    ],
+    "homogeneous_max_n": 12,
+    "homogeneous_parent_H_class": "C",
+    "structural_equality_required": true
+  }
+}

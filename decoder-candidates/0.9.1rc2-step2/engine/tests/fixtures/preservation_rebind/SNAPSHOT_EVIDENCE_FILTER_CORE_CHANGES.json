@@ -1,0 +1,11 @@
+{
+  "schema": "IG_08LIB_REVIEWED_CORE_PIN_SUCCESSOR_V1",
+  "scope": "Records the dev85 runtime evidence snapshot filter repair; all historical pin records remain immutable.",
+  "changes": {
+    "infinity_grid/v05_controller_event_loop.py": {
+      "previous_reviewed_sha256": "bb9ca40612ed53863e4fa893d20238b1f8163f3dc6aaa5789c0c1958578a5c2f",
+      "reviewed_sha256": "f6913f6b87a8c8919ead77796f3b12f96dfa83b2caa1ffd604b3a0204d297f52",
+      "reason": "Preserve completion-bound cache-like files under runtime/runs and runtime/sealed; retain source exclusions elsewhere and reject symlinks. Native dev85 completion c58c212046ed3a43f16ab3cb60e1ad5173330eb7278f3a257687e5941498f44c."
+    }
+  }
+}

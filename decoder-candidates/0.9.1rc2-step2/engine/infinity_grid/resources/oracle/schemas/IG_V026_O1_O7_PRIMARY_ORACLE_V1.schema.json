@@ -1,0 +1,76 @@
+{
+  "$id": "ig://gate2/oracle/IG_V026_O1_O7_PRIMARY_ORACLE_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "levels": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_science_sha256": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "level": {
+            "type": "string"
+          },
+          "probe_file_sha256": {
+            "type": "string"
+          },
+          "profile_id": {
+            "type": "string"
+          },
+          "science_sha256": {
+            "type": "string"
+          },
+          "science_status": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "status_probe": {
+            "type": "string"
+          },
+          "target_alias": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_science_sha256",
+          "level",
+          "probe_file_sha256",
+          "profile_id",
+          "science_sha256",
+          "science_status",
+          "status",
+          "status_probe",
+          "target_alias",
+          "target_node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_id": {
+      "const": "IG_V026_O1_O7_PRIMARY_ORACLE_V1",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "levels",
+    "schema_id",
+    "status"
+  ],
+  "title": "Gate2 native strict contract for IG_V026_O1_O7_PRIMARY_ORACLE_V1",
+  "type": "object",
+  "x-ig-contract-status": "GATE2_NATIVE_STRICT"
+}

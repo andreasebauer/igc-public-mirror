@@ -1,0 +1,59 @@
+{
+  "comparison_rules": {
+    "absence": "Never population-wide.",
+    "absolute_within_panel_counts": "EXACT",
+    "cross_level_count_or_fraction_comparison": "DIAGNOSTIC_ONLY_DIFFERENT_BOUNDED_ROOT_SCOPES",
+    "deep_ancestry": "UNRESOLVED_DEPTH_SCOPE; no new ancestry census.",
+    "directional_change": "May license bounded EXPANDS/REFINES/REORGANIZES only with the bounded qualifier.",
+    "existence_persistence": "May license PERSISTS within the two bounded panels."
+  },
+  "observed_families": [
+    "R_PARENT_FIBER",
+    "R_SHARED_SUPPORT",
+    "R_FIBER_INCLUSION",
+    "R_PARTIAL_CLOSURE",
+    "R_REFINEMENT_INDIVIDUATION",
+    "R_LOCAL_DEPTH_REORGANIZATION",
+    "R_SCOUT_UNCLASSIFIED"
+  ],
+  "observer_id": "SCOUT_L16_SHALLOW_RELATIONAL_V1",
+  "observer_sha256": "3ce59d392231d927939120498807bda857abc91bb4f707f86fdd7730ca805820",
+  "schema_id": "IG_L16_SCOUT_OBSERVER_METRIC_SPEC_V1",
+  "science_projection": {
+    "baseline": "remove cost only",
+    "host_paths_timestamps_resource_fields": "not scientific",
+    "selected_relation": "complete canonical JSON object",
+    "spectroscope": "remove cost only",
+    "wide": "remove cost only"
+  },
+  "scope": {
+    "historical_scope_replay": true,
+    "population_complete": false,
+    "primitive_sha256": "eff6d9ad96fa2a69bce437fcea03249c0b25f19b56d1c99e0902e298ddda6fec",
+    "root_count": 1089,
+    "root_sha256": "a1b54f2ee2841f029e9bb5b222f8c2b559bd0d8377c6522f59968488bea3a1f3",
+    "source_level": 15,
+    "target_level": 16
+  },
+  "spectroscope_metrics": [
+    "incidence components and abstract cycle rank (recognition only)",
+    "stable refinement classes and singleton counts",
+    "exact parent-fiber inclusion pairs, covers, height and width",
+    "formal pair closure",
+    "observed-fiber intersection/union realization"
+  ],
+  "wide_metrics": [
+    "attempts",
+    "lawful",
+    "global_unique_L16_candidates",
+    "multi_parent_candidates",
+    "max_bounded_parent_count",
+    "selected_union",
+    "relation_edges",
+    "selected_multi_parent",
+    "selected_parent_histogram",
+    "distinct_exact_parent_fibers",
+    "shared_parent_pair_count",
+    "shared_parent_multiplicity_histogram"
+  ]
+}

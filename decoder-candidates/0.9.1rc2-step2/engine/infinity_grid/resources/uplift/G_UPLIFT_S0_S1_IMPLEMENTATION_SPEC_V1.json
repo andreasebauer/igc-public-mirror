@@ -1,0 +1,53 @@
+{
+  "architecture_contract_sha256": "282e49781b3a7f7a2b6e786f5c7611d621b08381751f23f15f5bbafaf6ba8541",
+  "date": "2026-09-02",
+  "hard_nonclaims": [
+    "NO_G2_GRADUATION",
+    "NO_G2_STATE_DESCRIPTOR",
+    "NO_S2_PAIR_QUOTIENT_YET",
+    "NO_HIDDEN_INTERNAL_READS",
+    "NO_CHANGE_TO_G1_GENERATOR_OR_OBSERVER"
+  ],
+  "implemented_stages": [
+    "G2:S0",
+    "G2:S1"
+  ],
+  "next_stage": "G2:S2",
+  "pair_census": {
+    "bridge_operator_catalog_sha256": "f10a566c1f8e8faf7419cca50e1ee84977c388beb9c5d2948e01290b68034e1a",
+    "declared_attempts": "all earned G1 typed bridge operators for every canonical carrier pair",
+    "failed_attempts": "RETAIN",
+    "outcome_semantics": "two atomic post-reservation public interfaces plus one typed G1 bridge relation; canonical under whole-carrier swap",
+    "pair_mode": "UNORDERED_WHOLE_CARRIER_PAIRS_WITH_REPLACEMENT",
+    "storage": "canonical JSONL gzip plus deterministic stream and per-pair hashes"
+  },
+  "promotion": false,
+  "public_interface_scope": {
+    "claim": "exact public one-endpoint surface needed by S1 only; not an unbounded future interface",
+    "forbidden_reads": [
+      "children",
+      "owner_caps",
+      "top_pairs",
+      "typed_edges",
+      "internal_paths",
+      "ancestry",
+      "hidden_topology"
+    ],
+    "reads": [
+      "construction_digest_as_provenance_ref",
+      "boundary_resource_skin",
+      "total_free_by_type",
+      "reserve_external(type)_successor_public_boundary"
+    ],
+    "reservation_witness": "DISCARDED_NOT_SERIALIZED_NOT_HASHED",
+    "resource_types": 7
+  },
+  "schema_id": "IG_G_UPLIFT_S0_S1_IMPLEMENTATION_SPEC_V1",
+  "schema_version": "1.0.0",
+  "source_layer": "G1",
+  "source_population": "COMPLETE_DETERMINISTIC_PRE_SELECTION_CANDIDATE_COHORT",
+  "source_stage": "G1:R100",
+  "spec_sha256": "41291da125d8fb72b79591e66cf52fbda055620fbf14bcc372f92a1c39a05cfe",
+  "status": "FROZEN_S0_S1_IMPLEMENTATION_SCOPE",
+  "target_layer": "G2"
+}

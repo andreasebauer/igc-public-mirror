@@ -1,0 +1,15 @@
+{
+  "$id": "ig://schema/decoder-baseline-identity/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "archive_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "decoder_version": {"const": "0.26.0"},
+    "role": {"const": "ONLY_V0_26_COMPARISON_ORACLE"},
+    "schema_id": {"const": "IG_DECODER_BASELINE_IDENTITY_V1"},
+    "semantic_status": {"const": "FROZEN_NO_REWRITE"},
+    "source_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["schema_id", "decoder_version", "archive_sha256", "source_sha256", "role", "semantic_status"],
+  "type": "object"
+}

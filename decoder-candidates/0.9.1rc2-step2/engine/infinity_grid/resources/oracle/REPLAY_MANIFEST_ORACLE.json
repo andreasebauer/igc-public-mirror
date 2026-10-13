@@ -1,0 +1,369 @@
+{
+  "schema_id": "IG_V026_REPLAY_MANIFEST_ORACLE_V1",
+  "scope": "Ten unique v0.26 scientific replay targets underlying the 36-entry scientific test registry. Replay authority/limitations are preserved from their frozen replay contracts.",
+  "status": "PASS",
+  "targets": [
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "e2ca855632d5df3265b150a421a220d22ff51d0f84ad47b3055d8b16b5e29aae",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:c79232ee23c28d7fe5273b66c7c3f9afb447b5e4ccd90500c5d55bdd1743971d",
+          "sha256": "c79232ee23c28d7fe5273b66c7c3f9afb447b5e4ccd90500c5d55bdd1743971d",
+          "size_bytes": 1246742
+        }
+      ],
+      "plan_sha256": "e73f158a0b045ddc1be6afe7e2901fc33dac9b5807f05a9afa205655f597a9bd",
+      "profile_id": "O1_JUMPSTART_V1",
+      "profile_sha256": "2b55181948fc2131308a51fc29dbbc32bcb89b3c75d9cdcea5dc6f44d7ba247d",
+      "replay_contract": {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "contract_sha256": "69a55e74d8a50e22b1cfa7fdd6426fd32adc7abf5f70011b096385d0d41db6c2",
+        "does_not_recompute": "The full historical O1 discovery campaign test by test.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Compact exact graduation replay, not a reconstruction of every historical exploratory step."
+        ],
+        "recomputes": "The mature-node graduation audit over the frozen 22,885-record carrier and reproduces the declared science digest.",
+        "replay_class": "RERUN_GRADUATION_AUDIT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "e3031c389cf349dd012ac1a581795d1935be36232952fbed0edc6ce3a003d401",
+          "relative_path": "PHASE5_JUMPSTART_VERIFICATION.json",
+          "sha256": "8531c8c2f9623dbc5f9be792037c4122b3ea18353f2a54cffb2e7852dc5dd9ad",
+          "size_bytes": 258
+        }
+      ],
+      "target_alias": "ig:test/O1",
+      "target_node_id": "result:sha256:d791ed9b46d5d7e550726fc67bec9070a52597b4ce35ae7dda37f12f0b27a7d3"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "fbaf6d1c7b5d4a8c9aa0b937f7c720036a348426f76ab590d43bfe82dce705a7",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:2b422f010e436fc462fcdb07119f4e793b2c7f825043d50ea3b7d1e4a0f4398b",
+          "sha256": "2b422f010e436fc462fcdb07119f4e793b2c7f825043d50ea3b7d1e4a0f4398b",
+          "size_bytes": 1588606
+        }
+      ],
+      "plan_sha256": "c0de9dd314bb44a84527963e1fc7ed54991a436accdd38dbedee1fda3c106918",
+      "profile_id": "O2_CERTIFICATE_REPLAY_V1",
+      "profile_sha256": "ca0b13a29a179479052ebf67df23ada4ace6a7be390ccef50f50cb2ad175ef38",
+      "replay_contract": {
+        "authority_class": "CERTIFIED_AUTHORITY",
+        "contract_sha256": "2da3b794c1b0aba45264ce3e7bcddb78a40fce1cb569954015e4913128737ffb",
+        "does_not_recompute": "The original complete O2 V1.9 historical package or full O2 generation campaign.",
+        "historical_identity": "CERTIFICATE_ONLY",
+        "limitations": [
+          "Original complete O2 package is missing; this target is certificate-verification-only."
+        ],
+        "recomputes": "Verification of the recovered O2 V1.9 certificate, parent pins and retained anchor panels.",
+        "replay_class": "VERIFY_AUTHORITY"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "356911d6261f18077c83dcdb607e741144e3540d299c11e2817e7d712c27dc59",
+          "relative_path": "06_RESULTS/O2_CERTIFICATE_VERIFICATION_RESULT.json",
+          "sha256": "fb3a9d2829651260da068b79c1f342a5020f51ebf23121a7d857fbd914356fa4",
+          "size_bytes": 10521
+        }
+      ],
+      "target_alias": "ig:test/O2",
+      "target_node_id": "result:sha256:0f05e9f95b153547c34ad2bc48851e5faeea456f388cda813e8831ad5b538cbc"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "3d2468f437bda4883092abec916d0300d5a53c740f02a5d80dcfc986b781164b",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:ddffa00b500cae0b632468c0e4a5d8f6a66d1f7dd748547d1dc88e3b6c676a87",
+          "sha256": "ddffa00b500cae0b632468c0e4a5d8f6a66d1f7dd748547d1dc88e3b6c676a87",
+          "size_bytes": 1367582
+        }
+      ],
+      "plan_sha256": "9cb16a6fa0d636b27beb8ad8856d6fcf274d70a9ece382a110d3c205e6b8dc6d",
+      "profile_id": "O3_JUMPSTART_V1",
+      "profile_sha256": "d167ff21986f544e0eb5e49999f5b686a5ae1c4a49e3db1c365ceb7eff94f515",
+      "replay_contract": {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "contract_sha256": "0ce2a069b85fb6a4b0be74ed8fcac85df2e2e2150c950885e3641eff2ea09582",
+        "does_not_recompute": "A new broad O3 population census beyond the frozen carrier.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Graduation replay is exact in the retained frozen scope; it is not a new population-generation campaign."
+        ],
+        "recomputes": "The frozen O3 graduation/classification audit over exact earned carrier evidence.",
+        "replay_class": "RERUN_GRADUATION_AUDIT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "a6a78a46b8dfaf7fb0389334f0cb5d2ee3c47632b41caf1fde3e5b321de8be23",
+          "relative_path": "PHASE5_JUMPSTART_VERIFICATION.json",
+          "sha256": "55626201ae657ced654d9c7c026fb45ee979801ccfd842bdc0b866b84cd14878",
+          "size_bytes": 328
+        }
+      ],
+      "target_alias": "ig:test/O3",
+      "target_node_id": "result:sha256:00a6b55e7e082792722665b89a2203c6df1cf08549b47539e4bbfec1eb383612"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": null,
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:5c2f56a57ff7921a7fe480db79d1f5e199e434cba2fc9bc4d48ca55bdf02593b",
+          "sha256": "5c2f56a57ff7921a7fe480db79d1f5e199e434cba2fc9bc4d48ca55bdf02593b",
+          "size_bytes": 1387204
+        }
+      ],
+      "plan_sha256": "a5947dd8146474e7df278e47288c2ad81362939463801ad167226d765305b724",
+      "profile_id": "O4_PHASE6_V1",
+      "profile_sha256": "e18620eb8d23da22666faa2771c11651573b6aaba61237bfc156a7d73d7479e7",
+      "replay_contract": {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "contract_sha256": "987c0bac8fb7b73467314c55dbcfb39dd831bc100a39a697366aad82b3357477",
+        "does_not_recompute": "Earlier O4 exploratory work not represented by the Phase-2 reproduction package.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Exact reproduction is claimed only within the packaged Phase-2 scope."
+        ],
+        "recomputes": "The packaged O4 Phase-2 graduation reproduction script and result.",
+        "replay_class": "RERUN_GRADUATION_AUDIT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "b9bbdc5f4e9dbe163b62463e96eebd0de2bc6fb5692211d4c835329979d6e3d2",
+          "relative_path": "03_RESULTS/O4_PHASE2_GRADUATION_AUDIT_RESULT.json",
+          "sha256": "65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12",
+          "size_bytes": 20068
+        }
+      ],
+      "target_alias": "ig:test/O4",
+      "target_node_id": "result:sha256:65a609e17fa80f68ca090d316c8423813413b4c647e327c4cc22a64daf6f3a12"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": null,
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:3c6b52b9bbb12f34a9768b8045520c9b8a86869a345d2db70a25091f100feed3",
+          "sha256": "3c6b52b9bbb12f34a9768b8045520c9b8a86869a345d2db70a25091f100feed3",
+          "size_bytes": 2982259
+        }
+      ],
+      "plan_sha256": "fa86e7af396b7bbda3dbddd74cd8d9f747ae1df78ae0184001766e7f0d49816f",
+      "profile_id": "O5_PHASE6_V1",
+      "profile_sha256": "2880a9d47ac0d253951b9f43ac012357cda7c2948a73c508e2d1c18177a69c40",
+      "replay_contract": {
+        "authority_class": "RECONSTRUCTED_SCIENCE",
+        "contract_sha256": "ef96a328007537535043fe1321894165be0a25fbb56feca8502e57abb099d2f3",
+        "does_not_recompute": "The lost original O5 Phase-2 ZIP or its historical bytes.",
+        "historical_identity": "SCIENCE_EQUIVALENT_NOT_BYTE_IDENTICAL",
+        "limitations": [
+          "Original and reconstructed science hashes intentionally differ; historical byte identity is not claimed."
+        ],
+        "recomputes": "The O5 Phase-2 graduation classification from sealed parent evidence and rechecks selected parent evidence.",
+        "replay_class": "SCIENTIFIC_RECONSTRUCTION"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "ddf7dde6691e0a868899756cfe205375ef23b0198737ce17770b4d59ea062d30",
+          "relative_path": "03_RESULTS/O5_PHASE2_GRADUATION_AUDIT_RESULT.json",
+          "sha256": "421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b",
+          "size_bytes": 23813
+        }
+      ],
+      "target_alias": "ig:test/O5",
+      "target_node_id": "result:sha256:421d3a703c4d169c9e3778bcbb5cf277531c14f064b298700e5b36d97e0b143b"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": null,
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:1e0934060973a98cd4c9d47e7d1e42819ed354291312980586751fba64770545",
+          "sha256": "1e0934060973a98cd4c9d47e7d1e42819ed354291312980586751fba64770545",
+          "size_bytes": 20692136
+        }
+      ],
+      "plan_sha256": "76753cee08a8ef5819a21b8d7f2a0d96e8f61bd8498897cbe7983655e9fd623f",
+      "profile_id": "O6_PHASE6_V1",
+      "profile_sha256": "653eaaed551541868e445b6acd1ad98b27e6279cd8ad5e15434480f7bfb2f838",
+      "replay_contract": {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "contract_sha256": "ac81aa13a7d77898dd2c863d5937e1a6a583813a6c0c07fb93f74f25e79d280e",
+        "does_not_recompute": "Earlier exploratory O6 campaign work outside the packaged Phase-2 reproduction.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Exact reproduction is claimed only within the packaged Phase-2 scope."
+        ],
+        "recomputes": "The packaged O6 Phase-2 graduation/classification audit and its exact checks.",
+        "replay_class": "RERUN_GRADUATION_AUDIT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "72ec0123da390eded79011fd986d81045a493a14ef8c502a69e1751ff5b03dec",
+          "relative_path": "03_RESULTS/O6_PHASE2_GRADUATION_AUDIT_RESULT.json",
+          "sha256": "4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f",
+          "size_bytes": 6358
+        }
+      ],
+      "target_alias": "ig:test/O6",
+      "target_node_id": "result:sha256:4de5f0697d3fe6441b4afc8aeeb72a5530ac4f3bf9e86e18d00110d0b66a838f"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "eb432bb5e179def6a69f55e448057a67eebf5bbe0efa09f8347c1dc3edc68b62",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "size_bytes": 533342
+        }
+      ],
+      "plan_sha256": "e72db5fa1ae232157eda8c8a180d6bd8e9febdacb99e4b902558ce33d44c1cb4",
+      "profile_id": "O7_GRADUATED_PHASE7_V1",
+      "profile_sha256": "0ab9a7a32fee7b13c5195591b91902a4c72152791da725a8e6c96b53b59b0621",
+      "replay_contract": {
+        "authority_class": "CANONICAL_SCIENCE_AUTHORITY",
+        "contract_sha256": "eb7ab0f01a54869bd76b2800ce4f961ba9d2faa1ba468eb4b4fa13c58562e007",
+        "does_not_recompute": "Every historical O7 exploratory subtest as an independently named target.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "This is the canonical graduated O7 authority; test-level registration is a later Recovery-v7 gate."
+        ],
+        "recomputes": "The O7 Phase-2 graduation audit from the frozen graduated O7 material root and reproduces the graduation science digest.",
+        "replay_class": "RERUN_GRADUATION_AUDIT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "7366d91fe4d118871d0f1f06cc3d3ae2d1090882ea89bad1bd747cb29858ffe7",
+          "relative_path": "authority/O7_GRADUATION_RESULT.json",
+          "sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+          "size_bytes": 6411
+        },
+        {
+          "canonical_sha256": "7366d91fe4d118871d0f1f06cc3d3ae2d1090882ea89bad1bd747cb29858ffe7",
+          "relative_path": "graduation_compact/02_RESULTS/O7_PHASE2_GRADUATION_AUDIT_RESULT.json",
+          "sha256": "a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb",
+          "size_bytes": 6411
+        }
+      ],
+      "target_alias": "ig:test/O7",
+      "target_node_id": "result:sha256:a1566b2e29d4d3d54152c9bf50c8a947a71fe67bac77389c583e8915a83417eb"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "eb432bb5e179def6a69f55e448057a67eebf5bbe0efa09f8347c1dc3edc68b62",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "size_bytes": 533342
+        }
+      ],
+      "plan_sha256": "8c59e7c91f4e9a608ef351d4d737f38ed2a10281512200e5e84895d981d92816",
+      "profile_id": "O7_ADAPTER_PHASE7_V1",
+      "profile_sha256": "b69b922e1be04863aedb1f1fc6d7792d0a8cb53419765f22e9ee6ff51b1d3e7a",
+      "replay_contract": {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "contract_sha256": "7ac8de3f1fee5f27f5249f7a5f19a816577dffdcb7ca41613742cf0eccdfbf97",
+        "does_not_recompute": "The full native O7 campaign or a new O7 census.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "This is a bounded theorem-adapter audit, not the O7 graduation by itself."
+        ],
+        "recomputes": "The historical O7 adapter audit, including the frozen B1-B4 adapter hypotheses.",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "054cbd4720bd6b0d26910a1a7c00fde3094cb5d2e9b341d97e7a713e65845da1",
+          "relative_path": "authority/O7_ADAPTER_AUDIT_RESULT.json",
+          "sha256": "0157fe6aec6657e6f35ca32b6fdc41921dba9bac9a771b0cc3308cd025c11d1f",
+          "size_bytes": 4842
+        }
+      ],
+      "target_alias": "ig:test/O7_ADAPTER",
+      "target_node_id": "result:sha256:0157fe6aec6657e6f35ca32b6fdc41921dba9bac9a771b0cc3308cd025c11d1f"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "eb432bb5e179def6a69f55e448057a67eebf5bbe0efa09f8347c1dc3edc68b62",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "size_bytes": 533342
+        }
+      ],
+      "plan_sha256": "183a6b606373b87fafc4bd8c413f73cf627b7aa3412d74dfab310ad57f7fa679",
+      "profile_id": "O7_POST_STRUCTURAL_PHASE7_V1",
+      "profile_sha256": "1c39a9f0ee8d5e808406cc986046bdfc7dd529e64b76aef68640f62bd098b9c2",
+      "replay_contract": {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "contract_sha256": "e65cc6309e00272ea50a75813462807b8fdd03d24b72586361b775b172087f91",
+        "does_not_recompute": "O7 generation or geometry beyond the structural audit question.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Intrinsic pregeometry descriptors are evidence only; geometry is not earned by this audit."
+        ],
+        "recomputes": "The post-O7 structural audit on the frozen graduated carrier.",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "e9e75b6d43c79e76c55db18b5e4b0ac6305f1591928cbeaac70cb354d2088050",
+          "relative_path": "authority/POST_O7_STRUCTURAL_AUDIT_RECONCILED_RESULT.json",
+          "sha256": "f52190c75af6674d80f653be254ec9b60c5c044061dfbd78f0cc18c6055ab764",
+          "size_bytes": 16117
+        }
+      ],
+      "target_alias": "ig:test/O7_POST_STRUCTURAL",
+      "target_node_id": "result:sha256:f52190c75af6674d80f653be254ec9b60c5c044061dfbd78f0cc18c6055ab764"
+    },
+    {
+      "captured_replay_returncode": 0,
+      "expected_tree_sha256": "eb432bb5e179def6a69f55e448057a67eebf5bbe0efa09f8347c1dc3edc68b62",
+      "material_roots": [
+        {
+          "node_id": "artifact:sha256:cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "sha256": "cb6f48641eb99d374d19d5dc8d5bfada13e12cf1ecb20ed0e66958629ec08f1b",
+          "size_bytes": 533342
+        }
+      ],
+      "plan_sha256": "d9180f8db1f20a4075191cb64a7f9dcd233ef609613814caedab434f9a12b982",
+      "profile_id": "O7_TOPOLOGY_READ_PHASE7_V1",
+      "profile_sha256": "a8f7f3334639a8b7101b1d1b5da5bbfa4d3d098ce7d91f41ba44dc02b1354a48",
+      "replay_contract": {
+        "authority_class": "BOUNDED_SCIENTIFIC_EVIDENCE",
+        "contract_sha256": "8ddeb27a2fdbd887b90c053e04d521b16277d28d3aae844a424fdda1b8fea7cf",
+        "does_not_recompute": "A new action grammar or a geometry derivation.",
+        "historical_identity": "BYTE_IDENTICAL_WITHIN_SCOPE",
+        "limitations": [
+          "Negative/no-read result is scoped to the frozen O7 action/read grammar."
+        ],
+        "recomputes": "The frozen topology-aware read probe asking whether current O7 action grammar operationally reads intrinsic topology.",
+        "replay_class": "REPLAY_BOUNDED_EXPERIMENT"
+      },
+      "status_probe_files": [
+        {
+          "canonical_sha256": "4a38bf3b5c2ceca138d0f624a2f175350281e28d56b5916c265f815caa475d28",
+          "relative_path": "authority/O7_TOPOLOGY_AWARE_READ_PROBE_RESULT.json",
+          "sha256": "77b1f081b181b2eaa5dc910a280de8a8c767403a50db45ab51fec698d608c99d",
+          "size_bytes": 8535
+        },
+        {
+          "canonical_sha256": "c6c0e0ee32639bd7af6fa4120c1a0494f2b0b946ab83ea3511dcecdc97dd118f",
+          "relative_path": "PHASE7_FRONTIER_REPLAY_RESULT.json",
+          "sha256": "a48f0c489d2371c199ddccec6b3531181c925214eb22b9dde3623cfcbec0afbe",
+          "size_bytes": 2485
+        }
+      ],
+      "target_alias": "ig:test/O7_TOPOLOGY_READ",
+      "target_node_id": "result:sha256:77b1f081b181b2eaa5dc910a280de8a8c767403a50db45ab51fec698d608c99d"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "native_semantics": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "snapshot_science_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseline_sha256",
+        "snapshot_science_sha256",
+        "status"
+      ],
+      "type": "object"
+    },
+    "resources": {
+      "additionalProperties": false,
+      "properties": {
+        "GRRL_APPLICATION_GATE_RECONCILED_v0.1": {
+          "type": "string"
+        },
+        "O_REGIME_ADAPTIVE_SCANNER_SPEC_v1": {
+          "type": "string"
+        },
+        "O_REGIME_EARNED_LAW_REGISTRY_v1": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "GRRL_APPLICATION_GATE_RECONCILED_v0.1",
+        "O_REGIME_ADAPTIVE_SCANNER_SPEC_v1",
+        "O_REGIME_EARNED_LAW_REGISTRY_v1"
+      ],
+      "type": "object"
+    },
+    "schema_id": {
+      "const": "IG_THEOREM_PREMISE_SNAPSHOT_V1",
+      "type": "string"
+    },
+    "science_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "native_semantics",
+    "resources",
+    "schema_id",
+    "science_sha256"
+  ],
+  "type": "object"
+}

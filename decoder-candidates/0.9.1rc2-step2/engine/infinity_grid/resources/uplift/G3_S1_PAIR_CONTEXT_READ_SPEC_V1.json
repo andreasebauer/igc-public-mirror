@@ -1,0 +1,88 @@
+{
+  "challenge_domain": {
+    "expected_exact_carrier_count": 6,
+    "expected_topology_class_histogram": {
+      "((())())": 4,
+      "(()()())": 2
+    },
+    "required_single_caps7_class": true,
+    "source": "complete G3:S0 four-G1-unit topology-collision corpus",
+    "topology_labels_usage": "GROUPING_AND_POST_EXECUTION_DIAGNOSTIC_ONLY; NEVER AN OPERATIONAL CONTEXT READ",
+    "use_all_s0_challenge_records": true
+  },
+  "context_basis": {
+    "bridge_operators": "all 31 earned directed G2 bridge operators",
+    "orientations": [
+      "TARGET_LEFT_CONTEXT_RIGHT",
+      "CONTEXT_LEFT_TARGET_RIGHT"
+    ],
+    "partners": "all six exact complete G2 units in the frozen G3:S0 challenge corpus",
+    "task_count_formula": "6 targets * 6 contexts * 31 operators * 2 orientations = 2232",
+    "whole_unit_rule": "Each target and context is treated as a complete unit; no direct topology field is consulted by the context operation."
+  },
+  "date": "2026-09-03",
+  "decision_rule": {
+    "REVIEW_REQUIRED": "If exact realizations with the same frozen topology label have different operational behavior signatures, do not attribute any difference to topology and lock S2.",
+    "TOPOLOGY_NOT_READ": "If all six exact realizations have the same operational behavior signature across the full frozen context basis, CAPS7 survives this S1 pair-context challenge and S2 is unlocked to test/certify the stronger quotient.",
+    "TOPOLOGY_READ_EARNED": "If each topology class is internally congruent and the two topology classes have different operational behavior signatures, record a separating context and unlock S2 to isolate the smallest relabel-invariant added read. Do not promote topology in S1.",
+    "within_topology_congruence_first": true
+  },
+  "execution_rules": [
+    "REGISTERED_DECODER_NATIVE_HANDLER_ONLY",
+    "DECOMPOSABLE_WORK_THROUGH_EXECUTE_TASKS",
+    "FOUR_WORKERS_REQUESTED_BY_CAMPAIGN_CONTROLLER",
+    "COLD_REPLAY_RERUNS_SAME_REGISTERED_EXPERIMENT",
+    "FAIL_CLOSED_ON_AUTHORITY_HASH_OR_CORPUS_MISMATCH",
+    "NO_POST_HOC_CONTEXT_ADDITION_TO_S1"
+  ],
+  "nonclaims": [
+    "NO_G3_GRADUATION",
+    "NO_TOPOLOGY_PROMOTION_AT_S1",
+    "NO_COMPLETE_UNBOUNDED_G3_FUTURE_EQUIVALENCE",
+    "NO_MINIMAL_G3_DESCRIPTOR",
+    "NO_PHYSICAL_SPACE",
+    "NO_DIMENSION",
+    "NO_TIME",
+    "NO_SPACETIME",
+    "NO_COORDINATES",
+    "NO_METRIC"
+  ],
+  "operational_signature": {
+    "allowed_reads": [
+      "compose_binary_relation exact relation cardinality",
+      "output total_caps (CAPS7)",
+      "for each exact output and endpoint type: reserve_external_relation cardinality",
+      "for each such reservation relation: successor total_caps (CAPS7) set"
+    ],
+    "branching_policy": "Preserve relation cardinalities and multiplicities of public branch-profile types; never record output construction identities.",
+    "forbidden_reads": [
+      "flattened G1 incidence during context execution",
+      "topology canonical form during context execution",
+      "diameter",
+      "degree sequence",
+      "shell profile",
+      "articulation structure",
+      "output construction_digest as semantic descriptor",
+      "skin",
+      "children",
+      "owner witness",
+      "internal path",
+      "ancestry"
+    ],
+    "purpose": "Detect operational topology sensitivity through admitted relation behavior without inserting topology into the observer by hand."
+  },
+  "pass_effect": "Unlock G3:S2 only. S1 cannot promote a topology descriptor and cannot graduate G3.",
+  "phase0_spec_sha256": "25bf3252859805076ec0dfcf5a5ecb3cb9765b20ea390109d66c3d090885f2cb",
+  "question": "Can the registered whole-unit G3 pair-context behavior distinguish complete graduated G2 units that have identical inherited CAPS7 but different intrinsic G1-unit incidence topology?",
+  "s0_authority": {
+    "classification": "G3_BASELINE_UNIT_INTERFACE_FROZEN_CAPS7_ONLY_TOPOLOGY_COLLISION_CORPUS_EARNED_S1_UNLOCKED",
+    "required_g3_graduated": false,
+    "required_g3_s1_unlocked": true,
+    "science_sha256": "42832d682c1e0175f6f7c02eff6047f9ba8bf2a165c6017d8f4776166e766199"
+  },
+  "schema_id": "IG_G3_S1_PAIR_CONTEXT_READ_SPEC_V1",
+  "schema_version": "1.0.0",
+  "science_sha256": "b5c00a2cf5de79800ed95df10d12313cef72300d4f3b5e291bb015b80c299feb",
+  "stage_ref": "G3:S1",
+  "status": "FROZEN_BEFORE_G3_S1_EXECUTION"
+}

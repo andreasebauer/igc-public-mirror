@@ -1,0 +1,45 @@
+P4 L0 PILOT IMPLEMENTATION AND RUNTIME-HARNESS QUALIFICATION
+Date: 2026-09-22
+Decoder version: 0.8.0.dev52+lib
+
+DISPOSITION
+PASS_P4_IMPLEMENTATION_AND_RUNTIME_HARNESS
+RECORDED_CONTROLLER_ATTEMPT_BLOCKED_CAPTURE_REQUIRED
+P4_PLAN_ACCEPTANCE_NOT_YET_COMPLETE
+
+FOCUSED P4
+10 passed, 0 failed
+Evidence: qualification_evidence/P4_L0_PILOT_FOCUSED_JUNIT.xml
+
+P1/P2/P3/P4 REPLAY REGRESSION
+112 passed, 0 failed
+Evidence: qualification_evidence/P4_P1_P2_P3_REPLAY_REGRESSION_JUNIT.xml
+
+PORTABLE R02
+340 passed, 1 skipped, 0 failed
+Execution policy: NO_AUTOMATIC_RUNTIME_DEADLINE_V1
+Evidence: qualification_evidence/P4_PORTABLE_R02_JUNIT.xml
+
+RUNTIME QUALIFICATION HARNESS
+Automatic path: four mapped L0 SOURCE_INTEGRITY_ONLY nodes reproduced; L0 gate
+checkpointed; stopped before C0 with L0_PILOT_COMPLETE; 20 P3 reference records;
+science_executed=false.
+
+Injected path: S reproduced; intentional R RESULT_MISMATCH stopped immediately;
+exact audit capsule and resume frontier sealed; cold restoration reproduced the
+same wait without changing state or reference manifest.
+
+PRODUCTION CONTROLLER ATTEMPT
+Not executed. The workspace has no CAPTURE.json and the Decoder rejected the
+attempt precondition with:
+  CAPTURE_REQUIRED:/workspace/scratch/7d00d84faa68/dev33_minimal_restore
+
+The version/capture diagnostic therefore remains 15 passed, 1 failed, with the
+sole failure being the previously named nonportable CAPTURE_REQUIRED boundary.
+Evidence: qualification_evidence/P4_VERSION_AND_CAPTURE_DIAGNOSTIC_JUNIT.xml
+
+BOUNDARY
+The four current L0 obligations are compiled as SOURCE_INTEGRITY_ONLY and
+counts_toward_empty_root_science_replay=false. P4 does not relabel them as fresh
+J3 recomputation. No fresh science, new audit authority, C0 execution, GLOBAL
+authorization or shared-pointer advance is claimed.

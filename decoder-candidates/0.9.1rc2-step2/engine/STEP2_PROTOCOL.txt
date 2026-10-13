@@ -1,0 +1,95 @@
+DECODER DEV149 — STEP 2 BOUNDED EXECUTION / PRESERVATION PROTOCOL
+2026-10-01. Engineering observations only; no official master data or RC promotion.
+
+Frozen parent is the verified dev148 Step 1 source:
+933ed6ccf4866bd26e07027f07e365d6ddc055e109786fb1082cab6490e977a7
+Candidate source and package digests are recorded when the capture is prepared.
+The captured source is immutable. Fixes require a new capture and retain refusals.
+Do not resume the old V84 qualification capture.
+
+Registered scenarios: ordinary completion with two workers; requested pause with
+one worker while work is active; one deliberately terminated worker with two
+workers; preservation backpressure with two workers. Each uses the same pure
+24-task synthetic generation recipe. Each task returns two occurrences, including
+one shared identity per adjacent pair. Expected total: 48 occurrences, 36 exact
+states, 24 distinct task IDs. Faults are operator actions in these new engineering
+captures only. Terminate at most one observed owned pool worker after at least two
+tasks commit. Request pause after at least two tasks commit. No fault is injected
+into retained scientific work.
+
+Task recipe: 3,000,000 deterministic integer recurrence iterations per task;
+100,000 integers in one immutable engineering shard; 2 output rows/task;
+64 KiB maximum serialized result; 30 seconds maximum dispatched work duration.
+Controller polling interval: at most 0.25 seconds between idle checks, plus time
+spent in a bounded checkpoint or budget scan. No promise of hard real-time latency.
+Pause / worker-loss detection acceptance: finish the interrupted invocation within
+10 seconds of the operator event at this declared scale. A failed bound remains
+a failure in evidence, not a successful completion.
+
+Runtime: pinned CPython 3.13 and reviewed SQLite 3.51.3 source binding inherited
+from the verified dev147 runtime. Each capture retains the exact environment and
+SQLite observations. Full independent-host runtime qualification remains open.
+Streaming task stores use spawn, never fork: workers must not inherit a live
+controller SQLite connection or its WAL state. Explicit fork streaming requests
+refuse before a worker pool starts; a new capture must declare spawn.
+New engine-owned task stores use journal_mode=DELETE and synchronous=FULL.
+This is a single-writer rollback-journal policy, with SQLite retaining atomic
+transactions and retiring its own journals. No journal is manually removed.
+WAL behavior failed post-process rechecks in this host, including a standalone
+SQLite reproducer. The new journal policy must pass all native recovery gates;
+small rollback-journal probes alone do not qualify it. Existing captures retain
+their source and policy; never edit them to adopt this candidate in place.
+Per-capture memory budget: 1 GiB. Workspace budget: 1 GiB. Declared max commit:
+64 MiB; pending bytes: 256 MiB; max pending commits: 8 normally / 4 for deliberate
+backpressure; max retained commits: 32. Checkpoints run at 30-second intervals
+normally / 1 second for deliberate backpressure. Reserve room for the final paused
+checkpoint before scheduling more work. Stop at a recorded limit; drain and resume
+the exact capture. Never raise its frozen backlog limit to make a result pass.
+
+Checkpoint raw limits: state 16 MiB, individual mutable state file 8 MiB,
+state files 4,096, each immutable shard 4 MiB, at most 8 shard paths per checkpoint,
+source raw 128 MiB, project raw 32 MiB. Source and project checks remain bounded;
+state files and SQLite backups are assembled through temporary files and streamed
+into the archive. Immutable shards are separate hash-bound outbox objects.
+Missing/corrupt referenced shards must refuse checkpoint/restore. Live SQLite uses
+backup; a successful terminal store is quiescent and has no engine journal sidecars.
+
+Save transport remains an explicit connector/operator capability. Use preserve
+drain-plan; upload each distinct object, fetch the raw saved bytes, compare size
+and SHA256, and confirm every declared logical role with its actual Drive file ID.
+Reuse verified physical bytes for repeated roles; never invent a remote receipt.
+Current acknowledgement batches are bounded to 1,024 roles, 256 physical objects
+and 512 MiB. Drain before continuing. Measure bytes, object/role counts, elapsed
+transport/confirmation time and pending obligations after drain. There is no
+unattended-upload claim.
+
+Restore acceptance: export each interrupted checkpoint, save/read back that
+export, restore into a new directory, verify exact committed task and occurrence
+rows, every referenced shard and captured source. Resume the missing task IDs;
+existing IDs/occurrences must remain byte-equivalent and unique. Final scientific
+state-set and occurrence-binding digests must match the ordinary scenario, with
+48 occurrences and 36 states. Retained historical checkpoints are not replayed.
+
+Metadata scaling: the first candidate read-only V84 status sample used 1,642
+receipt reads for 69 checkpoints, 1.571 seconds on the pinned runtime. The old
+audit sample used 70,289 receipt reads and 5.264 seconds on host Python 3.12.
+The different runtimes prohibit treating that wall-time ratio as a controlled
+benchmark. Acceptance uses read counts: every relevant receipt is read at most
+once per status call; 128 versus 256 synthetic-checkpoint samples may grow by at
+most 2.1x in receipt reads. Retained V84 pending obligations/bytes must be unchanged.
+
+Ledger scaling: preserve the strict single-row writer for compatibility; new
+put_many validates one prior frontier and writes one recoverable batch transaction
+and manifest. Batches are <=1,024 metadata records and <=8 MiB. Compare 200/400/800
+row single batches, require record-read growth <=2.2x per doubling, and verify the
+same resulting manifest as sequential writes on a smaller reference case.
+Recovery tests cut a batch after several record writes and require the complete
+declared transaction or an explicit refusal, with no partial published frontier.
+Bulk scientific rows belong in engine-owned SQLite / immutable shards; the ledger
+holds compact provenance, comparison and shard references.
+
+Current native collection ceilings remain 64 MiB, 100,000 records, 64 KiB/record,
+4 MiB/shard, 256 KiB/page, 4,096 pages/shards and depth 32. This pilot uses bounded
+SQLite plus one shard; it does not claim a whole-master collection export. Step 3
+must register a manifest over bounded collections and choose capture rollover
+before retained-history ceilings. This Step 2 does not retire old evidence.

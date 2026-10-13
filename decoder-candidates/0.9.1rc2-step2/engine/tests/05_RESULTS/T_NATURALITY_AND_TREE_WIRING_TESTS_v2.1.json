@@ -1,0 +1,265 @@
+{
+  "suite": "IG_V2.1_T_NATURALITY_AND_TREE_WIRING",
+  "status": "PASS",
+  "tests": [
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(0, 1, 2)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(0, 2, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(1, 0, 2)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(1, 2, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(2, 0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(0, 1)_qt(2, 1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(0, 1, 2)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(0, 2, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(1, 0, 2)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(1, 2, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(2, 0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "whole_relation_global_orbit_qp(1, 0)_qt(2, 1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "rowwise_T_multiset_projection_is_lossy",
+      "status": "PASS",
+      "detail": {
+        "sym_rows": 2,
+        "asym_rows": 1
+      }
+    },
+    {
+      "test": "binary_T_naturality_(0, 1, 2)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 1, 2)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 1, 2)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 1, 2)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 2, 1)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 2, 1)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 2, 1)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(0, 2, 1)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 0, 2)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 0, 2)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 0, 2)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 0, 2)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 2, 0)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 2, 0)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 2, 0)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(1, 2, 0)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 0, 1)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 0, 1)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 0, 1)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 0, 1)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 1, 0)_(0, 1)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 1, 0)_(0, 1)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 1, 0)_(1, 0)_(0, 1)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "binary_T_naturality_(2, 1, 0)_(1, 0)_(1, 0)",
+      "status": "PASS",
+      "detail": {}
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(0, 1, 2)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(0, 2, 1)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(1, 0, 2)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(1, 2, 0)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(2, 0, 1)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "tree_wiring_flat_equals_recursive_(2, 1, 0)",
+      "status": "PASS",
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "test": "random_tree_wiring_factorization",
+      "status": "PASS",
+      "detail": {
+        "cases": 40,
+        "schedules_each": 2
+      }
+    },
+    {
+      "test": "tree_wiring_operadic_substitution",
+      "status": "PASS",
+      "detail": {
+        "nested_rows": 16,
+        "flattened_rows": 16,
+        "flattened_boxes": 4,
+        "flattened_edges": 3
+      }
+    }
+  ],
+  "summary": {
+    "tests_passed": 45,
+    "T_model": "one global anonymous destination interface shared by all rows",
+    "tree_model": "connected pairwise acyclic undirected wiring"
+  },
+  "limitations": [
+    "Clean-room theorem kernel; not a second enumeration of J3 microscopic populations.",
+    "Exact orbit canonicalization is brute-force and intended for small proof/test interfaces.",
+    "The theorem covers frozen binary single-bridge composition trees, not cycles, self-contraction, copy/delete, arbitrary junctions, or a full UWD operad.",
+    "Full abstraction/minimality remains observer-relative and open."
+  ]
+}

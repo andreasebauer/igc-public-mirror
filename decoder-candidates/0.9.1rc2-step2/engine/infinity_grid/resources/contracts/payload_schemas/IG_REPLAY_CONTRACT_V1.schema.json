@@ -1,0 +1,69 @@
+{
+  "$id": "ig://gate1/frozen-baseline-shape/IG_REPLAY_CONTRACT_V1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_class": {
+      "type": "string"
+    },
+    "contract_sha256": {
+      "type": "string"
+    },
+    "does_not_recompute": {
+      "type": "string"
+    },
+    "historical_identity": {
+      "type": "string"
+    },
+    "legacy_resume_semantics": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "profile_sha256": {
+      "type": "string"
+    },
+    "recomputes": {
+      "type": "string"
+    },
+    "replay_class": {
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "IG_REPLAY_CONTRACT_V1",
+      "type": "string"
+    },
+    "target_alias": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority_class",
+    "contract_sha256",
+    "does_not_recompute",
+    "historical_identity",
+    "legacy_resume_semantics",
+    "limitations",
+    "profile_id",
+    "profile_sha256",
+    "recomputes",
+    "replay_class",
+    "schema_id",
+    "target_alias",
+    "target_node_id"
+  ],
+  "title": "Frozen v0.26 baseline shape for IG_REPLAY_CONTRACT_V1",
+  "type": "object",
+  "x-ig-baseline-version": "0.26.0",
+  "x-ig-contract-status": "STRICT_FROZEN_BASELINE_SHAPE"
+}

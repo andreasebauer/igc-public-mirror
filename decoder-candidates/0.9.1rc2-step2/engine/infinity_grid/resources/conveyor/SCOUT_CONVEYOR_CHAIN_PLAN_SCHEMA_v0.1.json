@@ -1,0 +1,66 @@
+{
+  "execution_policy": {
+    "auto_advance": true,
+    "claim_generation": "FORBIDDEN",
+    "fail_closed_on_mismatch": true,
+    "resume_verified_work_only": true,
+    "spectroscope_non_feedback": true,
+    "stop_on_any_integrity_failure": true,
+    "stop_on_any_scientific_trigger": true
+  },
+  "finite_limits_required": {
+    "generation_chunk_parent_count": "required positive integer",
+    "max_level_attempts": "required positive integer",
+    "max_level_wall_seconds": "required positive integer",
+    "max_target_level": "required integer",
+    "max_total_storage_bytes": "required positive integer",
+    "max_total_wall_seconds": "required positive integer",
+    "max_unique_candidates": "required positive integer",
+    "minimum_free_bytes": "required positive integer"
+  },
+  "forbidden": [
+    "open-ended chain without finite cap",
+    "runtime self-update",
+    "manual editing after start",
+    "changing budgets after seeing outcomes",
+    "changing lane size or metrics after seeing outcomes",
+    "skipping a failed level"
+  ],
+  "hash_rule": "chain_plan_sha256 = SHA-256 of canonical JSON excluding chain_plan_sha256.",
+  "identifier_rules": {
+    "chain_id": "ASCII [a-z0-9-], 8..96 characters; path-safe; unique.",
+    "max_target_level": "integer > start_level; mandatory",
+    "start_level": "integer >= 0"
+  },
+  "immutable_bindings": [
+    "bootstrap parent pin SHA-256",
+    "runtime source SHA-256",
+    "wheel SHA-256",
+    "environment/runtime SHA-256",
+    "primitive dataset SHA-256",
+    "generic Scout level protocol template SHA-256",
+    "exact selection rules SHA-256",
+    "observer SHA-256",
+    "evidence boundary SHA-256",
+    "trigger registry SHA-256",
+    "state machine SHA-256"
+  ],
+  "required_fields": [
+    "chain_id",
+    "schema_id",
+    "bootstrap_parent_pin",
+    "runtime_identity",
+    "primitive_identity",
+    "protocol_template_sha256",
+    "selection_rules_sha256",
+    "observer_sha256",
+    "evidence_boundary_sha256",
+    "trigger_registry_sha256",
+    "state_machine_sha256",
+    "finite_limits",
+    "execution_policy",
+    "chain_plan_sha256"
+  ],
+  "schema_id": "IG_SCOUT_CONVEYOR_CHAIN_PLAN_SCHEMA_V0_1",
+  "spec_sha256": "224b3056805b6dbfa348a5b3c80142fcd4c940c3c404386972281ee031277b98"
+}
