@@ -24,6 +24,7 @@ import gzip, hashlib, json, os, re, time
 from .canon import canonical_sha256, write_json_atomic
 from .execution import ExecutionPolicy, TaskSpec, execute_tasks
 from .runtime_telemetry import RuntimeTelemetry
+from . import r100_reuse
 from .materialized_discovery import MaterializedDiscoverySession
 from .maturation_parallel import parallel_candidate_descriptors, rebuild_selected_states
 from .records import source_sha256, utc_now
@@ -268,7 +269,11 @@ def _s6_holdout_worker(payload:Mapping[str,Any])->dict[str,Any]:
     raise UpliftCampaignError(f'unknown S6 holdout task kind {kind}')
 
 class UpliftCampaignEngine:
-    def __init__(self, run_root:str|Path, *, requested_workers:int|str|None='AUTO', lease_root:str|None=None, materialization_start_method:str='AUTO'):
+    def __init__(self, run_root:str|Path, *, requested_workers:int|str|None='AUTO', lease_root:str|None=None, materialization_start_method:str='AUTO', r100_carrier_root:str|Path|None=None, r100_producer_binding:Mapping[str,str]|None=None):
+        if (r100_carrier_root is None) != (r100_producer_binding is None):
+            raise UpliftCampaignError('R100_SAVED_ROOT_AND_BINDING_REQUIRED_TOGETHER')
+        self._r100_saved_root=Path(r100_carrier_root) if r100_carrier_root is not None else None
+        self._r100_producer_binding=dict(r100_producer_binding) if r100_producer_binding is not None else None
         self.run_root=Path(run_root); self.run_root.mkdir(parents=True,exist_ok=True)
         self.registry=load_uplift_experiment_registry()
         # Materialization and native stage work have deliberately different optimal transports.
@@ -288,17 +293,38 @@ class UpliftCampaignEngine:
         self._r100_carriers:list[Any]|None=None; self._carrier_map:dict[str,Any]|None=None
         self._r100_growth_seed:tuple[Any,tuple[int,int]]|None=None
         self.materialization_count=0
+        self.r100_reuse_count=0
 
     def __enter__(self):
-        self.session=MaterializedDiscoverySession(execution_policy=self.materialization_policy); return self
+        if self.session is not None: raise UpliftCampaignError('campaign engine already opened')
+        admission=None
+        if self._r100_saved_root is not None:
+            try: admission=r100_reuse.preflight(self._r100_saved_root,self._r100_producer_binding)
+            except r100_reuse.R100ReuseError as exc: raise UpliftCampaignError(str(exc)) from exc
+        self.session=MaterializedDiscoverySession(execution_policy=self.materialization_policy)
+        try:
+            if admission is not None:
+                carriers=r100_reuse.load(admission)
+                self._r100_carriers=tuple(carriers)
+                self._carrier_map={state.construction_digest:state for state in carriers}
+                self.r100_reuse_count+=1
+        except Exception as exc:
+            self.session.close(); self.session=None
+            self._r100_carriers=None; self._carrier_map=None
+            raise UpliftCampaignError('R100_SAVED_INPUT_LOAD_FAILED:'+str(exc)) from exc
+        return self
     def __exit__(self,exc_type,exc,tb):
         if self.session is not None: self.session.close(); self.session=None
+        if self._r100_saved_root is not None:
+            self._r100_carriers=None; self._carrier_map=None
     def experiment(self,experiment_id:str)->dict[str,Any]:
         rows=[x for x in self.registry['experiments'] if x['experiment_id']==experiment_id]
         if len(rows)!=1: raise UpliftCampaignError(f'unknown registered uplift experiment {experiment_id}')
         return rows[0]
     def ensure_g1_r100_population(self)->list[Any]:
-        if self._r100_carriers is not None: return self._r100_carriers
+        if self._r100_carriers is not None:
+            return list(self._r100_carriers) if self._r100_saved_root is not None else self._r100_carriers
+        if self._r100_saved_root is not None: raise UpliftCampaignError('R100_SAVED_COHORT_NOT_LOADED_NO_REGENERATION')
         if self.session is None: raise UpliftCampaignError('campaign engine not opened')
         # Deep G1 maturation deliberately uses the AUTO materialization policy.  This restores
         # the v0.28.6 exact in-process candidate path and avoids serializing/reconstructing the
@@ -316,7 +342,8 @@ class UpliftCampaignEngine:
 
     @property
     def carrier_map(self)->dict[str,Any]:
-        self.ensure_g1_r100_population(); _require_integrity(self._carrier_map is not None); return self._carrier_map
+        self.ensure_g1_r100_population(); _require_integrity(self._carrier_map is not None)
+        return dict(self._carrier_map) if self._r100_saved_root is not None else self._carrier_map
 
 def _load_json(path:str|Path)->dict[str,Any]: return json.loads(Path(path).read_text(encoding='utf-8'))
 
@@ -1723,9 +1750,12 @@ def run_g5_r7_native(*, engine:UpliftCampaignEngine, r6_primary:str|Path, r6_ver
         telemetry.fail(exc);raise
 
 
-def run_native_campaign_stage(*, run_root:str|Path, experiment_id:str, inputs:Mapping[str,str|Path], requested_workers:int|str|None='AUTO', lease_root:str|None=None)->dict[str,Any]:
-    root=Path(run_root); _write_state(root,status='RUNNING',current_stage=experiment_id,g2_graduated=False)
-    with UpliftCampaignEngine(root,requested_workers=requested_workers,lease_root=lease_root,materialization_start_method='AUTO') as engine:
+def run_native_campaign_stage(*, run_root:str|Path, experiment_id:str, inputs:Mapping[str,str|Path], requested_workers:int|str|None='AUTO', lease_root:str|None=None, r100_carrier_root:str|Path|None=None, r100_producer_binding:Mapping[str,str]|None=None)->dict[str,Any]:
+    root=Path(run_root)
+    engine=UpliftCampaignEngine(root,requested_workers=requested_workers,lease_root=lease_root,materialization_start_method='AUTO',r100_carrier_root=r100_carrier_root,r100_producer_binding=r100_producer_binding)
+    if r100_carrier_root is None: _write_state(root,status='RUNNING',current_stage=experiment_id,g2_graduated=False)
+    with engine:
+        if r100_carrier_root is not None: _write_state(root,status='RUNNING',current_stage=experiment_id,g2_graduated=False)
         if experiment_id=='G2:S4': result=run_g2_s4_native(engine=engine,**inputs)
         elif experiment_id=='G2:S5': result=run_g2_s5_native(engine=engine,**inputs)
         elif experiment_id=='G2:S6': result=run_g2_s6_native(engine=engine,**inputs)

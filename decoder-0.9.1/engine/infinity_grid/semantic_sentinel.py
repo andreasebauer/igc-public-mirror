@@ -1,5 +1,5 @@
 from __future__ import annotations
-import ast, importlib, inspect, json, textwrap
+import ast, inspect, json, textwrap
 from importlib.resources import files
 from typing import Any
 from .canon import canonical_sha256
@@ -16,7 +16,16 @@ def _resource_json(rel: str) -> dict:
 def _resolve_callable(ref: str):
     if ":" not in ref: raise NativeSemanticsError(f"invalid callable ref: {ref}")
     module_name, path = ref.split(":", 1)
-    obj: Any = importlib.import_module(module_name)
+    # Registered actions use a closed literal module surface, so the controller
+    # can inspect their import closure before any scientific code is loaded.
+    if module_name == 'infinity_grid.exact_carrier_unblinding':
+        from . import exact_carrier_unblinding as obj
+    elif module_name == 'infinity_grid.regime_scanner':
+        from . import regime_scanner as obj
+    elif module_name == 'infinity_grid.fixed_grammar_transport':
+        from . import fixed_grammar_transport as obj
+    else:
+        raise NativeSemanticsError(f'unregistered callable module: {module_name}')
     for part in path.split("."): obj = getattr(obj, part)
     if not callable(obj): raise NativeSemanticsError(f"not callable: {ref}")
     return obj
