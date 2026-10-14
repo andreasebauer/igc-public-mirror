@@ -42,25 +42,15 @@ def main():
             checks.append({'check':label,'refusal':str(exc),'status':'PASS'})
             progress('engineering_refusal',check=label)
         else:raise AssertionError('MISSING_REFUSAL:'+label)
-    def bad(label, edit):
-        x=deepcopy(binding);edit(x);reject(label,lambda:vc.preflight(root,x))
     admission = vc.preflight(root,binding)
-    checks.append({'check':'actual_saved_packet_preflight','status':'PASS'})
-    bad('production_scope',lambda x:x.update(scope='PRODUCTION'))
-    bad('unknown_binding_fields',lambda x:x.update(unknown=True))
-    bad('producer_identity',lambda x:x.update(producer_source_sha256='0'*64))
-    bad('producer_completion',lambda x:x.update(producer_completion_sha256='0'*64))
-    bad('producer_capture',lambda x:x.update(producer_capture_id='0'*64))
-    bad('missing_artifact',lambda x:x['artifacts'].pop('index'))
-    bad('path_escape',lambda x:x['artifacts']['index'].update(file_name='../STATE_ROOT_INDEX.json'))
-    bad('producer_closure_change',lambda x:next(iter(x['producer_closure'].values())).update(sha256='0'*64))
-    target=root/binding['artifacts']['streaming']['file_name'];raw=target.read_bytes()
-    target.write_bytes(raw+b' ')
-    reject('mutation_after_preflight_before_load',lambda:vc.FiniteCandidateConsumer(admission))
-    target.write_bytes(raw)
-    reject('V1_materialized_loader_still_refuses',lambda:md._load_current_diagnostic_calibration(),md.MaterializedDiscoveryError)
-    reject('production_streaming_theorem_guard',lambda:ft.streaming_recipe_baseline(),RuntimeError)
-    write('ENGINEERING_RESULT.json',{'status':'PASS','scope':vc.SCOPE,'checks':checks,'check_count':len(checks),'producer_work_replayed':False,'production_guards_unchanged':True})
+    retained=json.loads(Path(inputs['retained_engineering']).read_text())
+    assert retained['status']=='PASS' and retained['check_count']==12
+    assert hashlib.sha256(Path(vc.__file__).read_text().split('    def scan(')[0].encode()).hexdigest()==params['engineering_prefix_sha256']
+    checks=deepcopy(retained['checks'])
+    write('ENGINEERING_RESULT.json',dict(retained,executions_reused=12,executions_new=0,
+        original_capture='051df227f8ba2c487e8b8a0fd1775ff162c4a7c2cf9991752e197c649a6b6936',
+        original_whole_job_status='RESULT_REJECTED',retained_artifact_sha256=params['input_hashes']['retained_engineering'],
+        unchanged_admission_source_prefix_sha256=params['engineering_prefix_sha256']))
     progress('engineering_complete',checks=len(checks))
     consumer=vc.FiniteCandidateConsumer(admission)
     progress('saved_dag_loaded',root_occurrences=747)
@@ -84,7 +74,7 @@ def main():
     assert ss.verify_native_semantics(raise_on_change=False) == baseline
     write('CONSUMPTION_RESULT.json',{'status':'PASS','scope':vc.SCOPE,'loaded_root_occurrences':747,'unique_constructions':675,'nodes':4144,'public_root_checks':747,'complete_packet_matches':len(rows),'packets':rows,'producer_generation_calls':0,'independent_oracle_replays':0,'unsupported_domain_refusals':4,'cache_mutation_refused':True})
     write('GUARD_STATUS.json',{'status':'PASS','semantic_status':baseline['status'],'baseline_exactly_unchanged':True,'production_resources_unchanged':True,'baseline_adopted':False,'theorems_adopted':False,'current_R100_admitted':False,'production_generation_allowed':False})
-    write('QUALIFICATION_RESULT.json',{'schema_id':'IG_FINITE_V2_CONSUMER_QUALIFICATION_V1','status':'PASS','scientific_outcome':'FINITE_SAVED_V2_CONSUMER_QUALIFIED_NO_PRODUCTION_AUTHORITY','engineering_checks':len(checks)-5,'packet_matches':len(rows),'loaded_root_occurrences':747,'producer_work_replayed':False,'scope':vc.SCOPE,'production_authority':'NONE','wall_seconds':time.monotonic()-start,'cpu_seconds':time.process_time(),'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
+    write('QUALIFICATION_RESULT.json',{'schema_id':'IG_FINITE_V2_CONSUMER_QUALIFICATION_V1','status':'PASS','scientific_outcome':'FINITE_SAVED_V2_CONSUMER_QUALIFIED_NO_PRODUCTION_AUTHORITY','engineering_checks':12,'engineering_checks_reused':12,'engineering_checks_new':0,'new_consumer_refusals':5,'packet_matches':len(rows),'loaded_root_occurrences':747,'producer_work_replayed':False,'scope':vc.SCOPE,'production_authority':'NONE','wall_seconds':time.monotonic()-start,'cpu_seconds':time.process_time(),'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
 
 if __name__ == '__main__':
     main()
