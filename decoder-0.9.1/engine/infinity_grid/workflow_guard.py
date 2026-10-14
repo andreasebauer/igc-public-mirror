@@ -61,6 +61,18 @@ def _imports(path, source):
                 if alias.name != '*': yield '.'.join([*base, alias.name])
 
 
+def _package_initializers(path, source):
+    """Python executes local parent package initializers before a leaf module."""
+    source = Path(source).resolve()
+    root = source/'project' if path.is_relative_to(source/'project') else source
+    parent = path.parent
+    while parent != root and parent.is_relative_to(root):
+        initializer = parent/'__init__.py'
+        if initializer.is_file():
+            yield initializer.resolve()
+        parent = parent.parent
+
+
 def preflight(source, paths):
     """Inspect explicit handlers AND their local helper import closure before import."""
     from .v05_stage_architecture import audit_module_source
@@ -73,6 +85,7 @@ def preflight(source, paths):
         seen.add(path)
         if not path.is_relative_to(source):
             raise InvocationRefused('HELPER_OUTSIDE_CAPTURE', 'preflight', checks=[str(path)])
+        pending.extend(_package_initializers(path, source))
         try:
             row = audit_module_source(path)
         except SyntaxError as exc:

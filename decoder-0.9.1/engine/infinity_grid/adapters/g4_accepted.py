@@ -13,7 +13,7 @@ from ..typed_tree_messages import (
     endpoint_rooted_tree_canon,
     endpoint_unrooted_tree_canon,
 )
-from ..uplift_g4_r7_rebase import spec as r7_spec, _candidate_rows, _resource_realizability_certificate, _fresh_n7_observer_challenge
+from ..uplift_g4_r7_rebase import spec as r7_spec, _candidate_rows, _resource_realizability_certificate, _fresh_n7_observer_challenge, _load_embedded_authority
 from ..canon import canonical_sha256
 
 
@@ -47,7 +47,7 @@ class G4AcceptedAdapter(ScienceAdapterBase):
 
     def __init__(self) -> None:
         self._rows = _candidate_rows()
-        s6 = __import__("infinity_grid.uplift_g4_r7_rebase", fromlist=["_load_embedded_authority"])._load_embedded_authority()[1]
+        s6 = _load_embedded_authority()[1]
         self._ops = {tuple(map(int, x)) for x in s6["frozen_grammar"]["operator_basis"]}
 
     def _vertex_key(self, klass: str) -> str:

@@ -23,7 +23,7 @@ from .hashing import sha256_file
 from .paths import resolve_root
 from .records import runtime_descriptor, runtime_sha256, source_sha256, utc_now
 from .store import ArtifactStore
-import infinity_grid.adapters  # noqa: F401 -- register existing runtime runners
+import infinity_grid.legacy_adapter_registration  # noqa: F401 -- register existing runtime runners
 
 
 SUPPORTED_CANONICALIZATION = {"IG_CANONICAL_JSON_V1", "FILESET_V1"}
