@@ -571,7 +571,7 @@ def _build_backbone(engine, level:int, center:Any, pairs:list[tuple[int,int]]) -
 def _backbone_signature(states:list[Any], bridge_pairs:list[tuple[int,int]]) -> dict:
     rows=[]
     for st in sorted(states,key=lambda x:x.motif_id):
-        a=_action_aggregate(st,bridge_pairs)
+        a=_action_aggregate_v2(st,bridge_pairs)
         gm=_graph_basic(len(st.owner_caps),st.top_pairs)
         fib=_factor_fiber(st)
         rows.append({
@@ -588,10 +588,11 @@ def _backbone_signature(states:list[Any], bridge_pairs:list[tuple[int,int]]) -> 
             "automorphism_size":a["automorphism_size"],"owner_orbits":a["owner_orbits"],
             "factor_fiber_size":len(fib),
         })
-    payload={"schema":"IG_O_REGIME_MATCHED_BACKBONE_V1","rows":rows}
+    payload={"schema":"IG_O_REGIME_MATCHED_BACKBONE_V2","rows":rows}
     return {
         "status":"PASS",
         "signature_sha256":_sha(payload),
+        "diagnostic_schema":ACTION_DIAGNOSTIC_SCHEMA_V2,
         "rows":rows,
         "raw_growth":{
             "median_leaf_count":_median([s.leaf_count for s in states]),
@@ -741,6 +742,105 @@ def _action_aggregate(state, bridge_pairs:list[tuple[int,int]], *, automorphism_
     }
 
 
+ACTION_DIAGNOSTIC_SCHEMA_V2 = "IG_RESOURCE_ACTION_DIAGNOSTIC_V2"
+ORGANIZATIONAL_SCHEMA_V2 = "IG_RESOURCE_ORGANIZATIONAL_SIGNATURE_V2"
+
+
+def _action_aggregate_v2(state, bridge_pairs:list[tuple[int,int]], *, automorphism_backend=None) -> dict:
+    """Owner-label invariant diagnostics, not a labelled successor Counter.
+
+    Bridge must be reversal closed. Actions retain both physical endpoint
+    assignments; only the diagnostic type/service keys forget orientation.
+    Topology and support-colored typed edges are explicit reads. Exact capacity
+    magnitudes enter copy totals and the separate weighted diagnostic only.
+    """
+    caps = state.owner_caps
+    if not isinstance(caps, (list, tuple)) or not caps:
+        raise ValueError("DIAGNOSTIC_V2_OWNER_CAPS")
+    if any(not isinstance(row, (list, tuple)) or len(row) != 7 or
+           any(type(x) is not int or x < 0 for x in row) for row in caps):
+        raise ValueError("DIAGNOSTIC_V2_OWNER_CAPS")
+    n = len(caps)
+    if not isinstance(bridge_pairs, (list, tuple)) or any(
+        not isinstance(pair, (list, tuple)) or len(pair) != 2 or
+        any(type(x) is not int or not 0 <= x < 7 for x in pair)
+        for pair in bridge_pairs):
+        raise ValueError("DIAGNOSTIC_V2_BRIDGE_TYPES")
+    pairs = [tuple(pair) for pair in bridge_pairs]
+    if len(set(pairs)) != len(pairs):
+        raise ValueError("DIAGNOSTIC_V2_DUPLICATE_BRIDGE_PAIR")
+    if {(b, a) for a, b in pairs} != set(pairs):
+        raise ValueError("DIAGNOSTIC_V2_ASYMMETRIC_BRIDGE")
+    typed = state.typed_edges
+    top = state.top_pairs
+    if not isinstance(typed, (list, tuple)) or any(
+        not isinstance(edge, (list, tuple)) or len(edge) != 4 or
+        any(type(x) is not int for x in edge) or
+        not (0 <= edge[0] < edge[1] < n and 0 <= edge[2] < 7 and 0 <= edge[3] < 7)
+        for edge in typed):
+        raise ValueError("DIAGNOSTIC_V2_TYPED_EDGES")
+    if not isinstance(top, (list, tuple)) or any(
+        not isinstance(edge, (list, tuple)) or len(edge) != 2 or
+        any(type(x) is not int for x in edge) or not 0 <= edge[0] < edge[1] < n
+        for edge in top):
+        raise ValueError("DIAGNOSTIC_V2_TOP_PAIRS")
+    typed = [tuple(edge) for edge in typed]
+    top = [tuple(edge) for edge in top]
+    if Counter(top) != Counter((u, v) for u, v, a, b in typed):
+        raise ValueError("DIAGNOSTIC_V2_TOPOLOGY_MULTIPLICITY_MISMATCH")
+    actions = []
+    copies = 0
+    type_pairs = set()
+    owner_pairs = set()
+    structural_service = Counter()
+    weighted_service = Counter()
+    connected = _graph_basic(n, top)["connected"]
+    for u in range(n):
+        for v in range(u + 1, n):
+            effect = _service_effect(n, top, (u, v)) if connected else None
+            for a, b in pairs:
+                ca, cb = caps[u][a], caps[v][b]
+                if ca == 0 or cb == 0:
+                    continue
+                actions.append((u, v, a, b))
+                copies += ca * cb
+                owner_pairs.add((u, v))
+                types = tuple(sorted((a, b)))
+                type_pairs.add(types)
+                if effect is not None:
+                    structural_service[(types, effect)] += 1
+                    endpoints = tuple(sorted(((a, ca), (b, cb))))
+                    weighted_service[(endpoints, effect)] += 1
+    colors = [tuple(int(x > 0) for x in row) for row in caps]
+    autos = _automorphisms(n, colors, typed, backend=automorphism_backend)
+    orbit_reps = set()
+    for u, v, a, b in actions:
+        images = []
+        for permutation in autos:
+            left, right = permutation[u], permutation[v]
+            images.append((left, right, a, b) if left < right else (right, left, b, a))
+        orbit_reps.add(min(images))
+    service_rows = [[list(types), list(effect), count]
+                    for (types, effect), count in sorted(structural_service.items())]
+    return {
+        "schema_id": ACTION_DIAGNOSTIC_SCHEMA_V2,
+        "legal_action_labels": len(actions), "total_action_copies": copies,
+        "type_pair_support": len(type_pairs), "owner_pair_support": len(owner_pairs),
+        "action_orbits": len(orbit_reps), "service_classes": len(structural_service),
+        "service_signature_sha256": _sha({"schema_id": ACTION_DIAGNOSTIC_SCHEMA_V2,
+                                          "unordered_type_service_counts": service_rows}),
+        "resource_weighted_service_classes": len(weighted_service),
+        "automorphism_size": len(autos), "owner_orbits": _orbits_from_perms(n, autos),
+    }
+
+
+def _state_organizational_signature_v2(state, action:dict) -> dict:
+    if action.get("schema_id") != ACTION_DIAGNOSTIC_SCHEMA_V2:
+        raise ValueError("DIAGNOSTIC_V2_ACTION_SCHEMA_REQUIRED")
+    result = _state_organizational_signature(state, action)
+    return {"schema_id": ORGANIZATIONAL_SCHEMA_V2, **result}
+
+
 def _factor_fiber(state) -> set[str]:
     # Reverse-topology factorization fingerprints. This is a reconnaissance relation,
     # not an admitted forward deletion operation.
@@ -796,7 +896,7 @@ def _state_organizational_signature(state, action:dict) -> dict:
 
 def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], grammar_hash:str) -> tuple[dict,str]:
     states=sorted(states,key=lambda s:s.construction_digest)
-    actions=[_action_aggregate(s,bridge_pairs) for s in states]
+    actions=[_action_aggregate_v2(s,bridge_pairs) for s in states]
     gms=[_graph_basic(len(s.owner_caps),s.top_pairs) for s in states]
     fibers=[_factor_fiber(s) for s in states]
     overlap=_panel_overlap(fibers)
@@ -808,9 +908,10 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
         if len({_uncolored_graph_canon(len(s.owner_caps),s.top_pairs) for s in vals})>1:topo_collision+=1
     endpoint_support=[sum(x>0 for x in s.total_caps) for s in states]
     min_caps=[min(s.total_caps[t] for s in states) for t in range(7)]
-    org=[_state_organizational_signature(s,a) for s,a in zip(states,actions)]
+    org=[_state_organizational_signature_v2(s,a) for s,a in zip(states,actions)]
     org_hashes=sorted(_sha(x) for x in org)
     raw={
+        "diagnostic_schema":ACTION_DIAGNOSTIC_SCHEMA_V2,
         "level":level,"states":len(states),"grammar_sha256":grammar_hash,
         "diversity":{
             "construction_states":len({s.construction_digest for s in states}),"resource_skins":len(byskin),"same_skin_groups":len(same_skin),"same_skin_topology_collision_groups":topo_collision,
@@ -836,7 +937,7 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
             "cycle_rank_median":_median([g["beta"] for g in gms])
         },
         "quotient_observer":{
-            "same_skin_topology_hidden_present":topo_collision>0,"resource_future_equivalence_basis":"INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+            "same_skin_topology_hidden_present":topo_collision>0,"resource_future_equivalence_basis":"DIAGNOSTICS_ONLY_NO_FUTURE_EQUIVALENCE_AUTHORITY",
             "organizational_to_skin_class_ratio":len(set(org_hashes))/max(1,len(byskin))
         },
         "topology_services":{
@@ -844,7 +945,7 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
             "service_signature_classes":len({a["service_signature_sha256"] for a in actions}),"access_bottleneck_service_present":any(a["service_classes"]>1 for a in actions)
         },
         "obstruction_relief":{
-            "all_bridge_types_supported_everywhere":all(a["type_pair_support"]==len(set(bridge_pairs)) for a in actions),
+            "all_bridge_types_supported_everywhere":all(a["type_pair_support"]==len({tuple(sorted(pair)) for pair in bridge_pairs}) for a in actions),
             "all_owner_pairs_have_some_action":all(a["owner_pair_support"]==len(s.owner_caps)*(len(s.owner_caps)-1)//2 for a,s in zip(actions,states)),
             "zero_action_states":sum(a["legal_action_labels"]==0 for a in actions)
         },
@@ -855,6 +956,7 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
     # Normalized organizational signature deliberately excludes magnitude-only growth
     # (absolute capacities, leaf count, relation count, Counter copy totals).
     normalized={
+        "schema_id":ORGANIZATIONAL_SCHEMA_V2,
         "grammar":grammar_hash,
         "owner_count_hist":raw["diversity"]["owner_count_hist"],"edge_count_hist":raw["diversity"]["edge_count_hist"],
         "topology_classes":raw["diversity"]["topology_classes"],"organizational_classes":raw["diversity"]["organizational_classes"],
@@ -872,6 +974,9 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
 
 
 def _classify_genealogy(prev:dict|None, cur:dict) -> dict:
+    schemas = [row.get("diagnostic_schema", "LEGACY_V1") for row in (prev, cur) if row is not None]
+    if any(value not in {"LEGACY_V1", ACTION_DIAGNOSTIC_SCHEMA_V2} for value in schemas) or len(set(schemas)) > 1:
+        raise ValueError("DIAGNOSTIC_SCHEMA_COMPARISON_REFUSED")
     if prev is None:return {k:"SCOUT_NEW" for k in ["grammar","diversity","branching","symmetry","overlap_gluing","lineage","quotient","topology_services","obstruction_relief","representation"]}
     out={}
     out["grammar"]="PERSISTS" if prev["grammar_sha256"]==cur["grammar_sha256"] else "REORGANIZES"
