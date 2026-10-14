@@ -47,10 +47,12 @@ def native_snapshot(roots):
         if state.construction_digest in rows:assert rows[state.construction_digest] == record
         rows[state.construction_digest] = record
     for root in roots:visit(root)
-    return rows
+    return {'schema_id': 'IG_MASTER_G3_NATIVE_SNAPSHOT_V1', 'nodes': rows}
 
 
 def compare_snapshot(reference, snapshot):
+    assert snapshot['schema_id'] == 'IG_MASTER_G3_NATIVE_SNAPSHOT_V1'
+    snapshot = snapshot['nodes']
     assert set(reference['node_materializations']) == set(snapshot)
     for key, expected in reference['node_materializations'].items():
         actual = snapshot[key]
