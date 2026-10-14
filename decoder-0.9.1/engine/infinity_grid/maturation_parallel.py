@@ -262,10 +262,10 @@ def cohort_structural_seed_from_wire(w: Mapping[str, Any]) -> dict[str, Any]:
 def _selected_state_worker(payload: Mapping[str, Any]) -> dict[str, Any]:
     s = _wire_state(payload["state"])
     bridge_pairs = [tuple(map(int, x)) for x in payload["bridge_pairs"]]
-    action = rs._action_aggregate(s, bridge_pairs)
+    action = rs._action_aggregate_v2(s, bridge_pairs)
     graph = rs._graph_basic(len(s.owner_caps), s.top_pairs)
     fiber = rs._factor_fiber(s)
-    org = rs._state_organizational_signature(s, action)
+    org = rs._state_organizational_signature_v2(s, action)
     return {
         "construction_digest": s.construction_digest,
         "action": action,

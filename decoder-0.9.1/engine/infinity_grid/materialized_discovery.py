@@ -341,7 +341,7 @@ def _read_probe(states: list[Any], bridge_pairs: list[tuple[int, int]]) -> dict[
 
 def _state_probe(state: Any, bridge_pairs: list[tuple[int, int]]) -> dict[str, Any]:
     graph = rs._graph_basic(len(state.owner_caps), state.top_pairs)
-    action = rs._action_aggregate(state, bridge_pairs)
+    action = rs._action_aggregate_v2(state, bridge_pairs)
     fiber = rs._factor_fiber(state)
     return {
         "construction_digest": str(state.construction_digest),
@@ -366,6 +366,7 @@ def _state_probe(state: Any, bridge_pairs: list[tuple[int, int]]) -> dict[str, A
             "cycle_rank": int(graph["beta"]),
         },
         "action": {
+            "schema_id": action["schema_id"],
             "legal_action_labels": int(action["legal_action_labels"]),
             "action_orbits": int(action["action_orbits"]),
             "type_pair_support": int(action["type_pair_support"]),
@@ -521,6 +522,7 @@ def _state_probe_from_analysis(state: Any, row: Mapping[str, Any]) -> dict[str, 
             "cycle_rank": int(graph["beta"]),
         },
         "action": {
+            "schema_id": action["schema_id"],
             "legal_action_labels": int(action["legal_action_labels"]),
             "action_orbits": int(action["action_orbits"]),
             "type_pair_support": int(action["type_pair_support"]),

@@ -61,10 +61,11 @@ def _candidate_pool(engine, prev, level, pairs, motifs, scanner_spec):
 
 
 def _recipe_signature(s, bridge_pairs):
-    a=rs._action_aggregate(s,bridge_pairs)
+    a=rs._action_aggregate_v2(s,bridge_pairs)
     g=rs._graph_basic(len(s.owner_caps),s.top_pairs)
     f=rs._factor_fiber(s)
     return {
+        "diagnostic_schema":rs.ACTION_DIAGNOSTIC_SCHEMA_V2,
         "branching": {
             "legal_action_labels":a["legal_action_labels"],
             "action_orbits":a["action_orbits"],
@@ -254,7 +255,7 @@ def run_o12_o13_raise_audit(phase8_seed:Path, official_result:Path, output:Path,
             },
             "exact_mechanism":{
                 "statement":"Under full seven-type endpoint support and the frozen top-level motif/type schedule, the audited normalized branching/symmetry/lineage/topology-service observables factor through the recipe's typed top graph and support pattern; Counter magnitude and nested depth are excluded by the frozen observer.",
-                "implementation_dependencies":["_action_aggregate uses owner support booleans plus typed top edges for action-orbit/service organization","_factor_fiber uses top edges plus support colors","_graph_basic uses only the top graph","service identity excludes Counter magnitude"],
+                "implementation_dependencies":["_action_aggregate_v2 uses owner support booleans plus typed top edges for action-orbit/service organization","_factor_fiber uses top edges plus support colors","_graph_basic uses only the top graph","service identity excludes Counter magnitude"],
                 "verified_hypotheses":{"full_support_O11_O13":A2,"fixed_common_recipe_set":len(common)==193,"zero_per_recipe_mismatch":len(recipe_mismatch)==0}
             },
             "build_meta":{str(L):build_meta[L] for L in range(8,14)},
