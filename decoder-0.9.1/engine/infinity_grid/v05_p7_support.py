@@ -101,7 +101,7 @@ def classify_uplift_experiments() -> list[dict[str, Any]]:
 
 
 def current_v05_runner_classification() -> list[dict[str,Any]]:
-    from . import adapters  # noqa: F401
+    from . import legacy_adapter_registration  # noqa: F401
     from .controller import RUNNERS, RUNNER_META
     accepted={"adapter.base_l2_step10","adapter.scout_l15","adapter.oscout_phase0","adapter.v05_workflow"}
     rows=[]

@@ -56,7 +56,7 @@ from infinity_grid.paths import resolve_root
 from infinity_grid.store import ArtifactStore
 from infinity_grid.datasets import DatasetStore
 from infinity_grid.controller import Controller
-import infinity_grid.adapters
+import infinity_grid.legacy_adapter_registration
 original=json.loads((root/'run/run.json').read_text()); lock=json.loads((root/'ENVIRONMENT_LOCK.json').read_text()); bm=build_meta()
 if bm.get('source_sha256')!=original.get('code_identity',{}).get('source_sha256'): raise SystemExit('installed runtime source identity mismatch')
 wh=root/'wheelhouse'/lock['wheel']['filename']

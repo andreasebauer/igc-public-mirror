@@ -1,0 +1,217 @@
+{
+  "classification": [
+    {
+      "call_style": "context",
+      "classification": "V05_PRODUCTION_GUARDED",
+      "operation": "BASE_L2_STEP10_REPLAY",
+      "runner": "adapter.base_l2_step10"
+    },
+    {
+      "call_style": "context",
+      "classification": "V05_PRODUCTION_GUARDED",
+      "operation": "OSCOUT_PHASE0_REFERENCE_REPLAY",
+      "runner": "adapter.oscout_phase0"
+    },
+    {
+      "call_style": "context",
+      "classification": "V05_PRODUCTION_GUARDED",
+      "operation": "SCOUT_L15_REFERENCE_REPLAY",
+      "runner": "adapter.scout_l15"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16.classify"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16.preflight"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16.spectroscope"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16.verify"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16.wide"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16_forward.classify"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16_forward.preflight"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16_forward.spectroscope"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16_forward.verify"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_l16_forward.wide"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_level.classify"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_level.preflight"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_level.spectroscope"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_level.verify_independent"
+    },
+    {
+      "call_style": "legacy",
+      "classification": "LEGACY_COMPATIBILITY_NOT_V05_PRODUCTION",
+      "operation": null,
+      "runner": "adapter.scout_level.wide_chunked"
+    },
+    {
+      "call_style": "context",
+      "classification": "V05_PRODUCTION_GUARDED",
+      "operation": "V05_GENERIC_SCIENCE_WORKFLOW",
+      "runner": "adapter.v05_workflow"
+    }
+  ],
+  "metadata": {
+    "adapter.base_l2_step10": {
+      "call_style": "context",
+      "v05_operation": "BASE_L2_STEP10_REPLAY"
+    },
+    "adapter.oscout_phase0": {
+      "call_style": "context",
+      "v05_operation": "OSCOUT_PHASE0_REFERENCE_REPLAY"
+    },
+    "adapter.scout_l15": {
+      "call_style": "context",
+      "v05_operation": "SCOUT_L15_REFERENCE_REPLAY"
+    },
+    "adapter.scout_l16.classify": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16.preflight": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16.spectroscope": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16.verify": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16.wide": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16_forward.classify": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16_forward.preflight": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16_forward.spectroscope": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16_forward.verify": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_l16_forward.wide": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_level.classify": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_level.preflight": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_level.spectroscope": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_level.verify_independent": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.scout_level.wide_chunked": {
+      "call_style": "legacy",
+      "v05_operation": null
+    },
+    "adapter.v05_workflow": {
+      "call_style": "context",
+      "v05_operation": "V05_GENERIC_SCIENCE_WORKFLOW"
+    }
+  },
+  "runners": {
+    "adapter.base_l2_step10": "infinity_grid.adapters.base_l2:stage_runner",
+    "adapter.oscout_phase0": "infinity_grid.adapters.oscout_phase0:stage_runner",
+    "adapter.scout_l15": "infinity_grid.adapters.scout_l15:stage_runner",
+    "adapter.scout_l16.classify": "infinity_grid.adapters.scout_l16:classify_stage",
+    "adapter.scout_l16.preflight": "infinity_grid.adapters.scout_l16:preflight_stage",
+    "adapter.scout_l16.spectroscope": "infinity_grid.adapters.scout_l16:spectroscope_stage",
+    "adapter.scout_l16.verify": "infinity_grid.adapters.scout_l16:verify_stage",
+    "adapter.scout_l16.wide": "infinity_grid.adapters.scout_l16:wide_stage",
+    "adapter.scout_l16_forward.classify": "infinity_grid.adapters.scout_l16_forward:classify_stage",
+    "adapter.scout_l16_forward.preflight": "infinity_grid.adapters.scout_l16_forward:preflight_stage",
+    "adapter.scout_l16_forward.spectroscope": "infinity_grid.adapters.scout_l16_forward:spectroscope_stage",
+    "adapter.scout_l16_forward.verify": "infinity_grid.adapters.scout_l16_forward:verify_stage",
+    "adapter.scout_l16_forward.wide": "infinity_grid.adapters.scout_l16_forward:wide_stage",
+    "adapter.scout_level.classify": "infinity_grid.adapters.scout_level:classify_stage",
+    "adapter.scout_level.preflight": "infinity_grid.adapters.scout_level:preflight_stage",
+    "adapter.scout_level.spectroscope": "infinity_grid.adapters.scout_level:spectroscope_stage",
+    "adapter.scout_level.verify_independent": "infinity_grid.adapters.scout_level:verify_stage",
+    "adapter.scout_level.wide_chunked": "infinity_grid.adapters.scout_level:wide_chunked_stage",
+    "adapter.v05_workflow": "infinity_grid.adapters.v05_workflow:run_v05_workflow"
+  }
+}

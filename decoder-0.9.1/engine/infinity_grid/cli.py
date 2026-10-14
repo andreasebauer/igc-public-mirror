@@ -45,7 +45,7 @@ from .contracts import (
 from .current_state import load_current_state, reconcile_legacy_context, verify_current_state, write_current_state
 from .migration import migrate_json_file_to_envelope, migrate_unschematized_v026_file_to_envelope, scan_legacy_json_tree
 from .records import utc_now
-import infinity_grid.adapters  # noqa: F401
+import infinity_grid.legacy_adapter_registration  # noqa: F401
 
 
 def _dump(obj):
