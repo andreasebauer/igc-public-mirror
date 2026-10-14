@@ -14,7 +14,7 @@ from typing import Any
 
 from . import regime_scanner as rs
 from .semantic_sentinel import verify_native_semantics
-from .theorem_registry import verify_theorem
+from .theorem_registry import verify_theorem, require_current_theorems
 
 
 STREAMING_SPEC_RESOURCE = "O_REGIME_STREAMING_DESCRIPTOR_SCANNER_SPEC_v2.json"
@@ -245,7 +245,7 @@ def recompute_streaming_recipe_baseline() -> dict:
 
 
 @lru_cache(maxsize=1)
-def streaming_recipe_baseline() -> dict:
+def _streaming_recipe_baseline_record() -> dict:
     spec = load_streaming_regime_spec()
     p = files("infinity_grid").joinpath("resources/decoder", STREAMING_BASELINE_RESOURCE)
     d = json.loads(p.read_text(encoding="utf-8"))
@@ -258,7 +258,21 @@ def streaming_recipe_baseline() -> dict:
         raise RuntimeError("streaming recipe baseline count mismatch")
     if d["lane_hashes"] != spec["authority"]["full_pool_lane_hashes"]:
         raise RuntimeError("streaming recipe baseline lane hashes do not match earned authority")
+    if (d.get("diagnostic_schema") != rs.ACTION_DIAGNOSTIC_SCHEMA_V2
+            or d.get("organizational_schema") != rs.ORGANIZATIONAL_SCHEMA_V2):
+        raise RuntimeError("STREAMING_DIAGNOSTIC_CALIBRATION_REOPEN_REQUIRED")
     return {k: v for k, v in d.items() if k != "resource_sha256"}
+
+def streaming_recipe_baseline() -> dict:
+    require_current_theorems(("O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+                              "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1",
+                              "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"))
+    return _streaming_recipe_baseline_record()
+
+
+streaming_recipe_baseline.cache_clear = _streaming_recipe_baseline_record.cache_clear
+streaming_recipe_baseline.cache_info = _streaming_recipe_baseline_record.cache_info
+
 
 def _verify_earned_laws(spec: dict) -> dict:
     reg = rs.load_earned_regime_laws()
@@ -343,6 +357,9 @@ def _initial_frontier(spec: dict, seed: dict, static: dict, earned: dict) -> dic
 
 
 def _advance_frontier(frontier: dict, spec: dict, static: dict, earned: dict) -> tuple[dict, dict]:
+    require_current_theorems(("O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+                              "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1",
+                              "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"))
     if not _record_hash_ok(frontier):
         raise RuntimeError("parent streaming frontier science hash mismatch")
     for field, expected in (
@@ -619,6 +636,9 @@ def _result(output: Path, frontier: dict, spec: dict, static: dict, computed: li
 
 
 def run_fixed_grammar_transport(output: Path, through: int = 1000, *, phase8_seed: Path | None = None, snapshot_interval: int | None = None, reset: bool = False) -> dict:
+    require_current_theorems(("O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+                              "O_DEPTH_ERASED_NORMALIZED_ORGANIZATION_V1",
+                              "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"))
     started = time.perf_counter()
     output = Path(output)
     through = int(through)

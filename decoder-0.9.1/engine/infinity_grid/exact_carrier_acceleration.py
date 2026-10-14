@@ -13,7 +13,7 @@ from . import regime_scanner as rs
 from .canon import write_json_atomic
 from .exact_carrier_unblinding import ExactO7State, ExactProjectedActionOracle, _profile_digest
 from .semantic_sentinel import current_action_contract, verify_native_semantics
-from .theorem_registry import verify_theorem
+from .theorem_registry import verify_theorem, require_current_theorems
 
 
 class ExactCarrierAccelerationError(RuntimeError):
@@ -193,6 +193,8 @@ def theorem_transport_certificate(
     This certifies factorisation for the supplied material instance. It is deliberately
     *not* a historical-level graduation or existence theorem.
     """
+    require_current_theorems(("O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1",
+                              "O_EXACT_CARRIER_UNBLINDING_READ_LANE_V1"))
     spec = load_exact_carrier_acceleration_spec()
     verify_native_semantics(raise_on_change=True)
     verify_theorem("O_GENERIC_FIXED_GRAMMAR_FACTORISATION_V1", raise_on_stale=True)

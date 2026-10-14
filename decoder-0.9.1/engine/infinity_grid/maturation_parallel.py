@@ -267,7 +267,11 @@ def _selected_state_worker(payload: Mapping[str, Any]) -> dict[str, Any]:
     fiber = rs._factor_fiber(s)
     org = rs._state_organizational_signature_v2(s, action)
     return {
+        "schema_id": "IG_MATURATION_SELECTED_STATE_ANALYSIS_V2",
         "construction_digest": s.construction_digest,
+        "state_input_sha256": rs._sha(state_wire(s)),
+        "bridge_pairs_sha256": rs._sha(sorted(bridge_pairs)),
+        "organizational_schema": rs.ORGANIZATIONAL_SCHEMA_V2,
         "action": action,
         "graph": graph,
         "fiber": sorted(fiber),
@@ -312,6 +316,19 @@ def scan_level_from_analysis(
     """Reassemble the frozen ``regime_scanner._scan_level`` output exactly from independent state analyses."""
     states = sorted(states, key=lambda s: s.construction_digest)
     rows = [analysis[s.construction_digest] for s in states]
+    if not states or len({s.construction_digest for s in states}) != len(states):
+        raise ValueError("SELECTED_ANALYSIS_NONEMPTY_UNIQUE_STATES_REQUIRED")
+    for state, row in zip(states, rows):
+        if (row.get("schema_id") != "IG_MATURATION_SELECTED_STATE_ANALYSIS_V2"
+                or row.get("organizational_schema") != rs.ORGANIZATIONAL_SCHEMA_V2
+                or row.get("action", {}).get("schema_id") != rs.ACTION_DIAGNOSTIC_SCHEMA_V2):
+            raise ValueError("SELECTED_ANALYSIS_DIAGNOSTIC_SCHEMA_MISMATCH")
+        if (row.get("construction_digest") != state.construction_digest
+                or row.get("state_input_sha256") != rs._sha(state_wire(state))
+                or row.get("bridge_pairs_sha256") != rs._sha(sorted(tuple(pair) for pair in bridge_pairs))):
+            raise ValueError("SELECTED_ANALYSIS_INPUT_BINDING_MISMATCH")
+    if any(not row.get("graph", {}).get("connected") for row in rows):
+        raise ValueError("SELECTED_ANALYSIS_CONNECTED_PANEL_REQUIRED")
     actions = [dict(r["action"]) for r in rows]
     gms = [dict(r["graph"]) for r in rows]
     fibers = [set(r["fiber"]) for r in rows]
@@ -328,6 +345,7 @@ def scan_level_from_analysis(
     min_caps = [min(s.total_caps[t] for s in states) for t in range(7)]
     org_hashes = sorted(str(r["organizational_sha256"]) for r in rows)
     raw = {
+        "diagnostic_schema": rs.ACTION_DIAGNOSTIC_SCHEMA_V2,
         "level": level,
         "states": len(states),
         "grammar_sha256": grammar_hash,
@@ -375,7 +393,7 @@ def scan_level_from_analysis(
         },
         "quotient_observer": {
             "same_skin_topology_hidden_present": topo_collision > 0,
-            "resource_future_equivalence_basis": "INHERITED_GRRL_THEOREM_NOT_RECOMPUTED_FULL_COUNTER_PROFILE",
+            "resource_future_equivalence_basis": "DIAGNOSTICS_ONLY_NO_FUTURE_EQUIVALENCE_AUTHORITY",
             "organizational_to_skin_class_ratio": len(set(org_hashes)) / max(1, len(byskin)),
         },
         "topology_services": {
@@ -386,7 +404,7 @@ def scan_level_from_analysis(
             "access_bottleneck_service_present": any(a["service_classes"] > 1 for a in actions),
         },
         "obstruction_relief": {
-            "all_bridge_types_supported_everywhere": all(a["type_pair_support"] == len(set(bridge_pairs)) for a in actions),
+            "all_bridge_types_supported_everywhere": all(a["type_pair_support"] == len({tuple(sorted(pair)) for pair in bridge_pairs}) for a in actions),
             "all_owner_pairs_have_some_action": all(a["owner_pair_support"] == len(s.owner_caps) * (len(s.owner_caps) - 1) // 2 for a, s in zip(actions, states)),
             "zero_action_states": sum(a["legal_action_labels"] == 0 for a in actions),
         },
@@ -397,6 +415,7 @@ def scan_level_from_analysis(
         },
     }
     normalized = {
+        "schema_id": rs.ORGANIZATIONAL_SCHEMA_V2,
         "grammar": grammar_hash,
         "owner_count_hist": raw["diversity"]["owner_count_hist"],
         "edge_count_hist": raw["diversity"]["edge_count_hist"],

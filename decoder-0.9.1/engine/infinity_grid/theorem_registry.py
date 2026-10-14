@@ -35,3 +35,17 @@ def verify_all_theorems(*,raise_on_stale=True):
     out={"schema_id":"IG_THEOREM_PREMISE_REGISTRY_VERIFICATION_V1","status":"PASS" if not stale else "STALE_REOPEN_REQUIRED","stale_theorems":stale,"results":rr,"registry_sha256":reg["registry_sha256"]}; out["science_sha256"]=canonical_sha256(out)
     if stale and raise_on_stale: raise StaleTheoremError(f"stale theorem certificates: {stale}")
     return out
+
+
+def require_current_theorems(theorem_ids):
+    """Verify each certificate actually consumed; a resource EARNED flag is insufficient."""
+    if not isinstance(theorem_ids, (tuple, list)) or not theorem_ids or any(
+            type(value) is not str or not value for value in theorem_ids) or len(set(theorem_ids)) != len(theorem_ids):
+        raise TheoremPremiseError("THEOREM_CONSUMER_SCOPE_REQUIRED")
+    results = []
+    for theorem_id in theorem_ids:
+        result = verify_theorem(theorem_id, raise_on_stale=True)
+        if result.get("status") != "PASS":
+            raise StaleTheoremError("THEOREM_CONSUMER_NOT_CURRENT:" + theorem_id)
+        results.append(result)
+    return results
