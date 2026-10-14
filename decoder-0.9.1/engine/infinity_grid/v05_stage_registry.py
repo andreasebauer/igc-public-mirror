@@ -58,6 +58,12 @@ CONTROLLER_ONLY_EVALUATOR_SPECS: tuple[EvaluatorSpec, ...] = (
     EvaluatorSpec('infinity_grid.g6_marker_evaluators:marker_write_independent_evaluator',REFERENCE_ORACLE,
                   ('EXACT_IDENTITY','EXACT_RELATION','MARKER_Q','LEGACY_MARKER_DECODE_ORACLE'),
                   reference_oracle_for=('LEGACY_MARKER_DECODE_ORACLE',)),
+    EvaluatorSpec('infinity_grid.g6_saved_marker_service_evaluators:saved_marker_q_evaluator',PRIMARY,
+                  ('EXACT_IDENTITY','EXACT_RELATION','MARKER_Q','MARKER_DECODE','MARKER_WRITE')),
+    EvaluatorSpec('infinity_grid.g6_saved_marker_service_evaluators:saved_marker_cold_decode_evaluator',PRIMARY,
+                  ('EXACT_IDENTITY','EXACT_RELATION','MARKER_Q','MARKER_DECODE','MARKER_WRITE')),
+    EvaluatorSpec('infinity_grid.g6_saved_marker_service_evaluators:saved_marker_write_evaluator',PRIMARY,
+                  ('EXACT_IDENTITY','EXACT_RELATION','MARKER_Q','MARKER_DECODE','MARKER_WRITE')),
 )
 
 EVALUATOR_SPEC_BY_REF: dict[str, EvaluatorSpec] = {s.ref: s for s in CONTROLLER_ONLY_EVALUATOR_SPECS}
