@@ -89,7 +89,19 @@ def load_earned_regime_laws() -> dict:
     observed=_sha({k:v for k,v in d.items() if k!="registry_sha256"})
     if expected!=observed:
         raise RuntimeError(f"earned O-regime law registry hash mismatch: {expected} != {observed}")
+    from .theorem_registry import require_current_theorems
+    law_ids = tuple(row["law_id"] for row in d.get("laws", []) if row.get("status") == "EARNED")
+    if law_ids:
+        require_current_theorems(law_ids)
     return d
+
+
+def _current_inherited_law(records:dict, law_id:str):
+    law = records.get(law_id)
+    if law is not None:
+        from .theorem_registry import require_current_theorems
+        require_current_theorems((law_id,))
+    return law
 
 
 def _extract_seed(seed_zip: Path, work: Path) -> tuple[Path, Path]:
@@ -898,6 +910,8 @@ def _scan_level(states:list[Any], level:int, bridge_pairs:list[tuple[int,int]], 
     states=sorted(states,key=lambda s:s.construction_digest)
     actions=[_action_aggregate_v2(s,bridge_pairs) for s in states]
     gms=[_graph_basic(len(s.owner_caps),s.top_pairs) for s in states]
+    if any(not graph["connected"] for graph in gms):
+        raise ValueError("SCANNER_CONNECTED_PANEL_REQUIRED")
     fibers=[_factor_fiber(s) for s in states]
     overlap=_panel_overlap(fibers)
     byskin=defaultdict(list)
@@ -1052,7 +1066,7 @@ def run_o_regime_scanner(phase8_seed:Path, output:Path, max_level:int|None=None,
                 selected,bm,backbone=_build_next_panel(engine,levels[level-1],level,bridge_pairs,motifs,spec);levels[level]=selected;backbones[level]=backbone;build_meta[level]=bm
             scan,nh=_scan_level(levels[level],level,bridge_pairs,GRAMMAR_EXPECTED)
             scan["matched_backbone"] = _backbone_signature(backbones[level],bridge_pairs) if level in backbones else {"status":"HISTORICAL_O7_ANCHOR_NOT_SYNTHETIC_BACKBONE","signature_sha256":None}
-            inherited_service=earned_laws.get("O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
+            inherited_service=_current_inherited_law(earned_laws,"O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
             if inherited_service and scan["matched_backbone"].get("signature_sha256")==inherited_service.get("discovery_backbone_signature_sha256"):
                 scan["matched_backbone"]["inherited_earned_law"]="O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"
             genealogy=_classify_genealogy(prev_result,scan);scan["genealogy"]=genealogy;scan["build_meta"]=build_meta[level]
@@ -1093,7 +1107,7 @@ def run_o_regime_scanner(phase8_seed:Path, output:Path, max_level:int|None=None,
                         for x in win
                     )
                     if same_backbone and grow and exactdiff and broad_guard:
-                        inherited=earned_laws.get("O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
+                        inherited=_current_inherited_law(earned_laws,"O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
                         if inherited and inherited.get("discovery_backbone_signature_sha256")==bsha[-1]:
                             # This representation transition has already been independently
                             # validated and promoted to an earned observer-relative law. Keep

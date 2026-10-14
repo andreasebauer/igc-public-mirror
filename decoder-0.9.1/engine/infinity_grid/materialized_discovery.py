@@ -698,10 +698,28 @@ class MaterializedDiscoveryLevel:
     states: list[Any]
 
 
+def _require_v2_diagnostic_calibration(calibration:Mapping[str, Any]) -> None:
+    if (calibration.get("diagnostic_schema") != rs.ACTION_DIAGNOSTIC_SCHEMA_V2
+            or calibration.get("organizational_schema") != rs.ORGANIZATIONAL_SCHEMA_V2):
+        raise MaterializedDiscoveryError("SCANNER_DIAGNOSTIC_CALIBRATION_REOPEN_REQUIRED")
+
+
+def _load_current_diagnostic_calibration() -> dict[str, Any]:
+    path = files("infinity_grid").joinpath(TRUST_REPAIR_CALIBRATION_RESOURCE)
+    calibration = json.loads(path.read_text(encoding="utf-8"))
+    _require_v2_diagnostic_calibration(calibration)
+    observed = canonical_sha256({key: value for key, value in calibration.items() if key != "science_sha256"})
+    if calibration.get("science_sha256") != observed:
+        raise MaterializedDiscoveryError("SCANNER_DIAGNOSTIC_CALIBRATION_HASH_MISMATCH")
+    return calibration
+
+
 class MaterializedDiscoverySession:
     """Stateful O7->On generator so a long run pays replay cost only once per process."""
 
     def __init__(self, *, honor_earned_laws: bool = True, execution_policy: ExecutionPolicy | None = None) -> None:
+        # Version admission precedes authority, cache isolation and session ownership.
+        self._diagnostic_calibration = _load_current_diagnostic_calibration()
         # A discovery session owns the legacy scanner memoization namespace for its full
         # lifetime.  This makes sequential sessions deterministic and prevents cache objects
         # from one dynamically loaded O7 engine leaking into the next.
@@ -822,7 +840,7 @@ class MaterializedDiscoverySession:
         return max(self.levels)
 
     def _apply_inherited_representation_event(self, level: int, scan: dict[str, Any]) -> None:
-        inherited = self.earned_laws.get("O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
+        inherited = rs._current_inherited_law(self.earned_laws,"O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
         if not inherited or level < 11:
             return
         W = int(self.spec["promotion"]["representation_transition"]["W"])
@@ -849,6 +867,10 @@ class MaterializedDiscoverySession:
             })
 
     def _calibration_for_level(self, level: int, scan: Mapping[str, Any]) -> dict[str, Any]:
+        _require_v2_diagnostic_calibration(self._diagnostic_calibration)
+        if (scan.get("diagnostic_schema") != rs.ACTION_DIAGNOSTIC_SCHEMA_V2
+                or scan.get("normalized_signature", {}).get("schema_id") != rs.ORGANIZATIONAL_SCHEMA_V2):
+            raise MaterializedDiscoveryError("SCANNER_DIAGNOSTIC_CALIBRATION_SCHEMA_MISMATCH")
         if level <= 13:
             expected = self.legacy["level_summaries"].get(str(level))
             if expected is None:
@@ -866,8 +888,7 @@ class MaterializedDiscoverySession:
             # preserved for provenance, while live trust-repair replay is calibrated
             # against a separately frozen corrected O7-O13 oracle generated after the
             # independent automorphism/resource-incidence repair tests passed.
-            calib_path = files("infinity_grid").joinpath(TRUST_REPAIR_CALIBRATION_RESOURCE)
-            corrected = json.loads(calib_path.read_text(encoding="utf-8"))
+            corrected = self._diagnostic_calibration
             expected2 = corrected.get("levels", {}).get(str(level))
             if not isinstance(expected2, Mapping):
                 raise MaterializedDiscoveryError(f"trust-repair calibration oracle missing O{level}")
@@ -922,7 +943,7 @@ class MaterializedDiscoverySession:
         # before genealogy/calibration so O7..O13 are compared in exactly the same data model
         # and all downstream capability hashes are canonical-JSON encodable.
         scan = _json_tree(scan)
-        inherited_service = self.earned_laws.get("O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
+        inherited_service = rs._current_inherited_law(self.earned_laws,"O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1")
         if inherited_service and scan["matched_backbone"].get("signature_sha256") == inherited_service.get("discovery_backbone_signature_sha256"):
             scan["matched_backbone"]["inherited_earned_law"] = "O_DEPTH_ERASED_RELATION_ADD_SERVICE_V1"
         previous_scan = self.levels[level - 1].summary if level - 1 in self.levels else None
