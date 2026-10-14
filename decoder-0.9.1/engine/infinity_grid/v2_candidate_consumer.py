@@ -147,12 +147,16 @@ class FiniteCandidateConsumer:
             pairs = [tuple(x) for x in load_streaming_o7_seed()['bridge_pairs']]
             grammar = self._data['materialized']['levels'][str(level)]['grammar_sha256']
             packet, _ = rs._scan_level(selected,level,pairs,grammar)
+            # This historical producer field uses the native live-tree policy.
+            # JSON-normalized payload hashes are a separate policy; compare both
+            # against the appropriate producer fields, without retagging either.
+            native_signature_hash = rs._sha(packet['normalized_signature'])
             packet = normalized(packet)
             if domain == 'selected':
                 expected = self._data['materialized']['levels'][str(level)]
                 for lane in LANES:
-                    _require(normalized_hash(packet['normalized_signature'][lane]) == expected[lane+'_sha256'], 'SELECTED_LANE_MISMATCH:'+lane)
-                _require(normalized_hash(packet['normalized_signature']) == expected['normalized_signature_sha256'], 'SELECTED_SIGNATURE_MISMATCH')
+                    _require(normalized_hash(packet[lane]) == expected[lane+'_sha256'], 'SELECTED_LANE_MISMATCH:'+lane)
+                _require(native_signature_hash == expected['normalized_signature_sha256'] == packet['normalized_signature_sha256'], 'SELECTED_NATIVE_SIGNATURE_MISMATCH')
                 _require(normalized_hash(packet['diversity']) == expected['diversity_sha256'], 'SELECTED_DIVERSITY_MISMATCH')
             else:
                 for lane in LANES:
