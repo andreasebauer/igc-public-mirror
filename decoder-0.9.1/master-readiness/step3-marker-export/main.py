@@ -53,6 +53,8 @@ def main():
                   left_marker_state=qleft, right_marker_state=qright, write_result=write,
                   decoded_children=decoded)
     export = assemble_marker_export(**kwargs)
+    # Persist evaluated candidate bytes before checks; failure grants no acceptance.
+    Path('UNVERIFIED_FULL_MARKER_EXPORT.json').write_text(json.dumps(export, sort_keys=True, indent=2) + '\n')
     assert len(export['children']) == diagnostics['raw_child_count'] == 18
     owner_ids = {canon(r['full_tree'], keys) for r in owner['child_SET']}
     raw_ids = {canon(r['raw_tree'], keys) for r in export['children']}
@@ -60,7 +62,7 @@ def main():
     assert tuple(diagnostics['raw_child_canons']) == tuple(freeze(r['native_identity']) for r in export['children'])
     assert diagnostics['left_decoded_unrooted_canon'] == canon(left, keys)
     assert diagnostics['right_decoded_unrooted_canon'] == canon(right, keys)
-    reference_rows = []; formation_count = 0; recovery_count = 0
+    reference_rows = []; progress = []; formation_count = 0; recovery_count = 0
     records = [('left', left, qleft, full_decode(qleft)),
                ('right', right, qright, full_decode(qright))]
     records += [('child:' + str(r['ordinal']), r['raw_tree'], r['marker_state'], r['decoder'])
@@ -69,6 +71,12 @@ def main():
     for name, record, q, dec in records:
         native_q = freeze(q)
         reference_q, formations, recoveries = marker_reference(record, keys, caps)
+        progress.append({'occurrence': name, 'full_source_tree': record,
+                         'native_marker_state': native_q, 'independent_marker_state': reference_q,
+                         'exact_SET_equal': set(native_q) == set(reference_q),
+                         'exact_order_equal': native_q == reference_q})
+        Path('COMPARISON_PROGRESS.json').write_text(json.dumps(exact_json(progress), sort_keys=True, indent=2) + '\n')
+        assert set(native_q) == set(reference_q)
         assert native_q == reference_q
         expected = canon(record, keys)
         assert dec['status'] == 'PASS' and dec['candidate_count'] == 1

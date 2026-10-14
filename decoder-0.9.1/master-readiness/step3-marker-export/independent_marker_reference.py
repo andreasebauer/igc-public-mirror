@@ -83,7 +83,7 @@ def marker_reference(record, keys, caps):
     marker = {'n': 1, 'edges': [], 'H_classes': ['D'], 'edge_operators': []}
     lo, ro, rows = formations(record, marker, [0, 0], caps)
     assert ro == [0]
-    q = tuple(sorted({canon(r['full_raw_child'], keys) for r in rows}))
+    q = tuple(sorted({canon(r['full_raw_child'], keys) for r in rows}, key=repr))
     identity = canon(record, keys)
     recoveries = []
     for c in q:
