@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import pickle
+import re
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -10,6 +11,75 @@ from .canon import canonical_sha256, write_json_atomic
 
 class CertifiedCarrierReuseError(RuntimeError):
     pass
+
+
+_BUNDLE_NAMES = {'IG_MATURATION_STATE_DAG_V1': 'EXACT_STATE_DAG_V1.json',
+                 'PYTHON_PICKLE_EXACT_STATE_V1': 'EXACT_STATE_PICKLE_V1.pkl'}
+_IDENTITY_FIELDS = ('source_sha256', 'registry_sha256', 'producer_experiment_id',
+                    'authority_stage', 'authority_science_sha256')
+_ROW_FIELDS = {'carrier_id', 'public_state', 'public_state_sha256', 'exact_carrier_payload',
+               'exact_carrier_root_digest', 'construction_digest', *_IDENTITY_FIELDS,
+               'certification_status'}
+
+
+def _text(value, field):
+    if type(value) is not str or not value:
+        raise CertifiedCarrierReuseError('CARRIER_EXACT_TEXT_REQUIRED:' + field)
+    return value
+
+
+def _digest(value, field):
+    if type(value) is not str or re.fullmatch(r'[0-9a-f]{64}', value) is None:
+        raise CertifiedCarrierReuseError('CARRIER_EXACT_SHA256_REQUIRED:' + field)
+    return value
+
+
+def _identity(values):
+    for field in _IDENTITY_FIELDS:
+        (_digest if field.endswith('sha256') else _text)(values[field], field)
+    return values
+
+
+def _validated_rows(manifest, expected):
+    if type(manifest) is not dict or set(manifest) != {'schema_id', 'exact_payload_schema',
+            'status', 'carrier_count', 'carriers', 'artifact_sha256'}:
+        raise CertifiedCarrierReuseError('CARRIER_MANIFEST_FIELDS')
+    if manifest['schema_id'] != 'CERTIFIED_CARRIER_SET_V1' or manifest['status'] != 'CERTIFIED_PASS':
+        raise CertifiedCarrierReuseError('certified carrier manifest schema/status mismatch')
+    count = manifest['carrier_count']
+    if type(count) is not int or count <= 0:
+        raise CertifiedCarrierReuseError('CARRIER_EXACT_POSITIVE_COUNT_REQUIRED')
+    rows = manifest['carriers']
+    if type(rows) is not list or len(rows) != count:
+        raise CertifiedCarrierReuseError('certified carrier count mismatch')
+    schema = _text(manifest['exact_payload_schema'], 'exact_payload_schema')
+    if schema not in _BUNDLE_NAMES:
+        raise CertifiedCarrierReuseError('unsupported exact carrier payload schema: ' + schema)
+    claimed = _digest(manifest['artifact_sha256'], 'artifact_sha256')
+    if claimed != canonical_sha256({k: v for k, v in manifest.items() if k != 'artifact_sha256'}):
+        raise CertifiedCarrierReuseError('certified carrier manifest hash mismatch')
+    ids = set()
+    for row in rows:
+        if type(row) is not dict or set(row) != _ROW_FIELDS:
+            raise CertifiedCarrierReuseError('CARRIER_ROW_FIELDS')
+        cid = _text(row['carrier_id'], 'carrier_id')
+        if cid in ids:
+            raise CertifiedCarrierReuseError('CARRIER_DUPLICATE_ID')
+        ids.add(cid)
+        _identity(row)
+        for field in _IDENTITY_FIELDS:
+            if row[field] != expected[field]:
+                raise CertifiedCarrierReuseError('carrier ' + cid + ': identity mismatch ' + field)
+        if row['certification_status'] != 'CERTIFIED_PASS':
+            raise CertifiedCarrierReuseError('CARRIER_ROW_CERTIFICATION_STATUS')
+        digest = _digest(row['construction_digest'], 'construction_digest')
+        if _digest(row['exact_carrier_root_digest'], 'exact_carrier_root_digest') != digest:
+            raise CertifiedCarrierReuseError('CARRIER_ROOT_CONSTRUCTION_MISMATCH')
+        if row['exact_carrier_payload'] != _BUNDLE_NAMES[schema]:
+            raise CertifiedCarrierReuseError('CARRIER_PAYLOAD_NAME_MISMATCH')
+        if _digest(row['public_state_sha256'], 'public_state_sha256') != canonical_sha256(row['public_state']):
+            raise CertifiedCarrierReuseError('carrier ' + cid + ': public state digest mismatch')
+    return rows
 
 
 def _save_exact_state_bundle(root: Path, carriers: Mapping[str, tuple[Any, Any]]) -> tuple[str, str, dict[str, str]]:
@@ -45,13 +115,18 @@ def _save_exact_state_bundle(root: Path, carriers: Mapping[str, tuple[Any, Any]]
     }
 
 
-def _load_exact_state_bundle(root: Path, *, schema: str, payload_name: str) -> dict[str, Any]:
+def _load_exact_state_bundle(root: Path, *, schema: str, payload_name: str,
+                             expected_root_digests=None, expected_carrier_ids=None) -> dict[str, Any]:
+    if type(schema) is not str or schema not in _BUNDLE_NAMES or payload_name != _BUNDLE_NAMES[schema]:
+        raise CertifiedCarrierReuseError('CARRIER_PAYLOAD_NAME_OR_SCHEMA_MISMATCH')
     path = root / payload_name
     if not path.is_file():
         raise CertifiedCarrierReuseError(f"certified carrier payload missing: {path}")
     if schema == "IG_MATURATION_STATE_DAG_V1":
         from .maturation_parallel import _states_from_dag
         obj = json.loads(path.read_text(encoding="utf-8"))
+        if expected_root_digests is not None and (type(obj) is not dict or obj.get('roots') != list(expected_root_digests)):
+            raise CertifiedCarrierReuseError('CARRIER_ORDERED_ROOT_OCCURRENCE_CLOSURE')
         try:
             _engine, roots = _states_from_dag(obj)
         except Exception as exc:
@@ -62,7 +137,20 @@ def _load_exact_state_bundle(root: Path, *, schema: str, payload_name: str) -> d
             payload = pickle.loads(path.read_bytes())
         except Exception as exc:
             raise CertifiedCarrierReuseError(f"certified carrier pickle reconstruction failed: {exc}") from exc
-        return {str(getattr(st, "construction_digest", "")): st for st in payload.values()}
+        if type(payload) is not dict or (expected_carrier_ids is not None and
+                set(payload) != set(expected_carrier_ids)):
+            raise CertifiedCarrierReuseError('CARRIER_PICKLE_ID_CLOSURE')
+        if expected_carrier_ids is not None and [str(getattr(payload[cid], 'construction_digest', ''))
+                for cid in expected_carrier_ids] != list(expected_root_digests):
+            raise CertifiedCarrierReuseError('CARRIER_PICKLE_ROOT_CLOSURE')
+        by_digest = {}
+        for state in payload.values():
+            digest = _digest(getattr(state, 'construction_digest', None), 'construction_digest')
+            prior = by_digest.get(digest)
+            if prior is not None and prior is not state and pickle.dumps(prior, protocol=pickle.HIGHEST_PROTOCOL) != pickle.dumps(state, protocol=pickle.HIGHEST_PROTOCOL):
+                raise CertifiedCarrierReuseError('CARRIER_PICKLE_ALIAS_COLLISION_REVIEW_REQUIRED')
+            by_digest[digest] = state
+        return by_digest
     raise CertifiedCarrierReuseError(f"unsupported exact carrier payload schema: {schema}")
 
 
@@ -83,6 +171,18 @@ def save_certified_carrier_set(
     states are written through the already-established content-addressed state DAG representation,
     never through ad-hoc object pickle.  Admission is fail-closed on every frozen identity field.
     """
+    _identity(dict(source_sha256=source_sha256, registry_sha256=registry_sha256,
+                   producer_experiment_id=producer_experiment_id, authority_stage=authority_stage,
+                   authority_science_sha256=authority_science_sha256))
+    _text(certification_status, 'certification_status')
+    if not isinstance(carriers, Mapping) or not carriers:
+        raise CertifiedCarrierReuseError('CARRIER_NONEMPTY_MAPPING_REQUIRED')
+    for cid, pair in carriers.items():
+        _text(cid, 'carrier_id')
+        if type(pair) not in (tuple, list) or len(pair) != 2:
+            raise CertifiedCarrierReuseError('CARRIER_STATE_PUBLIC_PAIR_REQUIRED')
+        _digest(getattr(pair[0], 'construction_digest', None), 'construction_digest')
+        canonical_sha256(pair[1])
     root = Path(root)
     root.mkdir(parents=True, exist_ok=True)
     payload_schema, state_bundle_name, root_digest_by_id = _save_exact_state_bundle(root, carriers)
@@ -136,19 +236,17 @@ def load_certified_carrier_set(
     if not path.is_file():
         raise CertifiedCarrierReuseError(f"certified carrier manifest missing: {path}")
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    if manifest.get("schema_id") != "CERTIFIED_CARRIER_SET_V1" or manifest.get("status") != "CERTIFIED_PASS":
-        raise CertifiedCarrierReuseError("certified carrier manifest schema/status mismatch")
-    claimed = str(manifest.get("artifact_sha256", ""))
-    observed = canonical_sha256({k: v for k, v in manifest.items() if k != "artifact_sha256"})
-    if claimed != observed:
-        raise CertifiedCarrierReuseError("certified carrier manifest hash mismatch")
-
-    rows = list(manifest.get("carriers", []))
+    expected = _identity(dict(source_sha256=expected_source_sha256,
+        registry_sha256=expected_registry_sha256, producer_experiment_id=expected_producer_experiment_id,
+        authority_stage=expected_authority_stage, authority_science_sha256=expected_authority_science_sha256))
+    rows = _validated_rows(manifest, expected)
     bundle_names = {str(row.get("exact_carrier_payload")) for row in rows}
     if len(bundle_names) != 1:
         raise CertifiedCarrierReuseError("certified carrier manifest must reference one exact DAG bundle")
     states_by_digest = _load_exact_state_bundle(
-        root, schema=str(manifest.get("exact_payload_schema", "")), payload_name=next(iter(bundle_names))
+        root, schema=manifest['exact_payload_schema'], payload_name=next(iter(bundle_names)),
+        expected_root_digests=[r['construction_digest'] for r in rows],
+        expected_carrier_ids=[r['carrier_id'] for r in rows],
     )
 
     loaded: dict[str, Any] = {}
@@ -175,7 +273,7 @@ def load_certified_carrier_set(
         if canonical_sha256(row.get("public_state")) != str(row.get("public_state_sha256")):
             raise CertifiedCarrierReuseError(f"carrier {row.get('carrier_id')}: public state digest mismatch")
         loaded[str(row["carrier_id"])] = state
-    if len(loaded) != int(manifest.get("carrier_count", -1)):
+    if len(loaded) != manifest['carrier_count']:
         raise CertifiedCarrierReuseError("certified carrier count mismatch")
     return loaded, manifest
 
