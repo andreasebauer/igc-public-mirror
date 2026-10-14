@@ -21,6 +21,11 @@ from pathlib import Path
 from .canon import canonical_sha256
 from .execution import ExecutionPolicy, TaskSpec, execute_tasks
 from . import regime_scanner as rs
+from .maturation_dag_contract import (
+    exact_data as _exact_dag_data, integer as _dag_integer,
+    text as _dag_text, o7_source_coordinates as _o7_source_coordinates,
+    validate_state_dag,
+)
 
 _CANDIDATE_CONTEXT: dict[str, Any] | None = None
 
@@ -48,46 +53,69 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
     """
     policy = rs._execution_policy(roots)
     nodes: dict[str, Any] = {}
+    coordinates = {}
+    active = set()
+    memo = {}
 
     def visit(s: Any) -> str:
+        instance = id(s)
+        if instance in memo:
+            return memo[instance]
+        if instance in active:
+            raise ValueError("MATURATION_DAG_CYCLE")
+        active.add(instance)
         if s.execution_policy != policy:
             raise RuntimeError("maturation DAG mixed execution policies")
-        digest = str(s.construction_digest)
-        if digest in nodes:
-            return digest
         if isinstance(s, rs.O7State):
+            if len(s.reserve_counts) != 7:
+                raise ValueError("MATURATION_DAG_O7_RESERVATION_ARITY")
+            for value in s.reserve_counts:
+                _dag_integer(value, 'O7_RESERVATION')
+            source_coordinates = _o7_source_coordinates(s)
+            digest = _dag_text(s.construction_digest, 'CONSTRUCTION_DIGEST')
             row = {
                 "kind": "O7",
                 "construction_digest": digest,
-                "source_id": str(s.source_id),
-                "reserve_counts": list(map(int, s.reserve_counts)),
-                "lane": str(s.lane),
+                "source_id": _dag_text(s.source_id, 'O7_SOURCE'),
+                "reserve_counts": list(s.reserve_counts),
+                "lane": _dag_text(s.lane, 'LANE'),
             }
         elif isinstance(s, rs.LiftState):
+            _dag_integer(s.level, 'LIFT_LEVEL', 8)
+            _exact_dag_data(s.top_edges_full)
             child_ids = [visit(c) for c in s.children]
+            source_coordinates = None
+            digest = _dag_text(s.construction_digest, 'CONSTRUCTION_DIGEST')
             row = {
                 "kind": "LIFT",
                 "construction_digest": digest,
-                "level": int(s.level),
+                "level": s.level,
                 "children": child_ids,
                 "top_edges_full": _jsonify_tuple_tree(s.top_edges_full),
-                "lane": str(s.lane),
-                "motif_id": str(s.motif_id),
+                "lane": _dag_text(s.lane, 'LANE'),
+                "motif_id": _dag_text(s.motif_id, 'MOTIF'),
             }
         else:
             raise TypeError(f"unsupported maturation state type for DAG serialization: {type(s).__name__}")
         row["execution_policy"] = policy
         row["execution_order_key"] = rs.execution_order_key(s)
+        if digest in nodes and (nodes[digest] != row or coordinates[digest] != source_coordinates):
+            raise ValueError("MATURATION_DAG_CONSTRUCTION_ALIAS_COLLISION_REVIEW_REQUIRED")
         nodes[digest] = row
+        coordinates[digest] = source_coordinates
+        active.remove(instance)
+        memo[instance] = digest
         return digest
 
     root_ids = [visit(s) for s in roots]
     out = {"schema_id": "IG_MATURATION_STATE_DAG_V2", "execution_policy": policy, "roots": root_ids, "nodes": nodes}
     out["science_sha256"] = canonical_sha256(out)
+    validate_state_dag(out)
     return out
 
 
 def _states_from_dag(obj: Mapping[str, Any]) -> tuple[Any, list[Any]]:
+    validate_state_dag(obj)
     raw = dict(obj)
     expected = raw.pop("science_sha256", None)
     if expected != canonical_sha256(raw):
@@ -103,7 +131,9 @@ def _states_from_dag(obj: Mapping[str, Any]) -> tuple[Any, list[Any]]:
     spec = rs.load_regime_scanner_spec()
     runtime = _get_process_o7_runtime(spec)
     engine = runtime["engine"]
-    base_by_source = {str(s.source_id): s for s in runtime["authority_base_states"]}
+    base_by_source = defaultdict(list)
+    for state in runtime["authority_base_states"]:
+        base_by_source[state.source_id].append(state)
     nodes = dict(obj["nodes"])
     memo: dict[str, Any] = {}
 
@@ -116,16 +146,20 @@ def _states_from_dag(obj: Mapping[str, Any]) -> tuple[Any, list[Any]]:
             source_id = str(row["source_id"])
             if source_id not in base_by_source:
                 raise RuntimeError(f"O7 authority source_id not found during worker reconstruction: {source_id}")
-            base = base_by_source[source_id]
+            candidates = base_by_source[source_id]
+            base = candidates[0]
+            expected_coordinates = _o7_source_coordinates(base)
+            if any(_o7_source_coordinates(s) != expected_coordinates for s in candidates[1:]):
+                raise ValueError("MATURATION_DAG_O7_SOURCE_ALIAS_AMBIGUOUS_REVIEW_REQUIRED")
             state = rs.O7State(
                 engine, base.ctx, base.edges,
-                tuple(map(int, row["reserve_counts"])), source_id, str(row["lane"]), execution_policy=policy,
+                tuple(row["reserve_counts"]), source_id, row["lane"], execution_policy=policy,
             )
         elif kind == "LIFT":
             children = tuple(build(str(x)) for x in row["children"])
             state = rs.LiftState(
-                engine, int(row["level"]), children,
-                _tupleify_tree(row["top_edges_full"]), str(row["lane"]), str(row["motif_id"]), execution_policy=policy,
+                engine, row["level"], children,
+                _tupleify_tree(row["top_edges_full"]), row["lane"], row["motif_id"], execution_policy=policy,
             )
         else:
             raise RuntimeError(f"unknown maturation DAG node kind: {kind}")
