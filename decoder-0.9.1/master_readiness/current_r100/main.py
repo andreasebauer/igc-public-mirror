@@ -94,7 +94,7 @@ def main():
     del dag,loaded,index
     motifs=rs.load_motif_library();spec=rs.load_regime_scanner_spec()
     seed=json.loads(Path(paths['streaming_seed']).read_text());pairs=[tuple(pair) for pair in seed['bridge_pairs']]
-    assert int(spec['panel']['candidate_cap'])==193 and int(spec['panel']['beam'])==24
+    assert int(spec['panel']['candidate_cap'])==protocol['frozen_candidate_cap'] and protocol['complete_candidate_count_per_level']<=int(spec['panel']['candidate_cap']) and int(spec['panel']['beam'])==24
     levels=[];progress('qualified_prefix_loaded',level=13,selected=24,old_levels_rebuilt=0)
     for level in range(14,101):
         level_started=time.monotonic()
@@ -115,7 +115,7 @@ def main():
         'production_authority':'NONE','theorems_adopted':False,'current_campaign_admitted':False}
     cohort['science_sha256']=digest(cohort);write('COHORT_AUTHORITY.json',cohort)
     binding={'source_sha256':protocol['engine_source_sha256'],'registry_sha256':protocol['registry_sha256'],
-             'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q01','authority_stage':'G1:R100:CURRENT_NATIVE_V3_LITERAL_CONSTRUCTION',
+             'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q02','authority_stage':'G1:R100:CURRENT_NATIVE_V3_LITERAL_CONSTRUCTION',
              'authority_science_sha256':cohort['science_sha256']}
     saved_root=Path('current_r100');saved_root.mkdir()
     manifest=carrier_reuse.save_certified_carrier_set(saved_root,
