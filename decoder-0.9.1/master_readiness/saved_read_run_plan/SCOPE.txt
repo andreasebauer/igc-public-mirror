@@ -1,0 +1,35 @@
+CANDIDATE ENGINE OVERLAY: EXPLICIT SOURCE-BOUND SAVED-READ RUNPLAN
+
+The current infinity_grid overlay adds saved_read_run_plan.py and explicit APIs
+in run_plan_v2.py and materialized_discovery.py. Apply to the Q09 candidate,
+not the default deployed release. Scientific read/mapper/scanner modules retain
+original bytes; original source manifests and native producing seals are checked.
+
+New plan schema: IG_SOURCE_BOUND_SAVED_READ_RUN_PLAN_V1.
+New route: IG_SOURCE_BOUND_SAVED_READ_RUN_PLAN@1.0.0.
+The generic compiler dispatches this schema explicitly; the new executor calls
+MaterializedDiscoverySession.from_candidate_read_plan and candidate_read.
+All original session methods are unchanged. The old live RunPlan's timestamp
+uses an ordinary datetime import instead of dynamic __import__; the native
+qualifier checks exact AST equality after only that expression replacement.
+
+Calibration binds current package/runtime, exact private saved-input binding,
+Q11 accepted native evidence, original Q11 package manifest, frozen master
+contract, finite source-anchor identities, population domains, units and stop.
+It grants no production or generation authority. The old constructor/calibration,
+ResearchFrontier, semantic baseline and stale theorem gates remain in force.
+
+Only admitted saved V2 packets, six O7 complete reservation-read results,
+six fixed-motif matched Finding depths, four closed temporal windows and current
+Q07 R100 saved descriptors are consumed. Original Test/Regime identities and
+producing provenance are retained. Q11 is the calibration/evidence parent for
+the new route; R100 retains its separate original Q07 producer binding.
+R100 scanner packets and complete Counters are not admitted by this route.
+The full master producer DAG, exact typed incidences, required alternatives,
+witnesses and occurrence exports require their own qualification.
+
+Source is public; private calibration, saved science, raw receipts and native
+qualifications are in the durable handoff. No scientific output data is here.
+Historical main files retain refused/failed attempts. Q15 bounds trace memory;
+Q16 snapshots the trace mapping during inspection. Never invoke these native
+qualification mains directly: use registered capture/save/run/preserve.
