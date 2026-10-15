@@ -1,156 +1,202 @@
-"""Current R100 construction from the accepted level13 prefix, under native SCRIPT."""
-from copy import deepcopy
-import gzip
+"""Prospective exact reconstruction/reader job, reusing Q02's completed science."""
+from pathlib import Path
+from types import SimpleNamespace
+import ast
 import hashlib
 import json
 import os
-from pathlib import Path
 import resource
-import shutil
 import statistics
 import time
 
-from infinity_grid import maturation_parallel as mp
-from infinity_grid import regime_scanner as rs
-from infinity_grid import r100_reuse
-from infinity_grid import carrier_reuse
+from infinity_grid import maturation_parallel as mp, regime_scanner as rs
+from infinity_grid import r100_reuse, carrier_reuse, semantic_sentinel, theorem_registry
 from infinity_grid import v2_joint_candidate_consumer as joint
-from infinity_grid import semantic_sentinel
-from infinity_grid import theorem_registry
 from infinity_grid.canon import canonical_sha256
 
-def write(name,obj):
-    Path(name).write_text(json.dumps(obj,sort_keys=True,separators=(',',':'))+'\n')
-
-def progress(event,**fields):
+def write(name, value):
+    Path(name).write_text(json.dumps(value,sort_keys=True,indent=2)+'\n')
+def sha(raw): return hashlib.sha256(raw).hexdigest()
+def progress(event, **fields):
     row={'event':event,**fields}
     with Path('PROGRESS.jsonl').open('a') as f:f.write(json.dumps(row,sort_keys=True)+'\n')
     print(json.dumps(row,sort_keys=True),flush=True)
 
-def plain(value):return json.loads(json.dumps(value,sort_keys=True))
-def digest(value):return canonical_sha256(plain(value))
+def source_admission(paths, protocol):
+    package=Path(mp.__file__).resolve().parent
+    declaration=json.loads(Path(paths['compatibility']).read_text())
+    literal=json.loads(Path(paths['serializer_delta']).read_text())
+    closure=declaration['execution_closure']
+    assert joint._files(package)==set(closure) and len(closure)==1050
+    actual=(package/'maturation_parallel.py').read_bytes()
+    assert sha(actual)==literal['new_raw_sha256']
+    old=actual.decode()
+    for patch in reversed(literal['patches']):
+        assert old.count(patch['after'])==1
+        old=old.replace(patch['after'],patch['before'],1)
+    assert sha(old.encode())==literal['old_raw_sha256']==closure['maturation_parallel.py']['sha256']
+    assert len(old.encode())==closure['maturation_parallel.py']['size_bytes']
+    for name,pin in closure.items():
+        if name=='maturation_parallel.py':continue
+        raw=(package/name).read_bytes()
+        assert len(raw)==pin['size_bytes'] and sha(raw)==pin['sha256']
+    # The exact AST of every other function and top-level declaration is unchanged.
+    def excluding_serializer(text):
+        tree=ast.parse(text)
+        return [ast.dump(node,include_attributes=False) for node in tree.body
+                if not (isinstance(node,ast.FunctionDef) and node.name=='state_dag_wire')]
+    assert excluding_serializer(old)==excluding_serializer(actual.decode())
+    original=json.loads(Path(paths['binding']).read_text())
+    try:joint.preflight_joint(Path('.'),original,declaration,Path(paths['producer_registry']).read_bytes())
+    except Exception as exc:
+        assert str(exc)=='JOINT_EXECUTION_BYTES_CHANGED:maturation_parallel.py'
+    else:raise AssertionError('ORIGINAL_SOURCE_GUARD_MUST_REFUSE_NEW_SOURCE')
+    return {'status':'PASS','changed_package_files':1,'unchanged_package_files':1049,
+        'only_changed_function':'state_dag_wire','full_coordinate_equality_retained':True,
+        'construction_worker_and_rebuild_AST_unchanged':True,'original_joint_guard_refuses_changed_source':True,
+        'historical_producing_binding_relabelled':False,'production_authority':'NONE',
+        'old_file_sha256':literal['old_raw_sha256'],'new_file_sha256':literal['new_raw_sha256'],
+        'new_engine_source_sha256':protocol['engine_source_sha256']}
 
-def construct(engine,previous,level,pairs,motifs,spec):
-    # Unchanged native scientific functions, same literal route as the accepted
-    # V2 calibration. No shared-task guard bypass or project-created worker pool.
-    prev=sorted(previous,key=rs.execution_order_key)
-    median=statistics.median(sum(s.total_caps) for s in prev)
-    center=min(prev,key=lambda s:(abs(sum(s.total_caps)-median),rs.execution_order_key(s)))
-    recipes=mp.enumerate_candidate_recipes(motifs,center_supports_twin=center.total_caps[0]>=6,pairs_count=len(pairs))
-    assert len(recipes)==193
-    mp.install_candidate_context(engine=engine,prev=prev,level=level,pairs=pairs,motifs=motifs,center=center)
-    try:rows=[mp._candidate_worker({'recipe':recipe}) for recipe in recipes]
-    finally:mp.clear_candidate_context()
-    assert all(row['success'] for row in rows) and len(rows)==193
-    assert all(row['execution_policy']=='NATIVE_V3' for row in rows)
-    assert len({row['construction_digest'] for row in rows})==193
-    selected=mp._farthest_select_descriptors(rows,int(spec['panel']['beam']),must_include_motif_ids={'TWIN:A','TWIN:B'})
-    # Rebuild the complete candidate cohort and compare the independent live-state
-    # selector with the descriptor selector. All retained recipe digests are checked
-    # by the unchanged native rebuild function, not inferred from count metadata.
-    full=mp.rebuild_selected_states(rows,engine=engine,prev=prev,level=level,pairs=pairs,motifs=motifs,center=center)
-    twins=[next(s for s in full if s.motif_id==name) for name in ('TWIN:A','TWIN:B')]
-    live_selected=rs._farthest_select(full,int(spec['panel']['beam']),must_include=twins)
-    assert [s.construction_digest for s in live_selected]==[row['construction_digest'] for row in selected]
-    by_digest={s.construction_digest:s for s in full}
-    chosen=[by_digest[row['construction_digest']] for row in selected]
-    assert len(chosen)==24 and all(s.level==level for s in chosen)
-    return full,chosen,{'level':level,'recipes':193,'successful':193,'unique_candidates':193,
-        'selected':24,'descriptor_live_selector_equal':True,
-        'ordered_candidate_digests':[s.construction_digest for s in full],
-        'ordered_selected_digests':[s.construction_digest for s in chosen],
-        'candidate_caps7_sha256':digest([[s.construction_digest,list(s.total_caps)] for s in full])}
+def serializer_controls():
+    def fixture(parent_color='A', payload=(1,2)):
+        ctx=SimpleNamespace(n=1,source_order=('S',),parents=(SimpleNamespace(exact_color=parent_color,h6=payload),))
+        s=rs.O7State(None,ctx,(),(0,)*7,'FIXTURE','SERIALIZER_CONTROL',execution_policy='NATIVE_V3')
+        s.__dict__['construction_digest']='a'*64
+        return s
+    a,b=fixture(),fixture()
+    duplicated=mp.state_dag_wire([a,b])
+    assert duplicated['roots']==['a'*64]*2 and len(duplicated['nodes'])==1
+    refusals=[]
+    for other in [fixture(parent_color='B'),fixture(payload=(1,3))]:
+        try:mp.state_dag_wire([a,other])
+        except ValueError as exc:
+            assert str(exc)=='MATURATION_DAG_CONSTRUCTION_ALIAS_COLLISION_REVIEW_REQUIRED'
+            refusals.append(str(exc))
+        else:raise AssertionError('EXACT_COORDINATE_COLLISION_NOT_REFUSED')
+    bad=fixture(payload=(True,2))
+    try:mp.state_dag_wire([bad])
+    except ValueError as exc:
+        assert str(exc)=='MATURATION_DAG_INEXACT_VALUE_bool';refusals.append(str(exc))
+    else:raise AssertionError('INEXACT_COORDINATES_NOT_REFUSED')
+    return {'status':'PASS','repeated_root_occurrences_preserved':True,'refusal_checks':3,
+            'refusals':refusals,'synthetic_controls_used_as_R100':False}
 
 def main():
-    started=time.monotonic();cpu_started=time.process_time()
+    began=time.monotonic();cpu=time.process_time()
     paths=json.loads(Path(os.environ['DECODER_INPUTS_PATH']).read_text())
     params=json.loads(Path(os.environ['DECODER_PARAMETERS_PATH']).read_text())
-    for role,sha in params['input_hashes'].items():
-        assert hashlib.sha256(Path(paths[role]).read_bytes()).hexdigest()==sha
+    for role,pin in params['input_hashes'].items():assert sha(Path(paths[role]).read_bytes())==pin
     protocol=json.loads(Path(paths['protocol']).read_text())
-    original=json.loads(Path(paths['binding']).read_text())
-    declaration=json.loads(Path(paths['compatibility']).read_text())
-    data_root=Path('candidate_inputs');data_root.mkdir()
-    for role,pin in original['artifacts'].items():shutil.copyfile(paths[role],data_root/pin['file_name'])
-    joint.preflight_joint(data_root,original,declaration,Path(paths['producer_registry']).read_bytes())
+    compatibility=source_admission(paths,protocol)
+    controls=serializer_controls();write('SERIALIZER_CONTROLS.json',controls)
     baseline=semantic_sentinel.verify_native_semantics(raise_on_change=False)
     theorems=theorem_registry.verify_all_theorems(raise_on_stale=False)
     assert baseline['status']=='REOPEN_REQUIRED' and len(theorems['stale_theorems'])==4
-    historical=json.loads(gzip.decompress(Path(paths['historical_bootstrap']).read_bytes()))
-    old=historical['dag'];assert historical['level']==100 and len(old['roots'])==193
-    assert old['schema_id']=='IG_MATURATION_STATE_DAG_V1' and 'execution_policy' not in old
-    assert all('execution_policy' not in row for row in old['nodes'].values())
-    write('HISTORICAL_SCOPE_REVIEW.json',{'status':'RETAINED_AS_HISTORICAL_ONLY','roots':193,
-        'level':100,'nodes':len(old['nodes']),'schema_id':old['schema_id'],'current_policy_present':False,
-        'old_bytes_relabelled':False,'old_observer_jobs_replayed':False,
-        'bootstrap_sha256':params['input_hashes']['historical_bootstrap']})
-    del historical,old
+    origin=json.loads(Path(paths['q02_native_completion']).read_text())
+    assert origin['status']=='RESULT_REJECTED' and origin['result']['exit_code']==-9
+    assert origin['completion_sha256']==protocol['q02_completion_sha256']
+    assert origin['source_sha256']==protocol['q02_combined_source_sha256']
+    for role,artifact in [('retained_levels','script/work/CONTINUATION_LEVELS.json'),
+                          ('retained_cohort','script/work/COHORT_AUTHORITY.json')]:
+        row=next(x for x in origin['evidence'] if x['path']==artifact)
+        assert row['sha256']==params['input_hashes'][role]
+        assert row['size_bytes']==Path(paths[role]).stat().st_size
+    levels=json.loads(Path(paths['retained_levels']).read_text())
+    cohort=json.loads(Path(paths['retained_cohort']).read_text())
+    assert levels['status']=='RUNNING' and levels['completed_through']==100
+    assert [r['level'] for r in levels['levels']]==list(range(14,101))
+    assert all(r['recipes']==r['successful']==r['unique_candidates']==193 and r['selected']==24
+               and r['descriptor_live_selector_equal'] for r in levels['levels'])
+    assert cohort['root_count']==193 and cohort['level']==100
+    assert cohort['source_engine_sha256']==protocol['previous_engine_source_sha256']
+    assert cohort['prefix_dag_sha256']==params['input_hashes']['dag']
+    assert cohort['science_sha256']==canonical_sha256({k:v for k,v in cohort.items() if k!='science_sha256'})
     dag=json.loads(Path(paths['dag']).read_text());index=json.loads(Path(paths['index']).read_text())
     engine,loaded=mp._states_from_dag(dag)
-    previous=[state for state,row in zip(loaded,index['roots']) if row['domain']=='selected' and row['level']==13]
-    assert len(previous)==24 and all(s.execution_policy=='NATIVE_V3' and s.level==13 for s in previous)
-    for state,row in zip(loaded,index['roots']):
-        assert digest(mp.state_wire(state))==row['public_state_sha256']
-    del dag,loaded,index
+    assert len(loaded)==747
+    assert all(canonical_sha256(mp.state_wire(s))==r['public_state_sha256'] for s,r in zip(loaded,index['roots']))
+    prefix_wire=mp.state_dag_wire(loaded)
+    assert prefix_wire==dag
+    compatibility.update(prefix_root_occurrences=747,prefix_dag_exactly_equal=True)
+    write('SOURCE_COMPATIBILITY.json',compatibility)
+    previous=[s for s,r in zip(loaded,index['roots']) if r['domain']=='selected' and r['level']==13]
+    assert len(previous)==24
+    del loaded,index,dag,prefix_wire
     motifs=rs.load_motif_library();spec=rs.load_regime_scanner_spec()
-    seed=json.loads(Path(paths['streaming_seed']).read_text());pairs=[tuple(pair) for pair in seed['bridge_pairs']]
-    assert int(spec['panel']['candidate_cap'])==protocol['frozen_candidate_cap'] and protocol['complete_candidate_count_per_level']<=int(spec['panel']['candidate_cap']) and int(spec['panel']['beam'])==24
-    levels=[];progress('qualified_prefix_loaded',level=13,selected=24,old_levels_rebuilt=0)
-    for level in range(14,101):
-        level_started=time.monotonic()
-        full,previous,row=construct(engine,previous,level,pairs,motifs,spec)
-        row['wall_seconds']=time.monotonic()-level_started;levels.append(row)
-        write('CONTINUATION_LEVELS.json',{'status':'RUNNING','completed_through':level,'levels':levels})
-        progress('current_level_completed',level=level,candidates=193,selected=24,wall_seconds=row['wall_seconds'])
-        if level!=100:del full
-    states=sorted(full,key=lambda s:s.construction_digest)
-    assert len(states)==193 and len(levels)==87 and all(s.level==100 and s.execution_policy=='NATIVE_V3' for s in states)
-    cohort={'schema_id':'IG_CURRENT_R100_CONSTRUCTION_COHORT_V1','scope':'CURRENT_NATIVE_V3_LITERAL_CONSTRUCTION_ONLY',
-        'level':100,'root_count':193,'qualified_prefix_level':13,'missing_levels_constructed':87,
-        'recipes_per_level':193,'recipe_evaluations':87*193,'selector_checks':87,
-        'ordered_root_digests':[s.construction_digest for s in states],
-        'public_descriptors':[r100_reuse.public_descriptor(s) for s in states],
-        'source_engine_sha256':protocol['engine_source_sha256'],'protocol_sha256':params['input_hashes']['protocol'],
-        'prefix_dag_sha256':params['input_hashes']['dag'],'prefix_index_sha256':params['input_hashes']['index'],
-        'production_authority':'NONE','theorems_adopted':False,'current_campaign_admitted':False}
-    cohort['science_sha256']=digest(cohort);write('COHORT_AUTHORITY.json',cohort)
+    seed=json.loads(Path(paths['streaming_seed']).read_text());pairs=[tuple(x) for x in seed['bridge_pairs']]
+    assert spec['panel']['candidate_cap']==220 and spec['panel']['beam']==24
+    rebuilt_count=0;restoration=[]
+    for record in levels['levels']:
+        level=record['level'];prev=sorted(previous,key=rs.execution_order_key)
+        median=statistics.median(sum(s.total_caps) for s in prev)
+        center=min(prev,key=lambda s:(abs(sum(s.total_caps)-median),rs.execution_order_key(s)))
+        recipes=mp.enumerate_candidate_recipes(motifs,center_supports_twin=center.total_caps[0]>=6,pairs_count=len(pairs))
+        assert len(recipes)==193
+        by_id={d:{'recipe':recipe,'construction_digest':d,'execution_policy':'NATIVE_V3',
+                  'execution_order_key':d,'motif_id':recipe['motif_id']}
+               for d,recipe in zip(record['ordered_candidate_digests'],recipes)}
+        desired=record['ordered_candidate_digests'] if level==100 else record['ordered_selected_digests']
+        rows=[by_id[d] for d in desired]
+        states=mp.rebuild_selected_states(rows,engine=engine,prev=prev,level=level,pairs=pairs,motifs=motifs,center=center)
+        assert [s.construction_digest for s in states]==desired
+        rebuilt_count+=len(states)
+        restoration.append({'level':level,'exact_saved_digest_matches':len(states)})
+        previous=states
+        progress('retained_level_reconstructed',level=level,states=len(states),new_recipe_workers=0,new_selector_checks=0)
+    states=sorted(states,key=lambda s:s.construction_digest)
+    assert rebuilt_count==2257 and [s.construction_digest for s in states]==cohort['ordered_root_digests']
+    public=[r100_reuse.public_descriptor(s) for s in states]
+    assert public==cohort['public_descriptors']
+    write('RECONSTRUCTION_RESULT.json',{'status':'PASS','retained_level_records':87,
+        'retained_recipe_evaluations':16791,'retained_selector_checks':87,'reconstructed_states':2257,
+        'new_recipe_worker_calls':0,'new_selector_checks':0,'current_roots':193,'public_matches':193,
+        'origin_whole_job_status':'RESULT_REJECTED','origin_completed_subsections_reused':True,
+        'level_reconstruction':restoration,'production_authority':'NONE'})
+    progress('exact_R100_serialization_started',roots=193)
+    authority={'schema_id':'IG_CURRENT_R100_RECONSTRUCTION_READER_AUTHORITY_V1','root_count':193,'level':100,
+        'scope':'EXACT_SAVED_RECORD_RECONSTRUCTION_AND_READER_ONLY','producing_engine_source_sha256':protocol['engine_source_sha256'],
+        'original_literal_cohort_raw_sha256':params['input_hashes']['retained_cohort'],
+        'original_construction_engine_source_sha256':cohort['source_engine_sha256'],
+        'original_construction_science_sha256':cohort['science_sha256'],
+        'q02_capture_id':protocol['q02_capture_id'],'q02_completion_sha256':protocol['q02_completion_sha256'],
+        'retained_record_reconstructed_states':2257,'old_observers_replayed':False,'current_campaign_admitted':False,
+        'production_authority':'NONE'}
+    authority['science_sha256']=canonical_sha256(authority);write('COHORT_AUTHORITY.json',authority)
     binding={'source_sha256':protocol['engine_source_sha256'],'registry_sha256':protocol['registry_sha256'],
-             'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q02','authority_stage':'G1:R100:CURRENT_NATIVE_V3_LITERAL_CONSTRUCTION',
-             'authority_science_sha256':cohort['science_sha256']}
-    saved_root=Path('current_r100');saved_root.mkdir()
-    manifest=carrier_reuse.save_certified_carrier_set(saved_root,
-        carriers={s.construction_digest:(s,r100_reuse.public_descriptor(s)) for s in states},
+        'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q03','authority_stage':'G1:R100:CURRENT_NATIVE_V3_RECONSTRUCTION_AND_READER',
+        'authority_science_sha256':authority['science_sha256']}
+    saved=Path('current_r100');saved.mkdir()
+    carrier_reuse.save_certified_carrier_set(saved,carriers={s.construction_digest:(s,p) for s,p in zip(states,public)},
         **binding,certification_status='CERTIFIED_PASS')
-    assert manifest['carrier_count']==193 and manifest['exact_payload_schema']=='IG_MATURATION_STATE_DAG_V1'
     write('PRODUCER_BINDING.json',binding)
-    admission=r100_reuse.preflight(saved_root,binding)
-    restored=r100_reuse.load(admission)
+    progress('exact_R100_saved',size_bytes=(saved/'EXACT_STATE_DAG_V1.json').stat().st_size)
+    restored=r100_reuse.load(r100_reuse.preflight(saved,binding))
     assert [s.construction_digest for s in restored]==cohort['ordered_root_digests']
-    assert [r100_reuse.public_descriptor(s) for s in restored]==cohort['public_descriptors']
-    reserialized=mp.state_dag_wire(restored)
-    saved_dag=json.loads((saved_root/'EXACT_STATE_DAG_V1.json').read_text())
-    assert reserialized==saved_dag and saved_dag['execution_policy']=='NATIVE_V3'
+    assert [r100_reuse.public_descriptor(s) for s in restored]==public
+    exact=json.loads((saved/'EXACT_STATE_DAG_V1.json').read_text())
+    assert mp.state_dag_wire(restored)==exact
     write('SAVED_READER_RESULT.json',{'status':'PASS','complete_root_count':193,'public_descriptor_matches':193,
-        'ordered_roots_equal':True,'exact_dag_roundtrip_equal':True,'dag_nodes':len(saved_dag['nodes']),
-        'dag_raw_sha256':hashlib.sha256((saved_root/'EXACT_STATE_DAG_V1.json').read_bytes()).hexdigest(),
-        'manifest_raw_sha256':hashlib.sha256((saved_root/'CERTIFIED_CARRIER_SET_V1.json').read_bytes()).hexdigest(),
-        'producer_binding_sha256':digest(binding),'production_authority':'NONE','actual_campaign_started':False})
+        'ordered_roots_equal':True,'exact_dag_roundtrip_equal':True,'dag_nodes':len(exact['nodes']),
+        'dag_raw_sha256':sha((saved/'EXACT_STATE_DAG_V1.json').read_bytes()),
+        'manifest_raw_sha256':sha((saved/'CERTIFIED_CARRIER_SET_V1.json').read_bytes()),
+        'production_authority':'NONE','actual_campaign_started':False})
     assert semantic_sentinel.verify_native_semantics(raise_on_change=False)==baseline
     assert theorem_registry.verify_all_theorems(raise_on_stale=False)==theorems
     write('GUARD_STATUS.json',{'status':'PASS','semantic_status':'REOPEN_REQUIRED','stale_theorems':4,
-        'baseline_unchanged':True,'production_generation_allowed':False,'current_campaign_admitted':False,
+        'baseline_unchanged_within_capture':True,'production_generation_allowed':False,'current_campaign_admitted':False,
         'parent_congruence_proven':False,'complete_counter_correspondence_proven':False,'exact_read_premises_closed':False,
         'baseline_adopted':False,'theorems_adopted':False})
-    write('CONTINUATION_LEVELS.json',{'status':'PASS','completed_through':100,'levels':levels})
-    write('QUALIFICATION_RESULT.json',{'schema_id':'IG_CURRENT_R100_CREATION_AND_READER_QUALIFICATION_V1','status':'PASS',
-        'scientific_outcome':'CURRENT_R100_CREATION_AND_SAVED_READER_QUALIFIED_NO_PRODUCTION_AUTHORITY',
-        'current_roots':193,'qualified_prefix_level':13,'new_levels':87,'recipe_evaluations':16791,
-        'selector_checks':87,'saved_public_matches':193,'exact_dag_roundtrip_equal':True,
-        'historical_roots_relabelled':False,'closed_calibration_jobs_replayed':False,'new_marker_tasks':0,
+    write('QUALIFICATION_RESULT.json',{'status':'PASS',
+        'scientific_outcome':'CURRENT_R100_SAVED_READER_AND_BOUNDED_SERIALIZER_QUALIFIED_NO_PRODUCTION_AUTHORITY',
+        'current_roots':193,'retained_levels':87,'retained_recipe_evaluations':16791,'retained_selector_checks':87,
+        'reconstructed_states':2257,'new_recipe_worker_calls':0,'new_selector_checks':0,'saved_public_matches':193,
+        'exact_dag_roundtrip_equal':True,'prefix_dag_exactly_equal':True,'prefix_roots':747,'serializer_refusal_checks':3,
+        'historical_roots_relabelled':False,'closed_observer_jobs_replayed':False,'new_marker_tasks':0,
         'independent_counter_oracle_replays':0,'production_generation_allowed':False,'current_campaign_admitted':False,
         'semantic_status':'REOPEN_REQUIRED','stale_theorems':4,'production_authority':'NONE',
-        'wall_seconds':time.monotonic()-started,'cpu_seconds':time.process_time()-cpu_started,
+        'wall_seconds':time.monotonic()-began,'cpu_seconds':time.process_time()-cpu,
         'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
-    progress('current_R100_complete',roots=193,dag_nodes=len(saved_dag['nodes']))
+    progress('current_R100_complete',roots=193,dag_nodes=len(exact['nodes']))
 
 if __name__=='__main__':main()
