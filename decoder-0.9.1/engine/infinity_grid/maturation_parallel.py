@@ -55,6 +55,21 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
     nodes: dict[str, Any] = {}
     coordinates = {}
     source_coordinate_contexts = {}
+    def equal_coordinates(left, right):
+        compared = set()
+        def same(a, b):
+            if a is b: return True
+            if type(a) is not type(b): return False
+            if type(a) not in (tuple, list, dict): return a == b
+            key = (id(a), id(b))
+            if key in compared: return True
+            if len(a) != len(b): return False
+            if type(a) is dict:
+                if a.keys() != b.keys() or not all(same(a[k], b[k]) for k in a): return False
+            elif not all(same(x, y) for x, y in zip(a, b)): return False
+            compared.add(key)
+            return True
+        return same(left, right)
     active = set()
     memo = {}
 
@@ -73,12 +88,9 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
             for value in s.reserve_counts:
                 _dag_integer(value, 'O7_RESERVATION')
             source_coordinates = _o7_source_coordinates(s)
-            # Compare complete validated coordinates on every occurrence.
-            # Share only exactly equal parent-coordinate values; reservation
-            # variants otherwise retain a full O6 tree copy each.
             previous_coordinates = source_coordinate_contexts.get(id(s.ctx))
             if (previous_coordinates is None or previous_coordinates[0] is not s.ctx
-                    or previous_coordinates[1:] != source_coordinates[:2]):
+                    or not equal_coordinates(previous_coordinates[1:], source_coordinates[:2])):
                 previous_coordinates = (s.ctx, *source_coordinates[:2])
                 source_coordinate_contexts[id(s.ctx)] = previous_coordinates
             source_coordinates = (*previous_coordinates[1:], source_coordinates[2])
@@ -109,7 +121,7 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
             raise TypeError(f"unsupported maturation state type for DAG serialization: {type(s).__name__}")
         row["execution_policy"] = policy
         row["execution_order_key"] = rs.execution_order_key(s)
-        if digest in nodes and (nodes[digest] != row or coordinates[digest] != source_coordinates):
+        if digest in nodes and (nodes[digest] != row or not equal_coordinates(coordinates[digest], source_coordinates)):
             raise ValueError("MATURATION_DAG_CONSTRUCTION_ALIAS_COLLISION_REVIEW_REQUIRED")
         nodes[digest] = row
         coordinates[digest] = source_coordinates
