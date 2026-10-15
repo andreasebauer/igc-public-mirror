@@ -18,16 +18,30 @@ def text(value, name):
 
 
 def exact_data(value):
-    if type(value) in (list, tuple):
-        return tuple(exact_data(x) for x in value)
-    if type(value) is int:
-        return integer(value, 'SCALAR')
-    if type(value) is str:
-        return value
-    if type(value) is dict:
-        require(all(type(k) is str for k in value), 'STRING_KEYS')
-        return {k: exact_data(v) for k, v in value.items()}
-    raise ValueError('MATURATION_DAG_INEXACT_VALUE_' + type(value).__name__)
+    # Memoize only transitively immutable tuples for this normalization call.
+    # Mutable lists/dicts are independently normalized and checked each time.
+    immutable = {}
+    def normalize(item):
+        if type(item) is tuple:
+            saved = immutable.get(id(item))
+            if saved is not None and saved is item:
+                return item
+            converted = tuple(normalize(x) for x in item)
+            if all(a is b for a, b in zip(item, converted)):
+                immutable[id(item)] = item
+                return item
+            return converted
+        if type(item) is list:
+            return tuple(normalize(x) for x in item)
+        if type(item) is int:
+            return integer(item, 'SCALAR')
+        if type(item) is str:
+            return item
+        if type(item) is dict:
+            require(all(type(k) is str for k in item), 'STRING_KEYS')
+            return {k: normalize(v) for k, v in item.items()}
+        raise ValueError('MATURATION_DAG_INEXACT_VALUE_' + type(item).__name__)
+    return normalize(value)
 
 
 def o7_source_coordinates(state):
