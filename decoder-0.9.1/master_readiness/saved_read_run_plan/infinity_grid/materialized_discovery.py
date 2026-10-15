@@ -122,13 +122,18 @@ def _close_process_o7_runtime() -> None:
         gc.collect()
 
 
-def _get_process_o7_runtime(spec: Mapping[str, Any]) -> dict[str, Any]:
+def _get_process_o7_runtime(spec: Mapping[str, Any], *, require_selected_base: bool = True) -> dict[str, Any]:
     """Return the immutable warm O7 replay kernel for the current interpreter.
 
     Caller holds _DISCOVERY_SESSION_LOCK. Scientific O8+ carrier state is never shared.
     """
     global _PROCESS_O7_RUNTIME, _PROCESS_O7_RUNTIME_ATEXIT_REGISTERED
+    if type(require_selected_base) is not bool:
+        raise MaterializedDiscoveryError('EXPLICIT_RUNTIME_SELECTION_POLICY_REQUIRED')
     if _PROCESS_O7_RUNTIME is not None:
+        if require_selected_base and _PROCESS_O7_RUNTIME['base_states'] is None:
+            _PROCESS_O7_RUNTIME['base_states'] = rs._farthest_select(
+                _PROCESS_O7_RUNTIME['authority_base_states'], int(spec['panel']['beam']))
         return _PROCESS_O7_RUNTIME
     tmp = Path(tempfile.mkdtemp(prefix="ig_o_materialized_discovery_runtime_"))
     seed_context = None
@@ -152,7 +157,7 @@ def _get_process_o7_runtime(spec: Mapping[str, Any]) -> dict[str, Any]:
             ctx = engine._profile_row_context(r, parent_map)
             edges = tuple(tuple(x) for x in r["edges"])
             base.append(rs.O7State(engine, ctx, edges, (0, 0, 0, 0, 0, 0, 0), r["state_digest"], r["lane"]))
-        selected = rs._farthest_select(base, int(spec["panel"]["beam"]))
+        selected = rs._farthest_select(base, int(spec["panel"]["beam"])) if require_selected_base else None
         _PROCESS_O7_RUNTIME = {
             "tmp": tmp, "seed_context": seed_context, "seed_path": seed_path,
             "seed_root": seed_root, "o7root": o7root, "engine": engine,

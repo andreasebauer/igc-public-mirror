@@ -1,0 +1,22 @@
+SAVED DAG RESTORATION DOES NOT REQUEST PANEL SELECTION
+
+maturation_parallel._states_from_dag needs the exact authority-state lookup from
+_get_process_o7_runtime, not its farthest-point selected reference panel.
+The runtime helper now has require_selected_base=True by default. The existing
+generation path retains that default. Saved DAG restoration requests False.
+A runtime warmed only for reading has base_states=None. If a later explicit
+generation caller requests selected bases, the same original selector is called
+lazily on the same authority population and beam. A read never calls it.
+
+The candidate source manifest admits exactly these old-package changes:
+materialized_discovery.py, run_plan_v2.py, maturation_parallel.py; and the new
+saved_read_run_plan.py. Scientific action/scanner/Counter implementation files
+retain their exact previous bytes. The native qualifier compares all original
+functions/methods; the DAG loader changes only the explicit runtime-selection
+keyword. It then reads all admitted saved roots and checks the exact original
+public descriptors without a selector, scanner, sampled future probe, transport,
+new backbone or Test/Counter recomputation. Legacy admission remains closed.
+
+This avoids an unnecessary replay discovered by Q16's forbidden-call check.
+It is an explicit candidate saved-reader qualification, not activation or full
+master producer qualification. Use native capture/save/run/preserve only.

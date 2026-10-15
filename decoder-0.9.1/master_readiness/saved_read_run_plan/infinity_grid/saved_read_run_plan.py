@@ -79,7 +79,7 @@ def parent_payloads(evidence_path):
     require(set(current) - set(old) == {'saved_read_run_plan.py'} and not set(old) - set(current),
             'PACKAGE_CHANGE_DOMAIN')
     require({n for n in old if old[n] != current[n]} ==
-            {'materialized_discovery.py', 'run_plan_v2.py'}, 'SCIENTIFIC_SOURCE_REUSE_CHANGED')
+            {'materialized_discovery.py', 'run_plan_v2.py', 'maturation_parallel.py'}, 'SCIENTIFIC_SOURCE_REUSE_CHANGED')
     return data
 
 
