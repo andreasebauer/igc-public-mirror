@@ -44,7 +44,7 @@ def source_admission(paths, protocol):
             assert old.count(patch['after'])==1
             old=old.replace(patch['after'],patch['before'],1)
         assert sha(old.encode())==item['old_raw_sha256']==pin['sha256'] and len(old.encode())==pin['size_bytes']
-        function='state_dag_wire' if name=='maturation_parallel.py' else 'exact_data'
+        function='state_dag_wire' if name=='maturation_parallel.py' else 'o7_source_coordinates'
         assert excluding(old,function)==excluding(actual.decode(),function)
     original=json.loads(Path(paths['binding']).read_text())
     try:joint.preflight_joint(Path('.'),original,declaration,Path(paths['producer_registry']).read_bytes())
@@ -52,7 +52,7 @@ def source_admission(paths, protocol):
         assert str(exc)=='JOINT_EXECUTION_BYTES_CHANGED:maturation_dag_contract.py'
     else:raise AssertionError('ORIGINAL_SOURCE_GUARD_MUST_REFUSE_NEW_SOURCE')
     return {'status':'PASS','changed_package_files':2,'unchanged_package_files':1048,
-        'changed_functions':['state_dag_wire','exact_data'],'full_coordinate_equality_retained':True,
+        'changed_functions':['state_dag_wire','o7_source_coordinates'],'full_coordinate_equality_retained':True,
         'construction_worker_and_rebuild_AST_unchanged':True,'original_joint_guard_refuses_changed_source':True,
         'historical_producing_binding_relabelled':False,'production_authority':'NONE',
         'changed_file_pins':changed,
@@ -80,10 +80,19 @@ def serializer_controls():
         assert str(exc)=='MATURATION_DAG_INEXACT_VALUE_bool';refusals.append(str(exc))
     else:raise AssertionError('INEXACT_COORDINATES_NOT_REFUSED')
     from infinity_grid.maturation_dag_contract import exact_data
-    leaf=('V',1); shared=(leaf,leaf); assert exact_data(shared) is shared
+    leaf=['V',1]; shared=[leaf,leaf]; assert exact_data(shared)==(('V',1),('V',1))
     mutable=([1],shared); first=exact_data(mutable); mutable[0][0]=2
     second=exact_data(mutable); assert first!=second and first[0]==(1,) and second[0]==(2,)
-    return {'status':'PASS','transitive_immutable_tuple_shared':True,'mutable_coordinate_changes_observed':True,
+    from infinity_grid.maturation_dag_contract import o7_source_coordinates
+    graph=['V',1]
+    for _ in range(24): graph=[graph,graph]
+    f=fixture(payload=graph); snap=o7_source_coordinates(f)
+    cursor=snap[1][0][1]
+    for _ in range(24): assert cursor[0] is cursor[1]; cursor=cursor[0]
+    assert cursor==('V',1)
+    graph[0][0]=['CHANGED',2]
+    changed=o7_source_coordinates(f); assert changed[1][0][1][0][0]==('CHANGED',2)
+    return {'status':'PASS','shared_coordinate_values_preserved':True,'mutable_coordinate_changes_observed':True,
             'repeated_root_occurrences_preserved':True,'refusal_checks':3,
             'refusals':refusals,'synthetic_controls_used_as_R100':False}
 
@@ -169,7 +178,7 @@ def main():
         'production_authority':'NONE'}
     authority['science_sha256']=canonical_sha256(authority);write('COHORT_AUTHORITY.json',authority)
     binding={'source_sha256':protocol['engine_source_sha256'],'registry_sha256':protocol['registry_sha256'],
-        'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q05','authority_stage':'G1:R100:CURRENT_NATIVE_V3_RECONSTRUCTION_AND_READER',
+        'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q06','authority_stage':'G1:R100:CURRENT_NATIVE_V3_RECONSTRUCTION_AND_READER',
         'authority_science_sha256':authority['science_sha256']}
     saved=Path('current_r100');saved.mkdir()
     carrier_reuse.save_certified_carrier_set(saved,carriers={s.construction_digest:(s,p) for s,p in zip(states,public)},
