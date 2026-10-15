@@ -54,6 +54,7 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
     policy = rs._execution_policy(roots)
     nodes: dict[str, Any] = {}
     coordinates = {}
+    source_coordinate_contexts = {}
     active = set()
     memo = {}
 
@@ -72,6 +73,15 @@ def state_dag_wire(roots: list[Any]) -> dict[str, Any]:
             for value in s.reserve_counts:
                 _dag_integer(value, 'O7_RESERVATION')
             source_coordinates = _o7_source_coordinates(s)
+            # Compare complete validated coordinates on every occurrence.
+            # Share only exactly equal parent-coordinate values; reservation
+            # variants otherwise retain a full O6 tree copy each.
+            previous_coordinates = source_coordinate_contexts.get(id(s.ctx))
+            if (previous_coordinates is None or previous_coordinates[0] is not s.ctx
+                    or previous_coordinates[1:] != source_coordinates[:2]):
+                previous_coordinates = (s.ctx, *source_coordinates[:2])
+                source_coordinate_contexts[id(s.ctx)] = previous_coordinates
+            source_coordinates = (*previous_coordinates[1:], source_coordinates[2])
             digest = _dag_text(s.construction_digest, 'CONSTRUCTION_DIGEST')
             row = {
                 "kind": "O7",
