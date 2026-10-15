@@ -18,40 +18,40 @@ def text(value, name):
 
 
 def exact_data(value):
-    # Memoize only transitively immutable tuples for this normalization call.
-    # Mutable lists/dicts are independently normalized and checked each time.
-    immutable = {}
-    def normalize(item):
-        if type(item) is tuple:
-            saved = immutable.get(id(item))
-            if saved is not None and saved is item:
-                return item
-            converted = tuple(normalize(x) for x in item)
-            if all(a is b for a, b in zip(item, converted)):
-                immutable[id(item)] = item
-                return item
-            return converted
-        if type(item) is list:
-            return tuple(normalize(x) for x in item)
-        if type(item) is int:
-            return integer(item, 'SCALAR')
-        if type(item) is str:
-            return item
-        if type(item) is dict:
-            require(all(type(k) is str for k in item), 'STRING_KEYS')
-            return {k: normalize(v) for k, v in item.items()}
-        raise ValueError('MATURATION_DAG_INEXACT_VALUE_' + type(item).__name__)
-    return normalize(value)
+    if type(value) in (list, tuple):
+        return tuple(exact_data(x) for x in value)
+    if type(value) is int:
+        return integer(value, 'SCALAR')
+    if type(value) is str:
+        return value
+    if type(value) is dict:
+        require(all(type(k) is str for k in value), 'STRING_KEYS')
+        return {k: exact_data(v) for k, v in value.items()}
+    raise ValueError('MATURATION_DAG_INEXACT_VALUE_' + type(value).__name__)
 
 
 def o7_source_coordinates(state):
-    """Complete source coordinates, not a digest used as equality authority."""
+    """Complete validated source snapshot; preserve shared structure without hashes."""
+    memo = {}
+    def snapshot(value):
+        if type(value) in (list, tuple, dict):
+            previous = memo.get(id(value))
+            if previous is not None and previous[0] is value:
+                return previous[1]
+            if type(value) is dict:
+                require(all(type(k) is str for k in value), 'STRING_KEYS')
+                result = {k: snapshot(v) for k, v in value.items()}
+            else:
+                result = tuple(snapshot(v) for v in value)
+            memo[id(value)] = (value, result)
+            return result
+        return exact_data(value)
     ctx = state.ctx
     integer(ctx.n, 'O7_OWNER_COUNT', 1)
     require(len(ctx.parents) == len(ctx.source_order) == ctx.n, 'O7_CONTEXT_ARITY')
     source_order = tuple(text(x, 'O7_PARENT_SOURCE') for x in ctx.source_order)
-    parents = tuple((text(p.exact_color, 'O7_PARENT_COLOR'), exact_data(p.h6)) for p in ctx.parents)
-    edges = exact_data(state.edges)
+    parents = tuple((text(p.exact_color, 'O7_PARENT_COLOR'), snapshot(p.h6)) for p in ctx.parents)
+    edges = snapshot(state.edges)
     for edge in edges:
         require(len(edge) == 14 and all(type(x) is int for x in edge), 'O7_EDGE_COORDINATES')
     return source_order, parents, edges
