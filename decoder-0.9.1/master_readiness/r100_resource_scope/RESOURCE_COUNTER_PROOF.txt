@@ -1,0 +1,69 @@
+RESOURCE COUNTER FACTORISATION — EXPLICIT TREE SCHEMA
+Human structural induction argument, with separate finite native conformance.
+This is not a machine-checked universal native implementation certificate.
+
+Domain. A leaf is SITE(p,f), with a seven-component nonnegative integral free
+capacity vector. An internal resource is a tag and a finite unordered multiset
+of child OCCURRENCES. Tags preserve the O2/O3/O4/O5/R6/R7/... hierarchy.
+One admitted reservation of type t chooses one leaf occurrence with f[t]>0 and
+subtracts one from that coordinate. It counts once even when f[t]>1. Hidden
+edge incidence, source provenance, scanner construction witnesses and topology
+are not part of this declared resource-action domain.
+
+Reservation lemma. Any isomorphism of tagged unordered resource trees maps
+leaf occurrences bijectively, preserving p, f and the chosen endpoint type.
+It therefore maps admitted choices bijectively. Decrementing matched leaves
+produces isomorphic successor trees. Grouped successor Counters are equal.
+This holds at a leaf by direct equality of (p,f). For an internal node, its
+isomorphism is a permutation of child occurrences plus a child isomorphism for
+each matched pair. The admissible leaf-choice set is the disjoint union of
+those child choice sets. Apply the induction hypothesis to each child and sum,
+retaining the outer occurrence even when two children are equal. The reserve
+function implements exactly this finite recursion, accumulating collisions.
+
+Pair lemma. A current-level relation action chooses distinct owner occurrences
+i<j and a Bridge assignment (a,b), then independently chooses one admitted
+reservation in each selected owner. Its observable label is
+(parent_tag,min(a,b),max(a,b)). Its projected successor replaces those two child
+resources and retains every other occurrence. Under a child permutation, map
+the unordered owner pair to its image. If its canonical index order reverses,
+replace (a,b) with (b,a). Reversal closure of Bridge is required. The label is
+unchanged, the choice-pair mapping is bijective, and the resulting unordered
+child multiset is equal. Thus the complete labelled successor-tree Counters
+agree on each lossless-resource-tree fibre. Distinct choices projecting to the
+same key add their weights. Weighted orbit aggregation follows only when each
+orbit representative preserves the projected successor and its weight is its
+number of site occurrences. Native orbit/fast-kernel correctness is a separate
+implementation-refinement obligation, not supplied by this abstract proof.
+
+Hierarchy. Structural induction applies the reservation lemma inside every
+child occurrence of a higher lift. The pair lemma then applies at that level.
+No level-specific topology theorem is needed for this declared action domain.
+The tree counter functions are constructive specifications of these recurrences.
+
+Hash boundary. The native leaf codec hashes SITE|compact_JSON([p,f]). Internal
+nodes hash tag|sorted_child_hashes, including duplicates. Equal lossless trees
+have equal native digests without any collision assumption. Equal digests imply
+equal lossless trees only under an injectivity premise. The native qualification
+checks this on the finite saved R100 parent resource closure by retaining every
+exact node payload by digest and rejecting conflicting payloads. This proves no
+observed codec collision in that closure. It is not a global SHA-256 injectivity
+theorem. Equality of successor Counter pushforwards follows from tree Counter
+equality even when distinct successor trees hash together: contributions sum.
+
+Native boundary. The independent materialized reference and fast kernel are
+checked on captured finite native sentinels. The scanner-to-exact mapping also
+preserves saved projections, capacities and construction provenance. Neither
+test alone is universal refinement of every native action, action legality,
+pointed-orbit grouping, incidence write, or read contract. No claim that a
+resource-only profile validates all hidden topology writes is made.
+
+V2 exclusion. RESOURCE_SCANNER_RELATION_ADD_AGGREGATE_V2 explicitly reads top
+pairs and typed edges. Equal resource trees do not imply equal topologies.
+Path/star carriers with identical child resources are a proposed native witness:
+their resource successor Counter agrees, while V2 service diagnostics differ.
+If verified, no resource-only factorisation law can authorize that V2 transport.
+One must retain the topology/service read scope or remove theorem transport
+consumption from a revised, separately qualified direct-observation route.
+No old certificate is rebound, no baseline is reset and no production authority
+is granted by this argument.
