@@ -28,34 +28,34 @@ def source_admission(paths, protocol):
     literal=json.loads(Path(paths['serializer_delta']).read_text())
     closure=declaration['execution_closure']
     assert joint._files(package)==set(closure) and len(closure)==1050
-    actual=(package/'maturation_dag_contract.py').read_bytes()
-    assert sha(actual)==literal['new_raw_sha256']
-    old=actual.decode()
-    for patch in reversed(literal['patches']):
-        assert old.count(patch['after'])==1
-        old=old.replace(patch['after'],patch['before'],1)
-    assert sha(old.encode())==literal['old_raw_sha256']==closure['maturation_dag_contract.py']['sha256']
-    assert len(old.encode())==closure['maturation_dag_contract.py']['size_bytes']
+    changed={Path(item['path']).name:item for item in literal['files']}
+    assert set(changed)=={'maturation_parallel.py','maturation_dag_contract.py'}
+    def excluding(text,name):
+        return [ast.dump(node,include_attributes=False) for node in ast.parse(text).body
+                if not (isinstance(node,ast.FunctionDef) and node.name==name)]
     for name,pin in closure.items():
-        if name=='maturation_dag_contract.py':continue
-        raw=(package/name).read_bytes()
-        assert len(raw)==pin['size_bytes'] and sha(raw)==pin['sha256']
-    # The exact AST of every other function and top-level declaration is unchanged.
-    def excluding_serializer(text):
-        tree=ast.parse(text)
-        return [ast.dump(node,include_attributes=False) for node in tree.body
-                if not (isinstance(node,ast.FunctionDef) and node.name=='exact_data')]
-    assert excluding_serializer(old)==excluding_serializer(actual.decode())
+        actual=(package/name).read_bytes()
+        if name not in changed:
+            assert len(actual)==pin['size_bytes'] and sha(actual)==pin['sha256']
+            continue
+        item=changed[name];assert sha(actual)==item['new_raw_sha256']
+        old=actual.decode()
+        for patch in reversed(item['patches']):
+            assert old.count(patch['after'])==1
+            old=old.replace(patch['after'],patch['before'],1)
+        assert sha(old.encode())==item['old_raw_sha256']==pin['sha256'] and len(old.encode())==pin['size_bytes']
+        function='state_dag_wire' if name=='maturation_parallel.py' else 'exact_data'
+        assert excluding(old,function)==excluding(actual.decode(),function)
     original=json.loads(Path(paths['binding']).read_text())
     try:joint.preflight_joint(Path('.'),original,declaration,Path(paths['producer_registry']).read_bytes())
     except Exception as exc:
         assert str(exc)=='JOINT_EXECUTION_BYTES_CHANGED:maturation_dag_contract.py'
     else:raise AssertionError('ORIGINAL_SOURCE_GUARD_MUST_REFUSE_NEW_SOURCE')
-    return {'status':'PASS','changed_package_files':1,'unchanged_package_files':1049,
-        'only_changed_function':'exact_data','full_coordinate_equality_retained':True,
+    return {'status':'PASS','changed_package_files':2,'unchanged_package_files':1048,
+        'changed_functions':['state_dag_wire','exact_data'],'full_coordinate_equality_retained':True,
         'construction_worker_and_rebuild_AST_unchanged':True,'original_joint_guard_refuses_changed_source':True,
         'historical_producing_binding_relabelled':False,'production_authority':'NONE',
-        'old_file_sha256':literal['old_raw_sha256'],'new_file_sha256':literal['new_raw_sha256'],
+        'changed_file_pins':changed,
         'new_engine_source_sha256':protocol['engine_source_sha256']}
 
 def serializer_controls():
@@ -169,7 +169,7 @@ def main():
         'production_authority':'NONE'}
     authority['science_sha256']=canonical_sha256(authority);write('COHORT_AUTHORITY.json',authority)
     binding={'source_sha256':protocol['engine_source_sha256'],'registry_sha256':protocol['registry_sha256'],
-        'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q04','authority_stage':'G1:R100:CURRENT_NATIVE_V3_RECONSTRUCTION_AND_READER',
+        'producer_experiment_id':'MASTER.STEP3.CURRENT.R100.Q05','authority_stage':'G1:R100:CURRENT_NATIVE_V3_RECONSTRUCTION_AND_READER',
         'authority_science_sha256':authority['science_sha256']}
     saved=Path('current_r100');saved.mkdir()
     carrier_reuse.save_certified_carrier_set(saved,carriers={s.construction_digest:(s,p) for s,p in zip(states,public)},
