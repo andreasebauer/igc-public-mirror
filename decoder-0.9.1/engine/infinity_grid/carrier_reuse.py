@@ -109,7 +109,7 @@ def _save_exact_state_bundle(root: Path, carriers: Mapping[str, tuple[Any, Any]]
             cid: str(getattr(carriers[cid][0], "construction_digest", "")) for cid in ids
         }
     payload_name = "EXACT_STATE_DAG_V1.json"
-    write_json_atomic(root / payload_name, dag)
+    write_json_atomic(root / payload_name, dag, pretty=False)
     return "IG_MATURATION_STATE_DAG_V1", payload_name, {
         cid: str(dag["roots"][i]) for i, cid in enumerate(ids)
     }
