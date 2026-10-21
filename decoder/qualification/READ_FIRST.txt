@@ -1,4 +1,4 @@
-DECODER SOURCE QUALIFICATION PROFILE — DEV83
+DECODER SOURCE QUALIFICATION PROFILE
 
 This profile is a requirement, not a PASS receipt. Exact current identity is
 read from infinity_grid/_version.py. Historical manifests and completion
@@ -28,7 +28,9 @@ Drive downloads before native controller run. Functional first; workspace and
 representative next; timing alone, one worker, last. Store actual collected
 node inventories and phase outcomes. Skip/error/missing is not PASS.
 
-External fixture roles are enumerated in PROFILE.json. The historical Step2
+External fixture roles are enumerated in PROFILE.json. The functional group
+requires the private failed_evidence input for the snapshot regression; keep
+its original bytes on Drive and bind it in the native capture. The historical Step2
 parent must match its original hash. The other fixtures must be generated
 by registered native jobs on the exact candidate, saved and exported before
 dependent groups. The workspace fixtures exercise 48 values modulo 7, with

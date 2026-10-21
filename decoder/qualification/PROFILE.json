@@ -221,7 +221,11 @@
         "tests/test_replay_obligation_compiler_p1b.py",
         "tests/test_replay_obligation_compiler_p1b2.py",
         "tests/test_replay_obligation_compiler_p1c.py",
+        "tests/test_separate_completion_evidence.py",
+        "tests/test_snapshot_evidence_filters.py",
         "tests/test_structural_encoding_e2.py",
+        "tests/test_terminal_json_equivalence.py",
+        "tests/test_two_sorted_relation_library.py",
         "tests/test_v05_c5_origin_exclusivity.py",
         "tests/test_v05_c6_namespace_identity.py",
         "tests/test_v05_c6_persistent_recovery.py",
@@ -288,6 +292,13 @@
     {
       "logical_name": "saved_stage_one_prerun",
       "rule": "Export the genuine saved stage-one capture before its first execution. No completion, prepared record, attempts or edited history. This independent archive is required for interruption injection."
+    },
+    {
+      "logical_name": "failed_evidence",
+      "sha256": "5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41",
+      "bytes": 10905102,
+      "drive_id": "1yOZW8AoovNaHOE3jbaLGxhqSZlT-M6Ts",
+      "rule": "Private immutable historical IN11 failed evidence; bind as a registered functional validation input. Do not publish archive or skip the regression."
     }
   ],
   "acceptance": "Every collected node must pass; skipped, failed, collection errors and unexecuted selectors remain open. Exact node inventory and counts are bound externally after native collection. No historical totals are inherited."

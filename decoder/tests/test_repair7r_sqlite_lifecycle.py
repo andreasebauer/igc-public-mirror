@@ -169,9 +169,46 @@ def test_completion_gate_is_before_native_completion_seal():
     import inspect
     src=inspect.getsource(loop._run_workspace_job)
     # Dev82 seals through the byte-binding helper after database quiescence.
-    assert src.index('require_quiescent_task_databases(out)')<src.index("'evidence':_verified_artifact_evidence(out,verification)")
+    assert src.index('require_quiescent_task_databases(out)')<src.index("'evidence':_verified_artifact_evidence(sealed,verification)")
 
 
 def test_plain_snapshot_bytes_are_unchanged(tmp_path):
     p=tmp_path/'plain.txt';p.write_bytes(b'raw stable data\n')
     assert pr._stable_file(p)==p.read_bytes()
+
+
+def test_completed_generation_image_survives_readonly_reopen_after_midrun_backup(tmp_path):
+    # The observed failure had a 32-row WAL view and a 49-row sealed main DB.
+    # Exercise both sides of that checkpoint boundary with real SQLite.
+    db=tmp_path/'state_store.sqlite3';writer=make_db(db)
+    for i in range(2,33):writer.execute('INSERT INTO tasks VALUES(?,?)',(i,'x'*2048))
+    writer.commit();snapshot=pr._stable_file(db)
+    for i in range(33,50):writer.execute('INSERT INTO tasks VALUES(?,?)',(i,'y'*2048))
+    writer.commit();writer.close()
+    StageScienceRuntime._finalize_idle_partition_database(db)
+    before=db.read_bytes()
+    assert before[18:20]==bytes([1,1]), 'sealed image must not retain WAL mode'
+    for _ in range(3):
+        with closing(sqlite3.connect(db.as_uri()+'?mode=ro',uri=True)) as c:
+            assert c.execute('SELECT COUNT(*) FROM tasks').fetchone()[0]==49
+            assert c.execute('PRAGMA journal_mode').fetchone()[0]=='delete'
+        assert db.read_bytes()==before
+        assert not Path(str(db)+'-wal').exists()
+        assert not Path(str(db)+'-shm').exists()
+    saved=tmp_path/'midrun.sqlite3';saved.write_bytes(snapshot)
+    with closing(sqlite3.connect(saved.as_uri()+'?immutable=1',uri=True)) as c:
+        assert c.execute('SELECT COUNT(*) FROM tasks').fetchone()[0]==32
+
+
+def test_finalizer_refuses_active_reader_without_discarding_committed_rows(tmp_path):
+    db=tmp_path/'state_store.sqlite3';writer=make_db(db)
+    reader=sqlite3.connect(db);reader.execute('BEGIN');reader.execute('SELECT * FROM tasks').fetchall()
+    writer.execute("INSERT INTO tasks VALUES(2,'later')");writer.commit();writer.close()
+    try:
+        with pytest.raises(sqlite3.OperationalError):
+            StageScienceRuntime._finalize_idle_partition_database(db)
+        assert Path(str(db)+'-wal').exists()
+    finally:reader.close()
+    StageScienceRuntime._finalize_idle_partition_database(db)
+    with closing(sqlite3.connect(db)) as c:
+        assert c.execute('SELECT COUNT(*) FROM tasks').fetchone()[0]==2

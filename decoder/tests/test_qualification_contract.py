@@ -35,5 +35,8 @@ def test_required_dependencies_and_fixture_roles_are_explicit():
     profile = json.loads((ROOT / 'qualification/PROFILE.json').read_text())
     assert {r['logical_name'] for r in profile['required_fixtures']} == {
         'step2_parent_snapshot', 'saved_stage_one', 'saved_stage_one_prerun', 'saved_stage_four',
-        'saved_stage_outcome', 'saved_representative_qualification'}
+        'saved_stage_outcome', 'saved_representative_qualification', 'failed_evidence'}
     assert profile['required_fixtures'][0]['sha256'] == '713452bf109d17d4b377f9084e61383f8397c1a418012be2f41e09eff17f3bd8'
+
+    failed = next(r for r in profile['required_fixtures'] if r['logical_name'] == 'failed_evidence')
+    assert failed['sha256'] == '5f93d09e8ac71bcf7e2ed7ece86407d7dbf75acc1cfb49a5b4ac5429995b3d41'
