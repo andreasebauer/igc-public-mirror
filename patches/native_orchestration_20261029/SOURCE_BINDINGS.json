@@ -2,6 +2,7 @@
   "schema_id": "IG_ORCHESTRATION_REPAIR_SOURCE_PATCH_V1",
   "baseline_archive_sha256": "2eac4a23b1665308e3a37ee724154c43713e3d8563c85397f34aee35c4f69765",
   "baseline_archive_name": "ENGINE_SOURCE.zip from IG_DEPLOYED_NATIVE_ORCHESTRATION_2026-10-29.zip",
+  "final_source_label": "qualification_source3",
   "changed_files": [
     {
       "path": "DECODER_06_CAPTURE_GUIDE.txt",
@@ -46,6 +47,12 @@
       "bytes": 93016
     },
     {
+      "path": "infinity_grid/v05_stage_runtime.py",
+      "old_sha256": "72627b80f9bb7884c820d0602bbb88270d0764494bf02b866faef5e680ac6630",
+      "sha256": "23dc3debb8f1cf044c41d827a201e2f2c93bb42049c7879506967a0d5ddf62b5",
+      "bytes": 161636
+    },
+    {
       "path": "infinity_grid/validation_frontier.py",
       "old_sha256": "59a4cde921794419e569bba9fa863b42abd1cca148acd6e533814b064117a857",
       "sha256": "9ef30c594ba482d56b210918d81ed7d5eebe16333e09ac68a91d116804ce32ce",
@@ -82,12 +89,19 @@
       "bytes": 9723
     },
     {
+      "path": "tests/test_stage_observer_workspace.py",
+      "old_sha256": null,
+      "sha256": "ba853ee3efec5d04a7beefc6e7ab691aebecc6eb3f2b71255a679520dd2638fe",
+      "bytes": 1133
+    },
+    {
       "path": "tests/test_validation_binding_startup.py",
       "old_sha256": null,
       "sha256": "7c7fab68762334f4180a94a17292617696c76f39d6e111da6a2640262ed0a4cf",
       "bytes": 3000
     }
   ],
-  "patch_sha256": "079750263e35a4a8770661e16624b883518747d5f574883cbd94dcb8e13e2101",
+  "patch_sha256": "63a414783cf2bfde2c917131f230c3b89836e63332a63d760cca7242f4a20c4d",
+  "patch_application_verified": true,
   "science_acceptance": false
 }

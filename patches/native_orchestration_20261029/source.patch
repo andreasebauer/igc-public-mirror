@@ -391,6 +391,26 @@
          return 1 if result.get('status') == 'VALIDATION_FAILED' else 0
      except Exception as exc:
          from .invocation import refusal_details
+--- a/infinity_grid/v05_stage_runtime.py
++++ b/infinity_grid/v05_stage_runtime.py
+@@ -461,9 +461,16 @@
+                 total += item.stat().st_size
+             continue
+         if child.is_symlink() or not child.is_dir() or child.name not in {
+-            "artifacts", "phases", "replay_runner", "replay_reference_data", "full_generation",
++            "artifacts", "phases", "replay_runner", "replay_reference_data", "full_generation", "telemetry",
+         }:
+             raise StageRuntimeError(f"unexpected stage workspace entry {child.name}")
++        if child.name == "telemetry":
++            # The native generation observer also serves paths without an
++            # outer accepted-generation session. It writes stage telemetry
++            # here; admit only its exact diagnostic layout and count its bytes.
++            from .acceptance_observer import workspace_bytes as telemetry_bytes
++            total += telemetry_bytes(child)
++            continue
+         if child.name == "full_generation":
+             from .full_block_runner import workspace_bytes
+             total += workspace_bytes(child)
 --- a/infinity_grid/validation_frontier.py
 +++ b/infinity_grid/validation_frontier.py
 @@ -14,19 +14,38 @@
@@ -780,6 +800,33 @@
 +    monkeypatch.setattr(ot.time,'sleep',lambda seconds:(_ for _ in ()).throw(KeyboardInterrupt()))
 +    with pytest.raises(KeyboardInterrupt):transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
 +    assert len(list(transport.queue.glob('*.request.json')))==1
+--- /dev/null
++++ b/tests/test_stage_observer_workspace.py
+@@ -0,0 +1,24 @@
++"""Native stage observers must fit the runtime's closed workspace layout."""
++import pytest
++from infinity_grid.acceptance_observer import session
++from infinity_grid.v05_stage_runtime import _stage_workspace_bytes
++
++
++def test_native_stage_observer_is_accounted_during_execution_and_recovery(tmp_path):
++    with session(tmp_path/'telemetry'):
++        assert _stage_workspace_bytes(tmp_path) > 0
++    expected=sum(p.stat().st_size for p in (tmp_path/'telemetry').rglob('*') if p.is_file())
++    assert _stage_workspace_bytes(tmp_path)==expected
++
++
++@pytest.mark.parametrize('kind',['unknown','symlink','oversize','nested'])
++def test_stage_observer_keeps_exact_layout_checks(tmp_path,kind):
++    root=tmp_path/'telemetry'
++    with session(root):pass
++    if kind=='unknown':(root/'arbitrary.json').write_text('{}')
++    elif kind=='symlink':
++        (root/'ACCEPTANCE_STATUS.json').unlink()
++        (root/'ACCEPTANCE_STATUS.json').symlink_to(tmp_path/'missing')
++    elif kind=='oversize':(root/'ACCEPTANCE_STATUS.json').write_bytes(b'x'*65537)
++    else:(root/'unknown').mkdir()
++    with pytest.raises(ValueError):_stage_workspace_bytes(tmp_path)
 --- /dev/null
 +++ b/tests/test_validation_binding_startup.py
 @@ -0,0 +1,57 @@
