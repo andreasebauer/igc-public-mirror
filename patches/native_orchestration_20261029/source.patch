@@ -1,0 +1,842 @@
+--- a/DECODER_06_CAPTURE_GUIDE.txt
++++ b/DECODER_06_CAPTURE_GUIDE.txt
+@@ -80,6 +80,22 @@
+ it does not invent remote acknowledgments. Preserve final snapshots and
+ receipt files alongside content objects to recover completed/reusable runs.
+ 
++For a project-bound pre-execution capture, restore-capture alone intentionally
++does not restore the separately saved project history or project binding.
++Recover the saved project_baseline object as well, then use the native project
++commands before running or confirming the final complete set of save objects:
++  ... project import STORE PROJECT_BASELINE.zip EXPECTED_BASELINE_SHA256
++  ... project adopt STORE NEW_WORKSPACE
++Use --repeat CAPTURED_REPEAT_ID with adopt when one was explicitly registered.
++The imported baseline must match the capture's project_context; native adopt
++checks that context and the exact engine. Never initialize a replacement
++project or manually write PROJECT_BINDING.json to make a restore runnable.
++Recheck pending-saves after adoption: project_baseline and project_binding are
++separate role-bound obligations. A locator list or an old queue-confirmation
++summary cannot substitute for the native raw-readback receipts. For a run that
++already has execution state, prefer the newest native checkpoint export and
++preserve restore, which retains the project claim and checkpoint evidence.
++
+ Historical evidence and schema IDs keep their original identities. Read
+ build_meta() for active version-aware build status. Historical pre-0.6 build
+ metadata is retained in resources/history/BUILD_META_BEFORE_06.json.
+--- a/infinity_grid/acceptance_observer.py
++++ b/infinity_grid/acceptance_observer.py
+@@ -8,43 +8,31 @@
+ _ACTIVE = ContextVar('acceptance_observer', default=None)
+ 
+ def workspace_bytes(root):
+-    """Account only bounded operational status files, including atomic writes."""
++    """Stream exact accounting for recognized, individually bounded status files."""
+     import re,stat
+     from .complete_result_storage import require
+     root=Path(root)
+     require(root.is_dir() and not root.is_symlink(),'ACCEPTANCE_TELEMETRY_LAYOUT')
+-    def flat(directory):
+-        total=0;items=list(directory.iterdir())
+-        require(len(items)<=4,'ACCEPTANCE_TELEMETRY_BOUND')
+-        for p in items:
+-            try:info=p.lstat()
+-            except FileNotFoundError:continue # Atomic writer already renamed it.
+-            require(stat.S_ISREG(info.st_mode) and info.st_size<=65536 and
+-                (p.name=='ACCEPTANCE_STATUS.json' or re.fullmatch(r'\.ACCEPTANCE_STATUS\.json\.tmp-[0-9]+-[0-9a-f]{32}',p.name)),
+-                'ACCEPTANCE_TELEMETRY_FILE')
+-            total+=info.st_size
+-        return total
++    def status_bytes(p):
++        try:info=p.lstat()
++        except FileNotFoundError:return 0 # Atomic writer already renamed it.
++        require(stat.S_ISREG(info.st_mode) and info.st_size<=65536 and
++            (p.name=='ACCEPTANCE_STATUS.json' or re.fullmatch(r'\.ACCEPTANCE_STATUS\.json\.tmp-[0-9]+-[0-9a-f]{32}',p.name)),
++            'ACCEPTANCE_TELEMETRY_FILE')
++        return info.st_size
+     total=0
+     for p in root.iterdir():
+         if p.name=='workers':
+             require(p.is_dir() and not p.is_symlink(),'ACCEPTANCE_TELEMETRY_WORKERS')
+-            workers=list(p.iterdir());require(len(workers)<=256,'ACCEPTANCE_TELEMETRY_BOUND')
+-            for w in workers:
++            # Completed native pools leave diagnostic records under prior PIDs.
++            # Stream their exact byte accounting; history is not a worker limit.
++            for w in p.iterdir():
+                 require(re.fullmatch(r'[0-9]{1,10}',w.name) and w.is_dir() and not w.is_symlink(),'ACCEPTANCE_TELEMETRY_WORKER')
+-                total+=flat(w)
++                total+=sum(status_bytes(item) for item in w.iterdir())
+         else:
+-            # Validate controller files in a flat directory below.
+-            require(not p.is_dir(),'ACCEPTANCE_TELEMETRY_LAYOUT')
+-    # Controller and worker files have the same exact policy.
+-    files=[p for p in root.iterdir() if p.name!='workers']
+-    require(len(files)<=4,'ACCEPTANCE_TELEMETRY_BOUND')
+-    for p in files:
+-        try:info=p.lstat()
+-        except FileNotFoundError:continue
+-        require(stat.S_ISREG(info.st_mode) and info.st_size<=65536 and
+-            (p.name=='ACCEPTANCE_STATUS.json' or re.fullmatch(r'\.ACCEPTANCE_STATUS\.json\.tmp-[0-9]+-[0-9a-f]{32}',p.name)),
+-            'ACCEPTANCE_TELEMETRY_FILE')
+-        total+=info.st_size
++            # Interrupted atomic writes remain diagnostic evidence. Their
++            # count is not a science limit; every original byte stays accounted.
++            total+=status_bytes(p)
+     return total
+ 
+ class Observer:
+@@ -56,6 +44,7 @@
+         self.operations = {}
+         self.started = time.monotonic()
+         self.last_write = 0.0
++        self.last_progress = None
+         self.counts = {}
+         self.stack = []
+         self.details = {}
+@@ -80,7 +69,9 @@
+             'context':dict(self.details), 'timing_seconds':dict(self.durations),
+             'registered_work_plan':self.work_plan, 'registered_progress':dict(self.progress),
+             'active_phase_elapsed_seconds': None if not self.started_phases else now-self.started_phases[-1],
+-            'last_progress_unix':time.time(), 'science_hash_excluded':True})
++            'last_progress_unix':self.last_progress,
++            'last_progress_semantics':'LATEST_OBSERVED_COUNTER_ADVANCE; NOT_HEARTBEAT_OR_COMPLETION_AUTHORITY',
++            'science_hash_excluded':True})
+         except OSError:
+             pass # Diagnostics must not stop or alter scientific work.
+         self.last_write = now
+@@ -89,6 +80,7 @@
+     observer = _ACTIVE.get()
+     if observer is not None:
+         observer.counts[name] = observer.counts.get(name, 0) + count
++        if count>0:observer.last_progress=time.time()
+         observer.write()
+         return observer.counts[name]
+ 
+@@ -201,6 +193,7 @@
+     if observer is None or observer.work_plan is None:return
+     if stage_id not in {s['stage_id'] for s in observer.work_plan['stages']}:return
+     from .accepted_dispatch_plan import stage_eta
++    if done>observer.progress.get(stage_id,{}).get('done',0):observer.last_progress=time.time()
+     observer.progress[stage_id]={'done':done,'total':total,'elapsed_seconds':elapsed,
+         'eta':stage_eta(done,total,elapsed,homogeneous=homogeneous),
+         'completion_authority':'NONE; OBSERVATION_ONLY'}
+@@ -218,10 +211,19 @@
+     """Bounded latest-operation snapshot, scoped to the active invocation."""
+     observer=_ACTIVE.get()
+     if observer is None:return
+-    observer.operations[name]={'done':done,'total':total,**fields,
++    row={'done':done,'total':total,**fields,
+         'task_id':observer.details.get('task_id'),
+         'invocation_id':observer.invocations[-1]['invocation_id'] if observer.invocations else None,
+         'updated_unix':time.time(),'completion_authority':'NONE; OBSERVATION_ONLY'}
++    previous=observer.operations.get(name,{})
++    if any(row.get(k)!=previous.get(k) for k in ('task_id','invocation_id')):previous={}
++    # Refresh work freshness only for measured completed work or consumed bytes.
++    # Context, elapsed time, an unchanged count, and a heartbeat are not progress.
++    for key in ('done','bytes_done','formations_done'):
++        value=row.get(key);old=previous.get(key,0)
++        if type(value) in (int,float) and type(old) in (int,float) and value>old:
++            observer.last_progress=row['updated_unix'];break
++    observer.operations[name]=row
+     observer.write()
+ 
+ 
+--- a/infinity_grid/accepted_generation_runner.py
++++ b/infinity_grid/accepted_generation_runner.py
+@@ -26,9 +26,8 @@
+  from .acceptance_observer import session
+  from .accepted_predecessor import session as predecessor_session
+  from .validation_frontier import session as validation_session,implementation_binding
+- binding=dict(implementation_binding(),manifest_sha256=canonical_sha256(manifest),trust_policy='NATIVE_OWNED_CHECKPOINT_STATE_V1',checks=['J3_CONSERVATION','J3_HISTORICAL_COMPARISON'])
+  # A yielded batch follows the controller's existing PAUSED/checkpoint path.
+- with verification_operation(), session(runtime.runtime_root/"full_generation"/"telemetry"), validation_session(runtime.runtime_root/"full_generation"/"validation_authority",binding,max_new_units=None), predecessor_session(input_artifacts,manifest):
++ with verification_operation(), session(runtime.runtime_root/"full_generation"/"telemetry"):
+   from .accepted_dispatch_plan import validate_work_plan
+   from .acceptance_observer import register_plan,bind_identity
+   from .preservation import _ACTIVE as preservation_active
+@@ -40,10 +39,12 @@
+     bind_identity(**{k:controller.get(k) for k in ('job_id','attempt_id','source_sha256')})
+    except (OSError,ValueError):pass
+   bind_identity(manifest_sha256=canonical_sha256(manifest),source_sha256=manifest['source_sha256'])
+-  if 'operational_work_plan' in input_artifacts:
+-   plan=validate_work_plan(json.loads(Path(input_artifacts['operational_work_plan']).read_bytes()),manifest)
+-   register_plan(plan)
+-  return _run(runtime,parameters,input_artifacts,manifest)
++  binding=dict(implementation_binding(),manifest_sha256=canonical_sha256(manifest),trust_policy='NATIVE_OWNED_CHECKPOINT_STATE_V1',checks=['J3_CONSERVATION','J3_HISTORICAL_COMPARISON'])
++  with validation_session(runtime.runtime_root/"full_generation"/"validation_authority",binding,max_new_units=None), predecessor_session(input_artifacts,manifest):
++   if 'operational_work_plan' in input_artifacts:
++    plan=validate_work_plan(json.loads(Path(input_artifacts['operational_work_plan']).read_bytes()),manifest)
++    register_plan(plan)
++   return _run(runtime,parameters,input_artifacts,manifest)
+ 
+ def _run(runtime,parameters,input_artifacts,manifest):
+  runtime._require_execution();require(canonical_sha256(manifest)==parameters['manifest_sha256'],'FULL_RUN_MANIFEST_BYTES')
+--- a/infinity_grid/bulk_submission.py
++++ b/infinity_grid/bulk_submission.py
+@@ -321,7 +321,8 @@
+             # Retry only named save boundaries, never mismatches or arbitrary errors.
+             if not (isinstance(exc, ValidationYield)
+                     or isinstance(exc, sub.SubmissionError) and exc.code == 'SAVE_BACKLOG_PAUSE'
+-                    or isinstance(exc, AcceptanceStopped) and str(exc).startswith('ACCEPTANCE_SAVE_DRAIN_REQUIRED:')):
++                    or isinstance(exc, AcceptanceStopped) and str(exc).startswith(
++                        ('ACCEPTANCE_SAVE_DRAIN_REQUIRED:', 'NATIVE_SOURCE_SAVE_DRAIN_REQUIRED:'))):
+                 raise
+             preserve()
+     preserve()
+--- a/infinity_grid/operator_transport.py
++++ b/infinity_grid/operator_transport.py
+@@ -4,8 +4,8 @@
+ services each request through their connected provider and supplies real readbacks.
+ """
+ from pathlib import Path
+-import json,time,uuid
+-from .canon import write_json_atomic
++import json,os,re,time,uuid
++from .canon import canonical_bytes,write_json_atomic
+ from . import submission as sub,preservation as pr
+ 
+ 
+@@ -13,35 +13,98 @@
+     def __init__(self,queue):
+         self.queue=Path(queue).resolve();self.queue.mkdir(parents=True,exist_ok=True)
+     def _request(self,workspace,scope,obligations,physical):
+-        request_id=uuid.uuid4().hex
+-        request={'schema_id':'IG_OPERATOR_SAVE_REQUEST_V1','request_id':request_id,
++        if scope not in ('CAPTURE_SAVE','CHECKPOINT_OUTBOX'):
++            raise sub.SubmissionError('OPERATOR_REQUEST_SCOPE')
++        request={'schema_id':'IG_OPERATOR_SAVE_REQUEST_V1',
+                  'workspace':str(Path(workspace).resolve()),'scope':scope,
+                  'capture_id':sub.capture_record(workspace)['capture_id'],
+                  'obligations':obligations,'physical_objects':physical}
+-        write_json_atomic(self.queue/(request_id+'.request.json'),request)
+-        response=self.queue/(request_id+'.response.json')
+-        while not response.exists():time.sleep(0.25)
+-        if response.is_symlink():raise sub.SubmissionError('OPERATOR_RESPONSE_SYMLINK')
+-        reply=json.loads(response.read_bytes())
+-        if set(reply)!={'schema_id','request_id','objects'} or reply['schema_id']!='IG_OPERATOR_SAVE_RESPONSE_V1' or reply['request_id']!=request_id:
+-            raise sub.SubmissionError('OPERATOR_RESPONSE_BINDING')
+-        rows=reply['objects']
+-        if type(rows) is not list or len(rows)!=len(physical):raise sub.SubmissionError('OPERATOR_RESPONSE_COVERAGE')
+-        by_sha={x['sha256']:x for x in rows}
+-        if len(by_sha)!=len(rows) or set(by_sha)!={x['sha256'] for x in physical}:
+-            raise sub.SubmissionError('OPERATOR_RESPONSE_COVERAGE')
+-        for item in physical:
+-            row=by_sha[item['sha256']]
+-            if set(row)!={'sha256','readback_path','drive_file_id'}:raise sub.SubmissionError('OPERATOR_RESPONSE_FIELDS')
+-            path=Path(row['readback_path'])
+-            if path.is_symlink() or not path.is_file():raise sub.SubmissionError('OPERATOR_READBACK_REQUIRED')
+-            raw=path.read_bytes()
+-            if sub._sha(raw)!=item['sha256'] or len(raw)!=item['size_bytes']:raise sub.SubmissionError('SAVE_READBACK_MISMATCH')
+-        for item in obligations:
+-            row=by_sha[item['sha256']]
+-            if scope=='CAPTURE_SAVE':sub.confirm_save(workspace,item['sha256'],row['readback_path'],row['drive_file_id'],role=item['role'],logical_name=item['logical_name'])
+-            else:pr.confirm(workspace,item['sha256'],row['readback_path'],row['drive_file_id'],obligation_id=item['obligation_id'])
+-        write_json_atomic(self.queue/(request_id+'.confirmed.json'),{'request_id':request_id,'status':'CONFIRMED_EXACT_BYTES','scope':scope})
++        # Retain an identical outstanding request across a stopped operator call.
++        # This reuses passive transport data, never a completion/save authority.
++        request_id=None
++        request_bytes=canonical_bytes(request)
++        for path in sorted(self.queue.glob('*.request.json')):
++            # History is discovery data. An unrelated torn, malformed, or
++            # symlinked candidate cannot deny a new native save request.
++            try:
++                if path.is_symlink() or not path.is_file():continue
++                prior=json.loads(path.read_bytes())
++                if (type(prior) is not dict or set(prior)!=set(request)|{'request_id'}
++                        or type(prior['request_id']) is not str
++                        or re.fullmatch('[0-9a-f]{32}',prior['request_id']) is None
++                        or path.name!=prior['request_id']+'.request.json'):
++                    continue
++                matches=canonical_bytes({k:v for k,v in prior.items() if k!='request_id'})==request_bytes
++            except (OSError,ValueError,TypeError):
++                continue
++            if matches:
++                # A .confirmed marker is observational only. Reuse still reads
++                # and verifies the exact response and invokes native confirmation.
++                request_id=prior['request_id'];break
++        if request_id is None:
++            request_id=uuid.uuid4().hex
++            write_json_atomic(self.queue/(request_id+'.request.json'),dict(request,request_id=request_id))
++        started=time.monotonic();last_write=0.0
++        def publish(status, *, force=False, exc=None):
++            nonlocal last_write
++            now=time.monotonic()
++            if not force and now-last_write<5:return
++            row={'schema_id':'IG_OPERATOR_TRANSPORT_STATUS_V1','request_id':request_id,
++                 'capture_id':request['capture_id'],'scope':scope,'status':status,
++                 'pid':os.getpid(),'heartbeat_unix':time.time(),'elapsed_seconds':now-started,
++                 'obligations':len(obligations),'physical_objects':len(physical),
++                 'physical_bytes':sum(item['size_bytes'] for item in physical),
++                 'completion_authority':'NONE; OBSERVATION_ONLY'}
++            if exc is not None:
++                row['termination']={'exception_type':type(exc).__name__,'reason':str(exc)[:1000],
++                    'code':getattr(exc,'code',None)}
++            try:write_json_atomic(self.queue/'OPERATOR_TRANSPORT_STATUS.json',row)
++            except OSError:pass
++            last_write=now
++        try:
++            response=self.queue/(request_id+'.response.json')
++            publish('WAITING_FOR_OPERATOR',force=True)
++            while not response.exists():
++                if response.is_symlink():raise sub.SubmissionError('OPERATOR_RESPONSE_SYMLINK')
++                publish('WAITING_FOR_OPERATOR');time.sleep(0.25)
++            if response.is_symlink():raise sub.SubmissionError('OPERATOR_RESPONSE_SYMLINK')
++            publish('VERIFYING_READBACKS',force=True)
++            reply=json.loads(response.read_bytes())
++            if type(reply) is not dict or set(reply)!={'schema_id','request_id','objects'} or reply['schema_id']!='IG_OPERATOR_SAVE_RESPONSE_V1' or reply['request_id']!=request_id:
++                raise sub.SubmissionError('OPERATOR_RESPONSE_BINDING')
++            rows=reply['objects']
++            if type(rows) is not list or len(rows)!=len(physical):raise sub.SubmissionError('OPERATOR_RESPONSE_COVERAGE')
++            if any(type(row) is not dict or set(row)!={'sha256','readback_path','drive_file_id'}
++                   or any(type(value) is not str for value in row.values()) for row in rows):
++                raise sub.SubmissionError('OPERATOR_RESPONSE_FIELDS')
++            by_sha={x['sha256']:x for x in rows}
++            if len(by_sha)!=len(rows) or set(by_sha)!={x['sha256'] for x in physical}:
++                raise sub.SubmissionError('OPERATOR_RESPONSE_COVERAGE')
++            from .checkpoint_files import verify_file
++            for item in physical:
++                path=Path(by_sha[item['sha256']]['readback_path'])
++                if path.is_symlink() or not path.is_file():raise sub.SubmissionError('OPERATOR_READBACK_REQUIRED')
++                verify_file(path,item,'SAVE_READBACK_MISMATCH')
++                publish('VERIFYING_READBACKS')
++            publish('CONFIRMING_NATIVE_SAVE',force=True)
++            if scope=='CAPTURE_SAVE':
++                for item in obligations:
++                    row=by_sha[item['sha256']]
++                    sub.confirm_save(workspace,item['sha256'],row['readback_path'],row['drive_file_id'],role=item['role'],logical_name=item['logical_name'])
++                    publish('CONFIRMING_NATIVE_SAVE')
++            elif scope=='CHECKPOINT_OUTBOX':
++                # Use the established streaming, journalled batch confirmer. Each
++                # logical role remains bound; repeated object reads are bounded.
++                batch=self.queue/(request_id+'.ack-batch.json')
++                write_json_atomic(batch,{'schema_id':'IG_CHECKPOINT_ACK_BATCH_V1',
++                    'capture_id':request['capture_id'],'obligations':obligations,
++                    'readbacks':[{'sha256':row['sha256'],'kind':'RAW','path':row['readback_path'],
++                        'drive_file_id':row['drive_file_id']} for row in rows]})
++                pr.confirm_batch(workspace,batch)
++            write_json_atomic(self.queue/(request_id+'.confirmed.json'),{'request_id':request_id,'status':'CONFIRMED_EXACT_BYTES','scope':scope})
++            publish('CONFIRMED_EXACT_BYTES',force=True)
++        except BaseException as exc:
++            publish('STOPPED',force=True,exc=exc);raise
+     def save_capture(self,workspace):
+         pending=sub.save_status(workspace)['pending_objects']
+         if not pending:return
+--- a/infinity_grid/rolling_operator.py
++++ b/infinity_grid/rolling_operator.py
+@@ -106,7 +106,7 @@
+     imported authority, or alternate scientific execution route is permitted.
+     """
+     from contextlib import contextmanager
+-    import fcntl
++    import fcntl, os, time
+     from .bulk_submission import _run_saved_capture
+     from . import v05_controller_event_loop as loop
+     root = Path(workspace).resolve(strict=True)
+@@ -120,21 +120,36 @@
+         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+         @contextmanager
+         def operation(name):
+-            write_json_atomic(queue/'OPERATING_STATUS.json',
+-                {'capture_id':record['capture_id'], 'operation':name, 'status':'RUNNING'})
++            started = time.time()
++            def publish(status, exc=None):
++                row = {'schema_id':'IG_REGISTERED_CAPTURE_OPERATING_STATUS_V1',
++                    'capture_id':record['capture_id'], 'job_id':record['job']['job_id'],
++                    'operation':name, 'status':status, 'pid':os.getpid(),
++                    'operation_started_unix':started, 'updated_unix':time.time(),
++                    'completion_authority':'NONE; OBSERVATION_ONLY'}
++                if exc is not None:
++                    row['termination'] = {'exception_type':type(exc).__name__,
++                        'reason':str(exc)[:1000], 'code':getattr(exc, 'code', None),
++                        'sqlite_errorcode':getattr(exc, 'sqlite_errorcode', None),
++                        'sqlite_errorname':getattr(exc, 'sqlite_errorname', None)}
++                try: write_json_atomic(queue/'OPERATING_STATUS.json', row)
++                except OSError: pass  # Operational diagnostics cannot stop native work.
++            publish('RUNNING')
+             try:
+                 yield
+-            except BaseException:
+-                write_json_atomic(queue/'OPERATING_STATUS.json',
+-                    {'capture_id':record['capture_id'], 'operation':name, 'status':'STOPPED'})
++            except BaseException as exc:
++                publish('STOPPED', exc)
+                 raise
+             else:
+-                write_json_atomic(queue/'OPERATING_STATUS.json',
+-                    {'capture_id':record['capture_id'], 'operation':name, 'status':'COMPLETE'})
++                publish('COMPLETE')
+         result = _run_saved_capture(root, OperatorQueueTransport(queue), operation)
+-        admission = loop.validate_workspace_job(root, record['job']['job_id'], check_loaded=False)
+-        if loop.verified_completion(admission) is None:
+-            raise ValueError('REGISTERED_COMPLETION_REQUIRED')
++        with operation('saved_completion_verification'):
++            admission = loop.validate_workspace_job(root, record['job']['job_id'], check_loaded=False)
++            done = loop.verified_completion(admission)
++            if done is None:
++                raise ValueError('REGISTERED_COMPLETION_REQUIRED')
++            if done.get('status') != 'COMPLETED':
++                raise ValueError('REGISTERED_COMPLETION_NOT_SUCCESSFUL:' + str(done.get('status')))
+         return result
+ 
+ 
+--- a/infinity_grid/v05_controller_event_loop.py
++++ b/infinity_grid/v05_controller_event_loop.py
+@@ -1177,6 +1177,10 @@
+             try: result['capture'] = submission.save_status(root)
+             except submission.SubmissionError as exc: result['capture'] = {'status':exc.code,'next_action':exc.next_action}
+         print(json.dumps(result,sort_keys=True,indent=2))
++        # A rejected scientific result is a retained completion, never a
++        # successful command. Unknown run outcomes also fail closed.
++        if args.command == 'run':
++            return 0 if result.get('status') == 'COMPLETED' else 1
+         return 1 if result.get('status') == 'VALIDATION_FAILED' else 0
+     except Exception as exc:
+         from .invocation import refusal_details
+--- a/infinity_grid/validation_frontier.py
++++ b/infinity_grid/validation_frontier.py
+@@ -14,19 +14,38 @@
+ class ValidationYield(RuntimeError):pass
+ 
+ def implementation_binding():
++    from .acceptance_observer import phase,operation
++    def hash_file(hasher,path,operation_name,files_done,bytes_done):
++        # Preserve the exact previous byte concatenation while bounding each
++        # read and exposing progress before a complete runtime scan finishes.
++        with path.open('rb') as stream:
++            while chunk:=stream.read(1048576):
++                hasher.update(chunk);bytes_done+=len(chunk)
++                operation(operation_name,files_done,bytes_done=bytes_done)
++        files_done+=1
++        operation(operation_name,files_done,bytes_done=bytes_done)
++        return files_done,bytes_done
+     root=Path(__file__).parent
+     h=hashlib.sha256()
+-    for p in sorted(root.rglob('*')):
+-        if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
+-        h.update(p.relative_to(root).as_posix().encode());h.update(b'\0');h.update(p.read_bytes())
++    with phase('validation_source_binding'):
++        files_done=bytes_done=0
++        for p in sorted(root.rglob('*')):
++            if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
++            h.update(p.relative_to(root).as_posix().encode());h.update(b'\0')
++            files_done,bytes_done=hash_file(h,p,'implementation_source_hash',files_done,bytes_done)
++        operation('implementation_source_hash',files_done,files_done,bytes_done=bytes_done,bytes_total=bytes_done)
+     # Native session admission already verifies the pinned runtime. Retain the
+     # actual runtime file binding as well, so a changed extension cannot reuse credit.
+     rh=hashlib.sha256();prefix=Path(sys.prefix)
+-    for directory in (prefix,prefix.parent/'native',prefix.parent/'host'):
+-        if not directory.exists():continue
+-        for p in sorted(directory.rglob('*')):
+-            if p.is_file() and '__pycache__' not in p.parts:
+-                rh.update(str(p.relative_to(prefix.parent)).encode());rh.update(b'\0');rh.update(p.read_bytes())
++    with phase('validation_runtime_binding'):
++        files_done=bytes_done=0
++        for directory in (prefix,prefix.parent/'native',prefix.parent/'host'):
++            if not directory.exists():continue
++            for p in sorted(directory.rglob('*')):
++                if p.is_file() and '__pycache__' not in p.parts:
++                    rh.update(str(p.relative_to(prefix.parent)).encode());rh.update(b'\0')
++                    files_done,bytes_done=hash_file(rh,p,'implementation_runtime_hash',files_done,bytes_done)
++        operation('implementation_runtime_hash',files_done,files_done,bytes_done=bytes_done,bytes_total=bytes_done)
+     return dict(source_sha256=h.hexdigest(),runtime_sha256=rh.hexdigest(),python=sys.version,sqlite=sqlite3.sqlite_version,protocol='IG_VALIDATION_FRONTIER_V1')
+ 
+ class Frontier:
+--- /dev/null
++++ b/tests/test_acceptance_progress_freshness.py
+@@ -0,0 +1,81 @@
++"""Operational freshness does not invent work or cap native pool history."""
++import json
++import pytest
++from infinity_grid import acceptance_observer as observer
++from infinity_grid.full_block_runner import recover_workspace,workspace_bytes
++
++
++def test_heartbeats_context_and_unchanged_operations_do_not_refresh_progress(tmp_path,monkeypatch):
++    clock=[100.0]
++    monkeypatch.setattr(observer.time,'time',lambda:clock[0])
++    monkeypatch.setattr(observer.time,'monotonic',lambda:clock[0])
++    with observer.session(tmp_path):
++        active=observer._ACTIVE.get()
++        assert json.loads(active.path.read_text())['last_progress_unix'] is None
++        observer.operation('bytes',0,10,bytes_done=0)
++        clock[0]=110.0
++        observer.operation('bytes',1,10,bytes_done=100)
++        active.write(True)
++        assert json.loads(active.path.read_text())['last_progress_unix']==110.0
++        clock[0]=130.0
++        with observer.phase('waiting'):
++            observer.detail(wait_reason='native verifier')
++        observer.operation('bytes',1,10,bytes_done=100)
++        active.write(True)
++        data=json.loads(active.path.read_text())
++        assert data['heartbeat_unix']==130.0
++        assert data['last_progress_unix']==110.0
++        clock[0]=140.0
++        observer.operation('bytes',1,10,bytes_done=101)
++        active.write(True)
++        assert json.loads(active.path.read_text())['last_progress_unix']==140.0
++        clock[0]=150.0
++        observer.tick('verified',1)
++        active.write(True)
++        assert json.loads(active.path.read_text())['last_progress_unix']==150.0
++
++
++def test_registered_progress_refreshes_only_when_done_advances(tmp_path,monkeypatch):
++    clock=[100.0]
++    monkeypatch.setattr(observer.time,'time',lambda:clock[0])
++    monkeypatch.setattr(observer.time,'monotonic',lambda:clock[0])
++    with observer.session(tmp_path):
++        active=observer._ACTIVE.get()
++        observer.register_plan({'plan_sha256':'p','manifest_sha256':'m',
++            'stages':[{'stage_id':'comparison'}],'whole_run_eta_seconds':None,'eta_reason':'fixture'})
++        observer.progress('comparison',1,10,5.0)
++        assert active.last_progress==100.0
++        clock[0]=125.0
++        observer.progress('comparison',1,10,30.0)
++        active.write(True)
++        assert json.loads(active.path.read_text())['last_progress_unix']==100.0
++        observer.progress('comparison',2,10,30.0)
++        assert active.last_progress==125.0
++
++
++def test_worker_history_above_old_cap_is_accounted_and_validated(tmp_path):
++    root=tmp_path/'full_generation';workers=root/'telemetry/workers';workers.mkdir(parents=True)
++    raw=b'{"status":"COMPLETE"}\n'
++    for pid in range(300):
++        worker=workers/str(pid);worker.mkdir();(worker/'ACCEPTANCE_STATUS.json').write_bytes(raw)
++    assert workspace_bytes(root)==len(raw)*300
++    recover_workspace(root)
++    (workers/'299/unknown.json').write_text('{}')
++    with pytest.raises(ValueError,match='ACCEPTANCE_TELEMETRY_FILE'):
++        recover_workspace(root)
++
++
++@pytest.mark.parametrize('scope',['controller','worker'])
++def test_interrupted_atomic_status_history_is_preserved_and_accounted(tmp_path,scope):
++    root=tmp_path/'full_generation'
++    status=root/'telemetry'
++    if scope=='worker':status=status/'workers/123'
++    status.mkdir(parents=True)
++    raw=b'{"status":"RUNNING"}\n'
++    names=['ACCEPTANCE_STATUS.json']+[
++        '.ACCEPTANCE_STATUS.json.tmp-123-'+format(index,'032x') for index in range(9)]
++    for name in names:(status/name).write_bytes(raw)
++    assert workspace_bytes(root)==len(raw)*len(names)
++    recover_workspace(root)
++    assert {path.name for path in status.iterdir()}==set(names)
++    assert all((status/name).read_bytes()==raw for name in names)
+--- /dev/null
++++ b/tests/test_capture_project_recovery.py
+@@ -0,0 +1,54 @@
++"""Real native preparation and recovery; no save receipts or science fabricated."""
++from pathlib import Path
++import json
++import shutil
++
++import pytest
++
++from infinity_grid import portable_registry as project, submission as sub
++from infinity_grid.invocation import InvocationRefused
++from tests.test_decoder06_capture import _spec
++
++
++def test_capture_and_project_baseline_recover_exact_original_obligations(tmp_path):
++    spec = _spec(tmp_path, project=False)
++    store = tmp_path / 'original'
++    project.initialize(store, 'Native pre-execution recovery', spec['engine_source'])
++    captured = sub.capture(store, spec)
++    original = Path(captured['workspace'])
++    original_binding = (original / 'PROJECT_BINDING.json').read_bytes()
++    original_record = (original / 'CAPTURE.json').read_bytes()
++    original_obligations = sub.required_objects(original)
++    binding = json.loads(original_binding)
++
++    retained = tmp_path / 'retained'
++    shutil.copytree(store / 'objects', retained)
++    capture_path = retained / 'CAPTURE.json'
++    capture_path.write_bytes(original_record)
++    baseline = retained / binding['baseline_object']['object_name']
++    shutil.rmtree(store)
++
++    restored_store = tmp_path / 'recovered'
++    restored = restored_store / 'captures' / captured['capture_id']
++    result = sub.restore_capture(capture_path, retained, restored)
++    assert result['status'] == 'SAVE_REQUIRED'
++    with pytest.raises(InvocationRefused, match='PROJECT_BINDING_REQUIRED'):
++        project.locate(restored)
++
++    with pytest.raises(InvocationRefused, match='PROJECT_ARCHIVE_HASH'):
++        project.import_history(restored_store, baseline, '0' * 64)
++    assert not (restored_store / 'coordination' / 'PROJECT.json').exists()
++    project.import_history(restored_store, baseline, binding['baseline_object']['sha256'])
++    project.adopt(restored_store, restored)
++
++    assert (restored / 'CAPTURE.json').read_bytes() == original_record
++    assert (restored / 'PROJECT_BINDING.json').read_bytes() == original_binding
++    assert sub.required_objects(restored) == original_obligations
++    assert {row['role'] for row in sub.required_objects(restored)} >= {
++        'capture_record', 'engine_source', 'project_baseline', 'project_binding'
++    }
++    assert sub.save_status(restored)['status'] == 'SAVE_REQUIRED'
++    assert not list((restored / 'durability' / 'receipts').rglob('*.json'))
++    assert not (restored / 'runtime' / 'attempts').exists()
++    assert not (restored / 'runtime' / 'runs').exists()
++
+--- a/tests/test_decoder091_step4.py
++++ b/tests/test_decoder091_step4.py
+@@ -126,7 +126,7 @@
+         assert len(calls)==(0 if failure=='false_save' else 1)
+ 
+ 
+-@pytest.mark.parametrize('kind', ['backlog', 'acceptance', 'mismatch', 'fake_boundary'])
++@pytest.mark.parametrize('kind', ['backlog', 'acceptance', 'native_source', 'mismatch', 'fake_boundary'])
+ def test_shared_capture_reducer_save_boundaries(tmp_path, monkeypatch, kind):
+     from contextlib import nullcontext
+     from infinity_grid import submission as sub, preservation as pr, v05_controller_event_loop as loop
+@@ -137,6 +137,7 @@
+     monkeypatch.setattr(pr, 'status', lambda p: {'status':'PRESERVED'})
+     failures={'backlog':sub.SubmissionError('SAVE_BACKLOG_PAUSE','detail'),
+               'acceptance':AcceptanceStopped('ACCEPTANCE_SAVE_DRAIN_REQUIRED:sha'),
++              'native_source':AcceptanceStopped('NATIVE_SOURCE_SAVE_DRAIN_REQUIRED:sha'),
+               'mismatch':AcceptanceStopped('HISTORICAL_MISMATCH'),
+               'fake_boundary':sub.SubmissionError('OTHER','SAVE_BACKLOG_PAUSE')}
+     def run(*a):
+@@ -148,7 +149,7 @@
+         def save_capture(self,p):events.append('capture')
+         def preserve_workspace(self,p):events.append('preserve')
+     call=lambda:bulk._run_saved_capture(tmp_path, Transport(), lambda name:nullcontext())
+-    if kind in ('backlog','acceptance'):
++    if kind in ('backlog','acceptance','native_source'):
+         assert call()['status']=='COMPLETED'
+         assert events==['capture','run','preserve','run','preserve']
+     else:
+--- /dev/null
++++ b/tests/test_native_run_exit_status.py
+@@ -0,0 +1,15 @@
++"""The public native command must preserve unsuccessful completion outcomes."""
++import json
++import pytest
++from infinity_grid import v05_controller_event_loop as loop
++
++
++@pytest.mark.parametrize('status,expected', [
++    ('COMPLETED', 0), ('RESULT_REJECTED', 1),
++    ('VALIDATION_FAILED', 1), ('UNKNOWN_OUTCOME', 1),
++])
++def test_native_run_exit_status(monkeypatch, capsys, status, expected):
++    monkeypatch.setattr(loop.sys, 'argv', ['ig-decoder', 'run', '/unused', 'JOB'])
++    monkeypatch.setattr(loop, 'run_workspace_job', lambda *args: {'status': status})
++    assert loop.main() == expected
++    assert json.loads(capsys.readouterr().out)['status'] == status
+--- /dev/null
++++ b/tests/test_orchestration_liveness_20261029.py
+@@ -0,0 +1,150 @@
++"""Native resume outcomes and passive connector waits; no remote save claims."""
++import json
++from pathlib import Path
++
++import pytest
++
++from infinity_grid import operator_transport as ot, rolling_operator as op
++from infinity_grid import bulk_submission as bulk, v05_controller_event_loop as loop
++from infinity_grid.canon import write_json_atomic
++
++
++@pytest.mark.parametrize('status', ['RESULT_REJECTED', 'VALIDATION_FAILED', None])
++def test_resume_rejects_non_successful_native_completion(tmp_path, monkeypatch, status):
++    workspace=tmp_path/'capture';(workspace/'runtime').mkdir(parents=True)
++    monkeypatch.setattr(op.sub, 'capture_record', lambda p:{'capture_id':'c'*64,'job':{'job_id':'J'}})
++    monkeypatch.setattr(loop, 'validate_workspace_job', lambda *a,**kw:{})
++    monkeypatch.setattr(loop, 'verified_completion', lambda a:None if status is None else {'status':status})
++    monkeypatch.setattr(bulk, '_run_saved_capture', lambda *a:{'status':status})
++    with pytest.raises(ValueError, match='REGISTERED_COMPLETION'):
++        op.resume_registered_capture(workspace, tmp_path/'queue')
++    row=json.loads((tmp_path/'queue/OPERATING_STATUS.json').read_bytes())
++    assert row['operation']=='saved_completion_verification' and row['status']=='STOPPED'
++    assert row['termination']['exception_type']=='ValueError'
++    assert row['updated_unix']>=row['operation_started_unix'] and row['pid']>0
++
++
++def test_resume_retains_typed_native_failure_without_diagnostic_dependency(tmp_path, monkeypatch):
++    workspace=tmp_path/'capture';(workspace/'runtime').mkdir(parents=True)
++    monkeypatch.setattr(op.sub, 'capture_record', lambda p:{'capture_id':'c'*64,'job':{'job_id':'J'}})
++    monkeypatch.setattr(loop, 'validate_workspace_job', lambda *a,**kw:{})
++    error=ot.sub.SubmissionError('SAVE_READBACK_MISMATCH')
++    def run(workspace, transport, operation):
++        with operation('native_execution'):raise error
++    monkeypatch.setattr(bulk, '_run_saved_capture', run)
++    with pytest.raises(ot.sub.SubmissionError) as caught:
++        op.resume_registered_capture(workspace, tmp_path/'queue')
++    assert caught.value is error
++    row=json.loads((tmp_path/'queue/OPERATING_STATUS.json').read_bytes())
++    assert row['termination']['code']=='SAVE_READBACK_MISMATCH'
++    monkeypatch.setattr(op, 'write_json_atomic', lambda *a,**kw:(_ for _ in ()).throw(OSError('diagnostic unavailable')))
++    with pytest.raises(ot.sub.SubmissionError) as caught:
++        op.resume_registered_capture(workspace, tmp_path/'queue')
++    assert caught.value is error
++
++
++def request_fixture(tmp_path, monkeypatch):
++    monkeypatch.setattr(ot.sub, 'capture_record', lambda p:{'capture_id':'c'*64})
++    readback=tmp_path/'readback';readback.write_bytes(b'actual retained bytes')
++    sha=ot.sub._sha(readback.read_bytes())
++    physical=[{'sha256':sha,'size_bytes':readback.stat().st_size,'path':str(readback)}]
++    obligations=[{'sha256':sha,'role':'engine_source','logical_name':'engine'}]
++    transport=ot.OperatorQueueTransport(tmp_path/'queue')
++    return transport,readback,sha,physical,obligations
++
++
++def test_wait_heartbeats_then_resumes_same_passive_request(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    clock=[0.0];observed=[]
++    monkeypatch.setattr(ot.time, 'monotonic', lambda:clock[0])
++    def wait(seconds):
++        observed.append(json.loads((transport.queue/'OPERATOR_TRANSPORT_STATUS.json').read_bytes()))
++        clock[0]+=6
++        if len(observed)==2:raise KeyboardInterrupt()
++    monkeypatch.setattr(ot.time, 'sleep', wait)
++    with pytest.raises(KeyboardInterrupt):transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    assert [row['status'] for row in observed]==['WAITING_FOR_OPERATOR']*2
++    assert observed[1]['elapsed_seconds']>observed[0]['elapsed_seconds']
++    stopped=json.loads((transport.queue/'OPERATOR_TRANSPORT_STATUS.json').read_bytes())
++    assert stopped['status']=='STOPPED' and stopped['termination']['exception_type']=='KeyboardInterrupt'
++    request=json.loads(next(transport.queue.glob('*.request.json')).read_bytes())
++    write_json_atomic(transport.queue/(request['request_id']+'.response.json'),
++        {'schema_id':'IG_OPERATOR_SAVE_RESPONSE_V1','request_id':request['request_id'],
++         'objects':[{'sha256':sha,'readback_path':str(readback),'drive_file_id':'UNIT_FIXTURE_NO_REMOTE_CREDIT'}]})
++    confirms=[];monkeypatch.setattr(ot.sub, 'confirm_save', lambda *a,**kw:confirms.append(kw))
++    transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    assert len(list(transport.queue.glob('*.request.json')))==1 and len(confirms)==1
++    assert json.loads((transport.queue/'OPERATOR_TRANSPORT_STATUS.json').read_bytes())['status']=='CONFIRMED_EXACT_BYTES'
++
++
++def test_changed_logical_obligation_cannot_reuse_pending_request(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    monkeypatch.setattr(ot.time, 'sleep', lambda seconds:(_ for _ in ()).throw(KeyboardInterrupt()))
++    for role in ['engine_source','project_baseline']:
++        with pytest.raises(KeyboardInterrupt):
++            transport._request(tmp_path,'CAPTURE_SAVE',[dict(obligations[0],role=role)],physical)
++    assert len(list(transport.queue.glob('*.request.json')))==2
++
++
++def test_malformed_unrelated_history_cannot_block_new_save_request(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    (transport.queue/'broken.request.json').write_text('{broken historical JSON')
++    (transport.queue/'nonfinite.request.json').write_text('{"old":NaN}')
++    (transport.queue/'not-an-object.request.json').write_text('null')
++    (transport.queue/'symlink.request.json').symlink_to(tmp_path/'missing')
++    monkeypatch.setattr(ot.time,'sleep',lambda seconds:(_ for _ in ()).throw(KeyboardInterrupt()))
++    with pytest.raises(KeyboardInterrupt):transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    row=json.loads((transport.queue/'OPERATOR_TRANSPORT_STATUS.json').read_bytes())
++    request=json.loads((transport.queue/(row['request_id']+'.request.json')).read_bytes())
++    assert request['capture_id']=='c'*64 and request['obligations']==obligations
++    assert row['termination']['exception_type']=='KeyboardInterrupt'
++
++
++def test_confirmed_marker_cannot_bypass_exact_response_verification(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    monkeypatch.setattr(ot.time,'sleep',lambda seconds:(_ for _ in ()).throw(KeyboardInterrupt()))
++    with pytest.raises(KeyboardInterrupt):transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    request=json.loads(next(transport.queue.glob('*.request.json')).read_bytes());rid=request['request_id']
++    write_json_atomic(transport.queue/(rid+'.confirmed.json'),{'status':'CONFIRMED_EXACT_BYTES'})
++    write_json_atomic(transport.queue/(rid+'.response.json'),
++        {'schema_id':'IG_OPERATOR_SAVE_RESPONSE_V1','request_id':'a-different-request',
++         'objects':[{'sha256':sha,'readback_path':str(readback),'drive_file_id':'UNIT_FIXTURE_NO_REMOTE_CREDIT'}]})
++    monkeypatch.setattr(ot.sub,'confirm_save',lambda *a,**kw:pytest.fail('marker granted save authority'))
++    with pytest.raises(ot.sub.SubmissionError) as caught:
++        transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    assert caught.value.code=='OPERATOR_RESPONSE_BINDING'
++    assert len(list(transport.queue.glob('*.request.json')))==1
++
++
++def test_checkpoint_transport_uses_existing_native_batch_confirmer(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    obligations=[dict(obligations[0],obligation_id='o'*64,obligation_scope='CHECKPOINT_OUTBOX',size_bytes=physical[0]['size_bytes'])]
++    def reply(seconds):
++        request=json.loads(next(transport.queue.glob('*.request.json')).read_bytes())
++        write_json_atomic(transport.queue/(request['request_id']+'.response.json'),
++            {'schema_id':'IG_OPERATOR_SAVE_RESPONSE_V1','request_id':request['request_id'],
++             'objects':[{'sha256':sha,'readback_path':str(readback),'drive_file_id':'UNIT_FIXTURE_NO_REMOTE_CREDIT'}]})
++    monkeypatch.setattr(ot.time,'sleep',reply)
++    batches=[]
++    monkeypatch.setattr(ot.pr,'confirm_batch',lambda workspace,path:batches.append(json.loads(path.read_bytes())))
++    monkeypatch.setattr(ot.pr,'confirm',lambda *a,**kw:pytest.fail('per-role confirmer bypassed native batch route'))
++    original=Path.read_bytes
++    def bounded_read(path):
++        assert path!=readback,'readback must be streamed'
++        return original(path)
++    monkeypatch.setattr(Path,'read_bytes',bounded_read)
++    transport._request(tmp_path,'CHECKPOINT_OUTBOX',obligations,physical)
++    assert len(batches)==1 and batches[0]['obligations']==obligations
++    assert batches[0]['readbacks']==[{'sha256':sha,'kind':'RAW','path':str(readback),'drive_file_id':'UNIT_FIXTURE_NO_REMOTE_CREDIT'}]
++
++
++def test_transport_diagnostics_do_not_mask_original_refusal(tmp_path, monkeypatch):
++    transport,readback,sha,physical,obligations=request_fixture(tmp_path,monkeypatch)
++    original=ot.write_json_atomic
++    def write(path,value):
++        if path.name=='OPERATOR_TRANSPORT_STATUS.json':raise OSError('diagnostic unavailable')
++        return original(path,value)
++    monkeypatch.setattr(ot,'write_json_atomic',write)
++    monkeypatch.setattr(ot.time,'sleep',lambda seconds:(_ for _ in ()).throw(KeyboardInterrupt()))
++    with pytest.raises(KeyboardInterrupt):transport._request(tmp_path,'CAPTURE_SAVE',obligations,physical)
++    assert len(list(transport.queue.glob('*.request.json')))==1
+--- /dev/null
++++ b/tests/test_validation_binding_startup.py
+@@ -0,0 +1,57 @@
++"""Binding scans retain exact identity and become visible before scanning."""
++import hashlib
++import json
++from pathlib import Path
++from types import SimpleNamespace
++
++import pytest
++
++
++def test_streamed_binding_matches_original_concatenation(tmp_path,monkeypatch):
++    from infinity_grid import validation_frontier as frontier
++    source=tmp_path/'source';source.mkdir()
++    (source/'a.py').write_bytes(b'x=1\n')
++    (source/'operand').write_bytes(b'z'*(2*1048576+37))
++    (source/'__pycache__').mkdir()
++    (source/'__pycache__/skip.pyc').write_bytes(b'ignored')
++    prefix=tmp_path/'runtime/base';prefix.mkdir(parents=True)
++    for name in ('base/a','native/b','host/c'):
++        path=prefix.parent/name;path.parent.mkdir(exist_ok=True)
++        path.write_bytes(name.encode()*20)
++    expected_source=hashlib.sha256();expected_runtime=hashlib.sha256()
++    for p in sorted(source.rglob('*')):
++        if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
++        expected_source.update(p.relative_to(source).as_posix().encode());expected_source.update(b'\0');expected_source.update(p.read_bytes())
++    for directory in (prefix,prefix.parent/'native',prefix.parent/'host'):
++        for p in sorted(directory.rglob('*')):
++            if p.is_file() and '__pycache__' not in p.parts:
++                expected_runtime.update(str(p.relative_to(prefix.parent)).encode());expected_runtime.update(b'\0');expected_runtime.update(p.read_bytes())
++    monkeypatch.setattr(frontier,'__file__',str(source/'__init__.py'))
++    monkeypatch.setattr(frontier.sys,'prefix',str(prefix))
++    def no_whole_reads(path):raise AssertionError('whole-file binding read')
++    monkeypatch.setattr(Path,'read_bytes',no_whole_reads)
++    actual=frontier.implementation_binding()
++    assert actual['source_sha256']==expected_source.hexdigest()
++    assert actual['runtime_sha256']==expected_runtime.hexdigest()
++
++
++def test_binding_failure_is_reported_by_started_observer(tmp_path,monkeypatch):
++    from infinity_grid import accepted_generation_runner as runner
++    from infinity_grid import acceptance_observer as observer
++    from infinity_grid import validation_frontier as frontier
++    runtime=SimpleNamespace(runtime_root=tmp_path)
++    status=tmp_path/'full_generation/telemetry/ACCEPTANCE_STATUS.json'
++    class BindingFailed(RuntimeError):pass
++    def fail_binding():
++        data=json.loads(status.read_text())
++        assert data['status']=='RUNNING'
++        assert data['identity']['source_sha256']=='fixture-source'
++        assert observer._ACTIVE.get() is not None
++        raise BindingFailed('scan failure')
++    monkeypatch.setattr(frontier,'implementation_binding',fail_binding)
++    with pytest.raises(BindingFailed):
++        runner.run(runtime,{}, {}, {'source_sha256':'fixture-source'})
++    data=json.loads(status.read_text())
++    assert data['status']=='FAILED'
++    assert data['termination']['exception_type']=='BindingFailed'
++    assert not (tmp_path/'full_generation/validation_authority').exists()

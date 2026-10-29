@@ -1,0 +1,93 @@
+{
+  "schema_id": "IG_ORCHESTRATION_REPAIR_SOURCE_PATCH_V1",
+  "baseline_archive_sha256": "2eac4a23b1665308e3a37ee724154c43713e3d8563c85397f34aee35c4f69765",
+  "baseline_archive_name": "ENGINE_SOURCE.zip from IG_DEPLOYED_NATIVE_ORCHESTRATION_2026-10-29.zip",
+  "changed_files": [
+    {
+      "path": "DECODER_06_CAPTURE_GUIDE.txt",
+      "old_sha256": "df1ec98ece7526a12193eb54c1b19182bdacbe322d6d43589deca3ee21a32066",
+      "sha256": "0a32ed07d2d2c21f919e79b5307a58c1923b6d710472240f2919e8ee3ecf5740",
+      "bytes": 6155
+    },
+    {
+      "path": "infinity_grid/acceptance_observer.py",
+      "old_sha256": "d0533c7ef61de67fbe564896e8bd4fe5c3a4ac11d17b56534af3a614d277c507",
+      "sha256": "5952b695eaf0d4ebf3e83375074e9e90b00d4f118ad2616ab9a1b634b7262511",
+      "bytes": 9876
+    },
+    {
+      "path": "infinity_grid/accepted_generation_runner.py",
+      "old_sha256": "e808cc2b3363a13387e19e897101d41bba29848aff76a0452363f2bcdba41286",
+      "sha256": "cdc706c44eed09cfe569d22dde508bd022bf8c8d21ef8ed7930e01d2d493b6b7",
+      "bytes": 14718
+    },
+    {
+      "path": "infinity_grid/bulk_submission.py",
+      "old_sha256": "93b219841fd38d81f06d3fec6a8392be10aa2f4f37af68ffbb8018522e467ad1",
+      "sha256": "916952c8e05727b1ed9d328d80c09c1eca0d30cae54dc451b166cd14938d6c25",
+      "bytes": 20888
+    },
+    {
+      "path": "infinity_grid/operator_transport.py",
+      "old_sha256": "0ba25e15e25c4b7060da1a296ea9613ded1491e43924f785eb32315ab8396eb0",
+      "sha256": "c62745d0a39721d54c3a5f3da1ccf5274b296fa9f5e69ac705f0c5bd3915bbe4",
+      "bytes": 7603
+    },
+    {
+      "path": "infinity_grid/rolling_operator.py",
+      "old_sha256": "2fc1594c0c2e125d25ab30ea43da42a6a5e1a4c1b1d4151746e1efb41059b60c",
+      "sha256": "76bc1d25a0df329a2f5335bd226a341175198d29ea7c5fe00c0015a32198e94b",
+      "bytes": 13327
+    },
+    {
+      "path": "infinity_grid/v05_controller_event_loop.py",
+      "old_sha256": "d433dae0e07a06b3cdb3a2bb48c028ccf26830fca691acc6367af0203fe5a804",
+      "sha256": "c2111577d6344bec2b05833c98fd6cff7125ce9a0b20a3a0b116789c56f6d52e",
+      "bytes": 93016
+    },
+    {
+      "path": "infinity_grid/validation_frontier.py",
+      "old_sha256": "59a4cde921794419e569bba9fa863b42abd1cca148acd6e533814b064117a857",
+      "sha256": "9ef30c594ba482d56b210918d81ed7d5eebe16333e09ac68a91d116804ce32ce",
+      "bytes": 11291
+    },
+    {
+      "path": "tests/test_acceptance_progress_freshness.py",
+      "old_sha256": null,
+      "sha256": "b075a82bf13895446c5b16bf9c9478250bd49c99f0fb8bcfb3819306246bdbf7",
+      "bytes": 3715
+    },
+    {
+      "path": "tests/test_capture_project_recovery.py",
+      "old_sha256": null,
+      "sha256": "c099a14d5fdb78c8343a66a9860d9c2fe57b9e176dd04a12134057f5666cea18",
+      "bytes": 2489
+    },
+    {
+      "path": "tests/test_decoder091_step4.py",
+      "old_sha256": "b48475c5ddde9e2b2c9d4bc290b5e3bfba6d5ef5bfc130a36f0bbd807d203a1e",
+      "sha256": "dc4c877a5fa7ca686e0829cbe9a8ec545ca9646d24a91e11511fd86b4a6c7458",
+      "bytes": 11432
+    },
+    {
+      "path": "tests/test_native_run_exit_status.py",
+      "old_sha256": null,
+      "sha256": "436500cfb0b2b96e6778a226f67c75f5c8a0b44a62e4a359ba44e5d83f1ba2d2",
+      "bytes": 659
+    },
+    {
+      "path": "tests/test_orchestration_liveness_20261029.py",
+      "old_sha256": null,
+      "sha256": "28c0331075d314e0600c65ddd9aed82560bd2b19f1b7ea0157e4cb2d9d1c33b0",
+      "bytes": 9723
+    },
+    {
+      "path": "tests/test_validation_binding_startup.py",
+      "old_sha256": null,
+      "sha256": "7c7fab68762334f4180a94a17292617696c76f39d6e111da6a2640262ed0a4cf",
+      "bytes": 3000
+    }
+  ],
+  "patch_sha256": "079750263e35a4a8770661e16624b883518747d5f574883cbd94dcb8e13e2101",
+  "science_acceptance": false
+}
